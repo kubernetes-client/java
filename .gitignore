@@ -1,5 +1,13 @@
 *.class
 
+# VS Code IDE Files
+.classpath
+.settings/
+.project
+
+# Maven builds
+*/target/
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
