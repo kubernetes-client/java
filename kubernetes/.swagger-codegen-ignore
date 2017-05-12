@@ -1,3 +1,6 @@
 .gitignore
 git_push.sh
+# Remove this once https://github.com/swagger-api/swagger-codegen/pull/5629
+# is merged.
+src/main/java/io/kubernetes/client/ApiClient.java
 
