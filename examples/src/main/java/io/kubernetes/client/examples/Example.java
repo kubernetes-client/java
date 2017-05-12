@@ -26,8 +26,6 @@ import java.util.logging.Logger;
 /**
  * A simple example of how to use the Java API
  * 
- * Requires kubectl proxy running
- * 
  * Easiest way to run this:
  *   mvn exec:java -Dexec.mainClass="io.kubernetes.client.examples.Example"
  * 

@@ -28,6 +28,7 @@ import org.apache.log4j.Logger;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -52,7 +53,7 @@ public class WebSockets {
         /**
          * Called when the socket is opened
          */
-        public void open(String protocol, Closeable closer);
+        public void open(String protocol, WebSocket socket);
 
         /**
          * Callled when a binary media type message is received
@@ -100,16 +101,7 @@ public class WebSockets {
         @Override
         public void onOpen(final WebSocket webSocket, Response response) {
             String protocol = response.header(STREAM_PROTOCOL_HEADER, "missing");
-            listener.open(protocol, new Closeable() {
-                @Override
-                public void close() {
-                    try {
-                        webSocket.close(200, "User closed connection");
-                    } catch (IOException ex) {
-                        log.error("Failure closing websocket", ex);
-                    }
-                }
-            });
+            listener.open(protocol, webSocket);
         }
 
         @Override
@@ -138,3 +130,4 @@ public class WebSockets {
         }
     }
 }
+
