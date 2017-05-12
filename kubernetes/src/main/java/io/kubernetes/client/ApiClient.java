@@ -1069,6 +1069,12 @@ public class ApiClient {
      * @throws ApiException If fail to serialize the request body object
      */
     public Call buildCall(String path, String method, List<Pair> queryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Request request = buildRequest(path, method, queryParams, body, headerParams, formParams, authNames, progressRequestListener);
+
+        return httpClient.newCall(request);
+    }
+
+    public Request buildRequest(String path, String method, List<Pair> queryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         updateParamsForAuth(authNames, queryParams, headerParams);
 
         final String url = buildUrl(path, queryParams);
@@ -1108,8 +1114,7 @@ public class ApiClient {
         } else {
             request = reqBuilder.method(method, reqBody).build();
         }
-
-        return httpClient.newCall(request);
+        return request;
     }
 
     /**
