@@ -4,6 +4,7 @@ import io.kubernetes.client.ApiClient;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -18,16 +19,21 @@ import javax.net.ssl.KeyManager;
 import javax.net.ssl.KeyManagerFactory;
 
 public class Config {
-    private static final String SERVICEACCOUNT_ROOT =
+    public static final String SERVICEACCOUNT_ROOT =
         "/var/run/secrets/kubernetes.io/serviceaccount";
-    private static final String SERVICEACCOUNT_CA_PATH =
+    public static final String SERVICEACCOUNT_CA_PATH =
         SERVICEACCOUNT_ROOT + "/ca.crt";
-    private static final String SERVICEACCOUNT_TOKEN_PATH =
+    public static final String SERVICEACCOUNT_TOKEN_PATH =
         SERVICEACCOUNT_ROOT + "/token";
+    public static final String ENV_KUBECONFIG = "KUBECONFIG";
+    public static final String ENV_SERVICE_HOST = "KUBERNETES_SERVICE_HOST";
+    public static final String ENV_SERVICE_PORT = "KUBERNETES_SERVICE_PORT";
+    // The last resort host to try
+    public static final String DEFAULT_FALLBACK_HOST = "http://localhost:8080";
 
     public static ApiClient fromCluster() throws IOException {
-        String host = System.getenv("KUBERNETES_SERVICE_HOST");
-        String port = System.getenv("KUBERNETES_SERVICE_PORT");
+        String host = System.getenv(ENV_SERVICE_HOST);
+        String port = System.getenv(ENV_SERVICE_PORT);
 
         FileInputStream caCert = new FileInputStream(SERVICEACCOUNT_CA_PATH);
         BufferedReader tokenReader = new BufferedReader(new FileReader(SERVICEACCOUNT_TOKEN_PATH));
@@ -135,6 +141,38 @@ public class Config {
             client.setPassword(password);
         }
 
+        return client;
+    }
+
+    /**
+     * Easy client creation, follows this plan
+     * <ul>
+     *   <li>If $KUBECONFIG is defined, use that config file
+     *   <li>If $HOME/.kube/confg can be found, use that.
+     *   <li>If the in-cluster service account can be found, assume in cluster config.
+     *   <li>Default to localhost:8080 as a last resort.
+     * <ul>
+     * 
+     * @returns The best APIClient given the previously described rules
+     */
+    public static ApiClient defaultClient() throws IOException {
+        String kubeConfig = System.getenv(ENV_KUBECONFIG);
+        if (kubeConfig != null) {
+            return fromConfig(new FileReader(kubeConfig));
+        }
+        File config = new File(
+            new File(System.getenv(KubeConfig.ENV_HOME),
+                     KubeConfig.KUBEDIR),
+            KubeConfig.KUBECONFIG);
+        if (config.exists()) {
+            return fromConfig(new FileReader(config));
+        }
+        File clusterCA = new File(SERVICEACCOUNT_CA_PATH);
+        if (clusterCA.exists()) {
+            return fromCluster();
+        }
+        ApiClient client = new ApiClient();
+        client.setBasePath(DEFAULT_FALLBACK_HOST);
         return client;
     }
 }
