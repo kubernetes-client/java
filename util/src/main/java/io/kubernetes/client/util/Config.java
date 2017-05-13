@@ -32,4 +32,35 @@ public class Config {
 
         return result;
     }
+
+    public static ApiClient fromUrl(String url) {
+        return fromUrl(url, true);
+    }
+
+    public static ApiClient fromUrl(String url, boolean validateSSL) {
+        return new ApiClient()
+            .setBasePath(url)
+            .setVerifyingSsl(validateSSL);
+    }
+
+    public static ApiClient fromUserPassword(String url, String user, String password) {
+        return fromUserPassword(url, user, password, true);
+    }
+
+    public static ApiClient fromUserPassword(String url, String user, String password, boolean validateSSL) {
+        ApiClient client = fromUrl(url, validateSSL);
+        client.setUsername(user);
+        client.setPassword(password);
+        return client;
+    }
+
+    public static ApiClient fromToken(String url, String token) {
+        return fromToken(url, token, true);
+    }
+
+    public static ApiClient fromToken(String url, String token, boolean validateSSL) {
+        ApiClient client = fromUrl(url, validateSSL);
+        client.setAccessToken(token);
+        return client;
+    }
 }
