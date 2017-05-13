@@ -1,11 +1,6 @@
 package io.kubernetes.client.util;
 
 import io.kubernetes.client.ApiClient;
-import io.kubernetes.client.ApiException;
-import io.kubernetes.client.Configuration;
-import io.kubernetes.client.apis.CoreV1Api;
-import io.kubernetes.client.models.V1Pod;
-import io.kubernetes.client.models.V1PodList;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -17,19 +12,10 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.UnrecoverableKeyException;
-import java.security.cert.CertificateException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import javax.net.ssl.KeyManager;
 import javax.net.ssl.KeyManagerFactory;
-
-import org.yaml.snakeyaml.Yaml;
-import org.yaml.snakeyaml.constructor.SafeConstructor;
 
 public class Config {
     private static final String SERVICEACCOUNT_ROOT =
@@ -97,55 +83,16 @@ public class Config {
     }
 
     public static ApiClient fromConfig(Reader input) {
-        // Note to the reader: I considered creating a Config object
-        // and parsing into that instead of using Maps, but honestly
-        // this seemed cleaner than a bunch of boilerplate classes
-        Yaml yaml = new Yaml(new SafeConstructor());
-        Object config = yaml.load(input);
-        Map<String, Object> configMap = (Map<String, Object>)config;
-
-        ArrayList<Object> clusters = (ArrayList<Object>)configMap.get("clusters");
-        ArrayList<Object> contexts = (ArrayList<Object>)configMap.get("contexts");
-        ArrayList<Object> users = (ArrayList<Object>)configMap.get("users");
-        String currentContext = (String)configMap.get("current-context");
-
-        Map<String, Object> contextMap = findObject(contexts, currentContext);
-        if (contextMap == null) {
-            return null;
-        }
-        contextMap = (Map<String, Object>)contextMap.get("context");
-
-        String user = (String)contextMap.get("user");
-        String cluster = (String)contextMap.get("cluster");
-
-        Map<String, Object> clusterMap = findObject(clusters, cluster);
-        if (clusterMap == null) {
-            return null;
-        }
-        clusterMap = (Map<String, Object>)clusterMap.get("cluster");
-
-        Map<String, Object> userMap = findObject(users, user);
-        if (user == null) {
-            return null;
-        }
-        userMap = (Map<String, Object>)userMap.get("user");
-
-        String server = (String) clusterMap.get("server");
-        String caCert = (String) clusterMap.get("certificate-authority-data");
-        String caCertFile = (String) clusterMap.get("certificate-authority");
-
+        KubeConfig config = KubeConfig.loadKubeConfig(input);
         ApiClient client = new ApiClient();
-        client.setBasePath(server);
-
-        String clientCertificate = (String) userMap.get("client-certificate");
-        String clientCertificateData = (String) userMap.get("client-certificate-data");
-        String clientKey = (String) userMap.get("client-key");
-        String clientKeyData = (String) userMap.get("client-key-data");
+        client.setBasePath(config.getServer());
 
         try {
             KeyManager[] mgrs = SSLUtils.keyManagers(
-                clientCertificateData, clientCertificate,
-                clientKeyData, clientKey,
+                config.getClientCertificateData(),
+                config.getClientCertificateFile(),
+                config.getClientKeyData(),
+                config.getClientKeyFile(),
                 "RSA", "",
                 null, null);
             client.setKeyManagers(mgrs);
@@ -157,6 +104,8 @@ public class Config {
         // consumes the CA cert, so if we do this before the client certs
         // are injected the cert input stream is exhausted and things get
         // grumpy'
+        String caCert = config.getCertificateAuthorityData();
+        String caCertFile = config.getCertificateAuthorityFile();
         if (caCert != null) {
             try {
                 client.setSslCaCert(new ByteArrayInputStream(caCert.getBytes("UTF-8")));
@@ -171,26 +120,21 @@ public class Config {
             }
         }
 
-        Object authProvider = userMap.get("auth-provider");
-        if (authProvider != null) {
-            Map<String, Object> authProviderMap = (Map<String, Object>) authProvider;
-            Map<String, Object> authConfig = (Map<String, Object>) authProviderMap.get("config");
-            if (authConfig != null) {
-                String token = (String) authConfig.get("access-token");
-                client.setAccessToken(token);
-            }
+        String token = config.getAccessToken();
+        if (token != null) {
+            client.setAccessToken(token);
+        }
+
+        String username = config.getUsername();
+        if (username != null) {
+            client.setUsername(username);
+        }
+
+        String password = config.getPassword();
+        if (password != null) {
+            client.setPassword(password);
         }
 
         return client;
-    }
-
-    private static Map<String, Object> findObject(ArrayList<Object> list, String name) {
-        for (Object obj : list) {
-            Map<String, Object> map = (Map<String, Object>)obj;
-            if (name.equals((String)map.get("name"))) {
-                return map;
-            }
-        }
-        return null;
     }
 }

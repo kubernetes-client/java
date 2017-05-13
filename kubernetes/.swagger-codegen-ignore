@@ -1,6 +1,7 @@
 .gitignore
 git_push.sh
-# Remove this once https://github.com/swagger-api/swagger-codegen/pull/5629
-# is merged.
+# Remove this once swagger-codegen 2.2.3 is released and we update. 
+# We want https://github.com/swagger-api/swagger-codegen/pull/5629
+# in the release.
 src/main/java/io/kubernetes/client/ApiClient.java
 
