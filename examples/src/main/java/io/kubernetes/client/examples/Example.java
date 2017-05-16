@@ -6,6 +6,9 @@ import io.kubernetes.client.Configuration;
 import io.kubernetes.client.apis.CoreV1Api;
 import io.kubernetes.client.models.V1Pod;
 import io.kubernetes.client.models.V1PodList;
+import io.kubernetes.client.util.Config;
+
+import java.io.IOException;
 
 /**
  * A simple example of how to use the Java API
@@ -18,9 +21,14 @@ import io.kubernetes.client.models.V1PodList;
  * From inside $REPO_DIR/kubernetes
  */
 public class Example {
-    public static void main(String[] args) throws ApiException{
-        ApiClient client = new ApiClient();
-        client.setBasePath("http://localhost:8001");
+    public static void main(String[] args) throws IOException, ApiException{
+        ApiClient client;
+        if (args.length == 0) {
+            client = new ApiClient();
+            client.setBasePath("http://localhost:8001");
+        } else {
+            client = Config.fromConfig(args[0]);
+        }
         Configuration.setDefaultApiClient(client);
 
         CoreV1Api api = new CoreV1Api();

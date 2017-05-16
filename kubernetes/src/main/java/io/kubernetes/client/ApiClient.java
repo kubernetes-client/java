@@ -64,7 +64,6 @@ import java.text.ParseException;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.KeyManager;
-import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
@@ -127,6 +126,7 @@ public class ApiClient {
 
     private InputStream sslCaCert;
     private boolean verifyingSsl;
+    private KeyManager[] keyManagers;
 
     private OkHttpClient httpClient;
     private JSON json;
@@ -267,6 +267,12 @@ public class ApiClient {
      */
     public ApiClient setSslCaCert(InputStream sslCaCert) {
         this.sslCaCert = sslCaCert;
+        applySslSettings();
+        return this;
+    }
+
+    public ApiClient setKeyManagers(KeyManager[] managers) {
+        this.keyManagers = managers;
         applySslSettings();
         return this;
     }
@@ -1252,7 +1258,6 @@ public class ApiClient {
      */
     private void applySslSettings() {
         try {
-            KeyManager[] keyManagers = null;
             TrustManager[] trustManagers = null;
             HostnameVerifier hostnameVerifier = null;
             if (!verifyingSsl) {

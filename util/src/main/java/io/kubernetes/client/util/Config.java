@@ -3,9 +3,19 @@ package io.kubernetes.client.util;
 import io.kubernetes.client.ApiClient;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.FileReader;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.IOException;
+import java.io.Reader;
+import java.io.UnsupportedEncodingException;
+import java.util.List;
+
+import javax.net.ssl.KeyManager;
+import javax.net.ssl.KeyManagerFactory;
 
 public class Config {
     private static final String SERVICEACCOUNT_ROOT =
@@ -61,6 +71,70 @@ public class Config {
     public static ApiClient fromToken(String url, String token, boolean validateSSL) {
         ApiClient client = fromUrl(url, validateSSL);
         client.setAccessToken(token);
+        return client;
+    }
+
+    public static ApiClient fromConfig(String fileName) throws IOException {
+        return fromConfig(new FileReader(fileName));
+    }
+
+    public static ApiClient fromConfig(InputStream stream) {
+        return fromConfig(new InputStreamReader(stream));
+    }
+
+    public static ApiClient fromConfig(Reader input) {
+        KubeConfig config = KubeConfig.loadKubeConfig(input);
+        ApiClient client = new ApiClient();
+        client.setBasePath(config.getServer());
+
+        try {
+            KeyManager[] mgrs = SSLUtils.keyManagers(
+                config.getClientCertificateData(),
+                config.getClientCertificateFile(),
+                config.getClientKeyData(),
+                config.getClientKeyFile(),
+                "RSA", "",
+                null, null);
+            client.setKeyManagers(mgrs);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        // It's silly to have to do it in this order, but each SSL setup
+        // consumes the CA cert, so if we do this before the client certs
+        // are injected the cert input stream is exhausted and things get
+        // grumpy'
+        String caCert = config.getCertificateAuthorityData();
+        String caCertFile = config.getCertificateAuthorityFile();
+        if (caCert != null) {
+            try {
+                client.setSslCaCert(new ByteArrayInputStream(caCert.getBytes("UTF-8")));
+            } catch (UnsupportedEncodingException ex) {
+                ex.printStackTrace();
+            }
+        } else if (caCertFile != null) {
+            try {
+                client.setSslCaCert(new FileInputStream(caCertFile));
+            } catch (FileNotFoundException ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        String token = config.getAccessToken();
+        if (token != null) {
+            client.setAccessToken(token);
+        }
+
+        String username = config.getUsername();
+        if (username != null) {
+            client.setUsername(username);
+        }
+
+        String password = config.getPassword();
+        if (password != null) {
+            client.setPassword(password);
+        }
+
         return client;
     }
 }
