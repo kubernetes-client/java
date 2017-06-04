@@ -14,6 +14,11 @@ import org.yaml.snakeyaml.constructor.SafeConstructor;
  * KubeConfig represents a kubernetes client configuration
  */
 public class KubeConfig {
+    // Defaults for where to find a kubeconfig file
+    public static final String ENV_HOME = "HOME";
+    public static final String KUBEDIR = ".kube";
+    public static final String KUBECONFIG = "config";
+
     // Note to the reader: I considered creating a Config object
     // and parsing into that instead of using Maps, but honestly
     // this seemed cleaner than a bunch of boilerplate classes
@@ -29,8 +34,10 @@ public class KubeConfig {
      * Load a Kubernetes config from the default location
      */
     public static KubeConfig loadDefaultKubeConfig() throws FileNotFoundException {
-        File homeDir = new File(System.getenv("HOME"));
-        File config = new File(new File(homeDir, ".kube"), "config");
+        File config = new File(new File(System.getenv(ENV_HOME), KUBEDIR), KUBECONFIG);
+        if (!config.exists()) {
+            return null;
+        }
         return loadKubeConfig(new FileReader(config));
     }
 
@@ -61,22 +68,35 @@ public class KubeConfig {
         this.users = users;
     }
 
-    public void setContext(String context) {
+    public boolean setContext(String context) {
         currentCluster = null;
         currentUser = null;
-        currentContext = (Map<String, Object>) findObject(contexts, context).get("context");
+        Map<String, Object> ctx = findObject(contexts, context);
+        if (ctx == null) {
+            System.err.println("Failed to find context: " + context + " in " + contexts);
+            return false;
+        }
+        currentContext = (Map<String, Object>) ctx.get("context");
         if (currentContext == null) {
-            return;
+            System.err.println("Failed to find 'context' in " + ctx);
+            return false;
         }
         String cluster = (String) currentContext.get("cluster");
         String user = (String) currentContext.get("user");
 
         if (cluster != null) {
-            currentCluster = (Map<String, Object>) findObject(clusters, cluster).get("cluster");
+            Map<String, Object> obj = findObject(clusters, cluster);
+            if (obj != null) {
+                currentCluster = (Map<String, Object>) obj.get("cluster");
+            }
         }
         if (user != null) {
-            currentUser = (Map<String, Object>) findObject(users, user).get("user");
+            Map<String, Object> obj = findObject(users, user);
+            if (obj != null) {
+                currentUser = (Map<String, Object>) obj.get("user");
+            }
         }
+        return true;
     }
 
     public String getServer() {
@@ -138,6 +158,9 @@ public class KubeConfig {
     }
     
     private static Map<String, Object> findObject(ArrayList<Object> list, String name) {
+        if (list == null) {
+            return null;
+        }
         for (Object obj : list) {
             Map<String, Object> map = (Map<String, Object>)obj;
             if (name.equals((String)map.get("name"))) {
