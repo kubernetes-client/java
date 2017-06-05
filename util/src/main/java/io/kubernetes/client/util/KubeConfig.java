@@ -73,12 +73,10 @@ public class KubeConfig {
         currentUser = null;
         Map<String, Object> ctx = findObject(contexts, context);
         if (ctx == null) {
-            System.err.println("Failed to find context: " + context + " in " + contexts);
             return false;
         }
         currentContext = (Map<String, Object>) ctx.get("context");
         if (currentContext == null) {
-            System.err.println("Failed to find 'context' in " + ctx);
             return false;
         }
         String cluster = (String) currentContext.get("cluster");
