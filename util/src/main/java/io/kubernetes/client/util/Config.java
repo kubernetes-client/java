@@ -18,6 +18,8 @@ import java.util.List;
 import javax.net.ssl.KeyManager;
 import javax.net.ssl.KeyManagerFactory;
 
+import org.apache.commons.codec.binary.Base64;
+
 public class Config {
     public static final String SERVICEACCOUNT_ROOT =
         "/var/run/secrets/kubernetes.io/serviceaccount";
@@ -113,11 +115,7 @@ public class Config {
         String caCert = config.getCertificateAuthorityData();
         String caCertFile = config.getCertificateAuthorityFile();
         if (caCert != null) {
-            try {
-                client.setSslCaCert(new ByteArrayInputStream(caCert.getBytes("UTF-8")));
-            } catch (UnsupportedEncodingException ex) {
-                ex.printStackTrace();
-            }
+            client.setSslCaCert(new ByteArrayInputStream(Base64.decodeBase64(caCert)));
         } else if (caCertFile != null) {
             try {
                 client.setSslCaCert(new FileInputStream(caCertFile));
