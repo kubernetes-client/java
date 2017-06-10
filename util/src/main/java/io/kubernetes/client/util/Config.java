@@ -3,7 +3,6 @@ package io.kubernetes.client.util;
 import io.kubernetes.client.ApiClient;
 
 import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileInputStream;
@@ -12,11 +11,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.io.UnsupportedEncodingException;
-import java.util.List;
 
 import javax.net.ssl.KeyManager;
-import javax.net.ssl.KeyManagerFactory;
 
 public class Config {
     public static final String SERVICEACCOUNT_ROOT =
@@ -112,18 +108,10 @@ public class Config {
         // grumpy'
         String caCert = config.getCertificateAuthorityData();
         String caCertFile = config.getCertificateAuthorityFile();
-        if (caCert != null) {
-            try {
-                client.setSslCaCert(new ByteArrayInputStream(caCert.getBytes("UTF-8")));
-            } catch (UnsupportedEncodingException ex) {
-                ex.printStackTrace();
-            }
-        } else if (caCertFile != null) {
-            try {
-                client.setSslCaCert(new FileInputStream(caCertFile));
-            } catch (FileNotFoundException ex) {
-                ex.printStackTrace();
-            }
+        try {
+            client.setSslCaCert(SSLUtils.getInputStreamFromDataOrFile(caCert, caCertFile));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
 
         String token = config.getAccessToken();
