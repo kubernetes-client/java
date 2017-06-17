@@ -24,6 +24,16 @@
 			<artifactId>commons-codec</artifactId>
 			<version>1.10</version>
 		</dependency>
+		<dependency>
+			<groupId>com.squareup.okhttp</groupId>
+			<artifactId>okhttp-ws</artifactId>
+			<version>2.7.5</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>22.0</version>
+		</dependency>
 		<!-- test dependencies -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -31,7 +41,6 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.github.stefanbirkner/system-rules -->
 		<dependency>
 			<groupId>com.github.stefanbirkner</groupId>
 			<artifactId>system-rules</artifactId>
@@ -49,22 +58,27 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
-			      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.12</version>
-        <configuration>
-          <systemProperties>
-            <property>
-              <name>loggerPath</name>
-              <value>conf/log4j.properties</value>
-            </property>
-          </systemProperties>
-          <argLine>-Xms512m -Xmx1500m</argLine>
-          <parallel>methods</parallel>
-          <forkMode>pertest</forkMode>
-        </configuration>
-      </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.12</version>
+				<configuration>
+					<systemProperties>
+						<property>
+							<name>loggerPath</name>
+							<value>conf/log4j.properties</value>
+						</property>
+					</systemProperties>
+					<argLine>-Xms512m -Xmx1500m</argLine>
+					<parallel>methods</parallel>
+					<forkMode>pertest</forkMode>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
+	<properties>
+		<java.version>1.7</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+	</properties>
 </project>
