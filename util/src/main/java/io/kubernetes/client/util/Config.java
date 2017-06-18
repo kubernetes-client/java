@@ -128,7 +128,9 @@ public class Config {
 
         String token = config.getAccessToken();
         if (token != null) {
-            client.setAccessToken(token);
+            // This is kind of a hack, except not, because I don't think we actually
+            // want to use oauth here.
+            client.setApiKey("Bearer " + token);
         }
 
         String username = config.getUsername();
