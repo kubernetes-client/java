@@ -28,19 +28,13 @@ import java.io.IOException;
  * Requires kubectl proxy running
  * 
  * Easiest way to run this:
- *   mvn exec:java -Dex.mainClass="io.kubernetes.client.examples.Example"
+ *   mvn exec:java -Dexec.mainClass="io.kubernetes.client.examples.Example"
  * 
  * From inside $REPO_DIR/kubernetes
  */
 public class Example {
     public static void main(String[] args) throws IOException, ApiException{
-        ApiClient client;
-        if (args.length == 0) {
-            client = new ApiClient();
-            client.setBasePath("http://localhost:8001");
-        } else {
-            client = Config.fromConfig(args[0]);
-        }
+        ApiClient client = Config.defaultClient();
         Configuration.setDefaultApiClient(client);
 
         CoreV1Api api = new CoreV1Api();

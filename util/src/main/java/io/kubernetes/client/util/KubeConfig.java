@@ -17,6 +17,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Map;
 
 import org.yaml.snakeyaml.Yaml;
@@ -154,8 +155,18 @@ public class KubeConfig {
             Map<String, Object> authProviderMap = (Map<String, Object>) authProvider;
             Map<String, Object> authConfig = (Map<String, Object>) authProviderMap.get("config");
             if (authConfig != null) {
+                Date expiry = (Date) authConfig.get("expiry");
+                if (expiry != null) {
+                    if (expiry.compareTo(new Date()) <= 0) {
+                        // TODO: Generate new token here...
+                        throw new IllegalStateException("Token is expired!");
+                    }
+                }
                 return (String) authConfig.get("access-token");
             }
+        }
+        if (currentUser.containsKey("token")) {
+            return (String) currentUser.get("token");
         }
         return null;
     }
