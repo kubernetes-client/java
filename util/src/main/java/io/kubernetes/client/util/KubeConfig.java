@@ -171,6 +171,13 @@ public class KubeConfig {
         return null;
     }
 
+    public boolean verifySSL() {
+        if (currentCluster.containsKey("insecure-skip-tls-verify")) {
+            return ! ((Boolean) currentCluster.get("insecure-skip-tls-verify")).booleanValue();
+        }
+        return true;
+    }
+
     private static String getData(Map<String, Object> obj, String key) {
         if (obj == null) {
             return null;

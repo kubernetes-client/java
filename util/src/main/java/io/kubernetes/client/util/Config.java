@@ -114,16 +114,22 @@ public class Config {
             ex.printStackTrace();
         }
 
-        // It's silly to have to do it in this order, but each SSL setup
-        // consumes the CA cert, so if we do this before the client certs
-        // are injected the cert input stream is exhausted and things get
-        // grumpy'
-        String caCert = config.getCertificateAuthorityData();
-        String caCertFile = config.getCertificateAuthorityFile();
-        try {
-            client.setSslCaCert(SSLUtils.getInputStreamFromDataOrFile(caCert, caCertFile));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        if (config.verifySSL()) {
+            // It's silly to have to do it in this order, but each SSL setup
+            // consumes the CA cert, so if we do this before the client certs
+            // are injected the cert input stream is exhausted and things get
+            // grumpy'
+            String caCert = config.getCertificateAuthorityData();
+            String caCertFile = config.getCertificateAuthorityFile();
+            if (caCert != null || caCertFile != null) {
+                try {
+                    client.setSslCaCert(SSLUtils.getInputStreamFromDataOrFile(caCert, caCertFile));
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        } else {
+            client.setVerifyingSsl(false);
         }
 
         String token = config.getAccessToken();
