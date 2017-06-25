@@ -25,6 +25,11 @@
 			<version>1.10</version>
 		</dependency>
 		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+		<dependency>
 			<groupId>com.squareup.okhttp</groupId>
 			<artifactId>okhttp-ws</artifactId>
 			<version>2.7.5</version>

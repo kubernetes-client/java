@@ -15,8 +15,10 @@ package io.kubernetes.client.util;
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
 import io.kubernetes.client.Pair;
+import io.kubernetes.client.util.Config;
 
 import com.google.common.net.HttpHeaders;
+
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
@@ -29,8 +31,12 @@ import okio.Buffer;
 import static com.squareup.okhttp.ws.WebSocket.BINARY;
 import static com.squareup.okhttp.ws.WebSocket.TEXT;
 
+import java.io.BufferedReader;
+import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -50,7 +56,7 @@ public class WebSockets {
         /**
          * Called when the socket is opened
          */
-        public void open();
+        public void open(String protocol, Closeable closer);
 
         /**
          * Callled when a binary media type message is received
@@ -88,7 +94,7 @@ public class WebSockets {
         WebSocketCall.create(client.getHttpClient(), request).enqueue(new Listener(listener));
     }
 
-    private static class Listener implements WebSocketListener {
+    public static class Listener implements WebSocketListener {
         private SocketListener listener;
 
         public Listener(SocketListener listener) {
@@ -96,8 +102,18 @@ public class WebSockets {
         }
 
         @Override
-        public void onOpen(WebSocket webSocket, Response response) {
-            listener.open();
+        public void onOpen(final WebSocket webSocket, Response response) {
+            String protocol = response.header(STREAM_PROTOCOL_HEADER, "missing");
+            listener.open(protocol, new Closeable() {
+                @Override
+                public void close() {
+                    try {
+                        webSocket.close(200, "User closed connection");
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            });
         }
 
         @Override
