@@ -22,10 +22,13 @@ import java.nio.file.Files;
 import java.nio.file.FileSystems;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.SafeConstructor;
+
+import io.kubernetes.client.util.authenticators.Authenticator;
 
 /**
  * KubeConfig represents a kubernetes client configuration
@@ -35,6 +38,7 @@ public class KubeConfig {
     public static final String ENV_HOME = "HOME";
     public static final String KUBEDIR = ".kube";
     public static final String KUBECONFIG = "config";
+    private static Map<String, Authenticator> authenticators = new HashMap<>();
 
     // Note to the reader: I considered creating a Config object
     // and parsing into that instead of using Maps, but honestly
@@ -46,6 +50,12 @@ public class KubeConfig {
     Map<String, Object> currentContext;
     Map<String, Object> currentCluster;
     Map<String, Object> currentUser;
+
+    public static void registerAuthenticator(Authenticator auth) {
+        synchronized (authenticators) {
+            authenticators.put(auth.getName(), auth);
+        }
+    }
 
     /**
      * Load a Kubernetes config from the default location
@@ -154,19 +164,21 @@ public class KubeConfig {
         if (currentUser == null) {
             return null;
         } 
+        
         Object authProvider = currentUser.get("auth-provider");
-        if (authProvider != null) {
-            Map<String, Object> authProviderMap = (Map<String, Object>) authProvider;
+        if (authProvider != null) {            Map<String, Object> authProviderMap = (Map<String, Object>) authProvider;
             Map<String, Object> authConfig = (Map<String, Object>) authProviderMap.get("config");
             if (authConfig != null) {
-                Date expiry = (Date) authConfig.get("expiry");
-                if (expiry != null) {
-                    if (expiry.compareTo(new Date()) <= 0) {
-                        // TODO: Generate new token here...
-                        throw new IllegalStateException("Token is expired!");
+                String name = (String) authProviderMap.get("name");
+                Authenticator auth = authenticators.get(name);
+                System.out.println(auth + " for " + name);                
+                if (auth != null) {
+                    if (auth.isExpired(authConfig)) {
+                        authConfig = auth.refresh(authConfig);
+                        // TODO persist things here.
                     }
+                    return auth.getToken(authConfig);
                 }
-                return (String) authConfig.get("access-token");
             }
         }
         if (currentUser.containsKey("token")) {
