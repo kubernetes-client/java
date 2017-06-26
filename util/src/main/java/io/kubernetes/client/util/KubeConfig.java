@@ -12,10 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
+import com.google.common.io.CharStreams;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.FileSystems;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
@@ -167,6 +171,16 @@ public class KubeConfig {
         }
         if (currentUser.containsKey("token")) {
             return (String) currentUser.get("token");
+        }
+        if (currentUser.containsKey("tokenFile")) {
+            String tokenFile = (String) currentUser.get("tokenFile");
+            try {
+                byte[] data = Files.readAllBytes(FileSystems.getDefault().getPath(tokenFile));
+                return new String(data, "UTF-8");
+            } catch (IOException ex) {
+                // TODO use logger here
+                ex.printStackTrace();
+            }
         }
         return null;
     }
