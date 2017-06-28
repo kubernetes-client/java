@@ -55,12 +55,20 @@ public class AuthenticationV1beta1Api {
         this.apiClient = apiClient;
     }
 
-    /* Build call for createTokenReview */
-    private com.squareup.okhttp.Call createTokenReviewCall(V1beta1TokenReview body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for createTokenReview
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createTokenReviewCall(V1beta1TokenReview body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/authentication.k8s.io/v1beta1/tokenreviews".replaceAll("\\{format\\}","json");
+        String localVarPath = "/apis/authentication.k8s.io/v1beta1/tokenreviews";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -178,12 +186,18 @@ public class AuthenticationV1beta1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getAPIResources */
-    private com.squareup.okhttp.Call getAPIResourcesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getAPIResources
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getAPIResourcesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/authentication.k8s.io/v1beta1/".replaceAll("\\{format\\}","json");
+        String localVarPath = "/apis/authentication.k8s.io/v1beta1/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 

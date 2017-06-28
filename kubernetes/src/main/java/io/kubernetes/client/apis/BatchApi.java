@@ -54,12 +54,18 @@ public class BatchApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for getAPIGroup */
-    private com.squareup.okhttp.Call getAPIGroupCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getAPIGroup
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getAPIGroupCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/batch/".replaceAll("\\{format\\}","json");
+        String localVarPath = "/apis/batch/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 

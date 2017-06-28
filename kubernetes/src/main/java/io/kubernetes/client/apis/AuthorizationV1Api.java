@@ -57,13 +57,22 @@ public class AuthorizationV1Api {
         this.apiClient = apiClient;
     }
 
-    /* Build call for createNamespacedLocalSubjectAccessReview */
-    private com.squareup.okhttp.Call createNamespacedLocalSubjectAccessReviewCall(String namespace, V1LocalSubjectAccessReview body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for createNamespacedLocalSubjectAccessReview
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createNamespacedLocalSubjectAccessReviewCall(String namespace, V1LocalSubjectAccessReview body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/authorization.k8s.io/v1/namespaces/{namespace}/localsubjectaccessreviews".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/authorization.k8s.io/v1/namespaces/{namespace}/localsubjectaccessreviews"
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -189,12 +198,20 @@ public class AuthorizationV1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for createSelfSubjectAccessReview */
-    private com.squareup.okhttp.Call createSelfSubjectAccessReviewCall(V1SelfSubjectAccessReview body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for createSelfSubjectAccessReview
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createSelfSubjectAccessReviewCall(V1SelfSubjectAccessReview body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/authorization.k8s.io/v1/selfsubjectaccessreviews".replaceAll("\\{format\\}","json");
+        String localVarPath = "/apis/authorization.k8s.io/v1/selfsubjectaccessreviews";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -312,12 +329,20 @@ public class AuthorizationV1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for createSubjectAccessReview */
-    private com.squareup.okhttp.Call createSubjectAccessReviewCall(V1SubjectAccessReview body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for createSubjectAccessReview
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createSubjectAccessReviewCall(V1SubjectAccessReview body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/authorization.k8s.io/v1/subjectaccessreviews".replaceAll("\\{format\\}","json");
+        String localVarPath = "/apis/authorization.k8s.io/v1/subjectaccessreviews";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -435,12 +460,18 @@ public class AuthorizationV1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getAPIResources */
-    private com.squareup.okhttp.Call getAPIResourcesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getAPIResources
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getAPIResourcesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/authorization.k8s.io/v1/".replaceAll("\\{format\\}","json");
+        String localVarPath = "/apis/authorization.k8s.io/v1/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 

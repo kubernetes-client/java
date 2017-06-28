@@ -53,13 +53,20 @@ public class LogsApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for logFileHandler */
-    private com.squareup.okhttp.Call logFileHandlerCall(String logpath, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for logFileHandler
+     * @param logpath path to the log (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call logFileHandlerCall(String logpath, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/logs/{logpath}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "logpath" + "\\}", apiClient.escapeString(logpath.toString()));
+        String localVarPath = "/logs/{logpath}"
+            .replaceAll("\\{" + "logpath" + "\\}", apiClient.escapeString(logpath.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -168,12 +175,18 @@ public class LogsApi {
         apiClient.executeAsync(call, callback);
         return call;
     }
-    /* Build call for logFileListHandler */
-    private com.squareup.okhttp.Call logFileListHandlerCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for logFileListHandler
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call logFileListHandlerCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/logs/".replaceAll("\\{format\\}","json");
+        String localVarPath = "/logs/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 

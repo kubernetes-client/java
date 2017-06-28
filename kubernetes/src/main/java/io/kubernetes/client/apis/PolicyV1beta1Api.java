@@ -58,13 +58,22 @@ public class PolicyV1beta1Api {
         this.apiClient = apiClient;
     }
 
-    /* Build call for createNamespacedPodDisruptionBudget */
-    private com.squareup.okhttp.Call createNamespacedPodDisruptionBudgetCall(String namespace, V1beta1PodDisruptionBudget body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for createNamespacedPodDisruptionBudget
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createNamespacedPodDisruptionBudgetCall(String namespace, V1beta1PodDisruptionBudget body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets"
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -190,13 +199,26 @@ public class PolicyV1beta1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for deleteCollectionNamespacedPodDisruptionBudget */
-    private com.squareup.okhttp.Call deleteCollectionNamespacedPodDisruptionBudgetCall(String namespace, String pretty, String fieldSelector, String labelSelector, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for deleteCollectionNamespacedPodDisruptionBudget
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param timeoutSeconds Timeout for the list/watch call. (optional)
+     * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteCollectionNamespacedPodDisruptionBudgetCall(String namespace, String pretty, String fieldSelector, String labelSelector, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets"
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -339,14 +361,27 @@ public class PolicyV1beta1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for deleteNamespacedPodDisruptionBudget */
-    private com.squareup.okhttp.Call deleteNamespacedPodDisruptionBudgetCall(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for deleteNamespacedPodDisruptionBudget
+     * @param name name of the PodDisruptionBudget (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
+     * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
+     * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteNamespacedPodDisruptionBudgetCall(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -495,12 +530,18 @@ public class PolicyV1beta1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getAPIResources */
-    private com.squareup.okhttp.Call getAPIResourcesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getAPIResources
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getAPIResourcesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/policy/v1beta1/".replaceAll("\\{format\\}","json");
+        String localVarPath = "/apis/policy/v1beta1/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -605,13 +646,26 @@ public class PolicyV1beta1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for listNamespacedPodDisruptionBudget */
-    private com.squareup.okhttp.Call listNamespacedPodDisruptionBudgetCall(String namespace, String pretty, String fieldSelector, String labelSelector, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for listNamespacedPodDisruptionBudget
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param timeoutSeconds Timeout for the list/watch call. (optional)
+     * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listNamespacedPodDisruptionBudgetCall(String namespace, String pretty, String fieldSelector, String labelSelector, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets"
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -754,12 +808,24 @@ public class PolicyV1beta1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for listPodDisruptionBudgetForAllNamespaces */
-    private com.squareup.okhttp.Call listPodDisruptionBudgetForAllNamespacesCall(String fieldSelector, String labelSelector, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for listPodDisruptionBudgetForAllNamespaces
+     * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param timeoutSeconds Timeout for the list/watch call. (optional)
+     * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listPodDisruptionBudgetForAllNamespacesCall(String fieldSelector, String labelSelector, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/policy/v1beta1/poddisruptionbudgets".replaceAll("\\{format\\}","json");
+        String localVarPath = "/apis/policy/v1beta1/poddisruptionbudgets";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (fieldSelector != null)
@@ -894,14 +960,24 @@ public class PolicyV1beta1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for patchNamespacedPodDisruptionBudget */
-    private com.squareup.okhttp.Call patchNamespacedPodDisruptionBudgetCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for patchNamespacedPodDisruptionBudget
+     * @param name name of the PodDisruptionBudget (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call patchNamespacedPodDisruptionBudgetCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -1035,14 +1111,24 @@ public class PolicyV1beta1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for patchNamespacedPodDisruptionBudgetStatus */
-    private com.squareup.okhttp.Call patchNamespacedPodDisruptionBudgetStatusCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for patchNamespacedPodDisruptionBudgetStatus
+     * @param name name of the PodDisruptionBudget (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call patchNamespacedPodDisruptionBudgetStatusCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}/status".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}/status"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -1176,14 +1262,25 @@ public class PolicyV1beta1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for readNamespacedPodDisruptionBudget */
-    private com.squareup.okhttp.Call readNamespacedPodDisruptionBudgetCall(String name, String namespace, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for readNamespacedPodDisruptionBudget
+     * @param name name of the PodDisruptionBudget (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param exact Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. (optional)
+     * @param export Should this value be exported.  Export strips fields that a user can not specify. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call readNamespacedPodDisruptionBudgetCall(String name, String namespace, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -1319,14 +1416,23 @@ public class PolicyV1beta1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for readNamespacedPodDisruptionBudgetStatus */
-    private com.squareup.okhttp.Call readNamespacedPodDisruptionBudgetStatusCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for readNamespacedPodDisruptionBudgetStatus
+     * @param name name of the PodDisruptionBudget (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call readNamespacedPodDisruptionBudgetStatusCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}/status".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}/status"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -1452,14 +1558,24 @@ public class PolicyV1beta1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for replaceNamespacedPodDisruptionBudget */
-    private com.squareup.okhttp.Call replaceNamespacedPodDisruptionBudgetCall(String name, String namespace, V1beta1PodDisruptionBudget body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for replaceNamespacedPodDisruptionBudget
+     * @param name name of the PodDisruptionBudget (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call replaceNamespacedPodDisruptionBudgetCall(String name, String namespace, V1beta1PodDisruptionBudget body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -1593,14 +1709,24 @@ public class PolicyV1beta1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for replaceNamespacedPodDisruptionBudgetStatus */
-    private com.squareup.okhttp.Call replaceNamespacedPodDisruptionBudgetStatusCall(String name, String namespace, V1beta1PodDisruptionBudget body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for replaceNamespacedPodDisruptionBudgetStatus
+     * @param name name of the PodDisruptionBudget (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call replaceNamespacedPodDisruptionBudgetStatusCall(String name, String namespace, V1beta1PodDisruptionBudget body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}/status".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}/status"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)

@@ -58,13 +58,22 @@ public class BatchV2alpha1Api {
         this.apiClient = apiClient;
     }
 
-    /* Build call for createNamespacedCronJob */
-    private com.squareup.okhttp.Call createNamespacedCronJobCall(String namespace, V2alpha1CronJob body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for createNamespacedCronJob
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createNamespacedCronJobCall(String namespace, V2alpha1CronJob body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs"
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -190,13 +199,22 @@ public class BatchV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for createNamespacedScheduledJob */
-    private com.squareup.okhttp.Call createNamespacedScheduledJobCall(String namespace, V2alpha1CronJob body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for createNamespacedScheduledJob
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createNamespacedScheduledJobCall(String namespace, V2alpha1CronJob body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/scheduledjobs".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/scheduledjobs"
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -322,13 +340,26 @@ public class BatchV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for deleteCollectionNamespacedCronJob */
-    private com.squareup.okhttp.Call deleteCollectionNamespacedCronJobCall(String namespace, String pretty, String fieldSelector, String labelSelector, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for deleteCollectionNamespacedCronJob
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param timeoutSeconds Timeout for the list/watch call. (optional)
+     * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteCollectionNamespacedCronJobCall(String namespace, String pretty, String fieldSelector, String labelSelector, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs"
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -471,13 +502,26 @@ public class BatchV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for deleteCollectionNamespacedScheduledJob */
-    private com.squareup.okhttp.Call deleteCollectionNamespacedScheduledJobCall(String namespace, String pretty, String fieldSelector, String labelSelector, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for deleteCollectionNamespacedScheduledJob
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param timeoutSeconds Timeout for the list/watch call. (optional)
+     * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteCollectionNamespacedScheduledJobCall(String namespace, String pretty, String fieldSelector, String labelSelector, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/scheduledjobs".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/scheduledjobs"
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -620,14 +664,27 @@ public class BatchV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for deleteNamespacedCronJob */
-    private com.squareup.okhttp.Call deleteNamespacedCronJobCall(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for deleteNamespacedCronJob
+     * @param name name of the CronJob (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
+     * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
+     * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteNamespacedCronJobCall(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -776,14 +833,27 @@ public class BatchV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for deleteNamespacedScheduledJob */
-    private com.squareup.okhttp.Call deleteNamespacedScheduledJobCall(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for deleteNamespacedScheduledJob
+     * @param name name of the ScheduledJob (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
+     * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
+     * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteNamespacedScheduledJobCall(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/scheduledjobs/{name}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/scheduledjobs/{name}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -932,12 +1002,18 @@ public class BatchV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getAPIResources */
-    private com.squareup.okhttp.Call getAPIResourcesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getAPIResources
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getAPIResourcesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/batch/v2alpha1/".replaceAll("\\{format\\}","json");
+        String localVarPath = "/apis/batch/v2alpha1/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -1042,12 +1118,24 @@ public class BatchV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for listCronJobForAllNamespaces */
-    private com.squareup.okhttp.Call listCronJobForAllNamespacesCall(String fieldSelector, String labelSelector, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for listCronJobForAllNamespaces
+     * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param timeoutSeconds Timeout for the list/watch call. (optional)
+     * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listCronJobForAllNamespacesCall(String fieldSelector, String labelSelector, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/batch/v2alpha1/cronjobs".replaceAll("\\{format\\}","json");
+        String localVarPath = "/apis/batch/v2alpha1/cronjobs";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (fieldSelector != null)
@@ -1182,13 +1270,26 @@ public class BatchV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for listNamespacedCronJob */
-    private com.squareup.okhttp.Call listNamespacedCronJobCall(String namespace, String pretty, String fieldSelector, String labelSelector, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for listNamespacedCronJob
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param timeoutSeconds Timeout for the list/watch call. (optional)
+     * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listNamespacedCronJobCall(String namespace, String pretty, String fieldSelector, String labelSelector, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs"
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -1331,13 +1432,26 @@ public class BatchV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for listNamespacedScheduledJob */
-    private com.squareup.okhttp.Call listNamespacedScheduledJobCall(String namespace, String pretty, String fieldSelector, String labelSelector, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for listNamespacedScheduledJob
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param timeoutSeconds Timeout for the list/watch call. (optional)
+     * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listNamespacedScheduledJobCall(String namespace, String pretty, String fieldSelector, String labelSelector, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/scheduledjobs".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/scheduledjobs"
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -1480,12 +1594,24 @@ public class BatchV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for listScheduledJobForAllNamespaces */
-    private com.squareup.okhttp.Call listScheduledJobForAllNamespacesCall(String fieldSelector, String labelSelector, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for listScheduledJobForAllNamespaces
+     * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param timeoutSeconds Timeout for the list/watch call. (optional)
+     * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listScheduledJobForAllNamespacesCall(String fieldSelector, String labelSelector, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/batch/v2alpha1/scheduledjobs".replaceAll("\\{format\\}","json");
+        String localVarPath = "/apis/batch/v2alpha1/scheduledjobs";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (fieldSelector != null)
@@ -1620,14 +1746,24 @@ public class BatchV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for patchNamespacedCronJob */
-    private com.squareup.okhttp.Call patchNamespacedCronJobCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for patchNamespacedCronJob
+     * @param name name of the CronJob (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call patchNamespacedCronJobCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -1761,14 +1897,24 @@ public class BatchV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for patchNamespacedCronJobStatus */
-    private com.squareup.okhttp.Call patchNamespacedCronJobStatusCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for patchNamespacedCronJobStatus
+     * @param name name of the CronJob (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call patchNamespacedCronJobStatusCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}/status".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}/status"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -1902,14 +2048,24 @@ public class BatchV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for patchNamespacedScheduledJob */
-    private com.squareup.okhttp.Call patchNamespacedScheduledJobCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for patchNamespacedScheduledJob
+     * @param name name of the ScheduledJob (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call patchNamespacedScheduledJobCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/scheduledjobs/{name}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/scheduledjobs/{name}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -2043,14 +2199,24 @@ public class BatchV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for patchNamespacedScheduledJobStatus */
-    private com.squareup.okhttp.Call patchNamespacedScheduledJobStatusCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for patchNamespacedScheduledJobStatus
+     * @param name name of the ScheduledJob (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call patchNamespacedScheduledJobStatusCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/scheduledjobs/{name}/status".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/scheduledjobs/{name}/status"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -2184,14 +2350,25 @@ public class BatchV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for readNamespacedCronJob */
-    private com.squareup.okhttp.Call readNamespacedCronJobCall(String name, String namespace, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for readNamespacedCronJob
+     * @param name name of the CronJob (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param exact Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. (optional)
+     * @param export Should this value be exported.  Export strips fields that a user can not specify. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call readNamespacedCronJobCall(String name, String namespace, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -2327,14 +2504,23 @@ public class BatchV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for readNamespacedCronJobStatus */
-    private com.squareup.okhttp.Call readNamespacedCronJobStatusCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for readNamespacedCronJobStatus
+     * @param name name of the CronJob (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call readNamespacedCronJobStatusCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}/status".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}/status"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -2460,14 +2646,25 @@ public class BatchV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for readNamespacedScheduledJob */
-    private com.squareup.okhttp.Call readNamespacedScheduledJobCall(String name, String namespace, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for readNamespacedScheduledJob
+     * @param name name of the ScheduledJob (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param exact Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. (optional)
+     * @param export Should this value be exported.  Export strips fields that a user can not specify. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call readNamespacedScheduledJobCall(String name, String namespace, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/scheduledjobs/{name}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/scheduledjobs/{name}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -2603,14 +2800,23 @@ public class BatchV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for readNamespacedScheduledJobStatus */
-    private com.squareup.okhttp.Call readNamespacedScheduledJobStatusCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for readNamespacedScheduledJobStatus
+     * @param name name of the ScheduledJob (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call readNamespacedScheduledJobStatusCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/scheduledjobs/{name}/status".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/scheduledjobs/{name}/status"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -2736,14 +2942,24 @@ public class BatchV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for replaceNamespacedCronJob */
-    private com.squareup.okhttp.Call replaceNamespacedCronJobCall(String name, String namespace, V2alpha1CronJob body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for replaceNamespacedCronJob
+     * @param name name of the CronJob (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call replaceNamespacedCronJobCall(String name, String namespace, V2alpha1CronJob body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -2877,14 +3093,24 @@ public class BatchV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for replaceNamespacedCronJobStatus */
-    private com.squareup.okhttp.Call replaceNamespacedCronJobStatusCall(String name, String namespace, V2alpha1CronJob body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for replaceNamespacedCronJobStatus
+     * @param name name of the CronJob (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call replaceNamespacedCronJobStatusCall(String name, String namespace, V2alpha1CronJob body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}/status".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}/status"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -3018,14 +3244,24 @@ public class BatchV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for replaceNamespacedScheduledJob */
-    private com.squareup.okhttp.Call replaceNamespacedScheduledJobCall(String name, String namespace, V2alpha1CronJob body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for replaceNamespacedScheduledJob
+     * @param name name of the ScheduledJob (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call replaceNamespacedScheduledJobCall(String name, String namespace, V2alpha1CronJob body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/scheduledjobs/{name}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/scheduledjobs/{name}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -3159,14 +3395,24 @@ public class BatchV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for replaceNamespacedScheduledJobStatus */
-    private com.squareup.okhttp.Call replaceNamespacedScheduledJobStatusCall(String name, String namespace, V2alpha1CronJob body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for replaceNamespacedScheduledJobStatus
+     * @param name name of the ScheduledJob (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call replaceNamespacedScheduledJobStatusCall(String name, String namespace, V2alpha1CronJob body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/scheduledjobs/{name}/status".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/batch/v2alpha1/namespaces/{namespace}/scheduledjobs/{name}/status"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
