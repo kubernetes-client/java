@@ -58,13 +58,22 @@ public class AutoscalingV2alpha1Api {
         this.apiClient = apiClient;
     }
 
-    /* Build call for createNamespacedHorizontalPodAutoscaler */
-    private com.squareup.okhttp.Call createNamespacedHorizontalPodAutoscalerCall(String namespace, V2alpha1HorizontalPodAutoscaler body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for createNamespacedHorizontalPodAutoscaler
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createNamespacedHorizontalPodAutoscalerCall(String namespace, V2alpha1HorizontalPodAutoscaler body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/autoscaling/v2alpha1/namespaces/{namespace}/horizontalpodautoscalers".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/autoscaling/v2alpha1/namespaces/{namespace}/horizontalpodautoscalers"
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -190,13 +199,26 @@ public class AutoscalingV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for deleteCollectionNamespacedHorizontalPodAutoscaler */
-    private com.squareup.okhttp.Call deleteCollectionNamespacedHorizontalPodAutoscalerCall(String namespace, String pretty, String fieldSelector, String labelSelector, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for deleteCollectionNamespacedHorizontalPodAutoscaler
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param timeoutSeconds Timeout for the list/watch call. (optional)
+     * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteCollectionNamespacedHorizontalPodAutoscalerCall(String namespace, String pretty, String fieldSelector, String labelSelector, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/autoscaling/v2alpha1/namespaces/{namespace}/horizontalpodautoscalers".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/autoscaling/v2alpha1/namespaces/{namespace}/horizontalpodautoscalers"
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -339,14 +361,27 @@ public class AutoscalingV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for deleteNamespacedHorizontalPodAutoscaler */
-    private com.squareup.okhttp.Call deleteNamespacedHorizontalPodAutoscalerCall(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for deleteNamespacedHorizontalPodAutoscaler
+     * @param name name of the HorizontalPodAutoscaler (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
+     * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
+     * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteNamespacedHorizontalPodAutoscalerCall(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/autoscaling/v2alpha1/namespaces/{namespace}/horizontalpodautoscalers/{name}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/autoscaling/v2alpha1/namespaces/{namespace}/horizontalpodautoscalers/{name}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -495,12 +530,18 @@ public class AutoscalingV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getAPIResources */
-    private com.squareup.okhttp.Call getAPIResourcesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getAPIResources
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getAPIResourcesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/autoscaling/v2alpha1/".replaceAll("\\{format\\}","json");
+        String localVarPath = "/apis/autoscaling/v2alpha1/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -605,12 +646,24 @@ public class AutoscalingV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for listHorizontalPodAutoscalerForAllNamespaces */
-    private com.squareup.okhttp.Call listHorizontalPodAutoscalerForAllNamespacesCall(String fieldSelector, String labelSelector, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for listHorizontalPodAutoscalerForAllNamespaces
+     * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param timeoutSeconds Timeout for the list/watch call. (optional)
+     * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listHorizontalPodAutoscalerForAllNamespacesCall(String fieldSelector, String labelSelector, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/autoscaling/v2alpha1/horizontalpodautoscalers".replaceAll("\\{format\\}","json");
+        String localVarPath = "/apis/autoscaling/v2alpha1/horizontalpodautoscalers";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (fieldSelector != null)
@@ -745,13 +798,26 @@ public class AutoscalingV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for listNamespacedHorizontalPodAutoscaler */
-    private com.squareup.okhttp.Call listNamespacedHorizontalPodAutoscalerCall(String namespace, String pretty, String fieldSelector, String labelSelector, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for listNamespacedHorizontalPodAutoscaler
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param fieldSelector A selector to restrict the list of returned objects by their fields. Defaults to everything. (optional)
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+     * @param resourceVersion When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. (optional)
+     * @param timeoutSeconds Timeout for the list/watch call. (optional)
+     * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listNamespacedHorizontalPodAutoscalerCall(String namespace, String pretty, String fieldSelector, String labelSelector, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/autoscaling/v2alpha1/namespaces/{namespace}/horizontalpodautoscalers".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/autoscaling/v2alpha1/namespaces/{namespace}/horizontalpodautoscalers"
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -894,14 +960,24 @@ public class AutoscalingV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for patchNamespacedHorizontalPodAutoscaler */
-    private com.squareup.okhttp.Call patchNamespacedHorizontalPodAutoscalerCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for patchNamespacedHorizontalPodAutoscaler
+     * @param name name of the HorizontalPodAutoscaler (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call patchNamespacedHorizontalPodAutoscalerCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/autoscaling/v2alpha1/namespaces/{namespace}/horizontalpodautoscalers/{name}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/autoscaling/v2alpha1/namespaces/{namespace}/horizontalpodautoscalers/{name}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -1035,14 +1111,24 @@ public class AutoscalingV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for patchNamespacedHorizontalPodAutoscalerStatus */
-    private com.squareup.okhttp.Call patchNamespacedHorizontalPodAutoscalerStatusCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for patchNamespacedHorizontalPodAutoscalerStatus
+     * @param name name of the HorizontalPodAutoscaler (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call patchNamespacedHorizontalPodAutoscalerStatusCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/autoscaling/v2alpha1/namespaces/{namespace}/horizontalpodautoscalers/{name}/status".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/autoscaling/v2alpha1/namespaces/{namespace}/horizontalpodautoscalers/{name}/status"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -1176,14 +1262,25 @@ public class AutoscalingV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for readNamespacedHorizontalPodAutoscaler */
-    private com.squareup.okhttp.Call readNamespacedHorizontalPodAutoscalerCall(String name, String namespace, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for readNamespacedHorizontalPodAutoscaler
+     * @param name name of the HorizontalPodAutoscaler (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param exact Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. (optional)
+     * @param export Should this value be exported.  Export strips fields that a user can not specify. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call readNamespacedHorizontalPodAutoscalerCall(String name, String namespace, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/autoscaling/v2alpha1/namespaces/{namespace}/horizontalpodautoscalers/{name}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/autoscaling/v2alpha1/namespaces/{namespace}/horizontalpodautoscalers/{name}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -1319,14 +1416,23 @@ public class AutoscalingV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for readNamespacedHorizontalPodAutoscalerStatus */
-    private com.squareup.okhttp.Call readNamespacedHorizontalPodAutoscalerStatusCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for readNamespacedHorizontalPodAutoscalerStatus
+     * @param name name of the HorizontalPodAutoscaler (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call readNamespacedHorizontalPodAutoscalerStatusCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/autoscaling/v2alpha1/namespaces/{namespace}/horizontalpodautoscalers/{name}/status".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/autoscaling/v2alpha1/namespaces/{namespace}/horizontalpodautoscalers/{name}/status"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -1452,14 +1558,24 @@ public class AutoscalingV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for replaceNamespacedHorizontalPodAutoscaler */
-    private com.squareup.okhttp.Call replaceNamespacedHorizontalPodAutoscalerCall(String name, String namespace, V2alpha1HorizontalPodAutoscaler body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for replaceNamespacedHorizontalPodAutoscaler
+     * @param name name of the HorizontalPodAutoscaler (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call replaceNamespacedHorizontalPodAutoscalerCall(String name, String namespace, V2alpha1HorizontalPodAutoscaler body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/autoscaling/v2alpha1/namespaces/{namespace}/horizontalpodautoscalers/{name}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/autoscaling/v2alpha1/namespaces/{namespace}/horizontalpodautoscalers/{name}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)
@@ -1593,14 +1709,24 @@ public class AutoscalingV2alpha1Api {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for replaceNamespacedHorizontalPodAutoscalerStatus */
-    private com.squareup.okhttp.Call replaceNamespacedHorizontalPodAutoscalerStatusCall(String name, String namespace, V2alpha1HorizontalPodAutoscaler body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for replaceNamespacedHorizontalPodAutoscalerStatus
+     * @param name name of the HorizontalPodAutoscaler (required)
+     * @param namespace object name and auth scope, such as for teams and projects (required)
+     * @param body  (required)
+     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call replaceNamespacedHorizontalPodAutoscalerStatusCall(String name, String namespace, V2alpha1HorizontalPodAutoscaler body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/autoscaling/v2alpha1/namespaces/{namespace}/horizontalpodautoscalers/{name}/status".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
+        String localVarPath = "/apis/autoscaling/v2alpha1/namespaces/{namespace}/horizontalpodautoscalers/{name}/status"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (pretty != null)

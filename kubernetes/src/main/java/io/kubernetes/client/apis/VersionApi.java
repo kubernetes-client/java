@@ -54,12 +54,18 @@ public class VersionApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for getCode */
-    private com.squareup.okhttp.Call getCodeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getCode
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getCodeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/version/".replaceAll("\\{format\\}","json");
+        String localVarPath = "/version/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 

@@ -54,15 +54,25 @@ public class ThirdPartyResourcesApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for createThirdPartyResource */
-    private com.squareup.okhttp.Call createThirdPartyResourceCall(String namespace, String fqdn, String resource, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for createThirdPartyResource
+     * @param namespace The Resource&#39;s namespace (required)
+     * @param fqdn The Third party Resource fqdn (required)
+     * @param resource The Resource type (required)
+     * @param body The JSON schema of the Resource to create. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createThirdPartyResourceCall(String namespace, String fqdn, String resource, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/{fqdn}/v1/namespaces/{namespace}/{resource}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()))
-        .replaceAll("\\{" + "fqdn" + "\\}", apiClient.escapeString(fqdn.toString()))
-        .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()));
+        String localVarPath = "/apis/{fqdn}/v1/namespaces/{namespace}/{resource}"
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()))
+            .replaceAll("\\{" + "fqdn" + "\\}", apiClient.escapeString(fqdn.toString()))
+            .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -199,12 +209,22 @@ public class ThirdPartyResourcesApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for deleteThirdPartyResource */
-    private com.squareup.okhttp.Call deleteThirdPartyResourceCall(V1DeleteOptions body, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for deleteThirdPartyResource
+     * @param body  (required)
+     * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
+     * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
+     * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteThirdPartyResourceCall(V1DeleteOptions body, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/{fqdn}/v1/namespaces/{namespace}/{resource}/{name}".replaceAll("\\{format\\}","json");
+        String localVarPath = "/apis/{fqdn}/v1/namespaces/{namespace}/{resource}/{name}";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (gracePeriodSeconds != null)
@@ -332,16 +352,26 @@ public class ThirdPartyResourcesApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getThirdPartyResource */
-    private com.squareup.okhttp.Call getThirdPartyResourceCall(String namespace, String name, String fqdn, String resource, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getThirdPartyResource
+     * @param namespace The Resource&#39;s namespace (required)
+     * @param name The Resource&#39;s name (required)
+     * @param fqdn The Third party Resource fqdn (required)
+     * @param resource The Resource type (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getThirdPartyResourceCall(String namespace, String name, String fqdn, String resource, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/{fqdn}/v1/namespaces/{namespace}/{resource}/{name}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()))
-        .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
-        .replaceAll("\\{" + "fqdn" + "\\}", apiClient.escapeString(fqdn.toString()))
-        .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()));
+        String localVarPath = "/apis/{fqdn}/v1/namespaces/{namespace}/{resource}/{name}"
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()))
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "fqdn" + "\\}", apiClient.escapeString(fqdn.toString()))
+            .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -478,14 +508,23 @@ public class ThirdPartyResourcesApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for listThirdPartyResource */
-    private com.squareup.okhttp.Call listThirdPartyResourceCall(String fqdn, String resource, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for listThirdPartyResource
+     * @param fqdn The Third party Resource fqdn (required)
+     * @param resource The Resource type (required)
+     * @param watch Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listThirdPartyResourceCall(String fqdn, String resource, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/apis/{fqdn}/v1/{resource}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "fqdn" + "\\}", apiClient.escapeString(fqdn.toString()))
-        .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()));
+        String localVarPath = "/apis/{fqdn}/v1/{resource}"
+            .replaceAll("\\{" + "fqdn" + "\\}", apiClient.escapeString(fqdn.toString()))
+            .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (watch != null)
@@ -611,15 +650,25 @@ public class ThirdPartyResourcesApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for updateThirdPartyResource */
-    private com.squareup.okhttp.Call updateThirdPartyResourceCall(String namespace, String fqdn, String resource, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for updateThirdPartyResource
+     * @param namespace The Resource&#39;s namespace (required)
+     * @param fqdn The Third party Resource fqdn (required)
+     * @param resource The Resource type (required)
+     * @param body The JSON schema of the Resource to create. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateThirdPartyResourceCall(String namespace, String fqdn, String resource, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/apis/{fqdn}/v1/namespaces/{namespace}/{resource}/{name}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()))
-        .replaceAll("\\{" + "fqdn" + "\\}", apiClient.escapeString(fqdn.toString()))
-        .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()));
+        String localVarPath = "/apis/{fqdn}/v1/namespaces/{namespace}/{resource}/{name}"
+            .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(namespace.toString()))
+            .replaceAll("\\{" + "fqdn" + "\\}", apiClient.escapeString(fqdn.toString()))
+            .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
