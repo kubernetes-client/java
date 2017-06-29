@@ -24,6 +24,7 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TemporaryFolder;
 import org.junit.contrib.java.lang.system.EnvironmentVariables;
 
 /**
@@ -33,7 +34,11 @@ public class ConfigTest {
     @Rule
     public final EnvironmentVariables environmentVariables
         = new EnvironmentVariables();
-        
+
+    @Rule
+    public TemporaryFolder folder= new TemporaryFolder();
+
+
     @Test
     public void testDefaultClientNothingPresent() {
         environmentVariables.set("HOME", "/non-existent");
@@ -76,8 +81,7 @@ public class ConfigTest {
 
     @Before
     public void setUp() throws IOException {
-        dir = new File("/tmp/tester");
-        dir.mkdir();
+        dir = folder.newFolder();
         kubedir = new File(dir, ".kube");
         kubedir.mkdir();
         config = new File(kubedir, "config");
@@ -86,27 +90,11 @@ public class ConfigTest {
         writer.flush();
         writer.close();
 
-        configFile = File.createTempFile("config", "");
+        configFile = folder.newFile("config");
         writer = new FileWriter(configFile);
         writer.write(KUBECONFIG);
         writer.flush();
         writer.close();
-    }
-
-    @After
-    public void tearDown() throws IOException {
-        if (config != null) {
-            config.delete();
-        }
-        if (kubedir != null) {
-            kubedir.delete();
-        }
-        if (dir != null) {
-            dir.delete();
-        }
-        if (configFile != null) {
-            configFile.delete();
-        }
     }
 
     @Test

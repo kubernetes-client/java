@@ -4,6 +4,7 @@
 .classpath
 .settings/
 .project
+.vscode/
 
 # Maven builds
 */target/
