@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Kubernetes",
-    "version": "v1.6.3"
+    "version": "v1.6.7"
   },
   "paths": {
     "/api/": {
@@ -605,72 +605,6 @@
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/v1.Namespace"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        }
-      },
-      "delete": {
-        "description": "delete collection of Namespace",
-        "consumes": [
-          "*/*"
-        ],
-        "produces": [
-          "application/json",
-          "application/yaml",
-          "application/vnd.kubernetes.protobuf"
-        ],
-        "schemes": [
-          "https"
-        ],
-        "tags": [
-          "core_v1"
-        ],
-        "operationId": "deleteCollectionNamespace",
-        "parameters": [
-          {
-            "uniqueItems": true,
-            "type": "string",
-            "description": "A selector to restrict the list of returned objects by their fields. Defaults to everything.",
-            "name": "fieldSelector",
-            "in": "query"
-          },
-          {
-            "uniqueItems": true,
-            "type": "string",
-            "description": "A selector to restrict the list of returned objects by their labels. Defaults to everything.",
-            "name": "labelSelector",
-            "in": "query"
-          },
-          {
-            "uniqueItems": true,
-            "type": "string",
-            "description": "When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.",
-            "name": "resourceVersion",
-            "in": "query"
-          },
-          {
-            "uniqueItems": true,
-            "type": "integer",
-            "description": "Timeout for the list/watch call.",
-            "name": "timeoutSeconds",
-            "in": "query"
-          },
-          {
-            "uniqueItems": true,
-            "type": "boolean",
-            "description": "Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.",
-            "name": "watch",
-            "in": "query"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/v1.Status"
             }
           },
           "401": {
@@ -33314,6 +33248,240 @@
             "description": "Unauthorized"
           }
         }
+      }
+    },
+    "/apis/{fqdn}/v1/{resource}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "A list of Resources",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "uniqueItems": true,
+            "in": "query",
+            "type": "boolean",
+            "name": "watch",
+            "description": "Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion."
+          },
+          {
+            "description": "The Third party Resource fqdn",
+            "required": true,
+            "type": "string",
+            "name": "fqdn",
+            "in": "path"
+          },
+          {
+            "description": "The Resource type",
+            "required": true,
+            "type": "string",
+            "name": "resource",
+            "in": "path"
+          }
+        ],
+        "tags": [
+          "third_party_resources"
+        ],
+        "summary": "Gets Resources",
+        "operationId": "listThirdPartyResource",
+        "description": "Returns a list of Resources"
+      }
+    },
+    "/apis/{fqdn}/v1/namespaces/{namespace}/{resource}/{name}": {
+      "put": {
+        "responses": {
+          "201": {
+            "description": "A list of Resources",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "description": "The Resource's namespace",
+            "required": true,
+            "type": "string",
+            "name": "namespace",
+            "in": "path"
+          },
+          {
+            "description": "The Third party Resource fqdn",
+            "required": true,
+            "type": "string",
+            "name": "fqdn",
+            "in": "path"
+          },
+          {
+            "description": "The Resource type",
+            "required": true,
+            "type": "string",
+            "name": "resource",
+            "in": "path"
+          },
+          {
+            "schema": {
+              "type": "object"
+            },
+            "description": "The JSON schema of the Resource to create.",
+            "required": true,
+            "name": "body",
+            "in": "body"
+          }
+        ],
+        "tags": [
+          "third_party_resources"
+        ],
+        "summary": "Update a Resource",
+        "operationId": "updateThirdPartyResource",
+        "description": "Update the specified third party resource of the type specified"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/v1.DeleteOptions"
+            },
+            "required": true,
+            "name": "body",
+            "in": "body"
+          },
+          {
+            "uniqueItems": true,
+            "in": "query",
+            "type": "integer",
+            "name": "gracePeriodSeconds",
+            "description": "The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately."
+          },
+          {
+            "uniqueItems": true,
+            "in": "query",
+            "type": "boolean",
+            "name": "orphanDependents",
+            "description": "Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both."
+          },
+          {
+            "uniqueItems": true,
+            "in": "query",
+            "type": "string",
+            "name": "propagationPolicy",
+            "description": "Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy."
+          }
+        ],
+        "tags": [
+          "third_party_resources"
+        ],
+        "summary": "Deletes a specific Resource",
+        "operationId": "deleteThirdPartyResource",
+        "description": "Deletes the specified Resource in the specified namespace"
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "A single Resource",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "description": "The Resource's namespace",
+            "required": true,
+            "type": "string",
+            "name": "namespace",
+            "in": "path"
+          },
+          {
+            "description": "The Resource's name",
+            "required": true,
+            "type": "string",
+            "name": "name",
+            "in": "path"
+          },
+          {
+            "description": "The Third party Resource fqdn",
+            "required": true,
+            "type": "string",
+            "name": "fqdn",
+            "in": "path"
+          },
+          {
+            "description": "The Resource type",
+            "required": true,
+            "type": "string",
+            "name": "resource",
+            "in": "path"
+          }
+        ],
+        "tags": [
+          "third_party_resources"
+        ],
+        "summary": "Gets a specific Resource",
+        "operationId": "getThirdPartyResource",
+        "description": "Returns a specific Resource in a namespace"
+      }
+    },
+    "/apis/{fqdn}/v1/namespaces/{namespace}/{resource}": {
+      "post": {
+        "responses": {
+          "201": {
+            "description": "A list of Resources",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "description": "The Resource's namespace",
+            "required": true,
+            "type": "string",
+            "name": "namespace",
+            "in": "path"
+          },
+          {
+            "description": "The Third party Resource fqdn",
+            "required": true,
+            "type": "string",
+            "name": "fqdn",
+            "in": "path"
+          },
+          {
+            "description": "The Resource type",
+            "required": true,
+            "type": "string",
+            "name": "resource",
+            "in": "path"
+          },
+          {
+            "schema": {
+              "type": "object"
+            },
+            "description": "The JSON schema of the Resource to create.",
+            "required": true,
+            "name": "body",
+            "in": "body"
+          }
+        ],
+        "tags": [
+          "third_party_resources"
+        ],
+        "summary": "Create a Resource",
+        "operationId": "createThirdPartyResource",
+        "description": "Creates a third party resource of the type specified"
       }
     }
   },

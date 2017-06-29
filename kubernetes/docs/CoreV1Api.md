@@ -64,7 +64,6 @@ Method | HTTP request | Description
 [**createNamespacedServiceAccount**](CoreV1Api.md#createNamespacedServiceAccount) | **POST** /api/v1/namespaces/{namespace}/serviceaccounts | 
 [**createNode**](CoreV1Api.md#createNode) | **POST** /api/v1/nodes | 
 [**createPersistentVolume**](CoreV1Api.md#createPersistentVolume) | **POST** /api/v1/persistentvolumes | 
-[**deleteCollectionNamespace**](CoreV1Api.md#deleteCollectionNamespace) | **DELETE** /api/v1/namespaces | 
 [**deleteCollectionNamespacedConfigMap**](CoreV1Api.md#deleteCollectionNamespacedConfigMap) | **DELETE** /api/v1/namespaces/{namespace}/configmaps | 
 [**deleteCollectionNamespacedEndpoints**](CoreV1Api.md#deleteCollectionNamespacedEndpoints) | **DELETE** /api/v1/namespaces/{namespace}/endpoints | 
 [**deleteCollectionNamespacedEvent**](CoreV1Api.md#deleteCollectionNamespacedEvent) | **DELETE** /api/v1/namespaces/{namespace}/events | 
@@ -3817,71 +3816,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1PersistentVolume**](V1PersistentVolume.md)
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
-
-<a name="deleteCollectionNamespace"></a>
-# **deleteCollectionNamespace**
-> V1Status deleteCollectionNamespace(pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
-
-
-
-delete collection of Namespace
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
-String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
-String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
-Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
-try {
-    V1Status result = apiInstance.deleteCollectionNamespace(pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#deleteCollectionNamespace");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
- **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
- **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
-
-### Return type
-
-[**V1Status**](V1Status.md)
 
 ### Authorization
 
