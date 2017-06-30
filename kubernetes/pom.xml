@@ -19,18 +19,18 @@
 
   <licenses>
     <license>
-      <name>Unlicense</name>
-      <url>http://unlicense.org</url>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
 
   <developers>
     <developer>
-      <name>Swagger</name>
-      <email>apiteam@swagger.io</email>
-      <organization>Swagger</organization>
-      <organizationUrl>http://swagger.io</organizationUrl>
+      <name>The Kubernetes Authors</name>
+      <email>kubernetes-dev@googlegroups.com</email>
+      <organization>Kubernetes</organization>
+      <organizationUrl>http://kubernetes.io</organizationUrl>
     </developer>
   </developers>
 
