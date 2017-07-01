@@ -1,10 +1,50 @@
 # Kubernetes Java Client
 
 [![Build Status](https://travis-ci.org/kubernetes-client/java.svg?branch=master)](https://travis-ci.org/kubernetes-client/java)
-[![Client Capabilities](https://img.shields.io/badge/Kubernetes%20client-Bronze-blue.svg?style=plastic&colorB=cd7f32&colorA=306CE8)](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/csi-new-client-library-procedure.md#client-capabilities)
+[![Client Capabilities](https://img.shields.io/badge/Kubernetes%20client-Silver-blue.svg?style=plastic&colorB=C0C0C0&colorA=306CE8)](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/csi-new-client-library-procedure.md#client-capabilities)
 [![Client Support Level](https://img.shields.io/badge/kubernetes%20client-alpha-green.svg?style=plastic&colorA=306CE8)](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/csi-new-client-library-procedure.md#client-support-level)
 
 Java client for the [kubernetes](http://kubernetes.io/) API.
+
+## Installation
+
+To install the Java client library to your local Maven repository, simply execute:
+
+```shell
+git clone --recursive https://github.com/kubernetes-client/java
+cd java
+mvn install
+```
+
+Refer to the [official documentation](https://maven.apache.org/plugins/maven-deploy-plugin/usage.html) for more information.
+
+### Maven users
+
+Add this dependency to your project's POM:
+
+```xml
+<dependency>
+    <groupId>io.kubernetes</groupId>
+    <artifactId>client-java</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <scope>compile</scope>
+</dependency>
+```
+
+### Others
+
+At first generate the JAR by executing:
+
+```
+git clone --recursive https://github.com/kubernetes-client/java
+cd java
+mvn package
+```
+
+Then manually install the following JARs:
+
+* target/client-java-1.0-SNAPSHOT.jar
+* target/lib/*.jar
 
 ## Example
 
