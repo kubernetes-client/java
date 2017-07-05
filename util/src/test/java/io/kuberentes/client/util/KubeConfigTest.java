@@ -14,8 +14,10 @@ package io.kubernetes.client.util;
 
 import com.google.common.io.ByteStreams;
 import io.kubernetes.client.ApiClient;
+import io.kubernetes.client.util.authenticators.GCPAuthenticator;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringReader;
@@ -71,5 +73,44 @@ public class KubeConfigTest {
         replace = replace.replace("token:", "tokenFile:");
         KubeConfig config = KubeConfig.loadKubeConfig(new StringReader(replace));
         assertEquals(config.getAccessToken(), token);
+    }
+
+    public static String GCP_CONFIG = 
+        "apiVersion: v1\n" +
+        "contexts:\n" + 
+        "- context:\n" +
+        "    user: gke-cluster\n" + 
+        "  name: foo-context\n" +
+        "current-context: foo-context\n" +
+        "users:\n" +
+        "- name: gke-cluster\n" +
+        "  user:\n" +
+        "    auth-provider:\n" +
+        "      config:\n" +
+        "        access-token: fake-token\n" +
+        "        cmd-args: config config-helper --format=json\n" +
+        "        cmd-path: /usr/lib/google-cloud-sdk/bin/gcloud\n" +
+        "        expiry: 2117-06-22T18:27:02Z\n" +
+        "        expiry-key: '{.credential.token_expiry}'\n" +
+        "        token-key: '{.credential.access_token}'\n" +
+        "      name: gcp\n";
+
+    @Test
+    public void testGCPAuthProvider() {
+        KubeConfig.registerAuthenticator(new GCPAuthenticator());
+
+        try {
+            File config = folder.newFile("config");
+            FileWriter writer = new FileWriter(config);
+            writer.write(GCP_CONFIG);
+            writer.flush();
+            writer.close();
+
+            KubeConfig kc = KubeConfig.loadKubeConfig(new FileReader(config));
+            assertEquals("fake-token", kc.getAccessToken());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            fail("Unexpected exception: " + ex);
+        }
     }
 }
