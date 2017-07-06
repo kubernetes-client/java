@@ -10,10 +10,14 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-package io.kubernetes.client;
+package io.kubernetes.client.util;
 
 import com.google.gson.annotations.SerializedName;
+import com.squareup.okhttp.Call;
 import com.squareup.okhttp.ResponseBody;
+import io.kubernetes.client.ApiClient;
+import io.kubernetes.client.ApiException;
+import io.kubernetes.client.JSON;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -51,7 +55,38 @@ public class Watch<T> implements Iterable<Watch.Response<T>>,
     ResponseBody response;
     JSON json;
 
-    public Watch(JSON json, ResponseBody body, Type watchType) {
+    /**
+     * Creates a watch on a TYPENAME (T) using an API Client and a Call object.
+     * @param client the API client
+     * @param call the call object returned by api.{ListOperation}Call(...)
+     *             method. Make sure watch flag is set in the call.
+     * @param watchType The type of the WatchResponse<T>. Use something like
+     *                  new TypeToken<Watch.Response<TYPENAME>>(){}.getType()
+     * @param <T> TYPENAME.
+     * @return Watch object on TYPENAME
+     * @throws ApiException on IO exceptions.
+     */
+    public static <T> Watch<T> createWatch(ApiClient client, Call call, Type watchType) throws ApiException {
+        try {
+            com.squareup.okhttp.Response response = call.execute();
+            if (!response.isSuccessful()) {
+                String respBody = null;
+                if (response.body() != null) {
+                    try {
+                        respBody = response.body().string();
+                    } catch (IOException e) {
+                        throw new ApiException(response.message(), e, response.code(), response.headers().toMultimap());
+                    }
+                }
+                throw new ApiException(response.message(), response.code(), response.headers().toMultimap(), respBody);
+            }
+            return new Watch<>(new JSON(client), response.body(), watchType);
+        } catch (IOException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    private Watch(JSON json, ResponseBody body, Type watchType) {
         this.response = body;
         this.watchType = watchType;
         this.json = json;

@@ -949,26 +949,6 @@ public class ApiClient {
             return File.createTempFile(prefix, suffix, new File(tempFolderPath));
     }
 
-    public <T> Watch<T> watch(Call call, Type watchType) throws ApiException {
-        try {
-            Response response = call.execute();
-            if (!response.isSuccessful()) {
-                String respBody = null;
-                if (response.body() != null) {
-                    try {
-                        respBody = response.body().string();
-                    } catch (IOException e) {
-                        throw new ApiException(response.message(), e, response.code(), response.headers().toMultimap());
-                    }
-                }
-                throw new ApiException(response.message(), response.code(), response.headers().toMultimap(), respBody);
-            }
-            return new Watch<>(this.json, response.body(), watchType);
-        } catch (IOException e) {
-            throw new ApiException(e);
-        }
-    }
-
     /**
      * {@link #execute(Call, Type)}
      *
