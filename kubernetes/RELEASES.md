@@ -63,8 +63,9 @@ of information:
 
 File an [issue](https://github.com/kubernetes-client/java/issues) with the
 title `Propose release <VERSION>`, and open a PR against the `master` branch
-with an updated changelog and compatibility matrix (if necessary). Once all
-[OWNERS](https://github.com/kubernetes-client/java/blob/master/OWNERS) LGTM the
+with an updated changelog and compatibility matrix (if necessary). Once at
+least one other
+[OWNER](https://github.com/kubernetes-client/java/blob/master/OWNERS) LGTMs the
 PR, merge it, and close the issue.
 
 ### 2. Publish the release to Maven Central
