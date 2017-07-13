@@ -39,6 +39,11 @@
 			<artifactId>guava</artifactId>
 			<version>22.0</version>
 		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
 		<!-- test dependencies -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -85,5 +90,6 @@
 		<java.version>1.7</java.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<slf4jVersion>1.7.7</slf4jVersion>
 	</properties>
 </project>

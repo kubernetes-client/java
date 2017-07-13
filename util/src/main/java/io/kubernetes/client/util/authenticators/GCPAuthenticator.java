@@ -12,10 +12,10 @@ limitations under the License.
 */
 package io.kubernetes.client.util.authenticators;
 
+import io.kubernetes.client.util.KubeConfig;
+
 import java.util.Date;
 import java.util.Map;
-
-import io.kubernetes.client.util.KubeConfig;
 
 /**
  * The Authenticator interface represents a plugin that can handle

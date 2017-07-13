@@ -12,23 +12,21 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import com.google.common.io.CharStreams;
+import io.kubernetes.client.util.authenticators.Authenticator;
+import org.apache.log4j.Logger;
+import org.yaml.snakeyaml.Yaml;
+import org.yaml.snakeyaml.constructor.SafeConstructor;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.nio.file.Files;
 import java.nio.file.FileSystems;
+import java.nio.file.Files;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.yaml.snakeyaml.Yaml;
-import org.yaml.snakeyaml.constructor.SafeConstructor;
-
-import io.kubernetes.client.util.authenticators.Authenticator;
 
 /**
  * KubeConfig represents a kubernetes client configuration
@@ -50,6 +48,8 @@ public class KubeConfig {
     Map<String, Object> currentContext;
     Map<String, Object> currentCluster;
     Map<String, Object> currentUser;
+
+    private static final Logger log = Logger.getLogger(KubeConfig.class);
 
     public static void registerAuthenticator(Authenticator auth) {
         synchronized (authenticators) {
@@ -190,8 +190,7 @@ public class KubeConfig {
                 byte[] data = Files.readAllBytes(FileSystems.getDefault().getPath(tokenFile));
                 return new String(data, "UTF-8");
             } catch (IOException ex) {
-                // TODO use logger here
-                ex.printStackTrace();
+                log.error("Failed to read token file", ex);
             }
         }
         return null;
