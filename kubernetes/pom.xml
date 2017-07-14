@@ -2,9 +2,9 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.kubernetes</groupId>
-  <artifactId>client-java</artifactId>
+  <artifactId>client-java-api</artifactId>
   <packaging>jar</packaging>
-  <name>client-java</name>
+  <name>client-java-api</name>
   <version>1.0-SNAPSHOT</version>
   <url>https://github.com/swagger-api/swagger-codegen</url>
   <description>Swagger Java</description>
@@ -30,20 +30,9 @@
       <name>The Kubernetes Authors</name>
       <email>kubernetes-dev@googlegroups.com</email>
       <organization>Kubernetes</organization>
-      <organizationUrl>http://kubernetes.io</organizationUrl>
+      <organizationUrl>https://kubernetes.io</organizationUrl>
     </developer>
   </developers>
-
-  <distributionManagement>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-    <repository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
-  </distributionManagement>
 
   <build>
     <plugins>
@@ -76,20 +65,6 @@
             </configuration>
           </execution>
         </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-release-plugin</artifactId>
-        <version>2.5.3</version>
-        <!--
-          During release:perform, enable the "release" profile
-        -->
-        <configuration>
-          <autoVersionSubmodules>true</autoVersionSubmodules>
-          <useReleaseProfile>false</useReleaseProfile>
-          <releaseProfiles>release</releaseProfiles>
-          <goals>deploy</goals>
-        </configuration>
       </plugin>
 
       <!-- attach test jar -->
@@ -170,27 +145,6 @@
   </build>
 
   <profiles>
-    <profile>
-      <id>sign-artifacts</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-gpg-plugin</artifactId>
-            <version>1.5</version>
-            <executions>
-              <execution>
-                <id>sign-artifacts</id>
-                <phase>verify</phase>
-                <goals>
-                  <goal>sign</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
     <profile>
       <id>disable-java8-doclint</id>
       <activation>
