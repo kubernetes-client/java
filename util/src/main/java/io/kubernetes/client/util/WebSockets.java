@@ -12,34 +12,28 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import io.kubernetes.client.ApiClient;
-import io.kubernetes.client.ApiException;
-import io.kubernetes.client.Pair;
-import io.kubernetes.client.util.Config;
-
 import com.google.common.net.HttpHeaders;
-
-import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 import com.squareup.okhttp.ResponseBody;
 import com.squareup.okhttp.ws.WebSocket;
 import com.squareup.okhttp.ws.WebSocketCall;
 import com.squareup.okhttp.ws.WebSocketListener;
+import io.kubernetes.client.ApiClient;
+import io.kubernetes.client.ApiException;
+import io.kubernetes.client.Pair;
 import okio.Buffer;
+import org.apache.log4j.Logger;
 
-import static com.squareup.okhttp.ws.WebSocket.BINARY;
-import static com.squareup.okhttp.ws.WebSocket.TEXT;
-
-import java.io.BufferedReader;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import static com.squareup.okhttp.ws.WebSocket.BINARY;
+import static com.squareup.okhttp.ws.WebSocket.TEXT;
 
 public class WebSockets {
     public static final String V4_STREAM_PROTOCOL = "v4.channel.k8s.io";
@@ -48,6 +42,8 @@ public class WebSockets {
     public static final String V1_STREAM_PROTOCOL = "channel.k8s.io";
     public static final String STREAM_PROTOCOL_HEADER = "X-Stream-Protocol-Version";
     public static final String SPDY_3_1 = "SPDY/3.1";
+
+    private static final Logger log = Logger.getLogger(WebSockets.class);
 
     /**
      * A simple interface for a listener on a web socket
@@ -110,7 +106,7 @@ public class WebSockets {
                     try {
                         webSocket.close(200, "User closed connection");
                     } catch (IOException ex) {
-                        ex.printStackTrace();
+                        log.error("Failure closing websocket", ex);
                     }
                 }
             });

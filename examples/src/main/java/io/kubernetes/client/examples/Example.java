@@ -21,6 +21,7 @@ import io.kubernetes.client.models.V1PodList;
 import io.kubernetes.client.util.Config;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 
 /**
  * A simple example of how to use the Java API

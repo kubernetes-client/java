@@ -21,6 +21,10 @@
 
 package io.kubernetes.client.util;
 
+import org.apache.commons.codec.binary.Base64;
+
+import javax.net.ssl.KeyManager;
+import javax.net.ssl.KeyManagerFactory;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -43,11 +47,6 @@ import java.security.cert.X509Certificate;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.RSAPrivateCrtKeySpec;
-
-import javax.net.ssl.KeyManager;
-import javax.net.ssl.KeyManagerFactory;
-
-import org.apache.commons.codec.binary.Base64;
 
 public class SSLUtils {
     public static boolean isNotNullOrEmpty(String val) {
@@ -258,17 +257,9 @@ public class SSLUtils {
 
     private static boolean loadDefaultStoreFile(KeyStore keyStore, File fileToLoad, char[] passphrase)
             throws CertificateException, NoSuchAlgorithmException, IOException {
-
-        String notLoadedMessage = "There is a problem with reading default keystore/truststore file %s with the passphrase %s "
-                + "- the file won't be loaded. The reason is: %s";
-
         if (fileToLoad.exists() && fileToLoad.isFile() && fileToLoad.length() > 0) {
-            //try {
             keyStore.load(new FileInputStream(fileToLoad), passphrase);
             return true;
-            //} catch (Exception e) {
-            //    e.printStackTrace();
-            //}
         }
         return false;
     }

@@ -1,19 +1,17 @@
 package io.kubernetes.client;
 
-import io.kubernetes.client.Configuration;
 import io.kubernetes.client.models.V1Pod;
 import io.kubernetes.client.util.WebSockets;
+import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 
-import java.io.ByteArrayInputStream;
 import java.io.Closeable;
-import java.io.InputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
 import java.io.Reader;
-
-import org.apache.commons.lang.StringUtils;
 
 public class Exec {
     private ApiClient apiClient;
@@ -144,7 +142,9 @@ public class Exec {
         private InputStream input;
         private int statusCode;
         private Closeable closer;
-        
+
+        private static final Logger log = Logger.getLogger(ExecProcess.class);
+
         public ExecProcess() throws IOException {
             this.pipeIn = new PipedInputStream();
             this.pipeOut = new PipedOutputStream();
@@ -212,8 +212,7 @@ public class Exec {
                 }
                 out.flush();
             } catch (IOException ex) {
-                // TODO use a logger here.
-                ex.printStackTrace();
+                log.error("Failure sending bytes message", ex);
             }
         }
         
@@ -230,8 +229,7 @@ public class Exec {
                 }
                 out.flush();
             } catch (IOException ex) {
-                // TODO use a logger here
-                ex.printStackTrace();
+                log.error("Failure sending text message", ex);
             }
         }
         
@@ -242,8 +240,7 @@ public class Exec {
                 pipeOut.close();
                 output.close();
             } catch (IOException ex) {
-                // TODO use a logger here
-                ex.printStackTrace();
+                log.error("Failure closing exec process", ex);
             }
             // TODO: get status code here
             synchronized(this) {

@@ -13,18 +13,18 @@ limitations under the License.
 package io.kubernetes.client.util;
 
 import io.kubernetes.client.ApiClient;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.IOException;
-import java.io.Reader;
+import org.apache.log4j.Logger;
 
 import javax.net.ssl.KeyManager;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 
 public class Config {
     public static final String SERVICEACCOUNT_ROOT =
@@ -38,6 +38,8 @@ public class Config {
     public static final String ENV_SERVICE_PORT = "KUBERNETES_SERVICE_PORT";
     // The last resort host to try
     public static final String DEFAULT_FALLBACK_HOST = "http://localhost:8080";
+
+    private static final Logger log = Logger.getLogger(Config.class);
 
     public static ApiClient fromCluster() throws IOException {
         String host = System.getenv(ENV_SERVICE_HOST);
@@ -97,6 +99,7 @@ public class Config {
     }
 
     public static ApiClient fromConfig(Reader input) {
+
         KubeConfig config = KubeConfig.loadKubeConfig(input);
         ApiClient client = new ApiClient();
         client.setBasePath(config.getServer());
@@ -111,7 +114,7 @@ public class Config {
                 null, null);
             client.setKeyManagers(mgrs);
         } catch (Exception ex) {
-            ex.printStackTrace();
+            log.error("Failed to invoke build key managers", ex);
         }
 
         if (config.verifySSL()) {
@@ -124,8 +127,8 @@ public class Config {
             if (caCert != null || caCertFile != null) {
                 try {
                     client.setSslCaCert(SSLUtils.getInputStreamFromDataOrFile(caCert, caCertFile));
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
+                } catch (FileNotFoundException ex) {
+                    log.error("Failed to find CA Cert file", ex);
                 }
             }
         } else {
