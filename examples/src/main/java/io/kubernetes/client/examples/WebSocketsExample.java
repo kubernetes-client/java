@@ -12,6 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.examples;
 
+import com.squareup.okhttp.ws.WebSocket;
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
 import io.kubernetes.client.util.Config;
@@ -21,13 +22,14 @@ import java.io.BufferedReader;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.Reader;
 
 public class WebSocketsExample {
     public static void main(String... args) throws ApiException, IOException {
         final ApiClient client = Config.defaultClient();
         WebSockets.stream(args[0], "GET", client, new WebSockets.SocketListener() {
-            public void open(String protocol, Closeable close) {}
+            public void open(String protocol, WebSocket socket) {}
             public void close() {
                 // Trigger shutdown of the dispatcher's executor so this process can exit cleanly.
                 client.getHttpClient().getDispatcher().getExecutorService().shutdown();
