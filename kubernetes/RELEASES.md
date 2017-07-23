@@ -37,7 +37,8 @@ You will need to have the following in place:
 </settings>
    ```
 
-3. A GPG key (specifics TBD) __TODO(lwander)__
+3. A GPG key - if you are a publisher, you should already have a copy. You will
+   be prompted on STDIN to enter the key's passphrase during release.
 
 ## Doing a release
 

@@ -1,18 +1,18 @@
-<project 
-	xmlns="http://maven.apache.org/POM/4.0.0" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<artifactId>client-java</artifactId>
-	<groupId>io.kubernetes</groupId>
-	<version>1.0-SNAPSHOT</version>
-	<packaging>pom</packaging>
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>client-java</artifactId>
+  <groupId>io.kubernetes</groupId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
   <name>Kubernetes Client API</name>
 
-	<modules>
-		<module>kubernetes</module>
-		<module>examples</module>
-		<module>util</module>
-	</modules>
+  <modules>
+    <module>kubernetes</module>
+    <module>examples</module>
+    <module>util</module>
+  </modules>
 
   <scm>
     <connection>scm:git:git@github.com:kubernetes-client/java.git</connection>
@@ -60,23 +60,27 @@
         <version>2.5.3</version>
         <configuration>
           <autoVersionSubmodules>true</autoVersionSubmodules>
-          <useReleaseProfile>false</useReleaseProfile>
           <releaseProfiles>release</releaseProfiles>
           <goals>deploy</goals>
         </configuration>
       </plugin>
     </plugins>
   </build>
-
   <profiles>
     <profile>
-      <id>sign-artifacts</id>
+      <id>release-sign-artifacts</id>
+      <activation>
+        <property>
+          <name>release</name>
+          <value>true</value>
+        </property>
+      </activation>
       <build>
         <plugins>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
-            <version>1.5</version>
+            <version>1.6</version>
             <executions>
               <execution>
                 <id>sign-artifacts</id>
@@ -91,5 +95,4 @@
       </build>
     </profile>
   </profiles>
-
 </project>
