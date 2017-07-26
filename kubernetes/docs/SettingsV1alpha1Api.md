@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCollectionNamespacedPodPreset"></a>
 # **deleteCollectionNamespacedPodPreset**
-> V1Status deleteCollectionNamespacedPodPreset(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1Status deleteCollectionNamespacedPodPreset(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -103,12 +103,13 @@ SettingsV1alpha1Api apiInstance = new SettingsV1alpha1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1Status result = apiInstance.deleteCollectionNamespacedPodPreset(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1Status result = apiInstance.deleteCollectionNamespacedPodPreset(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SettingsV1alpha1Api#deleteCollectionNamespacedPodPreset");
@@ -123,6 +124,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -261,7 +263,7 @@ This endpoint does not need any parameter.
 
 <a name="listNamespacedPodPreset"></a>
 # **listNamespacedPodPreset**
-> V1alpha1PodPresetList listNamespacedPodPreset(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1alpha1PodPresetList listNamespacedPodPreset(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -288,12 +290,13 @@ SettingsV1alpha1Api apiInstance = new SettingsV1alpha1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1alpha1PodPresetList result = apiInstance.listNamespacedPodPreset(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1alpha1PodPresetList result = apiInstance.listNamespacedPodPreset(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SettingsV1alpha1Api#listNamespacedPodPreset");
@@ -308,6 +311,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -328,7 +332,7 @@ Name | Type | Description  | Notes
 
 <a name="listPodPresetForAllNamespaces"></a>
 # **listPodPresetForAllNamespaces**
-> V1alpha1PodPresetList listPodPresetForAllNamespaces(fieldSelector, labelSelector, pretty, resourceVersion, timeoutSeconds, watch)
+> V1alpha1PodPresetList listPodPresetForAllNamespaces(fieldSelector, includeUninitialized, labelSelector, pretty, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -353,13 +357,14 @@ BearerToken.setApiKey("YOUR API KEY");
 
 SettingsV1alpha1Api apiInstance = new SettingsV1alpha1Api();
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1alpha1PodPresetList result = apiInstance.listPodPresetForAllNamespaces(fieldSelector, labelSelector, pretty, resourceVersion, timeoutSeconds, watch);
+    V1alpha1PodPresetList result = apiInstance.listPodPresetForAllNamespaces(fieldSelector, includeUninitialized, labelSelector, pretty, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SettingsV1alpha1Api#listPodPresetForAllNamespaces");
@@ -372,6 +377,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]

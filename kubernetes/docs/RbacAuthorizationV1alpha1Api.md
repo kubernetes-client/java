@@ -401,7 +401,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCollectionClusterRole"></a>
 # **deleteCollectionClusterRole**
-> V1Status deleteCollectionClusterRole(pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1Status deleteCollectionClusterRole(pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -427,12 +427,13 @@ BearerToken.setApiKey("YOUR API KEY");
 RbacAuthorizationV1alpha1Api apiInstance = new RbacAuthorizationV1alpha1Api();
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1Status result = apiInstance.deleteCollectionClusterRole(pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1Status result = apiInstance.deleteCollectionClusterRole(pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RbacAuthorizationV1alpha1Api#deleteCollectionClusterRole");
@@ -446,6 +447,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -466,7 +468,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCollectionClusterRoleBinding"></a>
 # **deleteCollectionClusterRoleBinding**
-> V1Status deleteCollectionClusterRoleBinding(pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1Status deleteCollectionClusterRoleBinding(pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -492,12 +494,13 @@ BearerToken.setApiKey("YOUR API KEY");
 RbacAuthorizationV1alpha1Api apiInstance = new RbacAuthorizationV1alpha1Api();
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1Status result = apiInstance.deleteCollectionClusterRoleBinding(pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1Status result = apiInstance.deleteCollectionClusterRoleBinding(pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RbacAuthorizationV1alpha1Api#deleteCollectionClusterRoleBinding");
@@ -511,6 +514,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -531,7 +535,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCollectionNamespacedRole"></a>
 # **deleteCollectionNamespacedRole**
-> V1Status deleteCollectionNamespacedRole(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1Status deleteCollectionNamespacedRole(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -558,12 +562,13 @@ RbacAuthorizationV1alpha1Api apiInstance = new RbacAuthorizationV1alpha1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1Status result = apiInstance.deleteCollectionNamespacedRole(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1Status result = apiInstance.deleteCollectionNamespacedRole(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RbacAuthorizationV1alpha1Api#deleteCollectionNamespacedRole");
@@ -578,6 +583,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -598,7 +604,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCollectionNamespacedRoleBinding"></a>
 # **deleteCollectionNamespacedRoleBinding**
-> V1Status deleteCollectionNamespacedRoleBinding(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1Status deleteCollectionNamespacedRoleBinding(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -625,12 +631,13 @@ RbacAuthorizationV1alpha1Api apiInstance = new RbacAuthorizationV1alpha1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1Status result = apiInstance.deleteCollectionNamespacedRoleBinding(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1Status result = apiInstance.deleteCollectionNamespacedRoleBinding(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RbacAuthorizationV1alpha1Api#deleteCollectionNamespacedRoleBinding");
@@ -645,6 +652,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -850,7 +858,7 @@ This endpoint does not need any parameter.
 
 <a name="listClusterRole"></a>
 # **listClusterRole**
-> V1alpha1ClusterRoleList listClusterRole(pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1alpha1ClusterRoleList listClusterRole(pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -876,12 +884,13 @@ BearerToken.setApiKey("YOUR API KEY");
 RbacAuthorizationV1alpha1Api apiInstance = new RbacAuthorizationV1alpha1Api();
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1alpha1ClusterRoleList result = apiInstance.listClusterRole(pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1alpha1ClusterRoleList result = apiInstance.listClusterRole(pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RbacAuthorizationV1alpha1Api#listClusterRole");
@@ -895,6 +904,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -915,7 +925,7 @@ Name | Type | Description  | Notes
 
 <a name="listClusterRoleBinding"></a>
 # **listClusterRoleBinding**
-> V1alpha1ClusterRoleBindingList listClusterRoleBinding(pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1alpha1ClusterRoleBindingList listClusterRoleBinding(pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -941,12 +951,13 @@ BearerToken.setApiKey("YOUR API KEY");
 RbacAuthorizationV1alpha1Api apiInstance = new RbacAuthorizationV1alpha1Api();
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1alpha1ClusterRoleBindingList result = apiInstance.listClusterRoleBinding(pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1alpha1ClusterRoleBindingList result = apiInstance.listClusterRoleBinding(pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RbacAuthorizationV1alpha1Api#listClusterRoleBinding");
@@ -960,6 +971,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -980,7 +992,7 @@ Name | Type | Description  | Notes
 
 <a name="listNamespacedRole"></a>
 # **listNamespacedRole**
-> V1alpha1RoleList listNamespacedRole(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1alpha1RoleList listNamespacedRole(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -1007,12 +1019,13 @@ RbacAuthorizationV1alpha1Api apiInstance = new RbacAuthorizationV1alpha1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1alpha1RoleList result = apiInstance.listNamespacedRole(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1alpha1RoleList result = apiInstance.listNamespacedRole(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RbacAuthorizationV1alpha1Api#listNamespacedRole");
@@ -1027,6 +1040,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -1047,7 +1061,7 @@ Name | Type | Description  | Notes
 
 <a name="listNamespacedRoleBinding"></a>
 # **listNamespacedRoleBinding**
-> V1alpha1RoleBindingList listNamespacedRoleBinding(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1alpha1RoleBindingList listNamespacedRoleBinding(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -1074,12 +1088,13 @@ RbacAuthorizationV1alpha1Api apiInstance = new RbacAuthorizationV1alpha1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1alpha1RoleBindingList result = apiInstance.listNamespacedRoleBinding(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1alpha1RoleBindingList result = apiInstance.listNamespacedRoleBinding(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RbacAuthorizationV1alpha1Api#listNamespacedRoleBinding");
@@ -1094,6 +1109,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -1114,7 +1130,7 @@ Name | Type | Description  | Notes
 
 <a name="listRoleBindingForAllNamespaces"></a>
 # **listRoleBindingForAllNamespaces**
-> V1alpha1RoleBindingList listRoleBindingForAllNamespaces(fieldSelector, labelSelector, pretty, resourceVersion, timeoutSeconds, watch)
+> V1alpha1RoleBindingList listRoleBindingForAllNamespaces(fieldSelector, includeUninitialized, labelSelector, pretty, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -1139,13 +1155,14 @@ BearerToken.setApiKey("YOUR API KEY");
 
 RbacAuthorizationV1alpha1Api apiInstance = new RbacAuthorizationV1alpha1Api();
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1alpha1RoleBindingList result = apiInstance.listRoleBindingForAllNamespaces(fieldSelector, labelSelector, pretty, resourceVersion, timeoutSeconds, watch);
+    V1alpha1RoleBindingList result = apiInstance.listRoleBindingForAllNamespaces(fieldSelector, includeUninitialized, labelSelector, pretty, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RbacAuthorizationV1alpha1Api#listRoleBindingForAllNamespaces");
@@ -1158,6 +1175,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
@@ -1179,7 +1197,7 @@ Name | Type | Description  | Notes
 
 <a name="listRoleForAllNamespaces"></a>
 # **listRoleForAllNamespaces**
-> V1alpha1RoleList listRoleForAllNamespaces(fieldSelector, labelSelector, pretty, resourceVersion, timeoutSeconds, watch)
+> V1alpha1RoleList listRoleForAllNamespaces(fieldSelector, includeUninitialized, labelSelector, pretty, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -1204,13 +1222,14 @@ BearerToken.setApiKey("YOUR API KEY");
 
 RbacAuthorizationV1alpha1Api apiInstance = new RbacAuthorizationV1alpha1Api();
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1alpha1RoleList result = apiInstance.listRoleForAllNamespaces(fieldSelector, labelSelector, pretty, resourceVersion, timeoutSeconds, watch);
+    V1alpha1RoleList result = apiInstance.listRoleForAllNamespaces(fieldSelector, includeUninitialized, labelSelector, pretty, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RbacAuthorizationV1alpha1Api#listRoleForAllNamespaces");
@@ -1223,6 +1242,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]

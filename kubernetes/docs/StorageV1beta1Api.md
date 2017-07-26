@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCollectionStorageClass"></a>
 # **deleteCollectionStorageClass**
-> V1Status deleteCollectionStorageClass(pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1Status deleteCollectionStorageClass(pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -99,12 +99,13 @@ BearerToken.setApiKey("YOUR API KEY");
 StorageV1beta1Api apiInstance = new StorageV1beta1Api();
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1Status result = apiInstance.deleteCollectionStorageClass(pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1Status result = apiInstance.deleteCollectionStorageClass(pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageV1beta1Api#deleteCollectionStorageClass");
@@ -118,6 +119,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -254,7 +256,7 @@ This endpoint does not need any parameter.
 
 <a name="listStorageClass"></a>
 # **listStorageClass**
-> V1beta1StorageClassList listStorageClass(pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1beta1StorageClassList listStorageClass(pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -280,12 +282,13 @@ BearerToken.setApiKey("YOUR API KEY");
 StorageV1beta1Api apiInstance = new StorageV1beta1Api();
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1beta1StorageClassList result = apiInstance.listStorageClass(pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1beta1StorageClassList result = apiInstance.listStorageClass(pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageV1beta1Api#listStorageClass");
@@ -299,6 +302,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]

@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createNamespacedDaemonSet**](ExtensionsV1beta1Api.md#createNamespacedDaemonSet) | **POST** /apis/extensions/v1beta1/namespaces/{namespace}/daemonsets | 
 [**createNamespacedDeployment**](ExtensionsV1beta1Api.md#createNamespacedDeployment) | **POST** /apis/extensions/v1beta1/namespaces/{namespace}/deployments | 
-[**createNamespacedDeploymentRollbackRollback**](ExtensionsV1beta1Api.md#createNamespacedDeploymentRollbackRollback) | **POST** /apis/extensions/v1beta1/namespaces/{namespace}/deployments/{name}/rollback | 
+[**createNamespacedDeploymentRollback**](ExtensionsV1beta1Api.md#createNamespacedDeploymentRollback) | **POST** /apis/extensions/v1beta1/namespaces/{namespace}/deployments/{name}/rollback | 
 [**createNamespacedIngress**](ExtensionsV1beta1Api.md#createNamespacedIngress) | **POST** /apis/extensions/v1beta1/namespaces/{namespace}/ingresses | 
 [**createNamespacedNetworkPolicy**](ExtensionsV1beta1Api.md#createNamespacedNetworkPolicy) | **POST** /apis/extensions/v1beta1/namespaces/{namespace}/networkpolicies | 
 [**createNamespacedReplicaSet**](ExtensionsV1beta1Api.md#createNamespacedReplicaSet) | **POST** /apis/extensions/v1beta1/namespaces/{namespace}/replicasets | 
@@ -42,43 +42,43 @@ Method | HTTP request | Description
 [**patchNamespacedDaemonSet**](ExtensionsV1beta1Api.md#patchNamespacedDaemonSet) | **PATCH** /apis/extensions/v1beta1/namespaces/{namespace}/daemonsets/{name} | 
 [**patchNamespacedDaemonSetStatus**](ExtensionsV1beta1Api.md#patchNamespacedDaemonSetStatus) | **PATCH** /apis/extensions/v1beta1/namespaces/{namespace}/daemonsets/{name}/status | 
 [**patchNamespacedDeployment**](ExtensionsV1beta1Api.md#patchNamespacedDeployment) | **PATCH** /apis/extensions/v1beta1/namespaces/{namespace}/deployments/{name} | 
+[**patchNamespacedDeploymentScale**](ExtensionsV1beta1Api.md#patchNamespacedDeploymentScale) | **PATCH** /apis/extensions/v1beta1/namespaces/{namespace}/deployments/{name}/scale | 
 [**patchNamespacedDeploymentStatus**](ExtensionsV1beta1Api.md#patchNamespacedDeploymentStatus) | **PATCH** /apis/extensions/v1beta1/namespaces/{namespace}/deployments/{name}/status | 
-[**patchNamespacedDeploymentsScale**](ExtensionsV1beta1Api.md#patchNamespacedDeploymentsScale) | **PATCH** /apis/extensions/v1beta1/namespaces/{namespace}/deployments/{name}/scale | 
 [**patchNamespacedIngress**](ExtensionsV1beta1Api.md#patchNamespacedIngress) | **PATCH** /apis/extensions/v1beta1/namespaces/{namespace}/ingresses/{name} | 
 [**patchNamespacedIngressStatus**](ExtensionsV1beta1Api.md#patchNamespacedIngressStatus) | **PATCH** /apis/extensions/v1beta1/namespaces/{namespace}/ingresses/{name}/status | 
 [**patchNamespacedNetworkPolicy**](ExtensionsV1beta1Api.md#patchNamespacedNetworkPolicy) | **PATCH** /apis/extensions/v1beta1/namespaces/{namespace}/networkpolicies/{name} | 
 [**patchNamespacedReplicaSet**](ExtensionsV1beta1Api.md#patchNamespacedReplicaSet) | **PATCH** /apis/extensions/v1beta1/namespaces/{namespace}/replicasets/{name} | 
+[**patchNamespacedReplicaSetScale**](ExtensionsV1beta1Api.md#patchNamespacedReplicaSetScale) | **PATCH** /apis/extensions/v1beta1/namespaces/{namespace}/replicasets/{name}/scale | 
 [**patchNamespacedReplicaSetStatus**](ExtensionsV1beta1Api.md#patchNamespacedReplicaSetStatus) | **PATCH** /apis/extensions/v1beta1/namespaces/{namespace}/replicasets/{name}/status | 
-[**patchNamespacedReplicasetsScale**](ExtensionsV1beta1Api.md#patchNamespacedReplicasetsScale) | **PATCH** /apis/extensions/v1beta1/namespaces/{namespace}/replicasets/{name}/scale | 
-[**patchNamespacedReplicationcontrollersScale**](ExtensionsV1beta1Api.md#patchNamespacedReplicationcontrollersScale) | **PATCH** /apis/extensions/v1beta1/namespaces/{namespace}/replicationcontrollers/{name}/scale | 
+[**patchNamespacedReplicationControllerDummyScale**](ExtensionsV1beta1Api.md#patchNamespacedReplicationControllerDummyScale) | **PATCH** /apis/extensions/v1beta1/namespaces/{namespace}/replicationcontrollers/{name}/scale | 
 [**patchPodSecurityPolicy**](ExtensionsV1beta1Api.md#patchPodSecurityPolicy) | **PATCH** /apis/extensions/v1beta1/podsecuritypolicies/{name} | 
 [**patchThirdPartyResource**](ExtensionsV1beta1Api.md#patchThirdPartyResource) | **PATCH** /apis/extensions/v1beta1/thirdpartyresources/{name} | 
 [**readNamespacedDaemonSet**](ExtensionsV1beta1Api.md#readNamespacedDaemonSet) | **GET** /apis/extensions/v1beta1/namespaces/{namespace}/daemonsets/{name} | 
 [**readNamespacedDaemonSetStatus**](ExtensionsV1beta1Api.md#readNamespacedDaemonSetStatus) | **GET** /apis/extensions/v1beta1/namespaces/{namespace}/daemonsets/{name}/status | 
 [**readNamespacedDeployment**](ExtensionsV1beta1Api.md#readNamespacedDeployment) | **GET** /apis/extensions/v1beta1/namespaces/{namespace}/deployments/{name} | 
+[**readNamespacedDeploymentScale**](ExtensionsV1beta1Api.md#readNamespacedDeploymentScale) | **GET** /apis/extensions/v1beta1/namespaces/{namespace}/deployments/{name}/scale | 
 [**readNamespacedDeploymentStatus**](ExtensionsV1beta1Api.md#readNamespacedDeploymentStatus) | **GET** /apis/extensions/v1beta1/namespaces/{namespace}/deployments/{name}/status | 
-[**readNamespacedDeploymentsScale**](ExtensionsV1beta1Api.md#readNamespacedDeploymentsScale) | **GET** /apis/extensions/v1beta1/namespaces/{namespace}/deployments/{name}/scale | 
 [**readNamespacedIngress**](ExtensionsV1beta1Api.md#readNamespacedIngress) | **GET** /apis/extensions/v1beta1/namespaces/{namespace}/ingresses/{name} | 
 [**readNamespacedIngressStatus**](ExtensionsV1beta1Api.md#readNamespacedIngressStatus) | **GET** /apis/extensions/v1beta1/namespaces/{namespace}/ingresses/{name}/status | 
 [**readNamespacedNetworkPolicy**](ExtensionsV1beta1Api.md#readNamespacedNetworkPolicy) | **GET** /apis/extensions/v1beta1/namespaces/{namespace}/networkpolicies/{name} | 
 [**readNamespacedReplicaSet**](ExtensionsV1beta1Api.md#readNamespacedReplicaSet) | **GET** /apis/extensions/v1beta1/namespaces/{namespace}/replicasets/{name} | 
+[**readNamespacedReplicaSetScale**](ExtensionsV1beta1Api.md#readNamespacedReplicaSetScale) | **GET** /apis/extensions/v1beta1/namespaces/{namespace}/replicasets/{name}/scale | 
 [**readNamespacedReplicaSetStatus**](ExtensionsV1beta1Api.md#readNamespacedReplicaSetStatus) | **GET** /apis/extensions/v1beta1/namespaces/{namespace}/replicasets/{name}/status | 
-[**readNamespacedReplicasetsScale**](ExtensionsV1beta1Api.md#readNamespacedReplicasetsScale) | **GET** /apis/extensions/v1beta1/namespaces/{namespace}/replicasets/{name}/scale | 
-[**readNamespacedReplicationcontrollersScale**](ExtensionsV1beta1Api.md#readNamespacedReplicationcontrollersScale) | **GET** /apis/extensions/v1beta1/namespaces/{namespace}/replicationcontrollers/{name}/scale | 
+[**readNamespacedReplicationControllerDummyScale**](ExtensionsV1beta1Api.md#readNamespacedReplicationControllerDummyScale) | **GET** /apis/extensions/v1beta1/namespaces/{namespace}/replicationcontrollers/{name}/scale | 
 [**readPodSecurityPolicy**](ExtensionsV1beta1Api.md#readPodSecurityPolicy) | **GET** /apis/extensions/v1beta1/podsecuritypolicies/{name} | 
 [**readThirdPartyResource**](ExtensionsV1beta1Api.md#readThirdPartyResource) | **GET** /apis/extensions/v1beta1/thirdpartyresources/{name} | 
 [**replaceNamespacedDaemonSet**](ExtensionsV1beta1Api.md#replaceNamespacedDaemonSet) | **PUT** /apis/extensions/v1beta1/namespaces/{namespace}/daemonsets/{name} | 
 [**replaceNamespacedDaemonSetStatus**](ExtensionsV1beta1Api.md#replaceNamespacedDaemonSetStatus) | **PUT** /apis/extensions/v1beta1/namespaces/{namespace}/daemonsets/{name}/status | 
 [**replaceNamespacedDeployment**](ExtensionsV1beta1Api.md#replaceNamespacedDeployment) | **PUT** /apis/extensions/v1beta1/namespaces/{namespace}/deployments/{name} | 
+[**replaceNamespacedDeploymentScale**](ExtensionsV1beta1Api.md#replaceNamespacedDeploymentScale) | **PUT** /apis/extensions/v1beta1/namespaces/{namespace}/deployments/{name}/scale | 
 [**replaceNamespacedDeploymentStatus**](ExtensionsV1beta1Api.md#replaceNamespacedDeploymentStatus) | **PUT** /apis/extensions/v1beta1/namespaces/{namespace}/deployments/{name}/status | 
-[**replaceNamespacedDeploymentsScale**](ExtensionsV1beta1Api.md#replaceNamespacedDeploymentsScale) | **PUT** /apis/extensions/v1beta1/namespaces/{namespace}/deployments/{name}/scale | 
 [**replaceNamespacedIngress**](ExtensionsV1beta1Api.md#replaceNamespacedIngress) | **PUT** /apis/extensions/v1beta1/namespaces/{namespace}/ingresses/{name} | 
 [**replaceNamespacedIngressStatus**](ExtensionsV1beta1Api.md#replaceNamespacedIngressStatus) | **PUT** /apis/extensions/v1beta1/namespaces/{namespace}/ingresses/{name}/status | 
 [**replaceNamespacedNetworkPolicy**](ExtensionsV1beta1Api.md#replaceNamespacedNetworkPolicy) | **PUT** /apis/extensions/v1beta1/namespaces/{namespace}/networkpolicies/{name} | 
 [**replaceNamespacedReplicaSet**](ExtensionsV1beta1Api.md#replaceNamespacedReplicaSet) | **PUT** /apis/extensions/v1beta1/namespaces/{namespace}/replicasets/{name} | 
+[**replaceNamespacedReplicaSetScale**](ExtensionsV1beta1Api.md#replaceNamespacedReplicaSetScale) | **PUT** /apis/extensions/v1beta1/namespaces/{namespace}/replicasets/{name}/scale | 
 [**replaceNamespacedReplicaSetStatus**](ExtensionsV1beta1Api.md#replaceNamespacedReplicaSetStatus) | **PUT** /apis/extensions/v1beta1/namespaces/{namespace}/replicasets/{name}/status | 
-[**replaceNamespacedReplicasetsScale**](ExtensionsV1beta1Api.md#replaceNamespacedReplicasetsScale) | **PUT** /apis/extensions/v1beta1/namespaces/{namespace}/replicasets/{name}/scale | 
-[**replaceNamespacedReplicationcontrollersScale**](ExtensionsV1beta1Api.md#replaceNamespacedReplicationcontrollersScale) | **PUT** /apis/extensions/v1beta1/namespaces/{namespace}/replicationcontrollers/{name}/scale | 
+[**replaceNamespacedReplicationControllerDummyScale**](ExtensionsV1beta1Api.md#replaceNamespacedReplicationControllerDummyScale) | **PUT** /apis/extensions/v1beta1/namespaces/{namespace}/replicationcontrollers/{name}/scale | 
 [**replacePodSecurityPolicy**](ExtensionsV1beta1Api.md#replacePodSecurityPolicy) | **PUT** /apis/extensions/v1beta1/podsecuritypolicies/{name} | 
 [**replaceThirdPartyResource**](ExtensionsV1beta1Api.md#replaceThirdPartyResource) | **PUT** /apis/extensions/v1beta1/thirdpartyresources/{name} | 
 
@@ -201,13 +201,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: */*
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
-<a name="createNamespacedDeploymentRollbackRollback"></a>
-# **createNamespacedDeploymentRollbackRollback**
-> ExtensionsV1beta1DeploymentRollback createNamespacedDeploymentRollbackRollback(name, namespace, body, pretty)
+<a name="createNamespacedDeploymentRollback"></a>
+# **createNamespacedDeploymentRollback**
+> ExtensionsV1beta1DeploymentRollback createNamespacedDeploymentRollback(name, namespace, body, pretty)
 
 
 
-create rollback of a DeploymentRollback
+create rollback of a Deployment
 
 ### Example
 ```java
@@ -232,10 +232,10 @@ String namespace = "namespace_example"; // String | object name and auth scope, 
 ExtensionsV1beta1DeploymentRollback body = new ExtensionsV1beta1DeploymentRollback(); // ExtensionsV1beta1DeploymentRollback | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 try {
-    ExtensionsV1beta1DeploymentRollback result = apiInstance.createNamespacedDeploymentRollbackRollback(name, namespace, body, pretty);
+    ExtensionsV1beta1DeploymentRollback result = apiInstance.createNamespacedDeploymentRollback(name, namespace, body, pretty);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ExtensionsV1beta1Api#createNamespacedDeploymentRollbackRollback");
+    System.err.println("Exception when calling ExtensionsV1beta1Api#createNamespacedDeploymentRollback");
     e.printStackTrace();
 }
 ```
@@ -555,7 +555,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCollectionNamespacedDaemonSet"></a>
 # **deleteCollectionNamespacedDaemonSet**
-> V1Status deleteCollectionNamespacedDaemonSet(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1Status deleteCollectionNamespacedDaemonSet(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -582,12 +582,13 @@ ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1Status result = apiInstance.deleteCollectionNamespacedDaemonSet(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1Status result = apiInstance.deleteCollectionNamespacedDaemonSet(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ExtensionsV1beta1Api#deleteCollectionNamespacedDaemonSet");
@@ -602,6 +603,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -622,7 +624,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCollectionNamespacedDeployment"></a>
 # **deleteCollectionNamespacedDeployment**
-> V1Status deleteCollectionNamespacedDeployment(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1Status deleteCollectionNamespacedDeployment(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -649,12 +651,13 @@ ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1Status result = apiInstance.deleteCollectionNamespacedDeployment(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1Status result = apiInstance.deleteCollectionNamespacedDeployment(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ExtensionsV1beta1Api#deleteCollectionNamespacedDeployment");
@@ -669,6 +672,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -689,7 +693,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCollectionNamespacedIngress"></a>
 # **deleteCollectionNamespacedIngress**
-> V1Status deleteCollectionNamespacedIngress(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1Status deleteCollectionNamespacedIngress(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -716,12 +720,13 @@ ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1Status result = apiInstance.deleteCollectionNamespacedIngress(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1Status result = apiInstance.deleteCollectionNamespacedIngress(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ExtensionsV1beta1Api#deleteCollectionNamespacedIngress");
@@ -736,6 +741,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -756,7 +762,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCollectionNamespacedNetworkPolicy"></a>
 # **deleteCollectionNamespacedNetworkPolicy**
-> V1Status deleteCollectionNamespacedNetworkPolicy(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1Status deleteCollectionNamespacedNetworkPolicy(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -783,12 +789,13 @@ ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1Status result = apiInstance.deleteCollectionNamespacedNetworkPolicy(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1Status result = apiInstance.deleteCollectionNamespacedNetworkPolicy(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ExtensionsV1beta1Api#deleteCollectionNamespacedNetworkPolicy");
@@ -803,6 +810,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -823,7 +831,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCollectionNamespacedReplicaSet"></a>
 # **deleteCollectionNamespacedReplicaSet**
-> V1Status deleteCollectionNamespacedReplicaSet(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1Status deleteCollectionNamespacedReplicaSet(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -850,12 +858,13 @@ ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1Status result = apiInstance.deleteCollectionNamespacedReplicaSet(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1Status result = apiInstance.deleteCollectionNamespacedReplicaSet(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ExtensionsV1beta1Api#deleteCollectionNamespacedReplicaSet");
@@ -870,6 +879,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -890,7 +900,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCollectionPodSecurityPolicy"></a>
 # **deleteCollectionPodSecurityPolicy**
-> V1Status deleteCollectionPodSecurityPolicy(pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1Status deleteCollectionPodSecurityPolicy(pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -916,12 +926,13 @@ BearerToken.setApiKey("YOUR API KEY");
 ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1Status result = apiInstance.deleteCollectionPodSecurityPolicy(pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1Status result = apiInstance.deleteCollectionPodSecurityPolicy(pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ExtensionsV1beta1Api#deleteCollectionPodSecurityPolicy");
@@ -935,6 +946,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -955,7 +967,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCollectionThirdPartyResource"></a>
 # **deleteCollectionThirdPartyResource**
-> V1Status deleteCollectionThirdPartyResource(pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1Status deleteCollectionThirdPartyResource(pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -981,12 +993,13 @@ BearerToken.setApiKey("YOUR API KEY");
 ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1Status result = apiInstance.deleteCollectionThirdPartyResource(pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1Status result = apiInstance.deleteCollectionThirdPartyResource(pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ExtensionsV1beta1Api#deleteCollectionThirdPartyResource");
@@ -1000,6 +1013,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -1536,7 +1550,7 @@ This endpoint does not need any parameter.
 
 <a name="listDaemonSetForAllNamespaces"></a>
 # **listDaemonSetForAllNamespaces**
-> V1beta1DaemonSetList listDaemonSetForAllNamespaces(fieldSelector, labelSelector, pretty, resourceVersion, timeoutSeconds, watch)
+> V1beta1DaemonSetList listDaemonSetForAllNamespaces(fieldSelector, includeUninitialized, labelSelector, pretty, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -1561,13 +1575,14 @@ BearerToken.setApiKey("YOUR API KEY");
 
 ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1beta1DaemonSetList result = apiInstance.listDaemonSetForAllNamespaces(fieldSelector, labelSelector, pretty, resourceVersion, timeoutSeconds, watch);
+    V1beta1DaemonSetList result = apiInstance.listDaemonSetForAllNamespaces(fieldSelector, includeUninitialized, labelSelector, pretty, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ExtensionsV1beta1Api#listDaemonSetForAllNamespaces");
@@ -1580,6 +1595,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
@@ -1601,7 +1617,7 @@ Name | Type | Description  | Notes
 
 <a name="listDeploymentForAllNamespaces"></a>
 # **listDeploymentForAllNamespaces**
-> ExtensionsV1beta1DeploymentList listDeploymentForAllNamespaces(fieldSelector, labelSelector, pretty, resourceVersion, timeoutSeconds, watch)
+> ExtensionsV1beta1DeploymentList listDeploymentForAllNamespaces(fieldSelector, includeUninitialized, labelSelector, pretty, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -1626,13 +1642,14 @@ BearerToken.setApiKey("YOUR API KEY");
 
 ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    ExtensionsV1beta1DeploymentList result = apiInstance.listDeploymentForAllNamespaces(fieldSelector, labelSelector, pretty, resourceVersion, timeoutSeconds, watch);
+    ExtensionsV1beta1DeploymentList result = apiInstance.listDeploymentForAllNamespaces(fieldSelector, includeUninitialized, labelSelector, pretty, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ExtensionsV1beta1Api#listDeploymentForAllNamespaces");
@@ -1645,6 +1662,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
@@ -1666,7 +1684,7 @@ Name | Type | Description  | Notes
 
 <a name="listIngressForAllNamespaces"></a>
 # **listIngressForAllNamespaces**
-> V1beta1IngressList listIngressForAllNamespaces(fieldSelector, labelSelector, pretty, resourceVersion, timeoutSeconds, watch)
+> V1beta1IngressList listIngressForAllNamespaces(fieldSelector, includeUninitialized, labelSelector, pretty, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -1691,13 +1709,14 @@ BearerToken.setApiKey("YOUR API KEY");
 
 ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1beta1IngressList result = apiInstance.listIngressForAllNamespaces(fieldSelector, labelSelector, pretty, resourceVersion, timeoutSeconds, watch);
+    V1beta1IngressList result = apiInstance.listIngressForAllNamespaces(fieldSelector, includeUninitialized, labelSelector, pretty, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ExtensionsV1beta1Api#listIngressForAllNamespaces");
@@ -1710,6 +1729,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
@@ -1731,7 +1751,7 @@ Name | Type | Description  | Notes
 
 <a name="listNamespacedDaemonSet"></a>
 # **listNamespacedDaemonSet**
-> V1beta1DaemonSetList listNamespacedDaemonSet(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1beta1DaemonSetList listNamespacedDaemonSet(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -1758,12 +1778,13 @@ ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1beta1DaemonSetList result = apiInstance.listNamespacedDaemonSet(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1beta1DaemonSetList result = apiInstance.listNamespacedDaemonSet(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ExtensionsV1beta1Api#listNamespacedDaemonSet");
@@ -1778,6 +1799,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -1798,7 +1820,7 @@ Name | Type | Description  | Notes
 
 <a name="listNamespacedDeployment"></a>
 # **listNamespacedDeployment**
-> ExtensionsV1beta1DeploymentList listNamespacedDeployment(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> ExtensionsV1beta1DeploymentList listNamespacedDeployment(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -1825,12 +1847,13 @@ ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    ExtensionsV1beta1DeploymentList result = apiInstance.listNamespacedDeployment(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    ExtensionsV1beta1DeploymentList result = apiInstance.listNamespacedDeployment(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ExtensionsV1beta1Api#listNamespacedDeployment");
@@ -1845,6 +1868,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -1865,7 +1889,7 @@ Name | Type | Description  | Notes
 
 <a name="listNamespacedIngress"></a>
 # **listNamespacedIngress**
-> V1beta1IngressList listNamespacedIngress(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1beta1IngressList listNamespacedIngress(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -1892,12 +1916,13 @@ ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1beta1IngressList result = apiInstance.listNamespacedIngress(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1beta1IngressList result = apiInstance.listNamespacedIngress(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ExtensionsV1beta1Api#listNamespacedIngress");
@@ -1912,6 +1937,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -1932,7 +1958,7 @@ Name | Type | Description  | Notes
 
 <a name="listNamespacedNetworkPolicy"></a>
 # **listNamespacedNetworkPolicy**
-> V1beta1NetworkPolicyList listNamespacedNetworkPolicy(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1beta1NetworkPolicyList listNamespacedNetworkPolicy(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -1959,12 +1985,13 @@ ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1beta1NetworkPolicyList result = apiInstance.listNamespacedNetworkPolicy(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1beta1NetworkPolicyList result = apiInstance.listNamespacedNetworkPolicy(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ExtensionsV1beta1Api#listNamespacedNetworkPolicy");
@@ -1979,6 +2006,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -1999,7 +2027,7 @@ Name | Type | Description  | Notes
 
 <a name="listNamespacedReplicaSet"></a>
 # **listNamespacedReplicaSet**
-> V1beta1ReplicaSetList listNamespacedReplicaSet(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1beta1ReplicaSetList listNamespacedReplicaSet(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -2026,12 +2054,13 @@ ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1beta1ReplicaSetList result = apiInstance.listNamespacedReplicaSet(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1beta1ReplicaSetList result = apiInstance.listNamespacedReplicaSet(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ExtensionsV1beta1Api#listNamespacedReplicaSet");
@@ -2046,6 +2075,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -2066,7 +2096,7 @@ Name | Type | Description  | Notes
 
 <a name="listNetworkPolicyForAllNamespaces"></a>
 # **listNetworkPolicyForAllNamespaces**
-> V1beta1NetworkPolicyList listNetworkPolicyForAllNamespaces(fieldSelector, labelSelector, pretty, resourceVersion, timeoutSeconds, watch)
+> V1beta1NetworkPolicyList listNetworkPolicyForAllNamespaces(fieldSelector, includeUninitialized, labelSelector, pretty, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -2091,13 +2121,14 @@ BearerToken.setApiKey("YOUR API KEY");
 
 ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1beta1NetworkPolicyList result = apiInstance.listNetworkPolicyForAllNamespaces(fieldSelector, labelSelector, pretty, resourceVersion, timeoutSeconds, watch);
+    V1beta1NetworkPolicyList result = apiInstance.listNetworkPolicyForAllNamespaces(fieldSelector, includeUninitialized, labelSelector, pretty, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ExtensionsV1beta1Api#listNetworkPolicyForAllNamespaces");
@@ -2110,6 +2141,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
@@ -2131,7 +2163,7 @@ Name | Type | Description  | Notes
 
 <a name="listPodSecurityPolicy"></a>
 # **listPodSecurityPolicy**
-> V1beta1PodSecurityPolicyList listPodSecurityPolicy(pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1beta1PodSecurityPolicyList listPodSecurityPolicy(pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -2157,12 +2189,13 @@ BearerToken.setApiKey("YOUR API KEY");
 ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1beta1PodSecurityPolicyList result = apiInstance.listPodSecurityPolicy(pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1beta1PodSecurityPolicyList result = apiInstance.listPodSecurityPolicy(pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ExtensionsV1beta1Api#listPodSecurityPolicy");
@@ -2176,6 +2209,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -2196,7 +2230,7 @@ Name | Type | Description  | Notes
 
 <a name="listReplicaSetForAllNamespaces"></a>
 # **listReplicaSetForAllNamespaces**
-> V1beta1ReplicaSetList listReplicaSetForAllNamespaces(fieldSelector, labelSelector, pretty, resourceVersion, timeoutSeconds, watch)
+> V1beta1ReplicaSetList listReplicaSetForAllNamespaces(fieldSelector, includeUninitialized, labelSelector, pretty, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -2221,13 +2255,14 @@ BearerToken.setApiKey("YOUR API KEY");
 
 ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1beta1ReplicaSetList result = apiInstance.listReplicaSetForAllNamespaces(fieldSelector, labelSelector, pretty, resourceVersion, timeoutSeconds, watch);
+    V1beta1ReplicaSetList result = apiInstance.listReplicaSetForAllNamespaces(fieldSelector, includeUninitialized, labelSelector, pretty, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ExtensionsV1beta1Api#listReplicaSetForAllNamespaces");
@@ -2240,6 +2275,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
@@ -2261,7 +2297,7 @@ Name | Type | Description  | Notes
 
 <a name="listThirdPartyResource"></a>
 # **listThirdPartyResource**
-> V1beta1ThirdPartyResourceList listThirdPartyResource(pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1beta1ThirdPartyResourceList listThirdPartyResource(pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -2287,12 +2323,13 @@ BearerToken.setApiKey("YOUR API KEY");
 ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1beta1ThirdPartyResourceList result = apiInstance.listThirdPartyResource(pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1beta1ThirdPartyResourceList result = apiInstance.listThirdPartyResource(pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ExtensionsV1beta1Api#listThirdPartyResource");
@@ -2306,6 +2343,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -2507,6 +2545,67 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
+<a name="patchNamespacedDeploymentScale"></a>
+# **patchNamespacedDeploymentScale**
+> ExtensionsV1beta1Scale patchNamespacedDeploymentScale(name, namespace, body, pretty)
+
+
+
+partially update scale of the specified Deployment
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.ExtensionsV1beta1Api;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
+String name = "name_example"; // String | name of the Scale
+String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
+Object body = null; // Object | 
+String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+try {
+    ExtensionsV1beta1Scale result = apiInstance.patchNamespacedDeploymentScale(name, namespace, body, pretty);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ExtensionsV1beta1Api#patchNamespacedDeploymentScale");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| name of the Scale |
+ **namespace** | **String**| object name and auth scope, such as for teams and projects |
+ **body** | **Object**|  |
+ **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+
+### Return type
+
+[**ExtensionsV1beta1Scale**](ExtensionsV1beta1Scale.md)
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+
 <a name="patchNamespacedDeploymentStatus"></a>
 # **patchNamespacedDeploymentStatus**
 > ExtensionsV1beta1Deployment patchNamespacedDeploymentStatus(name, namespace, body, pretty)
@@ -2558,67 +2657,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ExtensionsV1beta1Deployment**](ExtensionsV1beta1Deployment.md)
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
-
-<a name="patchNamespacedDeploymentsScale"></a>
-# **patchNamespacedDeploymentsScale**
-> ExtensionsV1beta1Scale patchNamespacedDeploymentsScale(name, namespace, body, pretty)
-
-
-
-partially update scale of the specified Scale
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.ExtensionsV1beta1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
-String name = "name_example"; // String | name of the Scale
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-Object body = null; // Object | 
-String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
-try {
-    ExtensionsV1beta1Scale result = apiInstance.patchNamespacedDeploymentsScale(name, namespace, body, pretty);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ExtensionsV1beta1Api#patchNamespacedDeploymentsScale");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Scale |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | **Object**|  |
- **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
-
-### Return type
-
-[**ExtensionsV1beta1Scale**](ExtensionsV1beta1Scale.md)
 
 ### Authorization
 
@@ -2873,6 +2911,67 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
+<a name="patchNamespacedReplicaSetScale"></a>
+# **patchNamespacedReplicaSetScale**
+> ExtensionsV1beta1Scale patchNamespacedReplicaSetScale(name, namespace, body, pretty)
+
+
+
+partially update scale of the specified ReplicaSet
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.ExtensionsV1beta1Api;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
+String name = "name_example"; // String | name of the Scale
+String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
+Object body = null; // Object | 
+String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+try {
+    ExtensionsV1beta1Scale result = apiInstance.patchNamespacedReplicaSetScale(name, namespace, body, pretty);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ExtensionsV1beta1Api#patchNamespacedReplicaSetScale");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| name of the Scale |
+ **namespace** | **String**| object name and auth scope, such as for teams and projects |
+ **body** | **Object**|  |
+ **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+
+### Return type
+
+[**ExtensionsV1beta1Scale**](ExtensionsV1beta1Scale.md)
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+
 <a name="patchNamespacedReplicaSetStatus"></a>
 # **patchNamespacedReplicaSetStatus**
 > V1beta1ReplicaSet patchNamespacedReplicaSetStatus(name, namespace, body, pretty)
@@ -2934,74 +3033,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
-<a name="patchNamespacedReplicasetsScale"></a>
-# **patchNamespacedReplicasetsScale**
-> ExtensionsV1beta1Scale patchNamespacedReplicasetsScale(name, namespace, body, pretty)
+<a name="patchNamespacedReplicationControllerDummyScale"></a>
+# **patchNamespacedReplicationControllerDummyScale**
+> ExtensionsV1beta1Scale patchNamespacedReplicationControllerDummyScale(name, namespace, body, pretty)
 
 
 
-partially update scale of the specified Scale
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.ExtensionsV1beta1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
-String name = "name_example"; // String | name of the Scale
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-Object body = null; // Object | 
-String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
-try {
-    ExtensionsV1beta1Scale result = apiInstance.patchNamespacedReplicasetsScale(name, namespace, body, pretty);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ExtensionsV1beta1Api#patchNamespacedReplicasetsScale");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Scale |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | **Object**|  |
- **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
-
-### Return type
-
-[**ExtensionsV1beta1Scale**](ExtensionsV1beta1Scale.md)
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
-
-<a name="patchNamespacedReplicationcontrollersScale"></a>
-# **patchNamespacedReplicationcontrollersScale**
-> ExtensionsV1beta1Scale patchNamespacedReplicationcontrollersScale(name, namespace, body, pretty)
-
-
-
-partially update scale of the specified Scale
+partially update scale of the specified ReplicationControllerDummy
 
 ### Example
 ```java
@@ -3026,10 +3064,10 @@ String namespace = "namespace_example"; // String | object name and auth scope, 
 Object body = null; // Object | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 try {
-    ExtensionsV1beta1Scale result = apiInstance.patchNamespacedReplicationcontrollersScale(name, namespace, body, pretty);
+    ExtensionsV1beta1Scale result = apiInstance.patchNamespacedReplicationControllerDummyScale(name, namespace, body, pretty);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ExtensionsV1beta1Api#patchNamespacedReplicationcontrollersScale");
+    System.err.println("Exception when calling ExtensionsV1beta1Api#patchNamespacedReplicationControllerDummyScale");
     e.printStackTrace();
 }
 ```
@@ -3359,6 +3397,65 @@ Name | Type | Description  | Notes
  - **Content-Type**: */*
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
+<a name="readNamespacedDeploymentScale"></a>
+# **readNamespacedDeploymentScale**
+> ExtensionsV1beta1Scale readNamespacedDeploymentScale(name, namespace, pretty)
+
+
+
+read scale of the specified Deployment
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.ExtensionsV1beta1Api;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
+String name = "name_example"; // String | name of the Scale
+String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
+String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+try {
+    ExtensionsV1beta1Scale result = apiInstance.readNamespacedDeploymentScale(name, namespace, pretty);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ExtensionsV1beta1Api#readNamespacedDeploymentScale");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| name of the Scale |
+ **namespace** | **String**| object name and auth scope, such as for teams and projects |
+ **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+
+### Return type
+
+[**ExtensionsV1beta1Scale**](ExtensionsV1beta1Scale.md)
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+
 <a name="readNamespacedDeploymentStatus"></a>
 # **readNamespacedDeploymentStatus**
 > ExtensionsV1beta1Deployment readNamespacedDeploymentStatus(name, namespace, pretty)
@@ -3408,65 +3505,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ExtensionsV1beta1Deployment**](ExtensionsV1beta1Deployment.md)
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
-
-<a name="readNamespacedDeploymentsScale"></a>
-# **readNamespacedDeploymentsScale**
-> ExtensionsV1beta1Scale readNamespacedDeploymentsScale(name, namespace, pretty)
-
-
-
-read scale of the specified Scale
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.ExtensionsV1beta1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
-String name = "name_example"; // String | name of the Scale
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
-try {
-    ExtensionsV1beta1Scale result = apiInstance.readNamespacedDeploymentsScale(name, namespace, pretty);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ExtensionsV1beta1Api#readNamespacedDeploymentsScale");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Scale |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
-
-### Return type
-
-[**ExtensionsV1beta1Scale**](ExtensionsV1beta1Scale.md)
 
 ### Authorization
 
@@ -3725,6 +3763,65 @@ Name | Type | Description  | Notes
  - **Content-Type**: */*
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
+<a name="readNamespacedReplicaSetScale"></a>
+# **readNamespacedReplicaSetScale**
+> ExtensionsV1beta1Scale readNamespacedReplicaSetScale(name, namespace, pretty)
+
+
+
+read scale of the specified ReplicaSet
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.ExtensionsV1beta1Api;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
+String name = "name_example"; // String | name of the Scale
+String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
+String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+try {
+    ExtensionsV1beta1Scale result = apiInstance.readNamespacedReplicaSetScale(name, namespace, pretty);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ExtensionsV1beta1Api#readNamespacedReplicaSetScale");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| name of the Scale |
+ **namespace** | **String**| object name and auth scope, such as for teams and projects |
+ **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+
+### Return type
+
+[**ExtensionsV1beta1Scale**](ExtensionsV1beta1Scale.md)
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+
 <a name="readNamespacedReplicaSetStatus"></a>
 # **readNamespacedReplicaSetStatus**
 > V1beta1ReplicaSet readNamespacedReplicaSetStatus(name, namespace, pretty)
@@ -3784,72 +3881,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: */*
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
-<a name="readNamespacedReplicasetsScale"></a>
-# **readNamespacedReplicasetsScale**
-> ExtensionsV1beta1Scale readNamespacedReplicasetsScale(name, namespace, pretty)
+<a name="readNamespacedReplicationControllerDummyScale"></a>
+# **readNamespacedReplicationControllerDummyScale**
+> ExtensionsV1beta1Scale readNamespacedReplicationControllerDummyScale(name, namespace, pretty)
 
 
 
-read scale of the specified Scale
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.ExtensionsV1beta1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
-String name = "name_example"; // String | name of the Scale
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
-try {
-    ExtensionsV1beta1Scale result = apiInstance.readNamespacedReplicasetsScale(name, namespace, pretty);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ExtensionsV1beta1Api#readNamespacedReplicasetsScale");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Scale |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
-
-### Return type
-
-[**ExtensionsV1beta1Scale**](ExtensionsV1beta1Scale.md)
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
-
-<a name="readNamespacedReplicationcontrollersScale"></a>
-# **readNamespacedReplicationcontrollersScale**
-> ExtensionsV1beta1Scale readNamespacedReplicationcontrollersScale(name, namespace, pretty)
-
-
-
-read scale of the specified Scale
+read scale of the specified ReplicationControllerDummy
 
 ### Example
 ```java
@@ -3873,10 +3911,10 @@ String name = "name_example"; // String | name of the Scale
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 try {
-    ExtensionsV1beta1Scale result = apiInstance.readNamespacedReplicationcontrollersScale(name, namespace, pretty);
+    ExtensionsV1beta1Scale result = apiInstance.readNamespacedReplicationControllerDummyScale(name, namespace, pretty);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ExtensionsV1beta1Api#readNamespacedReplicationcontrollersScale");
+    System.err.println("Exception when calling ExtensionsV1beta1Api#readNamespacedReplicationControllerDummyScale");
     e.printStackTrace();
 }
 ```
@@ -4207,6 +4245,67 @@ Name | Type | Description  | Notes
  - **Content-Type**: */*
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
+<a name="replaceNamespacedDeploymentScale"></a>
+# **replaceNamespacedDeploymentScale**
+> ExtensionsV1beta1Scale replaceNamespacedDeploymentScale(name, namespace, body, pretty)
+
+
+
+replace scale of the specified Deployment
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.ExtensionsV1beta1Api;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
+String name = "name_example"; // String | name of the Scale
+String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
+ExtensionsV1beta1Scale body = new ExtensionsV1beta1Scale(); // ExtensionsV1beta1Scale | 
+String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+try {
+    ExtensionsV1beta1Scale result = apiInstance.replaceNamespacedDeploymentScale(name, namespace, body, pretty);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ExtensionsV1beta1Api#replaceNamespacedDeploymentScale");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| name of the Scale |
+ **namespace** | **String**| object name and auth scope, such as for teams and projects |
+ **body** | [**ExtensionsV1beta1Scale**](ExtensionsV1beta1Scale.md)|  |
+ **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+
+### Return type
+
+[**ExtensionsV1beta1Scale**](ExtensionsV1beta1Scale.md)
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+
 <a name="replaceNamespacedDeploymentStatus"></a>
 # **replaceNamespacedDeploymentStatus**
 > ExtensionsV1beta1Deployment replaceNamespacedDeploymentStatus(name, namespace, body, pretty)
@@ -4258,67 +4357,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ExtensionsV1beta1Deployment**](ExtensionsV1beta1Deployment.md)
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
-
-<a name="replaceNamespacedDeploymentsScale"></a>
-# **replaceNamespacedDeploymentsScale**
-> ExtensionsV1beta1Scale replaceNamespacedDeploymentsScale(name, namespace, body, pretty)
-
-
-
-replace scale of the specified Scale
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.ExtensionsV1beta1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
-String name = "name_example"; // String | name of the Scale
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-ExtensionsV1beta1Scale body = new ExtensionsV1beta1Scale(); // ExtensionsV1beta1Scale | 
-String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
-try {
-    ExtensionsV1beta1Scale result = apiInstance.replaceNamespacedDeploymentsScale(name, namespace, body, pretty);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ExtensionsV1beta1Api#replaceNamespacedDeploymentsScale");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Scale |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | [**ExtensionsV1beta1Scale**](ExtensionsV1beta1Scale.md)|  |
- **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
-
-### Return type
-
-[**ExtensionsV1beta1Scale**](ExtensionsV1beta1Scale.md)
 
 ### Authorization
 
@@ -4573,6 +4611,67 @@ Name | Type | Description  | Notes
  - **Content-Type**: */*
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
+<a name="replaceNamespacedReplicaSetScale"></a>
+# **replaceNamespacedReplicaSetScale**
+> ExtensionsV1beta1Scale replaceNamespacedReplicaSetScale(name, namespace, body, pretty)
+
+
+
+replace scale of the specified ReplicaSet
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.ExtensionsV1beta1Api;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
+String name = "name_example"; // String | name of the Scale
+String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
+ExtensionsV1beta1Scale body = new ExtensionsV1beta1Scale(); // ExtensionsV1beta1Scale | 
+String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+try {
+    ExtensionsV1beta1Scale result = apiInstance.replaceNamespacedReplicaSetScale(name, namespace, body, pretty);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ExtensionsV1beta1Api#replaceNamespacedReplicaSetScale");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| name of the Scale |
+ **namespace** | **String**| object name and auth scope, such as for teams and projects |
+ **body** | [**ExtensionsV1beta1Scale**](ExtensionsV1beta1Scale.md)|  |
+ **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+
+### Return type
+
+[**ExtensionsV1beta1Scale**](ExtensionsV1beta1Scale.md)
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+
 <a name="replaceNamespacedReplicaSetStatus"></a>
 # **replaceNamespacedReplicaSetStatus**
 > V1beta1ReplicaSet replaceNamespacedReplicaSetStatus(name, namespace, body, pretty)
@@ -4634,74 +4733,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: */*
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
-<a name="replaceNamespacedReplicasetsScale"></a>
-# **replaceNamespacedReplicasetsScale**
-> ExtensionsV1beta1Scale replaceNamespacedReplicasetsScale(name, namespace, body, pretty)
+<a name="replaceNamespacedReplicationControllerDummyScale"></a>
+# **replaceNamespacedReplicationControllerDummyScale**
+> ExtensionsV1beta1Scale replaceNamespacedReplicationControllerDummyScale(name, namespace, body, pretty)
 
 
 
-replace scale of the specified Scale
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.ExtensionsV1beta1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-ExtensionsV1beta1Api apiInstance = new ExtensionsV1beta1Api();
-String name = "name_example"; // String | name of the Scale
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-ExtensionsV1beta1Scale body = new ExtensionsV1beta1Scale(); // ExtensionsV1beta1Scale | 
-String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
-try {
-    ExtensionsV1beta1Scale result = apiInstance.replaceNamespacedReplicasetsScale(name, namespace, body, pretty);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ExtensionsV1beta1Api#replaceNamespacedReplicasetsScale");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Scale |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | [**ExtensionsV1beta1Scale**](ExtensionsV1beta1Scale.md)|  |
- **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
-
-### Return type
-
-[**ExtensionsV1beta1Scale**](ExtensionsV1beta1Scale.md)
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
-
-<a name="replaceNamespacedReplicationcontrollersScale"></a>
-# **replaceNamespacedReplicationcontrollersScale**
-> ExtensionsV1beta1Scale replaceNamespacedReplicationcontrollersScale(name, namespace, body, pretty)
-
-
-
-replace scale of the specified Scale
+replace scale of the specified ReplicationControllerDummy
 
 ### Example
 ```java
@@ -4726,10 +4764,10 @@ String namespace = "namespace_example"; // String | object name and auth scope, 
 ExtensionsV1beta1Scale body = new ExtensionsV1beta1Scale(); // ExtensionsV1beta1Scale | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 try {
-    ExtensionsV1beta1Scale result = apiInstance.replaceNamespacedReplicationcontrollersScale(name, namespace, body, pretty);
+    ExtensionsV1beta1Scale result = apiInstance.replaceNamespacedReplicationControllerDummyScale(name, namespace, body, pretty);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ExtensionsV1beta1Api#replaceNamespacedReplicationcontrollersScale");
+    System.err.println("Exception when calling ExtensionsV1beta1Api#replaceNamespacedReplicationControllerDummyScale");
     e.printStackTrace();
 }
 ```
