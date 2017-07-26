@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCollectionNamespacedCronJob"></a>
 # **deleteCollectionNamespacedCronJob**
-> V1Status deleteCollectionNamespacedCronJob(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1Status deleteCollectionNamespacedCronJob(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -176,12 +176,13 @@ BatchV2alpha1Api apiInstance = new BatchV2alpha1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1Status result = apiInstance.deleteCollectionNamespacedCronJob(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1Status result = apiInstance.deleteCollectionNamespacedCronJob(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling BatchV2alpha1Api#deleteCollectionNamespacedCronJob");
@@ -196,6 +197,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -216,7 +218,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCollectionNamespacedScheduledJob"></a>
 # **deleteCollectionNamespacedScheduledJob**
-> V1Status deleteCollectionNamespacedScheduledJob(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V1Status deleteCollectionNamespacedScheduledJob(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -243,12 +245,13 @@ BatchV2alpha1Api apiInstance = new BatchV2alpha1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1Status result = apiInstance.deleteCollectionNamespacedScheduledJob(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V1Status result = apiInstance.deleteCollectionNamespacedScheduledJob(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling BatchV2alpha1Api#deleteCollectionNamespacedScheduledJob");
@@ -263,6 +266,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -468,7 +472,7 @@ This endpoint does not need any parameter.
 
 <a name="listCronJobForAllNamespaces"></a>
 # **listCronJobForAllNamespaces**
-> V2alpha1CronJobList listCronJobForAllNamespaces(fieldSelector, labelSelector, pretty, resourceVersion, timeoutSeconds, watch)
+> V2alpha1CronJobList listCronJobForAllNamespaces(fieldSelector, includeUninitialized, labelSelector, pretty, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -493,13 +497,14 @@ BearerToken.setApiKey("YOUR API KEY");
 
 BatchV2alpha1Api apiInstance = new BatchV2alpha1Api();
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V2alpha1CronJobList result = apiInstance.listCronJobForAllNamespaces(fieldSelector, labelSelector, pretty, resourceVersion, timeoutSeconds, watch);
+    V2alpha1CronJobList result = apiInstance.listCronJobForAllNamespaces(fieldSelector, includeUninitialized, labelSelector, pretty, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling BatchV2alpha1Api#listCronJobForAllNamespaces");
@@ -512,6 +517,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
@@ -533,7 +539,7 @@ Name | Type | Description  | Notes
 
 <a name="listNamespacedCronJob"></a>
 # **listNamespacedCronJob**
-> V2alpha1CronJobList listNamespacedCronJob(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V2alpha1CronJobList listNamespacedCronJob(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -560,12 +566,13 @@ BatchV2alpha1Api apiInstance = new BatchV2alpha1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V2alpha1CronJobList result = apiInstance.listNamespacedCronJob(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V2alpha1CronJobList result = apiInstance.listNamespacedCronJob(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling BatchV2alpha1Api#listNamespacedCronJob");
@@ -580,6 +587,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -600,7 +608,7 @@ Name | Type | Description  | Notes
 
 <a name="listNamespacedScheduledJob"></a>
 # **listNamespacedScheduledJob**
-> V2alpha1CronJobList listNamespacedScheduledJob(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch)
+> V2alpha1CronJobList listNamespacedScheduledJob(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -627,12 +635,13 @@ BatchV2alpha1Api apiInstance = new BatchV2alpha1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V2alpha1CronJobList result = apiInstance.listNamespacedScheduledJob(namespace, pretty, fieldSelector, labelSelector, resourceVersion, timeoutSeconds, watch);
+    V2alpha1CronJobList result = apiInstance.listNamespacedScheduledJob(namespace, pretty, fieldSelector, includeUninitialized, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling BatchV2alpha1Api#listNamespacedScheduledJob");
@@ -647,6 +656,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
@@ -667,7 +677,7 @@ Name | Type | Description  | Notes
 
 <a name="listScheduledJobForAllNamespaces"></a>
 # **listScheduledJobForAllNamespaces**
-> V2alpha1CronJobList listScheduledJobForAllNamespaces(fieldSelector, labelSelector, pretty, resourceVersion, timeoutSeconds, watch)
+> V2alpha1CronJobList listScheduledJobForAllNamespaces(fieldSelector, includeUninitialized, labelSelector, pretty, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -692,13 +702,14 @@ BearerToken.setApiKey("YOUR API KEY");
 
 BatchV2alpha1Api apiInstance = new BatchV2alpha1Api();
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V2alpha1CronJobList result = apiInstance.listScheduledJobForAllNamespaces(fieldSelector, labelSelector, pretty, resourceVersion, timeoutSeconds, watch);
+    V2alpha1CronJobList result = apiInstance.listScheduledJobForAllNamespaces(fieldSelector, includeUninitialized, labelSelector, pretty, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling BatchV2alpha1Api#listScheduledJobForAllNamespaces");
@@ -711,6 +722,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
