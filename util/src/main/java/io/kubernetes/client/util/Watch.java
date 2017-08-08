@@ -80,7 +80,7 @@ public class Watch<T> implements Iterable<Watch.Response<T>>,
                 }
                 throw new ApiException(response.message(), response.code(), response.headers().toMultimap(), respBody);
             }
-            return new Watch<>(new JSON(client), response.body(), watchType);
+            return new Watch<>(client.getJSON(), response.body(), watchType);
         } catch (IOException e) {
             throw new ApiException(e);
         }

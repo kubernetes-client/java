@@ -87,7 +87,7 @@ public class WebSockets {
         headers.put(HttpHeaders.CONNECTION, HttpHeaders.UPGRADE);
         headers.put(HttpHeaders.UPGRADE, SPDY_3_1);
 
-        Request request = client.buildRequest(path, method, new ArrayList<Pair>(), null, headers, new HashMap<String, Object>(), new String[0], null);
+        Request request = client.buildRequest(path, method, new ArrayList<Pair>(), new ArrayList<Pair>(), null, headers, new HashMap<String, Object>(), new String[0], null);
         WebSocketCall.create(client.getHttpClient(), request).enqueue(new Listener(listener));
     }
 
