@@ -117,6 +117,24 @@ mvn exec:java -Dexec.mainClass="io.kubernetes.client.examples.Example"
 
 All APIs and Models' documentation can be found at the [Generated client's README file](kubernetes/README.md)
 
+## Compatability
+
+|                   | Kubernetes 1.4 | Kubernetes 1.5 | Kubernetes 1.6 | Kubernetes 1.7 |
+|-------------------|----------------|----------------|----------------|----------------|
+| java-client 0.1.0 | +              | +              | ✓              | -              |
+
+Key: 
+
+* `✓` Exactly the same features / API objects in both java-client and the Kubernetes
+  version.
+* `+` java-client has features or api objects that may not be present in the
+  Kubernetes cluster, but everything they have in common will work.
+* `-` The Kubernetes cluster has features the java-client library can't use
+  (additional API objects, etc).
+
+See the [CHANGELOG](./CHANGELOG.md) for a detailed description of changes
+between java-client versions.
+
 ## Community, Support, Discussion
 
 You can reach the maintainers of this project at [SIG API Machinery](https://github.com/kubernetes/community/tree/master/sig-api-machinery). If you have any problem with the package or any suggestions, please file an [issue](https://github.com/kubernetes-client/java/issues).
