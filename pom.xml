@@ -1,23 +1,24 @@
-<project
-  xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <artifactId>client-java</artifactId>
   <groupId>io.kubernetes</groupId>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.2-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Kubernetes Client API</name>
+  <url>https://github.com/kubernetes-client/java</url>
+  <description>Kubernetes Client Library</description>
 
   <modules>
-    <module>kubernetes</module>
-    <module>examples</module>
     <module>util</module>
+    <module>examples</module>
+    <module>kubernetes</module>
   </modules>
 
   <scm>
     <connection>scm:git:git@github.com:kubernetes-client/java.git</connection>
     <developerConnection>scm:git:git@github.com:kubernetes-client/java.git</developerConnection>
     <url>https://github.com/kubernetes-client/java</url>
+    <tag>HEAD</tag>
   </scm>
 
   <prerequisites>
@@ -45,10 +46,12 @@
     <snapshotRepository>
       <id>ossrh</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <layout>default</layout>
     </snapshotRepository>
     <repository>
       <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+      <layout>default</layout>
     </repository>
   </distributionManagement>
 
@@ -60,7 +63,7 @@
         <version>2.5.3</version>
         <configuration>
           <autoVersionSubmodules>true</autoVersionSubmodules>
-          <releaseProfiles>release</releaseProfiles>
+          <releaseProfiles>release-sign-artifacts</releaseProfiles>
           <goals>deploy</goals>
         </configuration>
       </plugin>
@@ -69,12 +72,6 @@
   <profiles>
     <profile>
       <id>release-sign-artifacts</id>
-      <activation>
-        <property>
-          <name>release</name>
-          <value>true</value>
-        </property>
-      </activation>
       <build>
         <plugins>
           <plugin>

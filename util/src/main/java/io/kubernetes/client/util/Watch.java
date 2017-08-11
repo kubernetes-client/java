@@ -60,8 +60,8 @@ public class Watch<T> implements Iterable<Watch.Response<T>>,
      * @param client the API client
      * @param call the call object returned by api.{ListOperation}Call(...)
      *             method. Make sure watch flag is set in the call.
-     * @param watchType The type of the WatchResponse<T>. Use something like
-     *                  new TypeToken<Watch.Response<TYPENAME>>(){}.getType()
+     * @param watchType The type of the WatchResponse&lt;T&gt;. Use something like
+     *                  new TypeToken&lt;Watch.Response&lt;TYPENAME&gt;&gt;(){}.getType()
      * @param <T> TYPENAME.
      * @return Watch object on TYPENAME
      * @throws ApiException on IO exceptions.

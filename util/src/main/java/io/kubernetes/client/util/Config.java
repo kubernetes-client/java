@@ -158,13 +158,13 @@ public class Config {
     /**
      * Easy client creation, follows this plan
      * <ul>
-     *   <li>If $KUBECONFIG is defined, use that config file
-     *   <li>If $HOME/.kube/confg can be found, use that.
-     *   <li>If the in-cluster service account can be found, assume in cluster config.
-     *   <li>Default to localhost:8080 as a last resort.
-     * <ul>
+     *   <li>If $KUBECONFIG is defined, use that config file.</li>
+     *   <li>If $HOME/.kube/confg can be found, use that.</li>
+     *   <li>If the in-cluster service account can be found, assume in cluster config.</li>
+     *   <li>Default to localhost:8080 as a last resort.</li>
+     * </ul>
      * 
-     * @returns The best APIClient given the previously described rules
+     * @return The best APIClient given the previously described rules
      */
     public static ApiClient defaultClient() throws IOException {
         String kubeConfig = System.getenv(ENV_KUBECONFIG);

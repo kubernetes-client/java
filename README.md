@@ -25,10 +25,16 @@ Add this dependency to your project's POM:
 ```xml
 <dependency>
     <groupId>io.kubernetes</groupId>
-    <artifactId>client-java</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>client-java-util</artifactId>
+    <version>0.1</version>
     <scope>compile</scope>
 </dependency>
+```
+
+### Gradle users
+
+```groovy
+compile 'io.kubernetes:client-java-util:0.1'
 ```
 
 ### Others
@@ -43,7 +49,7 @@ mvn package
 
 Then manually install the following JARs:
 
-* target/client-java-1.0-SNAPSHOT.jar
+* target/client-java-0.2-SNAPSHOT.jar
 * target/lib/*.jar
 
 ## Example

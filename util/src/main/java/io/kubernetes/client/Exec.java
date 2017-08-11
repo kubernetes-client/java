@@ -48,7 +48,7 @@ public class Exec {
 
     /**
      * Get the API client for these exec operations.
-     * @returns The API client that will be used.
+     * @return The API client that will be used.
      */
     public ApiClient getApiClient() {
         return apiClient;
