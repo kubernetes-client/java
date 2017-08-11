@@ -28,7 +28,7 @@ public interface Authenticator {
     /**
      * Get a token from this authenticator.
      * @param config The configuration information for this authenticator
-     * @returns The new token, null of no such token can be found/generated
+     * @return The new token, null of no such token can be found/generated
      */
     public String getToken(Map<String, Object> config);
 

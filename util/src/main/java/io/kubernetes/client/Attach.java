@@ -47,7 +47,7 @@ public class Attach {
 
     /**
      * Get the API client for these Attach operations.
-     * @returns The API client that will be used.
+     * @return The API client that will be used.
      */
     public ApiClient getApiClient() {
         return apiClient;
@@ -78,8 +78,7 @@ public class Attach {
      * 
      * @param namespace The namespace of the Pod
      * @param name The name of the Pod
-     * @param command The command to run
-     * @param stdin If true, pass a stdin stream into the container 
+     * @param stdin If true, pass a stdin stream into the container
      */
     public AttachResult attach(String namespace, String name, boolean stdin) throws ApiException, IOException {
         return attach(namespace, name, null, stdin, false);

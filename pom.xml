@@ -7,11 +7,13 @@
   <version>0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Kubernetes Client API</name>
+  <url>https://github.com/kubernetes-client/java</url>
+  <description>Kubernetes Client Library</description>
 
   <modules>
-    <module>kubernetes</module>
-    <module>examples</module>
     <module>util</module>
+    <module>examples</module>
+    <module>kubernetes</module>
   </modules>
 
   <scm>
@@ -45,10 +47,12 @@
     <snapshotRepository>
       <id>ossrh</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <layout>default</layout>
     </snapshotRepository>
     <repository>
       <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+      <layout>default</layout>
     </repository>
   </distributionManagement>
 
@@ -60,7 +64,7 @@
         <version>2.5.3</version>
         <configuration>
           <autoVersionSubmodules>true</autoVersionSubmodules>
-          <releaseProfiles>release</releaseProfiles>
+          <releaseProfiles>release-sign-artifacts</releaseProfiles>
           <goals>deploy</goals>
         </configuration>
       </plugin>
@@ -69,12 +73,6 @@
   <profiles>
     <profile>
       <id>release-sign-artifacts</id>
-      <activation>
-        <property>
-          <name>release</name>
-          <value>true</value>
-        </property>
-      </activation>
       <build>
         <plugins>
           <plugin>

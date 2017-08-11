@@ -108,7 +108,7 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener {
     /**
      * Get a specific input stream using its identifier
      * @param stream The stream to return
-     * @returns The specified stream.
+     * @return The specified stream.
      */
     public synchronized InputStream getInputStream(int stream) {
         if (!input.containsKey(stream)) {
@@ -129,7 +129,7 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener {
     /**
      * Gets a specific output stream using it's identified
      * @param stream The stream to return
-     * @returns The specified stream.
+     * @return The specified stream.
      */
     public OutputStream getOutputStream(int stream) {
         return new WebSocketOutputStream(stream);
@@ -139,7 +139,7 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener {
      * Get the pipe to write data to a specific InputStream. This is called when
      * new data is read from the web socket, to send the data on to the right stream.
      * @param stream The stream to return
-     * @returns The specified stream.
+     * @return The specified stream.
      */
     private synchronized OutputStream getSocketInputOutputStream(int stream) {
         if (!output.containsKey(stream)) {
