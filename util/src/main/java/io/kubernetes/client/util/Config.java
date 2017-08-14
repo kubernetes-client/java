@@ -99,8 +99,10 @@ public class Config {
     }
 
     public static ApiClient fromConfig(Reader input) {
+        return fromConfig(KubeConfig.loadKubeConfig(input));
+    }
 
-        KubeConfig config = KubeConfig.loadKubeConfig(input);
+    public static ApiClient fromConfig(KubeConfig config) {
         ApiClient client = new ApiClient();
         client.setBasePath(config.getServer());
 
