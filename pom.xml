@@ -12,6 +12,7 @@
     <module>util</module>
     <module>examples</module>
     <module>kubernetes</module>
+    <module>proto</module>
   </modules>
 
   <scm>
