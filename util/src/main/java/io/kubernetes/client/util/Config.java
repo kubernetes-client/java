@@ -54,7 +54,7 @@ public class Config {
         ApiClient result = new ApiClient();
         result.setBasePath("https://" + host + ":" + port);
         result.setSslCaCert(caCert);
-        result.setAccessToken(builder.toString());
+        result.setApiKey("Bearer " + builder.toString());
 
         return result;
     }
