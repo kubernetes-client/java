@@ -25,8 +25,8 @@ Add this dependency to your project's POM:
 ```xml
 <dependency>
     <groupId>io.kubernetes</groupId>
-    <artifactId>client-java-util</artifactId>
-    <version>0.1</version>
+    <artifactId>client-java</artifactId>
+    <version>0.2</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -34,7 +34,7 @@ Add this dependency to your project's POM:
 ### Gradle users
 
 ```groovy
-compile 'io.kubernetes:client-java-util:0.1'
+compile 'io.kubernetes:client-java:0.2'
 ```
 
 ### Others
