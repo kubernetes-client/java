@@ -75,7 +75,7 @@
         <version>1.6.7</version>
         <extensions>true</extensions>
         <configuration>
-          <serverId>sonatype-nexus-staging</serverId>
+          <serverId>ossrh</serverId>
           <nexusUrl>https://oss.sonatype.org/</nexusUrl>
           <autoReleaseAfterClose>true</autoReleaseAfterClose>
         </configuration>
