@@ -103,8 +103,8 @@ public class ProtoClient {
      * @param path The URL path to call (e.g. /api/v1/namespaces/default/pods/pod-name)
      * @return An ObjectOrStatus which contains the Object requested, or a Status about the request.
      */
-    public <T extends Message> ObjectOrStatus<T> list(T.Builder listObj, String path) throws ApiException, IOException {
-        return get(listObj, path);
+    public <T extends Message> ObjectOrStatus<T> list(T.Builder builder, String path) throws ApiException, IOException {
+        return get(builder, path);
     }
 
     /**
