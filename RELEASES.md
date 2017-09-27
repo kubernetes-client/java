@@ -100,6 +100,9 @@ version in `pom.xml` to `<NEXT_RELEASE>-SNAPSHOT`. Commit this change and push
 it to the upstream _current_ release branch. This allows future development for
 the next release to happen on this branch.
 
+Finally, merge any changes in your release branch back into master by opening a
+PR against the main repository. 
+
 ### 3. Release announcements
 
 Now that the release is consumable, there are two things left to do:
