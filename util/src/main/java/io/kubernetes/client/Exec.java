@@ -82,7 +82,7 @@ public class Exec {
      * @param namespace The namespace of the Pod
      * @param name The name of the Pod
      * @param command The command to run
-     * @param stdin If true, pass a stdin stream into the container 
+     * @param stdin If true, pass a stdin stream into the container
      */
     public Process exec(String namespace, String name, String[] command, boolean stdin) throws ApiException, IOException {
         return exec(namespace, name, command, null, stdin, false);
