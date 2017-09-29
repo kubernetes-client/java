@@ -1,3 +1,17 @@
+# 1.0.0-beta1
+
+This is the first beta release of this client.
+
+## Features
+
+* Support for Kubernetes 1.8 
+  ([#84](https://github.com/kubernetes-client/java/pull/84)).
+
+## Fixes
+
+* Allow kubeconfig to be loaded without current-context
+  ([#81](https://github.com/kubernetes-client/java/pull/81)).
+
 # 0.2.0
 
 ## Fixes
