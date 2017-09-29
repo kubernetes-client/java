@@ -96,6 +96,10 @@ public class KubeConfig {
     }
 
     public boolean setContext(String context) {
+        if (context == null) {
+            return false;
+        }
+
         currentCluster = null;
         currentUser = null;
         Map<String, Object> ctx = findObject(contexts, context);
@@ -197,6 +201,9 @@ public class KubeConfig {
     }
 
     public boolean verifySSL() {
+        if (currentCluster == null) {
+            return false;
+        }
         if (currentCluster.containsKey("insecure-skip-tls-verify")) {
             return ! ((Boolean) currentCluster.get("insecure-skip-tls-verify")).booleanValue();
         }
