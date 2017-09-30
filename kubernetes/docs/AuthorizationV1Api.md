@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createNamespacedLocalSubjectAccessReview**](AuthorizationV1Api.md#createNamespacedLocalSubjectAccessReview) | **POST** /apis/authorization.k8s.io/v1/namespaces/{namespace}/localsubjectaccessreviews | 
 [**createSelfSubjectAccessReview**](AuthorizationV1Api.md#createSelfSubjectAccessReview) | **POST** /apis/authorization.k8s.io/v1/selfsubjectaccessreviews | 
+[**createSelfSubjectRulesReview**](AuthorizationV1Api.md#createSelfSubjectRulesReview) | **POST** /apis/authorization.k8s.io/v1/selfsubjectrulesreviews | 
 [**createSubjectAccessReview**](AuthorizationV1Api.md#createSubjectAccessReview) | **POST** /apis/authorization.k8s.io/v1/subjectaccessreviews | 
 [**getAPIResources**](AuthorizationV1Api.md#getAPIResources) | **GET** /apis/authorization.k8s.io/v1/ | 
 
@@ -116,6 +117,63 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1SelfSubjectAccessReview**](V1SelfSubjectAccessReview.md)
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+
+<a name="createSelfSubjectRulesReview"></a>
+# **createSelfSubjectRulesReview**
+> V1SelfSubjectRulesReview createSelfSubjectRulesReview(body, pretty)
+
+
+
+create a SelfSubjectRulesReview
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.AuthorizationV1Api;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+AuthorizationV1Api apiInstance = new AuthorizationV1Api();
+V1SelfSubjectRulesReview body = new V1SelfSubjectRulesReview(); // V1SelfSubjectRulesReview | 
+String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+try {
+    V1SelfSubjectRulesReview result = apiInstance.createSelfSubjectRulesReview(body, pretty);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AuthorizationV1Api#createSelfSubjectRulesReview");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**V1SelfSubjectRulesReview**](V1SelfSubjectRulesReview.md)|  |
+ **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+
+### Return type
+
+[**V1SelfSubjectRulesReview**](V1SelfSubjectRulesReview.md)
 
 ### Authorization
 
