@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.util;
 
 import com.google.common.net.HttpHeaders;
+import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 import com.squareup.okhttp.ResponseBody;
@@ -30,6 +31,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Reader;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -81,13 +83,29 @@ public class WebSockets {
      * @param listener The socket listener to handle socket events
      */
     public static void stream(String path, String method, ApiClient client, SocketListener listener) throws ApiException, IOException {
+        stream(path, method, new ArrayList<Pair>(), client, listener);
+    }
+
+    public static void stream(String path, String method, List<Pair> queryParams, ApiClient client, SocketListener listener) throws ApiException, IOException {
+            
         HashMap<String, String> headers = new HashMap<String, String>();
         String allProtocols = String.format("%s,%s,%s,%s", V4_STREAM_PROTOCOL, V3_STREAM_PROTOCOL, V2_STREAM_PROTOCOL, V1_STREAM_PROTOCOL);
         headers.put(STREAM_PROTOCOL_HEADER, allProtocols);
         headers.put(HttpHeaders.CONNECTION, HttpHeaders.UPGRADE);
         headers.put(HttpHeaders.UPGRADE, SPDY_3_1);
 
-        Request request = client.buildRequest(path, method, new ArrayList<Pair>(), new ArrayList<Pair>(), null, headers, new HashMap<String, Object>(), new String[0], null);
+        Request request = client.buildRequest(path, method, queryParams, new ArrayList<Pair>(), null, headers, new HashMap<String, Object>(), new String[0], null);
+        streamRequest(request, client, listener);
+    }
+
+    /* 
+    If we ever upgrade to okhttp 3...
+    public static void stream(Call call, ApiClient client, SocketListener listener) {
+        streamRequest(call.request(), client, listener);
+    }
+    */
+
+    private static void streamRequest(Request request, ApiClient client, SocketListener listener) {
         WebSocketCall.create(client.getHttpClient(), request).enqueue(new Listener(listener));
     }
 
