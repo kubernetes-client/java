@@ -104,7 +104,15 @@ public class Config {
 
     public static ApiClient fromConfig(KubeConfig config) {
         ApiClient client = new ApiClient();
-        client.setBasePath(config.getServer());
+        String server = config.getServer();
+        if (!server.startsWith("http://") && !server.startsWith("https://")) {
+            if (server.indexOf(":443") != -1) {
+                server = "https://" + server;
+            } else {
+                server = "http://" + server;
+            }
+        }
+        client.setBasePath(server);
 
         try {
             KeyManager[] mgrs = SSLUtils.keyManagers(
