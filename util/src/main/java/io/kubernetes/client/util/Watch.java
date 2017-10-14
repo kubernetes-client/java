@@ -120,4 +120,8 @@ public class Watch<T> implements Iterable<Watch.Response<T>>,
     public void remove() {
         throw new UnsupportedOperationException("remove");
     }
+    
+    public void close() throws IOException {
+    	this.response.close();
+    }
 }
