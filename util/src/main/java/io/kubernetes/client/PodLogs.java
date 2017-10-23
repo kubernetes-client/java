@@ -34,22 +34,22 @@ import com.squareup.okhttp.Response;
 /**
  * Utility class offering streaming access to Pod logs.
  */
-public class Logs {
+public class PodLogs {
     private ApiClient apiClient;
     private CoreV1Api coreClient;
 
     /**
-     * Simple Logs API constructor, uses default configuration
+     * Simple PodLogs API constructor, uses default configuration
      */
-    public Logs() {
+    public PodLogs() {
         this(Configuration.getDefaultApiClient());
     }
 
     /**
-     * Logs API Constructor
+     * PodLogs API Constructor
      * @param apiClient The api client to use.
      */
-    public Logs(ApiClient apiClient) {
+    public PodLogs(ApiClient apiClient) {
         this.apiClient = apiClient;
         this.coreClient = new CoreV1Api(apiClient);
     }
@@ -60,14 +60,6 @@ public class Logs {
      */
     public ApiClient getApiClient() {
         return apiClient;
-    }
-
-    /**
-     * Set the API client for subsequent Logs operations.
-     * @param apiClient The new API client to use.
-     */
-    public void setApiClient(ApiClient apiClient) {
-        this.apiClient = apiClient;
     }
 
     public InputStream streamNamespacedPodLog(V1Pod pod) throws ApiException, IOException {

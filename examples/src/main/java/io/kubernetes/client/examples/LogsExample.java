@@ -15,7 +15,7 @@ package io.kubernetes.client.examples;
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
 import io.kubernetes.client.Configuration;
-import io.kubernetes.client.Logs;
+import io.kubernetes.client.PodLogs;
 import io.kubernetes.client.apis.CoreV1Api;
 import io.kubernetes.client.models.V1Pod;
 import io.kubernetes.client.models.V1PodList;
@@ -43,7 +43,7 @@ public class LogsExample {
         Configuration.setDefaultApiClient(client);
         CoreV1Api coreApi = new CoreV1Api(client);
 
-        Logs logs = new Logs();
+        PodLogs logs = new PodLogs();
         V1Pod pod = coreApi.listNamespacedPod("default", "false", null, null, null, null, null, null, null, null).getItems().get(0);
 
         InputStream is = logs.streamNamespacedPodLog(pod);
