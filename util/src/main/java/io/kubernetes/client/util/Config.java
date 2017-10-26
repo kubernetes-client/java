@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.util;
 
 import io.kubernetes.client.ApiClient;
+import okio.ByteString;
 import org.apache.log4j.Logger;
 
 import javax.net.ssl.KeyManager;
@@ -25,6 +26,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.nio.charset.Charset;
 
 public class Config {
     public static final String SERVICEACCOUNT_ROOT =
@@ -38,6 +40,7 @@ public class Config {
     public static final String ENV_SERVICE_PORT = "KUBERNETES_SERVICE_PORT";
     // The last resort host to try
     public static final String DEFAULT_FALLBACK_HOST = "http://localhost:8080";
+    public static final Charset BASIC_AUTH_CHARSET = Charset.forName("ISO-8859-1");
 
     private static final Logger log = Logger.getLogger(Config.class);
 
@@ -75,8 +78,9 @@ public class Config {
 
     public static ApiClient fromUserPassword(String url, String user, String password, boolean validateSSL) {
         ApiClient client = fromUrl(url, validateSSL);
-        client.setUsername(user);
-        client.setPassword(password);
+        final String usernameAndPassword = user + ":" + password;
+        client.setApiKeyPrefix("Basic");
+        client.setApiKey(ByteString.of(usernameAndPassword.getBytes(BASIC_AUTH_CHARSET)).base64());
         return client;
     }
 
@@ -86,7 +90,8 @@ public class Config {
 
     public static ApiClient fromToken(String url, String token, boolean validateSSL) {
         ApiClient client = fromUrl(url, validateSSL);
-        client.setAccessToken(token);
+        client.setApiKeyPrefix("Bearer");
+        client.setApiKey(token);
         return client;
     }
 
