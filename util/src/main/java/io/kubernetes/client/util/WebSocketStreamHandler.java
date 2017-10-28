@@ -36,7 +36,7 @@ import java.util.Map;
  * WebSocketStreamHandler understands the Kubernetes streaming protocol and separates
  * a single WebSockets stream into a number of different streams using that protocol.
  */
-public class WebSocketStreamHandler implements WebSockets.SocketListener {
+public class WebSocketStreamHandler implements WebSockets.SocketListener, Closeable {
     Map<Integer, PipedOutputStream> output;
     Map<Integer, PipedInputStream> input;
     WebSocket socket;
@@ -95,14 +95,6 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener {
                 ex.printStackTrace();
             }
         }
-        /*
-        try {
-            socket.close(1000, "User closed connection");
-        } catch (IOException ex) {
-            // TODO use a logger here
-            ex.printStackTrace();
-        }
-        */
     }
 
     /**

@@ -145,7 +145,7 @@ public class Attach {
      * AttachResult contains the result of an Attach call, it includes streams for stdout
      * stderr and stdin. 
      */
-    public static class AttachResult {        
+    public static class AttachResult implements java.io.Closeable {        
         private WebSocketStreamHandler handler;
 
 
@@ -163,6 +163,10 @@ public class Attach {
 
         public InputStream getErrorStream() throws IOException {
             return handler.getInputStream(2);
+        }
+
+        public void close() {
+            handler.close();
         }
     }
 }
