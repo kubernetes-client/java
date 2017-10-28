@@ -31,7 +31,8 @@ import java.util.Iterator;
  * set watch to True and watch the changes to namespaces.
  */
 public class Watch<T> implements Iterable<Watch.Response<T>>,
-        Iterator<Watch.Response<T>> {
+				 Iterator<Watch.Response<T>>,
+				 java.io.Closeable {
 
     /**
      * Response class holds a watch response that has a `type` that can be
@@ -119,5 +120,9 @@ public class Watch<T> implements Iterable<Watch.Response<T>>,
 
     public void remove() {
         throw new UnsupportedOperationException("remove");
+    }
+    
+    public void close() throws IOException {
+    	this.response.close();
     }
 }
