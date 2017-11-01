@@ -12,8 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import com.google.common.io.ByteStreams;
-import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.util.authenticators.GCPAuthenticator;
 
 import java.io.File;
@@ -30,7 +28,6 @@ import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
-import org.junit.contrib.java.lang.system.EnvironmentVariables;
 
 /**
  * Tests for the KubeConfigConfig helper class
