@@ -44,7 +44,7 @@ public class ExecExample {
         Exec exec = new Exec();
         boolean tty = System.console() != null;
 //        final Process proc = exec.exec("default", "nginx-2371676037-czqx3", new String[] {"sh", "-c", "echo foo"}, true, tty);
-        final Process proc = exec.exec("default", "nginx-2371676037-czqx3", new String[] {"sh"}, true, tty);
+        final Process proc = exec.exec("default", "nginx-4217019353-k5sn9", new String[] {"sh"}, true, tty);
 
 
         new Thread(new Runnable() {
@@ -74,6 +74,8 @@ public class ExecExample {
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         }
+
+        proc.destroy();
 
         System.exit(0);
     }

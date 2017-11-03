@@ -42,7 +42,7 @@ public class AttachExample {
         Configuration.setDefaultApiClient(client);
 
         Attach attach = new Attach();
-        final Attach.AttachResult result = attach.attach("default", "nginx-2371676037-czqx3", true);
+        final Attach.AttachResult result = attach.attach("default", "nginx-4217019353-k5sn9", true);
 
         new Thread(new Runnable() {
             public void run() {
@@ -72,7 +72,7 @@ public class AttachExample {
         }).start();
 
         Thread.sleep(10*1000);
-
+        result.close();
         System.exit(0);
     }
 }

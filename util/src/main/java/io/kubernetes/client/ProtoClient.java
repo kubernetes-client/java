@@ -167,6 +167,8 @@ public class ProtoClient {
         }
         Response resp = apiClient.getHttpClient().newCall(request).execute();
         Unknown u = parse(resp.body().byteStream());
+        resp.body().close();
+
         if (u.getTypeMeta().getApiVersion().equals("v1") &&
             u.getTypeMeta().getKind().equals("Status")) {
             Status status = Status.newBuilder().mergeFrom(u.getRaw()).build();
