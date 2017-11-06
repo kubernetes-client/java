@@ -96,7 +96,7 @@ public class SSLUtils {
             // First let's try PKCS8
             privateKey = keyFactory.generatePrivate(new PKCS8EncodedKeySpec(keyBytes));
         } catch (InvalidKeySpecException e) {
-            // Otherwise try PKCS8
+            // Otherwise try PKCS1
             RSAPrivateCrtKeySpec keySpec = decodePKCS1(keyBytes);
             privateKey = keyFactory.generatePrivate(keySpec);
         }
