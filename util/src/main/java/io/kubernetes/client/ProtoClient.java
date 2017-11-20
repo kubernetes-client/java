@@ -1,28 +1,23 @@
 package io.kubernetes.client;
 
-import io.kubernetes.client.ApiException;
-import io.kubernetes.client.Configuration;
-import io.kubernetes.client.models.V1ObjectMeta;
-import io.kubernetes.client.proto.Meta.Status;
-import io.kubernetes.client.proto.Runtime.TypeMeta;
-import io.kubernetes.client.proto.Runtime.Unknown;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 
 import com.google.common.io.ByteStreams;
 import com.google.common.primitives.Bytes;
-import com.google.protobuf.Descriptors;
 import com.google.protobuf.Message;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
-import com.squareup.okhttp.ResponseBody;
-import okio.ByteString;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.HashMap;
+import io.kubernetes.client.proto.Meta.DeleteOptions;
+import io.kubernetes.client.proto.Meta.Status;
+import io.kubernetes.client.proto.Runtime.TypeMeta;
+import io.kubernetes.client.proto.Runtime.Unknown;
 
 public class ProtoClient {
     /**
@@ -139,8 +134,42 @@ public class ProtoClient {
      * @param path The path to call in the API server
      * @return The response status
      */
-    public <T extends Message> Status delete(T.Builder builder, String path) throws ApiException, IOException {
-        return request(builder, path, "DELETE", null, null, null).status;
+    public <T extends Message> ObjectOrStatus<T> delete(T.Builder builder, String path) throws ApiException, IOException {
+        return request(builder, path, "DELETE", null, null, null);
+    }
+
+    /**
+     * Delete a kubernetes API object using protocol buffer encoding.
+     * @param builder The builder for the response
+     * @param path The path to call in the API server
+     * @param deleteOptions optional deleteOptions
+     * @return The response status
+     */
+    public <T extends Message> ObjectOrStatus<T> delete(T.Builder builder, String path,DeleteOptions deleteOptions) throws ApiException, IOException {
+    	if (deleteOptions == null) {
+    		return delete(builder,path);
+    	}
+    	else {
+    		HashMap<String, String> headers = new HashMap<String, String>();
+            headers.put("Content-Type", MEDIA_TYPE);
+            headers.put("Accept", MEDIA_TYPE);
+    		Request request = apiClient.buildRequest(path, "DELETE", new ArrayList<Pair>(), new ArrayList<Pair>(), null,
+                    headers, new HashMap<String, Object>(), new String[0], null);
+    		byte[] bytes = encode(deleteOptions, "v1", "DeleteOptions");
+        	request = request.newBuilder().delete(RequestBody.create(MediaType.parse(MEDIA_TYPE), bytes)).build();
+        	Response resp = apiClient.getHttpClient().newCall(request).execute();
+            Unknown u = parse(resp.body().byteStream());
+            resp.body().close();
+
+            if (u.getTypeMeta().getApiVersion().equals("v1") &&
+                u.getTypeMeta().getKind().equals("Status")) {
+                Status status = Status.newBuilder().mergeFrom(u.getRaw()).build();
+                return new ObjectOrStatus(null, status);
+            }
+
+            return new ObjectOrStatus((T) builder.mergeFrom(u.getRaw()).build(), null);
+    	}
+
     }
 
     /**
@@ -157,13 +186,20 @@ public class ProtoClient {
     public <T extends Message> ObjectOrStatus<T> request(T.Builder builder, String path, String method, T body, String apiVersion,
             String kind) throws ApiException, IOException {
         HashMap<String, String> headers = new HashMap<String, String>();
-        headers.put("Content-type", MEDIA_TYPE);
+        headers.put("Content-Type", MEDIA_TYPE);
         headers.put("Accept", MEDIA_TYPE);
         Request request = apiClient.buildRequest(path, method, new ArrayList<Pair>(), new ArrayList<Pair>(), null,
                 headers, new HashMap<String, Object>(), new String[0], null);
         if (body != null) {
             byte[] bytes = encode(body, apiVersion, kind);
-            request = request.newBuilder().post(RequestBody.create(MediaType.parse(MEDIA_TYPE), bytes)).build();
+            if ("POST".equals(method))
+            	request = request.newBuilder().post(RequestBody.create(MediaType.parse(MEDIA_TYPE), bytes)).build();
+            else if ("PUT".equals(method))
+            	request = request.newBuilder().put(RequestBody.create(MediaType.parse(MEDIA_TYPE), bytes)).build();
+            else if ("PATCH".equals(method))
+            	request = request.newBuilder().patch(RequestBody.create(MediaType.parse(MEDIA_TYPE), bytes)).build();            
+            else
+            	throw new ApiException("Unknown proto client API method: "+method);
         }
         Response resp = apiClient.getHttpClient().newCall(request).execute();
         Unknown u = parse(resp.body().byteStream());
