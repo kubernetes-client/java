@@ -134,7 +134,7 @@ public class ProtoClient {
      * @param path The path to call in the API server
      * @return The response status
      */
-    public <T extends Message> ObjectOrStatus<T> delete(T.Builder builder, String path) throws ApiException, IOException {
+    public <T extends Message> ObjectOrStatus<T> delete(T.Builder builder,String path) throws ApiException, IOException {
         return request(builder, path, "DELETE", null, null, null);
     }
 
@@ -149,27 +149,25 @@ public class ProtoClient {
     	if (deleteOptions == null) {
     		return delete(builder,path);
     	}
-    	else {
-    		HashMap<String, String> headers = new HashMap<String, String>();
-            headers.put("Content-Type", MEDIA_TYPE);
-            headers.put("Accept", MEDIA_TYPE);
-    		Request request = apiClient.buildRequest(path, "DELETE", new ArrayList<Pair>(), new ArrayList<Pair>(), null,
-                    headers, new HashMap<String, Object>(), new String[0], null);
-    		byte[] bytes = encode(deleteOptions, "v1", "DeleteOptions");
-        	request = request.newBuilder().delete(RequestBody.create(MediaType.parse(MEDIA_TYPE), bytes)).build();
-        	Response resp = apiClient.getHttpClient().newCall(request).execute();
-            Unknown u = parse(resp.body().byteStream());
-            resp.body().close();
 
-            if (u.getTypeMeta().getApiVersion().equals("v1") &&
-                u.getTypeMeta().getKind().equals("Status")) {
+    	HashMap<String, String> headers = new HashMap<String, String>();
+    	headers.put("Content-Type", MEDIA_TYPE);
+    	headers.put("Accept", MEDIA_TYPE);
+    	Request request = apiClient.buildRequest(path, "DELETE", new ArrayList<Pair>(), new ArrayList<Pair>(), null,
+    			headers, new HashMap<String, Object>(), new String[0], null);
+    	byte[] bytes = encode(deleteOptions, "v1", "DeleteOptions");
+    	request = request.newBuilder().delete(RequestBody.create(MediaType.parse(MEDIA_TYPE), bytes)).build();
+    	Response resp = apiClient.getHttpClient().newCall(request).execute();
+    	Unknown u = parse(resp.body().byteStream());
+    	resp.body().close();
+
+    	if (u.getTypeMeta().getApiVersion().equals("v1") &&
+    			u.getTypeMeta().getKind().equals("Status")) {
                 Status status = Status.newBuilder().mergeFrom(u.getRaw()).build();
                 return new ObjectOrStatus(null, status);
-            }
-
-            return new ObjectOrStatus((T) builder.mergeFrom(u.getRaw()).build(), null);
     	}
 
+    	return new ObjectOrStatus((T) builder.mergeFrom(u.getRaw()).build(), null);
     }
 
     /**
@@ -192,14 +190,19 @@ public class ProtoClient {
                 headers, new HashMap<String, Object>(), new String[0], null);
         if (body != null) {
             byte[] bytes = encode(body, apiVersion, kind);
-            if ("POST".equals(method))
-            	request = request.newBuilder().post(RequestBody.create(MediaType.parse(MEDIA_TYPE), bytes)).build();
-            else if ("PUT".equals(method))
-            	request = request.newBuilder().put(RequestBody.create(MediaType.parse(MEDIA_TYPE), bytes)).build();
-            else if ("PATCH".equals(method))
-            	request = request.newBuilder().patch(RequestBody.create(MediaType.parse(MEDIA_TYPE), bytes)).build();            
-            else
-            	throw new ApiException("Unknown proto client API method: "+method);
+            switch (method) {
+            case "POST":
+                request = request.newBuilder().post(RequestBody.create(MediaType.parse(MEDIA_TYPE), bytes)).build();
+                break;
+            case "PUT":
+                request = request.newBuilder().put(RequestBody.create(MediaType.parse(MEDIA_TYPE), bytes)).build();
+                break;
+            case "PATCH":
+                request = request.newBuilder().patch(RequestBody.create(MediaType.parse(MEDIA_TYPE), bytes)).build();
+                break;
+            default:
+                throw new ApiException("Unknown proto client API method: " + method);
+            }
         }
         Response resp = apiClient.getHttpClient().newCall(request).execute();
         Unknown u = parse(resp.body().byteStream());
