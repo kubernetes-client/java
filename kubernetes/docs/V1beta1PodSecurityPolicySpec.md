@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**allowPrivilegeEscalation** | **Boolean** | AllowPrivilegeEscalation determines if a pod can request to allow privilege escalation. |  [optional]
+**allowPrivilegeEscalation** | **Boolean** | AllowPrivilegeEscalation determines if a pod can request to allow privilege escalation. If unspecified, defaults to true. |  [optional]
 **allowedCapabilities** | **List&lt;String&gt;** | AllowedCapabilities is a list of capabilities that can be requested to add to the container. Capabilities in this field may be added at the pod author&#39;s discretion. You must not list a capability in both AllowedCapabilities and RequiredDropCapabilities. |  [optional]
 **allowedHostPaths** | [**List&lt;V1beta1AllowedHostPath&gt;**](V1beta1AllowedHostPath.md) | is a white list of allowed host paths. Empty indicates that all host paths may be used. |  [optional]
 **defaultAddCapabilities** | **List&lt;String&gt;** | DefaultAddCapabilities is the default set of capabilities that will be added to the container unless the pod spec specifically drops the capability.  You may not list a capabiility in both DefaultAddCapabilities and RequiredDropCapabilities. |  [optional]
