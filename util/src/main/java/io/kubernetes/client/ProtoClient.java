@@ -134,7 +134,7 @@ public class ProtoClient {
      * @param path The path to call in the API server
      * @return The response status
      */
-    public <T extends Message> ObjectOrStatus<T> delete(T.Builder builder,String path) throws ApiException, IOException {
+    public <T extends Message> ObjectOrStatus<T> delete(T.Builder builder, String path) throws ApiException, IOException {
         return request(builder, path, "DELETE", null, null, null);
     }
 
@@ -150,7 +150,7 @@ public class ProtoClient {
     		return delete(builder,path);
     	}
 
-    	HashMap<String, String> headers = new HashMap<String, String>();
+    	HashMap<String, String> headers = new HashMap<>();
     	headers.put("Content-Type", MEDIA_TYPE);
     	headers.put("Accept", MEDIA_TYPE);
     	Request request = apiClient.buildRequest(path, "DELETE", new ArrayList<Pair>(), new ArrayList<Pair>(), null,
@@ -183,7 +183,7 @@ public class ProtoClient {
      */
     public <T extends Message> ObjectOrStatus<T> request(T.Builder builder, String path, String method, T body, String apiVersion,
             String kind) throws ApiException, IOException {
-        HashMap<String, String> headers = new HashMap<String, String>();
+        HashMap<String, String> headers = new HashMap<>();
         headers.put("Content-Type", MEDIA_TYPE);
         headers.put("Accept", MEDIA_TYPE);
         Request request = apiClient.buildRequest(path, method, new ArrayList<Pair>(), new ArrayList<Pair>(), null,
