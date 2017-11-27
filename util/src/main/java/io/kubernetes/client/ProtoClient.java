@@ -153,8 +153,9 @@ public class ProtoClient {
     	HashMap<String, String> headers = new HashMap<>();
     	headers.put("Content-Type", MEDIA_TYPE);
     	headers.put("Accept", MEDIA_TYPE);
+    	String[] localVarAuthNames = new String[] { "BearerToken" };
     	Request request = apiClient.buildRequest(path, "DELETE", new ArrayList<Pair>(), new ArrayList<Pair>(), null,
-    			headers, new HashMap<String, Object>(), new String[0], null);
+    			headers, new HashMap<String, Object>(), localVarAuthNames, null);
     	byte[] bytes = encode(deleteOptions, "v1", "DeleteOptions");
     	request = request.newBuilder().delete(RequestBody.create(MediaType.parse(MEDIA_TYPE), bytes)).build();
     	Response resp = apiClient.getHttpClient().newCall(request).execute();
