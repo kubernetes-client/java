@@ -186,8 +186,9 @@ public class ProtoClient {
         HashMap<String, String> headers = new HashMap<>();
         headers.put("Content-Type", MEDIA_TYPE);
         headers.put("Accept", MEDIA_TYPE);
+        String[] localVarAuthNames = new String[] { "BearerToken" };
         Request request = apiClient.buildRequest(path, method, new ArrayList<Pair>(), new ArrayList<Pair>(), null,
-                headers, new HashMap<String, Object>(), new String[0], null);
+                headers, new HashMap<String, Object>(), localVarAuthNames, null);
         if (body != null) {
             byte[] bytes = encode(body, apiVersion, kind);
             switch (method) {
