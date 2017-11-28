@@ -1,5 +1,7 @@
 package io.kubernetes.client.custom;
 
+import org.apache.commons.lang3.tuple.Pair;
+
 import java.math.BigDecimal;
 import java.math.MathContext;
 
@@ -68,11 +70,11 @@ public class QuantityFormatter {
     private Pair<Long, Integer> ensureExponentIsMultipleOf3(final long mantissa, final int exponent) {
         final long exponentRemainder = exponent % 3;
         if (exponentRemainder == 1 || exponentRemainder == -2) {
-            return new Pair<>(mantissa * 10, exponent - 1);
+            return Pair.of(mantissa * 10, exponent - 1);
         } else if (exponentRemainder == -1 || exponentRemainder == 2) {
-            return new Pair<>(mantissa * 100, exponent - 2);
+            return Pair.of(mantissa * 100, exponent - 2);
         } else {
-            return new Pair<>(mantissa, exponent);
+            return Pair.of(mantissa, exponent);
         }
     }
 
@@ -83,7 +85,7 @@ public class QuantityFormatter {
             times++;
             result = result / base;
         }
-        return new Pair<>(result, times);
+        return Pair.of(result, times);
     }
 
 }

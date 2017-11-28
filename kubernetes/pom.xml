@@ -153,6 +153,10 @@
       <artifactId>joda-time</artifactId>
       <version>${jodatime-version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+    </dependency>
     <!-- test dependencies -->
     <dependency>
       <groupId>junit</groupId>
