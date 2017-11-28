@@ -13,49 +13,49 @@ public class QuantityFormatterTest {
     public void testParsePlain() {
         final Quantity quantity = new QuantityFormatter().parse("1");
         assertThat(quantity.getFormat(), is(Quantity.Format.DECIMAL_SI));
-        assertThat(quantity.getBigDecimal(), is(BigDecimal.valueOf(1)));
+        assertThat(quantity.getNumber(), is(BigDecimal.valueOf(1)));
     }
 
     @Test
     public void testParseFractional() {
         final Quantity quantity = new QuantityFormatter().parse("0.001");
         assertThat(quantity.getFormat(), is(Quantity.Format.DECIMAL_SI));
-        assertThat(quantity.getBigDecimal(), is(BigDecimal.valueOf(0.001)));
+        assertThat(quantity.getNumber(), is(BigDecimal.valueOf(0.001)));
     }
 
     @Test
     public void testParseFractionalUnit() {
         final Quantity quantity = new QuantityFormatter().parse("0.001m");
         assertThat(quantity.getFormat(), is(Quantity.Format.DECIMAL_SI));
-        assertThat(quantity.getBigDecimal(), is(new BigDecimal("0.000001")));
+        assertThat(quantity.getNumber(), is(new BigDecimal("0.000001")));
     }
 
     @Test
     public void testParseBinarySi() {
         final Quantity quantity = new QuantityFormatter().parse("1Ki");
         assertThat(quantity.getFormat(), is(Quantity.Format.BINARY_SI));
-        assertThat(quantity.getBigDecimal(), is(BigDecimal.valueOf(1024)));
+        assertThat(quantity.getNumber(), is(BigDecimal.valueOf(1024)));
     }
 
     @Test
     public void testParseLargeNumeratorBinarySi() {
         final Quantity quantity = new QuantityFormatter().parse("32Mi");
         assertThat(quantity.getFormat(), is(Quantity.Format.BINARY_SI));
-        assertThat(quantity.getBigDecimal(), is(BigDecimal.valueOf(2).pow(20).multiply(BigDecimal.valueOf(32))));
+        assertThat(quantity.getNumber(), is(BigDecimal.valueOf(2).pow(20).multiply(BigDecimal.valueOf(32))));
     }
 
     @Test
     public void testParseExponent() {
         final Quantity quantity = new QuantityFormatter().parse("1e3");
         assertThat(quantity.getFormat(), is(Quantity.Format.DECIMAL_EXPONENT));
-        assertThat(quantity.getBigDecimal(), is(BigDecimal.valueOf(1000)));
+        assertThat(quantity.getNumber(), is(BigDecimal.valueOf(1000)));
     }
 
     @Test
     public void testParseNegativeExponent() {
         final Quantity quantity = new QuantityFormatter().parse("1e-3");
         assertThat(quantity.getFormat(), is(Quantity.Format.DECIMAL_EXPONENT));
-        assertThat(quantity.getBigDecimal(), is(BigDecimal.valueOf(0.001)));
+        assertThat(quantity.getNumber(), is(BigDecimal.valueOf(0.001)));
     }
 
     @Test(expected = QuantityFormatException.class)

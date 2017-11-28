@@ -37,7 +37,7 @@ public class QuantityFormatter {
                 return toBase10String(quantity);
             case BINARY_SI:
                 if (isFractional(quantity)) {
-                    return toBase10String(new Quantity(quantity.getBigDecimal(), Quantity.Format.DECIMAL_SI));
+                    return toBase10String(new Quantity(quantity.getNumber(), Quantity.Format.DECIMAL_SI));
                 }
                 return toBase1024String(quantity);
             default:
@@ -46,11 +46,11 @@ public class QuantityFormatter {
     }
 
     private boolean isFractional(Quantity quantity) {
-        return quantity.getBigDecimal().scale() > 0;
+        return quantity.getNumber().scale() > 0;
     }
 
     private String toBase1024String(final Quantity quantity) {
-        final BigDecimal amount = quantity.getBigDecimal();
+        final BigDecimal amount = quantity.getNumber();
         final long value = amount.unscaledValue().longValue();
         final int exponent = -amount.scale();
         final Pair<Long, Integer> resultAndTimes = removeFactorsForBase(value, 1024);
@@ -58,7 +58,7 @@ public class QuantityFormatter {
     }
 
     private String toBase10String(final Quantity quantity) {
-        final BigDecimal amount = quantity.getBigDecimal();
+        final BigDecimal amount = quantity.getNumber();
         final long value = amount.unscaledValue().longValue();
         final int exponent = -amount.scale();
         final Pair<Long, Integer> resultAndTimes = removeFactorsForBase(value, 10);

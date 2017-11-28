@@ -33,7 +33,7 @@ public class Quantity {
         this.format = format;
     }
 
-    public BigDecimal getBigDecimal() {
+    public BigDecimal getNumber() {
         return number;
     }
 
