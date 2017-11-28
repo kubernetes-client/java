@@ -12,21 +12,11 @@ limitations under the License.
 */
 package io.kubernetes.client;
 
-import io.kubernetes.client.Configuration;
 import io.kubernetes.client.apis.CoreV1Api;
 import io.kubernetes.client.models.V1Pod;
-import io.kubernetes.client.util.WebSockets;
-import io.kubernetes.client.util.WebSocketStreamHandler;
 
-import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PipedInputStream;
-import java.io.PipedOutputStream;
-import java.io.Reader;
-
-import org.apache.commons.lang.StringUtils;
 
 import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Response;

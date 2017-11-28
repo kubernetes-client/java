@@ -12,21 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client;
 
-import io.kubernetes.client.Configuration;
 import io.kubernetes.client.models.V1Pod;
 import io.kubernetes.client.util.WebSocketStreamHandler;
 import io.kubernetes.client.util.WebSockets;
+import org.apache.commons.lang3.StringUtils;
 
-import java.io.ByteArrayInputStream;
-import java.io.Closeable;
 import java.io.InputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.PipedInputStream;
-import java.io.PipedOutputStream;
-import java.io.Reader;
-
-import org.apache.commons.lang.StringUtils;
 
 public class Exec {
     private ApiClient apiClient;
@@ -70,7 +63,7 @@ public class Exec {
             "/exec?" +
             "stdin=" + stdin +
             "&tty=" + tty +
-            (container != null ? "&container=" + container : "") + 
+            (container != null ? "&container=" + container : "") +
             "&command=" + StringUtils.join(command, "&command=");
         return path;
     }
@@ -78,7 +71,7 @@ public class Exec {
     /**
      * Execute a command in a container. If there are multiple containers in the pod, uses
      * the first container in the Pod.
-     * 
+     *
      * @param namespace The namespace of the Pod
      * @param name The name of the Pod
      * @param command The command to run
@@ -91,10 +84,10 @@ public class Exec {
     /**
      * Execute a command in a container. If there are multiple containers in the pod, uses
      * the first container in the Pod.
-     * 
+     *
      * @param pod The pod where the command is run.
      * @param command The command to run
-     * @param stdin If true, pass a stdin stream into the container 
+     * @param stdin If true, pass a stdin stream into the container
      */
     public Process exec(V1Pod pod, String[] command, boolean stdin) throws ApiException, IOException {
         return exec(pod, command, null, stdin, false);
@@ -103,11 +96,11 @@ public class Exec {
     /**
      * Execute a command in a container. If there are multiple containers in the pod, uses
      * the first container in the Pod.
-     * 
+     *
      * @param namespace The namespace of the Pod
      * @param name The name of the Pod
      * @param command The command to run
-     * @param stdin If true, pass a stdin stream into the container 
+     * @param stdin If true, pass a stdin stream into the container
      * @param tty If true, stdin is a tty.
      */
     public Process exec(String namespace, String name, String[] command, boolean stdin, boolean tty) throws ApiException, IOException {
@@ -117,10 +110,10 @@ public class Exec {
     /**
      * Execute a command in a container. If there are multiple containers in the pod, uses
      * the first container in the Pod.
-     * 
+     *
      * @param pod The pod where the command is run.
      * @param command The command to run
-     * @param stdin If true, pass a stdin stream into the container 
+     * @param stdin If true, pass a stdin stream into the container
      * @param tty If true, stdin is a tty.
      */
     public Process exec(V1Pod pod, String[] command, boolean stdin, boolean tty) throws ApiException, IOException {
@@ -130,7 +123,7 @@ public class Exec {
     /**
      * Execute a command in a container. If there are multiple containers in the pod, uses
      * the first container in the Pod.
-     * 
+     *
      * @param pod The pod where the command is run.
      * @param command The command to run
      * @param container The container in the Pod where the command is run.
@@ -144,7 +137,7 @@ public class Exec {
     /**
      * Execute a command in a container. If there are multiple containers in the pod, uses
      * the first container in the Pod.
-     * 
+     *
      * @param namespace The namespace of the Pod
      * @param name The name of the Pod
      * @param command The command to run
@@ -166,7 +159,7 @@ public class Exec {
         WebSocketStreamHandler streamHandler;
         private int statusCode;
 
-        
+
         public ExecProcess(WebSocketStreamHandler handler) throws IOException {
             this.streamHandler = handler;
             this.statusCode = -1;
@@ -194,7 +187,7 @@ public class Exec {
             }
             return statusCode;
         }
-  
+
         public int exitValue() {
             return statusCode;
         }
@@ -202,5 +195,5 @@ public class Exec {
         public void destroy() {
             streamHandler.close();
         }
-    }             
+    }
 }
