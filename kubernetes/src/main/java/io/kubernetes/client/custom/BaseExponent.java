@@ -3,11 +3,10 @@ package io.kubernetes.client.custom;
 public class BaseExponent {
 
     private final int base;
-
     private final int exponent;
-
     private final Quantity.Format format;
-    public BaseExponent(int base, int exponent, Quantity.Format format) {
+
+    public BaseExponent(final int base, final int exponent, final Quantity.Format format) {
         this.base = base;
         this.exponent = exponent;
         this.format = format;
