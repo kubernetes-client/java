@@ -45,9 +45,6 @@ public class BaseExponent {
 
     @Override
     public int hashCode() {
-        int result = base;
-        result = 31 * result + exponent;
-        result = 31 * result + (format != null ? format.hashCode() : 0);
-        return result;
+        return this.toString().hashCode();
     }
 }
