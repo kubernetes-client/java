@@ -41,9 +41,7 @@ public class BaseExponent {
 
         BaseExponent that = (BaseExponent) o;
 
-        if (base != that.base) return false;
-        if (exponent != that.exponent) return false;
-        return format == that.format;
+        return base == that.base && exponent == that.exponent && format == that.format;
     }
 
     @Override
