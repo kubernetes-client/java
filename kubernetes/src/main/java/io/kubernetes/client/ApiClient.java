@@ -920,13 +920,19 @@ public class ApiClient {
      * @throws ApiException If fail to serialize the request body object
      */
     public Request buildRequest(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        updateParamsForAuth(authNames, queryParams, headerParams);
+        String contentType = (String) headerParams.get("Content-Type");
+        // Content-Type: JSON Patch( for json object) and Strategic Merge Patch (for list of json object)
+        if("application/json-patch+json".equals(contentType) && !List.class.isInstance(body)) {
+            contentType = "application/strategic-merge-patch+json";
+            headerParams.put("Content-Type", contentType);
+        }
+        
+    	updateParamsForAuth(authNames, queryParams, headerParams);
 
         final String url = buildUrl(path, queryParams, collectionQueryParams);
         final Request.Builder reqBuilder = new Request.Builder().url(url);
         processHeaderParams(headerParams, reqBuilder);
 
-        String contentType = (String) headerParams.get("Content-Type");
         // ensuring a default content type
         if (contentType == null) {
             contentType = "application/json";
