@@ -44,6 +44,11 @@ public class IntOrString {
         return intValue;
     }
 
+    @Override
+    public String toString() {
+    	return (isInt ? String.valueOf(intValue) : strValue);
+    }	    
+
     public static class IntOrStringAdapter extends TypeAdapter<IntOrString> {
         @Override
         public void write(JsonWriter jsonWriter, IntOrString intOrString) throws IOException {
