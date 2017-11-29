@@ -70,8 +70,8 @@ public class ProtoExample {
             System.out.println(ns.status);
         }
 
-        Status stat = pc.delete(Namespace.newBuilder(), "/api/v1/namespaces/test");
-        System.out.println(stat);
+        ns = pc.delete(Namespace.newBuilder(), "/api/v1/namespaces/test");
+        System.out.println(ns);
 
     }
 }
