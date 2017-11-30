@@ -145,7 +145,7 @@ public class ProtoClient {
      * @param deleteOptions optional deleteOptions
      * @return The response status
      */
-    public <T extends Message> ObjectOrStatus<T> delete(T.Builder builder, String path,DeleteOptions deleteOptions) throws ApiException, IOException {
+    public <T extends Message> ObjectOrStatus<T> delete(T.Builder builder, String path, DeleteOptions deleteOptions) throws ApiException, IOException {
     	if (deleteOptions == null) {
     		return delete(builder,path);
     	}
