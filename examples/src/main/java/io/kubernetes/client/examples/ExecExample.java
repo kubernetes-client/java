@@ -31,10 +31,10 @@ import java.io.OutputStream;
 /**
  * A simple example of how to use the Java API
  * 
- * Easiest way to run this:
+ * <p>Easiest way to run this:
  *   mvn exec:java -Dexec.mainClass="io.kubernetes.client.examples.Example"
  * 
- * From inside $REPO_DIR/kubernetes
+ * <p>From inside $REPO_DIR/examples
  */
 public class ExecExample {
     public static void main(String[] args) throws IOException, ApiException, InterruptedException {
