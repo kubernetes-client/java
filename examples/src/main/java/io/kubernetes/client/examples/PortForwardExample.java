@@ -36,11 +36,11 @@ import java.util.List;
 /**
  * A simple example of how to use the Java API
  * 
- * Easiest way to run this:
+ * <p>Easiest way to run this:
  *   mvn exec:java -Dexec.mainClass="io.kubernetes.client.examples.PortForwardExample"
  * from inside $REPO_DIR/examples
  * 
- * Then:
+ * <p>Then:
  *   curl localhost:8080
  * from a different terminal (but be quick about it, the socket times out pretty fast...)
  * 
