@@ -49,7 +49,8 @@ public class KubeConfigTest {
         "  name: foo\n" + 
         "contexts:\n" + 
         "- context:\n" +
-        "    cluster: foo\n" + 
+        "    cluster: foo\n" +
+        "    namespace: some_namespace\n" +
         "    user: foo\n" +
         "  name: foo-context\n" +
         "current-context: foo-context\n";
@@ -109,5 +110,17 @@ public class KubeConfigTest {
             ex.printStackTrace();
             fail("Unexpected exception: " + ex);
         }
+    }
+
+    @Test
+    public void testNamespace() {
+        KubeConfig config = KubeConfig.loadKubeConfig(new StringReader(KUBECONFIG_TOKEN));
+        assertEquals(config.getNamespace(), "some_namespace");
+    }
+
+    @Test
+    public void testNullNamespace() {
+        KubeConfig config = KubeConfig.loadKubeConfig(new StringReader(GCP_CONFIG));
+        assertNull(config.getNamespace());
     }
 }
