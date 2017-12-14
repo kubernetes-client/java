@@ -48,6 +48,7 @@ public class KubeConfig {
     Map<String, Object> currentContext;
     Map<String, Object> currentCluster;
     Map<String, Object> currentUser;
+    String currentNamespace;
 
     private static final Logger log = Logger.getLogger(KubeConfig.class);
 
@@ -112,7 +113,7 @@ public class KubeConfig {
         }
         String cluster = (String) currentContext.get("cluster");
         String user = (String) currentContext.get("user");
-
+        currentNamespace = (String) currentContext.get("namespace");
         if (cluster != null) {
             Map<String, Object> obj = findObject(clusters, cluster);
             if (obj != null) {
@@ -126,6 +127,10 @@ public class KubeConfig {
             }
         }
         return true;
+    }
+
+    public String getNamespace() {
+        return currentNamespace;
     }
 
     public String getServer() {
@@ -175,7 +180,6 @@ public class KubeConfig {
             if (authConfig != null) {
                 String name = (String) authProviderMap.get("name");
                 Authenticator auth = authenticators.get(name);
-                System.out.println(auth + " for " + name);                
                 if (auth != null) {
                     if (auth.isExpired(authConfig)) {
                         authConfig = auth.refresh(authConfig);
