@@ -22,6 +22,7 @@ import io.kubernetes.client.util.Config;
 import io.kubernetes.client.util.Watch;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 /**
  * A simple example of how to use Watch API to watch changes in Namespace list.
@@ -29,6 +30,7 @@ import java.io.IOException;
 public class WatchExample {
     public static void main(String[] args) throws IOException, ApiException{
         ApiClient client = Config.defaultClient();
+        client.getHttpClient().setReadTimeout(60, TimeUnit.SECONDS);
         Configuration.setDefaultApiClient(client);
 
         CoreV1Api api = new CoreV1Api();
