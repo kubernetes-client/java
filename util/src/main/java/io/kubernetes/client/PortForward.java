@@ -138,7 +138,7 @@ public class PortForward {
                 InputStream is = handler.getInputStream(i);
                 byte[] data = new byte[2];
                 is.read(data);
-                int port = data[0] + data[1] * 256;
+                int port = (data[0] & 0xFF) + (data[1] & 0xFF) * 256;
                 streams.put(port, i);
             }
         }
