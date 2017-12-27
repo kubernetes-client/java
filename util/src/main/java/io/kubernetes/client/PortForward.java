@@ -135,7 +135,7 @@ public class PortForward {
          */
         public void init() throws IOException {
             for (int i = 0; i < ports.size(); i++) {
-                InputStream is = handler.getInputStream(i);
+                InputStream is = handler.getInputStream(i * 2);
                 byte[] data = new byte[2];
                 is.read(data);
                 int port = (data[0] & 0xFF) + (data[1] & 0xFF) * 256;
