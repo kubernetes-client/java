@@ -52,9 +52,10 @@ public class PortForwardExample {
 
         PortForward forward = new PortForward();
         List<Integer> ports = new ArrayList<>();
+        ports.add(8080);
         ports.add(80);
         final PortForward.PortForwardResult result =
-            forward.forward("default", "nginx-4217019353-fg6zx", ports);
+            forward.forward("default", "nginx-d5dc44cf7-x7475", ports);
 
         ServerSocket ss = new ServerSocket(8080);
 
