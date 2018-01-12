@@ -25,7 +25,7 @@ You will need to have the following in place:
    authorized to publish to `io.kubernetes:client-java`. With your credentials
    in-hand, place these in your `settings.xml` (typically
    `~/.m2/settings.xml`) config file. An example config is:
-   ```xml
+```xml
 <settings>
   <servers>
     <server>
@@ -35,7 +35,7 @@ You will need to have the following in place:
     </server>
   </servers>
 </settings>
-   ```
+```
 
 3. A GPG key - if you are a publisher, you should already have a copy. You will
    be prompted on STDIN to enter the key's passphrase during release.
