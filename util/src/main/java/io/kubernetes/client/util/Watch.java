@@ -12,13 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
+import com.google.gson.JsonParseException;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
 import com.squareup.okhttp.Call;
 import com.squareup.okhttp.ResponseBody;
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
 import io.kubernetes.client.JSON;
 
+import io.kubernetes.client.models.V1Status;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Iterator;
@@ -46,9 +49,18 @@ public class Watch<T> implements Iterable<Watch.Response<T>>,
         @SerializedName("object")
         public T object;
 
+        public V1Status status;
+
         Response(String type, T object) {
             this.type = type;
             this.object = object;
+            this.status = null;
+        }
+
+        Response(String type, V1Status status) {
+            this.type = type;
+            this.object = null;
+            this.status = status;
         }
     }
 
@@ -99,7 +111,13 @@ public class Watch<T> implements Iterable<Watch.Response<T>>,
             if (line == null) {
                 throw new RuntimeException("Null response from the server.");
             }
-            return json.deserialize(line, watchType);
+            try {
+                return json.deserialize(line, watchType);
+            } catch (JsonParseException ex) {
+                Type statusType = new TypeToken<Response<V1Status>>(){}.getType();
+                Response<V1Status> status = json.deserialize(line, statusType);
+                return new Response<T>(status.type, status.object);
+            }
         } catch (IOException e) {
             throw new RuntimeException("IO Exception during next method.", e);
         }
