@@ -1,3 +1,16 @@
+# 1.0.0-beta2
+
+## Fixes
+
+* Fix a bug when Watch returns a Status object
+  ([#165](https://github.com/kubernetes-client/java/pull/165)).
+* Add support for Quantity type
+  ([#129](https://github.com/kubernetes-client/java/pull/129)).
+* Add support for IntOrString
+  ([#108](https://github.com/kubernetes-client/java/pull/108)).
+* Fix some leaks by calling close
+  ([#106](https://github.com/kubernetes-client/java/pull/165)).
+
 # 1.0.0-beta1
 
 This is the first beta release of this client.
