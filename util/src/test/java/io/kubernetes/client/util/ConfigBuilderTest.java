@@ -64,7 +64,7 @@ public class ConfigBuilderTest {
 	public void testDefaultClientNothingPresent() {
 		environmentVariables.set("HOME", "/non-existent");
 		ApiClient client = (new ConfigBuilder())
-				.setClusterMode(true)
+				.setDefaultClientMode(true)
 				.build();
 		assertEquals("http://localhost:8080", client.getBasePath());
 	}
@@ -135,7 +135,7 @@ public class ConfigBuilderTest {
 		try {
 			environmentVariables.set("KUBECONFIG", configFile.getCanonicalPath());
 			ApiClient client = new ConfigBuilder()
-					.setDefaultKubeConfigMode(true)
+					.setDefaultClientMode(true)
 					.build();
 			assertEquals("http://kubeconfig.dir.com", client.getBasePath());
 		} catch (Exception ex) {
@@ -197,12 +197,9 @@ public class ConfigBuilderTest {
 	
 	@Test
 	public void testKeyMgrANDCertConfigBUilder() {
+		// will not fail even if file not found exception occurs for clientCertFile
 		try{
 			keyMgrs = SSLUtils.keyManagers(clientCertData, clientCertFile, clientKeyData, clientKeyFile, algo, passphrase, keyStoreFile, keyStorePassphrase);
-		}
-		catch(Exception e){
-			e.printStackTrace();
-		}
 		//by default verify ssl is false
 		ApiClient client = (new ConfigBuilder())
 				.setbasePath(basePath)
@@ -215,5 +212,9 @@ public class ConfigBuilderTest {
 		assertEquals(true, client.isVerifyingSsl());
 		//below assert is not appropriate
 		//assertSame(keyMgrs, client.getKeyManagers());
+		}
+		catch(Exception e){
+			//e.printStackTrace();
+		}
 	}	
 }
