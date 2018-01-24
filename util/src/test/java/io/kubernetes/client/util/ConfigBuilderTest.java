@@ -16,6 +16,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -51,7 +52,7 @@ public class ConfigBuilderTest {
 	String keyStoreFile = null ;
 	String keyStorePassphrase = null;
 	KeyManager[] keyMgrs =null;
-	
+
 	@Rule
 	public final EnvironmentVariables environmentVariables
 	= new EnvironmentVariables();
@@ -64,7 +65,7 @@ public class ConfigBuilderTest {
 	public void testDefaultClientNothingPresent() {
 		environmentVariables.set("HOME", "/non-existent");
 		ApiClient client = (new ConfigBuilder())
-				.setDefaultClientMode(true)
+				.setDefaultClientMode()
 				.build();
 		assertEquals("http://localhost:8080", client.getBasePath());
 	}
@@ -121,7 +122,7 @@ public class ConfigBuilderTest {
 		try {
 			environmentVariables.set("HOME", dir.getCanonicalPath());
 			ApiClient client = new ConfigBuilder()
-					.setDefaultClientMode(true)
+					.setDefaultClientMode()
 					.build();
 			assertEquals("http://home.dir.com", client.getBasePath());
 		} catch (Exception ex) {
@@ -135,7 +136,7 @@ public class ConfigBuilderTest {
 		try {
 			environmentVariables.set("KUBECONFIG", configFile.getCanonicalPath());
 			ApiClient client = new ConfigBuilder()
-					.setDefaultClientMode(true)
+					.setDefaultClientMode()
 					.build();
 			assertEquals("http://kubeconfig.dir.com", client.getBasePath());
 		} catch (Exception ex) {
@@ -150,7 +151,7 @@ public class ConfigBuilderTest {
 			environmentVariables.set("HOME", dir.getCanonicalPath());
 			environmentVariables.set("KUBECONFIG", configFile.getCanonicalPath());
 			ApiClient client = new ConfigBuilder()
-					.setDefaultClientMode(true)
+					.setDefaultClientMode()
 					.build();
 			// $KUBECONFIG should take precedence over $HOME/.kube/config
 			assertEquals("http://kubeconfig.dir.com", client.getBasePath());
@@ -164,7 +165,7 @@ public class ConfigBuilderTest {
 	public void testUserNamePasswordConfigBuilder() {
 		try {
 			ApiClient client = (new ConfigBuilder())
-					.setbasePath(basePath)
+					.setBasePath(basePath)
 					.setUserName(userName)
 					.setPassword(password)
 					.build();
@@ -183,8 +184,9 @@ public class ConfigBuilderTest {
 
 	@Test
 	public void testApiKeyConfigbuilder() {
-		ApiClient client = (new ConfigBuilder())
-				.setbasePath(basePath)
+		ApiClient client = null;
+		client = (new ConfigBuilder())
+				.setBasePath(basePath)
 				.setApiKeyPrefix(apiKeyPrefix)
 				.setApiKey(apiKey)
 				.build();
@@ -194,27 +196,51 @@ public class ConfigBuilderTest {
 		assertEquals( apiKey, ((io.kubernetes.client.auth.ApiKeyAuth)client.getAuthentications().get("BearerToken")).getApiKey());
 		assertEquals(null,((io.kubernetes.client.auth.HttpBasicAuth)client.getAuthentications().get("BasicAuth")).getUsername());
 	}
-	
+
 	@Test
 	public void testKeyMgrANDCertConfigBUilder() {
 		// will not fail even if file not found exception occurs for clientCertFile
 		try{
 			keyMgrs = SSLUtils.keyManagers(clientCertData, clientCertFile, clientKeyData, clientKeyFile, algo, passphrase, keyStoreFile, keyStorePassphrase);
-		//by default verify ssl is false
-		ApiClient client = (new ConfigBuilder())
-				.setbasePath(basePath)
-				.setKeyMgrs(keyMgrs)
-				.setCertificateAuthorityData(certificateAuthorityData)
-				.setCertificateAuthorityFile(certificateAuthorityFile)
-				.setVerifyingSsl(true)
-				.build();
-		assertEquals(basePath, client.getBasePath());
-		assertEquals(true, client.isVerifyingSsl());
-		//below assert is not appropriate
-		//assertSame(keyMgrs, client.getKeyManagers());
+			//by default verify ssl is false
+			ApiClient client = (new ConfigBuilder())
+					.setBasePath(basePath)
+					.setKeyMgrs(keyMgrs)
+					.setCertificateAuthority(certificateAuthorityData)
+					.setVerifyingSsl(true)
+					.build();
+			assertEquals(basePath, client.getBasePath());
+			assertEquals(true, client.isVerifyingSsl());
+			//below assert is not appropriate
+			//assertSame(keyMgrs, client.getKeyManagers());
 		}
 		catch(Exception e){
 			//e.printStackTrace();
 		}
-	}	
+	}
+
+	@Test
+	public void testBasePathIllegalArgumentException() throws IOException {
+		ApiClient client = null ;
+		try {
+			client = (new ConfigBuilder())
+					.setUserName("user")
+					.build();
+		}
+		catch(IllegalArgumentException ie) {
+			assertEquals(IllegalArgumentException.class, ie.getClass());
+		}
+		environmentVariables.set("HOME", "/non-existent");
+		client = (new ConfigBuilder())
+				.setDefaultClientMode()
+				.setUserName("user")
+				.build();
+		assertEquals("http://localhost:8080", client.getBasePath());
+		environmentVariables.set("KUBECONFIG", configFile.getCanonicalPath());
+		client = new ConfigBuilder()
+				.setDefaultClientMode()
+				.setBasePath("http://testkubeconfig.dir.com")
+				.build();
+		assertEquals("http://testkubeconfig.dir.com", client.getBasePath());		
+	}
 }

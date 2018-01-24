@@ -12,6 +12,9 @@ limitations under the License.
  */
 package io.kubernetes.client.util;
 
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -22,21 +25,22 @@ import java.nio.charset.Charset;
 
 import javax.net.ssl.KeyManager;
 
+import org.apache.commons.codec.binary.Base64;
+import org.apache.log4j.Logger;
+
 import okio.ByteString;
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.util.Config;
 import io.kubernetes.client.util.KubeConfig;
-import io.kubernetes.client.util.SSLUtils;
 
-public  class ConfigBuilder {
+public class ConfigBuilder {
 
-	private boolean trustCerts = false;
 	private boolean clusterMode = false;
 	private boolean defaultKubeConfigMode = false;
 	private boolean defaultClientMode = false;
 	private boolean verifyingSsl = false;
 	private String basePath = null;
-	private String certificateAuthorityFile = null;
+	private File certificateAuthorityFile = null;
 	private String certificateAuthorityData = null;
 	private String apiKey = null;
 	private String userName = null;
@@ -44,8 +48,9 @@ public  class ConfigBuilder {
 	private KeyManager[] keyMgrs = null;
 	private String accessToken = null;
 	private String apiKeyPrefix = null;
-	private InputStream sslCaCert = null;
 	private KubeConfig kubeConfig = null;
+
+	private static final Logger log = Logger.getLogger(Config.class);
 
 	public String getUserName() {
 		return userName;
@@ -74,45 +79,37 @@ public  class ConfigBuilder {
 		return this;
 	}
 
-	public boolean isTrustCerts() {
-		return trustCerts;
-	}
-
-	public ConfigBuilder setTrustCerts(boolean trustCerts) {
-		this.trustCerts = trustCerts;
-		return this;
-	}
-
-	public String getbasePath() {
+	public String getBasePath() {
 		return basePath;
 	}
 
-	public ConfigBuilder setbasePath(String basePath) {
+	public ConfigBuilder setBasePath(String basePath) {
 		this.basePath = basePath;
 		return this;
 	}
 
-	public String getCertificateAuthorityFile() {
+	public File getCertificateAuthorityFile() {
 		return certificateAuthorityFile;
 	}
 
-	public ConfigBuilder setCertificateAuthorityFile(String certificateAuthorityFile) {
+	public ConfigBuilder setCertificateAuthority(File certificateAuthorityFile) {
 		this.certificateAuthorityFile = certificateAuthorityFile;
+		this.verifyingSsl = true;
 		return this;
-
 	}
 
 	public String getCertificateAuthorityData() {
 		return certificateAuthorityData;
 	}
 
-	public ConfigBuilder setCertificateAuthorityData(String certificateAuthorityData) {
+	public ConfigBuilder setCertificateAuthority(String certificateAuthorityData) {
 		this.certificateAuthorityData = certificateAuthorityData;
+		this.verifyingSsl = true;
 		return this;
 	}
 
-	public ConfigBuilder setClusterMode(boolean clusterMode) {
-		this.clusterMode = clusterMode;
+	public ConfigBuilder setClusterMode() {
+		this.clusterMode = true;
 		return this;
 	}
 
@@ -121,8 +118,8 @@ public  class ConfigBuilder {
 		return this;
 	}
 
-	public ConfigBuilder setDefaultKubeConfigMode(boolean defaultKubeConfigMode) {
-		this.defaultKubeConfigMode = defaultKubeConfigMode;
+	public ConfigBuilder setDefaultKubeConfigMode() {
+		this.defaultKubeConfigMode = true;
 		return this;
 	}
 
@@ -131,12 +128,12 @@ public  class ConfigBuilder {
 		return this;
 	}
 
-	public ConfigBuilder setKubeConfig(Reader input)  {
+	public ConfigBuilder setKubeConfig(Reader input) {
 		this.kubeConfig = KubeConfig.loadKubeConfig(input);
 		return this;
 	}
 
-	public ConfigBuilder setKubeConfig(InputStream stream)  {
+	public ConfigBuilder setKubeConfig(InputStream stream) {
 		this.kubeConfig = KubeConfig.loadKubeConfig(new InputStreamReader(stream));
 		return this;
 	}
@@ -163,8 +160,8 @@ public  class ConfigBuilder {
 		return defaultClientMode;
 	}
 
-	public ConfigBuilder setDefaultClientMode(boolean defaultClientMode) {
-		this.defaultClientMode = defaultClientMode;
+	public ConfigBuilder setDefaultClientMode() {
+		this.defaultClientMode = true;
 		return this;
 	}
 
@@ -177,56 +174,45 @@ public  class ConfigBuilder {
 		return this;
 	}
 
-	public ApiClient build()  {
-
+	public ApiClient build() {
 		ApiClient client = new ApiClient();
 
 		if( kubeConfig !=null) {
 			client = Config.fromConfig(kubeConfig);
-			return client;
 		}
 
 		if(defaultKubeConfigMode == true) {
 			try {
 				client = Config.fromConfig(KubeConfig.loadDefaultKubeConfig());
 			} catch (FileNotFoundException e) {
-				e.printStackTrace();
+				log.error("Unable to find the file", e);
 			}
-			return client;
 		}
 
 		if(clusterMode == true) {
 			try {
 				client = Config.fromCluster();
 			} catch (IOException e) {
-				e.printStackTrace();
+				log.error("Exception ->", e);
 			}
-			return client;
 		}
 
 		if(defaultClientMode ==true ) {
 			try {
 				client = Config.defaultClient();
 			} catch (IOException e) {
-				e.printStackTrace();
+				log.error("Exception -> ", e);
 			}
-			return client;
-
 		}
 
 		if (basePath != null ) {
 			if(basePath.endsWith("/")) {
 				basePath = basePath.substring(0, basePath.length() - 1);
 			}
-			client.setBasePath(basePath)
-			.setVerifyingSsl(verifyingSsl);
-		}
-
-		else {
-			try {
-				throw new Exception("set kubernetes URL. example: http://localhost");
-			} catch (Exception e) {
-				e.printStackTrace();
+			client.setBasePath(basePath);
+		} else {
+			if((clusterMode == false) && (defaultClientMode == false) && (defaultKubeConfigMode == false)) {
+				throw new IllegalArgumentException("please set kubernetes URL ex:http://localhost");
 			}
 		}
 
@@ -266,20 +252,21 @@ public  class ConfigBuilder {
 			client.setApiKey(apiKey);
 		}
 
-		if(sslCaCert != null) {
-			client.setSslCaCert(sslCaCert);
-		}
-		
-		if(verifyingSsl){
-			if((certificateAuthorityData != null) || (certificateAuthorityFile != null)){
-				try {
-					client.setSslCaCert(SSLUtils.getInputStreamFromDataOrFile(certificateAuthorityData, certificateAuthorityFile));
-				} catch (FileNotFoundException e) {
-					e.printStackTrace();
-				}
+		client.setVerifyingSsl(verifyingSsl);
+
+		if(certificateAuthorityFile != null) {
+			try {
+				client.setSslCaCert(new FileInputStream(certificateAuthorityFile));
+			} catch (FileNotFoundException e) {
+				log.error("Unable to find the file", e);
 			}
+		}
+
+		if(certificateAuthorityData != null) {
+			byte[] bytes = Base64.decodeBase64(certificateAuthorityData);
+			client.setSslCaCert(new ByteArrayInputStream(bytes));
 		}
 
 		return client;
 	}
-}    
+}
