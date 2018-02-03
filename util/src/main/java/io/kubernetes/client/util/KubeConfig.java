@@ -12,7 +12,10 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
+import com.google.common.base.Charsets;
 import io.kubernetes.client.util.authenticators.Authenticator;
+import java.nio.file.Paths;
+import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.SafeConstructor;
@@ -230,6 +233,17 @@ public class KubeConfig {
             if (name.equals((String)map.get("name"))) {
                 return map;
             }
+        }
+        return null;
+    }
+
+    public static byte[] getDataOrFile(final String data, final String file)
+        throws IOException {
+        if(data != null) {
+            return Base64.decodeBase64(data);
+        }
+        if(file != null) {
+            return Files.readAllBytes(Paths.get(file));
         }
         return null;
     }

@@ -12,231 +12,190 @@ limitations under the License.
  */
 package io.kubernetes.client.util;
 
+import io.kubernetes.client.util.credentials.AccessTokenCredentialProvider;
+import io.kubernetes.client.util.credentials.CredentialProvider;
+import io.kubernetes.client.util.credentials.KubeconfigCredentialProvider;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
+
 import java.nio.charset.Charset;
-
-import javax.net.ssl.KeyManager;
-
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
 
-import okio.ByteString;
 import io.kubernetes.client.ApiClient;
-import io.kubernetes.client.util.Config;
-import io.kubernetes.client.util.KubeConfig;
+
+import static io.kubernetes.client.util.Config.ENV_KUBECONFIG;
+import static io.kubernetes.client.util.Config.ENV_SERVICE_HOST;
+import static io.kubernetes.client.util.Config.ENV_SERVICE_PORT;
+import static io.kubernetes.client.util.Config.SERVICEACCOUNT_CA_PATH;
+import static io.kubernetes.client.util.Config.SERVICEACCOUNT_TOKEN_PATH;
+import static io.kubernetes.client.util.KubeConfig.*;
 
 public class ClientBuilder {
 
-	private boolean verifyingSsl = false;
-	private String basePath = null;
-	private File certificateAuthorityFile = null;
-	private String certificateAuthorityData = null;
-	private String apiKey = null;
-	private String userName = null;
-	private String password = null;
-	private KeyManager[] keyMgrs = null;
-	private String accessToken = null;
-	private String apiKeyPrefix = null;
-	private KubeConfig kubeConfig = null;
-	private ApiClient client = null;
+  private String basePath = Config.DEFAULT_FALLBACK_HOST;
+  private File certificateAuthorityFile = null;
+  private String certificateAuthorityData = null;
+  private boolean verifyingSsl = true;
+  private CredentialProvider credentialProvider;
 
-	private static final Logger log = Logger.getLogger(Config.class);
+  private static final Logger log = Logger.getLogger(Config.class);
 
-	public String getUserName() {
-		return userName;
-	}
+  public static ClientBuilder defaults() throws IOException {
+    final FileReader kubeConfigReader = findConfigFromEnv();
+    if(kubeConfigReader != null) {
+      return fromKubeConfig(loadKubeConfig(kubeConfigReader));
+    }
+    final FileReader configReader = findConfigInHomeDir();
+    if(configReader != null) {
+      return fromKubeConfig(loadKubeConfig(configReader));
+    }
+    final File clusterCa = new File(SERVICEACCOUNT_CA_PATH);
+    if (clusterCa.exists()) {
+      return fromCluster();
+    }
+    return new ClientBuilder();
+  }
 
-	public ClientBuilder setUserName(String userName) {
-		this.userName = userName;
-		return this;
-	}
+  private static FileReader findConfigFromEnv() throws FileNotFoundException {
+    try {
+      String kubeConfig = System.getenv(ENV_KUBECONFIG);
+      if(kubeConfig == null) {
+        return null;
+      }
+      return new FileReader(kubeConfig);
+    } catch (FileNotFoundException e) {
+      log.info("Could not find KUBECONFIG in environment");
+      return null;
+    }
+  }
 
-	public String getPassword() {
-		return password;
-	}
+  private static FileReader findConfigInHomeDir() throws FileNotFoundException {
+    try {
+      File config = new File(new File(System.getenv(ENV_HOME), KUBEDIR), KUBECONFIG);
+      return new FileReader(config);
+    } catch (FileNotFoundException e) {
+      log.info("Could not find ~/.kube/config");
+      return null;
+    }
+  }
 
-	public ClientBuilder setPassword(String password) {
-		this.password = password;
-		return this;
-	}
+  public static ClientBuilder fromCluster() throws IOException {
+    final ClientBuilder builder = new ClientBuilder();
 
-	public String getApiKey() {
-		return apiKey;
-	}
+    final String host = System.getenv(ENV_SERVICE_HOST);
+    final String port = System.getenv(ENV_SERVICE_PORT);
+    builder.setBasePath("https://" + host + ":" + port);
 
-	public ClientBuilder setApiKey(String apiKey) {
-		this.apiKey = apiKey;
-		return this;
-	}
+    final String token = new String(Files.readAllBytes(Paths.get(SERVICEACCOUNT_TOKEN_PATH)),
+        Charset.defaultCharset());
+    builder.setCertificateAuthority(new File(SERVICEACCOUNT_CA_PATH));
+    builder.setCredentialProvider(new AccessTokenCredentialProvider(token));
 
-	public String getBasePath() {
-		return basePath;
-	}
+    return builder;
+  }
 
-	public ClientBuilder setBasePath(String basePath) {
-		this.basePath = basePath;
-		return this;
-	}
+  public static ClientBuilder fromKubeConfig(KubeConfig config) throws IOException {
+    final ClientBuilder builder = new ClientBuilder();
 
-	public File getCertificateAuthorityFile() {
-		return certificateAuthorityFile;
-	}
+    String server = config.getServer();
+    if (!server.startsWith("http://") && !server.startsWith("https://")) {
+      if (server.contains(":443")) {
+        server = "https://" + server;
+      } else {
+        server = "http://" + server;
+      }
+    }
 
-	public ClientBuilder setCertificateAuthority(File certificateAuthorityFile) {
-		this.certificateAuthorityFile = certificateAuthorityFile;
-		this.verifyingSsl = true;
-		return this;
-	}
+    if(config.verifySSL()) {
+      builder.setCertificateAuthority();
+    } else {
+      builder.setVerifyingSsl(false);
+    }
 
-	public String getCertificateAuthorityData() {
-		return certificateAuthorityData;
-	}
+    builder.setBasePath(server);
+    builder.setCredentialProvider(new KubeconfigCredentialProvider(config));
+    return builder;
+  }
 
-	public ClientBuilder setCertificateAuthority(String certificateAuthorityData) {
-		this.certificateAuthorityData = certificateAuthorityData;
-		this.verifyingSsl = true;
-		return this;
-	}
+  public String getBasePath() {
+    return basePath;
+  }
 
-	public ClientBuilder setClusterMode() throws IOException {
-		this.client = Config.fromCluster();
-		return this;
-	}
+  public ClientBuilder setBasePath(String basePath) {
+    this.basePath = basePath;
+    return this;
+  }
 
-	public ClientBuilder setKubeConfig(KubeConfig config) {
-		this.kubeConfig = config;
-		if( this.kubeConfig !=null) {
-			this.client = Config.fromConfig(this.kubeConfig);
-		}
-		return this;
-	}
+  public CredentialProvider getCredentialProvider() {
+    return credentialProvider;
+  }
 
-	public ClientBuilder setDefaultKubeConfigMode() throws FileNotFoundException {
-		this.client = Config.fromConfig(KubeConfig.loadDefaultKubeConfig());
-		return this;
-	}
+  public ClientBuilder setCredentialProvider(final CredentialProvider credentialProvider) {
+    this.credentialProvider = credentialProvider;
+    return this;
+  }
 
-	public ClientBuilder setKubeConfig(File kubeFile) throws FileNotFoundException {
-		this.kubeConfig = KubeConfig.loadKubeConfig(new FileReader(kubeFile));
-		return this;
-	}
+  public File getCertificateAuthorityFile() {
+    return certificateAuthorityFile;
+  }
 
-	public ClientBuilder setKubeConfig(Reader input) {
-		this.kubeConfig = KubeConfig.loadKubeConfig(input);
-		return this;
-	}
+  public ClientBuilder setCertificateAuthority(File certificateAuthorityFile) {
+    this.certificateAuthorityFile = certificateAuthorityFile;
+    this.verifyingSsl = true;
+    return this;
+  }
 
-	public ClientBuilder setKubeConfig(InputStream stream) {
-		this.kubeConfig = KubeConfig.loadKubeConfig(new InputStreamReader(stream));
-		return this;
-	}
+  public String getCertificateAuthorityData() {
+    return certificateAuthorityData;
+  }
 
-	public KeyManager[] getKeyMgrs() {
-		return keyMgrs;
-	}
+  public ClientBuilder setCertificateAuthority(String certificateAuthorityData) {
+    this.certificateAuthorityData = certificateAuthorityData;
+    this.verifyingSsl = true;
+    return this;
+  }
 
-	public ClientBuilder setKeyMgrs(KeyManager[] keyMgrs) {
-		this.keyMgrs = keyMgrs;
-		return this;
-	}
+  public boolean isVerifyingSsl() {
+    return verifyingSsl;
+  }
 
-	public boolean isVerifyingSsl() {
-		return verifyingSsl;
-	}
+  public ClientBuilder setVerifyingSsl(boolean verifyingSsl) {
+    this.verifyingSsl = verifyingSsl;
+    return this;
+  }
 
-	public ClientBuilder setVerifyingSsl(boolean verifyingSsl) {
-		this.verifyingSsl = verifyingSsl;
-		return this;
-	}
+  public ApiClient build() throws FileNotFoundException {
+    final ApiClient client = new ApiClient();
 
+    if (basePath != null) {
+      if (basePath.endsWith("/")) {
+        basePath = basePath.substring(0, basePath.length() - 1);
+      }
+      client.setBasePath(basePath);
+    }
 
-	public ClientBuilder setDefaultClientMode() throws IOException {
-		client = Config.defaultClient();
-		return this;
-	}
+    client.setVerifyingSsl(verifyingSsl);
 
-	public String getApiKeyPrefix() {
-		return apiKeyPrefix;
-	}
+    if (certificateAuthorityFile != null) {
+      client.setSslCaCert(new FileInputStream(certificateAuthorityFile));
+    }
 
-	public ClientBuilder setApiKeyPrefix(String apiKeyPrefix) {
-		this.apiKeyPrefix = apiKeyPrefix;
-		return this;
-	}
+    if (certificateAuthorityData != null) {
+      byte[] bytes = Base64.decodeBase64(certificateAuthorityData);
+      client.setSslCaCert(new ByteArrayInputStream(bytes));
+    }
 
-	public ApiClient build() throws FileNotFoundException {
-		if(client == null) {
-			client = new ApiClient();
-		}
+    if (credentialProvider != null) {
+      credentialProvider.provide(client);
+    }
 
-		String localBasePath = client.getBasePath();
-
-		if (basePath != null) {
-			if(basePath.endsWith("/")) {
-				basePath = basePath.substring(0, basePath.length() - 1);
-			}
-			client.setBasePath(basePath);
-		}else {
-			if (localBasePath.length() == 0) {
-				client.setBasePath("http://localhost:8080");
-			}
-		}
-
-		if(keyMgrs != null) {
-			client.setKeyManagers(keyMgrs);
-		}
-
-		if(userName != null){
-			client.setUsername(userName);
-		}
-
-		if(password != null){
-			client.setPassword(password);
-		}
-
-		if(( userName != null )&&(password != null)) {
-			final String usernameAndPassword = userName + ":" + password;
-			client.setApiKeyPrefix("Basic");
-			client.setApiKey(ByteString.of(usernameAndPassword.getBytes(Charset.forName("ISO-8859-1"))).base64());
-		}
-
-		if(accessToken != null) {
-			if (apiKeyPrefix == null){
-				client.setApiKeyPrefix("Bearer");
-			}
-			client.setAccessToken(accessToken);
-		}
-
-		if(apiKeyPrefix != null) {
-			client.setApiKeyPrefix(apiKeyPrefix);
-		}
-
-		if(apiKey != null) {
-			if (apiKeyPrefix == null){
-				client.setApiKeyPrefix("Bearer");
-			}
-			client.setApiKey(apiKey);
-		}
-
-		client.setVerifyingSsl(verifyingSsl);
-
-		if(certificateAuthorityFile != null) {
-			client.setSslCaCert(new FileInputStream(certificateAuthorityFile));
-		}
-
-		if(certificateAuthorityData != null) {
-			byte[] bytes = Base64.decodeBase64(certificateAuthorityData);
-			client.setSslCaCert(new ByteArrayInputStream(bytes));
-		}
-
-		return client;
-	}
+    return client;
+  }
 }

@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.util;
 
 import io.kubernetes.client.ApiClient;
+import java.io.ByteArrayInputStream;
 import okio.ByteString;
 import org.apache.log4j.Logger;
 
@@ -121,10 +122,8 @@ public class Config {
 
         try {
             KeyManager[] mgrs = SSLUtils.keyManagers(
-                config.getClientCertificateData(),
-                config.getClientCertificateFile(),
-                config.getClientKeyData(),
-                config.getClientKeyFile(),
+                KubeConfig.getDataOrFile(config.getClientCertificateData(), config.getClientCertificateFile()),
+                KubeConfig.getDataOrFile(config.getClientKeyData(), config.getClientKeyFile()),
                 "RSA", "",
                 null, null);
             client.setKeyManagers(mgrs);
@@ -136,14 +135,14 @@ public class Config {
             // It's silly to have to do it in this order, but each SSL setup
             // consumes the CA cert, so if we do this before the client certs
             // are injected the cert input stream is exhausted and things get
-            // grumpy'
+            // grumpy
             String caCert = config.getCertificateAuthorityData();
             String caCertFile = config.getCertificateAuthorityFile();
             if (caCert != null || caCertFile != null) {
                 try {
-                    client.setSslCaCert(SSLUtils.getInputStreamFromDataOrFile(caCert, caCertFile));
-                } catch (FileNotFoundException ex) {
-                    log.error("Failed to find CA Cert file", ex);
+                    client.setSslCaCert(new ByteArrayInputStream(KubeConfig.getDataOrFile(caCert, caCertFile)));
+                } catch (IOException ex) {
+                    log.error("Failed to read CA Cert file", ex);
                 }
             }
         } else {
