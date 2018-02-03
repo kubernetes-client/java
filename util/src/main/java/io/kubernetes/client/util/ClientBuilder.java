@@ -40,12 +40,12 @@ import static io.kubernetes.client.util.KubeConfig.*;
 
 public class ClientBuilder {
 
+  private static final Logger log = Logger.getLogger(ClientBuilder.class);
+
   private String basePath = Config.DEFAULT_FALLBACK_HOST;
   private byte[] caCertBytes = null;
   private boolean verifyingSsl = true;
   private CredentialProvider credentialProvider;
-
-  private static final Logger log = Logger.getLogger(Config.class);
 
   public static ClientBuilder defaults() throws IOException {
     final FileReader kubeConfigReader = findConfigFromEnv();
