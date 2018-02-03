@@ -45,6 +45,7 @@ import okio.ByteString;
 public class ClientBuilderTest {
 	private static final String HOME_PATH = Resources.getResource("").getPath();
 	private static final String KUBECONFIG_FILE_PATH = Resources.getResource("kubeconfig").getPath();
+	private static final String SSL_CA_CERT_PATH = Resources.getResource("ca-cert.pem").getPath();
 
 	private String basePath = "http://localhost";
   private String apiKey = "ABCD";
@@ -120,24 +121,12 @@ public class ClientBuilderTest {
 	}
 
 	@Test
-	public void testKeyMgrANDCertConfigBUilder() {
-		// will not fail even if file not found exception occurs for clientCertFile
-		try{
-			//keyMgrs = SSLUtils.keyManagers(clientCertData, clientCertFile, clientKeyData, clientKeyFile, algo, passphrase, keyStoreFile, keyStorePassphrase);
-			//by default verify ssl is false
-			ApiClient client = (new ClientBuilder())
+	public void testSslCertCa() throws Exception {
+		final ApiClient client = (new ClientBuilder())
 					.setBasePath(basePath)
-					.setCredentialProvider(new ClientCertificateCredentialProvider(null, null))
-					.setCertificateAuthority(certificateAuthorityData)
-					.setVerifyingSsl(true)
+					.setCertificateAuthority(Files.readAllBytes(Paths.get(SSL_CA_CERT_PATH)))
 					.build();
-			assertEquals(basePath, client.getBasePath());
-			assertEquals(true, client.isVerifyingSsl());
-			//below assert is not appropriate
-			//assertSame(keyMgrs, client.getKeyManagers());
-		}
-		catch(Exception e){
-			//e.printStackTrace();
-		}
+    assertEquals(basePath, client.getBasePath());
+    assertEquals(true, client.isVerifyingSsl());
 	}
 }

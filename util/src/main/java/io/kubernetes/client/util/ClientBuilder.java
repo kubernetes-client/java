@@ -22,6 +22,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -40,8 +41,7 @@ import static io.kubernetes.client.util.KubeConfig.*;
 public class ClientBuilder {
 
   private String basePath = Config.DEFAULT_FALLBACK_HOST;
-  private File certificateAuthorityFile = null;
-  private String certificateAuthorityData = null;
+  private byte[] caCertBytes = null;
   private boolean verifyingSsl = true;
   private CredentialProvider credentialProvider;
 
@@ -95,7 +95,7 @@ public class ClientBuilder {
 
     final String token = new String(Files.readAllBytes(Paths.get(SERVICEACCOUNT_TOKEN_PATH)),
         Charset.defaultCharset());
-    builder.setCertificateAuthority(new File(SERVICEACCOUNT_CA_PATH));
+    builder.setCertificateAuthority(Files.readAllBytes(Paths.get(SERVICEACCOUNT_CA_PATH)));
     builder.setCredentialProvider(new AccessTokenCredentialProvider(token));
 
     return builder;
@@ -114,7 +114,9 @@ public class ClientBuilder {
     }
 
     if(config.verifySSL()) {
-      builder.setCertificateAuthority();
+      final byte[] caBytes = KubeConfig.getDataOrFile(config.getCertificateAuthorityData(),
+          config.getCertificateAuthorityFile());
+      builder.setCertificateAuthority(caBytes);
     } else {
       builder.setVerifyingSsl(false);
     }
@@ -142,22 +144,8 @@ public class ClientBuilder {
     return this;
   }
 
-  public File getCertificateAuthorityFile() {
-    return certificateAuthorityFile;
-  }
-
-  public ClientBuilder setCertificateAuthority(File certificateAuthorityFile) {
-    this.certificateAuthorityFile = certificateAuthorityFile;
-    this.verifyingSsl = true;
-    return this;
-  }
-
-  public String getCertificateAuthorityData() {
-    return certificateAuthorityData;
-  }
-
-  public ClientBuilder setCertificateAuthority(String certificateAuthorityData) {
-    this.certificateAuthorityData = certificateAuthorityData;
+  public ClientBuilder setCertificateAuthority(final byte[] caCertBytes) {
+    this.caCertBytes = caCertBytes;
     this.verifyingSsl = true;
     return this;
   }
@@ -171,7 +159,7 @@ public class ClientBuilder {
     return this;
   }
 
-  public ApiClient build() throws FileNotFoundException {
+  public ApiClient build() {
     final ApiClient client = new ApiClient();
 
     if (basePath != null) {
@@ -183,13 +171,8 @@ public class ClientBuilder {
 
     client.setVerifyingSsl(verifyingSsl);
 
-    if (certificateAuthorityFile != null) {
-      client.setSslCaCert(new FileInputStream(certificateAuthorityFile));
-    }
-
-    if (certificateAuthorityData != null) {
-      byte[] bytes = Base64.decodeBase64(certificateAuthorityData);
-      client.setSslCaCert(new ByteArrayInputStream(bytes));
+    if (caCertBytes != null) {
+      client.setSslCaCert(new ByteArrayInputStream(caCertBytes));
     }
 
     if (credentialProvider != null) {
