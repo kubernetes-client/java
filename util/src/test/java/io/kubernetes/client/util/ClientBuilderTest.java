@@ -12,29 +12,26 @@ limitations under the License.
  */
 package io.kubernetes.client.util;
 
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 import com.google.common.io.Resources;
-import io.kubernetes.client.util.credentials.AccessTokenCredentialProvider;
-import io.kubernetes.client.util.credentials.ClientCertificateCredentialProvider;
-import io.kubernetes.client.util.credentials.UsernamePasswordCredentialProvider;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
+import io.kubernetes.client.util.credentials.AccessTokenAuthentication;
+import io.kubernetes.client.util.credentials.Authentication;
+import io.kubernetes.client.util.credentials.UsernamePasswordAuthentication;
 import java.io.IOException;
 import java.nio.charset.Charset;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import javax.net.ssl.KeyManager;
 
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.EnvironmentVariables;
-import org.junit.rules.TemporaryFolder;
 
 import io.kubernetes.client.ApiClient;
 import okio.ByteString;
@@ -45,42 +42,43 @@ import okio.ByteString;
 public class ClientBuilderTest {
 	private static final String HOME_PATH = Resources.getResource("").getPath();
 	private static final String KUBECONFIG_FILE_PATH = Resources.getResource("kubeconfig").getPath();
+	private static final String KUBECONFIG_HTTP_FILE_PATH = Resources.getResource("kubeconfig-http").getPath();
+	private static final String KUBECONFIG_HTTPS_FILE_PATH = Resources.getResource("kubeconfig-https").getPath();
 	private static final String SSL_CA_CERT_PATH = Resources.getResource("ca-cert.pem").getPath();
+	private static final String INVALID_SSL_CA_CERT_PATH = Resources.getResource("ca-cert-invalid.pem").getPath();
 
 	private String basePath = "http://localhost";
   private String apiKey = "ABCD";
   private String userName = "userName";
   private String password = "password";
   private String apiKeyPrefix = "Bearer";
-  private String certificateAuthorityData = null;
 
 	@Rule
 	public final EnvironmentVariables environmentVariables = new EnvironmentVariables();
 
-	@Test
-	public void testDefaultsWithNoFiles() throws IOException {
+	@Before
+	public void setup() {
 		environmentVariables.set("HOME", "/non-existent");
-		final ApiClient client = ClientBuilder
-				.defaults()
-				.build();
+	}
+
+	@Test
+	public void testDefaultClientWithNoFiles() throws IOException {
+		environmentVariables.set("HOME", "/non-existent");
+		final ApiClient client = ClientBuilder.defaultClient();
 		assertEquals("http://localhost:8080", client.getBasePath());
 	}
 
 	@Test
-	public void testDefaultsReadsHomeDir() throws Exception {
+	public void testDefaultClientReadsHomeDir() throws Exception {
     environmentVariables.set("HOME", HOME_PATH);
-    ApiClient client = ClientBuilder
-        .defaults()
-        .build();
+    ApiClient client = ClientBuilder.defaultClient();
     assertEquals("http://home.dir.com", client.getBasePath());
 	}
 
 	@Test
-	public void testDefaultsReadsKubeConfig() throws Exception {
+	public void testDefaultClientReadsKubeConfig() throws Exception {
 		environmentVariables.set("KUBECONFIG", KUBECONFIG_FILE_PATH);
-		ApiClient client = ClientBuilder
-				.defaults()
-				.build();
+		final ApiClient client = ClientBuilder.defaultClient();
 		assertEquals("http://kubeconfig.dir.com", client.getBasePath());
 	}
 
@@ -88,18 +86,82 @@ public class ClientBuilderTest {
 	public void testKubeconfigPreferredOverHomeDir() throws Exception {
 		environmentVariables.set("HOME", HOME_PATH);
 		environmentVariables.set("KUBECONFIG", KUBECONFIG_FILE_PATH);
-		ApiClient client = ClientBuilder
-				.defaults()
+		final ApiClient client = ClientBuilder
+				.standard()
 				.build();
 		// $KUBECONFIG should take precedence over $HOME/.kube/config
 		assertEquals("http://kubeconfig.dir.com", client.getBasePath());
 	}
 
 	@Test
+	public void testInvalidKubeconfig() throws Exception {
+		environmentVariables.set("KUBECONFIG", "/non-existent");
+		final ApiClient client = ClientBuilder
+				.standard()
+				.build();
+		assertThat(client.getBasePath(), is(Config.DEFAULT_FALLBACK_HOST));
+	}
+
+	@Test
+	public void testKubeconfigAddsSchemeHttps() throws Exception {
+		environmentVariables.set("KUBECONFIG", KUBECONFIG_HTTPS_FILE_PATH);
+		final ApiClient client = ClientBuilder
+				.standard()
+				.build();
+		assertThat(client.getBasePath(), is("https://localhost:443"));
+	}
+
+	@Test
+	public void testKubeconfigAddsSchemeHttp() throws Exception {
+		environmentVariables.set("KUBECONFIG", KUBECONFIG_HTTP_FILE_PATH);
+		final ApiClient client = ClientBuilder
+				.standard()
+				.build();
+		assertThat(client.getBasePath(), is("http://localhost"));
+	}
+
+	@Test
+	public void testKubeconfigDisablesVerifySsl() throws Exception {
+		environmentVariables.set("KUBECONFIG", KUBECONFIG_HTTP_FILE_PATH);
+		final ApiClient client = ClientBuilder
+				.standard()
+				.build();
+		assertThat(client.isVerifyingSsl(), is(false));
+	}
+
+	@Test
+	public void testBasePathTrailingSlash() throws Exception {
+		final ApiClient client = ClientBuilder
+				.standard()
+				.setBasePath("http://localhost/")
+				.build();
+		assertThat(client.getBasePath(), is("http://localhost"));
+	}
+
+	@Test
+	public void testStandardVerifiesSsl() throws IOException {
+		environmentVariables.set("HOME", "/non-existent");
+		final ApiClient client = ClientBuilder
+				.standard()
+				.build();
+		assertThat(client.isVerifyingSsl(), is(true));
+	}
+
+	@Test
+	public void testCredentialProviderInvoked() throws IOException {
+		final Authentication provider = mock(Authentication.class);
+		final ApiClient client = ClientBuilder
+				.standard()
+				.setAuthentication(provider)
+				.build();
+		verify(provider).provide(client);
+	}
+
+	@Test
 	public void testUserNamePasswordClientBuilder() throws Exception{
     final ApiClient client = (new ClientBuilder())
         .setBasePath(basePath)
-        .setCredentialProvider(new UsernamePasswordCredentialProvider(userName, password))
+        .setAuthentication(new UsernamePasswordAuthentication(userName, password))
         .build();
     assertEquals(basePath, client.getBasePath());
     assertEquals(true, client.isVerifyingSsl());
@@ -111,22 +173,30 @@ public class ClientBuilderTest {
 	public void testApiKeyConfigbuilder() throws Exception {
 		final ApiClient client = new ClientBuilder()
 				.setBasePath(basePath)
-				.setCredentialProvider(new AccessTokenCredentialProvider(apiKey))
+				.setAuthentication(new AccessTokenAuthentication(apiKey))
 				.build();
 		assertEquals(basePath, client.getBasePath());
-		assertEquals(true, client.isVerifyingSsl());
 		assertEquals(apiKeyPrefix, ((io.kubernetes.client.auth.ApiKeyAuth)client.getAuthentications().get("BearerToken")).getApiKeyPrefix());
 		assertEquals( apiKey, ((io.kubernetes.client.auth.ApiKeyAuth)client.getAuthentications().get("BearerToken")).getApiKey());
 		assertEquals(null,((io.kubernetes.client.auth.HttpBasicAuth)client.getAuthentications().get("BasicAuth")).getUsername());
 	}
 
+	/**
+	 * We can't verify anything here because of how things are configured in swagger-codegen and
+	 * okhttp but combined with {@link #testSslCertCaBad()} we have some certainty that it is being
+	 * invoked.
+	 */
 	@Test
-	public void testSslCertCa() throws Exception {
-		final ApiClient client = (new ClientBuilder())
-					.setBasePath(basePath)
+	public void testSslCertCaGood() throws Exception {
+		final ApiClient client = new ClientBuilder()
 					.setCertificateAuthority(Files.readAllBytes(Paths.get(SSL_CA_CERT_PATH)))
 					.build();
-    assertEquals(basePath, client.getBasePath());
-    assertEquals(true, client.isVerifyingSsl());
+	}
+
+	@Test(expected = RuntimeException.class)
+	public void testSslCertCaBad() throws Exception {
+		final ApiClient client = new ClientBuilder()
+				.setCertificateAuthority(Files.readAllBytes(Paths.get(INVALID_SSL_CA_CERT_PATH)))
+				.build();
 	}
 }

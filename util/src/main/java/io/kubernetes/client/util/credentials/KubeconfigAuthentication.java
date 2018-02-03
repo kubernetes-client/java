@@ -4,7 +4,17 @@ import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.util.KubeConfig;
 import java.io.IOException;
 
-public class KubeconfigCredentialProvider implements CredentialProvider {
+/**
+ * Uses a {@link KubeConfig} to configure {@link ApiClient} authentication to the Kubernetes API.
+ *
+ * Tries to configure the following authentication mechanisms in this order.
+ * <ul>
+ *   <li>{@link ClientCertificateAuthentication} (using client certificate files or data)</li>
+ *   <li>{@link UsernamePasswordAuthentication}</li>
+ *   <li>{@link AccessTokenAuthentication}</li>
+ * </ul>
+ */
+public class KubeconfigAuthentication implements Authentication {
 
   private final String username;
   private final String password;
@@ -12,7 +22,7 @@ public class KubeconfigCredentialProvider implements CredentialProvider {
   private final byte[] clientCert;
   private final byte[] clientKey;
 
-  public KubeconfigCredentialProvider(final KubeConfig config) throws IOException {
+  public KubeconfigAuthentication(final KubeConfig config) throws IOException {
     this.clientCert = KubeConfig.getDataOrFile(config.getClientCertificateData(), config.getClientCertificateFile());
     this.clientKey = KubeConfig.getDataOrFile(config.getClientKeyData(), config.getClientKeyFile());
     this.username = config.getUsername();
@@ -22,15 +32,15 @@ public class KubeconfigCredentialProvider implements CredentialProvider {
 
   @Override public void provide(ApiClient client) {
     if(clientCert != null && clientKey != null) {
-      new ClientCertificateCredentialProvider(clientCert, clientKey);
+      new ClientCertificateAuthentication(clientCert, clientKey);
     }
 
     if(username != null && password != null) {
-      new UsernamePasswordCredentialProvider(username, password).provide(client);
+      new UsernamePasswordAuthentication(username, password).provide(client);
     }
 
     if(token != null) {
-      new AccessTokenCredentialProvider(token).provide(client);
+      new AccessTokenAuthentication(token).provide(client);
     }
   }
 }

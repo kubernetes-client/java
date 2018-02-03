@@ -4,11 +4,14 @@ import io.kubernetes.client.ApiClient;
 import java.nio.charset.Charset;
 import okio.ByteString;
 
-public class UsernamePasswordCredentialProvider implements CredentialProvider {
+/**
+ * Uses Username and Password to configure {@link ApiClient} authentication to the Kubernetes API.
+ */
+public class UsernamePasswordAuthentication implements Authentication {
   private final String username;
   private final String password;
 
-  public UsernamePasswordCredentialProvider(final String username, final String password) {
+  public UsernamePasswordAuthentication(final String username, final String password) {
     this.username = username;
     this.password = password;
   }

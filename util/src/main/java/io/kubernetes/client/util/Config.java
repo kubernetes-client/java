@@ -13,23 +13,15 @@ limitations under the License.
 package io.kubernetes.client.util;
 
 import io.kubernetes.client.ApiClient;
-import io.kubernetes.client.util.credentials.AccessTokenCredentialProvider;
-import io.kubernetes.client.util.credentials.UsernamePasswordCredentialProvider;
-import java.io.ByteArrayInputStream;
-import okio.ByteString;
+import io.kubernetes.client.util.credentials.AccessTokenAuthentication;
+import io.kubernetes.client.util.credentials.UsernamePasswordAuthentication;
 import org.apache.log4j.Logger;
 
-import javax.net.ssl.KeyManager;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.nio.charset.Charset;
 
 public class Config {
     public static final String SERVICEACCOUNT_ROOT =
@@ -47,7 +39,7 @@ public class Config {
     private static final Logger log = Logger.getLogger(Config.class);
 
     public static ApiClient fromCluster() throws IOException {
-        return ClientBuilder.fromCluster().build();
+        return ClientBuilder.cluster().build();
     }
 
     public static ApiClient fromUrl(String url) {
@@ -67,7 +59,7 @@ public class Config {
     public static ApiClient fromUserPassword(String url, String user, String password, boolean validateSSL) {
         return new ClientBuilder()
             .setBasePath(url)
-            .setCredentialProvider(new UsernamePasswordCredentialProvider(user, password))
+            .setAuthentication(new UsernamePasswordAuthentication(user, password))
             .setVerifyingSsl(validateSSL)
             .build();
     }
@@ -79,7 +71,7 @@ public class Config {
     public static ApiClient fromToken(String url, String token, boolean validateSSL) {
         return new ClientBuilder()
             .setBasePath(url)
-            .setCredentialProvider(new AccessTokenCredentialProvider(token))
+            .setAuthentication(new AccessTokenAuthentication(token))
             .setVerifyingSsl(validateSSL)
             .build();
     }
@@ -98,7 +90,7 @@ public class Config {
 
     public static ApiClient fromConfig(KubeConfig config) throws IOException {
         return ClientBuilder
-            .fromKubeConfig(config)
+            .kubeconfig(config)
             .build();
     }
 
@@ -114,6 +106,6 @@ public class Config {
      * @return The best APIClient given the previously described rules
      */
     public static ApiClient defaultClient() throws IOException {
-        return ClientBuilder.defaults().build();
+        return ClientBuilder.standard().build();
     }
 }

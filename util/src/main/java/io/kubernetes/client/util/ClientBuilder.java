@@ -12,21 +12,19 @@ limitations under the License.
  */
 package io.kubernetes.client.util;
 
-import io.kubernetes.client.util.credentials.AccessTokenCredentialProvider;
-import io.kubernetes.client.util.credentials.CredentialProvider;
-import io.kubernetes.client.util.credentials.KubeconfigCredentialProvider;
+import io.kubernetes.client.util.credentials.AccessTokenAuthentication;
+import io.kubernetes.client.util.credentials.Authentication;
+import io.kubernetes.client.util.credentials.KubeconfigAuthentication;
 import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import java.io.InputStream;
+import java.io.Reader;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
 
 import io.kubernetes.client.ApiClient;
@@ -38,6 +36,9 @@ import static io.kubernetes.client.util.Config.SERVICEACCOUNT_CA_PATH;
 import static io.kubernetes.client.util.Config.SERVICEACCOUNT_TOKEN_PATH;
 import static io.kubernetes.client.util.KubeConfig.*;
 
+/**
+ * A Builder which allows the construction of {@link ApiClient}s in a fluent fashion.
+ */
 public class ClientBuilder {
 
   private static final Logger log = Logger.getLogger(ClientBuilder.class);
@@ -45,25 +46,50 @@ public class ClientBuilder {
   private String basePath = Config.DEFAULT_FALLBACK_HOST;
   private byte[] caCertBytes = null;
   private boolean verifyingSsl = true;
-  private CredentialProvider credentialProvider;
+  private Authentication authentication;
 
-  public static ClientBuilder defaults() throws IOException {
+  /**
+   * Creates an {@link ApiClient} by calling {@link #standard()} and {@link #build()}.
+   *
+   * @return An <tt>ApiClient</tt> configured using the precedence specified for {@link #standard()}.
+   * @throws IOException
+   *  if the configuration file or a file specified in a configuration file cannot be read.
+   */
+  public static ApiClient defaultClient() throws IOException {
+    return ClientBuilder.standard().build();
+  }
+
+  /**
+   * Creates a builder which is pre-configured in the following way
+   *
+   * <ul>
+   *   <li>If $KUBECONFIG is defined, use that config file.</li>
+   *   <li>If $HOME/.kube/config can be found, use that.</li>
+   *   <li>If the in-cluster service account can be found, assume in cluster config.</li>
+   *   <li>Default to localhost:8080 as a last resort.</li>
+   * </ul>
+   *
+   * @return <tt>ClientBuilder</tt> pre-configured using the above precedence
+   * @throws IOException
+   *  if the configuration file or a file specified in a configuration file cannot be read.
+   */
+  public static ClientBuilder standard() throws IOException {
     final FileReader kubeConfigReader = findConfigFromEnv();
     if(kubeConfigReader != null) {
-      return fromKubeConfig(loadKubeConfig(kubeConfigReader));
+      return kubeconfig(loadKubeConfig(kubeConfigReader));
     }
     final FileReader configReader = findConfigInHomeDir();
     if(configReader != null) {
-      return fromKubeConfig(loadKubeConfig(configReader));
+      return kubeconfig(loadKubeConfig(configReader));
     }
     final File clusterCa = new File(SERVICEACCOUNT_CA_PATH);
     if (clusterCa.exists()) {
-      return fromCluster();
+      return cluster();
     }
     return new ClientBuilder();
   }
 
-  private static FileReader findConfigFromEnv() throws FileNotFoundException {
+  private static FileReader findConfigFromEnv() {
     try {
       String kubeConfig = System.getenv(ENV_KUBECONFIG);
       if(kubeConfig == null) {
@@ -71,12 +97,12 @@ public class ClientBuilder {
       }
       return new FileReader(kubeConfig);
     } catch (FileNotFoundException e) {
-      log.info("Could not find KUBECONFIG in environment");
+      log.info("Could not find file specified in $KUBECONFIG");
       return null;
     }
   }
 
-  private static FileReader findConfigInHomeDir() throws FileNotFoundException {
+  private static FileReader findConfigInHomeDir() {
     try {
       File config = new File(new File(System.getenv(ENV_HOME), KUBEDIR), KUBECONFIG);
       return new FileReader(config);
@@ -86,7 +112,14 @@ public class ClientBuilder {
     }
   }
 
-  public static ClientBuilder fromCluster() throws IOException {
+  /**
+   * Creates a builder which is pre-configured from the cluster configuration.
+   *
+   * @return <tt>ClientBuilder</tt> configured from the cluster configuration.
+   * @throws IOException
+   *  if the Service Account Token Path or CA Path is not readable.
+   */
+  public static ClientBuilder cluster() throws IOException {
     final ClientBuilder builder = new ClientBuilder();
 
     final String host = System.getenv(ENV_SERVICE_HOST);
@@ -96,12 +129,23 @@ public class ClientBuilder {
     final String token = new String(Files.readAllBytes(Paths.get(SERVICEACCOUNT_TOKEN_PATH)),
         Charset.defaultCharset());
     builder.setCertificateAuthority(Files.readAllBytes(Paths.get(SERVICEACCOUNT_CA_PATH)));
-    builder.setCredentialProvider(new AccessTokenCredentialProvider(token));
+    builder.setAuthentication(new AccessTokenAuthentication(token));
 
     return builder;
   }
 
-  public static ClientBuilder fromKubeConfig(KubeConfig config) throws IOException {
+  /**
+   * Creates a builder which is pre-configured from a {@link KubeConfig}.
+   *
+   * To load a <tt>KubeConfig</tt>, see {@link KubeConfig#loadKubeConfig(Reader)}.
+   *
+   * @param config
+   *  The {@link KubeConfig} to configure the builder from.
+   * @return <tt>ClientBuilder</tt> configured from the provided <tt>KubeConfig</tt>
+   * @throws IOException
+   *  if the files specified in the provided <tt>KubeConfig</tt> are not readable
+   */
+  public static ClientBuilder kubeconfig(KubeConfig config) throws IOException {
     final ClientBuilder builder = new ClientBuilder();
 
     String server = config.getServer();
@@ -122,7 +166,7 @@ public class ClientBuilder {
     }
 
     builder.setBasePath(server);
-    builder.setCredentialProvider(new KubeconfigCredentialProvider(config));
+    builder.setAuthentication(new KubeconfigAuthentication(config));
     return builder;
   }
 
@@ -135,12 +179,12 @@ public class ClientBuilder {
     return this;
   }
 
-  public CredentialProvider getCredentialProvider() {
-    return credentialProvider;
+  public Authentication getAuthentication() {
+    return authentication;
   }
 
-  public ClientBuilder setCredentialProvider(final CredentialProvider credentialProvider) {
-    this.credentialProvider = credentialProvider;
+  public ClientBuilder setAuthentication(final Authentication authentication) {
+    this.authentication = authentication;
     return this;
   }
 
@@ -175,8 +219,8 @@ public class ClientBuilder {
       client.setSslCaCert(new ByteArrayInputStream(caCertBytes));
     }
 
-    if (credentialProvider != null) {
-      credentialProvider.provide(client);
+    if (authentication != null) {
+      authentication.provide(client);
     }
 
     return client;
