@@ -157,30 +157,6 @@ public class ClientBuilderTest {
 		verify(provider).provide(client);
 	}
 
-	@Test
-	public void testUserNamePasswordClientBuilder() throws Exception{
-    final ApiClient client = (new ClientBuilder())
-        .setBasePath(basePath)
-        .setAuthentication(new UsernamePasswordAuthentication(userName, password))
-        .build();
-    assertEquals(basePath, client.getBasePath());
-    assertEquals(true, client.isVerifyingSsl());
-    assertEquals("Basic", ((io.kubernetes.client.auth.ApiKeyAuth)client.getAuthentications().get("BearerToken")).getApiKeyPrefix());
-    assertEquals(ByteString.of((userName+":"+password).getBytes(Charset.forName("ISO-8859-1"))).base64(), ((io.kubernetes.client.auth.ApiKeyAuth)client.getAuthentications().get("BearerToken")).getApiKey());
-	}
-
-	@Test
-	public void testApiKeyConfigbuilder() throws Exception {
-		final ApiClient client = new ClientBuilder()
-				.setBasePath(basePath)
-				.setAuthentication(new AccessTokenAuthentication(apiKey))
-				.build();
-		assertEquals(basePath, client.getBasePath());
-		assertEquals(apiKeyPrefix, ((io.kubernetes.client.auth.ApiKeyAuth)client.getAuthentications().get("BearerToken")).getApiKeyPrefix());
-		assertEquals( apiKey, ((io.kubernetes.client.auth.ApiKeyAuth)client.getAuthentications().get("BearerToken")).getApiKey());
-		assertEquals(null,((io.kubernetes.client.auth.HttpBasicAuth)client.getAuthentications().get("BasicAuth")).getUsername());
-	}
-
 	/**
 	 * We can't verify anything here because of how things are configured in swagger-codegen and
 	 * okhttp but combined with {@link #testSslCertCaBad()} we have some certainty that it is being

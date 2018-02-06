@@ -149,7 +149,7 @@ public class ClientBuilder {
     final ClientBuilder builder = new ClientBuilder();
 
     String server = config.getServer();
-    if (!server.startsWith("http://") && !server.startsWith("https://")) {
+    if (!server.contains("://")) {
       if (server.contains(":443")) {
         server = "https://" + server;
       } else {
@@ -160,7 +160,10 @@ public class ClientBuilder {
     if(config.verifySSL()) {
       final byte[] caBytes = KubeConfig.getDataOrFile(config.getCertificateAuthorityData(),
           config.getCertificateAuthorityFile());
-      builder.setCertificateAuthority(caBytes);
+      if(caBytes != null) {
+        builder.setCertificateAuthority(caBytes);
+      }
+      builder.setVerifyingSsl(true);
     } else {
       builder.setVerifyingSsl(false);
     }

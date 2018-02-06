@@ -31,6 +31,7 @@ public class ClientCertificateAuthentication implements Authentication {
       client.setKeyManagers(keyManagers);
     } catch (NoSuchAlgorithmException | UnrecoverableKeyException | CertificateException | KeyStoreException | InvalidKeySpecException | IOException e) {
       log.warn("Could not create key manager for Client Certificate authentication.", e);
+      throw new RuntimeException(e);
     }
   }
 }
