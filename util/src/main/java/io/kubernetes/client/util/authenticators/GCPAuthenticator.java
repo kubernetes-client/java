@@ -13,39 +13,39 @@ limitations under the License.
 package io.kubernetes.client.util.authenticators;
 
 import io.kubernetes.client.util.KubeConfig;
-
 import java.util.Date;
 import java.util.Map;
 
 /**
- * The Authenticator interface represents a plugin that can handle
- * a specific type of authentication information (e.g. 'gcp')
+ * The Authenticator interface represents a plugin that can handle a specific type of authentication
+ * information (e.g. 'gcp')
  */
 public class GCPAuthenticator implements Authenticator {
-    static {
-        KubeConfig.registerAuthenticator(new GCPAuthenticator());
-    }
-    @Override
-    public String getName() {
-        return "gcp";
-    }
+  static {
+    KubeConfig.registerAuthenticator(new GCPAuthenticator());
+  }
 
-    @Override
-    public String getToken(Map<String, Object> config) {
-        return (String) config.get("access-token");
-    }
+  @Override
+  public String getName() {
+    return "gcp";
+  }
 
-    @Override
-    public boolean isExpired(Map<String, Object> config) {
-        Date expiry = (Date) config.get("expiry");
-        if (expiry != null && expiry.compareTo(new Date()) <= 0) {
-            return true;
-        }
-        return false;
-    }
+  @Override
+  public String getToken(Map<String, Object> config) {
+    return (String) config.get("access-token");
+  }
 
-    @Override
-    public Map<String, Object> refresh(Map<String, Object> config) {
-        throw new IllegalStateException("Unimplemented");
+  @Override
+  public boolean isExpired(Map<String, Object> config) {
+    Date expiry = (Date) config.get("expiry");
+    if (expiry != null && expiry.compareTo(new Date()) <= 0) {
+      return true;
     }
+    return false;
+  }
+
+  @Override
+  public Map<String, Object> refresh(Map<String, Object> config) {
+    throw new IllegalStateException("Unimplemented");
+  }
 }

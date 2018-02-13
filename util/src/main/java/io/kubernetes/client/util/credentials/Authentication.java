@@ -11,5 +11,4 @@ import io.kubernetes.client.util.ClientBuilder;
 public interface Authentication {
 
   void provide(ApiClient client);
-
 }

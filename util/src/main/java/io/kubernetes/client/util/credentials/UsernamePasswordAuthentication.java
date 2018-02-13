@@ -16,9 +16,11 @@ public class UsernamePasswordAuthentication implements Authentication {
     this.password = password;
   }
 
-  @Override public void provide(ApiClient client) {
+  @Override
+  public void provide(ApiClient client) {
     final String usernameAndPassword = username + ":" + password;
     client.setApiKeyPrefix("Basic");
-    client.setApiKey(ByteString.of(usernameAndPassword.getBytes(Charset.forName("ISO-8859-1"))).base64());
+    client.setApiKey(
+        ByteString.of(usernameAndPassword.getBytes(Charset.forName("ISO-8859-1"))).base64());
   }
 }

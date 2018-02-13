@@ -1,11 +1,11 @@
 package io.kubernetes.client.util.credentials;
 
-import io.kubernetes.client.ApiClient;
-import org.junit.Test;
-
 import static io.kubernetes.client.util.TestUtils.getApiKeyAuthFromClient;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
+
+import io.kubernetes.client.ApiClient;
+import org.junit.Test;
 
 public class AccessTokenAuthenticationTest {
 
@@ -21,5 +21,4 @@ public class AccessTokenAuthenticationTest {
   public void testTokenNonnull() {
     new AccessTokenAuthentication(null);
   }
-
 }
