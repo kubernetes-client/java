@@ -53,14 +53,13 @@ public class SSLUtils {
         return val != null && val.length() > 0;
     }
 
-    public static KeyManager[] keyManagers(String certData, String certFile, String keyData, String keyFile,
+    public static KeyManager[] keyManagers(byte[] certData, byte[] keyData,
             String algo, String passphrase, String keyStoreFile, String keyStorePassphrase)
             throws NoSuchAlgorithmException, UnrecoverableKeyException, KeyStoreException, CertificateException,
             InvalidKeySpecException, IOException {
         KeyManager[] keyManagers = null;
-        if ((isNotNullOrEmpty(certData) || isNotNullOrEmpty(certFile))
-                && (isNotNullOrEmpty(keyData) || isNotNullOrEmpty(keyFile))) {
-            KeyStore keyStore = createKeyStore(certData, certFile, keyData, keyFile, algo, passphrase, keyStoreFile,
+        if (certData != null && keyData != null) {
+            KeyStore keyStore = createKeyStore(certData, keyData, algo, passphrase, keyStoreFile,
                     keyStorePassphrase);
             KeyManagerFactory kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
             kmf.init(keyStore, passphrase.toCharArray());
@@ -69,12 +68,11 @@ public class SSLUtils {
         return keyManagers;
     }
 
-    public static KeyStore createKeyStore(String clientCertData, String clientCertFile, String clientKeyData,
-            String clientKeyFile, String clientKeyAlgo, String clientKeyPassphrase, String keyStoreFile,
-            String keyStorePassphrase) throws IOException, CertificateException, NoSuchAlgorithmException,
-            InvalidKeySpecException, KeyStoreException {
-        try (InputStream certInputStream = getInputStreamFromDataOrFile(clientCertData, clientCertFile);
-                InputStream keyInputStream = getInputStreamFromDataOrFile(clientKeyData, clientKeyFile)) {
+    public static KeyStore createKeyStore(byte[] clientCertData, byte[] clientKeyData, String clientKeyAlgo,
+        String clientKeyPassphrase, String keyStoreFile, String keyStorePassphrase) throws IOException,
+        CertificateException, NoSuchAlgorithmException, InvalidKeySpecException, KeyStoreException {
+        try (InputStream certInputStream = new ByteArrayInputStream(clientCertData);
+             InputStream keyInputStream = new ByteArrayInputStream(clientKeyData)) {
             return createKeyStore(certInputStream, keyInputStream, clientKeyAlgo,
                     clientKeyPassphrase != null ? clientKeyPassphrase.toCharArray() : null,
                     keyStoreFile, getKeyStorePassphrase(keyStorePassphrase));
@@ -262,18 +260,6 @@ public class SSLUtils {
             return true;
         }
         return false;
-    }
-
-    public static InputStream getInputStreamFromDataOrFile(String data, String file) throws FileNotFoundException {
-        if (data != null) {
-            byte[] bytes = Base64.decodeBase64(data);
-            // TODO handle non-base64 here?
-            return new ByteArrayInputStream(bytes);
-        }
-        if (file != null) {
-            return new FileInputStream(file);
-        }
-        return null;
     }
 
   private static char[] getKeyStorePassphrase(String keyStorePassphrase) {
