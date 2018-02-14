@@ -15,97 +15,91 @@ package io.kubernetes.client.util;
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.util.credentials.AccessTokenAuthentication;
 import io.kubernetes.client.util.credentials.UsernamePasswordAuthentication;
-import org.apache.log4j.Logger;
-
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import org.apache.log4j.Logger;
 
 public class Config {
-    public static final String SERVICEACCOUNT_ROOT =
-        "/var/run/secrets/kubernetes.io/serviceaccount";
-    public static final String SERVICEACCOUNT_CA_PATH =
-        SERVICEACCOUNT_ROOT + "/ca.crt";
-    public static final String SERVICEACCOUNT_TOKEN_PATH =
-        SERVICEACCOUNT_ROOT + "/token";
-    public static final String ENV_KUBECONFIG = "KUBECONFIG";
-    public static final String ENV_SERVICE_HOST = "KUBERNETES_SERVICE_HOST";
-    public static final String ENV_SERVICE_PORT = "KUBERNETES_SERVICE_PORT";
-    // The last resort host to try
-    public static final String DEFAULT_FALLBACK_HOST = "http://localhost:8080";
+  public static final String SERVICEACCOUNT_ROOT = "/var/run/secrets/kubernetes.io/serviceaccount";
+  public static final String SERVICEACCOUNT_CA_PATH = SERVICEACCOUNT_ROOT + "/ca.crt";
+  public static final String SERVICEACCOUNT_TOKEN_PATH = SERVICEACCOUNT_ROOT + "/token";
+  public static final String ENV_KUBECONFIG = "KUBECONFIG";
+  public static final String ENV_SERVICE_HOST = "KUBERNETES_SERVICE_HOST";
+  public static final String ENV_SERVICE_PORT = "KUBERNETES_SERVICE_PORT";
+  // The last resort host to try
+  public static final String DEFAULT_FALLBACK_HOST = "http://localhost:8080";
 
-    private static final Logger log = Logger.getLogger(Config.class);
+  private static final Logger log = Logger.getLogger(Config.class);
 
-    public static ApiClient fromCluster() throws IOException {
-        return ClientBuilder.cluster().build();
-    }
+  public static ApiClient fromCluster() throws IOException {
+    return ClientBuilder.cluster().build();
+  }
 
-    public static ApiClient fromUrl(String url) {
-        return fromUrl(url, true);
-    }
+  public static ApiClient fromUrl(String url) {
+    return fromUrl(url, true);
+  }
 
-    public static ApiClient fromUrl(String url, boolean validateSSL) {
-        return new ApiClient()
-            .setBasePath(url)
-            .setVerifyingSsl(validateSSL);
-    }
+  public static ApiClient fromUrl(String url, boolean validateSSL) {
+    return new ApiClient().setBasePath(url).setVerifyingSsl(validateSSL);
+  }
 
-    public static ApiClient fromUserPassword(String url, String user, String password) {
-        return fromUserPassword(url, user, password, true);
-    }
+  public static ApiClient fromUserPassword(String url, String user, String password) {
+    return fromUserPassword(url, user, password, true);
+  }
 
-    public static ApiClient fromUserPassword(String url, String user, String password, boolean validateSSL) {
-        return new ClientBuilder()
-            .setBasePath(url)
-            .setAuthentication(new UsernamePasswordAuthentication(user, password))
-            .setVerifyingSsl(validateSSL)
-            .build();
-    }
+  public static ApiClient fromUserPassword(
+      String url, String user, String password, boolean validateSSL) {
+    return new ClientBuilder()
+        .setBasePath(url)
+        .setAuthentication(new UsernamePasswordAuthentication(user, password))
+        .setVerifyingSsl(validateSSL)
+        .build();
+  }
 
-    public static ApiClient fromToken(String url, String token) {
-        return fromToken(url, token, true);
-    }
+  public static ApiClient fromToken(String url, String token) {
+    return fromToken(url, token, true);
+  }
 
-    public static ApiClient fromToken(String url, String token, boolean validateSSL) {
-        return new ClientBuilder()
-            .setBasePath(url)
-            .setAuthentication(new AccessTokenAuthentication(token))
-            .setVerifyingSsl(validateSSL)
-            .build();
-    }
+  public static ApiClient fromToken(String url, String token, boolean validateSSL) {
+    return new ClientBuilder()
+        .setBasePath(url)
+        .setAuthentication(new AccessTokenAuthentication(token))
+        .setVerifyingSsl(validateSSL)
+        .build();
+  }
 
-    public static ApiClient fromConfig(String fileName) throws IOException {
-        return fromConfig(new FileReader(fileName));
-    }
+  public static ApiClient fromConfig(String fileName) throws IOException {
+    return fromConfig(new FileReader(fileName));
+  }
 
-    public static ApiClient fromConfig(InputStream stream) throws IOException {
-        return fromConfig(new InputStreamReader(stream));
-    }
+  public static ApiClient fromConfig(InputStream stream) throws IOException {
+    return fromConfig(new InputStreamReader(stream));
+  }
 
-    public static ApiClient fromConfig(Reader input) throws IOException {
-        return fromConfig(KubeConfig.loadKubeConfig(input));
-    }
+  public static ApiClient fromConfig(Reader input) throws IOException {
+    return fromConfig(KubeConfig.loadKubeConfig(input));
+  }
 
-    public static ApiClient fromConfig(KubeConfig config) throws IOException {
-        return ClientBuilder
-            .kubeconfig(config)
-            .build();
-    }
+  public static ApiClient fromConfig(KubeConfig config) throws IOException {
+    return ClientBuilder.kubeconfig(config).build();
+  }
 
-    /**
-     * Easy client creation, follows this plan
-     * <ul>
-     *   <li>If $KUBECONFIG is defined, use that config file.</li>
-     *   <li>If $HOME/.kube/config can be found, use that.</li>
-     *   <li>If the in-cluster service account can be found, assume in cluster config.</li>
-     *   <li>Default to localhost:8080 as a last resort.</li>
-     * </ul>
-     * 
-     * @return The best APIClient given the previously described rules
-     */
-    public static ApiClient defaultClient() throws IOException {
-        return ClientBuilder.standard().build();
-    }
+  /**
+   * Easy client creation, follows this plan
+   *
+   * <ul>
+   *   <li>If $KUBECONFIG is defined, use that config file.
+   *   <li>If $HOME/.kube/config can be found, use that.
+   *   <li>If the in-cluster service account can be found, assume in cluster config.
+   *   <li>Default to localhost:8080 as a last resort.
+   * </ul>
+   *
+   * @return The best APIClient given the previously described rules
+   */
+  public static ApiClient defaultClient() throws IOException {
+    return ClientBuilder.standard().build();
+  }
 }

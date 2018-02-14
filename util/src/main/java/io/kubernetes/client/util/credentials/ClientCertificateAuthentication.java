@@ -11,9 +11,7 @@ import java.security.spec.InvalidKeySpecException;
 import javax.net.ssl.KeyManager;
 import org.apache.log4j.Logger;
 
-/**
- * Uses Client Certificates to configure {@link ApiClient} authentication to the Kubernetes API.
- */
+/** Uses Client Certificates to configure {@link ApiClient} authentication to the Kubernetes API. */
 public class ClientCertificateAuthentication implements Authentication {
   private static final Logger log = Logger.getLogger(ClientCertificateAuthentication.class);
   private final byte[] certificate;
@@ -24,12 +22,18 @@ public class ClientCertificateAuthentication implements Authentication {
     this.key = key;
   }
 
-  @Override public void provide(ApiClient client) {
+  @Override
+  public void provide(ApiClient client) {
     try {
       final KeyManager[] keyManagers =
           SSLUtils.keyManagers(certificate, key, "RSA", "", null, null);
       client.setKeyManagers(keyManagers);
-    } catch (NoSuchAlgorithmException | UnrecoverableKeyException | CertificateException | KeyStoreException | InvalidKeySpecException | IOException e) {
+    } catch (NoSuchAlgorithmException
+        | UnrecoverableKeyException
+        | CertificateException
+        | KeyStoreException
+        | InvalidKeySpecException
+        | IOException e) {
       log.warn("Could not create key manager for Client Certificate authentication.", e);
       throw new RuntimeException(e);
     }

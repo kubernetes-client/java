@@ -12,8 +12,10 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
+import static com.squareup.okhttp.ws.WebSocket.BINARY;
+import static com.squareup.okhttp.ws.WebSocket.TEXT;
+
 import com.google.common.net.HttpHeaders;
-import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 import com.squareup.okhttp.ResponseBody;
@@ -23,129 +25,134 @@ import com.squareup.okhttp.ws.WebSocketListener;
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
 import io.kubernetes.client.Pair;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Reader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import okio.Buffer;
 import org.apache.log4j.Logger;
 
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.Reader;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import static com.squareup.okhttp.ws.WebSocket.BINARY;
-import static com.squareup.okhttp.ws.WebSocket.TEXT;
-
 public class WebSockets {
-    public static final String V4_STREAM_PROTOCOL = "v4.channel.k8s.io";
-    public static final String V3_STREAM_PROTOCOL = "v3.channel.k8s.io";
-    public static final String V2_STREAM_PROTOCOL = "v2.channel.k8s.io";
-    public static final String V1_STREAM_PROTOCOL = "channel.k8s.io";
-    public static final String STREAM_PROTOCOL_HEADER = "X-Stream-Protocol-Version";
-    public static final String SPDY_3_1 = "SPDY/3.1";
+  public static final String V4_STREAM_PROTOCOL = "v4.channel.k8s.io";
+  public static final String V3_STREAM_PROTOCOL = "v3.channel.k8s.io";
+  public static final String V2_STREAM_PROTOCOL = "v2.channel.k8s.io";
+  public static final String V1_STREAM_PROTOCOL = "channel.k8s.io";
+  public static final String STREAM_PROTOCOL_HEADER = "X-Stream-Protocol-Version";
+  public static final String SPDY_3_1 = "SPDY/3.1";
 
-    private static final Logger log = Logger.getLogger(WebSockets.class);
+  private static final Logger log = Logger.getLogger(WebSockets.class);
 
-    /**
-     * A simple interface for a listener on a web socket
-     */
-    public interface SocketListener {
-        /**
-         * Called when the socket is opened
-         */
-        public void open(String protocol, WebSocket socket);
-
-        /**
-         * Callled when a binary media type message is received
-         * @param in The input stream containing the binary data
-         */
-        public void bytesMessage(InputStream in);
-
-        /**
-         * Called when a text media type message is received
-         * @param in The character stream containing the message
-         */
-        public void textMessage(Reader in);
-
-        /**
-         * Called when the stream is closed.
-         */
-        public void close();
-    }
+  /** A simple interface for a listener on a web socket */
+  public interface SocketListener {
+    /** Called when the socket is opened */
+    public void open(String protocol, WebSocket socket);
 
     /**
-     * Create a new WebSocket stream
-     * @param path The HTTP Path to request from the API
-     * @param method The HTTP method to use for the call
-     * @param client The ApiClient for communicating with the API
-     * @param listener The socket listener to handle socket events
+     * Callled when a binary media type message is received
+     *
+     * @param in The input stream containing the binary data
      */
-    public static void stream(String path, String method, ApiClient client, SocketListener listener) throws ApiException, IOException {
-        stream(path, method, new ArrayList<Pair>(), client, listener);
+    public void bytesMessage(InputStream in);
+
+    /**
+     * Called when a text media type message is received
+     *
+     * @param in The character stream containing the message
+     */
+    public void textMessage(Reader in);
+
+    /** Called when the stream is closed. */
+    public void close();
+  }
+
+  /**
+   * Create a new WebSocket stream
+   *
+   * @param path The HTTP Path to request from the API
+   * @param method The HTTP method to use for the call
+   * @param client The ApiClient for communicating with the API
+   * @param listener The socket listener to handle socket events
+   */
+  public static void stream(String path, String method, ApiClient client, SocketListener listener)
+      throws ApiException, IOException {
+    stream(path, method, new ArrayList<Pair>(), client, listener);
+  }
+
+  public static void stream(
+      String path, String method, List<Pair> queryParams, ApiClient client, SocketListener listener)
+      throws ApiException, IOException {
+
+    HashMap<String, String> headers = new HashMap<String, String>();
+    String allProtocols =
+        String.format(
+            "%s,%s,%s,%s",
+            V4_STREAM_PROTOCOL, V3_STREAM_PROTOCOL, V2_STREAM_PROTOCOL, V1_STREAM_PROTOCOL);
+    headers.put(STREAM_PROTOCOL_HEADER, allProtocols);
+    headers.put(HttpHeaders.CONNECTION, HttpHeaders.UPGRADE);
+    headers.put(HttpHeaders.UPGRADE, SPDY_3_1);
+
+    Request request =
+        client.buildRequest(
+            path,
+            method,
+            queryParams,
+            new ArrayList<Pair>(),
+            null,
+            headers,
+            new HashMap<String, Object>(),
+            new String[0],
+            null);
+    streamRequest(request, client, listener);
+  }
+
+  /*
+  If we ever upgrade to okhttp 3...
+  public static void stream(Call call, ApiClient client, SocketListener listener) {
+      streamRequest(call.request(), client, listener);
+  }
+  */
+
+  private static void streamRequest(Request request, ApiClient client, SocketListener listener) {
+    WebSocketCall.create(client.getHttpClient(), request).enqueue(new Listener(listener));
+  }
+
+  public static class Listener implements WebSocketListener {
+    private SocketListener listener;
+
+    public Listener(SocketListener listener) {
+      this.listener = listener;
     }
 
-    public static void stream(String path, String method, List<Pair> queryParams, ApiClient client, SocketListener listener) throws ApiException, IOException {
-            
-        HashMap<String, String> headers = new HashMap<String, String>();
-        String allProtocols = String.format("%s,%s,%s,%s", V4_STREAM_PROTOCOL, V3_STREAM_PROTOCOL, V2_STREAM_PROTOCOL, V1_STREAM_PROTOCOL);
-        headers.put(STREAM_PROTOCOL_HEADER, allProtocols);
-        headers.put(HttpHeaders.CONNECTION, HttpHeaders.UPGRADE);
-        headers.put(HttpHeaders.UPGRADE, SPDY_3_1);
-
-        Request request = client.buildRequest(path, method, queryParams, new ArrayList<Pair>(), null, headers, new HashMap<String, Object>(), new String[0], null);
-        streamRequest(request, client, listener);
+    @Override
+    public void onOpen(final WebSocket webSocket, Response response) {
+      String protocol = response.header(STREAM_PROTOCOL_HEADER, "missing");
+      listener.open(protocol, webSocket);
     }
 
-    /* 
-    If we ever upgrade to okhttp 3...
-    public static void stream(Call call, ApiClient client, SocketListener listener) {
-        streamRequest(call.request(), client, listener);
+    @Override
+    public void onMessage(ResponseBody body) throws IOException {
+      if (body.contentType() == TEXT) {
+        listener.textMessage(body.charStream());
+      } else if (body.contentType() == BINARY) {
+        listener.bytesMessage(body.byteStream());
+      }
+      body.close();
     }
-    */
 
-    private static void streamRequest(Request request, ApiClient client, SocketListener listener) {
-        WebSocketCall.create(client.getHttpClient(), request).enqueue(new Listener(listener));
+    @Override
+    public void onPong(Buffer payload) {}
+
+    @Override
+    public void onClose(int code, String reason) {
+      listener.close();
     }
 
-    public static class Listener implements WebSocketListener {
-        private SocketListener listener;
-
-        public Listener(SocketListener listener) {
-            this.listener = listener;
-        }
-
-        @Override
-        public void onOpen(final WebSocket webSocket, Response response) {
-            String protocol = response.header(STREAM_PROTOCOL_HEADER, "missing");
-            listener.open(protocol, webSocket);
-        }
-
-        @Override
-        public void onMessage(ResponseBody body) throws IOException {
-            if (body.contentType() == TEXT) {
-                listener.textMessage(body.charStream());
-            } else if (body.contentType() == BINARY) {
-                listener.bytesMessage(body.byteStream());
-            }
-            body.close();
-        }
-
-        @Override
-        public void onPong(Buffer payload) {
-        }
-
-        @Override
-        public void onClose(int code, String reason) {
-            listener.close();
-        }
-
-        @Override
-        public void onFailure(IOException e, Response res) {
-            e.printStackTrace();
-            listener.close();
-        }
+    @Override
+    public void onFailure(IOException e, Response res) {
+      e.printStackTrace();
+      listener.close();
     }
+  }
 }
-

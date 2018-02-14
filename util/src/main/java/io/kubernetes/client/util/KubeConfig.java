@@ -12,14 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import com.google.common.base.Charsets;
 import io.kubernetes.client.util.authenticators.Authenticator;
-import java.nio.file.Paths;
-import org.apache.commons.codec.binary.Base64;
-import org.apache.log4j.Logger;
-import org.yaml.snakeyaml.Yaml;
-import org.yaml.snakeyaml.constructor.SafeConstructor;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -27,224 +20,222 @@ import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import org.apache.commons.codec.binary.Base64;
+import org.apache.log4j.Logger;
+import org.yaml.snakeyaml.Yaml;
+import org.yaml.snakeyaml.constructor.SafeConstructor;
 
-/**
- * KubeConfig represents a kubernetes client configuration
- */
+/** KubeConfig represents a kubernetes client configuration */
 public class KubeConfig {
-    // Defaults for where to find a kubeconfig file
-    public static final String ENV_HOME = "HOME";
-    public static final String KUBEDIR = ".kube";
-    public static final String KUBECONFIG = "config";
-    private static Map<String, Authenticator> authenticators = new HashMap<>();
+  // Defaults for where to find a kubeconfig file
+  public static final String ENV_HOME = "HOME";
+  public static final String KUBEDIR = ".kube";
+  public static final String KUBECONFIG = "config";
+  private static Map<String, Authenticator> authenticators = new HashMap<>();
 
-    // Note to the reader: I considered creating a Config object
-    // and parsing into that instead of using Maps, but honestly
-    // this seemed cleaner than a bunch of boilerplate classes
+  // Note to the reader: I considered creating a Config object
+  // and parsing into that instead of using Maps, but honestly
+  // this seemed cleaner than a bunch of boilerplate classes
 
-    private ArrayList<Object> clusters;
-    private ArrayList<Object> contexts;
-    private ArrayList<Object> users;
-    Map<String, Object> currentContext;
-    Map<String, Object> currentCluster;
-    Map<String, Object> currentUser;
-    String currentNamespace;
+  private ArrayList<Object> clusters;
+  private ArrayList<Object> contexts;
+  private ArrayList<Object> users;
+  Map<String, Object> currentContext;
+  Map<String, Object> currentCluster;
+  Map<String, Object> currentUser;
+  String currentNamespace;
 
-    private static final Logger log = Logger.getLogger(KubeConfig.class);
+  private static final Logger log = Logger.getLogger(KubeConfig.class);
 
-    public static void registerAuthenticator(Authenticator auth) {
-        synchronized (authenticators) {
-            authenticators.put(auth.getName(), auth);
+  public static void registerAuthenticator(Authenticator auth) {
+    synchronized (authenticators) {
+      authenticators.put(auth.getName(), auth);
+    }
+  }
+
+  /** Load a Kubernetes config from the default location */
+  public static KubeConfig loadDefaultKubeConfig() throws FileNotFoundException {
+    File config = new File(new File(System.getenv(ENV_HOME), KUBEDIR), KUBECONFIG);
+    if (!config.exists()) {
+      return null;
+    }
+    return loadKubeConfig(new FileReader(config));
+  }
+
+  /** Load a Kubernetes config from a Reader */
+  public static KubeConfig loadKubeConfig(Reader input) {
+    Yaml yaml = new Yaml(new SafeConstructor());
+    Object config = yaml.load(input);
+    Map<String, Object> configMap = (Map<String, Object>) config;
+
+    String currentContext = (String) configMap.get("current-context");
+    ArrayList<Object> contexts = (ArrayList<Object>) configMap.get("contexts");
+    ArrayList<Object> clusters = (ArrayList<Object>) configMap.get("clusters");
+    ArrayList<Object> users = (ArrayList<Object>) configMap.get("users");
+
+    KubeConfig kubeConfig = new KubeConfig(contexts, clusters, users);
+    kubeConfig.setContext(currentContext);
+
+    return kubeConfig;
+  }
+
+  public KubeConfig(
+      ArrayList<Object> contexts, ArrayList<Object> clusters, ArrayList<Object> users) {
+    this.contexts = contexts;
+    this.clusters = clusters;
+    this.users = users;
+  }
+
+  public boolean setContext(String context) {
+    if (context == null) {
+      return false;
+    }
+
+    currentCluster = null;
+    currentUser = null;
+    Map<String, Object> ctx = findObject(contexts, context);
+    if (ctx == null) {
+      return false;
+    }
+    currentContext = (Map<String, Object>) ctx.get("context");
+    if (currentContext == null) {
+      return false;
+    }
+    String cluster = (String) currentContext.get("cluster");
+    String user = (String) currentContext.get("user");
+    currentNamespace = (String) currentContext.get("namespace");
+    if (cluster != null) {
+      Map<String, Object> obj = findObject(clusters, cluster);
+      if (obj != null) {
+        currentCluster = (Map<String, Object>) obj.get("cluster");
+      }
+    }
+    if (user != null) {
+      Map<String, Object> obj = findObject(users, user);
+      if (obj != null) {
+        currentUser = (Map<String, Object>) obj.get("user");
+      }
+    }
+    return true;
+  }
+
+  public String getNamespace() {
+    return currentNamespace;
+  }
+
+  public String getServer() {
+    return getData(currentCluster, "server");
+  }
+
+  public String getCertificateAuthorityData() {
+    return getData(currentCluster, "certificate-authority-data");
+  }
+
+  public String getCertificateAuthorityFile() {
+    return getData(currentCluster, "certificate-authority");
+  }
+
+  public String getClientCertificateFile() {
+    return getData(currentUser, "client-certificate");
+  }
+
+  public String getClientCertificateData() {
+    return getData(currentUser, "client-certificate-data");
+  }
+
+  public String getClientKeyFile() {
+    return getData(currentUser, "client-key");
+  }
+
+  public String getClientKeyData() {
+    return getData(currentUser, "client-key-data");
+  }
+
+  public String getUsername() {
+    return getData(currentUser, "username");
+  }
+
+  public String getPassword() {
+    return getData(currentUser, "password");
+  }
+
+  public String getAccessToken() {
+    if (currentUser == null) {
+      return null;
+    }
+
+    Object authProvider = currentUser.get("auth-provider");
+    if (authProvider != null) {
+      Map<String, Object> authProviderMap = (Map<String, Object>) authProvider;
+      Map<String, Object> authConfig = (Map<String, Object>) authProviderMap.get("config");
+      if (authConfig != null) {
+        String name = (String) authProviderMap.get("name");
+        Authenticator auth = authenticators.get(name);
+        if (auth != null) {
+          if (auth.isExpired(authConfig)) {
+            authConfig = auth.refresh(authConfig);
+            // TODO persist things here.
+          }
+          return auth.getToken(authConfig);
         }
+      }
     }
-
-    /**
-     * Load a Kubernetes config from the default location
-     */
-    public static KubeConfig loadDefaultKubeConfig() throws FileNotFoundException {
-        File config = new File(new File(System.getenv(ENV_HOME), KUBEDIR), KUBECONFIG);
-        if (!config.exists()) {
-            return null;
-        }
-        return loadKubeConfig(new FileReader(config));
+    if (currentUser.containsKey("token")) {
+      return (String) currentUser.get("token");
     }
-
-    /**
-     * Load a Kubernetes config from a Reader
-     */
-    public static KubeConfig loadKubeConfig(Reader input) {
-        Yaml yaml = new Yaml(new SafeConstructor());
-        Object config = yaml.load(input);
-        Map<String, Object> configMap = (Map<String, Object>)config;
-
-        String currentContext = (String)configMap.get("current-context");
-        ArrayList<Object> contexts = (ArrayList<Object>)configMap.get("contexts");
-        ArrayList<Object> clusters = (ArrayList<Object>)configMap.get("clusters");
-        ArrayList<Object> users = (ArrayList<Object>)configMap.get("users");
-
-        KubeConfig kubeConfig = new KubeConfig(contexts, clusters, users);
-        kubeConfig.setContext(currentContext);
-
-        return kubeConfig;
+    if (currentUser.containsKey("tokenFile")) {
+      String tokenFile = (String) currentUser.get("tokenFile");
+      try {
+        byte[] data = Files.readAllBytes(FileSystems.getDefault().getPath(tokenFile));
+        return new String(data, "UTF-8");
+      } catch (IOException ex) {
+        log.error("Failed to read token file", ex);
+      }
     }
+    return null;
+  }
 
-    public KubeConfig(ArrayList<Object> contexts,
-        ArrayList<Object> clusters,
-        ArrayList<Object> users) {
-        this.contexts = contexts;
-        this.clusters = clusters;
-        this.users = users;
+  public boolean verifySSL() {
+    if (currentCluster == null) {
+      return false;
     }
+    if (currentCluster.containsKey("insecure-skip-tls-verify")) {
+      return !((Boolean) currentCluster.get("insecure-skip-tls-verify")).booleanValue();
+    }
+    return true;
+  }
 
-    public boolean setContext(String context) {
-        if (context == null) {
-            return false;
-        }
+  private static String getData(Map<String, Object> obj, String key) {
+    if (obj == null) {
+      return null;
+    }
+    return (String) obj.get(key);
+  }
 
-        currentCluster = null;
-        currentUser = null;
-        Map<String, Object> ctx = findObject(contexts, context);
-        if (ctx == null) {
-            return false;
-        }
-        currentContext = (Map<String, Object>) ctx.get("context");
-        if (currentContext == null) {
-            return false;
-        }
-        String cluster = (String) currentContext.get("cluster");
-        String user = (String) currentContext.get("user");
-        currentNamespace = (String) currentContext.get("namespace");
-        if (cluster != null) {
-            Map<String, Object> obj = findObject(clusters, cluster);
-            if (obj != null) {
-                currentCluster = (Map<String, Object>) obj.get("cluster");
-            }
-        }
-        if (user != null) {
-            Map<String, Object> obj = findObject(users, user);
-            if (obj != null) {
-                currentUser = (Map<String, Object>) obj.get("user");
-            }
-        }
-        return true;
+  private static Map<String, Object> findObject(ArrayList<Object> list, String name) {
+    if (list == null) {
+      return null;
     }
+    for (Object obj : list) {
+      Map<String, Object> map = (Map<String, Object>) obj;
+      if (name.equals((String) map.get("name"))) {
+        return map;
+      }
+    }
+    return null;
+  }
 
-    public String getNamespace() {
-        return currentNamespace;
+  public static byte[] getDataOrFile(final String data, final String file) throws IOException {
+    if (data != null) {
+      return Base64.decodeBase64(data);
     }
-
-    public String getServer() {
-        return getData(currentCluster, "server");
+    if (file != null) {
+      return Files.readAllBytes(Paths.get(file));
     }
-
-    public String getCertificateAuthorityData() {
-        return getData(currentCluster, "certificate-authority-data");
-    }
-
-    public String getCertificateAuthorityFile() {
-        return getData(currentCluster, "certificate-authority");
-    }
-
-    public String getClientCertificateFile() {
-        return getData(currentUser, "client-certificate");
-    }
-
-    public String getClientCertificateData() {
-        return getData(currentUser, "client-certificate-data");
-    }
-
-    public String getClientKeyFile() {
-        return getData(currentUser, "client-key");
-    }
-
-    public String getClientKeyData() {
-        return getData(currentUser, "client-key-data");
-    }
-
-    public String getUsername() {
-        return getData(currentUser, "username");
-    }
-
-    public String getPassword() {
-        return getData(currentUser, "password");
-    }
-
-    public String getAccessToken() {
-        if (currentUser == null) {
-            return null;
-        } 
-        
-        Object authProvider = currentUser.get("auth-provider");
-        if (authProvider != null) {            Map<String, Object> authProviderMap = (Map<String, Object>) authProvider;
-            Map<String, Object> authConfig = (Map<String, Object>) authProviderMap.get("config");
-            if (authConfig != null) {
-                String name = (String) authProviderMap.get("name");
-                Authenticator auth = authenticators.get(name);
-                if (auth != null) {
-                    if (auth.isExpired(authConfig)) {
-                        authConfig = auth.refresh(authConfig);
-                        // TODO persist things here.
-                    }
-                    return auth.getToken(authConfig);
-                }
-            }
-        }
-        if (currentUser.containsKey("token")) {
-            return (String) currentUser.get("token");
-        }
-        if (currentUser.containsKey("tokenFile")) {
-            String tokenFile = (String) currentUser.get("tokenFile");
-            try {
-                byte[] data = Files.readAllBytes(FileSystems.getDefault().getPath(tokenFile));
-                return new String(data, "UTF-8");
-            } catch (IOException ex) {
-                log.error("Failed to read token file", ex);
-            }
-        }
-        return null;
-    }
-
-    public boolean verifySSL() {
-        if (currentCluster == null) {
-            return false;
-        }
-        if (currentCluster.containsKey("insecure-skip-tls-verify")) {
-            return ! ((Boolean) currentCluster.get("insecure-skip-tls-verify")).booleanValue();
-        }
-        return true;
-    }
-
-    private static String getData(Map<String, Object> obj, String key) {
-        if (obj == null) {
-            return null;
-        }
-        return (String) obj.get(key);
-    }
-    
-    private static Map<String, Object> findObject(ArrayList<Object> list, String name) {
-        if (list == null) {
-            return null;
-        }
-        for (Object obj : list) {
-            Map<String, Object> map = (Map<String, Object>)obj;
-            if (name.equals((String)map.get("name"))) {
-                return map;
-            }
-        }
-        return null;
-    }
-
-    public static byte[] getDataOrFile(final String data, final String file)
-        throws IOException {
-        if(data != null) {
-            return Base64.decodeBase64(data);
-        }
-        if(file != null) {
-            return Files.readAllBytes(Paths.get(file));
-        }
-        return null;
-    }
+    return null;
+  }
 }

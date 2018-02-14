@@ -20,127 +20,126 @@ import com.squareup.okhttp.ResponseBody;
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
 import io.kubernetes.client.JSON;
-
 import io.kubernetes.client.models.V1Status;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Iterator;
 
 /**
- * Watch class implements watch mechansim of kubernetes. For every list API
- * call with a watch parameter you should be able to pass its call to this class
- * and watch changes to that list. For example CoreV1Api.listNamespace has watch
- * parameter, so you can create a call using CoreV1Api.listNamespaceCall and
- * set watch to True and watch the changes to namespaces.
+ * Watch class implements watch mechansim of kubernetes. For every list API call with a watch
+ * parameter you should be able to pass its call to this class and watch changes to that list. For
+ * example CoreV1Api.listNamespace has watch parameter, so you can create a call using
+ * CoreV1Api.listNamespaceCall and set watch to True and watch the changes to namespaces.
  */
-public class Watch<T> implements Iterable<Watch.Response<T>>,
-				 Iterator<Watch.Response<T>>,
-				 java.io.Closeable {
+public class Watch<T>
+    implements Iterable<Watch.Response<T>>, Iterator<Watch.Response<T>>, java.io.Closeable {
 
-    /**
-     * Response class holds a watch response that has a `type` that can be
-     * ADDED, MODIFIED, DELETED and ERROR. It also hold the actual target
-     * object.
-     */
-    public static class Response<T> {
-        @SerializedName("type")
-        public String type;
+  /**
+   * Response class holds a watch response that has a `type` that can be ADDED, MODIFIED, DELETED
+   * and ERROR. It also hold the actual target object.
+   */
+  public static class Response<T> {
+    @SerializedName("type")
+    public String type;
 
-        @SerializedName("object")
-        public T object;
+    @SerializedName("object")
+    public T object;
 
-        public V1Status status;
+    public V1Status status;
 
-        Response(String type, T object) {
-            this.type = type;
-            this.object = object;
-            this.status = null;
+    Response(String type, T object) {
+      this.type = type;
+      this.object = object;
+      this.status = null;
+    }
+
+    Response(String type, V1Status status) {
+      this.type = type;
+      this.object = null;
+      this.status = status;
+    }
+  }
+
+  Type watchType;
+  ResponseBody response;
+  JSON json;
+
+  /**
+   * Creates a watch on a TYPENAME (T) using an API Client and a Call object.
+   *
+   * @param client the API client
+   * @param call the call object returned by api.{ListOperation}Call(...) method. Make sure watch
+   *     flag is set in the call.
+   * @param watchType The type of the WatchResponse&lt;T&gt;. Use something like new
+   *     TypeToken&lt;Watch.Response&lt;TYPENAME&gt;&gt;(){}.getType()
+   * @param <T> TYPENAME.
+   * @return Watch object on TYPENAME
+   * @throws ApiException on IO exceptions.
+   */
+  public static <T> Watch<T> createWatch(ApiClient client, Call call, Type watchType)
+      throws ApiException {
+    try {
+      com.squareup.okhttp.Response response = call.execute();
+      if (!response.isSuccessful()) {
+        String respBody = null;
+        if (response.body() != null) {
+          try {
+            respBody = response.body().string();
+          } catch (IOException e) {
+            throw new ApiException(
+                response.message(), e, response.code(), response.headers().toMultimap());
+          }
         }
-
-        Response(String type, V1Status status) {
-            this.type = type;
-            this.object = null;
-            this.status = status;
-        }
+        throw new ApiException(
+            response.message(), response.code(), response.headers().toMultimap(), respBody);
+      }
+      return new Watch<>(client.getJSON(), response.body(), watchType);
+    } catch (IOException e) {
+      throw new ApiException(e);
     }
+  }
 
-    Type watchType;
-    ResponseBody response;
-    JSON json;
+  private Watch(JSON json, ResponseBody body, Type watchType) {
+    this.response = body;
+    this.watchType = watchType;
+    this.json = json;
+  }
 
-    /**
-     * Creates a watch on a TYPENAME (T) using an API Client and a Call object.
-     * @param client the API client
-     * @param call the call object returned by api.{ListOperation}Call(...)
-     *             method. Make sure watch flag is set in the call.
-     * @param watchType The type of the WatchResponse&lt;T&gt;. Use something like
-     *                  new TypeToken&lt;Watch.Response&lt;TYPENAME&gt;&gt;(){}.getType()
-     * @param <T> TYPENAME.
-     * @return Watch object on TYPENAME
-     * @throws ApiException on IO exceptions.
-     */
-    public static <T> Watch<T> createWatch(ApiClient client, Call call, Type watchType) throws ApiException {
-        try {
-            com.squareup.okhttp.Response response = call.execute();
-            if (!response.isSuccessful()) {
-                String respBody = null;
-                if (response.body() != null) {
-                    try {
-                        respBody = response.body().string();
-                    } catch (IOException e) {
-                        throw new ApiException(response.message(), e, response.code(), response.headers().toMultimap());
-                    }
-                }
-                throw new ApiException(response.message(), response.code(), response.headers().toMultimap(), respBody);
-            }
-            return new Watch<>(client.getJSON(), response.body(), watchType);
-        } catch (IOException e) {
-            throw new ApiException(e);
-        }
+  public Response<T> next() {
+    try {
+      String line = response.source().readUtf8Line();
+      if (line == null) {
+        throw new RuntimeException("Null response from the server.");
+      }
+      try {
+        return json.deserialize(line, watchType);
+      } catch (JsonParseException ex) {
+        Type statusType = new TypeToken<Response<V1Status>>() {}.getType();
+        Response<V1Status> status = json.deserialize(line, statusType);
+        return new Response<T>(status.type, status.object);
+      }
+    } catch (IOException e) {
+      throw new RuntimeException("IO Exception during next method.", e);
     }
+  }
 
-    private Watch(JSON json, ResponseBody body, Type watchType) {
-        this.response = body;
-        this.watchType = watchType;
-        this.json = json;
+  public boolean hasNext() {
+    try {
+      return !response.source().exhausted();
+    } catch (IOException e) {
+      throw new RuntimeException("IO Exception during hasNext method.", e);
     }
+  }
 
-    public Response<T> next() {
-        try {
-            String line = response.source().readUtf8Line();
-            if (line == null) {
-                throw new RuntimeException("Null response from the server.");
-            }
-            try {
-                return json.deserialize(line, watchType);
-            } catch (JsonParseException ex) {
-                Type statusType = new TypeToken<Response<V1Status>>(){}.getType();
-                Response<V1Status> status = json.deserialize(line, statusType);
-                return new Response<T>(status.type, status.object);
-            }
-        } catch (IOException e) {
-            throw new RuntimeException("IO Exception during next method.", e);
-        }
-    }
+  public Iterator<Response<T>> iterator() {
+    return this;
+  }
 
-    public boolean hasNext() {
-        try {
-            return !response.source().exhausted();
-        } catch (IOException e) {
-            throw new RuntimeException("IO Exception during hasNext method.",
-                    e);
-        }
-    }
+  public void remove() {
+    throw new UnsupportedOperationException("remove");
+  }
 
-    public Iterator<Response<T>> iterator() {
-        return this;
-    }
-
-    public void remove() {
-        throw new UnsupportedOperationException("remove");
-    }
-    
-    public void close() throws IOException {
-    	this.response.close();
-    }
+  public void close() throws IOException {
+    this.response.close();
+  }
 }

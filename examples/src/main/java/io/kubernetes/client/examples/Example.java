@@ -19,27 +19,26 @@ import io.kubernetes.client.apis.CoreV1Api;
 import io.kubernetes.client.models.V1Pod;
 import io.kubernetes.client.models.V1PodList;
 import io.kubernetes.client.util.Config;
-
 import java.io.IOException;
-import java.util.logging.Logger;
 
 /**
  * A simple example of how to use the Java API
- * 
- * <p>Easiest way to run this:
- *   mvn exec:java -Dexec.mainClass="io.kubernetes.client.examples.Example"
- * 
+ *
+ * <p>Easiest way to run this: mvn exec:java
+ * -Dexec.mainClass="io.kubernetes.client.examples.Example"
+ *
  * <p>From inside $REPO_DIR/examples
  */
 public class Example {
-    public static void main(String[] args) throws IOException, ApiException{
-        ApiClient client = Config.defaultClient();
-        Configuration.setDefaultApiClient(client);
+  public static void main(String[] args) throws IOException, ApiException {
+    ApiClient client = Config.defaultClient();
+    Configuration.setDefaultApiClient(client);
 
-        CoreV1Api api = new CoreV1Api();
-        V1PodList list = api.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null);
-        for (V1Pod item : list.getItems()) {
-            System.out.println(item.getMetadata().getName());
-        }
+    CoreV1Api api = new CoreV1Api();
+    V1PodList list =
+        api.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null);
+    for (V1Pod item : list.getItems()) {
+      System.out.println(item.getMetadata().getName());
     }
+  }
 }

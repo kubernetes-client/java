@@ -19,8 +19,8 @@ public class ClientCertificateAuthenticationTest {
   }
 
   @Test(expected = RuntimeException.class)
-  public void testInvalidCertificates()  {
+  public void testInvalidCertificates() {
     final ApiClient client = new ApiClient();
-    new ClientCertificateAuthentication(new byte[]{}, new byte[]{}).provide(client);
+    new ClientCertificateAuthentication(new byte[] {}, new byte[] {}).provide(client);
   }
 }

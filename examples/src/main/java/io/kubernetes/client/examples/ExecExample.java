@@ -12,71 +12,68 @@ limitations under the License.
 */
 package io.kubernetes.client.examples;
 
+import com.google.common.io.ByteStreams;
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
 import io.kubernetes.client.Configuration;
 import io.kubernetes.client.Exec;
-import io.kubernetes.client.apis.CoreV1Api;
-import io.kubernetes.client.models.V1Pod;
-import io.kubernetes.client.models.V1PodList;
 import io.kubernetes.client.util.Config;
-
-import com.google.common.io.ByteStreams;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.io.IOException;
-import java.io.OutputStream;
 
 /**
  * A simple example of how to use the Java API
- * 
- * <p>Easiest way to run this:
- *   mvn exec:java -Dexec.mainClass="io.kubernetes.client.examples.Example"
- * 
+ *
+ * <p>Easiest way to run this: mvn exec:java
+ * -Dexec.mainClass="io.kubernetes.client.examples.Example"
+ *
  * <p>From inside $REPO_DIR/examples
  */
 public class ExecExample {
-    public static void main(String[] args) throws IOException, ApiException, InterruptedException {
-        ApiClient client = Config.defaultClient();
-        Configuration.setDefaultApiClient(client);
+  public static void main(String[] args) throws IOException, ApiException, InterruptedException {
+    ApiClient client = Config.defaultClient();
+    Configuration.setDefaultApiClient(client);
 
-        Exec exec = new Exec();
-        boolean tty = System.console() != null;
-//        final Process proc = exec.exec("default", "nginx-2371676037-czqx3", new String[] {"sh", "-c", "echo foo"}, true, tty);
-        final Process proc = exec.exec("default", "nginx-4217019353-k5sn9", new String[] {"sh"}, true, tty);
+    Exec exec = new Exec();
+    boolean tty = System.console() != null;
+    //        final Process proc = exec.exec("default", "nginx-2371676037-czqx3", new String[]
+    // {"sh", "-c", "echo foo"}, true, tty);
+    final Process proc =
+        exec.exec("default", "nginx-4217019353-k5sn9", new String[] {"sh"}, true, tty);
 
-
-        new Thread(new Runnable() {
-            public void run() {
+    new Thread(
+            new Runnable() {
+              public void run() {
                 try {
-                    ByteStreams.copy(System.in, proc.getOutputStream());
+                  ByteStreams.copy(System.in, proc.getOutputStream());
                 } catch (IOException ex) {
-                    ex.printStackTrace();
+                  ex.printStackTrace();
                 }
-            }
-        }).start();
+              }
+            })
+        .start();
 
-        new Thread(new Runnable() {
-            public void run() {
+    new Thread(
+            new Runnable() {
+              public void run() {
                 try {
-                    ByteStreams.copy(proc.getInputStream(), System.out);
+                  ByteStreams.copy(proc.getInputStream(), System.out);
                 } catch (IOException ex) {
-                    ex.printStackTrace();
+                  ex.printStackTrace();
                 }
-            }
-        }).start();
+              }
+            })
+        .start();
 
-        proc.waitFor();
-        try {
-            // Wait for buffers to flush.
-            Thread.sleep(2000);
-        } catch (InterruptedException ex) {
-            ex.printStackTrace();
-        }
-
-        proc.destroy();
-
-        System.exit(0);
+    proc.waitFor();
+    try {
+      // Wait for buffers to flush.
+      Thread.sleep(2000);
+    } catch (InterruptedException ex) {
+      ex.printStackTrace();
     }
+
+    proc.destroy();
+
+    System.exit(0);
+  }
 }
