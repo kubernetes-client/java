@@ -32,17 +32,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import okio.Buffer;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class WebSockets {
+  private static final Logger log = LoggerFactory.getLogger(WebSockets.class);
+
   public static final String V4_STREAM_PROTOCOL = "v4.channel.k8s.io";
   public static final String V3_STREAM_PROTOCOL = "v3.channel.k8s.io";
   public static final String V2_STREAM_PROTOCOL = "v2.channel.k8s.io";
   public static final String V1_STREAM_PROTOCOL = "channel.k8s.io";
   public static final String STREAM_PROTOCOL_HEADER = "X-Stream-Protocol-Version";
   public static final String SPDY_3_1 = "SPDY/3.1";
-
-  private static final Logger log = Logger.getLogger(WebSockets.class);
 
   /** A simple interface for a listener on a web socket */
   public interface SocketListener {

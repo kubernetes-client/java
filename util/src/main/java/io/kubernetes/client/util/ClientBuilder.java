@@ -32,12 +32,12 @@ import java.io.Reader;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /** A Builder which allows the construction of {@link ApiClient}s in a fluent fashion. */
 public class ClientBuilder {
-
-  private static final Logger log = Logger.getLogger(ClientBuilder.class);
+  private static final Logger log = LoggerFactory.getLogger(ClientBuilder.class);
 
   private String basePath = Config.DEFAULT_FALLBACK_HOST;
   private byte[] caCertBytes = null;
