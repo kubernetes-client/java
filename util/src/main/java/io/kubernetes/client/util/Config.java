@@ -20,9 +20,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Config {
+  private static final Logger log = LoggerFactory.getLogger(Config.class);
+
   public static final String SERVICEACCOUNT_ROOT = "/var/run/secrets/kubernetes.io/serviceaccount";
   public static final String SERVICEACCOUNT_CA_PATH = SERVICEACCOUNT_ROOT + "/ca.crt";
   public static final String SERVICEACCOUNT_TOKEN_PATH = SERVICEACCOUNT_ROOT + "/token";
@@ -31,8 +34,6 @@ public class Config {
   public static final String ENV_SERVICE_PORT = "KUBERNETES_SERVICE_PORT";
   // The last resort host to try
   public static final String DEFAULT_FALLBACK_HOST = "http://localhost:8080";
-
-  private static final Logger log = Logger.getLogger(Config.class);
 
   public static ApiClient fromCluster() throws IOException {
     return ClientBuilder.cluster().build();

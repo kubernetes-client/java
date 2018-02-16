@@ -9,11 +9,12 @@ import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
 import java.security.spec.InvalidKeySpecException;
 import javax.net.ssl.KeyManager;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /** Uses Client Certificates to configure {@link ApiClient} authentication to the Kubernetes API. */
 public class ClientCertificateAuthentication implements Authentication {
-  private static final Logger log = Logger.getLogger(ClientCertificateAuthentication.class);
+  private static final Logger log = LoggerFactory.getLogger(ClientCertificateAuthentication.class);
   private final byte[] certificate;
   private final byte[] key;
 

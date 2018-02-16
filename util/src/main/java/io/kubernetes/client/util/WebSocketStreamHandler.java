@@ -28,19 +28,20 @@ import java.io.Reader;
 import java.util.HashMap;
 import java.util.Map;
 import okio.ByteString;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * WebSocketStreamHandler understands the Kubernetes streaming protocol and separates a single
  * WebSockets stream into a number of different streams using that protocol.
  */
 public class WebSocketStreamHandler implements WebSockets.SocketListener, Closeable {
+  private static final Logger log = LoggerFactory.getLogger(WebSocketStreamHandler.class);
+
   Map<Integer, PipedOutputStream> output;
   Map<Integer, PipedInputStream> input;
   WebSocket socket;
   String protocol;
-
-  private static final Logger log = Logger.getLogger(WebSockets.class);
 
   public WebSocketStreamHandler() {
     output = new HashMap<>();

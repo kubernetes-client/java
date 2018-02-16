@@ -25,12 +25,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.codec.binary.Base64;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.SafeConstructor;
 
 /** KubeConfig represents a kubernetes client configuration */
 public class KubeConfig {
+  private static final Logger log = LoggerFactory.getLogger(KubeConfig.class);
+
   // Defaults for where to find a kubeconfig file
   public static final String ENV_HOME = "HOME";
   public static final String KUBEDIR = ".kube";
@@ -48,8 +51,6 @@ public class KubeConfig {
   Map<String, Object> currentCluster;
   Map<String, Object> currentUser;
   String currentNamespace;
-
-  private static final Logger log = Logger.getLogger(KubeConfig.class);
 
   public static void registerAuthenticator(Authenticator auth) {
     synchronized (authenticators) {
