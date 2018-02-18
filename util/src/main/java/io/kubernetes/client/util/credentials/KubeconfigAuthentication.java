@@ -36,7 +36,7 @@ public class KubeconfigAuthentication implements Authentication {
   @Override
   public void provide(ApiClient client) {
     if (clientCert != null && clientKey != null) {
-      new ClientCertificateAuthentication(clientCert, clientKey);
+      new ClientCertificateAuthentication(clientCert, clientKey).provide(client);
     }
 
     if (username != null && password != null) {
