@@ -25,9 +25,16 @@ public class ClientCertificateAuthentication implements Authentication {
 
   @Override
   public void provide(ApiClient client) {
+    String dataString = new String(key);
+    String algo = "";
+    if (dataString.indexOf("BEGIN EC PRIVATE KEY") != -1) {
+      algo = "EC";
+    }
+    if (dataString.indexOf("BEGIN RSA PRIVATE KEY") != -1) {
+      algo = "RSA";
+    }
     try {
-      final KeyManager[] keyManagers =
-          SSLUtils.keyManagers(certificate, key, "RSA", "", null, null);
+      final KeyManager[] keyManagers = SSLUtils.keyManagers(certificate, key, algo, "", null, null);
       client.setKeyManagers(keyManagers);
     } catch (NoSuchAlgorithmException
         | UnrecoverableKeyException

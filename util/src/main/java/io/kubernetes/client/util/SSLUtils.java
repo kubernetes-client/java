@@ -32,6 +32,7 @@ import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
+import java.security.Security;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
@@ -43,8 +44,15 @@ import java.security.spec.RSAPrivateCrtKeySpec;
 import javax.net.ssl.KeyManager;
 import javax.net.ssl.KeyManagerFactory;
 import org.apache.commons.codec.binary.Base64;
+import org.bouncycastle.openssl.PEMKeyPair;
+import org.bouncycastle.openssl.PEMParser;
+import org.bouncycastle.openssl.jcajce.JcaPEMKeyConverter;
 
 public class SSLUtils {
+  static {
+    Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
+  }
+
   public static boolean isNotNullOrEmpty(String val) {
     return val != null && val.length() > 0;
   }
@@ -91,6 +99,42 @@ public class SSLUtils {
     }
   }
 
+  private static PrivateKey loadKey(InputStream keyInputStream, String clientKeyAlgo)
+      throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
+
+    // Try PKCS7 / EC
+    if (clientKeyAlgo.equals("EC")) {
+      Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
+      PEMKeyPair keys =
+          (PEMKeyPair) new PEMParser(new InputStreamReader(keyInputStream)).readObject();
+      return new JcaPEMKeyConverter().getKeyPair(keys).getPrivate();
+    }
+
+    byte[] keyBytes = decodePem(keyInputStream);
+
+    // Try PKCS1 / RSA
+    if (clientKeyAlgo.equals("RSA")) {
+      RSAPrivateCrtKeySpec keySpec = decodePKCS1(keyBytes);
+      return KeyFactory.getInstance("RSA").generatePrivate(keySpec);
+    }
+
+    // Try PKCS8
+    // TODO: There _has_ to be a better way to do this, but I spent >
+    // 2 hours trying to find it and failed...
+    PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(keyBytes);
+    try {
+      return KeyFactory.getInstance("RSA").generatePrivate(spec);
+    } catch (InvalidKeySpecException ex) {
+      // ignore if it's not RSA
+    }
+    try {
+      return KeyFactory.getInstance("ECDSA").generatePrivate(spec);
+    } catch (InvalidKeySpecException ex) {
+      // ignore if it's not DSA
+    }
+    throw new InvalidKeySpecException("Unknown type of PKCS8 Private Key, tried RSA and ECDSA");
+  }
+
   public static KeyStore createKeyStore(
       InputStream certInputStream,
       InputStream keyInputStream,
@@ -103,19 +147,7 @@ public class SSLUtils {
     CertificateFactory certFactory = CertificateFactory.getInstance("X509");
     X509Certificate cert = (X509Certificate) certFactory.generateCertificate(certInputStream);
 
-    byte[] keyBytes = decodePem(keyInputStream);
-
-    PrivateKey privateKey;
-
-    KeyFactory keyFactory = KeyFactory.getInstance(clientKeyAlgo);
-    try {
-      // First let's try PKCS8
-      privateKey = keyFactory.generatePrivate(new PKCS8EncodedKeySpec(keyBytes));
-    } catch (InvalidKeySpecException e) {
-      // Otherwise try PKCS1
-      RSAPrivateCrtKeySpec keySpec = decodePKCS1(keyBytes);
-      privateKey = keyFactory.generatePrivate(keySpec);
-    }
+    PrivateKey privateKey = loadKey(keyInputStream, clientKeyAlgo);
 
     KeyStore keyStore = KeyStore.getInstance("JKS");
     if (keyStoreFile != null && keyStoreFile.length() > 0) {
