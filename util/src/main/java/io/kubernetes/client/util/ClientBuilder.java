@@ -159,7 +159,6 @@ public class ClientBuilder {
     if (caBytes != null) {
       builder.setCertificateAuthority(caBytes);
     }
-
     builder.setVerifyingSsl(config.verifySSL());
 
     builder.setBasePath(server);
@@ -211,12 +210,21 @@ public class ClientBuilder {
 
     client.setVerifyingSsl(verifyingSsl);
 
-    if (caCertBytes != null) {
-      client.setSslCaCert(new ByteArrayInputStream(caCertBytes));
-    }
-
     if (authentication != null) {
       authentication.provide(client);
+    }
+
+    // NOTE: this ordering is important.  The API Client re-evaluates the CA certificate every
+    // time the SSL info changes, which means that if this comes after the following call
+    // you will try to load a certificate with an exhausted InputStream. So setting the CA
+    // certificate _has_ to be the last thing that you do related to SSL.
+    //
+    // TODO: this (imho) is broken in the generate Java Swagger Client code. We should fix it
+    // upstream and remove this dependency.
+    //
+    // TODO: Add a test to ensure that this works correctly...
+    if (caCertBytes != null) {
+      client.setSslCaCert(new ByteArrayInputStream(caCertBytes));
     }
 
     return client;
