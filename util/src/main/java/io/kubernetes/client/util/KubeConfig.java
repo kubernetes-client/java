@@ -13,6 +13,8 @@ limitations under the License.
 package io.kubernetes.client.util;
 
 import io.kubernetes.client.util.authenticators.Authenticator;
+import io.kubernetes.client.util.authenticators.AzureActiveDirectoryAuthenticator;
+import io.kubernetes.client.util.authenticators.GCPAuthenticator;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -56,6 +58,11 @@ public class KubeConfig {
     synchronized (authenticators) {
       authenticators.put(auth.getName(), auth);
     }
+  }
+
+  static {
+    registerAuthenticator(new GCPAuthenticator());
+    registerAuthenticator(new AzureActiveDirectoryAuthenticator());
   }
 
   /** Load a Kubernetes config from the default location */
@@ -182,6 +189,8 @@ public class KubeConfig {
             // TODO persist things here.
           }
           return auth.getToken(authConfig);
+        } else {
+          log.error("Unknown auth provider: " + name);
         }
       }
     }
