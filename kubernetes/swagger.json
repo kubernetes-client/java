@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Kubernetes",
-    "version": "v1.8.4"
+    "version": "v1.8.9"
   },
   "paths": {
     "/api/": {
@@ -54394,6 +54394,44 @@
         ],
         "operationId": "replaceClusterCustomObject"
       },
+      "patch": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "schemes": [
+          "https"
+        ],
+        "description": "patch the specified cluster scoped custom object",
+        "parameters": [
+          {
+            "schema": {
+              "type": "object"
+            },
+            "description": "The JSON schema of the Resource to patch.",
+            "required": true,
+            "name": "body",
+            "in": "body"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "custom_objects"
+        ],
+        "consumes": [
+          "application/merge-patch+json"
+        ],
+        "operationId": "patchClusterCustomObject"
+      },
       "delete": {
         "responses": {
           "200": {
@@ -54548,6 +54586,44 @@
           "*/*"
         ],
         "operationId": "replaceNamespacedCustomObject"
+      },
+      "patch": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "schemes": [
+          "https"
+        ],
+        "description": "patch the specified namespace scoped custom object",
+        "parameters": [
+          {
+            "schema": {
+              "type": "object"
+            },
+            "description": "The JSON schema of the Resource to patch.",
+            "required": true,
+            "name": "body",
+            "in": "body"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "custom_objects"
+        ],
+        "consumes": [
+          "application/merge-patch+json"
+        ],
+        "operationId": "patchNamespacedCustomObject"
       },
       "delete": {
         "responses": {
@@ -54790,14 +54866,14 @@
           "description": "Allocatable represents the resources of a node that are available for scheduling. Defaults to Capacity.",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "$ref": "#/definitions/resource.Quantity"
           }
         },
         "capacity": {
           "description": "Capacity represents the total resources of a node. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "$ref": "#/definitions/resource.Quantity"
           }
         },
         "conditions": {
@@ -56194,7 +56270,7 @@
           "description": "Hard is the set of desired hard limits for each named resource. More info: https://git.k8s.io/community/contributors/design-proposals/admission_control_resource_quota.md",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "$ref": "#/definitions/resource.Quantity"
           }
         },
         "scopes": {
@@ -56654,7 +56730,7 @@
           "description": "A description of the persistent volume's resources and capacity. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "$ref": "#/definitions/resource.Quantity"
           }
         },
         "cephfs": {
@@ -56734,7 +56810,7 @@
         },
         "scaleIO": {
           "description": "ScaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes.",
-          "$ref": "#/definitions/v1.ScaleIOVolumeSource"
+          "$ref": "#/definitions/v1.ScaleIOPersistentVolumeSource"
         },
         "storageClassName": {
           "description": "Name of StorageClass to which this persistent volume belongs. Empty value means that this volume does not belong to any StorageClass.",
@@ -56864,6 +56940,7 @@
     "v1beta2.StatefulSetSpec": {
       "description": "A StatefulSetSpec is the specification of a StatefulSet.",
       "required": [
+        "selector",
         "template",
         "serviceName"
       ],
@@ -56883,7 +56960,7 @@
           "format": "int32"
         },
         "selector": {
-          "description": "selector is a label query over pods that should match the replica count. If empty, defaulted to labels on the pod template. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors",
+          "description": "selector is a label query over pods that should match the replica count. It must match the pod template's labels. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors",
           "$ref": "#/definitions/v1.LabelSelector"
         },
         "serviceName": {
@@ -57201,6 +57278,9 @@
     },
     "v1beta2.ReplicaSetSpec": {
       "description": "ReplicaSetSpec is the specification of a ReplicaSet.",
+      "required": [
+        "selector"
+      ],
       "properties": {
         "minReadySeconds": {
           "description": "Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)",
@@ -57213,7 +57293,7 @@
           "format": "int32"
         },
         "selector": {
-          "description": "Selector is a label query over pods that should match the replica count. If the selector is empty, it is defaulted to the labels present on the pod template. Label keys and values that must match in order to be controlled by this replica set. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors",
+          "description": "Selector is a label query over pods that should match the replica count. Label keys and values that must match in order to be controlled by this replica set. It must match the pod template's labels. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors",
           "$ref": "#/definitions/v1.LabelSelector"
         },
         "template": {
@@ -57256,7 +57336,7 @@
           "description": "Represents the actual resources of the underlying volume.",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "$ref": "#/definitions/resource.Quantity"
           }
         },
         "conditions": {
@@ -58872,35 +58952,35 @@
           "description": "Default resource requirement limit value by resource name if resource limit is omitted.",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "$ref": "#/definitions/resource.Quantity"
           }
         },
         "defaultRequest": {
           "description": "DefaultRequest is the default resource requirement request value by resource name if resource request is omitted.",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "$ref": "#/definitions/resource.Quantity"
           }
         },
         "max": {
           "description": "Max usage constraints on this kind by resource name.",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "$ref": "#/definitions/resource.Quantity"
           }
         },
         "maxLimitRequestRatio": {
           "description": "MaxLimitRequestRatio if specified, the named resource must have a request and limit that are both non-zero where limit divided by request is less than or equal to the enumerated value; this represents the max burst for the named resource.",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "$ref": "#/definitions/resource.Quantity"
           }
         },
         "min": {
           "description": "Min usage constraints on this kind by resource name.",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "$ref": "#/definitions/resource.Quantity"
           }
         },
         "type": {
@@ -59643,6 +59723,7 @@
     "v1beta2.DaemonSetSpec": {
       "description": "DaemonSetSpec is the specification of a daemon set.",
       "required": [
+        "selector",
         "template"
       ],
       "properties": {
@@ -59657,7 +59738,7 @@
           "format": "int32"
         },
         "selector": {
-          "description": "A label query over pods that are managed by the daemon set. Must match in order to be controlled. If empty, defaulted to labels on Pod template. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors",
+          "description": "A label query over pods that are managed by the daemon set. Must match in order to be controlled. It must match the pod template's labels. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors",
           "$ref": "#/definitions/v1.LabelSelector"
         },
         "template": {
@@ -59741,14 +59822,14 @@
           "description": "Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "$ref": "#/definitions/resource.Quantity"
           }
         },
         "requests": {
           "description": "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "$ref": "#/definitions/resource.Quantity"
           }
         }
       }
@@ -59905,6 +59986,9 @@
           "type": "string"
         }
       }
+    },
+    "resource.Quantity": {
+      "type": "string"
     },
     "v1beta1.DaemonSetStatus": {
       "description": "DaemonSetStatus represents the current status of a daemon set.",
@@ -60142,7 +60226,7 @@
           "type": "string"
         },
         "protectionDomain": {
-          "description": "The name of the Protection Domain for the configured storage (defaults to \"default\").",
+          "description": "The name of the ScaleIO Protection Domain for the configured storage.",
           "type": "string"
         },
         "readOnly": {
@@ -60158,11 +60242,11 @@
           "type": "boolean"
         },
         "storageMode": {
-          "description": "Indicates whether the storage for a volume should be thick or thin (defaults to \"thin\").",
+          "description": "Indicates whether the storage for a volume should be ThickProvisioned or ThinProvisioned.",
           "type": "string"
         },
         "storagePool": {
-          "description": "The Storage Pool associated with the protection domain (defaults to \"default\").",
+          "description": "The ScaleIO Storage Pool associated with the protection domain.",
           "type": "string"
         },
         "system": {
@@ -60588,7 +60672,7 @@
         },
         "currentAverageValue": {
           "description": "currentAverageValue is the current value of the average of the resource metric across all relevant pods, as a raw value (instead of as a percentage of the request), similar to the \"pods\" metric source type. It will always be set, regardless of the corresponding metric specification.",
-          "type": "string"
+          "$ref": "#/definitions/resource.Quantity"
         },
         "name": {
           "description": "name is the name of the resource in question.",
@@ -62129,7 +62213,7 @@
       "properties": {
         "currentAverageValue": {
           "description": "currentAverageValue is the current value of the average of the metric across all relevant pods (as a quantity)",
-          "type": "string"
+          "$ref": "#/definitions/resource.Quantity"
         },
         "metricName": {
           "description": "metricName is the name of the metric in question",
@@ -62180,7 +62264,7 @@
         },
         "targetValue": {
           "description": "targetValue is the target value of the metric (as a quantity).",
-          "type": "string"
+          "$ref": "#/definitions/resource.Quantity"
         }
       }
     },
@@ -62637,14 +62721,14 @@
           "description": "Hard is the set of enforced hard limits for each named resource. More info: https://git.k8s.io/community/contributors/design-proposals/admission_control_resource_quota.md",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "$ref": "#/definitions/resource.Quantity"
           }
         },
         "used": {
           "description": "Used is the current observed total usage of the resource in the namespace.",
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "$ref": "#/definitions/resource.Quantity"
           }
         }
       }
@@ -64142,7 +64226,7 @@
       "properties": {
         "currentValue": {
           "description": "currentValue is the current value of the metric (as a quantity).",
-          "type": "string"
+          "$ref": "#/definitions/resource.Quantity"
         },
         "metricName": {
           "description": "metricName is the name of the metric in question.",
@@ -64354,7 +64438,7 @@
         },
         "sizeLimit": {
           "description": "Total amount of local storage required for this EmptyDir volume. The size limit is also applicable for memory medium. The maximum usage on memory medium EmptyDir would be the minimum value between the SizeLimit specified here and the sum of memory limits of all containers in a pod. The default is nil which means that the limit is undefined. More info: http://kubernetes.io/docs/user-guide/volumes#emptydir",
-          "type": "string"
+          "$ref": "#/definitions/resource.Quantity"
         }
       }
     },
@@ -66169,7 +66253,7 @@
         },
         "targetAverageValue": {
           "description": "targetAverageValue is the target value of the average of the resource metric across all relevant pods, as a raw value (instead of as a percentage of the request), similar to the \"pods\" metric source type.",
-          "type": "string"
+          "$ref": "#/definitions/resource.Quantity"
         }
       }
     },
@@ -66185,7 +66269,7 @@
         },
         "divisor": {
           "description": "Specifies the output format of the exposed resources, defaults to \"1\"",
-          "type": "string"
+          "$ref": "#/definitions/resource.Quantity"
         },
         "resource": {
           "description": "Required: resource to select",
@@ -66282,6 +66366,56 @@
         },
         "Schema": {
           "$ref": "#/definitions/v1beta1.JSONSchemaProps"
+        }
+      }
+    },
+    "v1.ScaleIOPersistentVolumeSource": {
+      "description": "ScaleIOPersistentVolumeSource represents a persistent ScaleIO volume",
+      "required": [
+        "gateway",
+        "system",
+        "secretRef"
+      ],
+      "properties": {
+        "fsType": {
+          "description": "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.",
+          "type": "string"
+        },
+        "gateway": {
+          "description": "The host address of the ScaleIO API Gateway.",
+          "type": "string"
+        },
+        "protectionDomain": {
+          "description": "The name of the ScaleIO Protection Domain for the configured storage.",
+          "type": "string"
+        },
+        "readOnly": {
+          "description": "Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.",
+          "type": "boolean"
+        },
+        "secretRef": {
+          "description": "SecretRef references to the secret for ScaleIO user and other sensitive information. If this is not provided, Login operation will fail.",
+          "$ref": "#/definitions/v1.SecretReference"
+        },
+        "sslEnabled": {
+          "description": "Flag to enable/disable SSL communication with Gateway, default false",
+          "type": "boolean"
+        },
+        "storageMode": {
+          "description": "Indicates whether the storage for a volume should be ThickProvisioned or ThinProvisioned.",
+          "type": "string"
+        },
+        "storagePool": {
+          "description": "The ScaleIO Storage Pool associated with the protection domain.",
+          "type": "string"
+        },
+        "system": {
+          "description": "The name of the storage system as configured in ScaleIO.",
+          "type": "string"
+        },
+        "volumeName": {
+          "description": "The name of a volume already created in the ScaleIO system that is associated with this volume source.",
+          "type": "string"
         }
       }
     },
@@ -66558,6 +66692,7 @@
     "v1beta2.DeploymentSpec": {
       "description": "DeploymentSpec is the specification of the desired behavior of the Deployment.",
       "required": [
+        "selector",
         "template"
       ],
       "properties": {
@@ -66586,7 +66721,7 @@
           "format": "int32"
         },
         "selector": {
-          "description": "Label selector for pods. Existing ReplicaSets whose pods are selected by this will be the ones affected by this deployment.",
+          "description": "Label selector for pods. Existing ReplicaSets whose pods are selected by this will be the ones affected by this deployment. It must match the pod template's labels.",
           "$ref": "#/definitions/v1.LabelSelector"
         },
         "strategy": {
@@ -67282,7 +67417,7 @@
         },
         "targetAverageValue": {
           "description": "targetAverageValue is the target value of the average of the metric across all relevant pods (as a quantity)",
-          "type": "string"
+          "$ref": "#/definitions/resource.Quantity"
         }
       }
     },
