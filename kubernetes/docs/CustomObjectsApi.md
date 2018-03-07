@@ -12,6 +12,8 @@ Method | HTTP request | Description
 [**getNamespacedCustomObject**](CustomObjectsApi.md#getNamespacedCustomObject) | **GET** /apis/{group}/{version}/namespaces/{namespace}/{plural}/{name} | 
 [**listClusterCustomObject**](CustomObjectsApi.md#listClusterCustomObject) | **GET** /apis/{group}/{version}/{plural} | 
 [**listNamespacedCustomObject**](CustomObjectsApi.md#listNamespacedCustomObject) | **GET** /apis/{group}/{version}/namespaces/{namespace}/{plural} | 
+[**patchClusterCustomObject**](CustomObjectsApi.md#patchClusterCustomObject) | **PATCH** /apis/{group}/{version}/{plural}/{name} | 
+[**patchNamespacedCustomObject**](CustomObjectsApi.md#patchNamespacedCustomObject) | **PATCH** /apis/{group}/{version}/namespaces/{namespace}/{plural}/{name} | 
 [**replaceClusterCustomObject**](CustomObjectsApi.md#replaceClusterCustomObject) | **PUT** /apis/{group}/{version}/{plural}/{name} | 
 [**replaceNamespacedCustomObject**](CustomObjectsApi.md#replaceNamespacedCustomObject) | **PUT** /apis/{group}/{version}/namespaces/{namespace}/{plural}/{name} | 
 
@@ -543,6 +545,134 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: */*
  - **Accept**: application/json, application/json;stream=watch
+
+<a name="patchClusterCustomObject"></a>
+# **patchClusterCustomObject**
+> Object patchClusterCustomObject(group, version, plural, name, body)
+
+
+
+patch the specified cluster scoped custom object
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.CustomObjectsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+CustomObjectsApi apiInstance = new CustomObjectsApi();
+String group = "group_example"; // String | the custom resource's group
+String version = "version_example"; // String | the custom resource's version
+String plural = "plural_example"; // String | the custom object's plural name. For TPRs this would be lowercase plural kind.
+String name = "name_example"; // String | the custom object's name
+Object body = null; // Object | The JSON schema of the Resource to patch.
+try {
+    Object result = apiInstance.patchClusterCustomObject(group, version, plural, name, body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CustomObjectsApi#patchClusterCustomObject");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group** | **String**| the custom resource&#39;s group |
+ **version** | **String**| the custom resource&#39;s version |
+ **plural** | **String**| the custom object&#39;s plural name. For TPRs this would be lowercase plural kind. |
+ **name** | **String**| the custom object&#39;s name |
+ **body** | **Object**| The JSON schema of the Resource to patch. |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/merge-patch+json
+ - **Accept**: application/json
+
+<a name="patchNamespacedCustomObject"></a>
+# **patchNamespacedCustomObject**
+> Object patchNamespacedCustomObject(group, version, namespace, plural, name, body)
+
+
+
+patch the specified namespace scoped custom object
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.CustomObjectsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+CustomObjectsApi apiInstance = new CustomObjectsApi();
+String group = "group_example"; // String | the custom resource's group
+String version = "version_example"; // String | the custom resource's version
+String namespace = "namespace_example"; // String | The custom resource's namespace
+String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
+String name = "name_example"; // String | the custom object's name
+Object body = null; // Object | The JSON schema of the Resource to patch.
+try {
+    Object result = apiInstance.patchNamespacedCustomObject(group, version, namespace, plural, name, body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CustomObjectsApi#patchNamespacedCustomObject");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group** | **String**| the custom resource&#39;s group |
+ **version** | **String**| the custom resource&#39;s version |
+ **namespace** | **String**| The custom resource&#39;s namespace |
+ **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
+ **name** | **String**| the custom object&#39;s name |
+ **body** | **Object**| The JSON schema of the Resource to patch. |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/merge-patch+json
+ - **Accept**: application/json
 
 <a name="replaceClusterCustomObject"></a>
 # **replaceClusterCustomObject**
