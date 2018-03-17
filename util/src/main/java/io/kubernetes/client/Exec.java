@@ -19,7 +19,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.concurrent.TimeUnit;
-
 import org.apache.commons.lang3.StringUtils;
 
 public class Exec {
@@ -185,42 +184,42 @@ public class Exec {
 
     public ExecProcess() throws IOException {
       this.statusCode = -1;
-      this.streamHandler = new WebSocketStreamHandler() {
-        @Override
-        public void close() {
-          if (statusCode == -1) {
-            InputStream inputStream = getInputStream(3);
-            int exitCode = 0;
-            try {
-              int available = inputStream.available();
-              if (available > 0) {
-                byte[] b = new byte[available];
-                inputStream.read(b);
-                String result = new String(b, "UTF-8");
-                int idx = result.lastIndexOf(':');
-                if (idx > 0) {
-                  try {
-                    exitCode = Integer.parseInt(result.substring(idx + 1).trim());
-                  } catch (NumberFormatException nfe) {
-                    // no-op
+      this.streamHandler =
+          new WebSocketStreamHandler() {
+            @Override
+            public void close() {
+              if (statusCode == -1) {
+                InputStream inputStream = getInputStream(3);
+                int exitCode = 0;
+                try {
+                  int available = inputStream.available();
+                  if (available > 0) {
+                    byte[] b = new byte[available];
+                    inputStream.read(b);
+                    String result = new String(b, "UTF-8");
+                    int idx = result.lastIndexOf(':');
+                    if (idx > 0) {
+                      try {
+                        exitCode = Integer.parseInt(result.substring(idx + 1).trim());
+                      } catch (NumberFormatException nfe) {
+                        // no-op
+                      }
+                    }
                   }
+                } catch (IOException e) {
+                }
+
+                // notify of process completion
+                synchronized (ExecProcess.this) {
+                  statusCode = exitCode;
+                  ExecProcess.this.notifyAll();
                 }
               }
-            } catch (IOException e) {
+              super.close();
             }
-            
-            // notify of process completion
-            synchronized (ExecProcess.this) {
-              statusCode = exitCode;
-              ExecProcess.this.notifyAll();
-            }
-          }
-          super.close();
-        }
-        
-      };
+          };
     }
-    
+
     private WebSocketStreamHandler getHandler() {
       return streamHandler;
     }
@@ -247,20 +246,18 @@ public class Exec {
       }
       return statusCode;
     }
-    
+
     @Override
-    public boolean waitFor(long timeout, TimeUnit unit)
-        throws InterruptedException {
+    public boolean waitFor(long timeout, TimeUnit unit) throws InterruptedException {
       synchronized (this) {
         this.wait(TimeUnit.MILLISECONDS.convert(timeout, unit));
       }
       return !isAlive();
     }
-    
+
     @Override
     public int exitValue() {
-      if (statusCode == -1)
-        throw new IllegalThreadStateException();
+      if (statusCode == -1) throw new IllegalThreadStateException();
       return statusCode;
     }
 
