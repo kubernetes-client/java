@@ -1,3 +1,22 @@
+# 1.0.0-beta3
+
+## Fixes
+
+* Fix a bug where bearer-token auth didn't work pod to pod
+  (https://github.com/kubernetes-client/java/issues/180)
+* Improve SSH key handling
+  (https://github.com/kubernetes-client/java/pull/198, https://github.com/kubernetes-client/java/pull/200)
+
+## Enhancements
+
+* Add a custom ConfigBuilder
+  (https://github.com/kubernetes-client/java/pull/171)
+* Add support for easy YAML loading
+  (https://github.com/kubernetes-client/java/pull/207)
+* Add support for Azure AAD Authentication
+  (https://github.com/kubernetes-client/java/pull/201)
+
+
 # 1.0.0-beta2
 
 ## Fixes

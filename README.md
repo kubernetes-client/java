@@ -26,7 +26,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.kubernetes</groupId>
     <artifactId>client-java</artifactId>
-    <version>0.2</version>
+    <version>1.0.0-beta3</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -34,7 +34,7 @@ Add this dependency to your project's POM:
 ### Gradle users
 
 ```groovy
-compile 'io.kubernetes:client-java:0.2'
+compile 'io.kubernetes:client-java:1.0.0-beta3'
 ```
 
 ### Others
@@ -49,7 +49,7 @@ mvn package
 
 Then manually install the following JARs:
 
-* target/client-java-0.2-SNAPSHOT.jar
+* target/client-java-1.0.0-beta3-SNAPSHOT.jar
 * target/lib/*.jar
 
 ## Example
@@ -126,11 +126,13 @@ All APIs and Models' documentation can be found at the [Generated client's READM
 
 ## Compatability
 
-|                         | Kubernetes 1.4 | Kubernetes 1.5 | Kubernetes 1.6 | Kubernetes 1.7 | Kubernetes 1.8 |
-|-------------------------|----------------|----------------|----------------|----------------|----------------|
-| java-client 0.1.0       | +              | +              | ✓              | -              | -              |
-| java-client 0.2.0       | +              | +              | ✓              | -              | -              |
-| java-client 1.0.0-beta1 | +              | +              | +              | +              | ✓              |
+|                         | Kubernetes 1.4 | Kubernetes 1.5 | Kubernetes 1.6 | Kubernetes 1.7 | Kubernetes 1.8 | Kubernetes 1.9 |
+|-------------------------|----------------|----------------|----------------|----------------|----------------|-----------|
+| java-client 0.1.0       | +              | +              | ✓              | -              | -              | -         |
+| java-client 0.2.0       | +              | +              | ✓              | -              | -              | -         |
+| java-client 1.0.0-beta1 | +              | +              | +              | +              | ✓              | -         |
+| java-client 1.0.0-beta2 | +              | +              | +              | +              | ✓              | -         |
+| java-client 1.0.0-beta3 | +              | +              | +              | +              | ✓              | -         |
 
 Key: 
 
