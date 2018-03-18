@@ -181,6 +181,7 @@ public class Exec {
   private static class ExecProcess extends Process {
     private final WebSocketStreamHandler streamHandler;
     private volatile int statusCode;
+    private volatile boolean isDestroyed = false;
 
     public ExecProcess() throws IOException {
       this.statusCode = -1;
@@ -215,7 +216,8 @@ public class Exec {
                   ExecProcess.this.notifyAll();
                 }
               }
-              super.close();
+
+              if (isDestroyed) super.close();
             }
           };
     }
@@ -263,6 +265,7 @@ public class Exec {
 
     @Override
     public void destroy() {
+      isDestroyed = true;
       streamHandler.close();
     }
   }
