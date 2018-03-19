@@ -19,7 +19,6 @@ import io.kubernetes.client.Configuration;
 import io.kubernetes.client.Exec;
 import io.kubernetes.client.util.Config;
 import java.io.IOException;
-import java.io.InterruptedIOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,8 +66,6 @@ public class ExecExample {
               public void run() {
                 try {
                   ByteStreams.copy(System.in, proc.getOutputStream());
-                } catch (InterruptedIOException ie) {
-                  // no-op
                 } catch (IOException ex) {
                   ex.printStackTrace();
                 }
@@ -82,8 +79,6 @@ public class ExecExample {
               public void run() {
                 try {
                   ByteStreams.copy(proc.getInputStream(), System.out);
-                } catch (InterruptedIOException ie) {
-                  // no-op
                 } catch (IOException ex) {
                   ex.printStackTrace();
                 }
