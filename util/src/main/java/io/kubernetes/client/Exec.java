@@ -1,5 +1,5 @@
 /*
-Copyright 2017 The Kubernetes Authors.
+Copyright 2017, 2018 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,10 +18,16 @@ import io.kubernetes.client.util.WebSockets;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Exec {
+  private static final Logger log = LoggerFactory.getLogger(Exec.class);
+
   private ApiClient apiClient;
 
   /** Simple Exec API constructor, uses default configuration */
@@ -178,10 +184,34 @@ public class Exec {
     return exec;
   }
 
+  static int parseExitCode(InputStream inputStream) {
+    int exitCode = 0;
+    try {
+      int available = inputStream.available();
+      if (available > 0) {
+        byte[] b = new byte[available];
+        inputStream.read(b);
+        String result = new String(b, "UTF-8");
+        int idx = result.lastIndexOf(':');
+        if (idx > 0) {
+          try {
+            exitCode = Integer.parseInt(result.substring(idx + 1).trim());
+          } catch (NumberFormatException nfe) {
+            log.error("Error parsing exit code from status channel response", nfe);
+          }
+        }
+      }
+    } catch (IOException io) {
+      log.error("Error parsing exit code from status channel response", io);
+    }
+
+    return exitCode;
+  }
+
   private static class ExecProcess extends Process {
     private final WebSocketStreamHandler streamHandler;
     private volatile int statusCode;
-    private volatile boolean isDestroyed = false;
+    private final Map<Integer, InputStream> input = new HashMap<>();
 
     public ExecProcess() throws IOException {
       this.statusCode = -1;
@@ -190,25 +220,7 @@ public class Exec {
             @Override
             public void close() {
               if (statusCode == -1) {
-                InputStream inputStream = getInputStream(3);
-                int exitCode = 0;
-                try {
-                  int available = inputStream.available();
-                  if (available > 0) {
-                    byte[] b = new byte[available];
-                    inputStream.read(b);
-                    String result = new String(b, "UTF-8");
-                    int idx = result.lastIndexOf(':');
-                    if (idx > 0) {
-                      try {
-                        exitCode = Integer.parseInt(result.substring(idx + 1).trim());
-                      } catch (NumberFormatException nfe) {
-                        // no-op
-                      }
-                    }
-                  }
-                } catch (IOException e) {
-                }
+                int exitCode = parseExitCode(ExecProcess.this.getInputStream(3));
 
                 // notify of process completion
                 synchronized (ExecProcess.this) {
@@ -217,7 +229,7 @@ public class Exec {
                 }
               }
 
-              if (isDestroyed) super.close();
+              super.close();
             }
           };
     }
@@ -233,12 +245,19 @@ public class Exec {
 
     @Override
     public InputStream getInputStream() {
-      return streamHandler.getInputStream(1);
+      return getInputStream(1);
     }
 
     @Override
     public InputStream getErrorStream() {
-      return streamHandler.getInputStream(2);
+      return getInputStream(2);
+    }
+
+    private synchronized InputStream getInputStream(int stream) {
+      if (!input.containsKey(stream)) {
+        input.put(stream, streamHandler.getInputStream(stream));
+      }
+      return input.get(stream);
     }
 
     @Override
@@ -265,8 +284,14 @@ public class Exec {
 
     @Override
     public void destroy() {
-      isDestroyed = true;
       streamHandler.close();
+      for (InputStream in : input.values()) {
+        try {
+          in.close();
+        } catch (IOException ex) {
+          log.error("Error on close", ex);
+        }
+      }
     }
   }
 }
