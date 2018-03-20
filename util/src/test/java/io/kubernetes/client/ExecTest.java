@@ -41,13 +41,6 @@ public class ExecTest {
   }
 
   @Test
-  public void testExit0NoMessage() {
-    InputStream inputStream = new ByteArrayInputStream(new byte[0]);
-    int exitCode = Exec.parseExitCode(client, inputStream);
-    assertEquals(0, exitCode);
-  }
-
-  @Test
   public void testExit0() {
     InputStream inputStream =
         new ByteArrayInputStream(OUTPUT_EXIT0.getBytes(StandardCharsets.UTF_8));
