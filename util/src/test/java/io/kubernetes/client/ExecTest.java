@@ -14,25 +14,44 @@ package io.kubernetes.client;
 
 import static org.junit.Assert.*;
 
+import io.kubernetes.client.util.ClientBuilder;
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import org.junit.Before;
 import org.junit.Test;
 
 /** Tests for the Exec helper class */
 public class ExecTest {
+
+  private static final String OUTPUT_EXIT0 = "{\"metadata\":{},\"status\":\"Success\"}";
   private static final String OUTPUT_EXIT1 =
-      "command terminated with non-zero exit code: Error executing in Docker Container: 1";
+      "{\"metadata\":{},\"status\":\"Failure\",\"message\":\"command terminated with non-zero exit code: Error executing in Docker Container: 1\",\"reason\":\"NonZeroExitCode\",\"details\":{\"causes\":[{\"reason\":\"ExitCode\",\"message\":\"1\"}]}}";
   private static final String OUTPUT_EXIT126 =
-      "command terminated with non-zero exit code: Error executing in Docker Container: 126";
+      "{\"metadata\":{},\"status\":\"Failure\",\"message\":\"command terminated with non-zero exit code: Error executing in Docker Container: 126\",\"reason\":\"NonZeroExitCode\",\"details\":{\"causes\":[{\"reason\":\"ExitCode\",\"message\":\"126\"}]}}";
   private static final String BAD_OUTPUT_INCOMPLETE_MSG1 =
-      "command terminated with non-zero exit code: Error ";
-  private static final String BAD_OUTPUT_INCOMPLETE_MSG2 = "command terminated with non-zero";
+      "{\"metadata\":{},\"status\":\"Failure\",\"message\":\"command terminated with non-zero exit code: Error executing in Docker Container: 1\",\"reas";
+
+  private ApiClient client;
+
+  @Before
+  public void setup() throws IOException {
+    client = ClientBuilder.defaultClient();
+  }
+
+  @Test
+  public void testExit0NoMessage() {
+    InputStream inputStream = new ByteArrayInputStream(new byte[0]);
+    int exitCode = Exec.parseExitCode(client, inputStream);
+    assertEquals(0, exitCode);
+  }
 
   @Test
   public void testExit0() {
-    InputStream inputStream = new ByteArrayInputStream(new byte[0]);
-    int exitCode = Exec.parseExitCode(inputStream);
+    InputStream inputStream =
+        new ByteArrayInputStream(OUTPUT_EXIT0.getBytes(StandardCharsets.UTF_8));
+    int exitCode = Exec.parseExitCode(client, inputStream);
     assertEquals(0, exitCode);
   }
 
@@ -40,7 +59,7 @@ public class ExecTest {
   public void testExit1() {
     InputStream inputStream =
         new ByteArrayInputStream(OUTPUT_EXIT1.getBytes(StandardCharsets.UTF_8));
-    int exitCode = Exec.parseExitCode(inputStream);
+    int exitCode = Exec.parseExitCode(client, inputStream);
     assertEquals(1, exitCode);
   }
 
@@ -48,7 +67,7 @@ public class ExecTest {
   public void testExit126() {
     InputStream inputStream =
         new ByteArrayInputStream(OUTPUT_EXIT126.getBytes(StandardCharsets.UTF_8));
-    int exitCode = Exec.parseExitCode(inputStream);
+    int exitCode = Exec.parseExitCode(client, inputStream);
     assertEquals(126, exitCode);
   }
 
@@ -56,15 +75,7 @@ public class ExecTest {
   public void testIncompleteData1() {
     InputStream inputStream =
         new ByteArrayInputStream(BAD_OUTPUT_INCOMPLETE_MSG1.getBytes(StandardCharsets.UTF_8));
-    int exitCode = Exec.parseExitCode(inputStream);
-    assertEquals(-1, exitCode);
-  }
-
-  @Test
-  public void testIncompleteData2() {
-    InputStream inputStream =
-        new ByteArrayInputStream(BAD_OUTPUT_INCOMPLETE_MSG2.getBytes(StandardCharsets.UTF_8));
-    int exitCode = Exec.parseExitCode(inputStream);
+    int exitCode = Exec.parseExitCode(client, inputStream);
     assertEquals(-1, exitCode);
   }
 }

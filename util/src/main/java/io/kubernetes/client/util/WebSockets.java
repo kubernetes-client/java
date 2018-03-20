@@ -38,11 +38,9 @@ import org.slf4j.LoggerFactory;
 public class WebSockets {
   private static final Logger log = LoggerFactory.getLogger(WebSockets.class);
 
+  // Only support v4 stream protocol as it was available since k8s 1.4
   public static final String V4_STREAM_PROTOCOL = "v4.channel.k8s.io";
-  public static final String V3_STREAM_PROTOCOL = "v3.channel.k8s.io";
-  public static final String V2_STREAM_PROTOCOL = "v2.channel.k8s.io";
-  public static final String V1_STREAM_PROTOCOL = "channel.k8s.io";
-  public static final String STREAM_PROTOCOL_HEADER = "X-Stream-Protocol-Version";
+  public static final String STREAM_PROTOCOL_HEADER = "Sec-WebSocket-Protocol";
   public static final String SPDY_3_1 = "SPDY/3.1";
 
   /** A simple interface for a listener on a web socket */
@@ -86,11 +84,7 @@ public class WebSockets {
       throws ApiException, IOException {
 
     HashMap<String, String> headers = new HashMap<String, String>();
-    String allProtocols =
-        String.format(
-            "%s,%s,%s,%s",
-            V4_STREAM_PROTOCOL, V3_STREAM_PROTOCOL, V2_STREAM_PROTOCOL, V1_STREAM_PROTOCOL);
-    headers.put(STREAM_PROTOCOL_HEADER, allProtocols);
+    headers.put(STREAM_PROTOCOL_HEADER, V4_STREAM_PROTOCOL);
     headers.put(HttpHeaders.CONNECTION, HttpHeaders.UPGRADE);
     headers.put(HttpHeaders.UPGRADE, SPDY_3_1);
     String[] localVarAuthNames = new String[] {"BearerToken"};

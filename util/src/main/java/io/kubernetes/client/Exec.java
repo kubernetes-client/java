@@ -12,13 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client;
 
+import com.google.gson.reflect.TypeToken;
 import io.kubernetes.client.models.V1Pod;
+import io.kubernetes.client.models.V1Status;
+import io.kubernetes.client.models.V1StatusCause;
+import io.kubernetes.client.models.V1StatusDetails;
 import io.kubernetes.client.util.WebSocketStreamHandler;
 import io.kubernetes.client.util.WebSockets;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.lang.reflect.Type;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.lang3.StringUtils;
@@ -184,7 +190,7 @@ public class Exec {
     return exec;
   }
 
-  static int parseExitCode(InputStream inputStream) {
+  static int parseExitCode(ApiClient client, InputStream inputStream) {
     try {
       int available = inputStream.available();
 
@@ -193,24 +199,38 @@ public class Exec {
 
       byte[] b = new byte[available];
       inputStream.read(b);
-      String result = new String(b, "UTF-8");
-      int idx = result.lastIndexOf(':');
-      if (idx > 0) {
-        try {
-          return Integer.parseInt(result.substring(idx + 1).trim());
-        } catch (NumberFormatException nfe) {
-          log.error("Error parsing exit code from status channel response", nfe);
+      String body = new String(b, "UTF-8");
+
+      Type returnType = new TypeToken<V1Status>() {}.getType();
+      V1Status status = client.getJSON().deserialize(body, returnType);
+      if ("Success".equals(status.getStatus())) return 0;
+
+      if ("NonZeroExitCode".equals(status.getReason())) {
+        V1StatusDetails details = status.getDetails();
+        if (details != null) {
+          List<V1StatusCause> causes = details.getCauses();
+          if (causes != null) {
+            for (V1StatusCause cause : causes) {
+              if ("ExitCode".equals(cause.getReason())) {
+                try {
+                  return Integer.parseInt(cause.getMessage());
+                } catch (NumberFormatException nfe) {
+                  log.error("Error parsing exit code from status channel response", nfe);
+                }
+              }
+            }
+          }
         }
       }
-    } catch (IOException io) {
-      log.error("Error parsing exit code from status channel response", io);
+    } catch (Throwable t) {
+      log.error("Error parsing exit code from status channel response", t);
     }
 
     // Unable to parse the exit code from the content
     return -1;
   }
 
-  private static class ExecProcess extends Process {
+  private class ExecProcess extends Process {
     private final WebSocketStreamHandler streamHandler;
     private volatile int statusCode;
     private final Map<Integer, InputStream> input = new HashMap<>();
@@ -222,7 +242,7 @@ public class Exec {
             @Override
             public void close() {
               if (statusCode == -1) {
-                int exitCode = parseExitCode(ExecProcess.this.getInputStream(3));
+                int exitCode = parseExitCode(apiClient, ExecProcess.this.getInputStream(3));
 
                 // notify of process completion
                 synchronized (ExecProcess.this) {
