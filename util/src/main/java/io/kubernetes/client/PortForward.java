@@ -76,7 +76,7 @@ public class PortForward {
    */
   public PortForwardResult forward(V1Pod pod, List<Integer> ports)
       throws ApiException, IOException {
-    return forward(pod.getMetadata().getNamespace(), pod.getMetadata().getNamespace(), ports);
+    return forward(pod.getMetadata().getNamespace(), pod.getMetadata().getName(), ports);
   }
 
   /**
