@@ -25,6 +25,9 @@ public class ExecTest {
       "command terminated with non-zero exit code: Error executing in Docker Container: 1";
   private static final String OUTPUT_EXIT126 =
       "command terminated with non-zero exit code: Error executing in Docker Container: 126";
+  private static final String BAD_OUTPUT_INCOMPLETE_MSG1 =
+      "command terminated with non-zero exit code: Error ";
+  private static final String BAD_OUTPUT_INCOMPLETE_MSG2 = "command terminated with non-zero";
 
   @Test
   public void testExit0() {
@@ -47,5 +50,21 @@ public class ExecTest {
         new ByteArrayInputStream(OUTPUT_EXIT126.getBytes(StandardCharsets.UTF_8));
     int exitCode = Exec.parseExitCode(inputStream);
     assertEquals(126, exitCode);
+  }
+
+  @Test
+  public void testIncompleteData1() {
+    InputStream inputStream =
+        new ByteArrayInputStream(BAD_OUTPUT_INCOMPLETE_MSG1.getBytes(StandardCharsets.UTF_8));
+    int exitCode = Exec.parseExitCode(inputStream);
+    assertEquals(-1, exitCode);
+  }
+
+  @Test
+  public void testIncompleteData2() {
+    InputStream inputStream =
+        new ByteArrayInputStream(BAD_OUTPUT_INCOMPLETE_MSG2.getBytes(StandardCharsets.UTF_8));
+    int exitCode = Exec.parseExitCode(inputStream);
+    assertEquals(-1, exitCode);
   }
 }

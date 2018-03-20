@@ -185,27 +185,29 @@ public class Exec {
   }
 
   static int parseExitCode(InputStream inputStream) {
-    int exitCode = 0;
     try {
       int available = inputStream.available();
-      if (available > 0) {
-        byte[] b = new byte[available];
-        inputStream.read(b);
-        String result = new String(b, "UTF-8");
-        int idx = result.lastIndexOf(':');
-        if (idx > 0) {
-          try {
-            exitCode = Integer.parseInt(result.substring(idx + 1).trim());
-          } catch (NumberFormatException nfe) {
-            log.error("Error parsing exit code from status channel response", nfe);
-          }
+
+      // Kubernetes returns no content when the exit code is 0
+      if (available == 0) return 0;
+
+      byte[] b = new byte[available];
+      inputStream.read(b);
+      String result = new String(b, "UTF-8");
+      int idx = result.lastIndexOf(':');
+      if (idx > 0) {
+        try {
+          return Integer.parseInt(result.substring(idx + 1).trim());
+        } catch (NumberFormatException nfe) {
+          log.error("Error parsing exit code from status channel response", nfe);
         }
       }
     } catch (IOException io) {
       log.error("Error parsing exit code from status channel response", io);
     }
 
-    return exitCode;
+    // Unable to parse the exit code from the content
+    return -1;
   }
 
   private static class ExecProcess extends Process {

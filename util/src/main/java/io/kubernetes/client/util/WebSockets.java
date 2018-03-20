@@ -1,5 +1,5 @@
 /*
-Copyright 2017 The Kubernetes Authors.
+Copyright 2017, 2018 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -51,7 +51,7 @@ public class WebSockets {
     public void open(String protocol, WebSocket socket);
 
     /**
-     * Callled when a binary media type message is received
+     * Called when a binary media type message is received
      *
      * @param in The input stream containing the binary data
      */
