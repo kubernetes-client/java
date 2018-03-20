@@ -67,22 +67,28 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
   @Override
   public void bytesMessage(InputStream in) {
     try {
-      OutputStream out = getSocketInputOutputStream(in.read());
-      ByteStreams.copy(in, out);
+      handleMessage(in.read(), in);
     } catch (IOException ex) {
-      log.error("Error writing message", ex);
+      log.error("Error reading message channel", ex);
     }
   }
 
   @Override
   public void textMessage(Reader in) {
     try {
-      OutputStream out = getSocketInputOutputStream(in.read());
-      InputStream inStream =
-          new ByteArrayInputStream(CharStreams.toString(in).getBytes(Charsets.UTF_8));
-      ByteStreams.copy(inStream, out);
+      handleMessage(
+          in.read(), new ByteArrayInputStream(CharStreams.toString(in).getBytes(Charsets.UTF_8)));
     } catch (IOException ex) {
       log.error("Error writing message", ex);
+    }
+  }
+
+  protected void handleMessage(int stream, InputStream inStream) {
+    try {
+      OutputStream out = getSocketInputOutputStream(stream);
+      ByteStreams.copy(inStream, out);
+    } catch (IOException ex) {
+      log.error("Error handling message", ex);
     }
   }
 

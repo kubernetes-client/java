@@ -47,7 +47,7 @@ public class ExecExample {
     Configuration.setDefaultApiClient(client);
 
     Exec exec = new Exec();
-    boolean tty = true; // Optional: System.console() != null;
+    boolean tty = System.console() != null;
     // final Process proc = exec.exec("default", "nginx-4217019353-k5sn9", new String[]
     //   {"sh", "-c", "echo foo"}, true, tty);
     final Process proc =
@@ -93,6 +93,6 @@ public class ExecExample {
 
     proc.destroy();
 
-    System.exit(0);
+    System.exit(proc.exitValue());
   }
 }

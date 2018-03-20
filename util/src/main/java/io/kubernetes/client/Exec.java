@@ -12,6 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client;
 
+import com.google.common.io.CharStreams;
 import com.google.gson.reflect.TypeToken;
 import io.kubernetes.client.models.V1Pod;
 import io.kubernetes.client.models.V1Status;
@@ -21,7 +22,9 @@ import io.kubernetes.client.util.WebSocketStreamHandler;
 import io.kubernetes.client.util.WebSockets;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.Reader;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.List;
@@ -192,16 +195,12 @@ public class Exec {
 
   static int parseExitCode(ApiClient client, InputStream inputStream) {
     try {
-      int available = inputStream.available();
-
-      // Kubernetes returns no content when the exit code is 0
-      if (available == 0) return 0;
-
-      byte[] b = new byte[available];
-      inputStream.read(b);
-      String body = new String(b, "UTF-8");
-
       Type returnType = new TypeToken<V1Status>() {}.getType();
+      String body;
+      try (final Reader reader = new InputStreamReader(inputStream)) {
+        body = CharStreams.toString(reader);
+      }
+
       V1Status status = client.getJSON().deserialize(body, returnType);
       if ("Success".equals(status.getStatus())) return 0;
 
@@ -232,21 +231,34 @@ public class Exec {
 
   private class ExecProcess extends Process {
     private final WebSocketStreamHandler streamHandler;
-    private volatile int statusCode;
+    private int statusCode = -1;
+    private boolean isAlive = true;
     private final Map<Integer, InputStream> input = new HashMap<>();
 
     public ExecProcess() throws IOException {
-      this.statusCode = -1;
       this.streamHandler =
           new WebSocketStreamHandler() {
             @Override
-            public void close() {
-              if (statusCode == -1) {
-                int exitCode = parseExitCode(apiClient, ExecProcess.this.getInputStream(3));
+            protected void handleMessage(int stream, InputStream inStream) {
+              if (stream == 3) {
+                int exitCode = parseExitCode(apiClient, inStream);
+                if (exitCode >= 0) {
+                  // notify of process completion
+                  synchronized (ExecProcess.this) {
+                    statusCode = exitCode;
+                    isAlive = false;
+                    ExecProcess.this.notifyAll();
+                  }
+                }
+              } else super.handleMessage(stream, inStream);
+            }
 
-                // notify of process completion
-                synchronized (ExecProcess.this) {
-                  statusCode = exitCode;
+            @Override
+            public void close() {
+              // notify of process completion
+              synchronized (ExecProcess.this) {
+                if (isAlive) {
+                  isAlive = false;
                   ExecProcess.this.notifyAll();
                 }
               }
@@ -286,22 +298,27 @@ public class Exec {
     public int waitFor() throws InterruptedException {
       synchronized (this) {
         this.wait();
+        return statusCode;
       }
-      return statusCode;
     }
 
     @Override
     public boolean waitFor(long timeout, TimeUnit unit) throws InterruptedException {
       synchronized (this) {
         this.wait(TimeUnit.MILLISECONDS.convert(timeout, unit));
+        return !isAlive();
       }
-      return !isAlive();
     }
 
     @Override
-    public int exitValue() {
-      if (statusCode == -1) throw new IllegalThreadStateException();
+    public synchronized int exitValue() {
+      if (isAlive) throw new IllegalThreadStateException();
       return statusCode;
+    }
+
+    @Override
+    public synchronized boolean isAlive() {
+      return isAlive;
     }
 
     @Override
