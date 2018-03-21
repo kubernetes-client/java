@@ -1,5 +1,5 @@
 /*
-Copyright 2017 The Kubernetes Authors.
+Copyright 2017, 2018 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,15 +12,31 @@ limitations under the License.
 */
 package io.kubernetes.client;
 
+import com.google.common.io.CharStreams;
+import com.google.gson.reflect.TypeToken;
 import io.kubernetes.client.models.V1Pod;
+import io.kubernetes.client.models.V1Status;
+import io.kubernetes.client.models.V1StatusCause;
+import io.kubernetes.client.models.V1StatusDetails;
 import io.kubernetes.client.util.WebSocketStreamHandler;
 import io.kubernetes.client.util.WebSockets;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.Reader;
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Exec {
+  private static final Logger log = LoggerFactory.getLogger(Exec.class);
+
   private ApiClient apiClient;
 
   /** Simple Exec API constructor, uses default configuration */
@@ -170,20 +186,90 @@ public class Exec {
       throws ApiException, IOException {
     String path = makePath(namespace, name, command, container, stdin, tty);
 
-    WebSocketStreamHandler handler = new WebSocketStreamHandler();
-    ExecProcess exec = new ExecProcess(handler);
+    ExecProcess exec = new ExecProcess();
+    WebSocketStreamHandler handler = exec.getHandler();
     WebSockets.stream(path, "GET", apiClient, handler);
 
     return exec;
   }
 
-  private static class ExecProcess extends Process {
-    WebSocketStreamHandler streamHandler;
-    private int statusCode;
+  static int parseExitCode(ApiClient client, InputStream inputStream) {
+    try {
+      Type returnType = new TypeToken<V1Status>() {}.getType();
+      String body;
+      try (final Reader reader = new InputStreamReader(inputStream)) {
+        body = CharStreams.toString(reader);
+      }
 
-    public ExecProcess(WebSocketStreamHandler handler) throws IOException {
-      this.streamHandler = handler;
-      this.statusCode = -1;
+      V1Status status = client.getJSON().deserialize(body, returnType);
+      if ("Success".equals(status.getStatus())) return 0;
+
+      if ("NonZeroExitCode".equals(status.getReason())) {
+        V1StatusDetails details = status.getDetails();
+        if (details != null) {
+          List<V1StatusCause> causes = details.getCauses();
+          if (causes != null) {
+            for (V1StatusCause cause : causes) {
+              if ("ExitCode".equals(cause.getReason())) {
+                try {
+                  return Integer.parseInt(cause.getMessage());
+                } catch (NumberFormatException nfe) {
+                  log.error("Error parsing exit code from status channel response", nfe);
+                }
+              }
+            }
+          }
+        }
+      }
+    } catch (Throwable t) {
+      log.error("Error parsing exit code from status channel response", t);
+    }
+
+    // Unable to parse the exit code from the content
+    return -1;
+  }
+
+  private class ExecProcess extends Process {
+    private final WebSocketStreamHandler streamHandler;
+    private int statusCode = -1;
+    private boolean isAlive = true;
+    private final Map<Integer, InputStream> input = new HashMap<>();
+
+    public ExecProcess() throws IOException {
+      this.streamHandler =
+          new WebSocketStreamHandler() {
+            @Override
+            protected void handleMessage(int stream, InputStream inStream) {
+              if (stream == 3) {
+                int exitCode = parseExitCode(apiClient, inStream);
+                if (exitCode >= 0) {
+                  // notify of process completion
+                  synchronized (ExecProcess.this) {
+                    statusCode = exitCode;
+                    isAlive = false;
+                    ExecProcess.this.notifyAll();
+                  }
+                }
+              } else super.handleMessage(stream, inStream);
+            }
+
+            @Override
+            public void close() {
+              // notify of process completion
+              synchronized (ExecProcess.this) {
+                if (isAlive) {
+                  isAlive = false;
+                  ExecProcess.this.notifyAll();
+                }
+              }
+
+              super.close();
+            }
+          };
+    }
+
+    private WebSocketStreamHandler getHandler() {
+      return streamHandler;
     }
 
     @Override
@@ -193,28 +279,58 @@ public class Exec {
 
     @Override
     public InputStream getInputStream() {
-      return streamHandler.getInputStream(1);
+      return getInputStream(1);
     }
 
     @Override
     public InputStream getErrorStream() {
-      return streamHandler.getInputStream(2);
+      return getInputStream(2);
+    }
+
+    private synchronized InputStream getInputStream(int stream) {
+      if (!input.containsKey(stream)) {
+        input.put(stream, streamHandler.getInputStream(stream));
+      }
+      return input.get(stream);
     }
 
     @Override
     public int waitFor() throws InterruptedException {
       synchronized (this) {
         this.wait();
+        return statusCode;
       }
+    }
+
+    @Override
+    public boolean waitFor(long timeout, TimeUnit unit) throws InterruptedException {
+      synchronized (this) {
+        this.wait(TimeUnit.MILLISECONDS.convert(timeout, unit));
+        return !isAlive();
+      }
+    }
+
+    @Override
+    public synchronized int exitValue() {
+      if (isAlive) throw new IllegalThreadStateException();
       return statusCode;
     }
 
-    public int exitValue() {
-      return statusCode;
+    @Override
+    public synchronized boolean isAlive() {
+      return isAlive;
     }
 
+    @Override
     public void destroy() {
       streamHandler.close();
+      for (InputStream in : input.values()) {
+        try {
+          in.close();
+        } catch (IOException ex) {
+          log.error("Error on close", ex);
+        }
+      }
     }
   }
 }

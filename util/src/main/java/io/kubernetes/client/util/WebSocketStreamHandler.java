@@ -1,5 +1,5 @@
 /*
-Copyright 2017 The Kubernetes Authors.
+Copyright 2017, 2018 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -21,6 +21,7 @@ import java.io.ByteArrayInputStream;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InterruptedIOException;
 import java.io.OutputStream;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
@@ -38,76 +39,97 @@ import org.slf4j.LoggerFactory;
 public class WebSocketStreamHandler implements WebSockets.SocketListener, Closeable {
   private static final Logger log = LoggerFactory.getLogger(WebSocketStreamHandler.class);
 
-  Map<Integer, PipedOutputStream> output;
-  Map<Integer, PipedInputStream> input;
-  WebSocket socket;
-  String protocol;
+  private final Map<Integer, PipedInputStream> input = new HashMap<>();
+  private final Map<Integer, PipedOutputStream> pipedOutput = new HashMap<>();
+  private final Map<Integer, OutputStream> output = new HashMap<>();
+  private WebSocket socket;
 
-  public WebSocketStreamHandler() {
-    output = new HashMap<>();
-    input = new HashMap<>();
-  }
+  @SuppressWarnings("unused")
+  private String protocol;
+
+  private State state = State.UNINITIALIZED;
+
+  private static enum State {
+    UNINITIALIZED,
+    OPEN,
+    CLOSED
+  };
 
   @Override
-  public void open(String protocol, WebSocket socket) {
+  public synchronized void open(String protocol, WebSocket socket) {
+    if (state != State.UNINITIALIZED) throw new IllegalStateException();
     this.protocol = protocol;
     this.socket = socket;
+    state = State.OPEN;
+    notifyAll();
   }
 
   @Override
   public void bytesMessage(InputStream in) {
     try {
-      OutputStream out = getSocketInputOutputStream(in.read());
-      ByteStreams.copy(in, out);
+      handleMessage(in.read(), in);
     } catch (IOException ex) {
-      log.error("Error writing message", ex);
+      log.error("Error reading message channel", ex);
     }
   }
 
   @Override
   public void textMessage(Reader in) {
     try {
-      OutputStream out = getSocketInputOutputStream(in.read());
-      InputStream inStream =
-          new ByteArrayInputStream(CharStreams.toString(in).getBytes(Charsets.UTF_8));
-      ByteStreams.copy(inStream, out);
+      handleMessage(
+          in.read(), new ByteArrayInputStream(CharStreams.toString(in).getBytes(Charsets.UTF_8)));
     } catch (IOException ex) {
       log.error("Error writing message", ex);
     }
   }
 
-  @Override
-  public void close() {
-    for (PipedOutputStream out : output.values()) {
-      try {
-        out.close();
-      } catch (IOException ex) {
-        // TODO use a logger here
-        ex.printStackTrace();
-      }
+  protected void handleMessage(int stream, InputStream inStream) {
+    try {
+      OutputStream out = getSocketInputOutputStream(stream);
+      ByteStreams.copy(inStream, out);
+    } catch (IOException ex) {
+      log.error("Error handling message", ex);
     }
-    for (PipedInputStream in : input.values()) {
-      try {
-        in.close();
-      } catch (IOException ex) {
-        // TODO use a logger here
-        ex.printStackTrace();
+  }
+
+  @Override
+  public synchronized void close() {
+    if (state != State.CLOSED) {
+      state = State.CLOSED;
+      // Close all output streams.  Caller of getInputStream(int) is responsible
+      // for closing returned input streams
+      for (PipedOutputStream out : pipedOutput.values()) {
+        try {
+          out.close();
+        } catch (IOException ex) {
+          log.error("Error on close", ex);
+        }
+      }
+      for (OutputStream out : output.values()) {
+        try {
+          out.close();
+        } catch (IOException ex) {
+          log.error("Error on close", ex);
+        }
       }
     }
   }
 
   /**
-   * Get a specific input stream using its identifier
+   * Get a specific input stream using its identifier. Caller is responsible for closing these
+   * streams.
    *
    * @param stream The stream to return
    * @return The specified stream.
    */
   public synchronized InputStream getInputStream(int stream) {
+    if (state == State.CLOSED) throw new IllegalStateException();
+
     if (!input.containsKey(stream)) {
       try {
         PipedInputStream pipeIn = new PipedInputStream();
         PipedOutputStream pipeOut = new PipedOutputStream(pipeIn);
-        output.put(stream, pipeOut);
+        pipedOutput.put(stream, pipeOut);
         input.put(stream, pipeIn);
       } catch (IOException ex) {
         // This is _very_ unlikely, as it requires the above constructor to fail.
@@ -124,8 +146,11 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
    * @param stream The stream to return
    * @return The specified stream.
    */
-  public OutputStream getOutputStream(int stream) {
-    return new WebSocketOutputStream(stream);
+  public synchronized OutputStream getOutputStream(int stream) {
+    if (!output.containsKey(stream)) {
+      output.put(stream, new WebSocketOutputStream(stream));
+    }
+    return output.get(stream);
   }
 
   /**
@@ -136,11 +161,11 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
    * @return The specified stream.
    */
   private synchronized OutputStream getSocketInputOutputStream(int stream) {
-    if (!output.containsKey(stream)) {
+    if (!pipedOutput.containsKey(stream)) {
       try {
         PipedInputStream pipeIn = new PipedInputStream();
         PipedOutputStream pipeOut = new PipedOutputStream(pipeIn);
-        output.put(stream, pipeOut);
+        pipedOutput.put(stream, pipeOut);
         input.put(stream, pipeIn);
       } catch (IOException ex) {
         // This is _very_ unlikely, as it requires the above constructor to fail.
@@ -148,11 +173,11 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
         throw new IllegalStateException(ex);
       }
     }
-    return output.get(stream);
+    return pipedOutput.get(stream);
   }
 
   private class WebSocketOutputStream extends OutputStream {
-    private byte stream;
+    private final byte stream;
 
     public WebSocketOutputStream(int stream) {
       this.stream = (byte) stream;
@@ -165,13 +190,23 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
 
     @Override
     public void write(byte[] b) throws IOException {
-      this.write(b, 0, b.length);
+      write(b, 0, b.length);
     }
 
     @Override
     public void write(byte[] b, int offset, int length) throws IOException {
       if (WebSocketStreamHandler.this.socket == null) {
-        throw new IOException("No websocket connection!");
+        synchronized (WebSocketStreamHandler.this) {
+          if (state == State.CLOSED) throw new IllegalStateException();
+          if (WebSocketStreamHandler.this.socket == null) {
+            // wait for the websocket to be opened
+            try {
+              WebSocketStreamHandler.this.wait();
+            } catch (InterruptedException e) {
+              throw new InterruptedIOException();
+            }
+          }
+        }
       }
       byte[] buffer = new byte[length + 1];
       buffer[0] = stream;
