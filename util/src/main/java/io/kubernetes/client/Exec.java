@@ -12,6 +12,8 @@ limitations under the License.
 */
 package io.kubernetes.client;
 
+import static io.kubernetes.client.KubernetesConstants.*;
+
 import com.google.common.io.CharStreams;
 import com.google.gson.reflect.TypeToken;
 import io.kubernetes.client.models.V1Pod;
@@ -202,15 +204,15 @@ public class Exec {
       }
 
       V1Status status = client.getJSON().deserialize(body, returnType);
-      if ("Success".equals(status.getStatus())) return 0;
+      if (V1STATUS_SUCCESS.equals(status.getStatus())) return 0;
 
-      if ("NonZeroExitCode".equals(status.getReason())) {
+      if (V1STATUS_REASON_NONZEROEXITCODE.equals(status.getReason())) {
         V1StatusDetails details = status.getDetails();
         if (details != null) {
           List<V1StatusCause> causes = details.getCauses();
           if (causes != null) {
             for (V1StatusCause cause : causes) {
-              if ("ExitCode".equals(cause.getReason())) {
+              if (V1STATUS_CAUSE_REASON_EXITCODE.equals(cause.getReason())) {
                 try {
                   return Integer.parseInt(cause.getMessage());
                 } catch (NumberFormatException nfe) {
@@ -239,7 +241,7 @@ public class Exec {
       this.streamHandler =
           new WebSocketStreamHandler() {
             @Override
-            protected void handleMessage(int stream, InputStream inStream) {
+            protected void handleMessage(int stream, InputStream inStream) throws IOException {
               if (stream == 3) {
                 int exitCode = parseExitCode(apiClient, inStream);
                 if (exitCode >= 0) {
