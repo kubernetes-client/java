@@ -83,13 +83,9 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
     }
   }
 
-  protected void handleMessage(int stream, InputStream inStream) {
-    try {
-      OutputStream out = getSocketInputOutputStream(stream);
-      ByteStreams.copy(inStream, out);
-    } catch (IOException ex) {
-      log.error("Error handling message", ex);
-    }
+  protected void handleMessage(int stream, InputStream inStream) throws IOException {
+    OutputStream out = getSocketInputOutputStream(stream);
+    ByteStreams.copy(inStream, out);
   }
 
   @Override
