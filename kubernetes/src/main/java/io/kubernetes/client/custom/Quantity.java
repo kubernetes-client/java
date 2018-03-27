@@ -33,6 +33,11 @@ public class Quantity {
         this.format = format;
     }
 
+    public Quantity(final String value) {
+        this.number = fromString(value).number;
+        this.format = fromString(value).format;
+    }
+
     public BigDecimal getNumber() {
         return number;
     }
