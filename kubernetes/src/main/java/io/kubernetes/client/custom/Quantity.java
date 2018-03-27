@@ -29,8 +29,14 @@ public class Quantity {
     }
 
     public Quantity(final BigDecimal number, final Format format) {
+
         this.number = number;
         this.format = format;
+    }
+
+    public Quantity(final String value) {
+        this.number = fromString(value).number;
+        this.format = fromString(value).format;
     }
 
     public BigDecimal getNumber() {
