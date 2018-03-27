@@ -29,6 +29,7 @@ public class Quantity {
     }
 
     public Quantity(final BigDecimal number, final Format format) {
+
         this.number = number;
         this.format = format;
     }
