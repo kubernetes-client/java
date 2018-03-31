@@ -124,7 +124,7 @@ mvn exec:java -Dexec.mainClass="io.kubernetes.client.examples.Example"
 
 All APIs and Models' documentation can be found at the [Generated client's README file](kubernetes/README.md)
 
-## Compatability
+## Compatibility
 
 |                         | Kubernetes 1.4 | Kubernetes 1.5 | Kubernetes 1.6 | Kubernetes 1.7 | Kubernetes 1.8 | Kubernetes 1.9 |
 |-------------------------|----------------|----------------|----------------|----------------|----------------|-----------|
