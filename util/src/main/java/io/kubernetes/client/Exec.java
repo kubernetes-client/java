@@ -88,6 +88,8 @@ public class Exec {
             + "/exec?"
             + "stdin="
             + stdin
+            + "&stdout=true"
+            + "&stderr=true"
             + "&tty="
             + tty
             + (container != null ? "&container=" + container : "")
@@ -204,6 +206,9 @@ public class Exec {
       }
 
       V1Status status = client.getJSON().deserialize(body, returnType);
+      if (status == null) {
+        return -1;
+      }
       if (V1STATUS_SUCCESS.equals(status.getStatus())) return 0;
 
       if (V1STATUS_REASON_NONZEROEXITCODE.equals(status.getReason())) {
