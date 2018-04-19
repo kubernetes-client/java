@@ -12,40 +12,44 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import static org.junit.Assert.*;
-
+import io.kubernetes.client.custom.IntOrString;
 import io.kubernetes.client.models.V1ObjectMeta;
+import io.kubernetes.client.models.V1Service;
+import io.kubernetes.client.models.V1ServicePort;
+import org.junit.Test;
+
 import java.io.StringReader;
 import java.lang.reflect.Method;
-import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class YamlTest {
   @Test
   public void testLoad() {
-    String[] kinds = new String[] {"Pod", "Deployment", "ClusterRole", "APIService", "Scale"};
+    String[] kinds = new String[]{"Pod", "Deployment", "ClusterRole", "APIService", "Scale"};
     String[] apiVersions =
-        new String[] {"v1", "v1beta2", "v1alpha1", "v1beta1", "extensions/v1beta1"};
+            new String[]{"v1", "v1beta2", "v1alpha1", "v1beta1", "extensions/v1beta1"};
     String[] classNames =
-        new String[] {
-          "V1Pod",
-          "V1beta2Deployment",
-          "V1alpha1ClusterRole",
-          "V1beta1APIService",
-          "ExtensionsV1beta1Scale"
-        };
+            new String[]{
+                    "V1Pod",
+                    "V1beta2Deployment",
+                    "V1alpha1ClusterRole",
+                    "V1beta1APIService",
+                    "ExtensionsV1beta1Scale"
+            };
     for (int i = 0; i < kinds.length; i++) {
       String kind = kinds[i];
       String className = classNames[i];
       try {
         String input =
-            "kind: "
-                + kind
-                + "\n"
-                + "apiVersion: "
-                + apiVersions[i]
-                + "\n"
-                + "metadata:\n"
-                + "  name: foo";
+                "kind: "
+                        + kind
+                        + "\n"
+                        + "apiVersion: "
+                        + apiVersions[i]
+                        + "\n"
+                        + "metadata:\n"
+                        + "  name: foo";
         Object obj = Yaml.load(new StringReader(input));
         Method m = obj.getClass().getMethod("getMetadata");
         V1ObjectMeta metadata = (V1ObjectMeta) m.invoke(obj);
@@ -55,6 +59,23 @@ public class YamlTest {
       } catch (Exception ex) {
         assertNull("Unexpected exception: " + ex.toString(), ex);
       }
+    }
+  }
+
+  @Test
+  public void testLoadIntOrString() {
+    try {
+      String strInput = "targetPort: test";
+      String intInput = "targetPort: 1";
+
+      V1ServicePort stringPort = Yaml.loadAs(strInput, V1ServicePort.class);
+      V1ServicePort intPort = Yaml.loadAs(intInput, V1ServicePort.class);
+
+      assertFalse("Target port for 'stringPort' was parsed to an integer, string expected.", stringPort.getTargetPort().isInteger());
+      assertTrue("Target port for 'intPort' was parsed to a string, integer expected.", intPort.getTargetPort().isInteger());
+
+    } catch (Exception ex) {
+      assertNull("Unexpected exception: " + ex.toString(), ex);
     }
   }
 }

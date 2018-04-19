@@ -21,11 +21,16 @@ import java.io.StringReader;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
+import io.kubernetes.client.custom.IntOrString;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.yaml.snakeyaml.constructor.Constructor;
+import org.yaml.snakeyaml.nodes.Node;
+import org.yaml.snakeyaml.nodes.ScalarNode;
 
 public class Yaml {
-  private static org.yaml.snakeyaml.Yaml yaml = new org.yaml.snakeyaml.Yaml();
+  private static org.yaml.snakeyaml.Yaml yaml = new org.yaml.snakeyaml.Yaml(new CustomConstructor());
   private static Map<String, Class<?>> classes = new HashMap<>();
 
   static final Logger logger = LoggerFactory.getLogger(Yaml.class);
@@ -184,5 +189,27 @@ public class Yaml {
    */
   public static <T> T loadAs(Reader reader, Class<T> clazz) {
     return yaml.loadAs(reader, clazz);
+  }
+
+
+  /**
+   * Defines constructor logic for custom types in this library.
+   */
+  public static class CustomConstructor extends Constructor {
+    @Override
+    protected Object constructObject(Node node) {
+      if(node.getType() == IntOrString.class) {
+        return constructIntOrString((ScalarNode)node);
+      }
+      return super.constructObject(node);
+    }
+
+    private IntOrString constructIntOrString(ScalarNode node) {
+      try {
+        return new IntOrString(Integer.parseInt(node.getValue()));
+      } catch (NumberFormatException err) {
+        return new IntOrString(node.getValue());
+      }
+    }
   }
 }
