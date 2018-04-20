@@ -15,6 +15,7 @@ package io.kubernetes.client.util;
 import static org.junit.Assert.*;
 
 import io.kubernetes.client.models.V1ObjectMeta;
+import io.kubernetes.client.models.V1ServicePort;
 import java.io.StringReader;
 import java.lang.reflect.Method;
 import org.junit.Test;
@@ -55,6 +56,27 @@ public class YamlTest {
       } catch (Exception ex) {
         assertNull("Unexpected exception: " + ex.toString(), ex);
       }
+    }
+  }
+
+  @Test
+  public void testLoadIntOrString() {
+    try {
+      String strInput = "targetPort: test";
+      String intInput = "targetPort: 1";
+
+      V1ServicePort stringPort = Yaml.loadAs(strInput, V1ServicePort.class);
+      V1ServicePort intPort = Yaml.loadAs(intInput, V1ServicePort.class);
+
+      assertFalse(
+          "Target port for 'stringPort' was parsed to an integer, string expected.",
+          stringPort.getTargetPort().isInteger());
+      assertTrue(
+          "Target port for 'intPort' was parsed to a string, integer expected.",
+          intPort.getTargetPort().isInteger());
+
+    } catch (Exception ex) {
+      assertNull("Unexpected exception: " + ex.toString(), ex);
     }
   }
 }
