@@ -1,3 +1,7 @@
+# 1.0.0
+* Fix a bug with HTML escaping byte arrays (#240)
+* Fix a bug with YAML parsing IntOrString types (#242)
+
 # 1.0.0-beta3
 
 ## Fixes
