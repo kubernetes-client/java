@@ -22,9 +22,28 @@ import org.junit.Test;
 public class YamlTest {
   @Test
   public void testLoad() {
-    String[] kinds = new String[] {"Pod", "CronJob", "HorizontalPodAutoscaler", "ClusterRole", "Deployment", "APIService", "Scale", "Deployment"};
+    String[] kinds =
+        new String[] {
+          "Pod",
+          "CronJob",
+          "HorizontalPodAutoscaler",
+          "ClusterRole",
+          "Deployment",
+          "APIService",
+          "Scale",
+          "Deployment"
+        };
     String[] apiVersions =
-        new String[] {"v1", "v2alpha1", "v2beta1", "v1alpha1", "v1beta2", "v1beta1", "extensions/v1beta1", "apps/v1beta1"};
+        new String[] {
+          "v1",
+          "v2alpha1",
+          "v2beta1",
+          "v1alpha1",
+          "v1beta2",
+          "v1beta1",
+          "extensions/v1beta1",
+          "apps/v1beta1"
+        };
     String[] classNames =
         new String[] {
           "V1Pod",

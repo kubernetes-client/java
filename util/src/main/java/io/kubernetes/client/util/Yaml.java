@@ -18,64 +18,93 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Yaml {
   private static org.yaml.snakeyaml.Yaml yaml = new org.yaml.snakeyaml.Yaml();
   private static Map<String, Class<?>> classes = new HashMap<>();
+  private static Map<String, String> apiGroups = new HashMap<>();
+  private static List<String> apiVersions = new ArrayList<>();
 
   static final Logger logger = LoggerFactory.getLogger(Yaml.class);
 
-  public static String getApiGroupVersion(String name) {
-    if (name.startsWith("AppsV1beta2")) {
-      return "apps/v1beta2";
+  private static void initApiGroupMap() {
+    apiGroups.put("Admissionregistration", "admissionregistration.k8s.io");
+    apiGroups.put("Apiextensions", "apiextensions.k8s.io");
+    apiGroups.put("Apiregistration", "apiregistration.k8s.io");
+    apiGroups.put("Apps", "apps");
+    apiGroups.put("Authentication", "authentication.k8s.io");
+    apiGroups.put("Authorization", "authorization.k8s.io");
+    apiGroups.put("Autoscaling", "autoscaling");
+    apiGroups.put("Extensions", "extensions");
+    apiGroups.put("Batch", "batch");
+    apiGroups.put("Certificates", "certificates.k8s.io");
+    apiGroups.put("Networking", "networking.k8s.io");
+    apiGroups.put("Policy", "policy");
+    apiGroups.put("RbacAuthorization", "rbac.authorization.k8s.io");
+    apiGroups.put("Scheduling", "scheduling.k8s.io");
+    apiGroups.put("Settings", "settings.k8s.io");
+    apiGroups.put("Storage", "storage.k8s.io");
+  }
+
+  private static void initApiVersionList() {
+    // Order important
+    apiVersions.add("V2beta1");
+    apiVersions.add("V2alpha1");
+    apiVersions.add("V1beta2");
+    apiVersions.add("V1beta1");
+    apiVersions.add("V1alpha1");
+    apiVersions.add("V1");
+  }
+
+  private static String[] getApiGroup(String name) {
+    String[] parts = new String[2];
+
+    for (String prefix : apiGroups.keySet()) {
+      if (name.startsWith(prefix)) {
+        parts[0] = apiGroups.get(prefix);
+        parts[1] = name.substring(prefix.length());
+        break;
+      }
     }
-    if (name.startsWith("AppsV1beta1")) {
-      return "apps/v1beta1";
+    if (parts[0] == null) parts[1] = name;
+
+    return parts;
+  }
+
+  private static String[] getApiVersion(String name) {
+    String[] parts = new String[2];
+    for (String version : apiVersions) {
+      if (name.startsWith(version)) {
+        parts[0] = version.toLowerCase();
+        parts[1] = name.substring(version.length());
+        break;
+      }
     }
-    if (name.startsWith("AppsV1")) {
-      return "apps/v1";
-    }
-    if (name.startsWith("ExtensionsV1beta1")) {
-      return "extensions/v1beta1";
-    }
-    if (name.startsWith("ExtensionsV1")) {
-      return "extensions/v1";
-    }
-    if (name.startsWith("V1beta1")) {
-      return "v1beta1";
-    }
-    if (name.startsWith("V1beta2")) {
-      return "v1beta2";
-    }
-    if (name.startsWith("V1alpha1")) {
-      return "v1alpha1";
-    }
-    if (name.startsWith("V2beta1")) {
-      return "v2beta1";
-    }
-    if (name.startsWith("V2alpha1")) {
-      return "v2alpha1";
-    }
-    if (name.startsWith("V1")) {
-      return "v1";
-    }
-    return name;
+    if (parts[0] == null) parts[1] = name;
+
+    return parts;
   }
 
   private static void initModelMap() throws IOException {
+    initApiGroupMap();
+    initApiVersionList();
+
     ClassPath cp = ClassPath.from(ClassLoader.getSystemClassLoader());
     Set<ClassPath.ClassInfo> allClasses = cp.getTopLevelClasses("io.kubernetes.client.models");
 
     for (ClassPath.ClassInfo clazz : allClasses) {
-      String groupVersion = getApiGroupVersion(clazz.getSimpleName());
-      int len = groupVersion.replace("/", "").length();
-      String name = clazz.getSimpleName().substring(len);
-      classes.put(groupVersion + "/" + name, clazz.load());
+      String modelName = "";
+      String[] nameParts = getApiGroup(clazz.getSimpleName());
+      modelName += nameParts[0] == null ? "" : nameParts[0] + "/";
+
+      nameParts = getApiVersion(nameParts[1]);
+      modelName += nameParts[0] == null ? "" : nameParts[0] + "/";
+      modelName += nameParts[1];
+
+      classes.put(modelName, clazz.load());
     }
   }
 
