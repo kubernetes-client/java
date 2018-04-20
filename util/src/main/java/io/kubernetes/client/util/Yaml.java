@@ -31,11 +31,14 @@ public class Yaml {
   static final Logger logger = LoggerFactory.getLogger(Yaml.class);
 
   public static String getApiGroupVersion(String name) {
-    if (name.startsWith("AppsV1")) {
-      return "apps/v1";
+    if (name.startsWith("AppsV1beta2")) {
+      return "apps/v1beta2";
     }
     if (name.startsWith("AppsV1beta1")) {
       return "apps/v1beta1";
+    }
+    if (name.startsWith("AppsV1")) {
+      return "apps/v1";
     }
     if (name.startsWith("ExtensionsV1beta1")) {
       return "extensions/v1beta1";
