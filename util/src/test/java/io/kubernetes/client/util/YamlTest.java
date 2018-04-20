@@ -36,11 +36,11 @@ public class YamlTest {
     String[] apiVersions =
         new String[] {
           "v1",
-          "v2alpha1",
-          "v2beta1",
-          "v1alpha1",
-          "v1beta2",
-          "v1beta1",
+          "batch/v2alpha1",
+          "autoscaling/v2beta1",
+          "rbac.authorization.k8s.io/v1alpha1",
+          "apps/v1beta2",
+          "apiregistration.k8s.io/v1beta1",
           "extensions/v1beta1",
           "apps/v1beta1"
         };

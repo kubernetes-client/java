@@ -169,6 +169,12 @@ public class Yaml {
 
     Class<?> clazz = (Class<?>) classes.get(apiVersion + "/" + kind);
     if (clazz == null) {
+      // Attempt to detect class from version and kind alone
+      if (apiVersion.contains("/")) {
+        clazz = (Class<?>) classes.get(apiVersion.split("/")[1] + "/" + kind);
+      }
+    }
+    if (clazz == null) {
       throw new IOException(
           "Unknown apiVersionKind: "
               + apiVersion
