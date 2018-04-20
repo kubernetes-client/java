@@ -126,11 +126,14 @@ public class JSON {
 
         @Override
         public void write(JsonWriter out, byte[] value) throws IOException {
+            boolean oldHtmlSafe = out.isHtmlSafe();
+            out.setHtmlSafe(false);
             if (value == null) {
                 out.nullValue();
             } else {
                 out.value(ByteString.of(value).base64());
             }
+            out.setHtmlSafe(oldHtmlSafe);
         }
 
         @Override
