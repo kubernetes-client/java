@@ -18,7 +18,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import org.apache.commons.lang3.tuple.MutablePair;
+import org.apache.commons.lang3.tuple.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -59,31 +65,30 @@ public class Yaml {
     apiVersions.add("V1");
   }
 
-  private static String[] getApiGroup(String name) {
-    String[] parts = new String[2];
-
+  private static Pair<String, String> getApiGroup(String name) {
+    MutablePair<String, String> parts = new MutablePair<>();
     for (String prefix : apiGroups.keySet()) {
       if (name.startsWith(prefix)) {
-        parts[0] = apiGroups.get(prefix);
-        parts[1] = name.substring(prefix.length());
+        parts.left = apiGroups.get(prefix);
+        parts.right = name.substring(prefix.length());
         break;
       }
     }
-    if (parts[0] == null) parts[1] = name;
+    if (parts.left == null) parts.right = name;
 
     return parts;
   }
 
-  private static String[] getApiVersion(String name) {
-    String[] parts = new String[2];
+  private static Pair<String, String> getApiVersion(String name) {
+    MutablePair<String, String> parts = new MutablePair<>();
     for (String version : apiVersions) {
       if (name.startsWith(version)) {
-        parts[0] = version.toLowerCase();
-        parts[1] = name.substring(version.length());
+        parts.left = version.toLowerCase();
+        parts.right = name.substring(version.length());
         break;
       }
     }
-    if (parts[0] == null) parts[1] = name;
+    if (parts.left == null) parts.right = name;
 
     return parts;
   }
@@ -97,12 +102,12 @@ public class Yaml {
 
     for (ClassPath.ClassInfo clazz : allClasses) {
       String modelName = "";
-      String[] nameParts = getApiGroup(clazz.getSimpleName());
-      modelName += nameParts[0] == null ? "" : nameParts[0] + "/";
+      Pair<String, String> nameParts = getApiGroup(clazz.getSimpleName());
+      modelName += nameParts.getLeft() == null ? "" : nameParts.getLeft() + "/";
 
-      nameParts = getApiVersion(nameParts[1]);
-      modelName += nameParts[0] == null ? "" : nameParts[0] + "/";
-      modelName += nameParts[1];
+      nameParts = getApiVersion(nameParts.getRight());
+      modelName += nameParts.getLeft() == null ? "" : nameParts.getLeft() + "/";
+      modelName += nameParts.getRight();
 
       classes.put(modelName, clazz.load());
     }
