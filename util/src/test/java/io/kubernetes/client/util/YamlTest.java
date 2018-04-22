@@ -23,16 +23,38 @@ import org.junit.Test;
 public class YamlTest {
   @Test
   public void testLoad() {
-    String[] kinds = new String[] {"Pod", "Deployment", "ClusterRole", "APIService", "Scale"};
+    String[] kinds =
+        new String[] {
+          "Pod",
+          "CronJob",
+          "HorizontalPodAutoscaler",
+          "ClusterRole",
+          "Deployment",
+          "APIService",
+          "Scale",
+          "Deployment"
+        };
     String[] apiVersions =
-        new String[] {"v1", "v1beta2", "v1alpha1", "v1beta1", "extensions/v1beta1"};
+        new String[] {
+          "v1",
+          "batch/v2alpha1",
+          "autoscaling/v2beta1",
+          "rbac.authorization.k8s.io/v1alpha1",
+          "apps/v1beta2",
+          "apiregistration.k8s.io/v1beta1",
+          "extensions/v1beta1",
+          "apps/v1beta1"
+        };
     String[] classNames =
         new String[] {
           "V1Pod",
-          "V1beta2Deployment",
+          "V2alpha1CronJob",
+          "V2beta1HorizontalPodAutoscaler",
           "V1alpha1ClusterRole",
+          "V1beta2Deployment",
           "V1beta1APIService",
-          "ExtensionsV1beta1Scale"
+          "ExtensionsV1beta1Scale",
+          "AppsV1beta1Deployment"
         };
     for (int i = 0; i < kinds.length; i++) {
       String kind = kinds[i];
