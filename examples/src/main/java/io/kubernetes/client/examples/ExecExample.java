@@ -26,7 +26,7 @@ import java.util.List;
  * A simple example of how to use the Java API
  *
  * <p>Easiest way to run this: mvn exec:java
- * -Dexec.mainClass="io.kubernetes.client.examples.Example"
+ * -Dexec.mainClass="io.kubernetes.client.examples.ExecExample"
  *
  * <p>From inside $REPO_DIR/examples
  */

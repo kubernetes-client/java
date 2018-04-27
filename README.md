@@ -26,7 +26,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.kubernetes</groupId>
     <artifactId>client-java</artifactId>
-    <version>1.0.0-beta3</version>
+    <version>1.0.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -34,7 +34,7 @@ Add this dependency to your project's POM:
 ### Gradle users
 
 ```groovy
-compile 'io.kubernetes:client-java:1.0.0-beta3'
+compile 'io.kubernetes:client-java:1.0.0'
 ```
 
 ### Others
@@ -49,7 +49,7 @@ mvn package
 
 Then manually install the following JARs:
 
-* target/client-java-1.0.0-beta3-SNAPSHOT.jar
+* target/client-java-1.0.0-SNAPSHOT.jar
 * target/lib/*.jar
 
 ## Example
@@ -133,6 +133,8 @@ All APIs and Models' documentation can be found at the [Generated client's READM
 | java-client 1.0.0-beta1 | +              | +              | +              | +              | ✓              | -         |
 | java-client 1.0.0-beta2 | +              | +              | +              | +              | ✓              | -         |
 | java-client 1.0.0-beta3 | +              | +              | +              | +              | ✓              | -         |
+| java-client 1.0.0-beta4 | +              | +              | +              | +              | ✓              | -         |
+| java-client 1.0.0       | +              | +              | +              | +              | ✓              | -         |
 
 Key: 
 
