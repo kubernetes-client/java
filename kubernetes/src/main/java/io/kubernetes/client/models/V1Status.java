@@ -53,7 +53,7 @@ public class V1Status {
   private String reason = null;
 
   @SerializedName("status")
-  private String status = null;
+  private Object status = null;
 
   public V1Status apiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
@@ -191,11 +191,11 @@ public class V1Status {
    * @return status
   **/
   @ApiModelProperty(value = "Status of the operation. One of: \"Success\" or \"Failure\". More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status")
-  public String getStatus() {
+  public Object getStatus() {
     return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(Object status) {
     this.status = status;
   }
 
