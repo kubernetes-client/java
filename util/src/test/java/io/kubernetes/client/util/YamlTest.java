@@ -84,7 +84,7 @@ public class YamlTest {
   }
 
   @Test
-  public void testLoadAllAs() throws IOException {
+  public void testLoadAll() throws IOException {
     StringBuilder sb = new StringBuilder();
     for (int i = 0; i < kinds.length; i++) {
       sb.append(input.replace("XXXX", kinds[i]).replace("YYYY", apiVersions[i]));
@@ -92,7 +92,7 @@ public class YamlTest {
     }
 
     List<Object> list = null;
-    list = (List<Object>) Yaml.loadAllAs(sb.toString());
+    list = (List<Object>) Yaml.loadAll(sb.toString());
     for (int i = 0; i < kinds.length; i++) {
       String className = classNames[i];
       try {
@@ -109,8 +109,8 @@ public class YamlTest {
   }
 
   @Test
-  public void testLoadAllAsFile() throws Exception {
-    List<Object> list = Yaml.loadAllAs(new File(TEST_YAML_FILE_PATH));
+  public void testLoadAllFile() throws Exception {
+    List<Object> list = Yaml.loadAll(new File(TEST_YAML_FILE_PATH));
     for (Object object : list) {
       String type = object.getClass().getSimpleName();
       if (type.equals("V1Service")) {

@@ -217,8 +217,8 @@ public class Yaml {
    * @return List of instantiated objects.
    * @throws IOException If an error occurs while reading the YAML.
    */
-  public static List<Object> loadAllAs(String content) throws IOException {
-    return loadAllAs(new StringReader(content));
+  public static List<Object> loadAll(String content) throws IOException {
+    return loadAll(new StringReader(content));
   }
 
   /**
@@ -231,8 +231,8 @@ public class Yaml {
    * @return List of instantiated of the objects.
    * @throws IOException If an error occurs while reading the YAML.
    */
-  public static List<Object> loadAllAs(File f) throws IOException {
-    return loadAllAs(new FileReader(f));
+  public static List<Object> loadAll(File f) throws IOException {
+    return loadAll(new FileReader(f));
   }
 
   /**
@@ -246,7 +246,7 @@ public class Yaml {
    * @return List of instantiated of the objects.
    * @throws IOException If an error occurs while reading the YAML.
    */
-  public static List<Object> loadAllAs(Reader reader) throws IOException {
+  public static List<Object> loadAll(Reader reader) throws IOException {
     Iterable<Object> iterable = getSnakeYaml().loadAll(reader);
     List<Object> list = new ArrayList<Object>();
     for (Object object : iterable) {
