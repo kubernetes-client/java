@@ -27,7 +27,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.Reader;
-import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.net.URLEncoder;
 import java.util.HashMap;
@@ -76,10 +75,18 @@ public class Exec {
   }
 
   private String makePath(
-      String namespace, String name, String[] command, String container, boolean stdin, boolean tty)
-      throws UnsupportedEncodingException {
+      String namespace,
+      String name,
+      String[] command,
+      String container,
+      boolean stdin,
+      boolean tty) {
     for (int i = 0; i < command.length; i++) {
-      command[i] = URLEncoder.encode(command[i], "UTF-8");
+      try {
+        command[i] = URLEncoder.encode(command[i], "UTF-8");
+      } catch (Exception ex) {
+        throw new RuntimeException("some thing wrong happend: " + ex.getMessage());
+      }
     }
     String path =
         "/api/v1/namespaces/"
