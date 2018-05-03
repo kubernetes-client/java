@@ -27,6 +27,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.Reader;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.net.URLEncoder;
 import java.util.HashMap;
@@ -84,7 +85,7 @@ public class Exec {
     for (int i = 0; i < command.length; i++) {
       try {
         command[i] = URLEncoder.encode(command[i], "UTF-8");
-      } catch (Exception ex) {
+      } catch (UnsupportedEncodingException ex) {
         throw new RuntimeException("some thing wrong happend: " + ex.getMessage());
       }
     }
