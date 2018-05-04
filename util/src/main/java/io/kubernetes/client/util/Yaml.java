@@ -166,7 +166,7 @@ public class Yaml {
    */
   public static Object load(Reader reader) throws IOException {
     Map<String, Object> data = getSnakeYaml().load(reader);
-    return ModelMapper(data);
+    return modelMapper(data);
   }
 
   /**
@@ -251,7 +251,11 @@ public class Yaml {
     List<Object> list = new ArrayList<Object>();
     for (Object object : iterable) {
       if (object != null) {
-        list.add(ModelMapper((Map<String, Object>) object));
+        try {
+          list.add(modelMapper((Map<String, Object>) object));
+        } catch (ClassCastException ex) {
+          logger.error("Unexpected exception while casting: " + ex);
+        }
       }
     }
 
@@ -287,7 +291,7 @@ public class Yaml {
    * @return An instantiation of the object.
    * @throws IOException
    */
-  private static Object ModelMapper(Map<String, Object> data) throws IOException {
+  private static Object modelMapper(Map<String, Object> data) throws IOException {
     String kind = (String) data.get("kind");
     if (kind == null) {
       throw new IOException("Missing kind in YAML file!");
