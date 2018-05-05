@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mock
+  labels:
+    app: mock
+spec:
+  ports:
+  - port: 99
+    protocol: TCP
+    targetPort: 9949
+  selector:
+    app: mock
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: helloworld
+  name: helloworld
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: helloworld
+      name: helloworld
+    spec:
+      containers:
+        - name: helloworld
+          image: gcr.io/hightowerlabs/helloworld:0.0.1
+          imagePullPolicy: Always
+          args:
+            - "-http=127.0.0.1:8080"
+

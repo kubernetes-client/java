@@ -33,8 +33,6 @@ import org.yaml.snakeyaml.nodes.Node;
 import org.yaml.snakeyaml.nodes.ScalarNode;
 
 public class Yaml {
-  private static org.yaml.snakeyaml.Yaml yaml =
-      new org.yaml.snakeyaml.Yaml(new CustomConstructor());
   private static Map<String, Class<?>> classes = new HashMap<>();
   private static Map<String, String> apiGroups = new HashMap<>();
   private static List<String> apiVersions = new ArrayList<>();
@@ -167,7 +165,133 @@ public class Yaml {
    * @throws IOException If an error occurs while reading the YAML.
    */
   public static Object load(Reader reader) throws IOException {
-    Map<String, Object> data = yaml.load(reader);
+    Map<String, Object> data = getSnakeYaml().load(reader);
+    return modelMapper(data);
+  }
+
+  /**
+   * Load an API object from a YAML string representation. Returns a concrete typed object using the
+   * type specified.
+   *
+   * @param content The YAML content
+   * @param clazz The class of object to return.
+   * @return An instantiation of the object.
+   * @throws IOException If an error occurs while reading the YAML.
+   */
+  public static <T> T loadAs(String content, Class<T> clazz) {
+    return getSnakeYaml().loadAs(new StringReader(content), clazz);
+  }
+
+  /**
+   * Load an API object from a YAML file. Returns a concrete typed object using the type specified.
+   *
+   * @param f The YAML file
+   * @param clazz The class of object to return.
+   * @return An instantiation of the object.
+   * @throws IOException If an error occurs while reading the YAML.
+   */
+  public static <T> T loadAs(File f, Class<T> clazz) throws IOException {
+    return getSnakeYaml().loadAs(new FileReader(f), clazz);
+  }
+
+  /**
+   * Load an API object from a YAML stream. Returns a concrete typed object using the type
+   * specified.
+   *
+   * @param reader The YAML stream
+   * @param clazz The class of object to return.
+   * @return An instantiation of the object.
+   * @throws IOException If an error occurs while reading the YAML.
+   */
+  public static <T> T loadAs(Reader reader, Class<T> clazz) {
+    return getSnakeYaml().loadAs(reader, clazz);
+  }
+
+  /**
+   * Load list of instantiated API objects from a YAML string representation. Returns list of
+   * concrete typed objects (e.g. { V1Pod, V1SERVICE })
+   *
+   * <p>Order of API objects in list will be preserved according to order of objects in YAML string.
+   *
+   * @param content The YAML content
+   * @return List of instantiated objects.
+   * @throws IOException If an error occurs while reading the YAML.
+   */
+  public static List<Object> loadAll(String content) throws IOException {
+    return loadAll(new StringReader(content));
+  }
+
+  /**
+   * Load list of instantiated API objects from a YAML file. Returns list of concrete typed objects
+   * (e.g. { V1Pod, V1SERVICE })
+   *
+   * <p>Order of API objects in list will be preserved according to order of objects in YAML file.
+   *
+   * @param f The file to load.
+   * @return List of instantiated of the objects.
+   * @throws IOException If an error occurs while reading the YAML.
+   */
+  public static List<Object> loadAll(File f) throws IOException {
+    return loadAll(new FileReader(f));
+  }
+
+  /**
+   * Load list of instantiated API objects from a stream of data. Returns list of concrete typed
+   * objects (e.g. { V1Pod, V1SERVICE })
+   *
+   * <p>Order of API objects in list will be preserved according to order of objects in stream of
+   * data.
+   *
+   * @param reader The stream to load.
+   * @return List of instantiated of the objects.
+   * @throws IOException If an error occurs while reading the YAML.
+   */
+  public static List<Object> loadAll(Reader reader) throws IOException {
+    Iterable<Object> iterable = getSnakeYaml().loadAll(reader);
+    List<Object> list = new ArrayList<Object>();
+    for (Object object : iterable) {
+      if (object != null) {
+        try {
+          list.add(modelMapper((Map<String, Object>) object));
+        } catch (ClassCastException ex) {
+          logger.error("Unexpected exception while casting: " + ex);
+        }
+      }
+    }
+
+    return list;
+  }
+
+  /** Defines constructor logic for custom types in this library. */
+  public static class CustomConstructor extends Constructor {
+    @Override
+    protected Object constructObject(Node node) {
+      if (node.getType() == IntOrString.class) {
+        return constructIntOrString((ScalarNode) node);
+      }
+      return super.constructObject(node);
+    }
+
+    private IntOrString constructIntOrString(ScalarNode node) {
+      try {
+        return new IntOrString(Integer.parseInt(node.getValue()));
+      } catch (NumberFormatException err) {
+        return new IntOrString(node.getValue());
+      }
+    }
+  }
+
+  /** @return An instantiated SnakeYaml Object. */
+  public static org.yaml.snakeyaml.Yaml getSnakeYaml() {
+    return new org.yaml.snakeyaml.Yaml(new CustomConstructor());
+  }
+
+  /**
+   * @param data Map that will be converted to concrete API object.
+   * @return An instantiation of the object.
+   * @throws IOException
+   */
+  private static Object modelMapper(Map<String, Object> data) throws IOException {
     String kind = (String) data.get("kind");
     if (kind == null) {
       throw new IOException("Missing kind in YAML file!");
@@ -193,63 +317,6 @@ public class Yaml {
               + " known kinds are: "
               + classes.toString());
     }
-    return loadAs(new StringReader(yaml.dump(data)), clazz);
-  }
-
-  /**
-   * Load an API object from a YAML string representation. Returns a concrete typed object using the
-   * type specified.
-   *
-   * @param content The YAML content
-   * @param clazz The class of object to return.
-   * @return An instantiation of the object.
-   * @throws IOException If an error occurs while reading the YAML.
-   */
-  public static <T> T loadAs(String content, Class<T> clazz) {
-    return yaml.loadAs(new StringReader(content), clazz);
-  }
-
-  /**
-   * Load an API object from a YAML file. Returns a concrete typed object using the type specified.
-   *
-   * @param f The YAML file
-   * @param clazz The class of object to return.
-   * @return An instantiation of the object.
-   * @throws IOException If an error occurs while reading the YAML.
-   */
-  public static <T> T loadAs(File f, Class<T> clazz) throws IOException {
-    return yaml.loadAs(new FileReader(f), clazz);
-  }
-
-  /**
-   * Load an API object from a YAML stream. Returns a concrete typed object using the type
-   * specified.
-   *
-   * @param reader The YAML stream
-   * @param clazz The class of object to return.
-   * @return An instantiation of the object.
-   * @throws IOException If an error occurs while reading the YAML.
-   */
-  public static <T> T loadAs(Reader reader, Class<T> clazz) {
-    return yaml.loadAs(reader, clazz);
-  }
-
-  /** Defines constructor logic for custom types in this library. */
-  public static class CustomConstructor extends Constructor {
-    @Override
-    protected Object constructObject(Node node) {
-      if (node.getType() == IntOrString.class) {
-        return constructIntOrString((ScalarNode) node);
-      }
-      return super.constructObject(node);
-    }
-
-    private IntOrString constructIntOrString(ScalarNode node) {
-      try {
-        return new IntOrString(Integer.parseInt(node.getValue()));
-      } catch (NumberFormatException err) {
-        return new IntOrString(node.getValue());
-      }
-    }
+    return loadAs(new StringReader(getSnakeYaml().dump(data)), clazz);
   }
 }
