@@ -67,7 +67,7 @@ public class CertificatesV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createCertificateSigningRequestCall(V1beta1CertificateSigningRequest body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call createCertificateSigningRequestCall(V1beta1CertificateSigningRequest body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -95,10 +95,10 @@ public class CertificatesV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -111,7 +111,7 @@ public class CertificatesV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createCertificateSigningRequestValidateBeforeCall(V1beta1CertificateSigningRequest body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call createCertificateSigningRequestValidateBeforeCall(V1beta1CertificateSigningRequest body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'body' is set
         if (body == null) {
@@ -119,7 +119,7 @@ public class CertificatesV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = createCertificateSigningRequestCall(body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createCertificateSigningRequestCall(body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -150,7 +150,7 @@ public class CertificatesV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1CertificateSigningRequest> createCertificateSigningRequestWithHttpInfo(V1beta1CertificateSigningRequest body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = createCertificateSigningRequestValidateBeforeCall(body, pretty, null, null);
+        okhttp3.Call call = createCertificateSigningRequestValidateBeforeCall(body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1CertificateSigningRequest>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -164,7 +164,7 @@ public class CertificatesV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createCertificateSigningRequestAsync(V1beta1CertificateSigningRequest body, String pretty, final ApiCallback<V1beta1CertificateSigningRequest> callback) throws ApiException {
+    public okhttp3.Call createCertificateSigningRequestAsync(V1beta1CertificateSigningRequest body, String pretty, final ApiCallback<V1beta1CertificateSigningRequest> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -185,7 +185,7 @@ public class CertificatesV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = createCertificateSigningRequestValidateBeforeCall(body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createCertificateSigningRequestValidateBeforeCall(body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1CertificateSigningRequest>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -203,7 +203,7 @@ public class CertificatesV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteCertificateSigningRequestCall(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call deleteCertificateSigningRequestCall(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -238,10 +238,10 @@ public class CertificatesV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -254,7 +254,7 @@ public class CertificatesV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteCertificateSigningRequestValidateBeforeCall(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call deleteCertificateSigningRequestValidateBeforeCall(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -267,7 +267,7 @@ public class CertificatesV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = deleteCertificateSigningRequestCall(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteCertificateSigningRequestCall(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
         return call;
 
         
@@ -306,7 +306,7 @@ public class CertificatesV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1Status> deleteCertificateSigningRequestWithHttpInfo(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy) throws ApiException {
-        com.squareup.okhttp.Call call = deleteCertificateSigningRequestValidateBeforeCall(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, null, null);
+        okhttp3.Call call = deleteCertificateSigningRequestValidateBeforeCall(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, null, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -324,7 +324,7 @@ public class CertificatesV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteCertificateSigningRequestAsync(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ApiCallback<V1Status> callback) throws ApiException {
+    public okhttp3.Call deleteCertificateSigningRequestAsync(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ApiCallback<V1Status> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -345,7 +345,7 @@ public class CertificatesV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteCertificateSigningRequestValidateBeforeCall(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteCertificateSigningRequestValidateBeforeCall(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -366,7 +366,7 @@ public class CertificatesV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteCollectionCertificateSigningRequestCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call deleteCollectionCertificateSigningRequestCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -410,10 +410,10 @@ public class CertificatesV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -426,10 +426,10 @@ public class CertificatesV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteCollectionCertificateSigningRequestValidateBeforeCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call deleteCollectionCertificateSigningRequestValidateBeforeCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = deleteCollectionCertificateSigningRequestCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteCollectionCertificateSigningRequestCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         return call;
 
         
@@ -474,7 +474,7 @@ public class CertificatesV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1Status> deleteCollectionCertificateSigningRequestWithHttpInfo(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch) throws ApiException {
-        com.squareup.okhttp.Call call = deleteCollectionCertificateSigningRequestValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
+        okhttp3.Call call = deleteCollectionCertificateSigningRequestValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -495,7 +495,7 @@ public class CertificatesV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteCollectionCertificateSigningRequestAsync(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1Status> callback) throws ApiException {
+    public okhttp3.Call deleteCollectionCertificateSigningRequestAsync(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1Status> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -516,7 +516,7 @@ public class CertificatesV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteCollectionCertificateSigningRequestValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteCollectionCertificateSigningRequestValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -528,7 +528,7 @@ public class CertificatesV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getAPIResourcesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call getAPIResourcesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -554,10 +554,10 @@ public class CertificatesV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -570,10 +570,10 @@ public class CertificatesV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAPIResourcesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call getAPIResourcesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = getAPIResourcesCall(progressListener, progressRequestListener);
+        okhttp3.Call call = getAPIResourcesCall(progressListener, progressRequestListener);
         return call;
 
         
@@ -600,7 +600,7 @@ public class CertificatesV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1APIResourceList> getAPIResourcesWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getAPIResourcesValidateBeforeCall(null, null);
+        okhttp3.Call call = getAPIResourcesValidateBeforeCall(null, null);
         Type localVarReturnType = new TypeToken<V1APIResourceList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -612,7 +612,7 @@ public class CertificatesV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAPIResourcesAsync(final ApiCallback<V1APIResourceList> callback) throws ApiException {
+    public okhttp3.Call getAPIResourcesAsync(final ApiCallback<V1APIResourceList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -633,7 +633,7 @@ public class CertificatesV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = getAPIResourcesValidateBeforeCall(progressListener, progressRequestListener);
+        okhttp3.Call call = getAPIResourcesValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1APIResourceList>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -654,7 +654,7 @@ public class CertificatesV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call listCertificateSigningRequestCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call listCertificateSigningRequestCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -698,10 +698,10 @@ public class CertificatesV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -714,10 +714,10 @@ public class CertificatesV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listCertificateSigningRequestValidateBeforeCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call listCertificateSigningRequestValidateBeforeCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = listCertificateSigningRequestCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listCertificateSigningRequestCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         return call;
 
         
@@ -762,7 +762,7 @@ public class CertificatesV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1CertificateSigningRequestList> listCertificateSigningRequestWithHttpInfo(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch) throws ApiException {
-        com.squareup.okhttp.Call call = listCertificateSigningRequestValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
+        okhttp3.Call call = listCertificateSigningRequestValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
         Type localVarReturnType = new TypeToken<V1beta1CertificateSigningRequestList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -783,7 +783,7 @@ public class CertificatesV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listCertificateSigningRequestAsync(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1beta1CertificateSigningRequestList> callback) throws ApiException {
+    public okhttp3.Call listCertificateSigningRequestAsync(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1beta1CertificateSigningRequestList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -804,7 +804,7 @@ public class CertificatesV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = listCertificateSigningRequestValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listCertificateSigningRequestValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1CertificateSigningRequestList>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -819,7 +819,7 @@ public class CertificatesV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call patchCertificateSigningRequestCall(String name, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call patchCertificateSigningRequestCall(String name, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -848,10 +848,10 @@ public class CertificatesV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -864,7 +864,7 @@ public class CertificatesV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call patchCertificateSigningRequestValidateBeforeCall(String name, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call patchCertificateSigningRequestValidateBeforeCall(String name, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -877,7 +877,7 @@ public class CertificatesV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = patchCertificateSigningRequestCall(name, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchCertificateSigningRequestCall(name, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -910,7 +910,7 @@ public class CertificatesV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1CertificateSigningRequest> patchCertificateSigningRequestWithHttpInfo(String name, Object body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = patchCertificateSigningRequestValidateBeforeCall(name, body, pretty, null, null);
+        okhttp3.Call call = patchCertificateSigningRequestValidateBeforeCall(name, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1CertificateSigningRequest>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -925,7 +925,7 @@ public class CertificatesV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call patchCertificateSigningRequestAsync(String name, Object body, String pretty, final ApiCallback<V1beta1CertificateSigningRequest> callback) throws ApiException {
+    public okhttp3.Call patchCertificateSigningRequestAsync(String name, Object body, String pretty, final ApiCallback<V1beta1CertificateSigningRequest> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -946,7 +946,7 @@ public class CertificatesV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = patchCertificateSigningRequestValidateBeforeCall(name, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchCertificateSigningRequestValidateBeforeCall(name, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1CertificateSigningRequest>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -962,7 +962,7 @@ public class CertificatesV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call readCertificateSigningRequestCall(String name, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call readCertificateSigningRequestCall(String name, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -995,10 +995,10 @@ public class CertificatesV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1011,7 +1011,7 @@ public class CertificatesV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call readCertificateSigningRequestValidateBeforeCall(String name, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call readCertificateSigningRequestValidateBeforeCall(String name, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1019,7 +1019,7 @@ public class CertificatesV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = readCertificateSigningRequestCall(name, pretty, exact, export, progressListener, progressRequestListener);
+        okhttp3.Call call = readCertificateSigningRequestCall(name, pretty, exact, export, progressListener, progressRequestListener);
         return call;
 
         
@@ -1054,7 +1054,7 @@ public class CertificatesV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1CertificateSigningRequest> readCertificateSigningRequestWithHttpInfo(String name, String pretty, Boolean exact, Boolean export) throws ApiException {
-        com.squareup.okhttp.Call call = readCertificateSigningRequestValidateBeforeCall(name, pretty, exact, export, null, null);
+        okhttp3.Call call = readCertificateSigningRequestValidateBeforeCall(name, pretty, exact, export, null, null);
         Type localVarReturnType = new TypeToken<V1beta1CertificateSigningRequest>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1070,7 +1070,7 @@ public class CertificatesV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call readCertificateSigningRequestAsync(String name, String pretty, Boolean exact, Boolean export, final ApiCallback<V1beta1CertificateSigningRequest> callback) throws ApiException {
+    public okhttp3.Call readCertificateSigningRequestAsync(String name, String pretty, Boolean exact, Boolean export, final ApiCallback<V1beta1CertificateSigningRequest> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1091,7 +1091,7 @@ public class CertificatesV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = readCertificateSigningRequestValidateBeforeCall(name, pretty, exact, export, progressListener, progressRequestListener);
+        okhttp3.Call call = readCertificateSigningRequestValidateBeforeCall(name, pretty, exact, export, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1CertificateSigningRequest>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1106,7 +1106,7 @@ public class CertificatesV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call replaceCertificateSigningRequestCall(String name, V1beta1CertificateSigningRequest body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call replaceCertificateSigningRequestCall(String name, V1beta1CertificateSigningRequest body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -1135,10 +1135,10 @@ public class CertificatesV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1151,7 +1151,7 @@ public class CertificatesV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call replaceCertificateSigningRequestValidateBeforeCall(String name, V1beta1CertificateSigningRequest body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call replaceCertificateSigningRequestValidateBeforeCall(String name, V1beta1CertificateSigningRequest body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1164,7 +1164,7 @@ public class CertificatesV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = replaceCertificateSigningRequestCall(name, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceCertificateSigningRequestCall(name, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -1197,7 +1197,7 @@ public class CertificatesV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1CertificateSigningRequest> replaceCertificateSigningRequestWithHttpInfo(String name, V1beta1CertificateSigningRequest body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = replaceCertificateSigningRequestValidateBeforeCall(name, body, pretty, null, null);
+        okhttp3.Call call = replaceCertificateSigningRequestValidateBeforeCall(name, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1CertificateSigningRequest>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1212,7 +1212,7 @@ public class CertificatesV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call replaceCertificateSigningRequestAsync(String name, V1beta1CertificateSigningRequest body, String pretty, final ApiCallback<V1beta1CertificateSigningRequest> callback) throws ApiException {
+    public okhttp3.Call replaceCertificateSigningRequestAsync(String name, V1beta1CertificateSigningRequest body, String pretty, final ApiCallback<V1beta1CertificateSigningRequest> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1233,7 +1233,7 @@ public class CertificatesV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = replaceCertificateSigningRequestValidateBeforeCall(name, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceCertificateSigningRequestValidateBeforeCall(name, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1CertificateSigningRequest>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1248,7 +1248,7 @@ public class CertificatesV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call replaceCertificateSigningRequestApprovalCall(String name, V1beta1CertificateSigningRequest body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call replaceCertificateSigningRequestApprovalCall(String name, V1beta1CertificateSigningRequest body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -1277,10 +1277,10 @@ public class CertificatesV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1293,7 +1293,7 @@ public class CertificatesV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call replaceCertificateSigningRequestApprovalValidateBeforeCall(String name, V1beta1CertificateSigningRequest body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call replaceCertificateSigningRequestApprovalValidateBeforeCall(String name, V1beta1CertificateSigningRequest body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1306,7 +1306,7 @@ public class CertificatesV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = replaceCertificateSigningRequestApprovalCall(name, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceCertificateSigningRequestApprovalCall(name, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -1339,7 +1339,7 @@ public class CertificatesV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1CertificateSigningRequest> replaceCertificateSigningRequestApprovalWithHttpInfo(String name, V1beta1CertificateSigningRequest body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = replaceCertificateSigningRequestApprovalValidateBeforeCall(name, body, pretty, null, null);
+        okhttp3.Call call = replaceCertificateSigningRequestApprovalValidateBeforeCall(name, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1CertificateSigningRequest>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1354,7 +1354,7 @@ public class CertificatesV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call replaceCertificateSigningRequestApprovalAsync(String name, V1beta1CertificateSigningRequest body, String pretty, final ApiCallback<V1beta1CertificateSigningRequest> callback) throws ApiException {
+    public okhttp3.Call replaceCertificateSigningRequestApprovalAsync(String name, V1beta1CertificateSigningRequest body, String pretty, final ApiCallback<V1beta1CertificateSigningRequest> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1375,7 +1375,7 @@ public class CertificatesV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = replaceCertificateSigningRequestApprovalValidateBeforeCall(name, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceCertificateSigningRequestApprovalValidateBeforeCall(name, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1CertificateSigningRequest>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1390,7 +1390,7 @@ public class CertificatesV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call replaceCertificateSigningRequestStatusCall(String name, V1beta1CertificateSigningRequest body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call replaceCertificateSigningRequestStatusCall(String name, V1beta1CertificateSigningRequest body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -1419,10 +1419,10 @@ public class CertificatesV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1435,7 +1435,7 @@ public class CertificatesV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call replaceCertificateSigningRequestStatusValidateBeforeCall(String name, V1beta1CertificateSigningRequest body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call replaceCertificateSigningRequestStatusValidateBeforeCall(String name, V1beta1CertificateSigningRequest body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1448,7 +1448,7 @@ public class CertificatesV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = replaceCertificateSigningRequestStatusCall(name, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceCertificateSigningRequestStatusCall(name, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -1481,7 +1481,7 @@ public class CertificatesV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1CertificateSigningRequest> replaceCertificateSigningRequestStatusWithHttpInfo(String name, V1beta1CertificateSigningRequest body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = replaceCertificateSigningRequestStatusValidateBeforeCall(name, body, pretty, null, null);
+        okhttp3.Call call = replaceCertificateSigningRequestStatusValidateBeforeCall(name, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1CertificateSigningRequest>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1496,7 +1496,7 @@ public class CertificatesV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call replaceCertificateSigningRequestStatusAsync(String name, V1beta1CertificateSigningRequest body, String pretty, final ApiCallback<V1beta1CertificateSigningRequest> callback) throws ApiException {
+    public okhttp3.Call replaceCertificateSigningRequestStatusAsync(String name, V1beta1CertificateSigningRequest body, String pretty, final ApiCallback<V1beta1CertificateSigningRequest> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1517,7 +1517,7 @@ public class CertificatesV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = replaceCertificateSigningRequestStatusValidateBeforeCall(name, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceCertificateSigningRequestStatusValidateBeforeCall(name, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1CertificateSigningRequest>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

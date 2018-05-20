@@ -68,7 +68,7 @@ public class AuthorizationV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createNamespacedLocalSubjectAccessReviewCall(String namespace, V1beta1LocalSubjectAccessReview body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call createNamespacedLocalSubjectAccessReviewCall(String namespace, V1beta1LocalSubjectAccessReview body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -97,10 +97,10 @@ public class AuthorizationV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -113,7 +113,7 @@ public class AuthorizationV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createNamespacedLocalSubjectAccessReviewValidateBeforeCall(String namespace, V1beta1LocalSubjectAccessReview body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call createNamespacedLocalSubjectAccessReviewValidateBeforeCall(String namespace, V1beta1LocalSubjectAccessReview body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
@@ -126,7 +126,7 @@ public class AuthorizationV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = createNamespacedLocalSubjectAccessReviewCall(namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createNamespacedLocalSubjectAccessReviewCall(namespace, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -159,7 +159,7 @@ public class AuthorizationV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1LocalSubjectAccessReview> createNamespacedLocalSubjectAccessReviewWithHttpInfo(String namespace, V1beta1LocalSubjectAccessReview body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = createNamespacedLocalSubjectAccessReviewValidateBeforeCall(namespace, body, pretty, null, null);
+        okhttp3.Call call = createNamespacedLocalSubjectAccessReviewValidateBeforeCall(namespace, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1LocalSubjectAccessReview>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -174,7 +174,7 @@ public class AuthorizationV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createNamespacedLocalSubjectAccessReviewAsync(String namespace, V1beta1LocalSubjectAccessReview body, String pretty, final ApiCallback<V1beta1LocalSubjectAccessReview> callback) throws ApiException {
+    public okhttp3.Call createNamespacedLocalSubjectAccessReviewAsync(String namespace, V1beta1LocalSubjectAccessReview body, String pretty, final ApiCallback<V1beta1LocalSubjectAccessReview> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -195,7 +195,7 @@ public class AuthorizationV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = createNamespacedLocalSubjectAccessReviewValidateBeforeCall(namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createNamespacedLocalSubjectAccessReviewValidateBeforeCall(namespace, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1LocalSubjectAccessReview>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -209,7 +209,7 @@ public class AuthorizationV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createSelfSubjectAccessReviewCall(V1beta1SelfSubjectAccessReview body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call createSelfSubjectAccessReviewCall(V1beta1SelfSubjectAccessReview body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -237,10 +237,10 @@ public class AuthorizationV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -253,7 +253,7 @@ public class AuthorizationV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createSelfSubjectAccessReviewValidateBeforeCall(V1beta1SelfSubjectAccessReview body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call createSelfSubjectAccessReviewValidateBeforeCall(V1beta1SelfSubjectAccessReview body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'body' is set
         if (body == null) {
@@ -261,7 +261,7 @@ public class AuthorizationV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = createSelfSubjectAccessReviewCall(body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createSelfSubjectAccessReviewCall(body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -292,7 +292,7 @@ public class AuthorizationV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1SelfSubjectAccessReview> createSelfSubjectAccessReviewWithHttpInfo(V1beta1SelfSubjectAccessReview body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = createSelfSubjectAccessReviewValidateBeforeCall(body, pretty, null, null);
+        okhttp3.Call call = createSelfSubjectAccessReviewValidateBeforeCall(body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1SelfSubjectAccessReview>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -306,7 +306,7 @@ public class AuthorizationV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createSelfSubjectAccessReviewAsync(V1beta1SelfSubjectAccessReview body, String pretty, final ApiCallback<V1beta1SelfSubjectAccessReview> callback) throws ApiException {
+    public okhttp3.Call createSelfSubjectAccessReviewAsync(V1beta1SelfSubjectAccessReview body, String pretty, final ApiCallback<V1beta1SelfSubjectAccessReview> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -327,7 +327,7 @@ public class AuthorizationV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = createSelfSubjectAccessReviewValidateBeforeCall(body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createSelfSubjectAccessReviewValidateBeforeCall(body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1SelfSubjectAccessReview>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -341,7 +341,7 @@ public class AuthorizationV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createSelfSubjectRulesReviewCall(V1beta1SelfSubjectRulesReview body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call createSelfSubjectRulesReviewCall(V1beta1SelfSubjectRulesReview body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -369,10 +369,10 @@ public class AuthorizationV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -385,7 +385,7 @@ public class AuthorizationV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createSelfSubjectRulesReviewValidateBeforeCall(V1beta1SelfSubjectRulesReview body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call createSelfSubjectRulesReviewValidateBeforeCall(V1beta1SelfSubjectRulesReview body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'body' is set
         if (body == null) {
@@ -393,7 +393,7 @@ public class AuthorizationV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = createSelfSubjectRulesReviewCall(body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createSelfSubjectRulesReviewCall(body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -424,7 +424,7 @@ public class AuthorizationV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1SelfSubjectRulesReview> createSelfSubjectRulesReviewWithHttpInfo(V1beta1SelfSubjectRulesReview body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = createSelfSubjectRulesReviewValidateBeforeCall(body, pretty, null, null);
+        okhttp3.Call call = createSelfSubjectRulesReviewValidateBeforeCall(body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1SelfSubjectRulesReview>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -438,7 +438,7 @@ public class AuthorizationV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createSelfSubjectRulesReviewAsync(V1beta1SelfSubjectRulesReview body, String pretty, final ApiCallback<V1beta1SelfSubjectRulesReview> callback) throws ApiException {
+    public okhttp3.Call createSelfSubjectRulesReviewAsync(V1beta1SelfSubjectRulesReview body, String pretty, final ApiCallback<V1beta1SelfSubjectRulesReview> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -459,7 +459,7 @@ public class AuthorizationV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = createSelfSubjectRulesReviewValidateBeforeCall(body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createSelfSubjectRulesReviewValidateBeforeCall(body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1SelfSubjectRulesReview>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -473,7 +473,7 @@ public class AuthorizationV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createSubjectAccessReviewCall(V1beta1SubjectAccessReview body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call createSubjectAccessReviewCall(V1beta1SubjectAccessReview body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -501,10 +501,10 @@ public class AuthorizationV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -517,7 +517,7 @@ public class AuthorizationV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createSubjectAccessReviewValidateBeforeCall(V1beta1SubjectAccessReview body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call createSubjectAccessReviewValidateBeforeCall(V1beta1SubjectAccessReview body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'body' is set
         if (body == null) {
@@ -525,7 +525,7 @@ public class AuthorizationV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = createSubjectAccessReviewCall(body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createSubjectAccessReviewCall(body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -556,7 +556,7 @@ public class AuthorizationV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1SubjectAccessReview> createSubjectAccessReviewWithHttpInfo(V1beta1SubjectAccessReview body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = createSubjectAccessReviewValidateBeforeCall(body, pretty, null, null);
+        okhttp3.Call call = createSubjectAccessReviewValidateBeforeCall(body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1SubjectAccessReview>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -570,7 +570,7 @@ public class AuthorizationV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createSubjectAccessReviewAsync(V1beta1SubjectAccessReview body, String pretty, final ApiCallback<V1beta1SubjectAccessReview> callback) throws ApiException {
+    public okhttp3.Call createSubjectAccessReviewAsync(V1beta1SubjectAccessReview body, String pretty, final ApiCallback<V1beta1SubjectAccessReview> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -591,7 +591,7 @@ public class AuthorizationV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = createSubjectAccessReviewValidateBeforeCall(body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createSubjectAccessReviewValidateBeforeCall(body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1SubjectAccessReview>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -603,7 +603,7 @@ public class AuthorizationV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getAPIResourcesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call getAPIResourcesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -629,10 +629,10 @@ public class AuthorizationV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -645,10 +645,10 @@ public class AuthorizationV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAPIResourcesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call getAPIResourcesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = getAPIResourcesCall(progressListener, progressRequestListener);
+        okhttp3.Call call = getAPIResourcesCall(progressListener, progressRequestListener);
         return call;
 
         
@@ -675,7 +675,7 @@ public class AuthorizationV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1APIResourceList> getAPIResourcesWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getAPIResourcesValidateBeforeCall(null, null);
+        okhttp3.Call call = getAPIResourcesValidateBeforeCall(null, null);
         Type localVarReturnType = new TypeToken<V1APIResourceList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -687,7 +687,7 @@ public class AuthorizationV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAPIResourcesAsync(final ApiCallback<V1APIResourceList> callback) throws ApiException {
+    public okhttp3.Call getAPIResourcesAsync(final ApiCallback<V1APIResourceList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -708,7 +708,7 @@ public class AuthorizationV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = getAPIResourcesValidateBeforeCall(progressListener, progressRequestListener);
+        okhttp3.Call call = getAPIResourcesValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1APIResourceList>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -67,7 +67,7 @@ public class ApiregistrationV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createAPIServiceCall(V1beta1APIService body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call createAPIServiceCall(V1beta1APIService body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -95,10 +95,10 @@ public class ApiregistrationV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -111,7 +111,7 @@ public class ApiregistrationV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createAPIServiceValidateBeforeCall(V1beta1APIService body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call createAPIServiceValidateBeforeCall(V1beta1APIService body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'body' is set
         if (body == null) {
@@ -119,7 +119,7 @@ public class ApiregistrationV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = createAPIServiceCall(body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createAPIServiceCall(body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -150,7 +150,7 @@ public class ApiregistrationV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1APIService> createAPIServiceWithHttpInfo(V1beta1APIService body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = createAPIServiceValidateBeforeCall(body, pretty, null, null);
+        okhttp3.Call call = createAPIServiceValidateBeforeCall(body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1APIService>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -164,7 +164,7 @@ public class ApiregistrationV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createAPIServiceAsync(V1beta1APIService body, String pretty, final ApiCallback<V1beta1APIService> callback) throws ApiException {
+    public okhttp3.Call createAPIServiceAsync(V1beta1APIService body, String pretty, final ApiCallback<V1beta1APIService> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -185,7 +185,7 @@ public class ApiregistrationV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = createAPIServiceValidateBeforeCall(body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createAPIServiceValidateBeforeCall(body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1APIService>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -203,7 +203,7 @@ public class ApiregistrationV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteAPIServiceCall(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call deleteAPIServiceCall(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -238,10 +238,10 @@ public class ApiregistrationV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -254,7 +254,7 @@ public class ApiregistrationV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteAPIServiceValidateBeforeCall(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call deleteAPIServiceValidateBeforeCall(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -267,7 +267,7 @@ public class ApiregistrationV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = deleteAPIServiceCall(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteAPIServiceCall(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
         return call;
 
         
@@ -306,7 +306,7 @@ public class ApiregistrationV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1Status> deleteAPIServiceWithHttpInfo(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy) throws ApiException {
-        com.squareup.okhttp.Call call = deleteAPIServiceValidateBeforeCall(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, null, null);
+        okhttp3.Call call = deleteAPIServiceValidateBeforeCall(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, null, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -324,7 +324,7 @@ public class ApiregistrationV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteAPIServiceAsync(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ApiCallback<V1Status> callback) throws ApiException {
+    public okhttp3.Call deleteAPIServiceAsync(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ApiCallback<V1Status> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -345,7 +345,7 @@ public class ApiregistrationV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteAPIServiceValidateBeforeCall(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteAPIServiceValidateBeforeCall(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -366,7 +366,7 @@ public class ApiregistrationV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteCollectionAPIServiceCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call deleteCollectionAPIServiceCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -410,10 +410,10 @@ public class ApiregistrationV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -426,10 +426,10 @@ public class ApiregistrationV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteCollectionAPIServiceValidateBeforeCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call deleteCollectionAPIServiceValidateBeforeCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = deleteCollectionAPIServiceCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteCollectionAPIServiceCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         return call;
 
         
@@ -474,7 +474,7 @@ public class ApiregistrationV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1Status> deleteCollectionAPIServiceWithHttpInfo(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch) throws ApiException {
-        com.squareup.okhttp.Call call = deleteCollectionAPIServiceValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
+        okhttp3.Call call = deleteCollectionAPIServiceValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -495,7 +495,7 @@ public class ApiregistrationV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteCollectionAPIServiceAsync(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1Status> callback) throws ApiException {
+    public okhttp3.Call deleteCollectionAPIServiceAsync(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1Status> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -516,7 +516,7 @@ public class ApiregistrationV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteCollectionAPIServiceValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteCollectionAPIServiceValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -528,7 +528,7 @@ public class ApiregistrationV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getAPIResourcesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call getAPIResourcesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -554,10 +554,10 @@ public class ApiregistrationV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -570,10 +570,10 @@ public class ApiregistrationV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAPIResourcesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call getAPIResourcesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = getAPIResourcesCall(progressListener, progressRequestListener);
+        okhttp3.Call call = getAPIResourcesCall(progressListener, progressRequestListener);
         return call;
 
         
@@ -600,7 +600,7 @@ public class ApiregistrationV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1APIResourceList> getAPIResourcesWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getAPIResourcesValidateBeforeCall(null, null);
+        okhttp3.Call call = getAPIResourcesValidateBeforeCall(null, null);
         Type localVarReturnType = new TypeToken<V1APIResourceList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -612,7 +612,7 @@ public class ApiregistrationV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAPIResourcesAsync(final ApiCallback<V1APIResourceList> callback) throws ApiException {
+    public okhttp3.Call getAPIResourcesAsync(final ApiCallback<V1APIResourceList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -633,7 +633,7 @@ public class ApiregistrationV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = getAPIResourcesValidateBeforeCall(progressListener, progressRequestListener);
+        okhttp3.Call call = getAPIResourcesValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1APIResourceList>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -654,7 +654,7 @@ public class ApiregistrationV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call listAPIServiceCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call listAPIServiceCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -698,10 +698,10 @@ public class ApiregistrationV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -714,10 +714,10 @@ public class ApiregistrationV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listAPIServiceValidateBeforeCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call listAPIServiceValidateBeforeCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = listAPIServiceCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listAPIServiceCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         return call;
 
         
@@ -762,7 +762,7 @@ public class ApiregistrationV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1APIServiceList> listAPIServiceWithHttpInfo(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch) throws ApiException {
-        com.squareup.okhttp.Call call = listAPIServiceValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
+        okhttp3.Call call = listAPIServiceValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
         Type localVarReturnType = new TypeToken<V1beta1APIServiceList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -783,7 +783,7 @@ public class ApiregistrationV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listAPIServiceAsync(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1beta1APIServiceList> callback) throws ApiException {
+    public okhttp3.Call listAPIServiceAsync(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1beta1APIServiceList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -804,7 +804,7 @@ public class ApiregistrationV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = listAPIServiceValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listAPIServiceValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1APIServiceList>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -819,7 +819,7 @@ public class ApiregistrationV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call patchAPIServiceCall(String name, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call patchAPIServiceCall(String name, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -848,10 +848,10 @@ public class ApiregistrationV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -864,7 +864,7 @@ public class ApiregistrationV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call patchAPIServiceValidateBeforeCall(String name, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call patchAPIServiceValidateBeforeCall(String name, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -877,7 +877,7 @@ public class ApiregistrationV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = patchAPIServiceCall(name, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchAPIServiceCall(name, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -910,7 +910,7 @@ public class ApiregistrationV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1APIService> patchAPIServiceWithHttpInfo(String name, Object body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = patchAPIServiceValidateBeforeCall(name, body, pretty, null, null);
+        okhttp3.Call call = patchAPIServiceValidateBeforeCall(name, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1APIService>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -925,7 +925,7 @@ public class ApiregistrationV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call patchAPIServiceAsync(String name, Object body, String pretty, final ApiCallback<V1beta1APIService> callback) throws ApiException {
+    public okhttp3.Call patchAPIServiceAsync(String name, Object body, String pretty, final ApiCallback<V1beta1APIService> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -946,7 +946,7 @@ public class ApiregistrationV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = patchAPIServiceValidateBeforeCall(name, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchAPIServiceValidateBeforeCall(name, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1APIService>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -962,7 +962,7 @@ public class ApiregistrationV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call readAPIServiceCall(String name, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call readAPIServiceCall(String name, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -995,10 +995,10 @@ public class ApiregistrationV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1011,7 +1011,7 @@ public class ApiregistrationV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call readAPIServiceValidateBeforeCall(String name, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call readAPIServiceValidateBeforeCall(String name, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1019,7 +1019,7 @@ public class ApiregistrationV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = readAPIServiceCall(name, pretty, exact, export, progressListener, progressRequestListener);
+        okhttp3.Call call = readAPIServiceCall(name, pretty, exact, export, progressListener, progressRequestListener);
         return call;
 
         
@@ -1054,7 +1054,7 @@ public class ApiregistrationV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1APIService> readAPIServiceWithHttpInfo(String name, String pretty, Boolean exact, Boolean export) throws ApiException {
-        com.squareup.okhttp.Call call = readAPIServiceValidateBeforeCall(name, pretty, exact, export, null, null);
+        okhttp3.Call call = readAPIServiceValidateBeforeCall(name, pretty, exact, export, null, null);
         Type localVarReturnType = new TypeToken<V1beta1APIService>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1070,7 +1070,7 @@ public class ApiregistrationV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call readAPIServiceAsync(String name, String pretty, Boolean exact, Boolean export, final ApiCallback<V1beta1APIService> callback) throws ApiException {
+    public okhttp3.Call readAPIServiceAsync(String name, String pretty, Boolean exact, Boolean export, final ApiCallback<V1beta1APIService> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1091,7 +1091,7 @@ public class ApiregistrationV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = readAPIServiceValidateBeforeCall(name, pretty, exact, export, progressListener, progressRequestListener);
+        okhttp3.Call call = readAPIServiceValidateBeforeCall(name, pretty, exact, export, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1APIService>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1106,7 +1106,7 @@ public class ApiregistrationV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call replaceAPIServiceCall(String name, V1beta1APIService body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call replaceAPIServiceCall(String name, V1beta1APIService body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -1135,10 +1135,10 @@ public class ApiregistrationV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1151,7 +1151,7 @@ public class ApiregistrationV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call replaceAPIServiceValidateBeforeCall(String name, V1beta1APIService body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call replaceAPIServiceValidateBeforeCall(String name, V1beta1APIService body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1164,7 +1164,7 @@ public class ApiregistrationV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = replaceAPIServiceCall(name, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceAPIServiceCall(name, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -1197,7 +1197,7 @@ public class ApiregistrationV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1APIService> replaceAPIServiceWithHttpInfo(String name, V1beta1APIService body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = replaceAPIServiceValidateBeforeCall(name, body, pretty, null, null);
+        okhttp3.Call call = replaceAPIServiceValidateBeforeCall(name, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1APIService>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1212,7 +1212,7 @@ public class ApiregistrationV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call replaceAPIServiceAsync(String name, V1beta1APIService body, String pretty, final ApiCallback<V1beta1APIService> callback) throws ApiException {
+    public okhttp3.Call replaceAPIServiceAsync(String name, V1beta1APIService body, String pretty, final ApiCallback<V1beta1APIService> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1233,7 +1233,7 @@ public class ApiregistrationV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = replaceAPIServiceValidateBeforeCall(name, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceAPIServiceValidateBeforeCall(name, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1APIService>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1248,7 +1248,7 @@ public class ApiregistrationV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call replaceAPIServiceStatusCall(String name, V1beta1APIService body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call replaceAPIServiceStatusCall(String name, V1beta1APIService body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -1277,10 +1277,10 @@ public class ApiregistrationV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1293,7 +1293,7 @@ public class ApiregistrationV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call replaceAPIServiceStatusValidateBeforeCall(String name, V1beta1APIService body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call replaceAPIServiceStatusValidateBeforeCall(String name, V1beta1APIService body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1306,7 +1306,7 @@ public class ApiregistrationV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = replaceAPIServiceStatusCall(name, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceAPIServiceStatusCall(name, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -1339,7 +1339,7 @@ public class ApiregistrationV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1APIService> replaceAPIServiceStatusWithHttpInfo(String name, V1beta1APIService body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = replaceAPIServiceStatusValidateBeforeCall(name, body, pretty, null, null);
+        okhttp3.Call call = replaceAPIServiceStatusValidateBeforeCall(name, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1APIService>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1354,7 +1354,7 @@ public class ApiregistrationV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call replaceAPIServiceStatusAsync(String name, V1beta1APIService body, String pretty, final ApiCallback<V1beta1APIService> callback) throws ApiException {
+    public okhttp3.Call replaceAPIServiceStatusAsync(String name, V1beta1APIService body, String pretty, final ApiCallback<V1beta1APIService> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1375,7 +1375,7 @@ public class ApiregistrationV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = replaceAPIServiceStatusValidateBeforeCall(name, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceAPIServiceStatusValidateBeforeCall(name, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1APIService>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

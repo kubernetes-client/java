@@ -27,20 +27,23 @@ import java.util.concurrent.TimeUnit;
 public class WatchExample {
   public static void main(String[] args) throws IOException, ApiException {
     ApiClient client = Config.defaultClient();
-    client.getHttpClient().setReadTimeout(60, TimeUnit.SECONDS);
+    client.setHttpClient(client.getHttpClient().newBuilder()
+            .readTimeout(60, TimeUnit.SECONDS)
+            .build());
     Configuration.setDefaultApiClient(client);
 
     CoreV1Api api = new CoreV1Api();
 
-    Watch<V1Namespace> watch =
-        Watch.createWatch(
-            client,
-            api.listNamespaceCall(
-                null, null, null, null, null, 5, null, null, Boolean.TRUE, null, null),
-            new TypeToken<Watch.Response<V1Namespace>>() {}.getType());
+    try(Watch<V1Namespace> watch =
+                Watch.createWatch(
+                        client,
+                        api.listNamespaceCall(
+                                null, null, null, null, null, 5, null, null, Boolean.TRUE, null, null),
+                        new TypeToken<Watch.Response<V1Namespace>>() {}.getType())) {
 
-    for (Watch.Response<V1Namespace> item : watch) {
-      System.out.printf("%s : %s%n", item.type, item.object.getMetadata().getName());
+      for (Watch.Response<V1Namespace> item : watch) {
+        System.out.printf("%s : %s%n", item.type, item.object.getMetadata().getName());
+      }
     }
   }
 }

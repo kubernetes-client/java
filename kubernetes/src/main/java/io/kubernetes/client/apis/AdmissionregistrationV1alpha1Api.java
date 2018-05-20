@@ -69,7 +69,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createExternalAdmissionHookConfigurationCall(V1alpha1ExternalAdmissionHookConfiguration body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call createExternalAdmissionHookConfigurationCall(V1alpha1ExternalAdmissionHookConfiguration body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -97,10 +97,10 @@ public class AdmissionregistrationV1alpha1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -113,7 +113,7 @@ public class AdmissionregistrationV1alpha1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createExternalAdmissionHookConfigurationValidateBeforeCall(V1alpha1ExternalAdmissionHookConfiguration body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call createExternalAdmissionHookConfigurationValidateBeforeCall(V1alpha1ExternalAdmissionHookConfiguration body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'body' is set
         if (body == null) {
@@ -121,7 +121,7 @@ public class AdmissionregistrationV1alpha1Api {
         }
         
         
-        com.squareup.okhttp.Call call = createExternalAdmissionHookConfigurationCall(body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createExternalAdmissionHookConfigurationCall(body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -152,7 +152,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1alpha1ExternalAdmissionHookConfiguration> createExternalAdmissionHookConfigurationWithHttpInfo(V1alpha1ExternalAdmissionHookConfiguration body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = createExternalAdmissionHookConfigurationValidateBeforeCall(body, pretty, null, null);
+        okhttp3.Call call = createExternalAdmissionHookConfigurationValidateBeforeCall(body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1alpha1ExternalAdmissionHookConfiguration>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -166,7 +166,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createExternalAdmissionHookConfigurationAsync(V1alpha1ExternalAdmissionHookConfiguration body, String pretty, final ApiCallback<V1alpha1ExternalAdmissionHookConfiguration> callback) throws ApiException {
+    public okhttp3.Call createExternalAdmissionHookConfigurationAsync(V1alpha1ExternalAdmissionHookConfiguration body, String pretty, final ApiCallback<V1alpha1ExternalAdmissionHookConfiguration> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -187,7 +187,7 @@ public class AdmissionregistrationV1alpha1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = createExternalAdmissionHookConfigurationValidateBeforeCall(body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createExternalAdmissionHookConfigurationValidateBeforeCall(body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1alpha1ExternalAdmissionHookConfiguration>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -201,7 +201,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createInitializerConfigurationCall(V1alpha1InitializerConfiguration body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call createInitializerConfigurationCall(V1alpha1InitializerConfiguration body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -229,10 +229,10 @@ public class AdmissionregistrationV1alpha1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -245,7 +245,7 @@ public class AdmissionregistrationV1alpha1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createInitializerConfigurationValidateBeforeCall(V1alpha1InitializerConfiguration body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call createInitializerConfigurationValidateBeforeCall(V1alpha1InitializerConfiguration body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'body' is set
         if (body == null) {
@@ -253,7 +253,7 @@ public class AdmissionregistrationV1alpha1Api {
         }
         
         
-        com.squareup.okhttp.Call call = createInitializerConfigurationCall(body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createInitializerConfigurationCall(body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -284,7 +284,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1alpha1InitializerConfiguration> createInitializerConfigurationWithHttpInfo(V1alpha1InitializerConfiguration body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = createInitializerConfigurationValidateBeforeCall(body, pretty, null, null);
+        okhttp3.Call call = createInitializerConfigurationValidateBeforeCall(body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1alpha1InitializerConfiguration>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -298,7 +298,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createInitializerConfigurationAsync(V1alpha1InitializerConfiguration body, String pretty, final ApiCallback<V1alpha1InitializerConfiguration> callback) throws ApiException {
+    public okhttp3.Call createInitializerConfigurationAsync(V1alpha1InitializerConfiguration body, String pretty, final ApiCallback<V1alpha1InitializerConfiguration> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -319,7 +319,7 @@ public class AdmissionregistrationV1alpha1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = createInitializerConfigurationValidateBeforeCall(body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createInitializerConfigurationValidateBeforeCall(body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1alpha1InitializerConfiguration>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -340,7 +340,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteCollectionExternalAdmissionHookConfigurationCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call deleteCollectionExternalAdmissionHookConfigurationCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -384,10 +384,10 @@ public class AdmissionregistrationV1alpha1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -400,10 +400,10 @@ public class AdmissionregistrationV1alpha1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteCollectionExternalAdmissionHookConfigurationValidateBeforeCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call deleteCollectionExternalAdmissionHookConfigurationValidateBeforeCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = deleteCollectionExternalAdmissionHookConfigurationCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteCollectionExternalAdmissionHookConfigurationCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         return call;
 
         
@@ -448,7 +448,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1Status> deleteCollectionExternalAdmissionHookConfigurationWithHttpInfo(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch) throws ApiException {
-        com.squareup.okhttp.Call call = deleteCollectionExternalAdmissionHookConfigurationValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
+        okhttp3.Call call = deleteCollectionExternalAdmissionHookConfigurationValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -469,7 +469,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteCollectionExternalAdmissionHookConfigurationAsync(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1Status> callback) throws ApiException {
+    public okhttp3.Call deleteCollectionExternalAdmissionHookConfigurationAsync(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1Status> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -490,7 +490,7 @@ public class AdmissionregistrationV1alpha1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteCollectionExternalAdmissionHookConfigurationValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteCollectionExternalAdmissionHookConfigurationValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -511,7 +511,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteCollectionInitializerConfigurationCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call deleteCollectionInitializerConfigurationCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -555,10 +555,10 @@ public class AdmissionregistrationV1alpha1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -571,10 +571,10 @@ public class AdmissionregistrationV1alpha1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteCollectionInitializerConfigurationValidateBeforeCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call deleteCollectionInitializerConfigurationValidateBeforeCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = deleteCollectionInitializerConfigurationCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteCollectionInitializerConfigurationCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         return call;
 
         
@@ -619,7 +619,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1Status> deleteCollectionInitializerConfigurationWithHttpInfo(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch) throws ApiException {
-        com.squareup.okhttp.Call call = deleteCollectionInitializerConfigurationValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
+        okhttp3.Call call = deleteCollectionInitializerConfigurationValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -640,7 +640,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteCollectionInitializerConfigurationAsync(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1Status> callback) throws ApiException {
+    public okhttp3.Call deleteCollectionInitializerConfigurationAsync(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1Status> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -661,7 +661,7 @@ public class AdmissionregistrationV1alpha1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteCollectionInitializerConfigurationValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteCollectionInitializerConfigurationValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -679,7 +679,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteExternalAdmissionHookConfigurationCall(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call deleteExternalAdmissionHookConfigurationCall(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -714,10 +714,10 @@ public class AdmissionregistrationV1alpha1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -730,7 +730,7 @@ public class AdmissionregistrationV1alpha1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteExternalAdmissionHookConfigurationValidateBeforeCall(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call deleteExternalAdmissionHookConfigurationValidateBeforeCall(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -743,7 +743,7 @@ public class AdmissionregistrationV1alpha1Api {
         }
         
         
-        com.squareup.okhttp.Call call = deleteExternalAdmissionHookConfigurationCall(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteExternalAdmissionHookConfigurationCall(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
         return call;
 
         
@@ -782,7 +782,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1Status> deleteExternalAdmissionHookConfigurationWithHttpInfo(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy) throws ApiException {
-        com.squareup.okhttp.Call call = deleteExternalAdmissionHookConfigurationValidateBeforeCall(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, null, null);
+        okhttp3.Call call = deleteExternalAdmissionHookConfigurationValidateBeforeCall(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, null, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -800,7 +800,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteExternalAdmissionHookConfigurationAsync(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ApiCallback<V1Status> callback) throws ApiException {
+    public okhttp3.Call deleteExternalAdmissionHookConfigurationAsync(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ApiCallback<V1Status> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -821,7 +821,7 @@ public class AdmissionregistrationV1alpha1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteExternalAdmissionHookConfigurationValidateBeforeCall(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteExternalAdmissionHookConfigurationValidateBeforeCall(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -839,7 +839,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteInitializerConfigurationCall(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call deleteInitializerConfigurationCall(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -874,10 +874,10 @@ public class AdmissionregistrationV1alpha1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -890,7 +890,7 @@ public class AdmissionregistrationV1alpha1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteInitializerConfigurationValidateBeforeCall(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call deleteInitializerConfigurationValidateBeforeCall(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -903,7 +903,7 @@ public class AdmissionregistrationV1alpha1Api {
         }
         
         
-        com.squareup.okhttp.Call call = deleteInitializerConfigurationCall(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteInitializerConfigurationCall(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
         return call;
 
         
@@ -942,7 +942,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1Status> deleteInitializerConfigurationWithHttpInfo(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy) throws ApiException {
-        com.squareup.okhttp.Call call = deleteInitializerConfigurationValidateBeforeCall(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, null, null);
+        okhttp3.Call call = deleteInitializerConfigurationValidateBeforeCall(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, null, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -960,7 +960,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteInitializerConfigurationAsync(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ApiCallback<V1Status> callback) throws ApiException {
+    public okhttp3.Call deleteInitializerConfigurationAsync(String name, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ApiCallback<V1Status> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -981,7 +981,7 @@ public class AdmissionregistrationV1alpha1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteInitializerConfigurationValidateBeforeCall(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteInitializerConfigurationValidateBeforeCall(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -993,7 +993,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getAPIResourcesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call getAPIResourcesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -1019,10 +1019,10 @@ public class AdmissionregistrationV1alpha1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1035,10 +1035,10 @@ public class AdmissionregistrationV1alpha1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAPIResourcesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call getAPIResourcesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = getAPIResourcesCall(progressListener, progressRequestListener);
+        okhttp3.Call call = getAPIResourcesCall(progressListener, progressRequestListener);
         return call;
 
         
@@ -1065,7 +1065,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1APIResourceList> getAPIResourcesWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getAPIResourcesValidateBeforeCall(null, null);
+        okhttp3.Call call = getAPIResourcesValidateBeforeCall(null, null);
         Type localVarReturnType = new TypeToken<V1APIResourceList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1077,7 +1077,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAPIResourcesAsync(final ApiCallback<V1APIResourceList> callback) throws ApiException {
+    public okhttp3.Call getAPIResourcesAsync(final ApiCallback<V1APIResourceList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1098,7 +1098,7 @@ public class AdmissionregistrationV1alpha1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = getAPIResourcesValidateBeforeCall(progressListener, progressRequestListener);
+        okhttp3.Call call = getAPIResourcesValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1APIResourceList>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1119,7 +1119,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call listExternalAdmissionHookConfigurationCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call listExternalAdmissionHookConfigurationCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -1163,10 +1163,10 @@ public class AdmissionregistrationV1alpha1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1179,10 +1179,10 @@ public class AdmissionregistrationV1alpha1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listExternalAdmissionHookConfigurationValidateBeforeCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call listExternalAdmissionHookConfigurationValidateBeforeCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = listExternalAdmissionHookConfigurationCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listExternalAdmissionHookConfigurationCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         return call;
 
         
@@ -1227,7 +1227,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1alpha1ExternalAdmissionHookConfigurationList> listExternalAdmissionHookConfigurationWithHttpInfo(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch) throws ApiException {
-        com.squareup.okhttp.Call call = listExternalAdmissionHookConfigurationValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
+        okhttp3.Call call = listExternalAdmissionHookConfigurationValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
         Type localVarReturnType = new TypeToken<V1alpha1ExternalAdmissionHookConfigurationList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1248,7 +1248,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listExternalAdmissionHookConfigurationAsync(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1alpha1ExternalAdmissionHookConfigurationList> callback) throws ApiException {
+    public okhttp3.Call listExternalAdmissionHookConfigurationAsync(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1alpha1ExternalAdmissionHookConfigurationList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1269,7 +1269,7 @@ public class AdmissionregistrationV1alpha1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = listExternalAdmissionHookConfigurationValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listExternalAdmissionHookConfigurationValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1alpha1ExternalAdmissionHookConfigurationList>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1290,7 +1290,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call listInitializerConfigurationCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call listInitializerConfigurationCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -1334,10 +1334,10 @@ public class AdmissionregistrationV1alpha1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1350,10 +1350,10 @@ public class AdmissionregistrationV1alpha1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listInitializerConfigurationValidateBeforeCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call listInitializerConfigurationValidateBeforeCall(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = listInitializerConfigurationCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listInitializerConfigurationCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         return call;
 
         
@@ -1398,7 +1398,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1alpha1InitializerConfigurationList> listInitializerConfigurationWithHttpInfo(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch) throws ApiException {
-        com.squareup.okhttp.Call call = listInitializerConfigurationValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
+        okhttp3.Call call = listInitializerConfigurationValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
         Type localVarReturnType = new TypeToken<V1alpha1InitializerConfigurationList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1419,7 +1419,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listInitializerConfigurationAsync(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1alpha1InitializerConfigurationList> callback) throws ApiException {
+    public okhttp3.Call listInitializerConfigurationAsync(String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1alpha1InitializerConfigurationList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1440,7 +1440,7 @@ public class AdmissionregistrationV1alpha1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = listInitializerConfigurationValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listInitializerConfigurationValidateBeforeCall(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1alpha1InitializerConfigurationList>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1455,7 +1455,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call patchExternalAdmissionHookConfigurationCall(String name, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call patchExternalAdmissionHookConfigurationCall(String name, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -1484,10 +1484,10 @@ public class AdmissionregistrationV1alpha1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1500,7 +1500,7 @@ public class AdmissionregistrationV1alpha1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call patchExternalAdmissionHookConfigurationValidateBeforeCall(String name, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call patchExternalAdmissionHookConfigurationValidateBeforeCall(String name, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1513,7 +1513,7 @@ public class AdmissionregistrationV1alpha1Api {
         }
         
         
-        com.squareup.okhttp.Call call = patchExternalAdmissionHookConfigurationCall(name, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchExternalAdmissionHookConfigurationCall(name, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -1546,7 +1546,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1alpha1ExternalAdmissionHookConfiguration> patchExternalAdmissionHookConfigurationWithHttpInfo(String name, Object body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = patchExternalAdmissionHookConfigurationValidateBeforeCall(name, body, pretty, null, null);
+        okhttp3.Call call = patchExternalAdmissionHookConfigurationValidateBeforeCall(name, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1alpha1ExternalAdmissionHookConfiguration>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1561,7 +1561,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call patchExternalAdmissionHookConfigurationAsync(String name, Object body, String pretty, final ApiCallback<V1alpha1ExternalAdmissionHookConfiguration> callback) throws ApiException {
+    public okhttp3.Call patchExternalAdmissionHookConfigurationAsync(String name, Object body, String pretty, final ApiCallback<V1alpha1ExternalAdmissionHookConfiguration> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1582,7 +1582,7 @@ public class AdmissionregistrationV1alpha1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = patchExternalAdmissionHookConfigurationValidateBeforeCall(name, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchExternalAdmissionHookConfigurationValidateBeforeCall(name, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1alpha1ExternalAdmissionHookConfiguration>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1597,7 +1597,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call patchInitializerConfigurationCall(String name, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call patchInitializerConfigurationCall(String name, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -1626,10 +1626,10 @@ public class AdmissionregistrationV1alpha1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1642,7 +1642,7 @@ public class AdmissionregistrationV1alpha1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call patchInitializerConfigurationValidateBeforeCall(String name, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call patchInitializerConfigurationValidateBeforeCall(String name, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1655,7 +1655,7 @@ public class AdmissionregistrationV1alpha1Api {
         }
         
         
-        com.squareup.okhttp.Call call = patchInitializerConfigurationCall(name, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchInitializerConfigurationCall(name, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -1688,7 +1688,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1alpha1InitializerConfiguration> patchInitializerConfigurationWithHttpInfo(String name, Object body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = patchInitializerConfigurationValidateBeforeCall(name, body, pretty, null, null);
+        okhttp3.Call call = patchInitializerConfigurationValidateBeforeCall(name, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1alpha1InitializerConfiguration>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1703,7 +1703,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call patchInitializerConfigurationAsync(String name, Object body, String pretty, final ApiCallback<V1alpha1InitializerConfiguration> callback) throws ApiException {
+    public okhttp3.Call patchInitializerConfigurationAsync(String name, Object body, String pretty, final ApiCallback<V1alpha1InitializerConfiguration> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1724,7 +1724,7 @@ public class AdmissionregistrationV1alpha1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = patchInitializerConfigurationValidateBeforeCall(name, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchInitializerConfigurationValidateBeforeCall(name, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1alpha1InitializerConfiguration>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1740,7 +1740,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call readExternalAdmissionHookConfigurationCall(String name, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call readExternalAdmissionHookConfigurationCall(String name, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -1773,10 +1773,10 @@ public class AdmissionregistrationV1alpha1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1789,7 +1789,7 @@ public class AdmissionregistrationV1alpha1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call readExternalAdmissionHookConfigurationValidateBeforeCall(String name, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call readExternalAdmissionHookConfigurationValidateBeforeCall(String name, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1797,7 +1797,7 @@ public class AdmissionregistrationV1alpha1Api {
         }
         
         
-        com.squareup.okhttp.Call call = readExternalAdmissionHookConfigurationCall(name, pretty, exact, export, progressListener, progressRequestListener);
+        okhttp3.Call call = readExternalAdmissionHookConfigurationCall(name, pretty, exact, export, progressListener, progressRequestListener);
         return call;
 
         
@@ -1832,7 +1832,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1alpha1ExternalAdmissionHookConfiguration> readExternalAdmissionHookConfigurationWithHttpInfo(String name, String pretty, Boolean exact, Boolean export) throws ApiException {
-        com.squareup.okhttp.Call call = readExternalAdmissionHookConfigurationValidateBeforeCall(name, pretty, exact, export, null, null);
+        okhttp3.Call call = readExternalAdmissionHookConfigurationValidateBeforeCall(name, pretty, exact, export, null, null);
         Type localVarReturnType = new TypeToken<V1alpha1ExternalAdmissionHookConfiguration>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1848,7 +1848,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call readExternalAdmissionHookConfigurationAsync(String name, String pretty, Boolean exact, Boolean export, final ApiCallback<V1alpha1ExternalAdmissionHookConfiguration> callback) throws ApiException {
+    public okhttp3.Call readExternalAdmissionHookConfigurationAsync(String name, String pretty, Boolean exact, Boolean export, final ApiCallback<V1alpha1ExternalAdmissionHookConfiguration> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1869,7 +1869,7 @@ public class AdmissionregistrationV1alpha1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = readExternalAdmissionHookConfigurationValidateBeforeCall(name, pretty, exact, export, progressListener, progressRequestListener);
+        okhttp3.Call call = readExternalAdmissionHookConfigurationValidateBeforeCall(name, pretty, exact, export, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1alpha1ExternalAdmissionHookConfiguration>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1885,7 +1885,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call readInitializerConfigurationCall(String name, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call readInitializerConfigurationCall(String name, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -1918,10 +1918,10 @@ public class AdmissionregistrationV1alpha1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1934,7 +1934,7 @@ public class AdmissionregistrationV1alpha1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call readInitializerConfigurationValidateBeforeCall(String name, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call readInitializerConfigurationValidateBeforeCall(String name, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1942,7 +1942,7 @@ public class AdmissionregistrationV1alpha1Api {
         }
         
         
-        com.squareup.okhttp.Call call = readInitializerConfigurationCall(name, pretty, exact, export, progressListener, progressRequestListener);
+        okhttp3.Call call = readInitializerConfigurationCall(name, pretty, exact, export, progressListener, progressRequestListener);
         return call;
 
         
@@ -1977,7 +1977,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1alpha1InitializerConfiguration> readInitializerConfigurationWithHttpInfo(String name, String pretty, Boolean exact, Boolean export) throws ApiException {
-        com.squareup.okhttp.Call call = readInitializerConfigurationValidateBeforeCall(name, pretty, exact, export, null, null);
+        okhttp3.Call call = readInitializerConfigurationValidateBeforeCall(name, pretty, exact, export, null, null);
         Type localVarReturnType = new TypeToken<V1alpha1InitializerConfiguration>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1993,7 +1993,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call readInitializerConfigurationAsync(String name, String pretty, Boolean exact, Boolean export, final ApiCallback<V1alpha1InitializerConfiguration> callback) throws ApiException {
+    public okhttp3.Call readInitializerConfigurationAsync(String name, String pretty, Boolean exact, Boolean export, final ApiCallback<V1alpha1InitializerConfiguration> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2014,7 +2014,7 @@ public class AdmissionregistrationV1alpha1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = readInitializerConfigurationValidateBeforeCall(name, pretty, exact, export, progressListener, progressRequestListener);
+        okhttp3.Call call = readInitializerConfigurationValidateBeforeCall(name, pretty, exact, export, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1alpha1InitializerConfiguration>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -2029,7 +2029,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call replaceExternalAdmissionHookConfigurationCall(String name, V1alpha1ExternalAdmissionHookConfiguration body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call replaceExternalAdmissionHookConfigurationCall(String name, V1alpha1ExternalAdmissionHookConfiguration body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -2058,10 +2058,10 @@ public class AdmissionregistrationV1alpha1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -2074,7 +2074,7 @@ public class AdmissionregistrationV1alpha1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call replaceExternalAdmissionHookConfigurationValidateBeforeCall(String name, V1alpha1ExternalAdmissionHookConfiguration body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call replaceExternalAdmissionHookConfigurationValidateBeforeCall(String name, V1alpha1ExternalAdmissionHookConfiguration body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -2087,7 +2087,7 @@ public class AdmissionregistrationV1alpha1Api {
         }
         
         
-        com.squareup.okhttp.Call call = replaceExternalAdmissionHookConfigurationCall(name, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceExternalAdmissionHookConfigurationCall(name, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -2120,7 +2120,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1alpha1ExternalAdmissionHookConfiguration> replaceExternalAdmissionHookConfigurationWithHttpInfo(String name, V1alpha1ExternalAdmissionHookConfiguration body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = replaceExternalAdmissionHookConfigurationValidateBeforeCall(name, body, pretty, null, null);
+        okhttp3.Call call = replaceExternalAdmissionHookConfigurationValidateBeforeCall(name, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1alpha1ExternalAdmissionHookConfiguration>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2135,7 +2135,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call replaceExternalAdmissionHookConfigurationAsync(String name, V1alpha1ExternalAdmissionHookConfiguration body, String pretty, final ApiCallback<V1alpha1ExternalAdmissionHookConfiguration> callback) throws ApiException {
+    public okhttp3.Call replaceExternalAdmissionHookConfigurationAsync(String name, V1alpha1ExternalAdmissionHookConfiguration body, String pretty, final ApiCallback<V1alpha1ExternalAdmissionHookConfiguration> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2156,7 +2156,7 @@ public class AdmissionregistrationV1alpha1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = replaceExternalAdmissionHookConfigurationValidateBeforeCall(name, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceExternalAdmissionHookConfigurationValidateBeforeCall(name, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1alpha1ExternalAdmissionHookConfiguration>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -2171,7 +2171,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call replaceInitializerConfigurationCall(String name, V1alpha1InitializerConfiguration body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call replaceInitializerConfigurationCall(String name, V1alpha1InitializerConfiguration body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -2200,10 +2200,10 @@ public class AdmissionregistrationV1alpha1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -2216,7 +2216,7 @@ public class AdmissionregistrationV1alpha1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call replaceInitializerConfigurationValidateBeforeCall(String name, V1alpha1InitializerConfiguration body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call replaceInitializerConfigurationValidateBeforeCall(String name, V1alpha1InitializerConfiguration body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -2229,7 +2229,7 @@ public class AdmissionregistrationV1alpha1Api {
         }
         
         
-        com.squareup.okhttp.Call call = replaceInitializerConfigurationCall(name, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceInitializerConfigurationCall(name, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -2262,7 +2262,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1alpha1InitializerConfiguration> replaceInitializerConfigurationWithHttpInfo(String name, V1alpha1InitializerConfiguration body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = replaceInitializerConfigurationValidateBeforeCall(name, body, pretty, null, null);
+        okhttp3.Call call = replaceInitializerConfigurationValidateBeforeCall(name, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1alpha1InitializerConfiguration>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2277,7 +2277,7 @@ public class AdmissionregistrationV1alpha1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call replaceInitializerConfigurationAsync(String name, V1alpha1InitializerConfiguration body, String pretty, final ApiCallback<V1alpha1InitializerConfiguration> callback) throws ApiException {
+    public okhttp3.Call replaceInitializerConfigurationAsync(String name, V1alpha1InitializerConfiguration body, String pretty, final ApiCallback<V1alpha1InitializerConfiguration> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2298,7 +2298,7 @@ public class AdmissionregistrationV1alpha1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = replaceInitializerConfigurationValidateBeforeCall(name, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceInitializerConfigurationValidateBeforeCall(name, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1alpha1InitializerConfiguration>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -68,7 +68,7 @@ public class PolicyV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createNamespacedPodDisruptionBudgetCall(String namespace, V1beta1PodDisruptionBudget body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call createNamespacedPodDisruptionBudgetCall(String namespace, V1beta1PodDisruptionBudget body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -97,10 +97,10 @@ public class PolicyV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -113,7 +113,7 @@ public class PolicyV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createNamespacedPodDisruptionBudgetValidateBeforeCall(String namespace, V1beta1PodDisruptionBudget body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call createNamespacedPodDisruptionBudgetValidateBeforeCall(String namespace, V1beta1PodDisruptionBudget body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
@@ -126,7 +126,7 @@ public class PolicyV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = createNamespacedPodDisruptionBudgetCall(namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createNamespacedPodDisruptionBudgetCall(namespace, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -159,7 +159,7 @@ public class PolicyV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1PodDisruptionBudget> createNamespacedPodDisruptionBudgetWithHttpInfo(String namespace, V1beta1PodDisruptionBudget body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = createNamespacedPodDisruptionBudgetValidateBeforeCall(namespace, body, pretty, null, null);
+        okhttp3.Call call = createNamespacedPodDisruptionBudgetValidateBeforeCall(namespace, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1PodDisruptionBudget>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -174,7 +174,7 @@ public class PolicyV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createNamespacedPodDisruptionBudgetAsync(String namespace, V1beta1PodDisruptionBudget body, String pretty, final ApiCallback<V1beta1PodDisruptionBudget> callback) throws ApiException {
+    public okhttp3.Call createNamespacedPodDisruptionBudgetAsync(String namespace, V1beta1PodDisruptionBudget body, String pretty, final ApiCallback<V1beta1PodDisruptionBudget> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -195,7 +195,7 @@ public class PolicyV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = createNamespacedPodDisruptionBudgetValidateBeforeCall(namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createNamespacedPodDisruptionBudgetValidateBeforeCall(namespace, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1PodDisruptionBudget>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -217,7 +217,7 @@ public class PolicyV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteCollectionNamespacedPodDisruptionBudgetCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call deleteCollectionNamespacedPodDisruptionBudgetCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -262,10 +262,10 @@ public class PolicyV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -278,7 +278,7 @@ public class PolicyV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteCollectionNamespacedPodDisruptionBudgetValidateBeforeCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedPodDisruptionBudgetValidateBeforeCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
@@ -286,7 +286,7 @@ public class PolicyV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = deleteCollectionNamespacedPodDisruptionBudgetCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteCollectionNamespacedPodDisruptionBudgetCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         return call;
 
         
@@ -333,7 +333,7 @@ public class PolicyV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1Status> deleteCollectionNamespacedPodDisruptionBudgetWithHttpInfo(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch) throws ApiException {
-        com.squareup.okhttp.Call call = deleteCollectionNamespacedPodDisruptionBudgetValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
+        okhttp3.Call call = deleteCollectionNamespacedPodDisruptionBudgetValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -355,7 +355,7 @@ public class PolicyV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteCollectionNamespacedPodDisruptionBudgetAsync(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1Status> callback) throws ApiException {
+    public okhttp3.Call deleteCollectionNamespacedPodDisruptionBudgetAsync(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1Status> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -376,7 +376,7 @@ public class PolicyV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteCollectionNamespacedPodDisruptionBudgetValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteCollectionNamespacedPodDisruptionBudgetValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -395,7 +395,7 @@ public class PolicyV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteNamespacedPodDisruptionBudgetCall(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call deleteNamespacedPodDisruptionBudgetCall(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -431,10 +431,10 @@ public class PolicyV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -447,7 +447,7 @@ public class PolicyV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteNamespacedPodDisruptionBudgetValidateBeforeCall(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call deleteNamespacedPodDisruptionBudgetValidateBeforeCall(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -465,7 +465,7 @@ public class PolicyV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = deleteNamespacedPodDisruptionBudgetCall(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteNamespacedPodDisruptionBudgetCall(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
         return call;
 
         
@@ -506,7 +506,7 @@ public class PolicyV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1Status> deleteNamespacedPodDisruptionBudgetWithHttpInfo(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy) throws ApiException {
-        com.squareup.okhttp.Call call = deleteNamespacedPodDisruptionBudgetValidateBeforeCall(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, null, null);
+        okhttp3.Call call = deleteNamespacedPodDisruptionBudgetValidateBeforeCall(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, null, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -525,7 +525,7 @@ public class PolicyV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteNamespacedPodDisruptionBudgetAsync(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ApiCallback<V1Status> callback) throws ApiException {
+    public okhttp3.Call deleteNamespacedPodDisruptionBudgetAsync(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ApiCallback<V1Status> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -546,7 +546,7 @@ public class PolicyV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteNamespacedPodDisruptionBudgetValidateBeforeCall(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteNamespacedPodDisruptionBudgetValidateBeforeCall(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -558,7 +558,7 @@ public class PolicyV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getAPIResourcesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call getAPIResourcesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -584,10 +584,10 @@ public class PolicyV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -600,10 +600,10 @@ public class PolicyV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAPIResourcesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call getAPIResourcesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = getAPIResourcesCall(progressListener, progressRequestListener);
+        okhttp3.Call call = getAPIResourcesCall(progressListener, progressRequestListener);
         return call;
 
         
@@ -630,7 +630,7 @@ public class PolicyV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1APIResourceList> getAPIResourcesWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getAPIResourcesValidateBeforeCall(null, null);
+        okhttp3.Call call = getAPIResourcesValidateBeforeCall(null, null);
         Type localVarReturnType = new TypeToken<V1APIResourceList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -642,7 +642,7 @@ public class PolicyV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAPIResourcesAsync(final ApiCallback<V1APIResourceList> callback) throws ApiException {
+    public okhttp3.Call getAPIResourcesAsync(final ApiCallback<V1APIResourceList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -663,7 +663,7 @@ public class PolicyV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = getAPIResourcesValidateBeforeCall(progressListener, progressRequestListener);
+        okhttp3.Call call = getAPIResourcesValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1APIResourceList>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -685,7 +685,7 @@ public class PolicyV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call listNamespacedPodDisruptionBudgetCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call listNamespacedPodDisruptionBudgetCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -730,10 +730,10 @@ public class PolicyV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -746,7 +746,7 @@ public class PolicyV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listNamespacedPodDisruptionBudgetValidateBeforeCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call listNamespacedPodDisruptionBudgetValidateBeforeCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
@@ -754,7 +754,7 @@ public class PolicyV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = listNamespacedPodDisruptionBudgetCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listNamespacedPodDisruptionBudgetCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         return call;
 
         
@@ -801,7 +801,7 @@ public class PolicyV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1PodDisruptionBudgetList> listNamespacedPodDisruptionBudgetWithHttpInfo(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch) throws ApiException {
-        com.squareup.okhttp.Call call = listNamespacedPodDisruptionBudgetValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
+        okhttp3.Call call = listNamespacedPodDisruptionBudgetValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
         Type localVarReturnType = new TypeToken<V1beta1PodDisruptionBudgetList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -823,7 +823,7 @@ public class PolicyV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listNamespacedPodDisruptionBudgetAsync(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1beta1PodDisruptionBudgetList> callback) throws ApiException {
+    public okhttp3.Call listNamespacedPodDisruptionBudgetAsync(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1beta1PodDisruptionBudgetList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -844,7 +844,7 @@ public class PolicyV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = listNamespacedPodDisruptionBudgetValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listNamespacedPodDisruptionBudgetValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1PodDisruptionBudgetList>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -865,7 +865,7 @@ public class PolicyV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call listPodDisruptionBudgetForAllNamespacesCall(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call listPodDisruptionBudgetForAllNamespacesCall(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -909,10 +909,10 @@ public class PolicyV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -925,10 +925,10 @@ public class PolicyV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listPodDisruptionBudgetForAllNamespacesValidateBeforeCall(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call listPodDisruptionBudgetForAllNamespacesValidateBeforeCall(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = listPodDisruptionBudgetForAllNamespacesCall(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listPodDisruptionBudgetForAllNamespacesCall(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         return call;
 
         
@@ -973,7 +973,7 @@ public class PolicyV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1PodDisruptionBudgetList> listPodDisruptionBudgetForAllNamespacesWithHttpInfo(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch) throws ApiException {
-        com.squareup.okhttp.Call call = listPodDisruptionBudgetForAllNamespacesValidateBeforeCall(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch, null, null);
+        okhttp3.Call call = listPodDisruptionBudgetForAllNamespacesValidateBeforeCall(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch, null, null);
         Type localVarReturnType = new TypeToken<V1beta1PodDisruptionBudgetList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -994,7 +994,7 @@ public class PolicyV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listPodDisruptionBudgetForAllNamespacesAsync(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1beta1PodDisruptionBudgetList> callback) throws ApiException {
+    public okhttp3.Call listPodDisruptionBudgetForAllNamespacesAsync(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1beta1PodDisruptionBudgetList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1015,7 +1015,7 @@ public class PolicyV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = listPodDisruptionBudgetForAllNamespacesValidateBeforeCall(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listPodDisruptionBudgetForAllNamespacesValidateBeforeCall(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1PodDisruptionBudgetList>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1031,7 +1031,7 @@ public class PolicyV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call patchNamespacedPodDisruptionBudgetCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call patchNamespacedPodDisruptionBudgetCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -1061,10 +1061,10 @@ public class PolicyV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1077,7 +1077,7 @@ public class PolicyV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call patchNamespacedPodDisruptionBudgetValidateBeforeCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call patchNamespacedPodDisruptionBudgetValidateBeforeCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1095,7 +1095,7 @@ public class PolicyV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = patchNamespacedPodDisruptionBudgetCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchNamespacedPodDisruptionBudgetCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -1130,7 +1130,7 @@ public class PolicyV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1PodDisruptionBudget> patchNamespacedPodDisruptionBudgetWithHttpInfo(String name, String namespace, Object body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = patchNamespacedPodDisruptionBudgetValidateBeforeCall(name, namespace, body, pretty, null, null);
+        okhttp3.Call call = patchNamespacedPodDisruptionBudgetValidateBeforeCall(name, namespace, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1PodDisruptionBudget>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1146,7 +1146,7 @@ public class PolicyV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call patchNamespacedPodDisruptionBudgetAsync(String name, String namespace, Object body, String pretty, final ApiCallback<V1beta1PodDisruptionBudget> callback) throws ApiException {
+    public okhttp3.Call patchNamespacedPodDisruptionBudgetAsync(String name, String namespace, Object body, String pretty, final ApiCallback<V1beta1PodDisruptionBudget> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1167,7 +1167,7 @@ public class PolicyV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = patchNamespacedPodDisruptionBudgetValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchNamespacedPodDisruptionBudgetValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1PodDisruptionBudget>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1183,7 +1183,7 @@ public class PolicyV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call patchNamespacedPodDisruptionBudgetStatusCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call patchNamespacedPodDisruptionBudgetStatusCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -1213,10 +1213,10 @@ public class PolicyV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1229,7 +1229,7 @@ public class PolicyV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call patchNamespacedPodDisruptionBudgetStatusValidateBeforeCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call patchNamespacedPodDisruptionBudgetStatusValidateBeforeCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1247,7 +1247,7 @@ public class PolicyV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = patchNamespacedPodDisruptionBudgetStatusCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchNamespacedPodDisruptionBudgetStatusCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -1282,7 +1282,7 @@ public class PolicyV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1PodDisruptionBudget> patchNamespacedPodDisruptionBudgetStatusWithHttpInfo(String name, String namespace, Object body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = patchNamespacedPodDisruptionBudgetStatusValidateBeforeCall(name, namespace, body, pretty, null, null);
+        okhttp3.Call call = patchNamespacedPodDisruptionBudgetStatusValidateBeforeCall(name, namespace, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1PodDisruptionBudget>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1298,7 +1298,7 @@ public class PolicyV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call patchNamespacedPodDisruptionBudgetStatusAsync(String name, String namespace, Object body, String pretty, final ApiCallback<V1beta1PodDisruptionBudget> callback) throws ApiException {
+    public okhttp3.Call patchNamespacedPodDisruptionBudgetStatusAsync(String name, String namespace, Object body, String pretty, final ApiCallback<V1beta1PodDisruptionBudget> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1319,7 +1319,7 @@ public class PolicyV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = patchNamespacedPodDisruptionBudgetStatusValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchNamespacedPodDisruptionBudgetStatusValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1PodDisruptionBudget>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1336,7 +1336,7 @@ public class PolicyV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call readNamespacedPodDisruptionBudgetCall(String name, String namespace, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call readNamespacedPodDisruptionBudgetCall(String name, String namespace, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -1370,10 +1370,10 @@ public class PolicyV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1386,7 +1386,7 @@ public class PolicyV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call readNamespacedPodDisruptionBudgetValidateBeforeCall(String name, String namespace, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call readNamespacedPodDisruptionBudgetValidateBeforeCall(String name, String namespace, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1399,7 +1399,7 @@ public class PolicyV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = readNamespacedPodDisruptionBudgetCall(name, namespace, pretty, exact, export, progressListener, progressRequestListener);
+        okhttp3.Call call = readNamespacedPodDisruptionBudgetCall(name, namespace, pretty, exact, export, progressListener, progressRequestListener);
         return call;
 
         
@@ -1436,7 +1436,7 @@ public class PolicyV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1PodDisruptionBudget> readNamespacedPodDisruptionBudgetWithHttpInfo(String name, String namespace, String pretty, Boolean exact, Boolean export) throws ApiException {
-        com.squareup.okhttp.Call call = readNamespacedPodDisruptionBudgetValidateBeforeCall(name, namespace, pretty, exact, export, null, null);
+        okhttp3.Call call = readNamespacedPodDisruptionBudgetValidateBeforeCall(name, namespace, pretty, exact, export, null, null);
         Type localVarReturnType = new TypeToken<V1beta1PodDisruptionBudget>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1453,7 +1453,7 @@ public class PolicyV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call readNamespacedPodDisruptionBudgetAsync(String name, String namespace, String pretty, Boolean exact, Boolean export, final ApiCallback<V1beta1PodDisruptionBudget> callback) throws ApiException {
+    public okhttp3.Call readNamespacedPodDisruptionBudgetAsync(String name, String namespace, String pretty, Boolean exact, Boolean export, final ApiCallback<V1beta1PodDisruptionBudget> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1474,7 +1474,7 @@ public class PolicyV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = readNamespacedPodDisruptionBudgetValidateBeforeCall(name, namespace, pretty, exact, export, progressListener, progressRequestListener);
+        okhttp3.Call call = readNamespacedPodDisruptionBudgetValidateBeforeCall(name, namespace, pretty, exact, export, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1PodDisruptionBudget>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1489,7 +1489,7 @@ public class PolicyV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call readNamespacedPodDisruptionBudgetStatusCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call readNamespacedPodDisruptionBudgetStatusCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -1519,10 +1519,10 @@ public class PolicyV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1535,7 +1535,7 @@ public class PolicyV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call readNamespacedPodDisruptionBudgetStatusValidateBeforeCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call readNamespacedPodDisruptionBudgetStatusValidateBeforeCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1548,7 +1548,7 @@ public class PolicyV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = readNamespacedPodDisruptionBudgetStatusCall(name, namespace, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = readNamespacedPodDisruptionBudgetStatusCall(name, namespace, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -1581,7 +1581,7 @@ public class PolicyV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1PodDisruptionBudget> readNamespacedPodDisruptionBudgetStatusWithHttpInfo(String name, String namespace, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = readNamespacedPodDisruptionBudgetStatusValidateBeforeCall(name, namespace, pretty, null, null);
+        okhttp3.Call call = readNamespacedPodDisruptionBudgetStatusValidateBeforeCall(name, namespace, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1PodDisruptionBudget>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1596,7 +1596,7 @@ public class PolicyV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call readNamespacedPodDisruptionBudgetStatusAsync(String name, String namespace, String pretty, final ApiCallback<V1beta1PodDisruptionBudget> callback) throws ApiException {
+    public okhttp3.Call readNamespacedPodDisruptionBudgetStatusAsync(String name, String namespace, String pretty, final ApiCallback<V1beta1PodDisruptionBudget> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1617,7 +1617,7 @@ public class PolicyV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = readNamespacedPodDisruptionBudgetStatusValidateBeforeCall(name, namespace, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = readNamespacedPodDisruptionBudgetStatusValidateBeforeCall(name, namespace, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1PodDisruptionBudget>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1633,7 +1633,7 @@ public class PolicyV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call replaceNamespacedPodDisruptionBudgetCall(String name, String namespace, V1beta1PodDisruptionBudget body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call replaceNamespacedPodDisruptionBudgetCall(String name, String namespace, V1beta1PodDisruptionBudget body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -1663,10 +1663,10 @@ public class PolicyV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1679,7 +1679,7 @@ public class PolicyV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call replaceNamespacedPodDisruptionBudgetValidateBeforeCall(String name, String namespace, V1beta1PodDisruptionBudget body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call replaceNamespacedPodDisruptionBudgetValidateBeforeCall(String name, String namespace, V1beta1PodDisruptionBudget body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1697,7 +1697,7 @@ public class PolicyV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = replaceNamespacedPodDisruptionBudgetCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceNamespacedPodDisruptionBudgetCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -1732,7 +1732,7 @@ public class PolicyV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1PodDisruptionBudget> replaceNamespacedPodDisruptionBudgetWithHttpInfo(String name, String namespace, V1beta1PodDisruptionBudget body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = replaceNamespacedPodDisruptionBudgetValidateBeforeCall(name, namespace, body, pretty, null, null);
+        okhttp3.Call call = replaceNamespacedPodDisruptionBudgetValidateBeforeCall(name, namespace, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1PodDisruptionBudget>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1748,7 +1748,7 @@ public class PolicyV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call replaceNamespacedPodDisruptionBudgetAsync(String name, String namespace, V1beta1PodDisruptionBudget body, String pretty, final ApiCallback<V1beta1PodDisruptionBudget> callback) throws ApiException {
+    public okhttp3.Call replaceNamespacedPodDisruptionBudgetAsync(String name, String namespace, V1beta1PodDisruptionBudget body, String pretty, final ApiCallback<V1beta1PodDisruptionBudget> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1769,7 +1769,7 @@ public class PolicyV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = replaceNamespacedPodDisruptionBudgetValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceNamespacedPodDisruptionBudgetValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1PodDisruptionBudget>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1785,7 +1785,7 @@ public class PolicyV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call replaceNamespacedPodDisruptionBudgetStatusCall(String name, String namespace, V1beta1PodDisruptionBudget body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call replaceNamespacedPodDisruptionBudgetStatusCall(String name, String namespace, V1beta1PodDisruptionBudget body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -1815,10 +1815,10 @@ public class PolicyV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1831,7 +1831,7 @@ public class PolicyV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call replaceNamespacedPodDisruptionBudgetStatusValidateBeforeCall(String name, String namespace, V1beta1PodDisruptionBudget body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call replaceNamespacedPodDisruptionBudgetStatusValidateBeforeCall(String name, String namespace, V1beta1PodDisruptionBudget body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1849,7 +1849,7 @@ public class PolicyV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = replaceNamespacedPodDisruptionBudgetStatusCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceNamespacedPodDisruptionBudgetStatusCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -1884,7 +1884,7 @@ public class PolicyV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1PodDisruptionBudget> replaceNamespacedPodDisruptionBudgetStatusWithHttpInfo(String name, String namespace, V1beta1PodDisruptionBudget body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = replaceNamespacedPodDisruptionBudgetStatusValidateBeforeCall(name, namespace, body, pretty, null, null);
+        okhttp3.Call call = replaceNamespacedPodDisruptionBudgetStatusValidateBeforeCall(name, namespace, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1PodDisruptionBudget>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1900,7 +1900,7 @@ public class PolicyV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call replaceNamespacedPodDisruptionBudgetStatusAsync(String name, String namespace, V1beta1PodDisruptionBudget body, String pretty, final ApiCallback<V1beta1PodDisruptionBudget> callback) throws ApiException {
+    public okhttp3.Call replaceNamespacedPodDisruptionBudgetStatusAsync(String name, String namespace, V1beta1PodDisruptionBudget body, String pretty, final ApiCallback<V1beta1PodDisruptionBudget> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1921,7 +1921,7 @@ public class PolicyV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = replaceNamespacedPodDisruptionBudgetStatusValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceNamespacedPodDisruptionBudgetStatusValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1PodDisruptionBudget>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

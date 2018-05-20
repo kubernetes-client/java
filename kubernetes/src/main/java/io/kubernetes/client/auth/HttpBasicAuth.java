@@ -14,8 +14,7 @@
 package io.kubernetes.client.auth;
 
 import io.kubernetes.client.Pair;
-
-import com.squareup.okhttp.Credentials;
+import okhttp3.Credentials;
 
 import java.util.Map;
 import java.util.List;

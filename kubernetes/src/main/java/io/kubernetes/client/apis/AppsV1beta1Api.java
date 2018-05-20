@@ -74,7 +74,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createNamespacedControllerRevisionCall(String namespace, V1beta1ControllerRevision body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call createNamespacedControllerRevisionCall(String namespace, V1beta1ControllerRevision body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -103,10 +103,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -119,7 +119,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createNamespacedControllerRevisionValidateBeforeCall(String namespace, V1beta1ControllerRevision body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call createNamespacedControllerRevisionValidateBeforeCall(String namespace, V1beta1ControllerRevision body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
@@ -132,7 +132,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = createNamespacedControllerRevisionCall(namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createNamespacedControllerRevisionCall(namespace, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -165,7 +165,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1ControllerRevision> createNamespacedControllerRevisionWithHttpInfo(String namespace, V1beta1ControllerRevision body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = createNamespacedControllerRevisionValidateBeforeCall(namespace, body, pretty, null, null);
+        okhttp3.Call call = createNamespacedControllerRevisionValidateBeforeCall(namespace, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1ControllerRevision>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -180,7 +180,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createNamespacedControllerRevisionAsync(String namespace, V1beta1ControllerRevision body, String pretty, final ApiCallback<V1beta1ControllerRevision> callback) throws ApiException {
+    public okhttp3.Call createNamespacedControllerRevisionAsync(String namespace, V1beta1ControllerRevision body, String pretty, final ApiCallback<V1beta1ControllerRevision> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -201,7 +201,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = createNamespacedControllerRevisionValidateBeforeCall(namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createNamespacedControllerRevisionValidateBeforeCall(namespace, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1ControllerRevision>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -216,7 +216,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createNamespacedDeploymentCall(String namespace, AppsV1beta1Deployment body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call createNamespacedDeploymentCall(String namespace, AppsV1beta1Deployment body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -245,10 +245,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -261,7 +261,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createNamespacedDeploymentValidateBeforeCall(String namespace, AppsV1beta1Deployment body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call createNamespacedDeploymentValidateBeforeCall(String namespace, AppsV1beta1Deployment body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
@@ -274,7 +274,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = createNamespacedDeploymentCall(namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createNamespacedDeploymentCall(namespace, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -307,7 +307,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AppsV1beta1Deployment> createNamespacedDeploymentWithHttpInfo(String namespace, AppsV1beta1Deployment body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = createNamespacedDeploymentValidateBeforeCall(namespace, body, pretty, null, null);
+        okhttp3.Call call = createNamespacedDeploymentValidateBeforeCall(namespace, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<AppsV1beta1Deployment>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -322,7 +322,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createNamespacedDeploymentAsync(String namespace, AppsV1beta1Deployment body, String pretty, final ApiCallback<AppsV1beta1Deployment> callback) throws ApiException {
+    public okhttp3.Call createNamespacedDeploymentAsync(String namespace, AppsV1beta1Deployment body, String pretty, final ApiCallback<AppsV1beta1Deployment> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -343,7 +343,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = createNamespacedDeploymentValidateBeforeCall(namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createNamespacedDeploymentValidateBeforeCall(namespace, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AppsV1beta1Deployment>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -359,7 +359,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createNamespacedDeploymentRollbackCall(String name, String namespace, AppsV1beta1DeploymentRollback body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call createNamespacedDeploymentRollbackCall(String name, String namespace, AppsV1beta1DeploymentRollback body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -389,10 +389,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -405,7 +405,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createNamespacedDeploymentRollbackValidateBeforeCall(String name, String namespace, AppsV1beta1DeploymentRollback body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call createNamespacedDeploymentRollbackValidateBeforeCall(String name, String namespace, AppsV1beta1DeploymentRollback body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -423,7 +423,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = createNamespacedDeploymentRollbackCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createNamespacedDeploymentRollbackCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -458,7 +458,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AppsV1beta1DeploymentRollback> createNamespacedDeploymentRollbackWithHttpInfo(String name, String namespace, AppsV1beta1DeploymentRollback body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = createNamespacedDeploymentRollbackValidateBeforeCall(name, namespace, body, pretty, null, null);
+        okhttp3.Call call = createNamespacedDeploymentRollbackValidateBeforeCall(name, namespace, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<AppsV1beta1DeploymentRollback>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -474,7 +474,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createNamespacedDeploymentRollbackAsync(String name, String namespace, AppsV1beta1DeploymentRollback body, String pretty, final ApiCallback<AppsV1beta1DeploymentRollback> callback) throws ApiException {
+    public okhttp3.Call createNamespacedDeploymentRollbackAsync(String name, String namespace, AppsV1beta1DeploymentRollback body, String pretty, final ApiCallback<AppsV1beta1DeploymentRollback> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -495,7 +495,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = createNamespacedDeploymentRollbackValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createNamespacedDeploymentRollbackValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AppsV1beta1DeploymentRollback>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -510,7 +510,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createNamespacedStatefulSetCall(String namespace, V1beta1StatefulSet body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call createNamespacedStatefulSetCall(String namespace, V1beta1StatefulSet body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -539,10 +539,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -555,7 +555,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createNamespacedStatefulSetValidateBeforeCall(String namespace, V1beta1StatefulSet body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call createNamespacedStatefulSetValidateBeforeCall(String namespace, V1beta1StatefulSet body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
@@ -568,7 +568,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = createNamespacedStatefulSetCall(namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createNamespacedStatefulSetCall(namespace, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -601,7 +601,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1StatefulSet> createNamespacedStatefulSetWithHttpInfo(String namespace, V1beta1StatefulSet body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = createNamespacedStatefulSetValidateBeforeCall(namespace, body, pretty, null, null);
+        okhttp3.Call call = createNamespacedStatefulSetValidateBeforeCall(namespace, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1StatefulSet>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -616,7 +616,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createNamespacedStatefulSetAsync(String namespace, V1beta1StatefulSet body, String pretty, final ApiCallback<V1beta1StatefulSet> callback) throws ApiException {
+    public okhttp3.Call createNamespacedStatefulSetAsync(String namespace, V1beta1StatefulSet body, String pretty, final ApiCallback<V1beta1StatefulSet> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -637,7 +637,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = createNamespacedStatefulSetValidateBeforeCall(namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createNamespacedStatefulSetValidateBeforeCall(namespace, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1StatefulSet>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -659,7 +659,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteCollectionNamespacedControllerRevisionCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call deleteCollectionNamespacedControllerRevisionCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -704,10 +704,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -720,7 +720,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteCollectionNamespacedControllerRevisionValidateBeforeCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedControllerRevisionValidateBeforeCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
@@ -728,7 +728,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = deleteCollectionNamespacedControllerRevisionCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteCollectionNamespacedControllerRevisionCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         return call;
 
         
@@ -775,7 +775,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1Status> deleteCollectionNamespacedControllerRevisionWithHttpInfo(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch) throws ApiException {
-        com.squareup.okhttp.Call call = deleteCollectionNamespacedControllerRevisionValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
+        okhttp3.Call call = deleteCollectionNamespacedControllerRevisionValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -797,7 +797,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteCollectionNamespacedControllerRevisionAsync(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1Status> callback) throws ApiException {
+    public okhttp3.Call deleteCollectionNamespacedControllerRevisionAsync(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1Status> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -818,7 +818,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteCollectionNamespacedControllerRevisionValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteCollectionNamespacedControllerRevisionValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -840,7 +840,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteCollectionNamespacedDeploymentCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call deleteCollectionNamespacedDeploymentCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -885,10 +885,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -901,7 +901,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteCollectionNamespacedDeploymentValidateBeforeCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedDeploymentValidateBeforeCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
@@ -909,7 +909,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = deleteCollectionNamespacedDeploymentCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteCollectionNamespacedDeploymentCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         return call;
 
         
@@ -956,7 +956,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1Status> deleteCollectionNamespacedDeploymentWithHttpInfo(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch) throws ApiException {
-        com.squareup.okhttp.Call call = deleteCollectionNamespacedDeploymentValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
+        okhttp3.Call call = deleteCollectionNamespacedDeploymentValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -978,7 +978,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteCollectionNamespacedDeploymentAsync(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1Status> callback) throws ApiException {
+    public okhttp3.Call deleteCollectionNamespacedDeploymentAsync(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1Status> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -999,7 +999,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteCollectionNamespacedDeploymentValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteCollectionNamespacedDeploymentValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1021,7 +1021,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteCollectionNamespacedStatefulSetCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call deleteCollectionNamespacedStatefulSetCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -1066,10 +1066,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1082,7 +1082,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteCollectionNamespacedStatefulSetValidateBeforeCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedStatefulSetValidateBeforeCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
@@ -1090,7 +1090,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = deleteCollectionNamespacedStatefulSetCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteCollectionNamespacedStatefulSetCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         return call;
 
         
@@ -1137,7 +1137,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1Status> deleteCollectionNamespacedStatefulSetWithHttpInfo(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch) throws ApiException {
-        com.squareup.okhttp.Call call = deleteCollectionNamespacedStatefulSetValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
+        okhttp3.Call call = deleteCollectionNamespacedStatefulSetValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1159,7 +1159,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteCollectionNamespacedStatefulSetAsync(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1Status> callback) throws ApiException {
+    public okhttp3.Call deleteCollectionNamespacedStatefulSetAsync(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1Status> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1180,7 +1180,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteCollectionNamespacedStatefulSetValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteCollectionNamespacedStatefulSetValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1199,7 +1199,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteNamespacedControllerRevisionCall(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call deleteNamespacedControllerRevisionCall(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -1235,10 +1235,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1251,7 +1251,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteNamespacedControllerRevisionValidateBeforeCall(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call deleteNamespacedControllerRevisionValidateBeforeCall(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1269,7 +1269,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = deleteNamespacedControllerRevisionCall(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteNamespacedControllerRevisionCall(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
         return call;
 
         
@@ -1310,7 +1310,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1Status> deleteNamespacedControllerRevisionWithHttpInfo(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy) throws ApiException {
-        com.squareup.okhttp.Call call = deleteNamespacedControllerRevisionValidateBeforeCall(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, null, null);
+        okhttp3.Call call = deleteNamespacedControllerRevisionValidateBeforeCall(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, null, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1329,7 +1329,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteNamespacedControllerRevisionAsync(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ApiCallback<V1Status> callback) throws ApiException {
+    public okhttp3.Call deleteNamespacedControllerRevisionAsync(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ApiCallback<V1Status> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1350,7 +1350,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteNamespacedControllerRevisionValidateBeforeCall(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteNamespacedControllerRevisionValidateBeforeCall(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1369,7 +1369,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteNamespacedDeploymentCall(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call deleteNamespacedDeploymentCall(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -1405,10 +1405,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1421,7 +1421,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteNamespacedDeploymentValidateBeforeCall(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call deleteNamespacedDeploymentValidateBeforeCall(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1439,7 +1439,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = deleteNamespacedDeploymentCall(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteNamespacedDeploymentCall(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
         return call;
 
         
@@ -1480,7 +1480,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1Status> deleteNamespacedDeploymentWithHttpInfo(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy) throws ApiException {
-        com.squareup.okhttp.Call call = deleteNamespacedDeploymentValidateBeforeCall(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, null, null);
+        okhttp3.Call call = deleteNamespacedDeploymentValidateBeforeCall(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, null, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1499,7 +1499,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteNamespacedDeploymentAsync(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ApiCallback<V1Status> callback) throws ApiException {
+    public okhttp3.Call deleteNamespacedDeploymentAsync(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ApiCallback<V1Status> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1520,7 +1520,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteNamespacedDeploymentValidateBeforeCall(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteNamespacedDeploymentValidateBeforeCall(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1539,7 +1539,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteNamespacedStatefulSetCall(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call deleteNamespacedStatefulSetCall(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -1575,10 +1575,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1591,7 +1591,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteNamespacedStatefulSetValidateBeforeCall(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call deleteNamespacedStatefulSetValidateBeforeCall(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1609,7 +1609,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = deleteNamespacedStatefulSetCall(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteNamespacedStatefulSetCall(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
         return call;
 
         
@@ -1650,7 +1650,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1Status> deleteNamespacedStatefulSetWithHttpInfo(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy) throws ApiException {
-        com.squareup.okhttp.Call call = deleteNamespacedStatefulSetValidateBeforeCall(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, null, null);
+        okhttp3.Call call = deleteNamespacedStatefulSetValidateBeforeCall(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, null, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1669,7 +1669,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteNamespacedStatefulSetAsync(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ApiCallback<V1Status> callback) throws ApiException {
+    public okhttp3.Call deleteNamespacedStatefulSetAsync(String name, String namespace, V1DeleteOptions body, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ApiCallback<V1Status> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1690,7 +1690,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteNamespacedStatefulSetValidateBeforeCall(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteNamespacedStatefulSetValidateBeforeCall(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1702,7 +1702,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getAPIResourcesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call getAPIResourcesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -1728,10 +1728,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1744,10 +1744,10 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAPIResourcesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call getAPIResourcesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = getAPIResourcesCall(progressListener, progressRequestListener);
+        okhttp3.Call call = getAPIResourcesCall(progressListener, progressRequestListener);
         return call;
 
         
@@ -1774,7 +1774,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1APIResourceList> getAPIResourcesWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getAPIResourcesValidateBeforeCall(null, null);
+        okhttp3.Call call = getAPIResourcesValidateBeforeCall(null, null);
         Type localVarReturnType = new TypeToken<V1APIResourceList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1786,7 +1786,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAPIResourcesAsync(final ApiCallback<V1APIResourceList> callback) throws ApiException {
+    public okhttp3.Call getAPIResourcesAsync(final ApiCallback<V1APIResourceList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1807,7 +1807,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = getAPIResourcesValidateBeforeCall(progressListener, progressRequestListener);
+        okhttp3.Call call = getAPIResourcesValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1APIResourceList>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1828,7 +1828,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call listControllerRevisionForAllNamespacesCall(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call listControllerRevisionForAllNamespacesCall(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -1872,10 +1872,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1888,10 +1888,10 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listControllerRevisionForAllNamespacesValidateBeforeCall(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call listControllerRevisionForAllNamespacesValidateBeforeCall(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = listControllerRevisionForAllNamespacesCall(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listControllerRevisionForAllNamespacesCall(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         return call;
 
         
@@ -1936,7 +1936,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1ControllerRevisionList> listControllerRevisionForAllNamespacesWithHttpInfo(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch) throws ApiException {
-        com.squareup.okhttp.Call call = listControllerRevisionForAllNamespacesValidateBeforeCall(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch, null, null);
+        okhttp3.Call call = listControllerRevisionForAllNamespacesValidateBeforeCall(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch, null, null);
         Type localVarReturnType = new TypeToken<V1beta1ControllerRevisionList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1957,7 +1957,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listControllerRevisionForAllNamespacesAsync(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1beta1ControllerRevisionList> callback) throws ApiException {
+    public okhttp3.Call listControllerRevisionForAllNamespacesAsync(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1beta1ControllerRevisionList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1978,7 +1978,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = listControllerRevisionForAllNamespacesValidateBeforeCall(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listControllerRevisionForAllNamespacesValidateBeforeCall(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1ControllerRevisionList>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1999,7 +1999,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call listDeploymentForAllNamespacesCall(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call listDeploymentForAllNamespacesCall(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -2043,10 +2043,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -2059,10 +2059,10 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listDeploymentForAllNamespacesValidateBeforeCall(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call listDeploymentForAllNamespacesValidateBeforeCall(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = listDeploymentForAllNamespacesCall(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listDeploymentForAllNamespacesCall(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         return call;
 
         
@@ -2107,7 +2107,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AppsV1beta1DeploymentList> listDeploymentForAllNamespacesWithHttpInfo(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch) throws ApiException {
-        com.squareup.okhttp.Call call = listDeploymentForAllNamespacesValidateBeforeCall(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch, null, null);
+        okhttp3.Call call = listDeploymentForAllNamespacesValidateBeforeCall(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch, null, null);
         Type localVarReturnType = new TypeToken<AppsV1beta1DeploymentList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2128,7 +2128,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listDeploymentForAllNamespacesAsync(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<AppsV1beta1DeploymentList> callback) throws ApiException {
+    public okhttp3.Call listDeploymentForAllNamespacesAsync(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<AppsV1beta1DeploymentList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2149,7 +2149,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = listDeploymentForAllNamespacesValidateBeforeCall(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listDeploymentForAllNamespacesValidateBeforeCall(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AppsV1beta1DeploymentList>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -2171,7 +2171,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call listNamespacedControllerRevisionCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call listNamespacedControllerRevisionCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -2216,10 +2216,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -2232,7 +2232,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listNamespacedControllerRevisionValidateBeforeCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call listNamespacedControllerRevisionValidateBeforeCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
@@ -2240,7 +2240,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = listNamespacedControllerRevisionCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listNamespacedControllerRevisionCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         return call;
 
         
@@ -2287,7 +2287,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1ControllerRevisionList> listNamespacedControllerRevisionWithHttpInfo(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch) throws ApiException {
-        com.squareup.okhttp.Call call = listNamespacedControllerRevisionValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
+        okhttp3.Call call = listNamespacedControllerRevisionValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
         Type localVarReturnType = new TypeToken<V1beta1ControllerRevisionList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2309,7 +2309,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listNamespacedControllerRevisionAsync(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1beta1ControllerRevisionList> callback) throws ApiException {
+    public okhttp3.Call listNamespacedControllerRevisionAsync(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1beta1ControllerRevisionList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2330,7 +2330,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = listNamespacedControllerRevisionValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listNamespacedControllerRevisionValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1ControllerRevisionList>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -2352,7 +2352,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call listNamespacedDeploymentCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call listNamespacedDeploymentCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -2397,10 +2397,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -2413,7 +2413,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listNamespacedDeploymentValidateBeforeCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call listNamespacedDeploymentValidateBeforeCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
@@ -2421,7 +2421,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = listNamespacedDeploymentCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listNamespacedDeploymentCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         return call;
 
         
@@ -2468,7 +2468,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AppsV1beta1DeploymentList> listNamespacedDeploymentWithHttpInfo(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch) throws ApiException {
-        com.squareup.okhttp.Call call = listNamespacedDeploymentValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
+        okhttp3.Call call = listNamespacedDeploymentValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
         Type localVarReturnType = new TypeToken<AppsV1beta1DeploymentList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2490,7 +2490,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listNamespacedDeploymentAsync(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<AppsV1beta1DeploymentList> callback) throws ApiException {
+    public okhttp3.Call listNamespacedDeploymentAsync(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<AppsV1beta1DeploymentList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2511,7 +2511,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = listNamespacedDeploymentValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listNamespacedDeploymentValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AppsV1beta1DeploymentList>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -2533,7 +2533,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call listNamespacedStatefulSetCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call listNamespacedStatefulSetCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -2578,10 +2578,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -2594,7 +2594,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listNamespacedStatefulSetValidateBeforeCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call listNamespacedStatefulSetValidateBeforeCall(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
@@ -2602,7 +2602,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = listNamespacedStatefulSetCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listNamespacedStatefulSetCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         return call;
 
         
@@ -2649,7 +2649,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1StatefulSetList> listNamespacedStatefulSetWithHttpInfo(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch) throws ApiException {
-        com.squareup.okhttp.Call call = listNamespacedStatefulSetValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
+        okhttp3.Call call = listNamespacedStatefulSetValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, null, null);
         Type localVarReturnType = new TypeToken<V1beta1StatefulSetList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2671,7 +2671,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listNamespacedStatefulSetAsync(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1beta1StatefulSetList> callback) throws ApiException {
+    public okhttp3.Call listNamespacedStatefulSetAsync(String namespace, String pretty, String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1beta1StatefulSetList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2692,7 +2692,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = listNamespacedStatefulSetValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listNamespacedStatefulSetValidateBeforeCall(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1StatefulSetList>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -2713,7 +2713,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call listStatefulSetForAllNamespacesCall(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call listStatefulSetForAllNamespacesCall(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -2757,10 +2757,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -2773,10 +2773,10 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listStatefulSetForAllNamespacesValidateBeforeCall(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call listStatefulSetForAllNamespacesValidateBeforeCall(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = listStatefulSetForAllNamespacesCall(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listStatefulSetForAllNamespacesCall(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         return call;
 
         
@@ -2821,7 +2821,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1StatefulSetList> listStatefulSetForAllNamespacesWithHttpInfo(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch) throws ApiException {
-        com.squareup.okhttp.Call call = listStatefulSetForAllNamespacesValidateBeforeCall(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch, null, null);
+        okhttp3.Call call = listStatefulSetForAllNamespacesValidateBeforeCall(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch, null, null);
         Type localVarReturnType = new TypeToken<V1beta1StatefulSetList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2842,7 +2842,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listStatefulSetForAllNamespacesAsync(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1beta1StatefulSetList> callback) throws ApiException {
+    public okhttp3.Call listStatefulSetForAllNamespacesAsync(String _continue, String fieldSelector, Boolean includeUninitialized, String labelSelector, Integer limit, String pretty, String resourceVersion, Integer timeoutSeconds, Boolean watch, final ApiCallback<V1beta1StatefulSetList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2863,7 +2863,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = listStatefulSetForAllNamespacesValidateBeforeCall(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listStatefulSetForAllNamespacesValidateBeforeCall(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1StatefulSetList>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -2879,7 +2879,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call patchNamespacedControllerRevisionCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call patchNamespacedControllerRevisionCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -2909,10 +2909,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -2925,7 +2925,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call patchNamespacedControllerRevisionValidateBeforeCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call patchNamespacedControllerRevisionValidateBeforeCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -2943,7 +2943,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = patchNamespacedControllerRevisionCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchNamespacedControllerRevisionCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -2978,7 +2978,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1ControllerRevision> patchNamespacedControllerRevisionWithHttpInfo(String name, String namespace, Object body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = patchNamespacedControllerRevisionValidateBeforeCall(name, namespace, body, pretty, null, null);
+        okhttp3.Call call = patchNamespacedControllerRevisionValidateBeforeCall(name, namespace, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1ControllerRevision>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2994,7 +2994,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call patchNamespacedControllerRevisionAsync(String name, String namespace, Object body, String pretty, final ApiCallback<V1beta1ControllerRevision> callback) throws ApiException {
+    public okhttp3.Call patchNamespacedControllerRevisionAsync(String name, String namespace, Object body, String pretty, final ApiCallback<V1beta1ControllerRevision> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3015,7 +3015,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = patchNamespacedControllerRevisionValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchNamespacedControllerRevisionValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1ControllerRevision>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -3031,7 +3031,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call patchNamespacedDeploymentCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call patchNamespacedDeploymentCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -3061,10 +3061,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -3077,7 +3077,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call patchNamespacedDeploymentValidateBeforeCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call patchNamespacedDeploymentValidateBeforeCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -3095,7 +3095,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = patchNamespacedDeploymentCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchNamespacedDeploymentCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -3130,7 +3130,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AppsV1beta1Deployment> patchNamespacedDeploymentWithHttpInfo(String name, String namespace, Object body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = patchNamespacedDeploymentValidateBeforeCall(name, namespace, body, pretty, null, null);
+        okhttp3.Call call = patchNamespacedDeploymentValidateBeforeCall(name, namespace, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<AppsV1beta1Deployment>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -3146,7 +3146,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call patchNamespacedDeploymentAsync(String name, String namespace, Object body, String pretty, final ApiCallback<AppsV1beta1Deployment> callback) throws ApiException {
+    public okhttp3.Call patchNamespacedDeploymentAsync(String name, String namespace, Object body, String pretty, final ApiCallback<AppsV1beta1Deployment> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3167,7 +3167,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = patchNamespacedDeploymentValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchNamespacedDeploymentValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AppsV1beta1Deployment>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -3183,7 +3183,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call patchNamespacedDeploymentScaleCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call patchNamespacedDeploymentScaleCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -3213,10 +3213,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -3229,7 +3229,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call patchNamespacedDeploymentScaleValidateBeforeCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call patchNamespacedDeploymentScaleValidateBeforeCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -3247,7 +3247,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = patchNamespacedDeploymentScaleCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchNamespacedDeploymentScaleCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -3282,7 +3282,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AppsV1beta1Scale> patchNamespacedDeploymentScaleWithHttpInfo(String name, String namespace, Object body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = patchNamespacedDeploymentScaleValidateBeforeCall(name, namespace, body, pretty, null, null);
+        okhttp3.Call call = patchNamespacedDeploymentScaleValidateBeforeCall(name, namespace, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<AppsV1beta1Scale>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -3298,7 +3298,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call patchNamespacedDeploymentScaleAsync(String name, String namespace, Object body, String pretty, final ApiCallback<AppsV1beta1Scale> callback) throws ApiException {
+    public okhttp3.Call patchNamespacedDeploymentScaleAsync(String name, String namespace, Object body, String pretty, final ApiCallback<AppsV1beta1Scale> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3319,7 +3319,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = patchNamespacedDeploymentScaleValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchNamespacedDeploymentScaleValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AppsV1beta1Scale>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -3335,7 +3335,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call patchNamespacedDeploymentStatusCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call patchNamespacedDeploymentStatusCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -3365,10 +3365,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -3381,7 +3381,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call patchNamespacedDeploymentStatusValidateBeforeCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call patchNamespacedDeploymentStatusValidateBeforeCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -3399,7 +3399,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = patchNamespacedDeploymentStatusCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchNamespacedDeploymentStatusCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -3434,7 +3434,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AppsV1beta1Deployment> patchNamespacedDeploymentStatusWithHttpInfo(String name, String namespace, Object body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = patchNamespacedDeploymentStatusValidateBeforeCall(name, namespace, body, pretty, null, null);
+        okhttp3.Call call = patchNamespacedDeploymentStatusValidateBeforeCall(name, namespace, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<AppsV1beta1Deployment>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -3450,7 +3450,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call patchNamespacedDeploymentStatusAsync(String name, String namespace, Object body, String pretty, final ApiCallback<AppsV1beta1Deployment> callback) throws ApiException {
+    public okhttp3.Call patchNamespacedDeploymentStatusAsync(String name, String namespace, Object body, String pretty, final ApiCallback<AppsV1beta1Deployment> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3471,7 +3471,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = patchNamespacedDeploymentStatusValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchNamespacedDeploymentStatusValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AppsV1beta1Deployment>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -3487,7 +3487,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call patchNamespacedStatefulSetCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call patchNamespacedStatefulSetCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -3517,10 +3517,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -3533,7 +3533,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call patchNamespacedStatefulSetValidateBeforeCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call patchNamespacedStatefulSetValidateBeforeCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -3551,7 +3551,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = patchNamespacedStatefulSetCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchNamespacedStatefulSetCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -3586,7 +3586,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1StatefulSet> patchNamespacedStatefulSetWithHttpInfo(String name, String namespace, Object body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = patchNamespacedStatefulSetValidateBeforeCall(name, namespace, body, pretty, null, null);
+        okhttp3.Call call = patchNamespacedStatefulSetValidateBeforeCall(name, namespace, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1StatefulSet>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -3602,7 +3602,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call patchNamespacedStatefulSetAsync(String name, String namespace, Object body, String pretty, final ApiCallback<V1beta1StatefulSet> callback) throws ApiException {
+    public okhttp3.Call patchNamespacedStatefulSetAsync(String name, String namespace, Object body, String pretty, final ApiCallback<V1beta1StatefulSet> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3623,7 +3623,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = patchNamespacedStatefulSetValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchNamespacedStatefulSetValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1StatefulSet>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -3639,7 +3639,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call patchNamespacedStatefulSetScaleCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call patchNamespacedStatefulSetScaleCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -3669,10 +3669,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -3685,7 +3685,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call patchNamespacedStatefulSetScaleValidateBeforeCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call patchNamespacedStatefulSetScaleValidateBeforeCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -3703,7 +3703,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = patchNamespacedStatefulSetScaleCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchNamespacedStatefulSetScaleCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -3738,7 +3738,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AppsV1beta1Scale> patchNamespacedStatefulSetScaleWithHttpInfo(String name, String namespace, Object body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = patchNamespacedStatefulSetScaleValidateBeforeCall(name, namespace, body, pretty, null, null);
+        okhttp3.Call call = patchNamespacedStatefulSetScaleValidateBeforeCall(name, namespace, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<AppsV1beta1Scale>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -3754,7 +3754,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call patchNamespacedStatefulSetScaleAsync(String name, String namespace, Object body, String pretty, final ApiCallback<AppsV1beta1Scale> callback) throws ApiException {
+    public okhttp3.Call patchNamespacedStatefulSetScaleAsync(String name, String namespace, Object body, String pretty, final ApiCallback<AppsV1beta1Scale> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3775,7 +3775,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = patchNamespacedStatefulSetScaleValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchNamespacedStatefulSetScaleValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AppsV1beta1Scale>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -3791,7 +3791,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call patchNamespacedStatefulSetStatusCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call patchNamespacedStatefulSetStatusCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -3821,10 +3821,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -3837,7 +3837,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call patchNamespacedStatefulSetStatusValidateBeforeCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call patchNamespacedStatefulSetStatusValidateBeforeCall(String name, String namespace, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -3855,7 +3855,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = patchNamespacedStatefulSetStatusCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchNamespacedStatefulSetStatusCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -3890,7 +3890,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1StatefulSet> patchNamespacedStatefulSetStatusWithHttpInfo(String name, String namespace, Object body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = patchNamespacedStatefulSetStatusValidateBeforeCall(name, namespace, body, pretty, null, null);
+        okhttp3.Call call = patchNamespacedStatefulSetStatusValidateBeforeCall(name, namespace, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1StatefulSet>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -3906,7 +3906,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call patchNamespacedStatefulSetStatusAsync(String name, String namespace, Object body, String pretty, final ApiCallback<V1beta1StatefulSet> callback) throws ApiException {
+    public okhttp3.Call patchNamespacedStatefulSetStatusAsync(String name, String namespace, Object body, String pretty, final ApiCallback<V1beta1StatefulSet> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3927,7 +3927,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = patchNamespacedStatefulSetStatusValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = patchNamespacedStatefulSetStatusValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1StatefulSet>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -3944,7 +3944,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call readNamespacedControllerRevisionCall(String name, String namespace, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call readNamespacedControllerRevisionCall(String name, String namespace, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -3978,10 +3978,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -3994,7 +3994,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call readNamespacedControllerRevisionValidateBeforeCall(String name, String namespace, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call readNamespacedControllerRevisionValidateBeforeCall(String name, String namespace, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -4007,7 +4007,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = readNamespacedControllerRevisionCall(name, namespace, pretty, exact, export, progressListener, progressRequestListener);
+        okhttp3.Call call = readNamespacedControllerRevisionCall(name, namespace, pretty, exact, export, progressListener, progressRequestListener);
         return call;
 
         
@@ -4044,7 +4044,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1ControllerRevision> readNamespacedControllerRevisionWithHttpInfo(String name, String namespace, String pretty, Boolean exact, Boolean export) throws ApiException {
-        com.squareup.okhttp.Call call = readNamespacedControllerRevisionValidateBeforeCall(name, namespace, pretty, exact, export, null, null);
+        okhttp3.Call call = readNamespacedControllerRevisionValidateBeforeCall(name, namespace, pretty, exact, export, null, null);
         Type localVarReturnType = new TypeToken<V1beta1ControllerRevision>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -4061,7 +4061,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call readNamespacedControllerRevisionAsync(String name, String namespace, String pretty, Boolean exact, Boolean export, final ApiCallback<V1beta1ControllerRevision> callback) throws ApiException {
+    public okhttp3.Call readNamespacedControllerRevisionAsync(String name, String namespace, String pretty, Boolean exact, Boolean export, final ApiCallback<V1beta1ControllerRevision> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4082,7 +4082,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = readNamespacedControllerRevisionValidateBeforeCall(name, namespace, pretty, exact, export, progressListener, progressRequestListener);
+        okhttp3.Call call = readNamespacedControllerRevisionValidateBeforeCall(name, namespace, pretty, exact, export, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1ControllerRevision>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -4099,7 +4099,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call readNamespacedDeploymentCall(String name, String namespace, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call readNamespacedDeploymentCall(String name, String namespace, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -4133,10 +4133,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -4149,7 +4149,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call readNamespacedDeploymentValidateBeforeCall(String name, String namespace, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call readNamespacedDeploymentValidateBeforeCall(String name, String namespace, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -4162,7 +4162,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = readNamespacedDeploymentCall(name, namespace, pretty, exact, export, progressListener, progressRequestListener);
+        okhttp3.Call call = readNamespacedDeploymentCall(name, namespace, pretty, exact, export, progressListener, progressRequestListener);
         return call;
 
         
@@ -4199,7 +4199,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AppsV1beta1Deployment> readNamespacedDeploymentWithHttpInfo(String name, String namespace, String pretty, Boolean exact, Boolean export) throws ApiException {
-        com.squareup.okhttp.Call call = readNamespacedDeploymentValidateBeforeCall(name, namespace, pretty, exact, export, null, null);
+        okhttp3.Call call = readNamespacedDeploymentValidateBeforeCall(name, namespace, pretty, exact, export, null, null);
         Type localVarReturnType = new TypeToken<AppsV1beta1Deployment>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -4216,7 +4216,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call readNamespacedDeploymentAsync(String name, String namespace, String pretty, Boolean exact, Boolean export, final ApiCallback<AppsV1beta1Deployment> callback) throws ApiException {
+    public okhttp3.Call readNamespacedDeploymentAsync(String name, String namespace, String pretty, Boolean exact, Boolean export, final ApiCallback<AppsV1beta1Deployment> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4237,7 +4237,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = readNamespacedDeploymentValidateBeforeCall(name, namespace, pretty, exact, export, progressListener, progressRequestListener);
+        okhttp3.Call call = readNamespacedDeploymentValidateBeforeCall(name, namespace, pretty, exact, export, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AppsV1beta1Deployment>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -4252,7 +4252,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call readNamespacedDeploymentScaleCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call readNamespacedDeploymentScaleCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -4282,10 +4282,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -4298,7 +4298,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call readNamespacedDeploymentScaleValidateBeforeCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call readNamespacedDeploymentScaleValidateBeforeCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -4311,7 +4311,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = readNamespacedDeploymentScaleCall(name, namespace, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = readNamespacedDeploymentScaleCall(name, namespace, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -4344,7 +4344,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AppsV1beta1Scale> readNamespacedDeploymentScaleWithHttpInfo(String name, String namespace, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = readNamespacedDeploymentScaleValidateBeforeCall(name, namespace, pretty, null, null);
+        okhttp3.Call call = readNamespacedDeploymentScaleValidateBeforeCall(name, namespace, pretty, null, null);
         Type localVarReturnType = new TypeToken<AppsV1beta1Scale>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -4359,7 +4359,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call readNamespacedDeploymentScaleAsync(String name, String namespace, String pretty, final ApiCallback<AppsV1beta1Scale> callback) throws ApiException {
+    public okhttp3.Call readNamespacedDeploymentScaleAsync(String name, String namespace, String pretty, final ApiCallback<AppsV1beta1Scale> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4380,7 +4380,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = readNamespacedDeploymentScaleValidateBeforeCall(name, namespace, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = readNamespacedDeploymentScaleValidateBeforeCall(name, namespace, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AppsV1beta1Scale>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -4395,7 +4395,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call readNamespacedDeploymentStatusCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call readNamespacedDeploymentStatusCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -4425,10 +4425,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -4441,7 +4441,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call readNamespacedDeploymentStatusValidateBeforeCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call readNamespacedDeploymentStatusValidateBeforeCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -4454,7 +4454,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = readNamespacedDeploymentStatusCall(name, namespace, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = readNamespacedDeploymentStatusCall(name, namespace, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -4487,7 +4487,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AppsV1beta1Deployment> readNamespacedDeploymentStatusWithHttpInfo(String name, String namespace, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = readNamespacedDeploymentStatusValidateBeforeCall(name, namespace, pretty, null, null);
+        okhttp3.Call call = readNamespacedDeploymentStatusValidateBeforeCall(name, namespace, pretty, null, null);
         Type localVarReturnType = new TypeToken<AppsV1beta1Deployment>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -4502,7 +4502,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call readNamespacedDeploymentStatusAsync(String name, String namespace, String pretty, final ApiCallback<AppsV1beta1Deployment> callback) throws ApiException {
+    public okhttp3.Call readNamespacedDeploymentStatusAsync(String name, String namespace, String pretty, final ApiCallback<AppsV1beta1Deployment> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4523,7 +4523,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = readNamespacedDeploymentStatusValidateBeforeCall(name, namespace, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = readNamespacedDeploymentStatusValidateBeforeCall(name, namespace, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AppsV1beta1Deployment>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -4540,7 +4540,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call readNamespacedStatefulSetCall(String name, String namespace, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call readNamespacedStatefulSetCall(String name, String namespace, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -4574,10 +4574,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -4590,7 +4590,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call readNamespacedStatefulSetValidateBeforeCall(String name, String namespace, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call readNamespacedStatefulSetValidateBeforeCall(String name, String namespace, String pretty, Boolean exact, Boolean export, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -4603,7 +4603,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = readNamespacedStatefulSetCall(name, namespace, pretty, exact, export, progressListener, progressRequestListener);
+        okhttp3.Call call = readNamespacedStatefulSetCall(name, namespace, pretty, exact, export, progressListener, progressRequestListener);
         return call;
 
         
@@ -4640,7 +4640,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1StatefulSet> readNamespacedStatefulSetWithHttpInfo(String name, String namespace, String pretty, Boolean exact, Boolean export) throws ApiException {
-        com.squareup.okhttp.Call call = readNamespacedStatefulSetValidateBeforeCall(name, namespace, pretty, exact, export, null, null);
+        okhttp3.Call call = readNamespacedStatefulSetValidateBeforeCall(name, namespace, pretty, exact, export, null, null);
         Type localVarReturnType = new TypeToken<V1beta1StatefulSet>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -4657,7 +4657,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call readNamespacedStatefulSetAsync(String name, String namespace, String pretty, Boolean exact, Boolean export, final ApiCallback<V1beta1StatefulSet> callback) throws ApiException {
+    public okhttp3.Call readNamespacedStatefulSetAsync(String name, String namespace, String pretty, Boolean exact, Boolean export, final ApiCallback<V1beta1StatefulSet> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4678,7 +4678,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = readNamespacedStatefulSetValidateBeforeCall(name, namespace, pretty, exact, export, progressListener, progressRequestListener);
+        okhttp3.Call call = readNamespacedStatefulSetValidateBeforeCall(name, namespace, pretty, exact, export, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1StatefulSet>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -4693,7 +4693,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call readNamespacedStatefulSetScaleCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call readNamespacedStatefulSetScaleCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -4723,10 +4723,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -4739,7 +4739,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call readNamespacedStatefulSetScaleValidateBeforeCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call readNamespacedStatefulSetScaleValidateBeforeCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -4752,7 +4752,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = readNamespacedStatefulSetScaleCall(name, namespace, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = readNamespacedStatefulSetScaleCall(name, namespace, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -4785,7 +4785,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AppsV1beta1Scale> readNamespacedStatefulSetScaleWithHttpInfo(String name, String namespace, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = readNamespacedStatefulSetScaleValidateBeforeCall(name, namespace, pretty, null, null);
+        okhttp3.Call call = readNamespacedStatefulSetScaleValidateBeforeCall(name, namespace, pretty, null, null);
         Type localVarReturnType = new TypeToken<AppsV1beta1Scale>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -4800,7 +4800,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call readNamespacedStatefulSetScaleAsync(String name, String namespace, String pretty, final ApiCallback<AppsV1beta1Scale> callback) throws ApiException {
+    public okhttp3.Call readNamespacedStatefulSetScaleAsync(String name, String namespace, String pretty, final ApiCallback<AppsV1beta1Scale> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4821,7 +4821,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = readNamespacedStatefulSetScaleValidateBeforeCall(name, namespace, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = readNamespacedStatefulSetScaleValidateBeforeCall(name, namespace, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AppsV1beta1Scale>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -4836,7 +4836,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call readNamespacedStatefulSetStatusCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call readNamespacedStatefulSetStatusCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -4866,10 +4866,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -4882,7 +4882,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call readNamespacedStatefulSetStatusValidateBeforeCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call readNamespacedStatefulSetStatusValidateBeforeCall(String name, String namespace, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -4895,7 +4895,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = readNamespacedStatefulSetStatusCall(name, namespace, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = readNamespacedStatefulSetStatusCall(name, namespace, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -4928,7 +4928,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1StatefulSet> readNamespacedStatefulSetStatusWithHttpInfo(String name, String namespace, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = readNamespacedStatefulSetStatusValidateBeforeCall(name, namespace, pretty, null, null);
+        okhttp3.Call call = readNamespacedStatefulSetStatusValidateBeforeCall(name, namespace, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1StatefulSet>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -4943,7 +4943,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call readNamespacedStatefulSetStatusAsync(String name, String namespace, String pretty, final ApiCallback<V1beta1StatefulSet> callback) throws ApiException {
+    public okhttp3.Call readNamespacedStatefulSetStatusAsync(String name, String namespace, String pretty, final ApiCallback<V1beta1StatefulSet> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4964,7 +4964,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = readNamespacedStatefulSetStatusValidateBeforeCall(name, namespace, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = readNamespacedStatefulSetStatusValidateBeforeCall(name, namespace, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1StatefulSet>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -4980,7 +4980,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call replaceNamespacedControllerRevisionCall(String name, String namespace, V1beta1ControllerRevision body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call replaceNamespacedControllerRevisionCall(String name, String namespace, V1beta1ControllerRevision body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -5010,10 +5010,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -5026,7 +5026,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call replaceNamespacedControllerRevisionValidateBeforeCall(String name, String namespace, V1beta1ControllerRevision body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call replaceNamespacedControllerRevisionValidateBeforeCall(String name, String namespace, V1beta1ControllerRevision body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -5044,7 +5044,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = replaceNamespacedControllerRevisionCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceNamespacedControllerRevisionCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -5079,7 +5079,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1ControllerRevision> replaceNamespacedControllerRevisionWithHttpInfo(String name, String namespace, V1beta1ControllerRevision body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = replaceNamespacedControllerRevisionValidateBeforeCall(name, namespace, body, pretty, null, null);
+        okhttp3.Call call = replaceNamespacedControllerRevisionValidateBeforeCall(name, namespace, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1ControllerRevision>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -5095,7 +5095,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call replaceNamespacedControllerRevisionAsync(String name, String namespace, V1beta1ControllerRevision body, String pretty, final ApiCallback<V1beta1ControllerRevision> callback) throws ApiException {
+    public okhttp3.Call replaceNamespacedControllerRevisionAsync(String name, String namespace, V1beta1ControllerRevision body, String pretty, final ApiCallback<V1beta1ControllerRevision> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5116,7 +5116,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = replaceNamespacedControllerRevisionValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceNamespacedControllerRevisionValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1ControllerRevision>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -5132,7 +5132,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call replaceNamespacedDeploymentCall(String name, String namespace, AppsV1beta1Deployment body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call replaceNamespacedDeploymentCall(String name, String namespace, AppsV1beta1Deployment body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -5162,10 +5162,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -5178,7 +5178,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call replaceNamespacedDeploymentValidateBeforeCall(String name, String namespace, AppsV1beta1Deployment body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call replaceNamespacedDeploymentValidateBeforeCall(String name, String namespace, AppsV1beta1Deployment body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -5196,7 +5196,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = replaceNamespacedDeploymentCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceNamespacedDeploymentCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -5231,7 +5231,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AppsV1beta1Deployment> replaceNamespacedDeploymentWithHttpInfo(String name, String namespace, AppsV1beta1Deployment body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = replaceNamespacedDeploymentValidateBeforeCall(name, namespace, body, pretty, null, null);
+        okhttp3.Call call = replaceNamespacedDeploymentValidateBeforeCall(name, namespace, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<AppsV1beta1Deployment>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -5247,7 +5247,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call replaceNamespacedDeploymentAsync(String name, String namespace, AppsV1beta1Deployment body, String pretty, final ApiCallback<AppsV1beta1Deployment> callback) throws ApiException {
+    public okhttp3.Call replaceNamespacedDeploymentAsync(String name, String namespace, AppsV1beta1Deployment body, String pretty, final ApiCallback<AppsV1beta1Deployment> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5268,7 +5268,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = replaceNamespacedDeploymentValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceNamespacedDeploymentValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AppsV1beta1Deployment>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -5284,7 +5284,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call replaceNamespacedDeploymentScaleCall(String name, String namespace, AppsV1beta1Scale body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call replaceNamespacedDeploymentScaleCall(String name, String namespace, AppsV1beta1Scale body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -5314,10 +5314,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -5330,7 +5330,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call replaceNamespacedDeploymentScaleValidateBeforeCall(String name, String namespace, AppsV1beta1Scale body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call replaceNamespacedDeploymentScaleValidateBeforeCall(String name, String namespace, AppsV1beta1Scale body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -5348,7 +5348,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = replaceNamespacedDeploymentScaleCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceNamespacedDeploymentScaleCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -5383,7 +5383,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AppsV1beta1Scale> replaceNamespacedDeploymentScaleWithHttpInfo(String name, String namespace, AppsV1beta1Scale body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = replaceNamespacedDeploymentScaleValidateBeforeCall(name, namespace, body, pretty, null, null);
+        okhttp3.Call call = replaceNamespacedDeploymentScaleValidateBeforeCall(name, namespace, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<AppsV1beta1Scale>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -5399,7 +5399,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call replaceNamespacedDeploymentScaleAsync(String name, String namespace, AppsV1beta1Scale body, String pretty, final ApiCallback<AppsV1beta1Scale> callback) throws ApiException {
+    public okhttp3.Call replaceNamespacedDeploymentScaleAsync(String name, String namespace, AppsV1beta1Scale body, String pretty, final ApiCallback<AppsV1beta1Scale> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5420,7 +5420,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = replaceNamespacedDeploymentScaleValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceNamespacedDeploymentScaleValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AppsV1beta1Scale>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -5436,7 +5436,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call replaceNamespacedDeploymentStatusCall(String name, String namespace, AppsV1beta1Deployment body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call replaceNamespacedDeploymentStatusCall(String name, String namespace, AppsV1beta1Deployment body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -5466,10 +5466,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -5482,7 +5482,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call replaceNamespacedDeploymentStatusValidateBeforeCall(String name, String namespace, AppsV1beta1Deployment body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call replaceNamespacedDeploymentStatusValidateBeforeCall(String name, String namespace, AppsV1beta1Deployment body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -5500,7 +5500,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = replaceNamespacedDeploymentStatusCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceNamespacedDeploymentStatusCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -5535,7 +5535,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AppsV1beta1Deployment> replaceNamespacedDeploymentStatusWithHttpInfo(String name, String namespace, AppsV1beta1Deployment body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = replaceNamespacedDeploymentStatusValidateBeforeCall(name, namespace, body, pretty, null, null);
+        okhttp3.Call call = replaceNamespacedDeploymentStatusValidateBeforeCall(name, namespace, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<AppsV1beta1Deployment>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -5551,7 +5551,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call replaceNamespacedDeploymentStatusAsync(String name, String namespace, AppsV1beta1Deployment body, String pretty, final ApiCallback<AppsV1beta1Deployment> callback) throws ApiException {
+    public okhttp3.Call replaceNamespacedDeploymentStatusAsync(String name, String namespace, AppsV1beta1Deployment body, String pretty, final ApiCallback<AppsV1beta1Deployment> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5572,7 +5572,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = replaceNamespacedDeploymentStatusValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceNamespacedDeploymentStatusValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AppsV1beta1Deployment>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -5588,7 +5588,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call replaceNamespacedStatefulSetCall(String name, String namespace, V1beta1StatefulSet body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call replaceNamespacedStatefulSetCall(String name, String namespace, V1beta1StatefulSet body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -5618,10 +5618,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -5634,7 +5634,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call replaceNamespacedStatefulSetValidateBeforeCall(String name, String namespace, V1beta1StatefulSet body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call replaceNamespacedStatefulSetValidateBeforeCall(String name, String namespace, V1beta1StatefulSet body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -5652,7 +5652,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = replaceNamespacedStatefulSetCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceNamespacedStatefulSetCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -5687,7 +5687,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1StatefulSet> replaceNamespacedStatefulSetWithHttpInfo(String name, String namespace, V1beta1StatefulSet body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = replaceNamespacedStatefulSetValidateBeforeCall(name, namespace, body, pretty, null, null);
+        okhttp3.Call call = replaceNamespacedStatefulSetValidateBeforeCall(name, namespace, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1StatefulSet>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -5703,7 +5703,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call replaceNamespacedStatefulSetAsync(String name, String namespace, V1beta1StatefulSet body, String pretty, final ApiCallback<V1beta1StatefulSet> callback) throws ApiException {
+    public okhttp3.Call replaceNamespacedStatefulSetAsync(String name, String namespace, V1beta1StatefulSet body, String pretty, final ApiCallback<V1beta1StatefulSet> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5724,7 +5724,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = replaceNamespacedStatefulSetValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceNamespacedStatefulSetValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1StatefulSet>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -5740,7 +5740,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call replaceNamespacedStatefulSetScaleCall(String name, String namespace, AppsV1beta1Scale body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call replaceNamespacedStatefulSetScaleCall(String name, String namespace, AppsV1beta1Scale body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -5770,10 +5770,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -5786,7 +5786,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call replaceNamespacedStatefulSetScaleValidateBeforeCall(String name, String namespace, AppsV1beta1Scale body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call replaceNamespacedStatefulSetScaleValidateBeforeCall(String name, String namespace, AppsV1beta1Scale body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -5804,7 +5804,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = replaceNamespacedStatefulSetScaleCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceNamespacedStatefulSetScaleCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -5839,7 +5839,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AppsV1beta1Scale> replaceNamespacedStatefulSetScaleWithHttpInfo(String name, String namespace, AppsV1beta1Scale body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = replaceNamespacedStatefulSetScaleValidateBeforeCall(name, namespace, body, pretty, null, null);
+        okhttp3.Call call = replaceNamespacedStatefulSetScaleValidateBeforeCall(name, namespace, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<AppsV1beta1Scale>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -5855,7 +5855,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call replaceNamespacedStatefulSetScaleAsync(String name, String namespace, AppsV1beta1Scale body, String pretty, final ApiCallback<AppsV1beta1Scale> callback) throws ApiException {
+    public okhttp3.Call replaceNamespacedStatefulSetScaleAsync(String name, String namespace, AppsV1beta1Scale body, String pretty, final ApiCallback<AppsV1beta1Scale> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5876,7 +5876,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = replaceNamespacedStatefulSetScaleValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceNamespacedStatefulSetScaleValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AppsV1beta1Scale>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -5892,7 +5892,7 @@ public class AppsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call replaceNamespacedStatefulSetStatusCall(String name, String namespace, V1beta1StatefulSet body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call replaceNamespacedStatefulSetStatusCall(String name, String namespace, V1beta1StatefulSet body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -5922,10 +5922,10 @@ public class AppsV1beta1Api {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -5938,7 +5938,7 @@ public class AppsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call replaceNamespacedStatefulSetStatusValidateBeforeCall(String name, String namespace, V1beta1StatefulSet body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call replaceNamespacedStatefulSetStatusValidateBeforeCall(String name, String namespace, V1beta1StatefulSet body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -5956,7 +5956,7 @@ public class AppsV1beta1Api {
         }
         
         
-        com.squareup.okhttp.Call call = replaceNamespacedStatefulSetStatusCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceNamespacedStatefulSetStatusCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -5991,7 +5991,7 @@ public class AppsV1beta1Api {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V1beta1StatefulSet> replaceNamespacedStatefulSetStatusWithHttpInfo(String name, String namespace, V1beta1StatefulSet body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = replaceNamespacedStatefulSetStatusValidateBeforeCall(name, namespace, body, pretty, null, null);
+        okhttp3.Call call = replaceNamespacedStatefulSetStatusValidateBeforeCall(name, namespace, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<V1beta1StatefulSet>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -6007,7 +6007,7 @@ public class AppsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call replaceNamespacedStatefulSetStatusAsync(String name, String namespace, V1beta1StatefulSet body, String pretty, final ApiCallback<V1beta1StatefulSet> callback) throws ApiException {
+    public okhttp3.Call replaceNamespacedStatefulSetStatusAsync(String name, String namespace, V1beta1StatefulSet body, String pretty, final ApiCallback<V1beta1StatefulSet> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6028,7 +6028,7 @@ public class AppsV1beta1Api {
             };
         }
 
-        com.squareup.okhttp.Call call = replaceNamespacedStatefulSetStatusValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceNamespacedStatefulSetStatusValidateBeforeCall(name, namespace, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<V1beta1StatefulSet>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

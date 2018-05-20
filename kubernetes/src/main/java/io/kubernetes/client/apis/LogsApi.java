@@ -61,7 +61,7 @@ public class LogsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call logFileHandlerCall(String logpath, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call logFileHandlerCall(String logpath, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -88,10 +88,10 @@ public class LogsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -104,7 +104,7 @@ public class LogsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call logFileHandlerValidateBeforeCall(String logpath, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call logFileHandlerValidateBeforeCall(String logpath, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'logpath' is set
         if (logpath == null) {
@@ -112,7 +112,7 @@ public class LogsApi {
         }
         
         
-        com.squareup.okhttp.Call call = logFileHandlerCall(logpath, progressListener, progressRequestListener);
+        okhttp3.Call call = logFileHandlerCall(logpath, progressListener, progressRequestListener);
         return call;
 
         
@@ -139,7 +139,7 @@ public class LogsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> logFileHandlerWithHttpInfo(String logpath) throws ApiException {
-        com.squareup.okhttp.Call call = logFileHandlerValidateBeforeCall(logpath, null, null);
+        okhttp3.Call call = logFileHandlerValidateBeforeCall(logpath, null, null);
         return apiClient.execute(call);
     }
 
@@ -151,7 +151,7 @@ public class LogsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call logFileHandlerAsync(String logpath, final ApiCallback<Void> callback) throws ApiException {
+    public okhttp3.Call logFileHandlerAsync(String logpath, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -172,7 +172,7 @@ public class LogsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = logFileHandlerValidateBeforeCall(logpath, progressListener, progressRequestListener);
+        okhttp3.Call call = logFileHandlerValidateBeforeCall(logpath, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -183,7 +183,7 @@ public class LogsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call logFileListHandlerCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call logFileListHandlerCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -209,10 +209,10 @@ public class LogsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -225,10 +225,10 @@ public class LogsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call logFileListHandlerValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call logFileListHandlerValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = logFileListHandlerCall(progressListener, progressRequestListener);
+        okhttp3.Call call = logFileListHandlerCall(progressListener, progressRequestListener);
         return call;
 
         
@@ -253,7 +253,7 @@ public class LogsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> logFileListHandlerWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = logFileListHandlerValidateBeforeCall(null, null);
+        okhttp3.Call call = logFileListHandlerValidateBeforeCall(null, null);
         return apiClient.execute(call);
     }
 
@@ -264,7 +264,7 @@ public class LogsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call logFileListHandlerAsync(final ApiCallback<Void> callback) throws ApiException {
+    public okhttp3.Call logFileListHandlerAsync(final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -285,7 +285,7 @@ public class LogsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = logFileListHandlerValidateBeforeCall(progressListener, progressRequestListener);
+        okhttp3.Call call = logFileListHandlerValidateBeforeCall(progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
