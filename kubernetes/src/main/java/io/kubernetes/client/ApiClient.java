@@ -1151,11 +1151,17 @@ public class ApiClient {
             if (keyManagers != null || trustManagers != null) {
                 SSLContext sslContext = SSLContext.getInstance("TLS");
                 sslContext.init(keyManagers, trustManagers, new SecureRandom());
-                httpClient.newBuilder().sslSocketFactory(sslContext.getSocketFactory()).build();
+                httpClient = httpClient.newBuilder()
+                        .sslSocketFactory(sslContext.getSocketFactory())
+                        .build();
             } else {
-                httpClient.newBuilder().sslSocketFactory(null).build();
+                httpClient = httpClient.newBuilder()
+                        .sslSocketFactory(null)
+                        .build();
             }
-            httpClient.newBuilder().hostnameVerifier(hostnameVerifier).build();
+            httpClient = httpClient.newBuilder()
+                    .hostnameVerifier(hostnameVerifier)
+                    .build();
         } catch (GeneralSecurityException e) {
             throw new RuntimeException(e);
         }
