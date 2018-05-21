@@ -15,8 +15,6 @@ package io.kubernetes.client.util;
 import com.google.common.base.Charsets;
 import com.google.common.io.ByteStreams;
 import com.google.common.io.CharStreams;
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.ws.WebSocket;
 import java.io.ByteArrayInputStream;
 import java.io.Closeable;
 import java.io.IOException;
@@ -28,6 +26,10 @@ import java.io.PipedOutputStream;
 import java.io.Reader;
 import java.util.HashMap;
 import java.util.Map;
+
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okhttp3.WebSocket;
 import okio.ByteString;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -65,19 +67,18 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
   }
 
   @Override
-  public void bytesMessage(InputStream in) {
-    try {
-      handleMessage(in.read(), in);
+  public void bytesMessage(ByteString bytes) {
+    try(InputStream is = new ByteArrayInputStream(bytes.toByteArray())) {
+      handleMessage(is.read(), is);
     } catch (IOException ex) {
       log.error("Error reading message channel", ex);
     }
   }
 
   @Override
-  public void textMessage(Reader in) {
-    try {
-      handleMessage(
-          in.read(), new ByteArrayInputStream(CharStreams.toString(in).getBytes(Charsets.UTF_8)));
+  public void textMessage(String text) {
+    try(InputStream is = new ByteArrayInputStream(text.getBytes(Charsets.UTF_8))) {
+      handleMessage(is.read(), is);
     } catch (IOException ex) {
       log.error("Error writing message", ex);
     }
@@ -122,9 +123,8 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
     if (state == State.CLOSED) throw new IllegalStateException();
 
     if (!input.containsKey(stream)) {
-      try {
-        PipedInputStream pipeIn = new PipedInputStream();
-        PipedOutputStream pipeOut = new PipedOutputStream(pipeIn);
+      try(PipedInputStream pipeIn = new PipedInputStream();
+          PipedOutputStream pipeOut = new PipedOutputStream(pipeIn)) {
         pipedOutput.put(stream, pipeOut);
         input.put(stream, pipeIn);
       } catch (IOException ex) {
@@ -158,9 +158,8 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
    */
   private synchronized OutputStream getSocketInputOutputStream(int stream) {
     if (!pipedOutput.containsKey(stream)) {
-      try {
-        PipedInputStream pipeIn = new PipedInputStream();
-        PipedOutputStream pipeOut = new PipedOutputStream(pipeIn);
+      try(PipedInputStream pipeIn = new PipedInputStream();
+          PipedOutputStream pipeOut = new PipedOutputStream(pipeIn)) {
         pipedOutput.put(stream, pipeOut);
         input.put(stream, pipeIn);
       } catch (IOException ex) {
@@ -207,8 +206,7 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
       byte[] buffer = new byte[length + 1];
       buffer[0] = stream;
       System.arraycopy(b, offset, buffer, 1, length);
-      WebSocketStreamHandler.this.socket.sendMessage(
-          RequestBody.create(WebSocket.BINARY, ByteString.of(buffer)));
+      WebSocketStreamHandler.this.socket.send(ByteString.of(buffer));
     }
   }
 }

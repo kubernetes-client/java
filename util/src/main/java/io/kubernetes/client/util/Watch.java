@@ -15,12 +15,13 @@ package io.kubernetes.client.util;
 import com.google.gson.JsonParseException;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
-import com.squareup.okhttp.Call;
-import com.squareup.okhttp.ResponseBody;
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
 import io.kubernetes.client.JSON;
 import io.kubernetes.client.models.V1Status;
+import okhttp3.Call;
+import okhttp3.ResponseBody;
+
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Iterator;
@@ -79,7 +80,7 @@ public class Watch<T>
   public static <T> Watch<T> createWatch(ApiClient client, Call call, Type watchType)
       throws ApiException {
     try {
-      com.squareup.okhttp.Response response = call.execute();
+      okhttp3.Response response = call.execute();
       if (!response.isSuccessful()) {
         String respBody = null;
         if (response.body() != null) {

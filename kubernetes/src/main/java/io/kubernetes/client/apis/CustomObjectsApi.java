@@ -66,7 +66,7 @@ public class CustomObjectsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createClusterCustomObjectCall(String group, String version, String plural, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call createClusterCustomObjectCall(String group, String version, String plural, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -97,10 +97,10 @@ public class CustomObjectsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -113,7 +113,7 @@ public class CustomObjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createClusterCustomObjectValidateBeforeCall(String group, String version, String plural, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call createClusterCustomObjectValidateBeforeCall(String group, String version, String plural, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -136,7 +136,7 @@ public class CustomObjectsApi {
         }
         
         
-        com.squareup.okhttp.Call call = createClusterCustomObjectCall(group, version, plural, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createClusterCustomObjectCall(group, version, plural, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -173,7 +173,7 @@ public class CustomObjectsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Object> createClusterCustomObjectWithHttpInfo(String group, String version, String plural, Object body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = createClusterCustomObjectValidateBeforeCall(group, version, plural, body, pretty, null, null);
+        okhttp3.Call call = createClusterCustomObjectValidateBeforeCall(group, version, plural, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -190,7 +190,7 @@ public class CustomObjectsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createClusterCustomObjectAsync(String group, String version, String plural, Object body, String pretty, final ApiCallback<Object> callback) throws ApiException {
+    public okhttp3.Call createClusterCustomObjectAsync(String group, String version, String plural, Object body, String pretty, final ApiCallback<Object> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -211,7 +211,7 @@ public class CustomObjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = createClusterCustomObjectValidateBeforeCall(group, version, plural, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createClusterCustomObjectValidateBeforeCall(group, version, plural, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -229,7 +229,7 @@ public class CustomObjectsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createNamespacedCustomObjectCall(String group, String version, String namespace, String plural, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call createNamespacedCustomObjectCall(String group, String version, String namespace, String plural, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -261,10 +261,10 @@ public class CustomObjectsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -277,7 +277,7 @@ public class CustomObjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call createNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, Object body, String pretty, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -305,7 +305,7 @@ public class CustomObjectsApi {
         }
         
         
-        com.squareup.okhttp.Call call = createNamespacedCustomObjectCall(group, version, namespace, plural, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createNamespacedCustomObjectCall(group, version, namespace, plural, body, pretty, progressListener, progressRequestListener);
         return call;
 
         
@@ -344,7 +344,7 @@ public class CustomObjectsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Object> createNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, Object body, String pretty) throws ApiException {
-        com.squareup.okhttp.Call call = createNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, body, pretty, null, null);
+        okhttp3.Call call = createNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, body, pretty, null, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -362,7 +362,7 @@ public class CustomObjectsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, Object body, String pretty, final ApiCallback<Object> callback) throws ApiException {
+    public okhttp3.Call createNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, Object body, String pretty, final ApiCallback<Object> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -383,7 +383,7 @@ public class CustomObjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = createNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, body, pretty, progressListener, progressRequestListener);
+        okhttp3.Call call = createNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, body, pretty, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -403,7 +403,7 @@ public class CustomObjectsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteClusterCustomObjectCall(String group, String version, String plural, String name, V1DeleteOptions body, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call deleteClusterCustomObjectCall(String group, String version, String plural, String name, V1DeleteOptions body, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -439,10 +439,10 @@ public class CustomObjectsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -455,7 +455,7 @@ public class CustomObjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String name, V1DeleteOptions body, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call deleteClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String name, V1DeleteOptions body, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -483,7 +483,7 @@ public class CustomObjectsApi {
         }
         
         
-        com.squareup.okhttp.Call call = deleteClusterCustomObjectCall(group, version, plural, name, body, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteClusterCustomObjectCall(group, version, plural, name, body, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
         return call;
 
         
@@ -526,7 +526,7 @@ public class CustomObjectsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Object> deleteClusterCustomObjectWithHttpInfo(String group, String version, String plural, String name, V1DeleteOptions body, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy) throws ApiException {
-        com.squareup.okhttp.Call call = deleteClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, gracePeriodSeconds, orphanDependents, propagationPolicy, null, null);
+        okhttp3.Call call = deleteClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, gracePeriodSeconds, orphanDependents, propagationPolicy, null, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -546,7 +546,7 @@ public class CustomObjectsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteClusterCustomObjectAsync(String group, String version, String plural, String name, V1DeleteOptions body, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ApiCallback<Object> callback) throws ApiException {
+    public okhttp3.Call deleteClusterCustomObjectAsync(String group, String version, String plural, String name, V1DeleteOptions body, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ApiCallback<Object> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -567,7 +567,7 @@ public class CustomObjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -588,7 +588,7 @@ public class CustomObjectsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String name, V1DeleteOptions body, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call deleteNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String name, V1DeleteOptions body, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -625,10 +625,10 @@ public class CustomObjectsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -641,7 +641,7 @@ public class CustomObjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String name, V1DeleteOptions body, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call deleteNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String name, V1DeleteOptions body, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -674,7 +674,7 @@ public class CustomObjectsApi {
         }
         
         
-        com.squareup.okhttp.Call call = deleteNamespacedCustomObjectCall(group, version, namespace, plural, name, body, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteNamespacedCustomObjectCall(group, version, namespace, plural, name, body, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
         return call;
 
         
@@ -719,7 +719,7 @@ public class CustomObjectsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Object> deleteNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String name, V1DeleteOptions body, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy) throws ApiException {
-        com.squareup.okhttp.Call call = deleteNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, gracePeriodSeconds, orphanDependents, propagationPolicy, null, null);
+        okhttp3.Call call = deleteNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, gracePeriodSeconds, orphanDependents, propagationPolicy, null, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -740,7 +740,7 @@ public class CustomObjectsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String name, V1DeleteOptions body, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ApiCallback<Object> callback) throws ApiException {
+    public okhttp3.Call deleteNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String name, V1DeleteOptions body, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, final ApiCallback<Object> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -761,7 +761,7 @@ public class CustomObjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, gracePeriodSeconds, orphanDependents, propagationPolicy, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -777,7 +777,7 @@ public class CustomObjectsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getClusterCustomObjectCall(String group, String version, String plural, String name, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call getClusterCustomObjectCall(String group, String version, String plural, String name, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -807,10 +807,10 @@ public class CustomObjectsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -823,7 +823,7 @@ public class CustomObjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String name, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call getClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String name, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -846,7 +846,7 @@ public class CustomObjectsApi {
         }
         
         
-        com.squareup.okhttp.Call call = getClusterCustomObjectCall(group, version, plural, name, progressListener, progressRequestListener);
+        okhttp3.Call call = getClusterCustomObjectCall(group, version, plural, name, progressListener, progressRequestListener);
         return call;
 
         
@@ -881,7 +881,7 @@ public class CustomObjectsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Object> getClusterCustomObjectWithHttpInfo(String group, String version, String plural, String name) throws ApiException {
-        com.squareup.okhttp.Call call = getClusterCustomObjectValidateBeforeCall(group, version, plural, name, null, null);
+        okhttp3.Call call = getClusterCustomObjectValidateBeforeCall(group, version, plural, name, null, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -897,7 +897,7 @@ public class CustomObjectsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getClusterCustomObjectAsync(String group, String version, String plural, String name, final ApiCallback<Object> callback) throws ApiException {
+    public okhttp3.Call getClusterCustomObjectAsync(String group, String version, String plural, String name, final ApiCallback<Object> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -918,7 +918,7 @@ public class CustomObjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getClusterCustomObjectValidateBeforeCall(group, version, plural, name, progressListener, progressRequestListener);
+        okhttp3.Call call = getClusterCustomObjectValidateBeforeCall(group, version, plural, name, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -935,7 +935,7 @@ public class CustomObjectsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String name, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call getNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String name, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -966,10 +966,10 @@ public class CustomObjectsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -982,7 +982,7 @@ public class CustomObjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String name, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call getNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String name, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -1010,7 +1010,7 @@ public class CustomObjectsApi {
         }
         
         
-        com.squareup.okhttp.Call call = getNamespacedCustomObjectCall(group, version, namespace, plural, name, progressListener, progressRequestListener);
+        okhttp3.Call call = getNamespacedCustomObjectCall(group, version, namespace, plural, name, progressListener, progressRequestListener);
         return call;
 
         
@@ -1047,7 +1047,7 @@ public class CustomObjectsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Object> getNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String name) throws ApiException {
-        com.squareup.okhttp.Call call = getNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, null, null);
+        okhttp3.Call call = getNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, null, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1064,7 +1064,7 @@ public class CustomObjectsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String name, final ApiCallback<Object> callback) throws ApiException {
+    public okhttp3.Call getNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String name, final ApiCallback<Object> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1085,7 +1085,7 @@ public class CustomObjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, progressListener, progressRequestListener);
+        okhttp3.Call call = getNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1104,7 +1104,7 @@ public class CustomObjectsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call listClusterCustomObjectCall(String group, String version, String plural, String pretty, String labelSelector, String resourceVersion, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call listClusterCustomObjectCall(String group, String version, String plural, String pretty, String labelSelector, String resourceVersion, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -1141,10 +1141,10 @@ public class CustomObjectsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1157,7 +1157,7 @@ public class CustomObjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String pretty, String labelSelector, String resourceVersion, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call listClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String pretty, String labelSelector, String resourceVersion, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -1175,7 +1175,7 @@ public class CustomObjectsApi {
         }
         
         
-        com.squareup.okhttp.Call call = listClusterCustomObjectCall(group, version, plural, pretty, labelSelector, resourceVersion, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listClusterCustomObjectCall(group, version, plural, pretty, labelSelector, resourceVersion, watch, progressListener, progressRequestListener);
         return call;
 
         
@@ -1216,7 +1216,7 @@ public class CustomObjectsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Object> listClusterCustomObjectWithHttpInfo(String group, String version, String plural, String pretty, String labelSelector, String resourceVersion, Boolean watch) throws ApiException {
-        com.squareup.okhttp.Call call = listClusterCustomObjectValidateBeforeCall(group, version, plural, pretty, labelSelector, resourceVersion, watch, null, null);
+        okhttp3.Call call = listClusterCustomObjectValidateBeforeCall(group, version, plural, pretty, labelSelector, resourceVersion, watch, null, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1235,7 +1235,7 @@ public class CustomObjectsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listClusterCustomObjectAsync(String group, String version, String plural, String pretty, String labelSelector, String resourceVersion, Boolean watch, final ApiCallback<Object> callback) throws ApiException {
+    public okhttp3.Call listClusterCustomObjectAsync(String group, String version, String plural, String pretty, String labelSelector, String resourceVersion, Boolean watch, final ApiCallback<Object> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1256,7 +1256,7 @@ public class CustomObjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = listClusterCustomObjectValidateBeforeCall(group, version, plural, pretty, labelSelector, resourceVersion, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listClusterCustomObjectValidateBeforeCall(group, version, plural, pretty, labelSelector, resourceVersion, watch, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1276,7 +1276,7 @@ public class CustomObjectsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call listNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String pretty, String labelSelector, String resourceVersion, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call listNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String pretty, String labelSelector, String resourceVersion, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -1314,10 +1314,10 @@ public class CustomObjectsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1330,7 +1330,7 @@ public class CustomObjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String pretty, String labelSelector, String resourceVersion, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call listNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String pretty, String labelSelector, String resourceVersion, Boolean watch, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -1353,7 +1353,7 @@ public class CustomObjectsApi {
         }
         
         
-        com.squareup.okhttp.Call call = listNamespacedCustomObjectCall(group, version, namespace, plural, pretty, labelSelector, resourceVersion, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listNamespacedCustomObjectCall(group, version, namespace, plural, pretty, labelSelector, resourceVersion, watch, progressListener, progressRequestListener);
         return call;
 
         
@@ -1396,7 +1396,7 @@ public class CustomObjectsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Object> listNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String pretty, String labelSelector, String resourceVersion, Boolean watch) throws ApiException {
-        com.squareup.okhttp.Call call = listNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, pretty, labelSelector, resourceVersion, watch, null, null);
+        okhttp3.Call call = listNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, pretty, labelSelector, resourceVersion, watch, null, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1416,7 +1416,7 @@ public class CustomObjectsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String pretty, String labelSelector, String resourceVersion, Boolean watch, final ApiCallback<Object> callback) throws ApiException {
+    public okhttp3.Call listNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String pretty, String labelSelector, String resourceVersion, Boolean watch, final ApiCallback<Object> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1437,7 +1437,7 @@ public class CustomObjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = listNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, pretty, labelSelector, resourceVersion, watch, progressListener, progressRequestListener);
+        okhttp3.Call call = listNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, pretty, labelSelector, resourceVersion, watch, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1454,7 +1454,7 @@ public class CustomObjectsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call patchClusterCustomObjectCall(String group, String version, String plural, String name, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call patchClusterCustomObjectCall(String group, String version, String plural, String name, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -1484,10 +1484,10 @@ public class CustomObjectsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1500,7 +1500,7 @@ public class CustomObjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call patchClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String name, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call patchClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String name, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -1528,7 +1528,7 @@ public class CustomObjectsApi {
         }
         
         
-        com.squareup.okhttp.Call call = patchClusterCustomObjectCall(group, version, plural, name, body, progressListener, progressRequestListener);
+        okhttp3.Call call = patchClusterCustomObjectCall(group, version, plural, name, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -1565,7 +1565,7 @@ public class CustomObjectsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Object> patchClusterCustomObjectWithHttpInfo(String group, String version, String plural, String name, Object body) throws ApiException {
-        com.squareup.okhttp.Call call = patchClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, null, null);
+        okhttp3.Call call = patchClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, null, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1582,7 +1582,7 @@ public class CustomObjectsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call patchClusterCustomObjectAsync(String group, String version, String plural, String name, Object body, final ApiCallback<Object> callback) throws ApiException {
+    public okhttp3.Call patchClusterCustomObjectAsync(String group, String version, String plural, String name, Object body, final ApiCallback<Object> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1603,7 +1603,7 @@ public class CustomObjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = patchClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, progressListener, progressRequestListener);
+        okhttp3.Call call = patchClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1621,7 +1621,7 @@ public class CustomObjectsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call patchNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String name, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call patchNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String name, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -1652,10 +1652,10 @@ public class CustomObjectsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1668,7 +1668,7 @@ public class CustomObjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call patchNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call patchNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -1701,7 +1701,7 @@ public class CustomObjectsApi {
         }
         
         
-        com.squareup.okhttp.Call call = patchNamespacedCustomObjectCall(group, version, namespace, plural, name, body, progressListener, progressRequestListener);
+        okhttp3.Call call = patchNamespacedCustomObjectCall(group, version, namespace, plural, name, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -1740,7 +1740,7 @@ public class CustomObjectsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Object> patchNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body) throws ApiException {
-        com.squareup.okhttp.Call call = patchNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, null, null);
+        okhttp3.Call call = patchNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, null, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1758,7 +1758,7 @@ public class CustomObjectsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call patchNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String name, Object body, final ApiCallback<Object> callback) throws ApiException {
+    public okhttp3.Call patchNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String name, Object body, final ApiCallback<Object> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1779,7 +1779,7 @@ public class CustomObjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = patchNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, progressListener, progressRequestListener);
+        okhttp3.Call call = patchNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1796,7 +1796,7 @@ public class CustomObjectsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call replaceClusterCustomObjectCall(String group, String version, String plural, String name, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call replaceClusterCustomObjectCall(String group, String version, String plural, String name, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -1826,10 +1826,10 @@ public class CustomObjectsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1842,7 +1842,7 @@ public class CustomObjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call replaceClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String name, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call replaceClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String name, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -1870,7 +1870,7 @@ public class CustomObjectsApi {
         }
         
         
-        com.squareup.okhttp.Call call = replaceClusterCustomObjectCall(group, version, plural, name, body, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceClusterCustomObjectCall(group, version, plural, name, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -1907,7 +1907,7 @@ public class CustomObjectsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Object> replaceClusterCustomObjectWithHttpInfo(String group, String version, String plural, String name, Object body) throws ApiException {
-        com.squareup.okhttp.Call call = replaceClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, null, null);
+        okhttp3.Call call = replaceClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, null, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1924,7 +1924,7 @@ public class CustomObjectsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call replaceClusterCustomObjectAsync(String group, String version, String plural, String name, Object body, final ApiCallback<Object> callback) throws ApiException {
+    public okhttp3.Call replaceClusterCustomObjectAsync(String group, String version, String plural, String name, Object body, final ApiCallback<Object> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1945,7 +1945,7 @@ public class CustomObjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = replaceClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1963,7 +1963,7 @@ public class CustomObjectsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call replaceNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String name, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call replaceNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String name, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -1994,10 +1994,10 @@ public class CustomObjectsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -2010,7 +2010,7 @@ public class CustomObjectsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call replaceNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call replaceNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -2043,7 +2043,7 @@ public class CustomObjectsApi {
         }
         
         
-        com.squareup.okhttp.Call call = replaceNamespacedCustomObjectCall(group, version, namespace, plural, name, body, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceNamespacedCustomObjectCall(group, version, namespace, plural, name, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -2082,7 +2082,7 @@ public class CustomObjectsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Object> replaceNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body) throws ApiException {
-        com.squareup.okhttp.Call call = replaceNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, null, null);
+        okhttp3.Call call = replaceNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, null, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2100,7 +2100,7 @@ public class CustomObjectsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call replaceNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String name, Object body, final ApiCallback<Object> callback) throws ApiException {
+    public okhttp3.Call replaceNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String name, Object body, final ApiCallback<Object> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2121,7 +2121,7 @@ public class CustomObjectsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = replaceNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, progressListener, progressRequestListener);
+        okhttp3.Call call = replaceNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

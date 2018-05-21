@@ -12,16 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import static com.squareup.okhttp.ws.WebSocket.BINARY;
-import static com.squareup.okhttp.ws.WebSocket.TEXT;
-
 import com.google.common.net.HttpHeaders;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
-import com.squareup.okhttp.ResponseBody;
-import com.squareup.okhttp.ws.WebSocket;
-import com.squareup.okhttp.ws.WebSocketCall;
-import com.squareup.okhttp.ws.WebSocketListener;
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
 import io.kubernetes.client.Pair;
@@ -31,7 +22,16 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.MediaType;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import okhttp3.WebSocket;
+import okhttp3.WebSocketListener;
 import okio.Buffer;
+import okio.ByteString;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -51,16 +51,16 @@ public class WebSockets {
     /**
      * Called when a binary media type message is received
      *
-     * @param in The input stream containing the binary data
+     * @param bytes Binary data
      */
-    public void bytesMessage(InputStream in);
+    public void bytesMessage(ByteString bytes);
 
     /**
      * Called when a text media type message is received
      *
-     * @param in The character stream containing the message
+     * @param text The message
      */
-    public void textMessage(Reader in);
+    public void textMessage(String text);
 
     /** Called when the stream is closed. */
     public void close();
@@ -103,18 +103,15 @@ public class WebSockets {
     streamRequest(request, client, listener);
   }
 
-  /*
-  If we ever upgrade to okhttp 3...
   public static void stream(Call call, ApiClient client, SocketListener listener) {
       streamRequest(call.request(), client, listener);
   }
-  */
 
   private static void streamRequest(Request request, ApiClient client, SocketListener listener) {
-    WebSocketCall.create(client.getHttpClient(), request).enqueue(new Listener(listener));
+    client.getHttpClient().newWebSocket(request, new Listener(listener));
   }
 
-  public static class Listener implements WebSocketListener {
+  public static class Listener extends WebSocketListener {
     private SocketListener listener;
 
     public Listener(SocketListener listener) {
@@ -128,26 +125,23 @@ public class WebSockets {
     }
 
     @Override
-    public void onMessage(ResponseBody body) throws IOException {
-      if (body.contentType() == TEXT) {
-        listener.textMessage(body.charStream());
-      } else if (body.contentType() == BINARY) {
-        listener.bytesMessage(body.byteStream());
-      }
-      body.close();
+    public void onMessage(WebSocket webSocket, String text) {
+      listener.textMessage(text);
     }
 
     @Override
-    public void onPong(Buffer payload) {}
+    public void onMessage(WebSocket webSocket, ByteString bytes) {
+      listener.bytesMessage(bytes);
+    }
 
     @Override
-    public void onClose(int code, String reason) {
+    public void onClosed(WebSocket webSocket, int code, String reason) {
       listener.close();
     }
 
     @Override
-    public void onFailure(IOException e, Response res) {
-      e.printStackTrace();
+    public void onFailure(WebSocket webSocket, Throwable t, Response response) {
+      t.printStackTrace();
       listener.close();
     }
   }
