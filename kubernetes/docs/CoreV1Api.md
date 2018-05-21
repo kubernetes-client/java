@@ -151,48 +151,6 @@ Method | HTTP request | Description
 [**patchNodeStatus**](CoreV1Api.md#patchNodeStatus) | **PATCH** /api/v1/nodes/{name}/status | 
 [**patchPersistentVolume**](CoreV1Api.md#patchPersistentVolume) | **PATCH** /api/v1/persistentvolumes/{name} | 
 [**patchPersistentVolumeStatus**](CoreV1Api.md#patchPersistentVolumeStatus) | **PATCH** /api/v1/persistentvolumes/{name}/status | 
-[**proxyDELETENamespacedPod**](CoreV1Api.md#proxyDELETENamespacedPod) | **DELETE** /api/v1/proxy/namespaces/{namespace}/pods/{name} | 
-[**proxyDELETENamespacedPodWithPath**](CoreV1Api.md#proxyDELETENamespacedPodWithPath) | **DELETE** /api/v1/proxy/namespaces/{namespace}/pods/{name}/{path} | 
-[**proxyDELETENamespacedService**](CoreV1Api.md#proxyDELETENamespacedService) | **DELETE** /api/v1/proxy/namespaces/{namespace}/services/{name} | 
-[**proxyDELETENamespacedServiceWithPath**](CoreV1Api.md#proxyDELETENamespacedServiceWithPath) | **DELETE** /api/v1/proxy/namespaces/{namespace}/services/{name}/{path} | 
-[**proxyDELETENode**](CoreV1Api.md#proxyDELETENode) | **DELETE** /api/v1/proxy/nodes/{name} | 
-[**proxyDELETENodeWithPath**](CoreV1Api.md#proxyDELETENodeWithPath) | **DELETE** /api/v1/proxy/nodes/{name}/{path} | 
-[**proxyGETNamespacedPod**](CoreV1Api.md#proxyGETNamespacedPod) | **GET** /api/v1/proxy/namespaces/{namespace}/pods/{name} | 
-[**proxyGETNamespacedPodWithPath**](CoreV1Api.md#proxyGETNamespacedPodWithPath) | **GET** /api/v1/proxy/namespaces/{namespace}/pods/{name}/{path} | 
-[**proxyGETNamespacedService**](CoreV1Api.md#proxyGETNamespacedService) | **GET** /api/v1/proxy/namespaces/{namespace}/services/{name} | 
-[**proxyGETNamespacedServiceWithPath**](CoreV1Api.md#proxyGETNamespacedServiceWithPath) | **GET** /api/v1/proxy/namespaces/{namespace}/services/{name}/{path} | 
-[**proxyGETNode**](CoreV1Api.md#proxyGETNode) | **GET** /api/v1/proxy/nodes/{name} | 
-[**proxyGETNodeWithPath**](CoreV1Api.md#proxyGETNodeWithPath) | **GET** /api/v1/proxy/nodes/{name}/{path} | 
-[**proxyHEADNamespacedPod**](CoreV1Api.md#proxyHEADNamespacedPod) | **HEAD** /api/v1/proxy/namespaces/{namespace}/pods/{name} | 
-[**proxyHEADNamespacedPodWithPath**](CoreV1Api.md#proxyHEADNamespacedPodWithPath) | **HEAD** /api/v1/proxy/namespaces/{namespace}/pods/{name}/{path} | 
-[**proxyHEADNamespacedService**](CoreV1Api.md#proxyHEADNamespacedService) | **HEAD** /api/v1/proxy/namespaces/{namespace}/services/{name} | 
-[**proxyHEADNamespacedServiceWithPath**](CoreV1Api.md#proxyHEADNamespacedServiceWithPath) | **HEAD** /api/v1/proxy/namespaces/{namespace}/services/{name}/{path} | 
-[**proxyHEADNode**](CoreV1Api.md#proxyHEADNode) | **HEAD** /api/v1/proxy/nodes/{name} | 
-[**proxyHEADNodeWithPath**](CoreV1Api.md#proxyHEADNodeWithPath) | **HEAD** /api/v1/proxy/nodes/{name}/{path} | 
-[**proxyOPTIONSNamespacedPod**](CoreV1Api.md#proxyOPTIONSNamespacedPod) | **OPTIONS** /api/v1/proxy/namespaces/{namespace}/pods/{name} | 
-[**proxyOPTIONSNamespacedPodWithPath**](CoreV1Api.md#proxyOPTIONSNamespacedPodWithPath) | **OPTIONS** /api/v1/proxy/namespaces/{namespace}/pods/{name}/{path} | 
-[**proxyOPTIONSNamespacedService**](CoreV1Api.md#proxyOPTIONSNamespacedService) | **OPTIONS** /api/v1/proxy/namespaces/{namespace}/services/{name} | 
-[**proxyOPTIONSNamespacedServiceWithPath**](CoreV1Api.md#proxyOPTIONSNamespacedServiceWithPath) | **OPTIONS** /api/v1/proxy/namespaces/{namespace}/services/{name}/{path} | 
-[**proxyOPTIONSNode**](CoreV1Api.md#proxyOPTIONSNode) | **OPTIONS** /api/v1/proxy/nodes/{name} | 
-[**proxyOPTIONSNodeWithPath**](CoreV1Api.md#proxyOPTIONSNodeWithPath) | **OPTIONS** /api/v1/proxy/nodes/{name}/{path} | 
-[**proxyPATCHNamespacedPod**](CoreV1Api.md#proxyPATCHNamespacedPod) | **PATCH** /api/v1/proxy/namespaces/{namespace}/pods/{name} | 
-[**proxyPATCHNamespacedPodWithPath**](CoreV1Api.md#proxyPATCHNamespacedPodWithPath) | **PATCH** /api/v1/proxy/namespaces/{namespace}/pods/{name}/{path} | 
-[**proxyPATCHNamespacedService**](CoreV1Api.md#proxyPATCHNamespacedService) | **PATCH** /api/v1/proxy/namespaces/{namespace}/services/{name} | 
-[**proxyPATCHNamespacedServiceWithPath**](CoreV1Api.md#proxyPATCHNamespacedServiceWithPath) | **PATCH** /api/v1/proxy/namespaces/{namespace}/services/{name}/{path} | 
-[**proxyPATCHNode**](CoreV1Api.md#proxyPATCHNode) | **PATCH** /api/v1/proxy/nodes/{name} | 
-[**proxyPATCHNodeWithPath**](CoreV1Api.md#proxyPATCHNodeWithPath) | **PATCH** /api/v1/proxy/nodes/{name}/{path} | 
-[**proxyPOSTNamespacedPod**](CoreV1Api.md#proxyPOSTNamespacedPod) | **POST** /api/v1/proxy/namespaces/{namespace}/pods/{name} | 
-[**proxyPOSTNamespacedPodWithPath**](CoreV1Api.md#proxyPOSTNamespacedPodWithPath) | **POST** /api/v1/proxy/namespaces/{namespace}/pods/{name}/{path} | 
-[**proxyPOSTNamespacedService**](CoreV1Api.md#proxyPOSTNamespacedService) | **POST** /api/v1/proxy/namespaces/{namespace}/services/{name} | 
-[**proxyPOSTNamespacedServiceWithPath**](CoreV1Api.md#proxyPOSTNamespacedServiceWithPath) | **POST** /api/v1/proxy/namespaces/{namespace}/services/{name}/{path} | 
-[**proxyPOSTNode**](CoreV1Api.md#proxyPOSTNode) | **POST** /api/v1/proxy/nodes/{name} | 
-[**proxyPOSTNodeWithPath**](CoreV1Api.md#proxyPOSTNodeWithPath) | **POST** /api/v1/proxy/nodes/{name}/{path} | 
-[**proxyPUTNamespacedPod**](CoreV1Api.md#proxyPUTNamespacedPod) | **PUT** /api/v1/proxy/namespaces/{namespace}/pods/{name} | 
-[**proxyPUTNamespacedPodWithPath**](CoreV1Api.md#proxyPUTNamespacedPodWithPath) | **PUT** /api/v1/proxy/namespaces/{namespace}/pods/{name}/{path} | 
-[**proxyPUTNamespacedService**](CoreV1Api.md#proxyPUTNamespacedService) | **PUT** /api/v1/proxy/namespaces/{namespace}/services/{name} | 
-[**proxyPUTNamespacedServiceWithPath**](CoreV1Api.md#proxyPUTNamespacedServiceWithPath) | **PUT** /api/v1/proxy/namespaces/{namespace}/services/{name}/{path} | 
-[**proxyPUTNode**](CoreV1Api.md#proxyPUTNode) | **PUT** /api/v1/proxy/nodes/{name} | 
-[**proxyPUTNodeWithPath**](CoreV1Api.md#proxyPUTNodeWithPath) | **PUT** /api/v1/proxy/nodes/{name}/{path} | 
 [**readComponentStatus**](CoreV1Api.md#readComponentStatus) | **GET** /api/v1/componentstatuses/{name} | 
 [**readNamespace**](CoreV1Api.md#readNamespace) | **GET** /api/v1/namespaces/{name} | 
 [**readNamespaceStatus**](CoreV1Api.md#readNamespaceStatus) | **GET** /api/v1/namespaces/{name}/status | 
@@ -4222,7 +4180,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1Status result = apiInstance.deleteCollectionNamespacedConfigMap(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -4245,7 +4203,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -4295,7 +4253,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1Status result = apiInstance.deleteCollectionNamespacedEndpoints(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -4318,7 +4276,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -4368,7 +4326,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1Status result = apiInstance.deleteCollectionNamespacedEvent(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -4391,7 +4349,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -4441,7 +4399,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1Status result = apiInstance.deleteCollectionNamespacedLimitRange(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -4464,7 +4422,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -4514,7 +4472,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1Status result = apiInstance.deleteCollectionNamespacedPersistentVolumeClaim(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -4537,7 +4495,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -4587,7 +4545,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1Status result = apiInstance.deleteCollectionNamespacedPod(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -4610,7 +4568,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -4660,7 +4618,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1Status result = apiInstance.deleteCollectionNamespacedPodTemplate(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -4683,7 +4641,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -4733,7 +4691,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1Status result = apiInstance.deleteCollectionNamespacedReplicationController(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -4756,7 +4714,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -4806,7 +4764,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1Status result = apiInstance.deleteCollectionNamespacedResourceQuota(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -4829,7 +4787,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -4879,7 +4837,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1Status result = apiInstance.deleteCollectionNamespacedSecret(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -4902,7 +4860,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -4952,7 +4910,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1Status result = apiInstance.deleteCollectionNamespacedServiceAccount(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -4975,7 +4933,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -5024,7 +4982,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1Status result = apiInstance.deleteCollectionNode(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -5046,7 +5004,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -5095,7 +5053,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1Status result = apiInstance.deleteCollectionPersistentVolume(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -5117,7 +5075,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -5164,7 +5122,7 @@ V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions |
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
     V1Status result = apiInstance.deleteNamespace(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
@@ -5183,7 +5141,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
- **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. | [optional]
 
 ### Return type
 
@@ -5230,7 +5188,7 @@ V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions |
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
     V1Status result = apiInstance.deleteNamespacedConfigMap(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
@@ -5250,7 +5208,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
- **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. | [optional]
 
 ### Return type
 
@@ -5297,7 +5255,7 @@ V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions |
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
     V1Status result = apiInstance.deleteNamespacedEndpoints(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
@@ -5317,7 +5275,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
- **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. | [optional]
 
 ### Return type
 
@@ -5364,7 +5322,7 @@ V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions |
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
     V1Status result = apiInstance.deleteNamespacedEvent(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
@@ -5384,7 +5342,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
- **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. | [optional]
 
 ### Return type
 
@@ -5431,7 +5389,7 @@ V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions |
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
     V1Status result = apiInstance.deleteNamespacedLimitRange(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
@@ -5451,7 +5409,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
- **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. | [optional]
 
 ### Return type
 
@@ -5498,7 +5456,7 @@ V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions |
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
     V1Status result = apiInstance.deleteNamespacedPersistentVolumeClaim(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
@@ -5518,7 +5476,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
- **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. | [optional]
 
 ### Return type
 
@@ -5565,7 +5523,7 @@ V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions |
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
     V1Status result = apiInstance.deleteNamespacedPod(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
@@ -5585,7 +5543,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
- **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. | [optional]
 
 ### Return type
 
@@ -5632,7 +5590,7 @@ V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions |
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
     V1Status result = apiInstance.deleteNamespacedPodTemplate(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
@@ -5652,7 +5610,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
- **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. | [optional]
 
 ### Return type
 
@@ -5699,7 +5657,7 @@ V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions |
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
     V1Status result = apiInstance.deleteNamespacedReplicationController(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
@@ -5719,7 +5677,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
- **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. | [optional]
 
 ### Return type
 
@@ -5766,7 +5724,7 @@ V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions |
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
     V1Status result = apiInstance.deleteNamespacedResourceQuota(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
@@ -5786,7 +5744,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
- **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. | [optional]
 
 ### Return type
 
@@ -5833,7 +5791,7 @@ V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions |
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
     V1Status result = apiInstance.deleteNamespacedSecret(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
@@ -5853,7 +5811,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
- **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. | [optional]
 
 ### Return type
 
@@ -5870,7 +5828,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteNamespacedService"></a>
 # **deleteNamespacedService**
-> V1Status deleteNamespacedService(name, namespace, pretty)
+> V1Status deleteNamespacedService(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy)
 
 
 
@@ -5896,9 +5854,13 @@ BearerToken.setApiKey("YOUR API KEY");
 CoreV1Api apiInstance = new CoreV1Api();
 String name = "name_example"; // String | name of the Service
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
+V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
+Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
+String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
-    V1Status result = apiInstance.deleteNamespacedService(name, namespace, pretty);
+    V1Status result = apiInstance.deleteNamespacedService(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CoreV1Api#deleteNamespacedService");
@@ -5912,7 +5874,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the Service |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
+ **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
+ **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
+ **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. | [optional]
 
 ### Return type
 
@@ -5959,7 +5925,7 @@ V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions |
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
     V1Status result = apiInstance.deleteNamespacedServiceAccount(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
@@ -5979,7 +5945,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
- **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. | [optional]
 
 ### Return type
 
@@ -6025,7 +5991,7 @@ V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions |
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
     V1Status result = apiInstance.deleteNode(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
@@ -6044,7 +6010,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
- **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. | [optional]
 
 ### Return type
 
@@ -6090,7 +6056,7 @@ V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions |
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
     V1Status result = apiInstance.deletePersistentVolume(name, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
@@ -6109,7 +6075,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
- **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. | [optional]
 
 ### Return type
 
@@ -6208,7 +6174,7 @@ String labelSelector = "labelSelector_example"; // String | A selector to restri
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1ComponentStatusList result = apiInstance.listComponentStatus(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch);
@@ -6230,7 +6196,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -6279,7 +6245,7 @@ String labelSelector = "labelSelector_example"; // String | A selector to restri
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1ConfigMapList result = apiInstance.listConfigMapForAllNamespaces(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch);
@@ -6301,7 +6267,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -6350,7 +6316,7 @@ String labelSelector = "labelSelector_example"; // String | A selector to restri
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1EndpointsList result = apiInstance.listEndpointsForAllNamespaces(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch);
@@ -6372,7 +6338,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -6421,7 +6387,7 @@ String labelSelector = "labelSelector_example"; // String | A selector to restri
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1EventList result = apiInstance.listEventForAllNamespaces(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch);
@@ -6443,7 +6409,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -6492,7 +6458,7 @@ String labelSelector = "labelSelector_example"; // String | A selector to restri
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1LimitRangeList result = apiInstance.listLimitRangeForAllNamespaces(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch);
@@ -6514,7 +6480,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -6563,7 +6529,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1NamespaceList result = apiInstance.listNamespace(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -6585,7 +6551,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -6635,7 +6601,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1ConfigMapList result = apiInstance.listNamespacedConfigMap(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -6658,7 +6624,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -6708,7 +6674,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1EndpointsList result = apiInstance.listNamespacedEndpoints(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -6731,7 +6697,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -6781,7 +6747,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1EventList result = apiInstance.listNamespacedEvent(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -6804,7 +6770,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -6854,7 +6820,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1LimitRangeList result = apiInstance.listNamespacedLimitRange(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -6877,7 +6843,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -6927,7 +6893,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1PersistentVolumeClaimList result = apiInstance.listNamespacedPersistentVolumeClaim(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -6950,7 +6916,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -7000,7 +6966,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1PodList result = apiInstance.listNamespacedPod(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -7023,7 +6989,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -7073,7 +7039,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1PodTemplateList result = apiInstance.listNamespacedPodTemplate(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -7096,7 +7062,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -7146,7 +7112,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1ReplicationControllerList result = apiInstance.listNamespacedReplicationController(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -7169,7 +7135,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -7219,7 +7185,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1ResourceQuotaList result = apiInstance.listNamespacedResourceQuota(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -7242,7 +7208,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -7292,7 +7258,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1SecretList result = apiInstance.listNamespacedSecret(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -7315,7 +7281,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -7365,7 +7331,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1ServiceList result = apiInstance.listNamespacedService(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -7388,7 +7354,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -7438,7 +7404,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1ServiceAccountList result = apiInstance.listNamespacedServiceAccount(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -7461,7 +7427,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -7510,7 +7476,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1NodeList result = apiInstance.listNode(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -7532,7 +7498,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -7581,7 +7547,7 @@ Boolean includeUninitialized = true; // Boolean | If true, partially initialized
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1PersistentVolumeList result = apiInstance.listPersistentVolume(pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
@@ -7603,7 +7569,7 @@ Name | Type | Description  | Notes
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -7652,7 +7618,7 @@ String labelSelector = "labelSelector_example"; // String | A selector to restri
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1PersistentVolumeClaimList result = apiInstance.listPersistentVolumeClaimForAllNamespaces(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch);
@@ -7674,7 +7640,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -7723,7 +7689,7 @@ String labelSelector = "labelSelector_example"; // String | A selector to restri
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1PodList result = apiInstance.listPodForAllNamespaces(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch);
@@ -7745,7 +7711,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -7794,7 +7760,7 @@ String labelSelector = "labelSelector_example"; // String | A selector to restri
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1PodTemplateList result = apiInstance.listPodTemplateForAllNamespaces(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch);
@@ -7816,7 +7782,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -7865,7 +7831,7 @@ String labelSelector = "labelSelector_example"; // String | A selector to restri
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1ReplicationControllerList result = apiInstance.listReplicationControllerForAllNamespaces(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch);
@@ -7887,7 +7853,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -7936,7 +7902,7 @@ String labelSelector = "labelSelector_example"; // String | A selector to restri
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1ResourceQuotaList result = apiInstance.listResourceQuotaForAllNamespaces(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch);
@@ -7958,7 +7924,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -8007,7 +7973,7 @@ String labelSelector = "labelSelector_example"; // String | A selector to restri
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1SecretList result = apiInstance.listSecretForAllNamespaces(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch);
@@ -8029,7 +7995,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -8078,7 +8044,7 @@ String labelSelector = "labelSelector_example"; // String | A selector to restri
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1ServiceAccountList result = apiInstance.listServiceAccountForAllNamespaces(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch);
@@ -8100,7 +8066,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -8149,7 +8115,7 @@ String labelSelector = "labelSelector_example"; // String | A selector to restri
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
     V1ServiceList result = apiInstance.listServiceForAllNamespaces(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch);
@@ -8171,7 +8137,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
- **timeoutSeconds** | **Integer**| Timeout for the list/watch call. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
 
 ### Return type
@@ -9638,2414 +9604,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
-
-<a name="proxyDELETENamespacedPod"></a>
-# **proxyDELETENamespacedPod**
-> String proxyDELETENamespacedPod(name, namespace)
-
-
-
-proxy DELETE requests to Pod
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Pod
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-try {
-    String result = apiInstance.proxyDELETENamespacedPod(name, namespace);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyDELETENamespacedPod");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Pod |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyDELETENamespacedPodWithPath"></a>
-# **proxyDELETENamespacedPodWithPath**
-> String proxyDELETENamespacedPodWithPath(name, namespace, path)
-
-
-
-proxy DELETE requests to Pod
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Pod
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String path = "path_example"; // String | path to the resource
-try {
-    String result = apiInstance.proxyDELETENamespacedPodWithPath(name, namespace, path);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyDELETENamespacedPodWithPath");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Pod |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **path** | **String**| path to the resource |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyDELETENamespacedService"></a>
-# **proxyDELETENamespacedService**
-> String proxyDELETENamespacedService(name, namespace)
-
-
-
-proxy DELETE requests to Service
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Service
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-try {
-    String result = apiInstance.proxyDELETENamespacedService(name, namespace);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyDELETENamespacedService");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Service |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyDELETENamespacedServiceWithPath"></a>
-# **proxyDELETENamespacedServiceWithPath**
-> String proxyDELETENamespacedServiceWithPath(name, namespace, path)
-
-
-
-proxy DELETE requests to Service
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Service
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String path = "path_example"; // String | path to the resource
-try {
-    String result = apiInstance.proxyDELETENamespacedServiceWithPath(name, namespace, path);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyDELETENamespacedServiceWithPath");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Service |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **path** | **String**| path to the resource |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyDELETENode"></a>
-# **proxyDELETENode**
-> String proxyDELETENode(name)
-
-
-
-proxy DELETE requests to Node
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Node
-try {
-    String result = apiInstance.proxyDELETENode(name);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyDELETENode");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Node |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyDELETENodeWithPath"></a>
-# **proxyDELETENodeWithPath**
-> String proxyDELETENodeWithPath(name, path)
-
-
-
-proxy DELETE requests to Node
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Node
-String path = "path_example"; // String | path to the resource
-try {
-    String result = apiInstance.proxyDELETENodeWithPath(name, path);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyDELETENodeWithPath");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Node |
- **path** | **String**| path to the resource |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyGETNamespacedPod"></a>
-# **proxyGETNamespacedPod**
-> String proxyGETNamespacedPod(name, namespace)
-
-
-
-proxy GET requests to Pod
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Pod
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-try {
-    String result = apiInstance.proxyGETNamespacedPod(name, namespace);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyGETNamespacedPod");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Pod |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyGETNamespacedPodWithPath"></a>
-# **proxyGETNamespacedPodWithPath**
-> String proxyGETNamespacedPodWithPath(name, namespace, path)
-
-
-
-proxy GET requests to Pod
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Pod
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String path = "path_example"; // String | path to the resource
-try {
-    String result = apiInstance.proxyGETNamespacedPodWithPath(name, namespace, path);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyGETNamespacedPodWithPath");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Pod |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **path** | **String**| path to the resource |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyGETNamespacedService"></a>
-# **proxyGETNamespacedService**
-> String proxyGETNamespacedService(name, namespace)
-
-
-
-proxy GET requests to Service
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Service
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-try {
-    String result = apiInstance.proxyGETNamespacedService(name, namespace);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyGETNamespacedService");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Service |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyGETNamespacedServiceWithPath"></a>
-# **proxyGETNamespacedServiceWithPath**
-> String proxyGETNamespacedServiceWithPath(name, namespace, path)
-
-
-
-proxy GET requests to Service
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Service
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String path = "path_example"; // String | path to the resource
-try {
-    String result = apiInstance.proxyGETNamespacedServiceWithPath(name, namespace, path);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyGETNamespacedServiceWithPath");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Service |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **path** | **String**| path to the resource |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyGETNode"></a>
-# **proxyGETNode**
-> String proxyGETNode(name)
-
-
-
-proxy GET requests to Node
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Node
-try {
-    String result = apiInstance.proxyGETNode(name);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyGETNode");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Node |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyGETNodeWithPath"></a>
-# **proxyGETNodeWithPath**
-> String proxyGETNodeWithPath(name, path)
-
-
-
-proxy GET requests to Node
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Node
-String path = "path_example"; // String | path to the resource
-try {
-    String result = apiInstance.proxyGETNodeWithPath(name, path);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyGETNodeWithPath");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Node |
- **path** | **String**| path to the resource |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyHEADNamespacedPod"></a>
-# **proxyHEADNamespacedPod**
-> String proxyHEADNamespacedPod(name, namespace)
-
-
-
-proxy HEAD requests to Pod
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Pod
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-try {
-    String result = apiInstance.proxyHEADNamespacedPod(name, namespace);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyHEADNamespacedPod");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Pod |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyHEADNamespacedPodWithPath"></a>
-# **proxyHEADNamespacedPodWithPath**
-> String proxyHEADNamespacedPodWithPath(name, namespace, path)
-
-
-
-proxy HEAD requests to Pod
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Pod
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String path = "path_example"; // String | path to the resource
-try {
-    String result = apiInstance.proxyHEADNamespacedPodWithPath(name, namespace, path);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyHEADNamespacedPodWithPath");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Pod |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **path** | **String**| path to the resource |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyHEADNamespacedService"></a>
-# **proxyHEADNamespacedService**
-> String proxyHEADNamespacedService(name, namespace)
-
-
-
-proxy HEAD requests to Service
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Service
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-try {
-    String result = apiInstance.proxyHEADNamespacedService(name, namespace);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyHEADNamespacedService");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Service |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyHEADNamespacedServiceWithPath"></a>
-# **proxyHEADNamespacedServiceWithPath**
-> String proxyHEADNamespacedServiceWithPath(name, namespace, path)
-
-
-
-proxy HEAD requests to Service
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Service
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String path = "path_example"; // String | path to the resource
-try {
-    String result = apiInstance.proxyHEADNamespacedServiceWithPath(name, namespace, path);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyHEADNamespacedServiceWithPath");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Service |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **path** | **String**| path to the resource |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyHEADNode"></a>
-# **proxyHEADNode**
-> String proxyHEADNode(name)
-
-
-
-proxy HEAD requests to Node
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Node
-try {
-    String result = apiInstance.proxyHEADNode(name);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyHEADNode");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Node |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyHEADNodeWithPath"></a>
-# **proxyHEADNodeWithPath**
-> String proxyHEADNodeWithPath(name, path)
-
-
-
-proxy HEAD requests to Node
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Node
-String path = "path_example"; // String | path to the resource
-try {
-    String result = apiInstance.proxyHEADNodeWithPath(name, path);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyHEADNodeWithPath");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Node |
- **path** | **String**| path to the resource |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyOPTIONSNamespacedPod"></a>
-# **proxyOPTIONSNamespacedPod**
-> String proxyOPTIONSNamespacedPod(name, namespace)
-
-
-
-proxy OPTIONS requests to Pod
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Pod
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-try {
-    String result = apiInstance.proxyOPTIONSNamespacedPod(name, namespace);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyOPTIONSNamespacedPod");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Pod |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyOPTIONSNamespacedPodWithPath"></a>
-# **proxyOPTIONSNamespacedPodWithPath**
-> String proxyOPTIONSNamespacedPodWithPath(name, namespace, path)
-
-
-
-proxy OPTIONS requests to Pod
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Pod
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String path = "path_example"; // String | path to the resource
-try {
-    String result = apiInstance.proxyOPTIONSNamespacedPodWithPath(name, namespace, path);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyOPTIONSNamespacedPodWithPath");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Pod |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **path** | **String**| path to the resource |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyOPTIONSNamespacedService"></a>
-# **proxyOPTIONSNamespacedService**
-> String proxyOPTIONSNamespacedService(name, namespace)
-
-
-
-proxy OPTIONS requests to Service
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Service
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-try {
-    String result = apiInstance.proxyOPTIONSNamespacedService(name, namespace);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyOPTIONSNamespacedService");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Service |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyOPTIONSNamespacedServiceWithPath"></a>
-# **proxyOPTIONSNamespacedServiceWithPath**
-> String proxyOPTIONSNamespacedServiceWithPath(name, namespace, path)
-
-
-
-proxy OPTIONS requests to Service
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Service
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String path = "path_example"; // String | path to the resource
-try {
-    String result = apiInstance.proxyOPTIONSNamespacedServiceWithPath(name, namespace, path);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyOPTIONSNamespacedServiceWithPath");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Service |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **path** | **String**| path to the resource |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyOPTIONSNode"></a>
-# **proxyOPTIONSNode**
-> String proxyOPTIONSNode(name)
-
-
-
-proxy OPTIONS requests to Node
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Node
-try {
-    String result = apiInstance.proxyOPTIONSNode(name);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyOPTIONSNode");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Node |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyOPTIONSNodeWithPath"></a>
-# **proxyOPTIONSNodeWithPath**
-> String proxyOPTIONSNodeWithPath(name, path)
-
-
-
-proxy OPTIONS requests to Node
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Node
-String path = "path_example"; // String | path to the resource
-try {
-    String result = apiInstance.proxyOPTIONSNodeWithPath(name, path);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyOPTIONSNodeWithPath");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Node |
- **path** | **String**| path to the resource |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyPATCHNamespacedPod"></a>
-# **proxyPATCHNamespacedPod**
-> String proxyPATCHNamespacedPod(name, namespace)
-
-
-
-proxy PATCH requests to Pod
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Pod
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-try {
-    String result = apiInstance.proxyPATCHNamespacedPod(name, namespace);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyPATCHNamespacedPod");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Pod |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyPATCHNamespacedPodWithPath"></a>
-# **proxyPATCHNamespacedPodWithPath**
-> String proxyPATCHNamespacedPodWithPath(name, namespace, path)
-
-
-
-proxy PATCH requests to Pod
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Pod
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String path = "path_example"; // String | path to the resource
-try {
-    String result = apiInstance.proxyPATCHNamespacedPodWithPath(name, namespace, path);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyPATCHNamespacedPodWithPath");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Pod |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **path** | **String**| path to the resource |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyPATCHNamespacedService"></a>
-# **proxyPATCHNamespacedService**
-> String proxyPATCHNamespacedService(name, namespace)
-
-
-
-proxy PATCH requests to Service
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Service
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-try {
-    String result = apiInstance.proxyPATCHNamespacedService(name, namespace);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyPATCHNamespacedService");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Service |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyPATCHNamespacedServiceWithPath"></a>
-# **proxyPATCHNamespacedServiceWithPath**
-> String proxyPATCHNamespacedServiceWithPath(name, namespace, path)
-
-
-
-proxy PATCH requests to Service
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Service
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String path = "path_example"; // String | path to the resource
-try {
-    String result = apiInstance.proxyPATCHNamespacedServiceWithPath(name, namespace, path);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyPATCHNamespacedServiceWithPath");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Service |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **path** | **String**| path to the resource |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyPATCHNode"></a>
-# **proxyPATCHNode**
-> String proxyPATCHNode(name)
-
-
-
-proxy PATCH requests to Node
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Node
-try {
-    String result = apiInstance.proxyPATCHNode(name);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyPATCHNode");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Node |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyPATCHNodeWithPath"></a>
-# **proxyPATCHNodeWithPath**
-> String proxyPATCHNodeWithPath(name, path)
-
-
-
-proxy PATCH requests to Node
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Node
-String path = "path_example"; // String | path to the resource
-try {
-    String result = apiInstance.proxyPATCHNodeWithPath(name, path);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyPATCHNodeWithPath");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Node |
- **path** | **String**| path to the resource |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyPOSTNamespacedPod"></a>
-# **proxyPOSTNamespacedPod**
-> String proxyPOSTNamespacedPod(name, namespace)
-
-
-
-proxy POST requests to Pod
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Pod
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-try {
-    String result = apiInstance.proxyPOSTNamespacedPod(name, namespace);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyPOSTNamespacedPod");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Pod |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyPOSTNamespacedPodWithPath"></a>
-# **proxyPOSTNamespacedPodWithPath**
-> String proxyPOSTNamespacedPodWithPath(name, namespace, path)
-
-
-
-proxy POST requests to Pod
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Pod
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String path = "path_example"; // String | path to the resource
-try {
-    String result = apiInstance.proxyPOSTNamespacedPodWithPath(name, namespace, path);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyPOSTNamespacedPodWithPath");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Pod |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **path** | **String**| path to the resource |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyPOSTNamespacedService"></a>
-# **proxyPOSTNamespacedService**
-> String proxyPOSTNamespacedService(name, namespace)
-
-
-
-proxy POST requests to Service
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Service
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-try {
-    String result = apiInstance.proxyPOSTNamespacedService(name, namespace);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyPOSTNamespacedService");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Service |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyPOSTNamespacedServiceWithPath"></a>
-# **proxyPOSTNamespacedServiceWithPath**
-> String proxyPOSTNamespacedServiceWithPath(name, namespace, path)
-
-
-
-proxy POST requests to Service
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Service
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String path = "path_example"; // String | path to the resource
-try {
-    String result = apiInstance.proxyPOSTNamespacedServiceWithPath(name, namespace, path);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyPOSTNamespacedServiceWithPath");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Service |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **path** | **String**| path to the resource |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyPOSTNode"></a>
-# **proxyPOSTNode**
-> String proxyPOSTNode(name)
-
-
-
-proxy POST requests to Node
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Node
-try {
-    String result = apiInstance.proxyPOSTNode(name);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyPOSTNode");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Node |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyPOSTNodeWithPath"></a>
-# **proxyPOSTNodeWithPath**
-> String proxyPOSTNodeWithPath(name, path)
-
-
-
-proxy POST requests to Node
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Node
-String path = "path_example"; // String | path to the resource
-try {
-    String result = apiInstance.proxyPOSTNodeWithPath(name, path);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyPOSTNodeWithPath");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Node |
- **path** | **String**| path to the resource |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyPUTNamespacedPod"></a>
-# **proxyPUTNamespacedPod**
-> String proxyPUTNamespacedPod(name, namespace)
-
-
-
-proxy PUT requests to Pod
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Pod
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-try {
-    String result = apiInstance.proxyPUTNamespacedPod(name, namespace);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyPUTNamespacedPod");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Pod |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyPUTNamespacedPodWithPath"></a>
-# **proxyPUTNamespacedPodWithPath**
-> String proxyPUTNamespacedPodWithPath(name, namespace, path)
-
-
-
-proxy PUT requests to Pod
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Pod
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String path = "path_example"; // String | path to the resource
-try {
-    String result = apiInstance.proxyPUTNamespacedPodWithPath(name, namespace, path);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyPUTNamespacedPodWithPath");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Pod |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **path** | **String**| path to the resource |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyPUTNamespacedService"></a>
-# **proxyPUTNamespacedService**
-> String proxyPUTNamespacedService(name, namespace)
-
-
-
-proxy PUT requests to Service
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Service
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-try {
-    String result = apiInstance.proxyPUTNamespacedService(name, namespace);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyPUTNamespacedService");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Service |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyPUTNamespacedServiceWithPath"></a>
-# **proxyPUTNamespacedServiceWithPath**
-> String proxyPUTNamespacedServiceWithPath(name, namespace, path)
-
-
-
-proxy PUT requests to Service
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Service
-String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String path = "path_example"; // String | path to the resource
-try {
-    String result = apiInstance.proxyPUTNamespacedServiceWithPath(name, namespace, path);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyPUTNamespacedServiceWithPath");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Service |
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **path** | **String**| path to the resource |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyPUTNode"></a>
-# **proxyPUTNode**
-> String proxyPUTNode(name)
-
-
-
-proxy PUT requests to Node
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Node
-try {
-    String result = apiInstance.proxyPUTNode(name);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyPUTNode");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Node |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
-
-<a name="proxyPUTNodeWithPath"></a>
-# **proxyPUTNodeWithPath**
-> String proxyPUTNodeWithPath(name, path)
-
-
-
-proxy PUT requests to Node
-
-### Example
-```java
-// Import classes:
-//import io.kubernetes.client.ApiClient;
-//import io.kubernetes.client.ApiException;
-//import io.kubernetes.client.Configuration;
-//import io.kubernetes.client.auth.*;
-//import io.kubernetes.client.apis.CoreV1Api;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: BearerToken
-ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
-BearerToken.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//BearerToken.setApiKeyPrefix("Token");
-
-CoreV1Api apiInstance = new CoreV1Api();
-String name = "name_example"; // String | name of the Node
-String path = "path_example"; // String | path to the resource
-try {
-    String result = apiInstance.proxyPUTNodeWithPath(name, path);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CoreV1Api#proxyPUTNodeWithPath");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name of the Node |
- **path** | **String**| path to the resource |
-
-### Return type
-
-**String**
-
-### Authorization
-
-[BearerToken](../README.md#BearerToken)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: */*
 
 <a name="readComponentStatus"></a>
 # **readComponentStatus**

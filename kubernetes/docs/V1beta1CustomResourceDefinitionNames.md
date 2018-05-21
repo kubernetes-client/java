@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**categories** | **List&lt;String&gt;** | Categories is a list of grouped resources custom resources belong to (e.g. &#39;all&#39;) |  [optional]
 **kind** | **String** | Kind is the serialized kind of the resource.  It is normally CamelCase and singular. | 
 **listKind** | **String** | ListKind is the serialized kind of the list for this resource.  Defaults to &lt;kind&gt;List. |  [optional]
 **plural** | **String** | Plural is the plural name of the resource to serve.  It must match the name of the CustomResourceDefinition-registration too: plural.group and it must be all lowercase. | 

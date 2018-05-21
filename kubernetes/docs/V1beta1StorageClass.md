@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **parameters** | **Map&lt;String, String&gt;** | Parameters holds the parameters for the provisioner that should create volumes of this storage class. |  [optional]
 **provisioner** | **String** | Provisioner indicates the type of the provisioner. | 
 **reclaimPolicy** | **String** | Dynamically provisioned PersistentVolumes of this storage class are created with this reclaimPolicy. Defaults to Delete. |  [optional]
+**volumeBindingMode** | **String** | VolumeBindingMode indicates how PersistentVolumeClaims should be provisioned and bound.  When unset, VolumeBindingImmediate is used. This field is alpha-level and is only honored by servers that enable the VolumeScheduling feature. |  [optional]
 
 
 
