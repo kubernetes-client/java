@@ -1,12 +1,13 @@
 package io.kubernetes.client.custom;
 
+import java.io.IOException;
+import java.util.Objects;
+
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
-
-import java.io.IOException;
 
 @JsonAdapter(IntOrString.IntOrStringAdapter.class)
 public class IntOrString {
@@ -47,7 +48,22 @@ public class IntOrString {
     @Override
     public String toString() {
     	return (isInt ? String.valueOf(intValue) : strValue);
-    }	    
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return this == o || (o instanceof IntOrString && equals((IntOrString) o));
+    }
+
+    private boolean equals(IntOrString o) {
+        if (isInt != o.isInt) return false;
+        return isInt ? Objects.equals(intValue, o.intValue) : Objects.equals(strValue, o.strValue);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(isInt, strValue, intValue);
+    }
 
     public static class IntOrStringAdapter extends TypeAdapter<IntOrString> {
         @Override
