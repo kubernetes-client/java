@@ -24,6 +24,8 @@ import io.kubernetes.client.models.V1Status;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Iterator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Watch class implements watch mechansim of kubernetes. For every list API call with a watch
@@ -33,6 +35,8 @@ import java.util.Iterator;
  */
 public class Watch<T>
     implements Iterable<Watch.Response<T>>, Iterator<Watch.Response<T>>, java.io.Closeable {
+
+  private static final Logger log = LoggerFactory.getLogger(Watch.class);
 
   /**
    * Response class holds a watch response that has a `type` that can be ADDED, MODIFIED, DELETED
@@ -78,6 +82,11 @@ public class Watch<T>
    */
   public static <T> Watch<T> createWatch(ApiClient client, Call call, Type watchType)
       throws ApiException {
+    if (client.isDebugging()) {
+      log.warn(
+          "Watch is (for now) incompatible with debugging mode active. Watches will not return data until the watch connection terminates");
+      throw new ApiException("Watch is incompatible with debugging mode active.");
+    }
     try {
       com.squareup.okhttp.Response response = call.execute();
       if (!response.isSuccessful()) {
