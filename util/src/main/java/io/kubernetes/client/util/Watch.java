@@ -34,7 +34,10 @@ import org.slf4j.LoggerFactory;
  * CoreV1Api.listNamespaceCall and set watch to True and watch the changes to namespaces.
  */
 public class Watch<T>
-    implements Iterable<Watch.Response<T>>, Iterator<Watch.Response<T>>, java.io.Closeable {
+    implements Iterable<Watch.Response<T>>,
+        Iterator<Watch.Response<T>>,
+        java.io.Closeable,
+        AutoCloseable {
 
   private static final Logger log = LoggerFactory.getLogger(Watch.class);
 
@@ -91,13 +94,13 @@ public class Watch<T>
       com.squareup.okhttp.Response response = call.execute();
       if (!response.isSuccessful()) {
         String respBody = null;
-        if (response.body() != null) {
-          try {
+        try (ResponseBody body = response.body()) {
+          if (body != null) {
             respBody = response.body().string();
-          } catch (IOException e) {
-            throw new ApiException(
-                response.message(), e, response.code(), response.headers().toMultimap());
           }
+        } catch (IOException e) {
+          throw new ApiException(
+              response.message(), e, response.code(), response.headers().toMultimap());
         }
         throw new ApiException(
             response.message(), response.code(), response.headers().toMultimap(), respBody);

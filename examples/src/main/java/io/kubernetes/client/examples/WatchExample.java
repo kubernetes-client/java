@@ -39,8 +39,12 @@ public class WatchExample {
                 null, null, null, null, null, 5, null, null, Boolean.TRUE, null, null),
             new TypeToken<Watch.Response<V1Namespace>>() {}.getType());
 
-    for (Watch.Response<V1Namespace> item : watch) {
-      System.out.printf("%s : %s%n", item.type, item.object.getMetadata().getName());
+    try {
+      for (Watch.Response<V1Namespace> item : watch) {
+        System.out.printf("%s : %s%n", item.type, item.object.getMetadata().getName());
+      }
+    } finally {
+      watch.close();
     }
   }
 }
