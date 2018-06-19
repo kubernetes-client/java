@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.kubernetes</groupId>
   <artifactId>client-java-api</artifactId>
-  <packaging>jar</packaging>
+  <packaging>bundle</packaging>
   <name>client-java-api</name>
   <version>2.0.0-beta2-SNAPSHOT</version>
   <url>https://github.com/kubernetes-client/java</url>
@@ -20,9 +20,13 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <extensions>true</extensions>
+      </plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.12</version>
         <configuration>
           <systemProperties>
             <property>
@@ -32,7 +36,9 @@
           </systemProperties>
           <argLine>-Xms512m -Xmx1500m</argLine>
           <parallel>methods</parallel>
-          <forkMode>pertest</forkMode>
+          <useUnlimitedThreads>true</useUnlimitedThreads>
+          <forkCount>1</forkCount>
+          <reuseForks>false</reuseForks>
         </configuration>
       </plugin>
       <plugin>
@@ -54,11 +60,9 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>2.2</version>
         <executions>
           <execution>
             <goals>
-              <goal>jar</goal>
               <goal>test-jar</goal>
             </goals>
           </execution>
@@ -70,7 +74,6 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
-        <version>1.10</version>
         <executions>
           <execution>
             <id>add_sources</id>
@@ -101,7 +104,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.10.4</version>
         <executions>
           <execution>
             <id>attach-javadocs</id>
@@ -114,7 +116,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>2.2.1</version>
         <executions>
           <execution>
             <id>attach-sources</id>
