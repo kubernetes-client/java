@@ -26,7 +26,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.kubernetes</groupId>
     <artifactId>client-java</artifactId>
-    <version>1.0.0</version>
+    <version>2.0.0-beta1</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -34,7 +34,7 @@ Add this dependency to your project's POM:
 ### Gradle users
 
 ```groovy
-compile 'io.kubernetes:client-java:1.0.0'
+compile 'io.kubernetes:client-java:2.0.0-beta1'
 ```
 
 ### Others
@@ -49,7 +49,7 @@ mvn package
 
 Then manually install the following JARs:
 
-* target/client-java-1.0.0-SNAPSHOT.jar
+* target/client-java-2.0.0-beta1-SNAPSHOT.jar
 * target/lib/*.jar
 
 ## Example
@@ -126,15 +126,16 @@ All APIs and Models' documentation can be found at the [Generated client's READM
 
 ## Compatibility
 
-|                         | Kubernetes 1.4 | Kubernetes 1.5 | Kubernetes 1.6 | Kubernetes 1.7 | Kubernetes 1.8 | Kubernetes 1.9 |
-|-------------------------|----------------|----------------|----------------|----------------|----------------|-----------|
-| java-client 0.1.0       | +              | +              | ✓              | -              | -              | -         |
-| java-client 0.2.0       | +              | +              | ✓              | -              | -              | -         |
-| java-client 1.0.0-beta1 | +              | +              | +              | +              | ✓              | -         |
-| java-client 1.0.0-beta2 | +              | +              | +              | +              | ✓              | -         |
-| java-client 1.0.0-beta3 | +              | +              | +              | +              | ✓              | -         |
-| java-client 1.0.0-beta4 | +              | +              | +              | +              | ✓              | -         |
-| java-client 1.0.0       | +              | +              | +              | +              | ✓              | -         |
+| client version | Kubernetes 1.4 | Kubernetes 1.5 | Kubernetes 1.6 | Kubernetes 1.7 | Kubernetes 1.8 | Kubernetes 1.9 | Kubernetes 1.10 |
+|-------------------------|----------------|----------------|----------------|----------------|----------------|-----------|-----------|
+| 0.1.0        | +              | +              | ✓              | -              | -              | -         | -        |
+| 0.2.0        | +              | +              | ✓              | -              | -              | -         | -        |
+| 1.0.0-beta1  | +              | +              | +              | +              | ✓              | -         | -        |
+| 1.0.0-beta2  | +              | +              | +              | +              | ✓              | -         | -        |
+| 1.0.0-beta3  | +              | +              | +              | +              | ✓              | -         | -        |
+| 1.0.0-beta4  | +              | +              | +              | +              | ✓              | -         | -        |
+| 1.0.0        | +              | +              | +              | +              | ✓              | -         | -        |
+| 2.0.0-beta1  | +              | +              | +              | +              | +              | +         | ✓        |
 
 Key: 
 
