@@ -32,4 +32,15 @@ spec:
           imagePullPolicy: Always
           args:
             - "-http=127.0.0.1:8080"
+---
+apiVersion: v1
+kind: Secret
+
+metadata:
+  name: secret
+
+type: Opaque
+
+data:
+  secret-data: aGVsbG8=
 

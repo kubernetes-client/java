@@ -19,11 +19,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+import okio.ByteString;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.slf4j.Logger;
@@ -269,6 +266,9 @@ public class Yaml {
       if (node.getType() == IntOrString.class) {
         return constructIntOrString((ScalarNode) node);
       }
+      if (node.getType() == byte[].class) {
+        return constructByteArray((ScalarNode) node);
+      }
       return super.constructObject(node);
     }
 
@@ -278,6 +278,10 @@ public class Yaml {
       } catch (NumberFormatException err) {
         return new IntOrString(node.getValue());
       }
+    }
+
+    private byte[] constructByteArray(ScalarNode node) {
+      return ByteString.decodeBase64(node.getValue()).toByteArray();
     }
   }
 
