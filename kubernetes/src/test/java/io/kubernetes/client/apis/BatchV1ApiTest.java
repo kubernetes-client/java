@@ -18,14 +18,9 @@ import io.kubernetes.client.models.V1APIResourceList;
 import io.kubernetes.client.models.V1DeleteOptions;
 import io.kubernetes.client.models.V1Job;
 import io.kubernetes.client.models.V1JobList;
-import io.kubernetes.client.models.V1Status;
-import org.junit.Test;
+import io.kubernetes.client.models.V1JobStatus;
 import org.junit.Ignore;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import org.junit.Test;
 
 /**
  * API tests for BatchV1Api
@@ -74,7 +69,7 @@ public class BatchV1ApiTest {
         String resourceVersion = null;
         Integer timeoutSeconds = null;
         Boolean watch = null;
-        V1Status response = api.deleteCollectionNamespacedJob(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
+        V1JobStatus response = api.deleteCollectionNamespacedJob(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
 
         // TODO: test validations
     }
@@ -96,7 +91,7 @@ public class BatchV1ApiTest {
         Integer gracePeriodSeconds = null;
         Boolean orphanDependents = null;
         String propagationPolicy = null;
-        V1Status response = api.deleteNamespacedJob(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy);
+        V1JobStatus response = api.deleteNamespacedJob(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy);
 
         // TODO: test validations
     }
