@@ -10,7 +10,9 @@ Method | HTTP request | Description
 [**getAPIResources**](ApiregistrationV1Api.md#getAPIResources) | **GET** /apis/apiregistration.k8s.io/v1/ | 
 [**listAPIService**](ApiregistrationV1Api.md#listAPIService) | **GET** /apis/apiregistration.k8s.io/v1/apiservices | 
 [**patchAPIService**](ApiregistrationV1Api.md#patchAPIService) | **PATCH** /apis/apiregistration.k8s.io/v1/apiservices/{name} | 
+[**patchAPIServiceStatus**](ApiregistrationV1Api.md#patchAPIServiceStatus) | **PATCH** /apis/apiregistration.k8s.io/v1/apiservices/{name}/status | 
 [**readAPIService**](ApiregistrationV1Api.md#readAPIService) | **GET** /apis/apiregistration.k8s.io/v1/apiservices/{name} | 
+[**readAPIServiceStatus**](ApiregistrationV1Api.md#readAPIServiceStatus) | **GET** /apis/apiregistration.k8s.io/v1/apiservices/{name}/status | 
 [**replaceAPIService**](ApiregistrationV1Api.md#replaceAPIService) | **PUT** /apis/apiregistration.k8s.io/v1/apiservices/{name} | 
 [**replaceAPIServiceStatus**](ApiregistrationV1Api.md#replaceAPIServiceStatus) | **PUT** /apis/apiregistration.k8s.io/v1/apiservices/{name}/status | 
 
@@ -389,6 +391,65 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
+<a name="patchAPIServiceStatus"></a>
+# **patchAPIServiceStatus**
+> V1APIService patchAPIServiceStatus(name, body, pretty)
+
+
+
+partially update status of the specified APIService
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.ApiregistrationV1Api;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+ApiregistrationV1Api apiInstance = new ApiregistrationV1Api();
+String name = "name_example"; // String | name of the APIService
+Object body = null; // Object | 
+String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+try {
+    V1APIService result = apiInstance.patchAPIServiceStatus(name, body, pretty);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ApiregistrationV1Api#patchAPIServiceStatus");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| name of the APIService |
+ **body** | **Object**|  |
+ **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+
+### Return type
+
+[**V1APIService**](V1APIService.md)
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+
 <a name="readAPIService"></a>
 # **readAPIService**
 > V1APIService readAPIService(name, pretty, exact, export)
@@ -436,6 +497,63 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **exact** | **Boolean**| Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. | [optional]
  **export** | **Boolean**| Should this value be exported.  Export strips fields that a user can not specify. | [optional]
+
+### Return type
+
+[**V1APIService**](V1APIService.md)
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+
+<a name="readAPIServiceStatus"></a>
+# **readAPIServiceStatus**
+> V1APIService readAPIServiceStatus(name, pretty)
+
+
+
+read status of the specified APIService
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.ApiregistrationV1Api;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+ApiregistrationV1Api apiInstance = new ApiregistrationV1Api();
+String name = "name_example"; // String | name of the APIService
+String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+try {
+    V1APIService result = apiInstance.readAPIServiceStatus(name, pretty);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ApiregistrationV1Api#readAPIServiceStatus");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| name of the APIService |
+ **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
 
 ### Return type
 

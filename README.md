@@ -126,12 +126,13 @@ All APIs and Models' documentation can be found at the [Generated client's READM
 
 ## Compatibility
 
-| client version | Kubernetes 1.4 | Kubernetes 1.5 | Kubernetes 1.6 | Kubernetes 1.7 | Kubernetes 1.8 | Kubernetes 1.9 | Kubernetes 1.10 |
+| client version | Kubernetes 1.4 | Kubernetes 1.5 | Kubernetes 1.6 | Kubernetes 1.7 | Kubernetes 1.8 | Kubernetes 1.9 | Kubernetes 1.10 | Kubernetes 1.11 |
 |-------------------------|----------------|----------------|----------------|----------------|----------------|-----------|-----------|
-| 0.1.0        | +              | +              | ✓              | -              | -              | -         | -        |
-| 0.2.0        | +              | +              | ✓              | -              | -              | -         | -        |
-| 1.0.0        | +              | +              | +              | +              | ✓              | -         | -        |
-| 2.0.0-beta2  | +              | +              | +              | +              | +              | +         | ✓        |
+| 0.1.0        | +              | +              | ✓              | -              | -              | -         | -        | -        |
+| 0.2.0        | +              | +              | ✓              | -              | -              | -         | -        | -        |
+| 1.0.0        | +              | +              | +              | +              | ✓              | -         | -        | -        |
+| 2.0.0        | +              | +              | +              | +              | +              | +         | ✓        | -        |
+| 3.0.0-beta1  | +              | +              | +              | +              | +              | +         | +        | ✓        |
 
 Key: 
 
