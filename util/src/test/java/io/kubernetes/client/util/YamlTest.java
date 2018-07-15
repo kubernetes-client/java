@@ -15,12 +15,18 @@ package io.kubernetes.client.util;
 import static org.junit.Assert.*;
 
 import com.google.common.io.Resources;
-import io.kubernetes.client.models.*;
+import io.kubernetes.client.models.AppsV1beta1Deployment;
+import io.kubernetes.client.models.V1ObjectMeta;
+import io.kubernetes.client.models.V1Secret;
+import io.kubernetes.client.models.V1Service;
+import io.kubernetes.client.models.V1ServicePort;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
 import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import org.junit.Test;
 
@@ -132,6 +138,10 @@ public class YamlTest {
         throw new Exception("some thing wrong happened");
       }
     }
+    String result = Yaml.dumpAll(list.iterator());
+    String expected =
+        new String(Files.readAllBytes(Paths.get(TEST_YAML_FILE_PATH)), StandardCharsets.UTF_8);
+    assertEquals(expected, result);
   }
 
   @Test

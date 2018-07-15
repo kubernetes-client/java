@@ -19,15 +19,30 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
-import java.util.*;
+import java.io.Writer;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import okio.ByteString;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.constructor.Constructor;
+import org.yaml.snakeyaml.introspector.Property;
+import org.yaml.snakeyaml.nodes.MappingNode;
 import org.yaml.snakeyaml.nodes.Node;
+import org.yaml.snakeyaml.nodes.NodeTuple;
 import org.yaml.snakeyaml.nodes.ScalarNode;
+import org.yaml.snakeyaml.nodes.Tag;
+import org.yaml.snakeyaml.representer.Represent;
+import org.yaml.snakeyaml.representer.Representer;
 
 public class Yaml {
   private static Map<String, Class<?>> classes = new HashMap<>();
@@ -259,6 +274,46 @@ public class Yaml {
     return list;
   }
 
+  /**
+   * Takes an API object and returns a YAML String representing that object.
+   *
+   * @param object The API object to dump.
+   * @return A YAML String representing the API object.
+   */
+  public static String dump(Object object) {
+    return getSnakeYaml().dump(object);
+  }
+
+  /**
+   * Takes an API object and writes a YAML string representing that object to the writer.
+   *
+   * @param object The API object to dump
+   * @param writer The writer to write the YAML to.
+   */
+  public static void dump(Object object, Writer writer) {
+    getSnakeYaml().dump(object, writer);
+  }
+
+  /**
+   * Takes an Iterator of YAML API objects and returns a YAML string representing all of them
+   *
+   * @param data The list of YAML API objects
+   * @return A String representing the list of YAML API objects.
+   */
+  public static String dumpAll(Iterator<? extends Object> data) {
+    return getSnakeYaml().dumpAll(data);
+  }
+
+  /**
+   * Takes an Iterator of YAML API objects and writes a YAML String representing all of them.
+   *
+   * @param data The list of YAML API objects.
+   * @param output The writer to output the YAML String to.
+   */
+  public static void dumpAll(Iterator<? extends Object> data, Writer output) {
+    getSnakeYaml().dumpAll(data, output);
+  }
+
   /** Defines constructor logic for custom types in this library. */
   public static class CustomConstructor extends Constructor {
     @Override
@@ -285,9 +340,93 @@ public class Yaml {
     }
   }
 
+  public static class CustomRepresenter extends Representer {
+    public CustomRepresenter() {
+      this.setDefaultFlowStyle(DumperOptions.FlowStyle.BLOCK);
+      this.representers.put(IntOrString.class, new RepresentIntOrString());
+      this.representers.put(byte[].class, new RepresentByteArray());
+    }
+
+    private class RepresentIntOrString implements Represent {
+      @Override
+      public Node representData(Object data) {
+        IntOrString intOrString = (IntOrString) data;
+        if (intOrString.isInteger()) {
+          return CustomRepresenter.this.representData(intOrString.getIntValue());
+        } else {
+          return CustomRepresenter.this.representData(intOrString.getStrValue());
+        }
+      }
+    }
+
+    private class RepresentByteArray implements Represent {
+      @Override
+      public Node representData(Object data) {
+        String value = ByteString.of((byte[]) data).base64();
+        return representScalar(Tag.STR, value);
+      }
+    }
+
+    /**
+     * This returns the ordering of properties that by convention should appear at the beginning of
+     * a Yaml object in Kubernetes.
+     */
+    private int getPropertyPosition(String property) {
+      switch (property) {
+        case "apiVersion":
+          return 0;
+        case "kind":
+          return 1;
+        case "metadata":
+          return 2;
+        case "spec":
+          return 3;
+        case "type":
+          return 4;
+        default:
+          return Integer.MAX_VALUE;
+      }
+    }
+
+    @Override
+    protected MappingNode representJavaBean(Set<Property> properties, Object javaBean) {
+      MappingNode node = super.representJavaBean(properties, javaBean);
+      // Always set the tag to MAP so that SnakeYaml doesn't print out the class name as a tag.
+      node.setTag(Tag.MAP);
+      // Sort the output of our map so that we put certain keys, such as apiVersion, first.
+      Collections.sort(
+          node.getValue(),
+          new Comparator<NodeTuple>() {
+            @Override
+            public int compare(NodeTuple a, NodeTuple b) {
+              String nameA = ((ScalarNode) a.getKeyNode()).getValue();
+              String nameB = ((ScalarNode) b.getKeyNode()).getValue();
+              int intCompare =
+                  Integer.compare(getPropertyPosition(nameA), getPropertyPosition(nameB));
+              if (intCompare != 0) {
+                return intCompare;
+              } else {
+                return nameA.compareTo(nameB);
+              }
+            }
+          });
+      return node;
+    }
+
+    @Override
+    protected NodeTuple representJavaBeanProperty(
+        Object javaBean, Property property, Object propertyValue, Tag customTag) {
+      // returning null for a null property value means we won't output it in the Yaml
+      if (propertyValue == null) {
+        return null;
+      }
+      return super.representJavaBeanProperty(javaBean, property, propertyValue, customTag);
+    }
+  }
+
   /** @return An instantiated SnakeYaml Object. */
   public static org.yaml.snakeyaml.Yaml getSnakeYaml() {
-    return new org.yaml.snakeyaml.Yaml(new CustomConstructor());
+    return new org.yaml.snakeyaml.Yaml(new CustomConstructor(), new CustomRepresenter());
   }
 
   /**
