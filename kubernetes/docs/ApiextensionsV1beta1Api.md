@@ -10,7 +10,9 @@ Method | HTTP request | Description
 [**getAPIResources**](ApiextensionsV1beta1Api.md#getAPIResources) | **GET** /apis/apiextensions.k8s.io/v1beta1/ | 
 [**listCustomResourceDefinition**](ApiextensionsV1beta1Api.md#listCustomResourceDefinition) | **GET** /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions | 
 [**patchCustomResourceDefinition**](ApiextensionsV1beta1Api.md#patchCustomResourceDefinition) | **PATCH** /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/{name} | 
+[**patchCustomResourceDefinitionStatus**](ApiextensionsV1beta1Api.md#patchCustomResourceDefinitionStatus) | **PATCH** /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/{name}/status | 
 [**readCustomResourceDefinition**](ApiextensionsV1beta1Api.md#readCustomResourceDefinition) | **GET** /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/{name} | 
+[**readCustomResourceDefinitionStatus**](ApiextensionsV1beta1Api.md#readCustomResourceDefinitionStatus) | **GET** /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/{name}/status | 
 [**replaceCustomResourceDefinition**](ApiextensionsV1beta1Api.md#replaceCustomResourceDefinition) | **PUT** /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/{name} | 
 [**replaceCustomResourceDefinitionStatus**](ApiextensionsV1beta1Api.md#replaceCustomResourceDefinitionStatus) | **PUT** /apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/{name}/status | 
 
@@ -389,6 +391,65 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
+<a name="patchCustomResourceDefinitionStatus"></a>
+# **patchCustomResourceDefinitionStatus**
+> V1beta1CustomResourceDefinition patchCustomResourceDefinitionStatus(name, body, pretty)
+
+
+
+partially update status of the specified CustomResourceDefinition
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.ApiextensionsV1beta1Api;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+ApiextensionsV1beta1Api apiInstance = new ApiextensionsV1beta1Api();
+String name = "name_example"; // String | name of the CustomResourceDefinition
+Object body = null; // Object | 
+String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+try {
+    V1beta1CustomResourceDefinition result = apiInstance.patchCustomResourceDefinitionStatus(name, body, pretty);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ApiextensionsV1beta1Api#patchCustomResourceDefinitionStatus");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| name of the CustomResourceDefinition |
+ **body** | **Object**|  |
+ **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+
+### Return type
+
+[**V1beta1CustomResourceDefinition**](V1beta1CustomResourceDefinition.md)
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+
 <a name="readCustomResourceDefinition"></a>
 # **readCustomResourceDefinition**
 > V1beta1CustomResourceDefinition readCustomResourceDefinition(name, pretty, exact, export)
@@ -436,6 +497,63 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **exact** | **Boolean**| Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. | [optional]
  **export** | **Boolean**| Should this value be exported.  Export strips fields that a user can not specify. | [optional]
+
+### Return type
+
+[**V1beta1CustomResourceDefinition**](V1beta1CustomResourceDefinition.md)
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+
+<a name="readCustomResourceDefinitionStatus"></a>
+# **readCustomResourceDefinitionStatus**
+> V1beta1CustomResourceDefinition readCustomResourceDefinitionStatus(name, pretty)
+
+
+
+read status of the specified CustomResourceDefinition
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.ApiextensionsV1beta1Api;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+ApiextensionsV1beta1Api apiInstance = new ApiextensionsV1beta1Api();
+String name = "name_example"; // String | name of the CustomResourceDefinition
+String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+try {
+    V1beta1CustomResourceDefinition result = apiInstance.readCustomResourceDefinitionStatus(name, pretty);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ApiextensionsV1beta1Api#readCustomResourceDefinitionStatus");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| name of the CustomResourceDefinition |
+ **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
 
 ### Return type
 

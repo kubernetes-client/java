@@ -10,7 +10,9 @@ Method | HTTP request | Description
 [**getAPIResources**](CertificatesV1beta1Api.md#getAPIResources) | **GET** /apis/certificates.k8s.io/v1beta1/ | 
 [**listCertificateSigningRequest**](CertificatesV1beta1Api.md#listCertificateSigningRequest) | **GET** /apis/certificates.k8s.io/v1beta1/certificatesigningrequests | 
 [**patchCertificateSigningRequest**](CertificatesV1beta1Api.md#patchCertificateSigningRequest) | **PATCH** /apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name} | 
+[**patchCertificateSigningRequestStatus**](CertificatesV1beta1Api.md#patchCertificateSigningRequestStatus) | **PATCH** /apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name}/status | 
 [**readCertificateSigningRequest**](CertificatesV1beta1Api.md#readCertificateSigningRequest) | **GET** /apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name} | 
+[**readCertificateSigningRequestStatus**](CertificatesV1beta1Api.md#readCertificateSigningRequestStatus) | **GET** /apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name}/status | 
 [**replaceCertificateSigningRequest**](CertificatesV1beta1Api.md#replaceCertificateSigningRequest) | **PUT** /apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name} | 
 [**replaceCertificateSigningRequestApproval**](CertificatesV1beta1Api.md#replaceCertificateSigningRequestApproval) | **PUT** /apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name}/approval | 
 [**replaceCertificateSigningRequestStatus**](CertificatesV1beta1Api.md#replaceCertificateSigningRequestStatus) | **PUT** /apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name}/status | 
@@ -390,6 +392,65 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
+<a name="patchCertificateSigningRequestStatus"></a>
+# **patchCertificateSigningRequestStatus**
+> V1beta1CertificateSigningRequest patchCertificateSigningRequestStatus(name, body, pretty)
+
+
+
+partially update status of the specified CertificateSigningRequest
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.CertificatesV1beta1Api;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+CertificatesV1beta1Api apiInstance = new CertificatesV1beta1Api();
+String name = "name_example"; // String | name of the CertificateSigningRequest
+Object body = null; // Object | 
+String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+try {
+    V1beta1CertificateSigningRequest result = apiInstance.patchCertificateSigningRequestStatus(name, body, pretty);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CertificatesV1beta1Api#patchCertificateSigningRequestStatus");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| name of the CertificateSigningRequest |
+ **body** | **Object**|  |
+ **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+
+### Return type
+
+[**V1beta1CertificateSigningRequest**](V1beta1CertificateSigningRequest.md)
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+
 <a name="readCertificateSigningRequest"></a>
 # **readCertificateSigningRequest**
 > V1beta1CertificateSigningRequest readCertificateSigningRequest(name, pretty, exact, export)
@@ -437,6 +498,63 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **exact** | **Boolean**| Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. | [optional]
  **export** | **Boolean**| Should this value be exported.  Export strips fields that a user can not specify. | [optional]
+
+### Return type
+
+[**V1beta1CertificateSigningRequest**](V1beta1CertificateSigningRequest.md)
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+
+<a name="readCertificateSigningRequestStatus"></a>
+# **readCertificateSigningRequestStatus**
+> V1beta1CertificateSigningRequest readCertificateSigningRequestStatus(name, pretty)
+
+
+
+read status of the specified CertificateSigningRequest
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.CertificatesV1beta1Api;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+CertificatesV1beta1Api apiInstance = new CertificatesV1beta1Api();
+String name = "name_example"; // String | name of the CertificateSigningRequest
+String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+try {
+    V1beta1CertificateSigningRequest result = apiInstance.readCertificateSigningRequestStatus(name, pretty);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CertificatesV1beta1Api#readCertificateSigningRequestStatus");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| name of the CertificateSigningRequest |
+ **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
 
 ### Return type
 

@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**max** | **Long** | Max is the end of the range, inclusive. | 
-**min** | **Long** | Min is the start of the range, inclusive. | 
+**max** | **Long** | max is the end of the range, inclusive. | 
+**min** | **Long** | min is the start of the range, inclusive. | 
 
 
 

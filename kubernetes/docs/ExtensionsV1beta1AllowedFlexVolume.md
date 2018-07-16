@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**driver** | **String** | Driver is the name of the Flexvolume driver. | 
+**driver** | **String** | driver is the name of the Flexvolume driver. | 
 
 
 
