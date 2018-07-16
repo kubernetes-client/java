@@ -25,7 +25,6 @@ import io.kubernetes.client.util.credentials.Authentication;
 import io.kubernetes.client.util.credentials.KubeconfigAuthentication;
 import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -71,13 +70,29 @@ public class ClientBuilder {
    *     cannot be read.
    */
   public static ClientBuilder standard() throws IOException {
-    final FileReader kubeConfigReader = findConfigFromEnv();
-    if (kubeConfigReader != null) {
-      return kubeconfig(loadKubeConfig(kubeConfigReader));
+    return standard(true);
+  }
+
+  public static ClientBuilder standard(boolean persistConfig) throws IOException {
+    final File kubeConfig = findConfigFromEnv();
+    if (kubeConfig != null) {
+      try (FileReader kubeConfigReader = new FileReader(kubeConfig)) {
+        KubeConfig kc = loadKubeConfig(kubeConfigReader);
+        if (persistConfig) {
+          kc.setPersistConfig(new FilePersister(kubeConfig));
+        }
+        return kubeconfig(kc);
+      }
     }
-    final FileReader configReader = findConfigInHomeDir();
-    if (configReader != null) {
-      return kubeconfig(loadKubeConfig(configReader));
+    final File config = findConfigInHomeDir();
+    if (config != null) {
+      try (FileReader configReader = new FileReader(config)) {
+        KubeConfig kc = loadKubeConfig(configReader);
+        if (persistConfig) {
+          kc.setPersistConfig(new FilePersister(config));
+        }
+        return kubeconfig(kc);
+      }
     }
     final File clusterCa = new File(SERVICEACCOUNT_CA_PATH);
     if (clusterCa.exists()) {
@@ -86,24 +101,24 @@ public class ClientBuilder {
     return new ClientBuilder();
   }
 
-  private static FileReader findConfigFromEnv() throws FileNotFoundException {
+  private static File findConfigFromEnv() {
     String kubeConfigPath = System.getenv(ENV_KUBECONFIG);
     if (kubeConfigPath == null) {
       return null;
     }
     final File kubeConfig = new File(kubeConfigPath);
     if (kubeConfig.exists()) {
-      return new FileReader(kubeConfig);
+      return kubeConfig;
     } else {
       log.debug("Could not find file specified in $KUBECONFIG");
       return null;
     }
   }
 
-  private static FileReader findConfigInHomeDir() throws FileNotFoundException {
+  private static File findConfigInHomeDir() {
     final File config = new File(new File(System.getenv(ENV_HOME), KUBEDIR), KUBECONFIG);
     if (config.exists()) {
-      return new FileReader(config);
+      return config;
     } else {
       log.debug("Could not find ~/.kube/config");
       return null;

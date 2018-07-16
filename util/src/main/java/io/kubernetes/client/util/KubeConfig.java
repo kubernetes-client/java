@@ -15,9 +15,6 @@ package io.kubernetes.client.util;
 import io.kubernetes.client.util.authenticators.Authenticator;
 import io.kubernetes.client.util.authenticators.AzureActiveDirectoryAuthenticator;
 import io.kubernetes.client.util.authenticators.GCPAuthenticator;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.FileSystems;
@@ -49,10 +46,13 @@ public class KubeConfig {
   private ArrayList<Object> clusters;
   private ArrayList<Object> contexts;
   private ArrayList<Object> users;
+  String currentContextName;
   Map<String, Object> currentContext;
   Map<String, Object> currentCluster;
   Map<String, Object> currentUser;
   String currentNamespace;
+  Object preferences;
+  ConfigPersister persister;
 
   public static void registerAuthenticator(Authenticator auth) {
     synchronized (authenticators) {
@@ -65,15 +65,6 @@ public class KubeConfig {
     registerAuthenticator(new AzureActiveDirectoryAuthenticator());
   }
 
-  /** Load a Kubernetes config from the default location */
-  public static KubeConfig loadDefaultKubeConfig() throws FileNotFoundException {
-    File config = new File(new File(System.getenv(ENV_HOME), KUBEDIR), KUBECONFIG);
-    if (!config.exists()) {
-      return null;
-    }
-    return loadKubeConfig(new FileReader(config));
-  }
-
   /** Load a Kubernetes config from a Reader */
   public static KubeConfig loadKubeConfig(Reader input) {
     Yaml yaml = new Yaml(new SafeConstructor());
@@ -84,9 +75,11 @@ public class KubeConfig {
     ArrayList<Object> contexts = (ArrayList<Object>) configMap.get("contexts");
     ArrayList<Object> clusters = (ArrayList<Object>) configMap.get("clusters");
     ArrayList<Object> users = (ArrayList<Object>) configMap.get("users");
+    Object preferences = configMap.get("preferences");
 
     KubeConfig kubeConfig = new KubeConfig(contexts, clusters, users);
     kubeConfig.setContext(currentContext);
+    kubeConfig.setPreferences(preferences);
 
     return kubeConfig;
   }
@@ -98,11 +91,15 @@ public class KubeConfig {
     this.users = users;
   }
 
+  public String getCurrentContext() {
+    return currentContextName;
+  }
+
   public boolean setContext(String context) {
     if (context == null) {
       return false;
     }
-
+    currentContextName = context;
     currentCluster = null;
     currentUser = null;
     Map<String, Object> ctx = findObject(contexts, context);
@@ -131,8 +128,24 @@ public class KubeConfig {
     return true;
   }
 
+  public ArrayList<Object> getContexts() {
+    return contexts;
+  }
+
+  public ArrayList<Object> getClusters() {
+    return clusters;
+  }
+
+  public ArrayList<Object> getUsers() {
+    return users;
+  }
+
   public String getNamespace() {
     return currentNamespace;
+  }
+
+  public Object getPreferences() {
+    return preferences;
   }
 
   public String getServer() {
@@ -186,7 +199,13 @@ public class KubeConfig {
         if (auth != null) {
           if (auth.isExpired(authConfig)) {
             authConfig = auth.refresh(authConfig);
-            // TODO persist things here.
+            if (persister != null) {
+              try {
+                persister.save(contexts, clusters, users, preferences, currentContextName);
+              } catch (IOException ex) {
+                log.error("Failed to persist new token", ex);
+              }
+            }
           }
           return auth.getToken(authConfig);
         } else {
@@ -217,6 +236,19 @@ public class KubeConfig {
       return !((Boolean) currentCluster.get("insecure-skip-tls-verify")).booleanValue();
     }
     return true;
+  }
+
+  /**
+   * Set persistence for this config.
+   *
+   * @param persister The persistence to use, or null to not persist the config.
+   */
+  public void setPersistConfig(ConfigPersister persister) {
+    this.persister = persister;
+  }
+
+  public void setPreferences(Object preferences) {
+    this.preferences = preferences;
   }
 
   private static String getData(Map<String, Object> obj, String key) {
