@@ -12,9 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.util.authenticators;
 
+import com.microsoft.aad.adal4j.AuthenticationContext;
+import com.microsoft.aad.adal4j.AuthenticationResult;
 import io.kubernetes.client.util.KubeConfig;
+import java.net.MalformedURLException;
 import java.util.Date;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 /**
  * The Authenticator interface represents a plugin that can handle a specific type of authentication
@@ -27,6 +33,9 @@ public class AzureActiveDirectoryAuthenticator implements Authenticator {
 
   private static final String ACCESS_TOKEN = "access-token";
   private static final String EXPIRES_ON = "expires-on";
+  private static final String TENANT_ID = "tenant-id";
+  private static final String CLIENT_ID = "client-id";
+  private static final String REFRESH_TOKEN = "refresh-token";
 
   @Override
   public String getName() {
@@ -50,6 +59,26 @@ public class AzureActiveDirectoryAuthenticator implements Authenticator {
 
   @Override
   public Map<String, Object> refresh(Map<String, Object> config) {
-    throw new RuntimeException("Unimplemented");
+    // TODO: Support national clouds!
+    String cloud = "https://login.microsoftonline.com";
+    String tenantId = (String) config.get(TENANT_ID);
+    String authority = cloud + "/" + tenantId;
+    String clientId = (String) config.get(CLIENT_ID);
+    String refreshToken = (String) config.get(REFRESH_TOKEN);
+
+    try {
+      AuthenticationContext context =
+          new AuthenticationContext(authority, true, Executors.newSingleThreadExecutor());
+      Future<AuthenticationResult> resultFuture =
+          context.acquireTokenByRefreshToken(refreshToken, clientId, null);
+      AuthenticationResult result = resultFuture.get();
+      config.put(ACCESS_TOKEN, result.getAccessToken());
+      config.put(REFRESH_TOKEN, result.getRefreshToken());
+
+      return config;
+
+    } catch (InterruptedException | MalformedURLException | ExecutionException ex) {
+      throw new RuntimeException(ex);
+    }
   }
 }
