@@ -37,7 +37,7 @@ public class ExecTest {
 
   @Before
   public void setup() throws IOException {
-    client = ClientBuilder.defaultClient();
+    client = new ClientBuilder().setBasePath("http://localhost:9999").build();
   }
 
   @Test
