@@ -112,7 +112,7 @@ public class Yaml {
     initApiGroupMap();
     initApiVersionList();
 
-    ClassPath cp = ClassPath.from(ClassLoader.getSystemClassLoader());
+    ClassPath cp = ClassPath.from(Yaml.class.getClassLoader());
     Set<ClassPath.ClassInfo> allClasses = cp.getTopLevelClasses("io.kubernetes.client.models");
 
     for (ClassPath.ClassInfo clazz : allClasses) {
