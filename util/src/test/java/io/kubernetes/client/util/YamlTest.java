@@ -17,12 +17,16 @@ import static org.junit.Assert.*;
 import com.google.common.io.Resources;
 import io.kubernetes.client.models.AppsV1beta1Deployment;
 import io.kubernetes.client.models.V1ObjectMeta;
+import io.kubernetes.client.models.V1Secret;
 import io.kubernetes.client.models.V1Service;
 import io.kubernetes.client.models.V1ServicePort;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
 import java.lang.reflect.Method;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import org.junit.Test;
 
@@ -123,10 +127,21 @@ public class YamlTest {
         assertEquals("apps/v1beta1", deploy.getApiVersion());
         assertEquals("Deployment", deploy.getKind());
         assertEquals("helloworld", deploy.getMetadata().getName());
+      } else if (type.equals("V1Secret")) {
+        V1Secret secret = (V1Secret) object;
+        assertEquals("Secret", secret.getKind());
+        assertEquals("secret", secret.getMetadata().getName());
+        assertEquals("Opaque", secret.getType());
+        assertEquals(
+            "hello", new String(secret.getData().get("secret-data"), StandardCharsets.UTF_8));
       } else {
         throw new Exception("some thing wrong happened");
       }
     }
+    String result = Yaml.dumpAll(list.iterator());
+    String expected =
+        new String(Files.readAllBytes(Paths.get(TEST_YAML_FILE_PATH)), StandardCharsets.UTF_8);
+    assertEquals(expected, result);
   }
 
   @Test
@@ -144,6 +159,23 @@ public class YamlTest {
       assertTrue(
           "Target port for 'intPort' was parsed to a string, integer expected.",
           intPort.getTargetPort().isInteger());
+
+    } catch (Exception ex) {
+      assertNull("Unexpected exception: " + ex.toString(), ex);
+    }
+  }
+
+  @Test
+  public void testLoadBytes() {
+    try {
+      String strInput = "data:\n  hello: aGVsbG8=";
+
+      V1Secret secret = Yaml.loadAs(strInput, V1Secret.class);
+
+      assertEquals(
+          "Incorrect value loaded for Base64 encoded secret",
+          "hello",
+          new String(secret.getData().get("hello"), StandardCharsets.UTF_8));
 
     } catch (Exception ex) {
       assertNull("Unexpected exception: " + ex.toString(), ex);
