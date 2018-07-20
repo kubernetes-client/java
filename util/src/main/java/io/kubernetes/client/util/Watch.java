@@ -70,6 +70,7 @@ public class Watch<T>
   Type watchType;
   ResponseBody response;
   JSON json;
+  Call call;
 
   /**
    * Creates a watch on a TYPENAME (T) using an API Client and a Call object.
@@ -105,16 +106,17 @@ public class Watch<T>
         throw new ApiException(
             response.message(), response.code(), response.headers().toMultimap(), respBody);
       }
-      return new Watch<>(client.getJSON(), response.body(), watchType);
+      return new Watch<>(client.getJSON(), response.body(), watchType, call);
     } catch (IOException e) {
       throw new ApiException(e);
     }
   }
 
-  private Watch(JSON json, ResponseBody body, Type watchType) {
+  private Watch(JSON json, ResponseBody body, Type watchType, Call call) {
     this.response = body;
     this.watchType = watchType;
     this.json = json;
+    this.call = call;
   }
 
   public Response<T> next() {
@@ -152,6 +154,7 @@ public class Watch<T>
   }
 
   public void close() throws IOException {
+    this.call.cancel();
     this.response.close();
   }
 }
