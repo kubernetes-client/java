@@ -1,3 +1,25 @@
+# 3.0.0-beta1
+
+* feat (#137): Introduce builder generation.
+* Close watches more cleanly.
+* Avoid use SystemClassLoader on Yaml.
+* Add config file persistence.
+* Support refresh for Azure Active Directory tokens. 
+* Regenerate client for Kubernetes 1.11 
+
+
+# 2.0.0
+
+Changes since 1.0.0:
+
+* Update Guava dependency. #301 
+* Added OSGi support and updated plugins #291 #292
+* Client overwriting my app's logback configuration #276 #284
+* Support equals() for IntOrString #283
+* Close the response body in the case of error. #281
+* Add a warning and an exception if a watch is created with debugging enabled. #280
+* Update to 1.10 API.
+
 # 1.0.0
 * Fix a bug with HTML escaping byte arrays (#240)
 * Fix a bug with YAML parsing IntOrString types (#242)
