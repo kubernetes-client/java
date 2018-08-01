@@ -52,6 +52,7 @@ public class ClientBuilderTest {
   @Before
   public void setup() {
     environmentVariables.set("HOME", "/non-existent");
+    environmentVariables.set("KUBECONFIG", null);
   }
 
   @Test

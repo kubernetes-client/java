@@ -72,6 +72,8 @@ public class ConfigTest {
 
   @Before
   public void setUp() throws IOException {
+    environmentVariables.set("KUBECONFIG", null);
+
     dir = folder.newFolder();
     kubedir = new File(dir, ".kube");
     kubedir.mkdir();
