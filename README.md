@@ -146,9 +146,9 @@ Key:
 See the [CHANGELOG](./CHANGELOG.md) for a detailed description of changes
 between java-client versions.
 
-## Community, Support, Discussion
+## Contributing
 
-You can reach the maintainers of this project at [SIG API Machinery](https://github.com/kubernetes/community/tree/master/sig-api-machinery). If you have any problem with the package or any suggestions, please file an [issue](https://github.com/kubernetes-client/java/issues).
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for instructions on how to contribute.
 
 ### Code of Conduct
 
@@ -156,9 +156,9 @@ Participation in the Kubernetes community is governed by the [CNCF Code of Condu
 
 # Development
 
-## Update client
+## Update the client
 
-to update the client clone the `gen` repo and run this command at the root of the client repo:
+To update the client clone the `gen` repo and run this command at the root of the client repo:
 
 ```bash
 ${GEN_REPO_BASE}/openapi/java.sh kubernetes settings
