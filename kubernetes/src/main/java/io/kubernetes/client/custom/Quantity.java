@@ -7,6 +7,9 @@ import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Objects;
+
+import org.apache.commons.lang3.ObjectUtils;
 
 @JsonAdapter(Quantity.QuantityAdapter.class)
 public class Quantity {
@@ -60,6 +63,21 @@ public class Quantity {
                 "number=" + number +
                 ", format=" + format +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+          }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Quantity otherQuantity = (Quantity) o;
+
+        return ObjectUtils.compare(this.number, otherQuantity.number) == 0 &&
+        		Objects.equals(this.format, otherQuantity.format);
     }
 
     public class QuantityAdapter extends TypeAdapter<Quantity> {
