@@ -45,6 +45,7 @@ public class Example {
 
     private final CoreV1Api corev1Api;
     private final static String DEFAULT_NAME_SPACE = "default";
+    private final static Integer TIME_OUT_VALUE = 180;
 
     /*
     For API_SERVER_NAME, you can get the server name as follows.
@@ -57,7 +58,7 @@ public class Example {
     $ kubectl describe secret $(kubectl get secrets | grep default | cut -f1 -d ' ') | grep -E '^token' | cut -f2 -d':' | tr -d '\t'
      */
     private static final String ACCESS_TOKEN = "********************************";
-
+    
     private final static Logger LOGGER = Logger.getLogger(Example.class.getName());
 
     /**
@@ -123,7 +124,7 @@ public class Example {
      * @throws ApiException
      */
     public List<String> getAllNameSapces() throws ApiException {
-        V1NamespaceList listNamespace = corev1Api.listNamespace("true", null, null, Boolean.FALSE, null, Integer.SIZE, null, Integer.BYTES, Boolean.FALSE);
+        V1NamespaceList listNamespace = corev1Api.listNamespace("true", null, null, Boolean.FALSE, null, 0, null, Integer.MAX_VALUE, Boolean.FALSE);
         List<String> list = listNamespace.getItems()
                 .stream()
                 .map(v1Namespace -> v1Namespace.getMetadata().getName())
@@ -176,7 +177,7 @@ public class Example {
      * @throws ApiException
      */
     public List<String> getNamespacedPod(String namespace, String label) throws ApiException {
-        V1PodList listNamespacedPod = corev1Api.listNamespacedPod(namespace, null, null, null, Boolean.FALSE, label, Integer.SIZE, null, Integer.BYTES, Boolean.FALSE);
+        V1PodList listNamespacedPod = corev1Api.listNamespacedPod(namespace, null, null, null, Boolean.FALSE, label, Integer.MAX_VALUE, null, TIME_OUT_VALUE, Boolean.FALSE);
         List<String> listPods = listNamespacedPod.getItems()
                 .stream()
                 .map(v1pod -> v1pod.getMetadata().getName())
@@ -191,7 +192,7 @@ public class Example {
      * @throws ApiException
      */
     public List<String> getServices() throws ApiException {
-        V1ServiceList listNamespacedService = corev1Api.listNamespacedService(DEFAULT_NAME_SPACE, null, null, null, Boolean.FALSE, null, Integer.SIZE, null, Integer.BYTES, Boolean.FALSE);
+        V1ServiceList listNamespacedService = corev1Api.listNamespacedService(DEFAULT_NAME_SPACE, null, null, null, Boolean.FALSE, null, Integer.MAX_VALUE, null, TIME_OUT_VALUE, Boolean.FALSE);
         return listNamespacedService.getItems().stream().map(v1service -> v1service.getMetadata().getName()).collect(Collectors.toList());
     }
 
