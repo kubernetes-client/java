@@ -24,6 +24,7 @@ import io.kubernetes.client.models.V1NamespaceList;
 import io.kubernetes.client.models.V1PodList;
 import io.kubernetes.client.models.V1ServiceList;
 import io.kubernetes.client.util.Config;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Level;
@@ -49,21 +50,24 @@ public class Example {
     For API_SERVER_NAME, you can get the server name as follows.
     $ kubectl cluster-info|grep master
     Kubernetes master is running at https://*****************.hcp.japaneast.azmk8s.io:443
-    */
+     */
     private final static String API_SERVER_NAME = "https://*****************.hcp.japaneast.azmk8s.io";
     /*
     For ACCESS_TOKEN , you can get the token as follows
     $ kubectl describe secret $(kubectl get secrets | grep default | cut -f1 -d ' ') | grep -E '^token' | cut -f2 -d':' | tr -d '\t'
-    */
+     */
     private static final String ACCESS_TOKEN = "********************************";
 
     private final static Logger LOGGER = Logger.getLogger(Example.class.getName());
 
     /**
      * Constructor
+     * @throws java.io.IOException
      */
-    public Example() {
-        ApiClient client = Config.fromToken(API_SERVER_NAME, ACCESS_TOKEN, false);
+    public Example() throws IOException {
+        ApiClient client = Config.defaultClient();
+        //If you want to use specific k8s cluster and access token, please use following?
+        //ApiClient client = Config.fromToken(API_SERVER_NAME, ACCESS_TOKEN, false);
         Configuration.setDefaultApiClient(client);
         corev1Api = new CoreV1Api(client);
     }
@@ -77,8 +81,8 @@ public class Example {
         try {
             Example operation = new Example();
             operation.executeCommand();
-        } catch (ApiException ex) {
-            LOGGER.log(Level.SEVERE, null, ex);
+        } catch (ApiException | IOException ex) {
+            Logger.getLogger(Example.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -201,7 +205,7 @@ public class Example {
     public void scaleDeployment(String deploymentName, int numberOfReplicas) throws ApiException {
         ExtensionsV1beta1Api extensionV1Api = new ExtensionsV1beta1Api();
         extensionV1Api.setApiClient(corev1Api.getApiClient());
-        ExtensionsV1beta1DeploymentList listNamespacedDeployment = extensionV1Api.listNamespacedDeployment(DEFAULT_NAME_SPACE,null,null,null,Boolean.FALSE,null,null,null,null,Boolean.FALSE);
+        ExtensionsV1beta1DeploymentList listNamespacedDeployment = extensionV1Api.listNamespacedDeployment(DEFAULT_NAME_SPACE, null, null, null, Boolean.FALSE, null, null, null, null, Boolean.FALSE);
 
         List<ExtensionsV1beta1Deployment> extensionsV1beta1DeploymentItems = listNamespacedDeployment.getItems();
         Optional<ExtensionsV1beta1Deployment> findedDeployment = extensionsV1beta1DeploymentItems.stream()
