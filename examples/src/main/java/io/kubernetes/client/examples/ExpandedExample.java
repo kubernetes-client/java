@@ -43,7 +43,7 @@ public class ExpandedExample {
 
   private final CoreV1Api corev1Api;
   private static final String DEFAULT_NAME_SPACE = "default";
-
+  private final static Integer TIME_OUT_VALUE = 180;
   /*
   For API_SERVER_NAME, you can get the server name as follows.
   $ kubectl cluster-info|grep master
@@ -130,9 +130,9 @@ public class ExpandedExample {
             null,
             Boolean.FALSE,
             null,
-            Integer.SIZE,
+            0,
             null,
-            Integer.BYTES,
+            Integer.MAX_VALUE,
             Boolean.FALSE);
     List<String> list =
         listNamespace
@@ -199,9 +199,9 @@ public class ExpandedExample {
             null,
             Boolean.FALSE,
             label,
-            Integer.SIZE,
+            Integer.MAX_VALUE,
             null,
-            Integer.BYTES,
+            TIME_OUT_VALUE,
             Boolean.FALSE);
     List<String> listPods =
         listNamespacedPod
@@ -227,9 +227,9 @@ public class ExpandedExample {
             null,
             Boolean.FALSE,
             null,
-            Integer.SIZE,
+            Integer.MAX_VALUE,
             null,
-            Integer.BYTES,
+            TIME_OUT_VALUE,
             Boolean.FALSE);
     return listNamespacedService
         .getItems()
