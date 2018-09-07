@@ -24,7 +24,6 @@ import io.kubernetes.client.models.V1NamespaceList;
 import io.kubernetes.client.models.V1PodList;
 import io.kubernetes.client.models.V1ServiceList;
 import io.kubernetes.client.util.Config;
-import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -41,7 +40,7 @@ import org.slf4j.LoggerFactory;
  */
 public class ExpandedExample {
 
-  private final CoreV1Api corev1Api;
+  private static final CoreV1Api COREV1_API;
   private static final String DEFAULT_NAME_SPACE = "default";
   private static final Integer TIME_OUT_VALUE = 180;
   /*
@@ -63,12 +62,12 @@ public class ExpandedExample {
    *
    * @throws java.io.IOException
    */
-  public ExpandedExample() throws IOException {
+  static {
     // ApiClient client = Config.defaultClient();
     // If you want to use specific k8s cluster and access token, please use following?
     ApiClient client = Config.fromToken(API_SERVER_NAME, ACCESS_TOKEN, false);
     Configuration.setDefaultApiClient(client);
-    corev1Api = new CoreV1Api(client);
+    COREV1_API = new CoreV1Api(client);
   }
 
   /**
@@ -78,22 +77,21 @@ public class ExpandedExample {
    */
   public static void main(String[] args) {
     try {
-      ExpandedExample example = new ExpandedExample();
 
       // ScaleUp/ScaleDown the Deployment pod
       // Please change the name of Deployment?
       System.out.println("----- Scale Deployment Start -----");
-      example.scaleDeployment("account-service", 5);
+      scaleDeployment("account-service", 5);
 
       // List all of the namaspaces and pods
-      List<String> nameSpaces = example.getAllNameSpaces();
+      List<String> nameSpaces = getAllNameSpaces();
       nameSpaces
           .stream()
           .forEach(
               namespace -> {
                 try {
                   System.out.println("----- " + namespace + " -----");
-                  example.getNamespacedPod(namespace).stream().forEach(System.out::println);
+                  getNamespacedPod(namespace).stream().forEach(System.out::println);
                 } catch (ApiException ex) {
                   LOGGER.warn("Couldn't get the pods in namespace:" + namespace, ex);
                 }
@@ -101,17 +99,17 @@ public class ExpandedExample {
 
       // Print all of the Services
       System.out.println("----- Print list all Services Start -----");
-      List<String> services = example.getServices();
+      List<String> services = getServices();
       services.stream().forEach(System.out::println);
       System.out.println("----- Print list all Services End -----");
 
       // Print log of specific pod. In this example show the first pod logs.
       System.out.println("----- Print Log of Specific Pod Start -----");
-      String firstPodName = example.getPods().get(0);
-      example.printLog(DEFAULT_NAME_SPACE, firstPodName);
+      String firstPodName = getPods().get(0);
+      printLog(DEFAULT_NAME_SPACE, firstPodName);
       System.out.println("----- Print Log of Specific Pod End -----");
 
-    } catch (ApiException | IOException ex) {
+    } catch (ApiException ex) {
       LOGGER.warn("Exception had occured ", ex);
     }
   }
@@ -122,9 +120,9 @@ public class ExpandedExample {
    * @return
    * @throws ApiException
    */
-  public List<String> getAllNameSpaces() throws ApiException {
+  public static List<String> getAllNameSpaces() throws ApiException {
     V1NamespaceList listNamespace =
-        corev1Api.listNamespace(
+        COREV1_API.listNamespace(
             "true", null, null, Boolean.FALSE, null, 0, null, Integer.MAX_VALUE, Boolean.FALSE);
     List<String> list =
         listNamespace
@@ -141,9 +139,9 @@ public class ExpandedExample {
    * @return
    * @throws ApiException
    */
-  public List<String> getPods() throws ApiException {
+  public static List<String> getPods() throws ApiException {
     V1PodList v1podList =
-        corev1Api.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null);
+        COREV1_API.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null);
     List<String> podList =
         v1podList
             .getItems()
@@ -159,7 +157,7 @@ public class ExpandedExample {
    * @return
    * @throws ApiException
    */
-  public List<String> getNamespacedPod() throws ApiException {
+  public static List<String> getNamespacedPod() throws ApiException {
     return getNamespacedPod(DEFAULT_NAME_SPACE, null);
   }
 
@@ -170,7 +168,7 @@ public class ExpandedExample {
    * @return
    * @throws ApiException
    */
-  public List<String> getNamespacedPod(String namespace) throws ApiException {
+  public static List<String> getNamespacedPod(String namespace) throws ApiException {
     return getNamespacedPod(namespace, null);
   }
 
@@ -182,9 +180,9 @@ public class ExpandedExample {
    * @return
    * @throws ApiException
    */
-  public List<String> getNamespacedPod(String namespace, String label) throws ApiException {
+  public static List<String> getNamespacedPod(String namespace, String label) throws ApiException {
     V1PodList listNamespacedPod =
-        corev1Api.listNamespacedPod(
+        COREV1_API.listNamespacedPod(
             namespace,
             null,
             null,
@@ -210,9 +208,9 @@ public class ExpandedExample {
    * @return
    * @throws ApiException
    */
-  public List<String> getServices() throws ApiException {
+  public static List<String> getServices() throws ApiException {
     V1ServiceList listNamespacedService =
-        corev1Api.listNamespacedService(
+        COREV1_API.listNamespacedService(
             DEFAULT_NAME_SPACE,
             null,
             null,
@@ -237,9 +235,10 @@ public class ExpandedExample {
    * @param numberOfReplicas
    * @throws ApiException
    */
-  public void scaleDeployment(String deploymentName, int numberOfReplicas) throws ApiException {
+  public static void scaleDeployment(String deploymentName, int numberOfReplicas)
+      throws ApiException {
     ExtensionsV1beta1Api extensionV1Api = new ExtensionsV1beta1Api();
-    extensionV1Api.setApiClient(corev1Api.getApiClient());
+    extensionV1Api.setApiClient(COREV1_API.getApiClient());
     ExtensionsV1beta1DeploymentList listNamespacedDeployment =
         extensionV1Api.listNamespacedDeployment(
             DEFAULT_NAME_SPACE,
@@ -282,10 +281,10 @@ public class ExpandedExample {
    * @param podName
    * @throws ApiException
    */
-  public void printLog(String namespace, String podName) throws ApiException {
+  public static void printLog(String namespace, String podName) throws ApiException {
     // https://github.com/kubernetes-client/java/blob/master/kubernetes/docs/CoreV1Api.md#readNamespacedPodLog
     String readNamespacedPodLog =
-        corev1Api.readNamespacedPodLog(
+        COREV1_API.readNamespacedPodLog(
             podName,
             namespace,
             null,
