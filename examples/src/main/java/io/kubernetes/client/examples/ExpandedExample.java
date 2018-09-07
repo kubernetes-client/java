@@ -57,9 +57,7 @@ public class ExpandedExample {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(ExpandedExample.class);
 
-  /**
-   * Static Initializer
-   */
+  /** Static Initializer */
   static {
     // ApiClient client = Config.defaultClient();
     // If you want to use specific k8s cluster and access token, please use following?
@@ -75,7 +73,6 @@ public class ExpandedExample {
    */
   public static void main(String[] args) {
     try {
-
       // ScaleUp/ScaleDown the Deployment pod
       // Please change the name of Deployment?
       System.out.println("----- Scale Deployment Start -----");
@@ -106,7 +103,6 @@ public class ExpandedExample {
       String firstPodName = getPods().get(0);
       printLog(DEFAULT_NAME_SPACE, firstPodName);
       System.out.println("----- Print Log of Specific Pod End -----");
-
     } catch (ApiException ex) {
       LOGGER.warn("Exception had occured ", ex);
     }
