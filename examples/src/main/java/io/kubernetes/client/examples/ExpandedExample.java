@@ -58,9 +58,7 @@ public class ExpandedExample {
   private static final Logger LOGGER = LoggerFactory.getLogger(ExpandedExample.class);
 
   /**
-   * Constructor
-   *
-   * @throws java.io.IOException
+   * Static Initializer
    */
   static {
     // ApiClient client = Config.defaultClient();
