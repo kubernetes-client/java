@@ -1,3 +1,7 @@
+# 3.0.0-beta2
+* Support client certificate chains
+* Add equals() support for the Quantity object
+
 # 3.0.0-beta1
 
 * feat (#137): Introduce builder generation.
