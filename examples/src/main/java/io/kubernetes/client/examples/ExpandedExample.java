@@ -1,5 +1,5 @@
 /*
-Copyright 2017 The Kubernetes Authors.
+Copyright 2018 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -24,6 +24,7 @@ import io.kubernetes.client.models.V1NamespaceList;
 import io.kubernetes.client.models.V1PodList;
 import io.kubernetes.client.models.V1ServiceList;
 import io.kubernetes.client.util.Config;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -40,31 +41,10 @@ import org.slf4j.LoggerFactory;
  */
 public class ExpandedExample {
 
-  private static final CoreV1Api COREV1_API;
+  private static CoreV1Api COREV1_API;
   private static final String DEFAULT_NAME_SPACE = "default";
   private static final Integer TIME_OUT_VALUE = 180;
-  /*
-  For API_SERVER_NAME, you can get the server name as follows.
-  $ kubectl cluster-info|grep master
-  Kubernetes master is running at https://*****************.hcp.japaneast.azmk8s.io:443
-   */
-  private static final String API_SERVER_NAME = "https://*****************.hcp.japaneast.azmk8s.io";
-  /*
-  For ACCESS_TOKEN , you can get the token as follows
-  $ kubectl describe secret $(kubectl get secrets | grep default | cut -f1 -d ' ') | grep -E '^token' | cut -f2 -d':' | tr -d '\t'
-   */
-  private static final String ACCESS_TOKEN = "********************************";
-
   private static final Logger LOGGER = LoggerFactory.getLogger(ExpandedExample.class);
-
-  /** Static Initializer */
-  static {
-    // ApiClient client = Config.defaultClient();
-    // If you want to use specific k8s cluster and access token, please use following?
-    ApiClient client = Config.fromToken(API_SERVER_NAME, ACCESS_TOKEN, false);
-    Configuration.setDefaultApiClient(client);
-    COREV1_API = new CoreV1Api(client);
-  }
 
   /**
    * Main method
@@ -73,6 +53,12 @@ public class ExpandedExample {
    */
   public static void main(String[] args) {
     try {
+      ApiClient client = Config.defaultClient();
+      // To change the context of k8s cluster, you can use
+      // io.kubernetes.client.util.KubeConfig
+      Configuration.setDefaultApiClient(client);
+      COREV1_API = new CoreV1Api(client);
+
       // ScaleUp/ScaleDown the Deployment pod
       // Please change the name of Deployment?
       System.out.println("----- Scale Deployment Start -----");
@@ -103,7 +89,7 @@ public class ExpandedExample {
       String firstPodName = getPods().get(0);
       printLog(DEFAULT_NAME_SPACE, firstPodName);
       System.out.println("----- Print Log of Specific Pod End -----");
-    } catch (ApiException ex) {
+    } catch (ApiException | IOException ex) {
       LOGGER.warn("Exception had occured ", ex);
     }
   }
