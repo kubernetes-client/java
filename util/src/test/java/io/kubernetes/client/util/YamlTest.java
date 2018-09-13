@@ -9,7 +9,7 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-*/
+ */
 package io.kubernetes.client.util;
 
 import static org.junit.Assert.*;
@@ -17,6 +17,7 @@ import static org.junit.Assert.*;
 import com.google.common.io.Resources;
 import io.kubernetes.client.models.AppsV1beta1Deployment;
 import io.kubernetes.client.models.V1ObjectMeta;
+import io.kubernetes.client.models.V1Pod;
 import io.kubernetes.client.models.V1Secret;
 import io.kubernetes.client.models.V1Service;
 import io.kubernetes.client.models.V1ServicePort;
@@ -176,6 +177,29 @@ public class YamlTest {
           "Incorrect value loaded for Base64 encoded secret",
           "hello",
           new String(secret.getData().get("hello"), StandardCharsets.UTF_8));
+
+    } catch (Exception ex) {
+      assertNull("Unexpected exception: " + ex.toString(), ex);
+    }
+  }
+
+  @Test
+  public void testDateTime() {
+    try {
+      String strInput =
+          "apiVersion: v1\n"
+              + "kind: Pod\n"
+              + "metadata:\n"
+              + "  creationTimestamp: 2018-09-06T15:12:24Z";
+
+      V1Pod pod = Yaml.loadAs(strInput, V1Pod.class);
+
+      assertEquals(
+          "Incorrect value loaded for creationTimestamp",
+          "2018-09-06T15:12:24.000Z",
+          new String(
+              pod.getMetadata().getCreationTimestamp().toString().getBytes(),
+              StandardCharsets.UTF_8));
 
     } catch (Exception ex) {
       assertNull("Unexpected exception: " + ex.toString(), ex);
