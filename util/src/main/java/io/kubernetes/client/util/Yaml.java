@@ -9,7 +9,7 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-*/
+ */
 package io.kubernetes.client.util;
 
 import com.google.common.reflect.ClassPath;
@@ -31,6 +31,8 @@ import java.util.Set;
 import okio.ByteString;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.apache.commons.lang3.tuple.Pair;
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.DumperOptions;
@@ -324,6 +326,11 @@ public class Yaml {
       if (node.getType() == byte[].class) {
         return constructByteArray((ScalarNode) node);
       }
+
+      if (node.getType() == org.joda.time.DateTime.class) {
+        return constructDateTime((ScalarNode) node);
+      }
+
       return super.constructObject(node);
     }
 
@@ -337,6 +344,10 @@ public class Yaml {
 
     private byte[] constructByteArray(ScalarNode node) {
       return ByteString.decodeBase64(node.getValue()).toByteArray();
+    }
+
+    private Object constructDateTime(ScalarNode node) {
+      return new DateTime(((ScalarNode) node).getValue(), DateTimeZone.UTC);
     }
   }
 
