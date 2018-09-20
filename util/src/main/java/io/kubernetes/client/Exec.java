@@ -347,6 +347,7 @@ public class Exec {
           log.error("Error on close", ex);
         }
       }
+      apiClient.getHttpClient().getDispatcher().getExecutorService().shutdown();
     }
   }
 }
