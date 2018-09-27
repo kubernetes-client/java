@@ -18,9 +18,9 @@ import io.kubernetes.client.ApiException;
 import io.kubernetes.client.Configuration;
 import io.kubernetes.client.Copy;
 import io.kubernetes.client.util.Config;
-
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Paths;
 
 /**
  * A simple example of how to use the Java API
@@ -39,8 +39,11 @@ public class CopyExample {
     Configuration.setDefaultApiClient(client);
 
     Copy copy = new Copy();
-    InputStream dataStream = copy.copyFile(namespace, podName, "/etc/motd");
-
+    InputStream dataStream = copy.copyFileFromPod(namespace, podName, "/etc/motd");
     ByteStreams.copy(dataStream, System.out);
+
+    copy.copyDirectoryFromPod(namespace, podName, null, "/etc", Paths.get("/tmp/etc"));
+
+    System.out.println("Done!");
   }
 }
