@@ -39,6 +39,11 @@ public class Watch<T>
         java.io.Closeable,
         AutoCloseable {
 
+  public static final String ADDED = "ADDED";
+  public static final String MODIFIED = "MODIFIED";
+  public static final String DELETED = "DELETED";
+  public static final String ERROR = "ERROR";
+
   private static final Logger log = LoggerFactory.getLogger(Watch.class);
 
   /**
@@ -64,6 +69,18 @@ public class Watch<T>
       this.type = type;
       this.object = null;
       this.status = status;
+    }
+
+    @Override
+    public String toString() {
+      return "Type: "
+          + this.type
+          + "\n"
+          + "Status: "
+          + this.status
+          + "\n"
+          + "Object: "
+          + this.object;
     }
   }
 

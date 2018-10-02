@@ -17,12 +17,12 @@ import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
 import io.kubernetes.client.Configuration;
 import io.kubernetes.client.apis.CoreV1Api;
-import io.kubernetes.client.models.V1Pod;
-import io.kubernetes.client.models.V1PodList;
+import io.kubernetes.client.models.V1Namespace;
+import io.kubernetes.client.models.V1NamespaceList;
 import io.kubernetes.client.util.Cache;
 import io.kubernetes.client.util.Config;
 import java.io.IOException;
-import java.util.function.Supplier;
+import java.util.function.Function;
 
 /**
  * A simple example of how to use the Java API
@@ -39,18 +39,28 @@ public class CacheExample {
 
     CoreV1Api api = new CoreV1Api();
 
-    Supplier<Call> listFn =
-        () -> {
+    Function<Boolean, Call> listFn =
+        (Boolean watch) -> {
           try {
-              return api.listNamespacedPodCall(
-                  "default", null, null, null, null, null, null, null, null, Boolean.FALSE, null, null);
+            return api.listNamespaceCall(
+                null, null, null, null, null, 5, null, null, watch, null, null);
           } catch (ApiException ex) {
               return null;
           }
         };
 
-    Cache<V1PodList, V1Pod> cache = new Cache(client, listFn);
+    Cache<V1Namespace, V1NamespaceList> cache = new Cache(client, listFn);
 
-    System.out.println(cache.list());
+    while (true) {
+        V1NamespaceList list = cache.list();
+        for (V1Namespace ns : list.getItems()) {
+            System.out.print(ns.getMetadata().getName());
+        }
+        System.out.println();
+        try {
+            Thread.sleep(2 * 1000);
+        } catch (InterruptedException ex) {
+        }
+    }
   }
 }
