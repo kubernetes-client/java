@@ -9,13 +9,25 @@ Method | HTTP request | Description
 [**deleteClusterCustomObject**](CustomObjectsApi.md#deleteClusterCustomObject) | **DELETE** /apis/{group}/{version}/{plural}/{name} | 
 [**deleteNamespacedCustomObject**](CustomObjectsApi.md#deleteNamespacedCustomObject) | **DELETE** /apis/{group}/{version}/namespaces/{namespace}/{plural}/{name} | 
 [**getClusterCustomObject**](CustomObjectsApi.md#getClusterCustomObject) | **GET** /apis/{group}/{version}/{plural}/{name} | 
+[**getClusterCustomObjectScale**](CustomObjectsApi.md#getClusterCustomObjectScale) | **GET** /apis/{group}/{version}/{plural}/{name}/scale | 
+[**getClusterCustomObjectStatus**](CustomObjectsApi.md#getClusterCustomObjectStatus) | **GET** /apis/{group}/{version}/{plural}/{name}/status | 
 [**getNamespacedCustomObject**](CustomObjectsApi.md#getNamespacedCustomObject) | **GET** /apis/{group}/{version}/namespaces/{namespace}/{plural}/{name} | 
+[**getNamespacedCustomObjectScale**](CustomObjectsApi.md#getNamespacedCustomObjectScale) | **GET** /apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/scale | 
+[**getNamespacedCustomObjectStatus**](CustomObjectsApi.md#getNamespacedCustomObjectStatus) | **GET** /apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/status | 
 [**listClusterCustomObject**](CustomObjectsApi.md#listClusterCustomObject) | **GET** /apis/{group}/{version}/{plural} | 
 [**listNamespacedCustomObject**](CustomObjectsApi.md#listNamespacedCustomObject) | **GET** /apis/{group}/{version}/namespaces/{namespace}/{plural} | 
 [**patchClusterCustomObject**](CustomObjectsApi.md#patchClusterCustomObject) | **PATCH** /apis/{group}/{version}/{plural}/{name} | 
+[**patchClusterCustomObjectScale**](CustomObjectsApi.md#patchClusterCustomObjectScale) | **PATCH** /apis/{group}/{version}/{plural}/{name}/scale | 
+[**patchClusterCustomObjectStatus**](CustomObjectsApi.md#patchClusterCustomObjectStatus) | **PATCH** /apis/{group}/{version}/{plural}/{name}/status | 
 [**patchNamespacedCustomObject**](CustomObjectsApi.md#patchNamespacedCustomObject) | **PATCH** /apis/{group}/{version}/namespaces/{namespace}/{plural}/{name} | 
+[**patchNamespacedCustomObjectScale**](CustomObjectsApi.md#patchNamespacedCustomObjectScale) | **PATCH** /apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/scale | 
+[**patchNamespacedCustomObjectStatus**](CustomObjectsApi.md#patchNamespacedCustomObjectStatus) | **PATCH** /apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/status | 
 [**replaceClusterCustomObject**](CustomObjectsApi.md#replaceClusterCustomObject) | **PUT** /apis/{group}/{version}/{plural}/{name} | 
+[**replaceClusterCustomObjectScale**](CustomObjectsApi.md#replaceClusterCustomObjectScale) | **PUT** /apis/{group}/{version}/{plural}/{name}/scale | 
+[**replaceClusterCustomObjectStatus**](CustomObjectsApi.md#replaceClusterCustomObjectStatus) | **PUT** /apis/{group}/{version}/{plural}/{name}/status | 
 [**replaceNamespacedCustomObject**](CustomObjectsApi.md#replaceNamespacedCustomObject) | **PUT** /apis/{group}/{version}/namespaces/{namespace}/{plural}/{name} | 
+[**replaceNamespacedCustomObjectScale**](CustomObjectsApi.md#replaceNamespacedCustomObjectScale) | **PUT** /apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/scale | 
+[**replaceNamespacedCustomObjectStatus**](CustomObjectsApi.md#replaceNamespacedCustomObjectStatus) | **PUT** /apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/status | 
 
 
 <a name="createClusterCustomObject"></a>
@@ -347,6 +359,128 @@ Name | Type | Description  | Notes
  - **Content-Type**: */*
  - **Accept**: application/json
 
+<a name="getClusterCustomObjectScale"></a>
+# **getClusterCustomObjectScale**
+> Object getClusterCustomObjectScale(group, version, plural, name)
+
+
+
+read scale of the specified custom object
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.CustomObjectsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+CustomObjectsApi apiInstance = new CustomObjectsApi();
+String group = "group_example"; // String | the custom resource's group
+String version = "version_example"; // String | the custom resource's version
+String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
+String name = "name_example"; // String | the custom object's name
+try {
+    Object result = apiInstance.getClusterCustomObjectScale(group, version, plural, name);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CustomObjectsApi#getClusterCustomObjectScale");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group** | **String**| the custom resource&#39;s group |
+ **version** | **String**| the custom resource&#39;s version |
+ **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
+ **name** | **String**| the custom object&#39;s name |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+
+<a name="getClusterCustomObjectStatus"></a>
+# **getClusterCustomObjectStatus**
+> Object getClusterCustomObjectStatus(group, version, plural, name)
+
+
+
+read status of the specified cluster scoped custom object
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.CustomObjectsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+CustomObjectsApi apiInstance = new CustomObjectsApi();
+String group = "group_example"; // String | the custom resource's group
+String version = "version_example"; // String | the custom resource's version
+String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
+String name = "name_example"; // String | the custom object's name
+try {
+    Object result = apiInstance.getClusterCustomObjectStatus(group, version, plural, name);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CustomObjectsApi#getClusterCustomObjectStatus");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group** | **String**| the custom resource&#39;s group |
+ **version** | **String**| the custom resource&#39;s version |
+ **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
+ **name** | **String**| the custom object&#39;s name |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+
 <a name="getNamespacedCustomObject"></a>
 # **getNamespacedCustomObject**
 > Object getNamespacedCustomObject(group, version, namespace, plural, name)
@@ -409,6 +543,132 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: */*
  - **Accept**: application/json
+
+<a name="getNamespacedCustomObjectScale"></a>
+# **getNamespacedCustomObjectScale**
+> Object getNamespacedCustomObjectScale(group, version, namespace, plural, name)
+
+
+
+read scale of the specified namespace scoped custom object
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.CustomObjectsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+CustomObjectsApi apiInstance = new CustomObjectsApi();
+String group = "group_example"; // String | the custom resource's group
+String version = "version_example"; // String | the custom resource's version
+String namespace = "namespace_example"; // String | The custom resource's namespace
+String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
+String name = "name_example"; // String | the custom object's name
+try {
+    Object result = apiInstance.getNamespacedCustomObjectScale(group, version, namespace, plural, name);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CustomObjectsApi#getNamespacedCustomObjectScale");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group** | **String**| the custom resource&#39;s group |
+ **version** | **String**| the custom resource&#39;s version |
+ **namespace** | **String**| The custom resource&#39;s namespace |
+ **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
+ **name** | **String**| the custom object&#39;s name |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+
+<a name="getNamespacedCustomObjectStatus"></a>
+# **getNamespacedCustomObjectStatus**
+> Object getNamespacedCustomObjectStatus(group, version, namespace, plural, name)
+
+
+
+read status of the specified namespace scoped custom object
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.CustomObjectsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+CustomObjectsApi apiInstance = new CustomObjectsApi();
+String group = "group_example"; // String | the custom resource's group
+String version = "version_example"; // String | the custom resource's version
+String namespace = "namespace_example"; // String | The custom resource's namespace
+String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
+String name = "name_example"; // String | the custom object's name
+try {
+    Object result = apiInstance.getNamespacedCustomObjectStatus(group, version, namespace, plural, name);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CustomObjectsApi#getNamespacedCustomObjectStatus");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group** | **String**| the custom resource&#39;s group |
+ **version** | **String**| the custom resource&#39;s version |
+ **namespace** | **String**| The custom resource&#39;s namespace |
+ **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
+ **name** | **String**| the custom object&#39;s name |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 <a name="listClusterCustomObject"></a>
 # **listClusterCustomObject**
@@ -609,6 +869,132 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/merge-patch+json
  - **Accept**: application/json
 
+<a name="patchClusterCustomObjectScale"></a>
+# **patchClusterCustomObjectScale**
+> Object patchClusterCustomObjectScale(group, version, plural, name, body)
+
+
+
+partially update scale of the specified cluster scoped custom object
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.CustomObjectsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+CustomObjectsApi apiInstance = new CustomObjectsApi();
+String group = "group_example"; // String | the custom resource's group
+String version = "version_example"; // String | the custom resource's version
+String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
+String name = "name_example"; // String | the custom object's name
+Object body = null; // Object | 
+try {
+    Object result = apiInstance.patchClusterCustomObjectScale(group, version, plural, name, body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CustomObjectsApi#patchClusterCustomObjectScale");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group** | **String**| the custom resource&#39;s group |
+ **version** | **String**| the custom resource&#39;s version |
+ **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
+ **name** | **String**| the custom object&#39;s name |
+ **body** | **Object**|  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/merge-patch+json
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+
+<a name="patchClusterCustomObjectStatus"></a>
+# **patchClusterCustomObjectStatus**
+> Object patchClusterCustomObjectStatus(group, version, plural, name, body)
+
+
+
+partially update status of the specified cluster scoped custom object
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.CustomObjectsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+CustomObjectsApi apiInstance = new CustomObjectsApi();
+String group = "group_example"; // String | the custom resource's group
+String version = "version_example"; // String | the custom resource's version
+String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
+String name = "name_example"; // String | the custom object's name
+Object body = null; // Object | 
+try {
+    Object result = apiInstance.patchClusterCustomObjectStatus(group, version, plural, name, body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CustomObjectsApi#patchClusterCustomObjectStatus");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group** | **String**| the custom resource&#39;s group |
+ **version** | **String**| the custom resource&#39;s version |
+ **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
+ **name** | **String**| the custom object&#39;s name |
+ **body** | **Object**|  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/merge-patch+json
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+
 <a name="patchNamespacedCustomObject"></a>
 # **patchNamespacedCustomObject**
 > Object patchNamespacedCustomObject(group, version, namespace, plural, name, body)
@@ -674,6 +1060,136 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/merge-patch+json
  - **Accept**: application/json
 
+<a name="patchNamespacedCustomObjectScale"></a>
+# **patchNamespacedCustomObjectScale**
+> Object patchNamespacedCustomObjectScale(group, version, namespace, plural, name, body)
+
+
+
+partially update scale of the specified namespace scoped custom object
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.CustomObjectsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+CustomObjectsApi apiInstance = new CustomObjectsApi();
+String group = "group_example"; // String | the custom resource's group
+String version = "version_example"; // String | the custom resource's version
+String namespace = "namespace_example"; // String | The custom resource's namespace
+String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
+String name = "name_example"; // String | the custom object's name
+Object body = null; // Object | 
+try {
+    Object result = apiInstance.patchNamespacedCustomObjectScale(group, version, namespace, plural, name, body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CustomObjectsApi#patchNamespacedCustomObjectScale");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group** | **String**| the custom resource&#39;s group |
+ **version** | **String**| the custom resource&#39;s version |
+ **namespace** | **String**| The custom resource&#39;s namespace |
+ **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
+ **name** | **String**| the custom object&#39;s name |
+ **body** | **Object**|  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/merge-patch+json
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+
+<a name="patchNamespacedCustomObjectStatus"></a>
+# **patchNamespacedCustomObjectStatus**
+> Object patchNamespacedCustomObjectStatus(group, version, namespace, plural, name, body)
+
+
+
+partially update status of the specified namespace scoped custom object
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.CustomObjectsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+CustomObjectsApi apiInstance = new CustomObjectsApi();
+String group = "group_example"; // String | the custom resource's group
+String version = "version_example"; // String | the custom resource's version
+String namespace = "namespace_example"; // String | The custom resource's namespace
+String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
+String name = "name_example"; // String | the custom object's name
+Object body = null; // Object | 
+try {
+    Object result = apiInstance.patchNamespacedCustomObjectStatus(group, version, namespace, plural, name, body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CustomObjectsApi#patchNamespacedCustomObjectStatus");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group** | **String**| the custom resource&#39;s group |
+ **version** | **String**| the custom resource&#39;s version |
+ **namespace** | **String**| The custom resource&#39;s namespace |
+ **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
+ **name** | **String**| the custom object&#39;s name |
+ **body** | **Object**|  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/merge-patch+json
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+
 <a name="replaceClusterCustomObject"></a>
 # **replaceClusterCustomObject**
 > Object replaceClusterCustomObject(group, version, plural, name, body)
@@ -736,6 +1252,132 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: */*
  - **Accept**: application/json
+
+<a name="replaceClusterCustomObjectScale"></a>
+# **replaceClusterCustomObjectScale**
+> Object replaceClusterCustomObjectScale(group, version, plural, name, body)
+
+
+
+replace scale of the specified cluster scoped custom object
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.CustomObjectsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+CustomObjectsApi apiInstance = new CustomObjectsApi();
+String group = "group_example"; // String | the custom resource's group
+String version = "version_example"; // String | the custom resource's version
+String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
+String name = "name_example"; // String | the custom object's name
+Object body = null; // Object | 
+try {
+    Object result = apiInstance.replaceClusterCustomObjectScale(group, version, plural, name, body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CustomObjectsApi#replaceClusterCustomObjectScale");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group** | **String**| the custom resource&#39;s group |
+ **version** | **String**| the custom resource&#39;s version |
+ **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
+ **name** | **String**| the custom object&#39;s name |
+ **body** | **Object**|  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+
+<a name="replaceClusterCustomObjectStatus"></a>
+# **replaceClusterCustomObjectStatus**
+> Object replaceClusterCustomObjectStatus(group, version, plural, name, body)
+
+
+
+replace status of the cluster scoped specified custom object
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.CustomObjectsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+CustomObjectsApi apiInstance = new CustomObjectsApi();
+String group = "group_example"; // String | the custom resource's group
+String version = "version_example"; // String | the custom resource's version
+String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
+String name = "name_example"; // String | the custom object's name
+Object body = null; // Object | 
+try {
+    Object result = apiInstance.replaceClusterCustomObjectStatus(group, version, plural, name, body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CustomObjectsApi#replaceClusterCustomObjectStatus");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group** | **String**| the custom resource&#39;s group |
+ **version** | **String**| the custom resource&#39;s version |
+ **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
+ **name** | **String**| the custom object&#39;s name |
+ **body** | **Object**|  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 <a name="replaceNamespacedCustomObject"></a>
 # **replaceNamespacedCustomObject**
@@ -801,4 +1443,134 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: */*
  - **Accept**: application/json
+
+<a name="replaceNamespacedCustomObjectScale"></a>
+# **replaceNamespacedCustomObjectScale**
+> Object replaceNamespacedCustomObjectScale(group, version, namespace, plural, name, body)
+
+
+
+replace scale of the specified namespace scoped custom object
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.CustomObjectsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+CustomObjectsApi apiInstance = new CustomObjectsApi();
+String group = "group_example"; // String | the custom resource's group
+String version = "version_example"; // String | the custom resource's version
+String namespace = "namespace_example"; // String | The custom resource's namespace
+String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
+String name = "name_example"; // String | the custom object's name
+Object body = null; // Object | 
+try {
+    Object result = apiInstance.replaceNamespacedCustomObjectScale(group, version, namespace, plural, name, body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CustomObjectsApi#replaceNamespacedCustomObjectScale");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group** | **String**| the custom resource&#39;s group |
+ **version** | **String**| the custom resource&#39;s version |
+ **namespace** | **String**| The custom resource&#39;s namespace |
+ **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
+ **name** | **String**| the custom object&#39;s name |
+ **body** | **Object**|  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+
+<a name="replaceNamespacedCustomObjectStatus"></a>
+# **replaceNamespacedCustomObjectStatus**
+> Object replaceNamespacedCustomObjectStatus(group, version, namespace, plural, name, body)
+
+
+
+replace status of the specified namespace scoped custom object
+
+### Example
+```java
+// Import classes:
+//import io.kubernetes.client.ApiClient;
+//import io.kubernetes.client.ApiException;
+//import io.kubernetes.client.Configuration;
+//import io.kubernetes.client.auth.*;
+//import io.kubernetes.client.apis.CustomObjectsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: BearerToken
+ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+BearerToken.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//BearerToken.setApiKeyPrefix("Token");
+
+CustomObjectsApi apiInstance = new CustomObjectsApi();
+String group = "group_example"; // String | the custom resource's group
+String version = "version_example"; // String | the custom resource's version
+String namespace = "namespace_example"; // String | The custom resource's namespace
+String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
+String name = "name_example"; // String | the custom object's name
+Object body = null; // Object | 
+try {
+    Object result = apiInstance.replaceNamespacedCustomObjectStatus(group, version, namespace, plural, name, body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CustomObjectsApi#replaceNamespacedCustomObjectStatus");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group** | **String**| the custom resource&#39;s group |
+ **version** | **String**| the custom resource&#39;s version |
+ **namespace** | **String**| The custom resource&#39;s namespace |
+ **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
+ **name** | **String**| the custom object&#39;s name |
+ **body** | **Object**|  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
