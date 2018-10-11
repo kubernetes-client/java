@@ -34,7 +34,7 @@ public class KubeConfig {
   private static final Logger log = LoggerFactory.getLogger(KubeConfig.class);
 
   // Defaults for where to find a kubeconfig file
-  public static final String ENV_HOME;
+  public static final String ENV_HOME = "HOME";
   public static final String KUBEDIR = ".kube";
   public static final String KUBECONFIG = "config";
   private static Map<String, Authenticator> authenticators = new HashMap<>();
@@ -63,12 +63,6 @@ public class KubeConfig {
   static {
     registerAuthenticator(new GCPAuthenticator());
     registerAuthenticator(new AzureActiveDirectoryAuthenticator());
-
-    if (System.getProperty("os.name").toLowerCase().startsWith("windows")) {
-      ENV_HOME = "USERPROFILE";
-    } else {
-      ENV_HOME = "HOME";
-    }
   }
 
   /** Load a Kubernetes config from a Reader */
