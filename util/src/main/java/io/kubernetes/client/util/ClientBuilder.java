@@ -17,7 +17,9 @@ import static io.kubernetes.client.util.Config.ENV_SERVICE_HOST;
 import static io.kubernetes.client.util.Config.ENV_SERVICE_PORT;
 import static io.kubernetes.client.util.Config.SERVICEACCOUNT_CA_PATH;
 import static io.kubernetes.client.util.Config.SERVICEACCOUNT_TOKEN_PATH;
-import static io.kubernetes.client.util.KubeConfig.*;
+import static io.kubernetes.client.util.KubeConfig.ENV_HOME;
+import static io.kubernetes.client.util.KubeConfig.KUBECONFIG;
+import static io.kubernetes.client.util.KubeConfig.KUBEDIR;
 
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.util.credentials.AccessTokenAuthentication;
@@ -77,7 +79,7 @@ public class ClientBuilder {
     final File kubeConfig = findConfigFromEnv();
     if (kubeConfig != null) {
       try (FileReader kubeConfigReader = new FileReader(kubeConfig)) {
-        KubeConfig kc = loadKubeConfig(kubeConfigReader);
+        KubeConfig kc = KubeConfig.loadKubeConfig(kubeConfigReader);
         if (persistConfig) {
           kc.setPersistConfig(new FilePersister(kubeConfig));
         }
@@ -87,7 +89,7 @@ public class ClientBuilder {
     final File config = findConfigInHomeDir();
     if (config != null) {
       try (FileReader configReader = new FileReader(config)) {
-        KubeConfig kc = loadKubeConfig(configReader);
+        KubeConfig kc = KubeConfig.loadKubeConfig(configReader);
         if (persistConfig) {
           kc.setPersistConfig(new FilePersister(config));
         }
@@ -115,14 +117,44 @@ public class ClientBuilder {
     }
   }
 
-  private static File findConfigInHomeDir() {
-    final File config = new File(new File(System.getenv(ENV_HOME), KUBEDIR), KUBECONFIG);
+  private static File findHomeDir() {
+    final File config = new File(System.getenv(ENV_HOME));
     if (config.exists()) {
       return config;
-    } else {
-      log.debug("Could not find ~/.kube/config");
-      return null;
     }
+    if (System.getProperty("os.name").toLowerCase().startsWith("windows")) {
+      String homeDrive = System.getenv("HOMEDRIVE");
+      String homePath = System.getenv("HOMEPATH");
+      if (homeDrive != null
+          && homeDrive.length() > 0
+          && homePath != null
+          && homePath.length() > 0) {
+        File homeDir = new File(new File(homeDrive), homePath);
+        if (homeDir.exists()) {
+          return homeDir;
+        }
+      }
+      String userProfile = System.getenv("USERPROFILE");
+      if (userProfile != null && userProfile.length() > 0) {
+        File profileDir = new File(userProfile);
+        if (profileDir.exists()) {
+          return profileDir;
+        }
+      }
+    }
+    return null;
+  }
+
+  private static File findConfigInHomeDir() {
+    final File homeDir = findHomeDir();
+    if (homeDir != null) {
+      final File config = new File(new File(homeDir, KUBEDIR), KUBECONFIG);
+      if (config.exists()) {
+        return config;
+      }
+    }
+    log.debug("Could not find ~/.kube/config");
+    return null;
   }
 
   /**
