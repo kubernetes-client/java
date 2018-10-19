@@ -12,14 +12,27 @@ limitations under the License.
 */
 package io.kubernetes.client;
 
-import static org.junit.Assert.*;
+import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
+import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.get;
+import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.verify;
+import static org.junit.Assert.assertEquals;
 
+import com.github.tomakehurst.wiremock.junit.WireMockRule;
+
+import io.kubernetes.client.ApiException;
 import io.kubernetes.client.util.ClientBuilder;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 
 /** Tests for the Exec helper class */
@@ -33,11 +46,49 @@ public class ExecTest {
   private static final String BAD_OUTPUT_INCOMPLETE_MSG1 =
       "{\"metadata\":{},\"status\":\"Failure\",\"message\":\"command terminated with non-zero exit code: Error executing in Docker Container: 1\",\"reas";
 
+  private String namespace;
+  private String podName;
+  private String[] cmd;
+
   private ApiClient client;
+
+  private static final int PORT = 8089;
+  @Rule public WireMockRule wireMockRule = new WireMockRule(PORT);
 
   @Before
   public void setup() throws IOException {
-    client = new ClientBuilder().setBasePath("http://localhost:9999").build();
+    client = new ClientBuilder().setBasePath("http://localhost:" + PORT).build();
+  
+    namespace = "default";
+    podName = "apod";
+    // TODO: When WireMock supports multiple query params with the same name expand this
+    // See: https://github.com/tomakehurst/wiremock/issues/398
+    cmd = new String[] {"cmd"};
+  }
+
+  @Test
+  public void testUrl() throws IOException, ApiException, InterruptedException {
+      Exec exec = new Exec(client);
+
+      stubFor(
+        get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
+            .willReturn(
+                aResponse()
+                    .withStatus(404)
+                    .withHeader("Content-Type", "application/json")
+                    .withBody("{}")));
+
+      Process p = exec.exec(namespace, podName, cmd, false);
+      p.waitFor();
+
+      verify(getRequestedFor(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
+         .withQueryParam("stdin", equalTo("false"))
+         .withQueryParam("stdout", equalTo("true"))
+         .withQueryParam("stderr", equalTo("true"))
+         .withQueryParam("tty", equalTo("false"))
+         .withQueryParam("command", equalTo("cmd")));
+
+      assertEquals(-1, p.exitValue());
   }
 
   @Test

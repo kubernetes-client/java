@@ -284,7 +284,8 @@ public class Exec {
           };
     }
 
-    private WebSocketStreamHandler getHandler() {
+    // Protected to facilitate unit testing.
+    protected WebSocketStreamHandler getHandler() {
       return streamHandler;
     }
 
