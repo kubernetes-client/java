@@ -197,3 +197,8 @@ ${GEN_ROOT}/gen/openapi/java.sh kubernetes ./settings
 
 This should run through a long-ish build process involving `docker` and eventually result in a new set of
 generated code in the `kubernetes` directory.
+
+# License
+Java client for the kubernetes API is free and open-source software released under the permisive MIT license. See LICENSE.txt included with the distribution for details.
+
+
