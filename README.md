@@ -26,10 +26,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.kubernetes</groupId>
     <artifactId>client-java</artifactId>
-    <version>2.0.0</version>
-    <!-- or, for the latest beta version
-    <version>3.0.0-beta2</version>
-    -->
+    <version>3.0.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -37,10 +34,7 @@ Add this dependency to your project's POM:
 ### Gradle users
 
 ```groovy
-compile 'io.kubernetes:client-java:2.0.0'
-// or, for the latest beta version
-// compile 'io.kubernetes:client-java:3.0.0-beta2'
-
+compile 'io.kubernetes:client-java:3.0.0'
 ```
 
 ### Others
@@ -56,7 +50,7 @@ mvn package
 
 Then manually install the following JARs:
 
-* target/client-java-api-3.0.0-beta3-SNAPSHOT.jar
+* target/client-java-api-4.0.0-beta1-SNAPSHOT.jar
 * target/lib/*.jar
 
 ## Example
@@ -133,13 +127,11 @@ All APIs and Models' documentation can be found at the [Generated client's READM
 
 ## Compatibility
 
-|  client version  | 1.4              | 1.5              | 1.6              | 1.7              | 1.8              | 1.9         | 1.10       | 1.11       |
-|------------------|------------------|------------------|------------------|------------------|------------------|-------------|------------|------------|
-|  0.1.0           |  +               |  +               |  ✓               |  -               |  -               |  -          |  -         |  -         |
-|  0.2.0           |  +               |  +               |  ✓               |  -               |  -               |  -          |  -         |  -         |
-|  1.0.0           |  +               |  +               |  +               |  +               |  ✓               |  -          |  -         |  -         |
-|  2.0.0           |  +               |  +               |  +               |  +               |  +               |  +          |  ✓         |  -         |
-|  3.0.0-beta2     |  +               |  +               |  +               |  +               |  +               |  +          |  +         |  ✓         |
+|  client version  | 1.8              | 1.9         | 1.10       | 1.11       |
+|------------------|------------------|-------------|------------|------------|
+|  1.0.0           |  ✓               |  -          |  -         |  -         |
+|  2.0.0           |  +               |  -          |  ✓         |  -         |
+|  3.0.0           |  +               |  +          |  +         |  ✓         |
 
 Key: 
 
