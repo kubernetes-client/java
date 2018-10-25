@@ -49,6 +49,12 @@ public class PodLogs {
   }
 
   public InputStream streamNamespacedPodLog(V1Pod pod) throws ApiException, IOException {
+    if (pod.getSpec() == null) {
+      throw new ApiException("pod.spec is null and container isn't specified.");
+    }
+    if (pod.getSpec().getContainers() == null || pod.getSpec().getContainers().size() < 1) {
+      throw new ApiException("pod.spec.containers has no containers");
+    }
     return streamNamespacedPodLog(
         pod.getMetadata().getNamespace(),
         pod.getMetadata().getName(),
@@ -86,7 +92,7 @@ public class PodLogs {
             null);
     Response response = call.execute();
     if (!response.isSuccessful()) {
-      throw new ApiException("Logs request failed: " + response.code());
+      throw new ApiException(response.code(), "Logs request failed: " + response.code());
     }
     return response.body().byteStream();
   }

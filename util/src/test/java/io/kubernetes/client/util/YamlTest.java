@@ -24,6 +24,7 @@ import io.kubernetes.client.models.V1ServicePort;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
+import java.io.StringWriter;
 import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -157,9 +158,34 @@ public class YamlTest {
       assertFalse(
           "Target port for 'stringPort' was parsed to an integer, string expected.",
           stringPort.getTargetPort().isInteger());
+      assertEquals("test", stringPort.getTargetPort().getStrValue());
+
       assertTrue(
           "Target port for 'intPort' was parsed to a string, integer expected.",
           intPort.getTargetPort().isInteger());
+      assertEquals(1l, (long) intPort.getTargetPort().getIntValue());
+    } catch (Exception ex) {
+      assertNull("Unexpected exception: " + ex.toString(), ex);
+    }
+  }
+
+  @Test
+  public void testDumpIntOrString() {
+    try {
+      String strInput = "targetPort: test\n";
+      String intInput = "targetPort: 1\n";
+
+      V1ServicePort stringPort = Yaml.loadAs(strInput, V1ServicePort.class);
+      V1ServicePort intPort = Yaml.loadAs(intInput, V1ServicePort.class);
+
+      StringWriter strOutput = new StringWriter();
+      Yaml.dump(stringPort, strOutput);
+
+      StringWriter intOutput = new StringWriter();
+      Yaml.dump(intPort, intOutput);
+
+      assertEquals(strInput, strOutput.toString());
+      assertEquals(intInput, intOutput.toString());
 
     } catch (Exception ex) {
       assertNull("Unexpected exception: " + ex.toString(), ex);
