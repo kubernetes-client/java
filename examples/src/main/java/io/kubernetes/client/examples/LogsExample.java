@@ -40,7 +40,7 @@ public class LogsExample {
     PodLogs logs = new PodLogs();
     V1Pod pod =
         coreApi
-            .listNamespacedPod("default", "false", null, null, null, null, null, null, null, null)
+            .listNamespacedPod("default", null, "false", null, null, null, null, null, null, null)
             .getItems()
             .get(0);
 

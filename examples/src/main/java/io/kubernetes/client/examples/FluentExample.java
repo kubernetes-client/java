@@ -54,7 +54,7 @@ public class FluentExample {
             .endSpec()
             .build();
 
-    api.createNamespacedPod("default", pod, null);
+    api.createNamespacedPod("default", pod, null, null, null);
 
     V1Pod pod2 =
         new V1Pod()
@@ -63,7 +63,7 @@ public class FluentExample {
                 new V1PodSpec()
                     .containers(Arrays.asList(new V1Container().name("www").image("nginx"))));
 
-    api.createNamespacedPod("default", pod2, null);
+    api.createNamespacedPod("default", pod2, null, null, null);
 
     V1PodList list =
         api.listNamespacedPod("default", null, null, null, null, null, null, null, null, null);

@@ -103,7 +103,7 @@ public class ExpandedExample {
   public static List<String> getAllNameSpaces() throws ApiException {
     V1NamespaceList listNamespace =
         COREV1_API.listNamespace(
-            "true", null, null, Boolean.FALSE, null, 0, null, Integer.MAX_VALUE, Boolean.FALSE);
+            null, "true", null, null, null, 0, null, Integer.MAX_VALUE, Boolean.FALSE);
     List<String> list =
         listNamespace
             .getItems()
@@ -167,7 +167,7 @@ public class ExpandedExample {
             null,
             null,
             null,
-            Boolean.FALSE,
+            null,
             label,
             Integer.MAX_VALUE,
             null,
@@ -195,7 +195,7 @@ public class ExpandedExample {
             null,
             null,
             null,
-            Boolean.FALSE,
+            null,
             null,
             Integer.MAX_VALUE,
             null,
@@ -221,16 +221,7 @@ public class ExpandedExample {
     extensionV1Api.setApiClient(COREV1_API.getApiClient());
     ExtensionsV1beta1DeploymentList listNamespacedDeployment =
         extensionV1Api.listNamespacedDeployment(
-            DEFAULT_NAME_SPACE,
-            null,
-            null,
-            null,
-            Boolean.FALSE,
-            null,
-            null,
-            null,
-            null,
-            Boolean.FALSE);
+            DEFAULT_NAME_SPACE, null, null, null, null, null, null, null, null, Boolean.FALSE);
 
     List<ExtensionsV1beta1Deployment> extensionsV1beta1DeploymentItems =
         listNamespacedDeployment.getItems();
@@ -247,7 +238,7 @@ public class ExpandedExample {
             ExtensionsV1beta1DeploymentSpec newSpec = deploy.getSpec().replicas(numberOfReplicas);
             ExtensionsV1beta1Deployment newDeploy = deploy.spec(newSpec);
             extensionV1Api.replaceNamespacedDeployment(
-                deploymentName, DEFAULT_NAME_SPACE, newDeploy, null);
+                deploymentName, DEFAULT_NAME_SPACE, newDeploy, null, null);
           } catch (ApiException ex) {
             LOGGER.warn("Scale the pod failed for Deployment:" + deploymentName, ex);
           }
