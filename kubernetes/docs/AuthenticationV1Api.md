@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="createTokenReview"></a>
 # **createTokenReview**
-> V1TokenReview createTokenReview(body, pretty)
+> V1TokenReview createTokenReview(body, dryRun, includeUninitialized, pretty)
 
 
 
@@ -35,9 +35,11 @@ BearerToken.setApiKey("YOUR API KEY");
 
 AuthenticationV1Api apiInstance = new AuthenticationV1Api();
 V1TokenReview body = new V1TokenReview(); // V1TokenReview | 
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+Boolean includeUninitialized = true; // Boolean | If IncludeUninitialized is specified, the object may be returned without completing initialization.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 try {
-    V1TokenReview result = apiInstance.createTokenReview(body, pretty);
+    V1TokenReview result = apiInstance.createTokenReview(body, dryRun, includeUninitialized, pretty);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AuthenticationV1Api#createTokenReview");
@@ -50,6 +52,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**V1TokenReview**](V1TokenReview.md)|  |
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **includeUninitialized** | **Boolean**| If IncludeUninitialized is specified, the object may be returned without completing initialization. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
 
 ### Return type

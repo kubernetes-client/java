@@ -70,7 +70,7 @@ Method | HTTP request | Description
 
 <a name="createNamespacedControllerRevision"></a>
 # **createNamespacedControllerRevision**
-> V1ControllerRevision createNamespacedControllerRevision(namespace, body, pretty)
+> V1ControllerRevision createNamespacedControllerRevision(namespace, body, includeUninitialized, pretty, dryRun)
 
 
 
@@ -96,9 +96,11 @@ BearerToken.setApiKey("YOUR API KEY");
 AppsV1Api apiInstance = new AppsV1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 V1ControllerRevision body = new V1ControllerRevision(); // V1ControllerRevision | 
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1ControllerRevision result = apiInstance.createNamespacedControllerRevision(namespace, body, pretty);
+    V1ControllerRevision result = apiInstance.createNamespacedControllerRevision(namespace, body, includeUninitialized, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#createNamespacedControllerRevision");
@@ -112,7 +114,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | [**V1ControllerRevision**](V1ControllerRevision.md)|  |
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -129,7 +133,7 @@ Name | Type | Description  | Notes
 
 <a name="createNamespacedDaemonSet"></a>
 # **createNamespacedDaemonSet**
-> V1DaemonSet createNamespacedDaemonSet(namespace, body, pretty)
+> V1DaemonSet createNamespacedDaemonSet(namespace, body, includeUninitialized, pretty, dryRun)
 
 
 
@@ -155,9 +159,11 @@ BearerToken.setApiKey("YOUR API KEY");
 AppsV1Api apiInstance = new AppsV1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 V1DaemonSet body = new V1DaemonSet(); // V1DaemonSet | 
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1DaemonSet result = apiInstance.createNamespacedDaemonSet(namespace, body, pretty);
+    V1DaemonSet result = apiInstance.createNamespacedDaemonSet(namespace, body, includeUninitialized, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#createNamespacedDaemonSet");
@@ -171,7 +177,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | [**V1DaemonSet**](V1DaemonSet.md)|  |
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -188,7 +196,7 @@ Name | Type | Description  | Notes
 
 <a name="createNamespacedDeployment"></a>
 # **createNamespacedDeployment**
-> V1Deployment createNamespacedDeployment(namespace, body, pretty)
+> V1Deployment createNamespacedDeployment(namespace, body, includeUninitialized, pretty, dryRun)
 
 
 
@@ -214,9 +222,11 @@ BearerToken.setApiKey("YOUR API KEY");
 AppsV1Api apiInstance = new AppsV1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 V1Deployment body = new V1Deployment(); // V1Deployment | 
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1Deployment result = apiInstance.createNamespacedDeployment(namespace, body, pretty);
+    V1Deployment result = apiInstance.createNamespacedDeployment(namespace, body, includeUninitialized, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#createNamespacedDeployment");
@@ -230,7 +240,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | [**V1Deployment**](V1Deployment.md)|  |
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -247,7 +259,7 @@ Name | Type | Description  | Notes
 
 <a name="createNamespacedReplicaSet"></a>
 # **createNamespacedReplicaSet**
-> V1ReplicaSet createNamespacedReplicaSet(namespace, body, pretty)
+> V1ReplicaSet createNamespacedReplicaSet(namespace, body, includeUninitialized, pretty, dryRun)
 
 
 
@@ -273,9 +285,11 @@ BearerToken.setApiKey("YOUR API KEY");
 AppsV1Api apiInstance = new AppsV1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 V1ReplicaSet body = new V1ReplicaSet(); // V1ReplicaSet | 
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1ReplicaSet result = apiInstance.createNamespacedReplicaSet(namespace, body, pretty);
+    V1ReplicaSet result = apiInstance.createNamespacedReplicaSet(namespace, body, includeUninitialized, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#createNamespacedReplicaSet");
@@ -289,7 +303,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | [**V1ReplicaSet**](V1ReplicaSet.md)|  |
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -306,7 +322,7 @@ Name | Type | Description  | Notes
 
 <a name="createNamespacedStatefulSet"></a>
 # **createNamespacedStatefulSet**
-> V1StatefulSet createNamespacedStatefulSet(namespace, body, pretty)
+> V1StatefulSet createNamespacedStatefulSet(namespace, body, includeUninitialized, pretty, dryRun)
 
 
 
@@ -332,9 +348,11 @@ BearerToken.setApiKey("YOUR API KEY");
 AppsV1Api apiInstance = new AppsV1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 V1StatefulSet body = new V1StatefulSet(); // V1StatefulSet | 
+Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1StatefulSet result = apiInstance.createNamespacedStatefulSet(namespace, body, pretty);
+    V1StatefulSet result = apiInstance.createNamespacedStatefulSet(namespace, body, includeUninitialized, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#createNamespacedStatefulSet");
@@ -348,7 +366,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | [**V1StatefulSet**](V1StatefulSet.md)|  |
+ **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -365,7 +385,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCollectionNamespacedControllerRevision"></a>
 # **deleteCollectionNamespacedControllerRevision**
-> V1Status deleteCollectionNamespacedControllerRevision(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
+> V1Status deleteCollectionNamespacedControllerRevision(namespace, includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -390,17 +410,17 @@ BearerToken.setApiKey("YOUR API KEY");
 
 AppsV1Api apiInstance = new AppsV1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
-String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
-String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
 Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
+String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1Status result = apiInstance.deleteCollectionNamespacedControllerRevision(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
+    V1Status result = apiInstance.deleteCollectionNamespacedControllerRevision(namespace, includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#deleteCollectionNamespacedControllerRevision");
@@ -413,10 +433,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
- **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
+ **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
+ **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
@@ -438,7 +458,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCollectionNamespacedDaemonSet"></a>
 # **deleteCollectionNamespacedDaemonSet**
-> V1Status deleteCollectionNamespacedDaemonSet(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
+> V1Status deleteCollectionNamespacedDaemonSet(namespace, includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -463,17 +483,17 @@ BearerToken.setApiKey("YOUR API KEY");
 
 AppsV1Api apiInstance = new AppsV1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
-String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
-String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
 Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
+String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1Status result = apiInstance.deleteCollectionNamespacedDaemonSet(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
+    V1Status result = apiInstance.deleteCollectionNamespacedDaemonSet(namespace, includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#deleteCollectionNamespacedDaemonSet");
@@ -486,10 +506,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
- **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
+ **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
+ **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
@@ -511,7 +531,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCollectionNamespacedDeployment"></a>
 # **deleteCollectionNamespacedDeployment**
-> V1Status deleteCollectionNamespacedDeployment(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
+> V1Status deleteCollectionNamespacedDeployment(namespace, includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -536,17 +556,17 @@ BearerToken.setApiKey("YOUR API KEY");
 
 AppsV1Api apiInstance = new AppsV1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
-String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
-String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
 Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
+String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1Status result = apiInstance.deleteCollectionNamespacedDeployment(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
+    V1Status result = apiInstance.deleteCollectionNamespacedDeployment(namespace, includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#deleteCollectionNamespacedDeployment");
@@ -559,10 +579,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
- **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
+ **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
+ **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
@@ -584,7 +604,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCollectionNamespacedReplicaSet"></a>
 # **deleteCollectionNamespacedReplicaSet**
-> V1Status deleteCollectionNamespacedReplicaSet(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
+> V1Status deleteCollectionNamespacedReplicaSet(namespace, includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -609,17 +629,17 @@ BearerToken.setApiKey("YOUR API KEY");
 
 AppsV1Api apiInstance = new AppsV1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
-String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
-String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
 Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
+String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1Status result = apiInstance.deleteCollectionNamespacedReplicaSet(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
+    V1Status result = apiInstance.deleteCollectionNamespacedReplicaSet(namespace, includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#deleteCollectionNamespacedReplicaSet");
@@ -632,10 +652,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
- **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
+ **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
+ **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
@@ -657,7 +677,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCollectionNamespacedStatefulSet"></a>
 # **deleteCollectionNamespacedStatefulSet**
-> V1Status deleteCollectionNamespacedStatefulSet(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
+> V1Status deleteCollectionNamespacedStatefulSet(namespace, includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -682,17 +702,17 @@ BearerToken.setApiKey("YOUR API KEY");
 
 AppsV1Api apiInstance = new AppsV1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
-String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
-String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
 Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
+String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1Status result = apiInstance.deleteCollectionNamespacedStatefulSet(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
+    V1Status result = apiInstance.deleteCollectionNamespacedStatefulSet(namespace, includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#deleteCollectionNamespacedStatefulSet");
@@ -705,10 +725,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
- **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
+ **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
+ **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
@@ -730,7 +750,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteNamespacedControllerRevision"></a>
 # **deleteNamespacedControllerRevision**
-> V1Status deleteNamespacedControllerRevision(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy)
+> V1Status deleteNamespacedControllerRevision(name, namespace, body, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy)
 
 
 
@@ -758,11 +778,12 @@ String name = "name_example"; // String | name of the ControllerRevision
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
 String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
-    V1Status result = apiInstance.deleteNamespacedControllerRevision(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy);
+    V1Status result = apiInstance.deleteNamespacedControllerRevision(name, namespace, body, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#deleteNamespacedControllerRevision");
@@ -778,6 +799,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
  **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. | [optional]
@@ -797,7 +819,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteNamespacedDaemonSet"></a>
 # **deleteNamespacedDaemonSet**
-> V1Status deleteNamespacedDaemonSet(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy)
+> V1Status deleteNamespacedDaemonSet(name, namespace, body, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy)
 
 
 
@@ -825,11 +847,12 @@ String name = "name_example"; // String | name of the DaemonSet
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
 String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
-    V1Status result = apiInstance.deleteNamespacedDaemonSet(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy);
+    V1Status result = apiInstance.deleteNamespacedDaemonSet(name, namespace, body, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#deleteNamespacedDaemonSet");
@@ -845,6 +868,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
  **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. | [optional]
@@ -864,7 +888,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteNamespacedDeployment"></a>
 # **deleteNamespacedDeployment**
-> V1Status deleteNamespacedDeployment(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy)
+> V1Status deleteNamespacedDeployment(name, namespace, body, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy)
 
 
 
@@ -892,11 +916,12 @@ String name = "name_example"; // String | name of the Deployment
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
 String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
-    V1Status result = apiInstance.deleteNamespacedDeployment(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy);
+    V1Status result = apiInstance.deleteNamespacedDeployment(name, namespace, body, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#deleteNamespacedDeployment");
@@ -912,6 +937,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
  **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. | [optional]
@@ -931,7 +957,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteNamespacedReplicaSet"></a>
 # **deleteNamespacedReplicaSet**
-> V1Status deleteNamespacedReplicaSet(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy)
+> V1Status deleteNamespacedReplicaSet(name, namespace, body, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy)
 
 
 
@@ -959,11 +985,12 @@ String name = "name_example"; // String | name of the ReplicaSet
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
 String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
-    V1Status result = apiInstance.deleteNamespacedReplicaSet(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy);
+    V1Status result = apiInstance.deleteNamespacedReplicaSet(name, namespace, body, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#deleteNamespacedReplicaSet");
@@ -979,6 +1006,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
  **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. | [optional]
@@ -998,7 +1026,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteNamespacedStatefulSet"></a>
 # **deleteNamespacedStatefulSet**
-> V1Status deleteNamespacedStatefulSet(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy)
+> V1Status deleteNamespacedStatefulSet(name, namespace, body, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy)
 
 
 
@@ -1026,11 +1054,12 @@ String name = "name_example"; // String | name of the StatefulSet
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
 String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
-    V1Status result = apiInstance.deleteNamespacedStatefulSet(name, namespace, body, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy);
+    V1Status result = apiInstance.deleteNamespacedStatefulSet(name, namespace, body, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#deleteNamespacedStatefulSet");
@@ -1046,6 +1075,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
  **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. | [optional]
@@ -1140,7 +1170,7 @@ BearerToken.setApiKey("YOUR API KEY");
 //BearerToken.setApiKeyPrefix("Token");
 
 AppsV1Api apiInstance = new AppsV1Api();
-String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
 Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
@@ -1162,7 +1192,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
+ **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
@@ -1211,7 +1241,7 @@ BearerToken.setApiKey("YOUR API KEY");
 //BearerToken.setApiKeyPrefix("Token");
 
 AppsV1Api apiInstance = new AppsV1Api();
-String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
 Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
@@ -1233,7 +1263,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
+ **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
@@ -1282,7 +1312,7 @@ BearerToken.setApiKey("YOUR API KEY");
 //BearerToken.setApiKeyPrefix("Token");
 
 AppsV1Api apiInstance = new AppsV1Api();
-String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
 Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
@@ -1304,7 +1334,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
+ **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
@@ -1329,7 +1359,7 @@ Name | Type | Description  | Notes
 
 <a name="listNamespacedControllerRevision"></a>
 # **listNamespacedControllerRevision**
-> V1ControllerRevisionList listNamespacedControllerRevision(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
+> V1ControllerRevisionList listNamespacedControllerRevision(namespace, includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -1354,17 +1384,17 @@ BearerToken.setApiKey("YOUR API KEY");
 
 AppsV1Api apiInstance = new AppsV1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
-String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
-String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
 Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
+String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1ControllerRevisionList result = apiInstance.listNamespacedControllerRevision(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
+    V1ControllerRevisionList result = apiInstance.listNamespacedControllerRevision(namespace, includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#listNamespacedControllerRevision");
@@ -1377,10 +1407,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
- **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
+ **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
+ **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
@@ -1402,7 +1432,7 @@ Name | Type | Description  | Notes
 
 <a name="listNamespacedDaemonSet"></a>
 # **listNamespacedDaemonSet**
-> V1DaemonSetList listNamespacedDaemonSet(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
+> V1DaemonSetList listNamespacedDaemonSet(namespace, includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -1427,17 +1457,17 @@ BearerToken.setApiKey("YOUR API KEY");
 
 AppsV1Api apiInstance = new AppsV1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
-String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
-String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
 Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
+String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1DaemonSetList result = apiInstance.listNamespacedDaemonSet(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
+    V1DaemonSetList result = apiInstance.listNamespacedDaemonSet(namespace, includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#listNamespacedDaemonSet");
@@ -1450,10 +1480,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
- **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
+ **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
+ **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
@@ -1475,7 +1505,7 @@ Name | Type | Description  | Notes
 
 <a name="listNamespacedDeployment"></a>
 # **listNamespacedDeployment**
-> V1DeploymentList listNamespacedDeployment(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
+> V1DeploymentList listNamespacedDeployment(namespace, includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -1500,17 +1530,17 @@ BearerToken.setApiKey("YOUR API KEY");
 
 AppsV1Api apiInstance = new AppsV1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
-String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
-String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
 Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
+String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1DeploymentList result = apiInstance.listNamespacedDeployment(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
+    V1DeploymentList result = apiInstance.listNamespacedDeployment(namespace, includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#listNamespacedDeployment");
@@ -1523,10 +1553,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
- **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
+ **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
+ **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
@@ -1548,7 +1578,7 @@ Name | Type | Description  | Notes
 
 <a name="listNamespacedReplicaSet"></a>
 # **listNamespacedReplicaSet**
-> V1ReplicaSetList listNamespacedReplicaSet(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
+> V1ReplicaSetList listNamespacedReplicaSet(namespace, includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -1573,17 +1603,17 @@ BearerToken.setApiKey("YOUR API KEY");
 
 AppsV1Api apiInstance = new AppsV1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
-String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
-String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
 Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
+String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1ReplicaSetList result = apiInstance.listNamespacedReplicaSet(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
+    V1ReplicaSetList result = apiInstance.listNamespacedReplicaSet(namespace, includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#listNamespacedReplicaSet");
@@ -1596,10 +1626,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
- **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
+ **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
+ **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
@@ -1621,7 +1651,7 @@ Name | Type | Description  | Notes
 
 <a name="listNamespacedStatefulSet"></a>
 # **listNamespacedStatefulSet**
-> V1StatefulSetList listNamespacedStatefulSet(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
+> V1StatefulSetList listNamespacedStatefulSet(namespace, includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -1646,17 +1676,17 @@ BearerToken.setApiKey("YOUR API KEY");
 
 AppsV1Api apiInstance = new AppsV1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
-String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
-String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
 Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
+String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1StatefulSetList result = apiInstance.listNamespacedStatefulSet(namespace, pretty, _continue, fieldSelector, includeUninitialized, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
+    V1StatefulSetList result = apiInstance.listNamespacedStatefulSet(namespace, includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#listNamespacedStatefulSet");
@@ -1669,10 +1699,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
- **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
+ **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
+ **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
@@ -1718,7 +1748,7 @@ BearerToken.setApiKey("YOUR API KEY");
 //BearerToken.setApiKeyPrefix("Token");
 
 AppsV1Api apiInstance = new AppsV1Api();
-String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
 Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
@@ -1740,7 +1770,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
+ **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
@@ -1789,7 +1819,7 @@ BearerToken.setApiKey("YOUR API KEY");
 //BearerToken.setApiKeyPrefix("Token");
 
 AppsV1Api apiInstance = new AppsV1Api();
-String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
 Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
@@ -1811,7 +1841,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
+ **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
@@ -1836,7 +1866,7 @@ Name | Type | Description  | Notes
 
 <a name="patchNamespacedControllerRevision"></a>
 # **patchNamespacedControllerRevision**
-> V1ControllerRevision patchNamespacedControllerRevision(name, namespace, body, pretty)
+> V1ControllerRevision patchNamespacedControllerRevision(name, namespace, body, pretty, dryRun)
 
 
 
@@ -1864,8 +1894,9 @@ String name = "name_example"; // String | name of the ControllerRevision
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 Object body = null; // Object | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1ControllerRevision result = apiInstance.patchNamespacedControllerRevision(name, namespace, body, pretty);
+    V1ControllerRevision result = apiInstance.patchNamespacedControllerRevision(name, namespace, body, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#patchNamespacedControllerRevision");
@@ -1881,6 +1912,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | **Object**|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -1897,7 +1929,7 @@ Name | Type | Description  | Notes
 
 <a name="patchNamespacedDaemonSet"></a>
 # **patchNamespacedDaemonSet**
-> V1DaemonSet patchNamespacedDaemonSet(name, namespace, body, pretty)
+> V1DaemonSet patchNamespacedDaemonSet(name, namespace, body, pretty, dryRun)
 
 
 
@@ -1925,8 +1957,9 @@ String name = "name_example"; // String | name of the DaemonSet
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 Object body = null; // Object | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1DaemonSet result = apiInstance.patchNamespacedDaemonSet(name, namespace, body, pretty);
+    V1DaemonSet result = apiInstance.patchNamespacedDaemonSet(name, namespace, body, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#patchNamespacedDaemonSet");
@@ -1942,6 +1975,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | **Object**|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -1958,7 +1992,7 @@ Name | Type | Description  | Notes
 
 <a name="patchNamespacedDaemonSetStatus"></a>
 # **patchNamespacedDaemonSetStatus**
-> V1DaemonSet patchNamespacedDaemonSetStatus(name, namespace, body, pretty)
+> V1DaemonSet patchNamespacedDaemonSetStatus(name, namespace, body, pretty, dryRun)
 
 
 
@@ -1986,8 +2020,9 @@ String name = "name_example"; // String | name of the DaemonSet
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 Object body = null; // Object | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1DaemonSet result = apiInstance.patchNamespacedDaemonSetStatus(name, namespace, body, pretty);
+    V1DaemonSet result = apiInstance.patchNamespacedDaemonSetStatus(name, namespace, body, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#patchNamespacedDaemonSetStatus");
@@ -2003,6 +2038,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | **Object**|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -2019,7 +2055,7 @@ Name | Type | Description  | Notes
 
 <a name="patchNamespacedDeployment"></a>
 # **patchNamespacedDeployment**
-> V1Deployment patchNamespacedDeployment(name, namespace, body, pretty)
+> V1Deployment patchNamespacedDeployment(name, namespace, body, pretty, dryRun)
 
 
 
@@ -2047,8 +2083,9 @@ String name = "name_example"; // String | name of the Deployment
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 Object body = null; // Object | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1Deployment result = apiInstance.patchNamespacedDeployment(name, namespace, body, pretty);
+    V1Deployment result = apiInstance.patchNamespacedDeployment(name, namespace, body, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#patchNamespacedDeployment");
@@ -2064,6 +2101,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | **Object**|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -2080,7 +2118,7 @@ Name | Type | Description  | Notes
 
 <a name="patchNamespacedDeploymentScale"></a>
 # **patchNamespacedDeploymentScale**
-> V1Scale patchNamespacedDeploymentScale(name, namespace, body, pretty)
+> V1Scale patchNamespacedDeploymentScale(name, namespace, body, pretty, dryRun)
 
 
 
@@ -2108,8 +2146,9 @@ String name = "name_example"; // String | name of the Scale
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 Object body = null; // Object | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1Scale result = apiInstance.patchNamespacedDeploymentScale(name, namespace, body, pretty);
+    V1Scale result = apiInstance.patchNamespacedDeploymentScale(name, namespace, body, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#patchNamespacedDeploymentScale");
@@ -2125,6 +2164,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | **Object**|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -2141,7 +2181,7 @@ Name | Type | Description  | Notes
 
 <a name="patchNamespacedDeploymentStatus"></a>
 # **patchNamespacedDeploymentStatus**
-> V1Deployment patchNamespacedDeploymentStatus(name, namespace, body, pretty)
+> V1Deployment patchNamespacedDeploymentStatus(name, namespace, body, pretty, dryRun)
 
 
 
@@ -2169,8 +2209,9 @@ String name = "name_example"; // String | name of the Deployment
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 Object body = null; // Object | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1Deployment result = apiInstance.patchNamespacedDeploymentStatus(name, namespace, body, pretty);
+    V1Deployment result = apiInstance.patchNamespacedDeploymentStatus(name, namespace, body, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#patchNamespacedDeploymentStatus");
@@ -2186,6 +2227,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | **Object**|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -2202,7 +2244,7 @@ Name | Type | Description  | Notes
 
 <a name="patchNamespacedReplicaSet"></a>
 # **patchNamespacedReplicaSet**
-> V1ReplicaSet patchNamespacedReplicaSet(name, namespace, body, pretty)
+> V1ReplicaSet patchNamespacedReplicaSet(name, namespace, body, pretty, dryRun)
 
 
 
@@ -2230,8 +2272,9 @@ String name = "name_example"; // String | name of the ReplicaSet
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 Object body = null; // Object | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1ReplicaSet result = apiInstance.patchNamespacedReplicaSet(name, namespace, body, pretty);
+    V1ReplicaSet result = apiInstance.patchNamespacedReplicaSet(name, namespace, body, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#patchNamespacedReplicaSet");
@@ -2247,6 +2290,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | **Object**|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -2263,7 +2307,7 @@ Name | Type | Description  | Notes
 
 <a name="patchNamespacedReplicaSetScale"></a>
 # **patchNamespacedReplicaSetScale**
-> V1Scale patchNamespacedReplicaSetScale(name, namespace, body, pretty)
+> V1Scale patchNamespacedReplicaSetScale(name, namespace, body, pretty, dryRun)
 
 
 
@@ -2291,8 +2335,9 @@ String name = "name_example"; // String | name of the Scale
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 Object body = null; // Object | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1Scale result = apiInstance.patchNamespacedReplicaSetScale(name, namespace, body, pretty);
+    V1Scale result = apiInstance.patchNamespacedReplicaSetScale(name, namespace, body, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#patchNamespacedReplicaSetScale");
@@ -2308,6 +2353,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | **Object**|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -2324,7 +2370,7 @@ Name | Type | Description  | Notes
 
 <a name="patchNamespacedReplicaSetStatus"></a>
 # **patchNamespacedReplicaSetStatus**
-> V1ReplicaSet patchNamespacedReplicaSetStatus(name, namespace, body, pretty)
+> V1ReplicaSet patchNamespacedReplicaSetStatus(name, namespace, body, pretty, dryRun)
 
 
 
@@ -2352,8 +2398,9 @@ String name = "name_example"; // String | name of the ReplicaSet
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 Object body = null; // Object | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1ReplicaSet result = apiInstance.patchNamespacedReplicaSetStatus(name, namespace, body, pretty);
+    V1ReplicaSet result = apiInstance.patchNamespacedReplicaSetStatus(name, namespace, body, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#patchNamespacedReplicaSetStatus");
@@ -2369,6 +2416,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | **Object**|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -2385,7 +2433,7 @@ Name | Type | Description  | Notes
 
 <a name="patchNamespacedStatefulSet"></a>
 # **patchNamespacedStatefulSet**
-> V1StatefulSet patchNamespacedStatefulSet(name, namespace, body, pretty)
+> V1StatefulSet patchNamespacedStatefulSet(name, namespace, body, pretty, dryRun)
 
 
 
@@ -2413,8 +2461,9 @@ String name = "name_example"; // String | name of the StatefulSet
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 Object body = null; // Object | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1StatefulSet result = apiInstance.patchNamespacedStatefulSet(name, namespace, body, pretty);
+    V1StatefulSet result = apiInstance.patchNamespacedStatefulSet(name, namespace, body, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#patchNamespacedStatefulSet");
@@ -2430,6 +2479,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | **Object**|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -2446,7 +2496,7 @@ Name | Type | Description  | Notes
 
 <a name="patchNamespacedStatefulSetScale"></a>
 # **patchNamespacedStatefulSetScale**
-> V1Scale patchNamespacedStatefulSetScale(name, namespace, body, pretty)
+> V1Scale patchNamespacedStatefulSetScale(name, namespace, body, pretty, dryRun)
 
 
 
@@ -2474,8 +2524,9 @@ String name = "name_example"; // String | name of the Scale
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 Object body = null; // Object | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1Scale result = apiInstance.patchNamespacedStatefulSetScale(name, namespace, body, pretty);
+    V1Scale result = apiInstance.patchNamespacedStatefulSetScale(name, namespace, body, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#patchNamespacedStatefulSetScale");
@@ -2491,6 +2542,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | **Object**|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -2507,7 +2559,7 @@ Name | Type | Description  | Notes
 
 <a name="patchNamespacedStatefulSetStatus"></a>
 # **patchNamespacedStatefulSetStatus**
-> V1StatefulSet patchNamespacedStatefulSetStatus(name, namespace, body, pretty)
+> V1StatefulSet patchNamespacedStatefulSetStatus(name, namespace, body, pretty, dryRun)
 
 
 
@@ -2535,8 +2587,9 @@ String name = "name_example"; // String | name of the StatefulSet
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 Object body = null; // Object | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1StatefulSet result = apiInstance.patchNamespacedStatefulSetStatus(name, namespace, body, pretty);
+    V1StatefulSet result = apiInstance.patchNamespacedStatefulSetStatus(name, namespace, body, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#patchNamespacedStatefulSetStatus");
@@ -2552,6 +2605,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | **Object**|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -3296,7 +3350,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceNamespacedControllerRevision"></a>
 # **replaceNamespacedControllerRevision**
-> V1ControllerRevision replaceNamespacedControllerRevision(name, namespace, body, pretty)
+> V1ControllerRevision replaceNamespacedControllerRevision(name, namespace, body, pretty, dryRun)
 
 
 
@@ -3324,8 +3378,9 @@ String name = "name_example"; // String | name of the ControllerRevision
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 V1ControllerRevision body = new V1ControllerRevision(); // V1ControllerRevision | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1ControllerRevision result = apiInstance.replaceNamespacedControllerRevision(name, namespace, body, pretty);
+    V1ControllerRevision result = apiInstance.replaceNamespacedControllerRevision(name, namespace, body, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#replaceNamespacedControllerRevision");
@@ -3341,6 +3396,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | [**V1ControllerRevision**](V1ControllerRevision.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -3357,7 +3413,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceNamespacedDaemonSet"></a>
 # **replaceNamespacedDaemonSet**
-> V1DaemonSet replaceNamespacedDaemonSet(name, namespace, body, pretty)
+> V1DaemonSet replaceNamespacedDaemonSet(name, namespace, body, pretty, dryRun)
 
 
 
@@ -3385,8 +3441,9 @@ String name = "name_example"; // String | name of the DaemonSet
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 V1DaemonSet body = new V1DaemonSet(); // V1DaemonSet | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1DaemonSet result = apiInstance.replaceNamespacedDaemonSet(name, namespace, body, pretty);
+    V1DaemonSet result = apiInstance.replaceNamespacedDaemonSet(name, namespace, body, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#replaceNamespacedDaemonSet");
@@ -3402,6 +3459,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | [**V1DaemonSet**](V1DaemonSet.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -3418,7 +3476,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceNamespacedDaemonSetStatus"></a>
 # **replaceNamespacedDaemonSetStatus**
-> V1DaemonSet replaceNamespacedDaemonSetStatus(name, namespace, body, pretty)
+> V1DaemonSet replaceNamespacedDaemonSetStatus(name, namespace, body, pretty, dryRun)
 
 
 
@@ -3446,8 +3504,9 @@ String name = "name_example"; // String | name of the DaemonSet
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 V1DaemonSet body = new V1DaemonSet(); // V1DaemonSet | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1DaemonSet result = apiInstance.replaceNamespacedDaemonSetStatus(name, namespace, body, pretty);
+    V1DaemonSet result = apiInstance.replaceNamespacedDaemonSetStatus(name, namespace, body, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#replaceNamespacedDaemonSetStatus");
@@ -3463,6 +3522,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | [**V1DaemonSet**](V1DaemonSet.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -3479,7 +3539,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceNamespacedDeployment"></a>
 # **replaceNamespacedDeployment**
-> V1Deployment replaceNamespacedDeployment(name, namespace, body, pretty)
+> V1Deployment replaceNamespacedDeployment(name, namespace, body, pretty, dryRun)
 
 
 
@@ -3507,8 +3567,9 @@ String name = "name_example"; // String | name of the Deployment
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 V1Deployment body = new V1Deployment(); // V1Deployment | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1Deployment result = apiInstance.replaceNamespacedDeployment(name, namespace, body, pretty);
+    V1Deployment result = apiInstance.replaceNamespacedDeployment(name, namespace, body, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#replaceNamespacedDeployment");
@@ -3524,6 +3585,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | [**V1Deployment**](V1Deployment.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -3540,7 +3602,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceNamespacedDeploymentScale"></a>
 # **replaceNamespacedDeploymentScale**
-> V1Scale replaceNamespacedDeploymentScale(name, namespace, body, pretty)
+> V1Scale replaceNamespacedDeploymentScale(name, namespace, body, pretty, dryRun)
 
 
 
@@ -3568,8 +3630,9 @@ String name = "name_example"; // String | name of the Scale
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 V1Scale body = new V1Scale(); // V1Scale | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1Scale result = apiInstance.replaceNamespacedDeploymentScale(name, namespace, body, pretty);
+    V1Scale result = apiInstance.replaceNamespacedDeploymentScale(name, namespace, body, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#replaceNamespacedDeploymentScale");
@@ -3585,6 +3648,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | [**V1Scale**](V1Scale.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -3601,7 +3665,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceNamespacedDeploymentStatus"></a>
 # **replaceNamespacedDeploymentStatus**
-> V1Deployment replaceNamespacedDeploymentStatus(name, namespace, body, pretty)
+> V1Deployment replaceNamespacedDeploymentStatus(name, namespace, body, pretty, dryRun)
 
 
 
@@ -3629,8 +3693,9 @@ String name = "name_example"; // String | name of the Deployment
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 V1Deployment body = new V1Deployment(); // V1Deployment | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1Deployment result = apiInstance.replaceNamespacedDeploymentStatus(name, namespace, body, pretty);
+    V1Deployment result = apiInstance.replaceNamespacedDeploymentStatus(name, namespace, body, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#replaceNamespacedDeploymentStatus");
@@ -3646,6 +3711,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | [**V1Deployment**](V1Deployment.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -3662,7 +3728,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceNamespacedReplicaSet"></a>
 # **replaceNamespacedReplicaSet**
-> V1ReplicaSet replaceNamespacedReplicaSet(name, namespace, body, pretty)
+> V1ReplicaSet replaceNamespacedReplicaSet(name, namespace, body, pretty, dryRun)
 
 
 
@@ -3690,8 +3756,9 @@ String name = "name_example"; // String | name of the ReplicaSet
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 V1ReplicaSet body = new V1ReplicaSet(); // V1ReplicaSet | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1ReplicaSet result = apiInstance.replaceNamespacedReplicaSet(name, namespace, body, pretty);
+    V1ReplicaSet result = apiInstance.replaceNamespacedReplicaSet(name, namespace, body, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#replaceNamespacedReplicaSet");
@@ -3707,6 +3774,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | [**V1ReplicaSet**](V1ReplicaSet.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -3723,7 +3791,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceNamespacedReplicaSetScale"></a>
 # **replaceNamespacedReplicaSetScale**
-> V1Scale replaceNamespacedReplicaSetScale(name, namespace, body, pretty)
+> V1Scale replaceNamespacedReplicaSetScale(name, namespace, body, pretty, dryRun)
 
 
 
@@ -3751,8 +3819,9 @@ String name = "name_example"; // String | name of the Scale
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 V1Scale body = new V1Scale(); // V1Scale | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1Scale result = apiInstance.replaceNamespacedReplicaSetScale(name, namespace, body, pretty);
+    V1Scale result = apiInstance.replaceNamespacedReplicaSetScale(name, namespace, body, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#replaceNamespacedReplicaSetScale");
@@ -3768,6 +3837,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | [**V1Scale**](V1Scale.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -3784,7 +3854,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceNamespacedReplicaSetStatus"></a>
 # **replaceNamespacedReplicaSetStatus**
-> V1ReplicaSet replaceNamespacedReplicaSetStatus(name, namespace, body, pretty)
+> V1ReplicaSet replaceNamespacedReplicaSetStatus(name, namespace, body, pretty, dryRun)
 
 
 
@@ -3812,8 +3882,9 @@ String name = "name_example"; // String | name of the ReplicaSet
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 V1ReplicaSet body = new V1ReplicaSet(); // V1ReplicaSet | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1ReplicaSet result = apiInstance.replaceNamespacedReplicaSetStatus(name, namespace, body, pretty);
+    V1ReplicaSet result = apiInstance.replaceNamespacedReplicaSetStatus(name, namespace, body, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#replaceNamespacedReplicaSetStatus");
@@ -3829,6 +3900,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | [**V1ReplicaSet**](V1ReplicaSet.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -3845,7 +3917,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceNamespacedStatefulSet"></a>
 # **replaceNamespacedStatefulSet**
-> V1StatefulSet replaceNamespacedStatefulSet(name, namespace, body, pretty)
+> V1StatefulSet replaceNamespacedStatefulSet(name, namespace, body, pretty, dryRun)
 
 
 
@@ -3873,8 +3945,9 @@ String name = "name_example"; // String | name of the StatefulSet
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 V1StatefulSet body = new V1StatefulSet(); // V1StatefulSet | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1StatefulSet result = apiInstance.replaceNamespacedStatefulSet(name, namespace, body, pretty);
+    V1StatefulSet result = apiInstance.replaceNamespacedStatefulSet(name, namespace, body, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#replaceNamespacedStatefulSet");
@@ -3890,6 +3963,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | [**V1StatefulSet**](V1StatefulSet.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -3906,7 +3980,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceNamespacedStatefulSetScale"></a>
 # **replaceNamespacedStatefulSetScale**
-> V1Scale replaceNamespacedStatefulSetScale(name, namespace, body, pretty)
+> V1Scale replaceNamespacedStatefulSetScale(name, namespace, body, pretty, dryRun)
 
 
 
@@ -3934,8 +4008,9 @@ String name = "name_example"; // String | name of the Scale
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 V1Scale body = new V1Scale(); // V1Scale | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1Scale result = apiInstance.replaceNamespacedStatefulSetScale(name, namespace, body, pretty);
+    V1Scale result = apiInstance.replaceNamespacedStatefulSetScale(name, namespace, body, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#replaceNamespacedStatefulSetScale");
@@ -3951,6 +4026,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | [**V1Scale**](V1Scale.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
@@ -3967,7 +4043,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceNamespacedStatefulSetStatus"></a>
 # **replaceNamespacedStatefulSetStatus**
-> V1StatefulSet replaceNamespacedStatefulSetStatus(name, namespace, body, pretty)
+> V1StatefulSet replaceNamespacedStatefulSetStatus(name, namespace, body, pretty, dryRun)
 
 
 
@@ -3995,8 +4071,9 @@ String name = "name_example"; // String | name of the StatefulSet
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 V1StatefulSet body = new V1StatefulSet(); // V1StatefulSet | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 try {
-    V1StatefulSet result = apiInstance.replaceNamespacedStatefulSetStatus(name, namespace, body, pretty);
+    V1StatefulSet result = apiInstance.replaceNamespacedStatefulSetStatus(name, namespace, body, pretty, dryRun);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#replaceNamespacedStatefulSetStatus");
@@ -4012,6 +4089,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | [**V1StatefulSet**](V1StatefulSet.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
 
 ### Return type
 
