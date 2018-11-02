@@ -131,6 +131,20 @@ public class ProtoClient {
       T obj, String path, String apiVersion, String kind) throws ApiException, IOException {
     return request(obj.newBuilderForType(), path, "PUT", obj, apiVersion, kind);
   }
+  
+  /**
+   * Merge a Kubernetes API object using protocol buffer encoding. Performs a PATCH
+   *
+   * @param obj The object to merge
+   * @param path The URL path to call
+   * @param apiVersion The api version to use
+   * @param kind The kind of the object
+   * @return An ObjectOrStatus which contains the Object requested, or a Status about the request.
+   */
+  public <T extends Message> ObjectOrStatus<T> merge(
+      T obj, String path, String apiVersion, String kind) throws ApiException, IOException {
+    return request(obj.newBuilderForType(), path, "PATCH", obj, apiVersion, kind);
+  }
 
   /**
    * Delete a kubernetes API object using protocol buffer encoding.
