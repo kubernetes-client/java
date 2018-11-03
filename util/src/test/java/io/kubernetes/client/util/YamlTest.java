@@ -12,7 +12,13 @@ limitations under the License.
  */
 package io.kubernetes.client.util;
 
-import static org.junit.Assert.*;
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import com.google.common.io.Resources;
 import io.kubernetes.client.models.AppsV1beta1Deployment;
@@ -26,14 +32,17 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.lang.reflect.Method;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.net.URL;
 import java.util.List;
 import org.junit.Test;
 
 public class YamlTest {
-  private static final String TEST_YAML_FILE_PATH = Resources.getResource("test.yaml").getPath();
+
+  private static final URL TEST_YAML_FILE = Resources.getResource("test.yaml");
+  private static final String TEST_YAML_FILE_PATH = TEST_YAML_FILE.getPath();
+
+  private static final URL EXPECTED_YAML_FILE = Resources.getResource("expected.yaml");
+
   private static final String[] kinds =
       new String[] {
         "Pod",
@@ -134,16 +143,14 @@ public class YamlTest {
         assertEquals("Secret", secret.getKind());
         assertEquals("secret", secret.getMetadata().getName());
         assertEquals("Opaque", secret.getType());
-        assertEquals(
-            "hello", new String(secret.getData().get("secret-data"), StandardCharsets.UTF_8));
+        assertEquals("hello", new String(secret.getData().get("secret-data"), UTF_8));
       } else {
         throw new Exception("some thing wrong happened");
       }
     }
     String result = Yaml.dumpAll(list.iterator());
-    String expected =
-        new String(Files.readAllBytes(Paths.get(TEST_YAML_FILE_PATH)), StandardCharsets.UTF_8);
-    assertEquals(expected, result);
+    String expected = Resources.toString(EXPECTED_YAML_FILE, UTF_8);
+    assertThat(result, equalTo(expected));
   }
 
   @Test
@@ -202,7 +209,7 @@ public class YamlTest {
       assertEquals(
           "Incorrect value loaded for Base64 encoded secret",
           "hello",
-          new String(secret.getData().get("hello"), StandardCharsets.UTF_8));
+          new String(secret.getData().get("hello"), UTF_8));
 
     } catch (Exception ex) {
       assertNull("Unexpected exception: " + ex.toString(), ex);
@@ -223,9 +230,7 @@ public class YamlTest {
       assertEquals(
           "Incorrect value loaded for creationTimestamp",
           "2018-09-06T15:12:24.000Z",
-          new String(
-              pod.getMetadata().getCreationTimestamp().toString().getBytes(),
-              StandardCharsets.UTF_8));
+          new String(pod.getMetadata().getCreationTimestamp().toString().getBytes(), UTF_8));
 
     } catch (Exception ex) {
       assertNull("Unexpected exception: " + ex.toString(), ex);
