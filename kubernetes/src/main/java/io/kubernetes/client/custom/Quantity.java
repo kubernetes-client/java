@@ -14,81 +14,81 @@ import org.apache.commons.lang3.ObjectUtils;
 @JsonAdapter(Quantity.QuantityAdapter.class)
 public class Quantity {
 
-    private final BigDecimal number;
-    private Format format;
+  private final BigDecimal number;
+  private Format format;
 
-    public enum Format {
-        DECIMAL_EXPONENT(10), DECIMAL_SI(10), BINARY_SI(2);
+  public enum Format {
+    DECIMAL_EXPONENT(10), DECIMAL_SI(10), BINARY_SI(2);
 
-        private int base;
+    private int base;
 
-        Format(final int base) {
-            this.base = base;
-        }
-
-        public int getBase() {
-            return base;
-        }
+    Format(final int base) {
+      this.base = base;
     }
 
-    public Quantity(final BigDecimal number, final Format format) {
-        this.number = number;
-        this.format = format;
+    public int getBase() {
+      return base;
+    }
+  }
+
+  public Quantity(final BigDecimal number, final Format format) {
+    this.number = number;
+    this.format = format;
+  }
+
+  public Quantity(final String value) {
+    this.number = fromString(value).number;
+    this.format = fromString(value).format;
+  }
+
+  public BigDecimal getNumber() {
+    return number;
+  }
+
+  public Format getFormat() {
+    return format;
+  }
+
+  public static Quantity fromString(final String value) {
+    return new QuantityFormatter().parse(value);
+  }
+
+  public String toSuffixedString() {
+    return new QuantityFormatter().format(this);
+  }
+
+  @Override
+  public String toString() {
+    return "Quantity{" +
+           "number=" + number +
+           ", format=" + format +
+           '}';
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
 
-    public Quantity(final String value) {
-        this.number = fromString(value).number;
-        this.format = fromString(value).format;
-    }
+    Quantity otherQuantity = (Quantity) o;
 
-    public BigDecimal getNumber() {
-        return number;
-    }
+    return ObjectUtils.compare(this.number, otherQuantity.number) == 0 &&
+           Objects.equals(this.format, otherQuantity.format);
+  }
 
-    public Format getFormat() {
-        return format;
-    }
-
-    public static Quantity fromString(final String value) {
-        return new QuantityFormatter().parse(value);
-    }
-
-    public String toSuffixedString() {
-        return new QuantityFormatter().format(this);
+  public class QuantityAdapter extends TypeAdapter<Quantity> {
+    @Override
+    public void write(JsonWriter jsonWriter, Quantity quantity) throws IOException {
+      jsonWriter.value(quantity.toSuffixedString());
     }
 
     @Override
-    public String toString() {
-        return "Quantity{" +
-                "number=" + number +
-                ", format=" + format +
-                '}';
+    public Quantity read(JsonReader jsonReader) throws IOException {
+      return Quantity.fromString(jsonReader.nextString());
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-          }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        Quantity otherQuantity = (Quantity) o;
-
-        return ObjectUtils.compare(this.number, otherQuantity.number) == 0 &&
-        		Objects.equals(this.format, otherQuantity.format);
-    }
-
-    public class QuantityAdapter extends TypeAdapter<Quantity> {
-        @Override
-        public void write(JsonWriter jsonWriter, Quantity quantity) throws IOException {
-            jsonWriter.value(quantity.toSuffixedString());
-        }
-
-        @Override
-        public Quantity read(JsonReader jsonReader) throws IOException {
-            return Quantity.fromString(jsonReader.nextString());
-        }
-    }
+  }
 }
