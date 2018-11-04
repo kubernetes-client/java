@@ -116,8 +116,8 @@ public class Copy extends Exec {
             false,
             false);
     InputStream is = new Base64InputStream(new BufferedInputStream(proc.getInputStream()));
-    try (ArchiveInputStream archive =
-        new TarArchiveInputStream(is)) { // new GzipCompressorInputStream(is))) {
+    try (ArchiveInputStream archive = new TarArchiveInputStream(is)) {
+      // TODO Use new GzipCompressorInputStream(is))) here {
       for (ArchiveEntry entry = archive.getNextEntry();
           entry != null;
           entry = archive.getNextEntry()) {

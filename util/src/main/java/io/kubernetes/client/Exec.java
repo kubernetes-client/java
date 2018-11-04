@@ -199,7 +199,7 @@ public class Exec {
       throws ApiException, IOException {
     String path = makePath(namespace, name, command, container, stdin, tty);
 
-    ExecProcess exec = new ExecProcess();
+    ExecProcess exec = new ExecProcess(apiClient);
     WebSocketStreamHandler handler = exec.getHandler();
     WebSockets.stream(path, "GET", apiClient, handler);
 
@@ -245,13 +245,13 @@ public class Exec {
     return -1;
   }
 
-  private class ExecProcess extends Process {
+  protected static class ExecProcess extends Process {
     private final WebSocketStreamHandler streamHandler;
     private int statusCode = -1;
     private boolean isAlive = true;
     private final Map<Integer, InputStream> input = new HashMap<>();
 
-    public ExecProcess() throws IOException {
+    public ExecProcess(final ApiClient apiClient) throws IOException {
       this.streamHandler =
           new WebSocketStreamHandler() {
             @Override
@@ -284,7 +284,8 @@ public class Exec {
           };
     }
 
-    private WebSocketStreamHandler getHandler() {
+    // Protected to facilitate unit testing.
+    protected WebSocketStreamHandler getHandler() {
       return streamHandler;
     }
 
