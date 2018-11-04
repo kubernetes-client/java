@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="createNamespacedLocalSubjectAccessReview"></a>
 # **createNamespacedLocalSubjectAccessReview**
-> V1beta1LocalSubjectAccessReview createNamespacedLocalSubjectAccessReview(namespace, body, pretty)
+> V1beta1LocalSubjectAccessReview createNamespacedLocalSubjectAccessReview(namespace, body, dryRun, includeUninitialized, pretty)
 
 
 
@@ -39,9 +39,11 @@ BearerToken.setApiKey("YOUR API KEY");
 AuthorizationV1beta1Api apiInstance = new AuthorizationV1beta1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 V1beta1LocalSubjectAccessReview body = new V1beta1LocalSubjectAccessReview(); // V1beta1LocalSubjectAccessReview | 
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+Boolean includeUninitialized = true; // Boolean | If IncludeUninitialized is specified, the object may be returned without completing initialization.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 try {
-    V1beta1LocalSubjectAccessReview result = apiInstance.createNamespacedLocalSubjectAccessReview(namespace, body, pretty);
+    V1beta1LocalSubjectAccessReview result = apiInstance.createNamespacedLocalSubjectAccessReview(namespace, body, dryRun, includeUninitialized, pretty);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AuthorizationV1beta1Api#createNamespacedLocalSubjectAccessReview");
@@ -55,6 +57,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | [**V1beta1LocalSubjectAccessReview**](V1beta1LocalSubjectAccessReview.md)|  |
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **includeUninitialized** | **Boolean**| If IncludeUninitialized is specified, the object may be returned without completing initialization. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
 
 ### Return type
@@ -72,7 +76,7 @@ Name | Type | Description  | Notes
 
 <a name="createSelfSubjectAccessReview"></a>
 # **createSelfSubjectAccessReview**
-> V1beta1SelfSubjectAccessReview createSelfSubjectAccessReview(body, pretty)
+> V1beta1SelfSubjectAccessReview createSelfSubjectAccessReview(body, dryRun, includeUninitialized, pretty)
 
 
 
@@ -97,9 +101,11 @@ BearerToken.setApiKey("YOUR API KEY");
 
 AuthorizationV1beta1Api apiInstance = new AuthorizationV1beta1Api();
 V1beta1SelfSubjectAccessReview body = new V1beta1SelfSubjectAccessReview(); // V1beta1SelfSubjectAccessReview | 
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+Boolean includeUninitialized = true; // Boolean | If IncludeUninitialized is specified, the object may be returned without completing initialization.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 try {
-    V1beta1SelfSubjectAccessReview result = apiInstance.createSelfSubjectAccessReview(body, pretty);
+    V1beta1SelfSubjectAccessReview result = apiInstance.createSelfSubjectAccessReview(body, dryRun, includeUninitialized, pretty);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AuthorizationV1beta1Api#createSelfSubjectAccessReview");
@@ -112,6 +118,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**V1beta1SelfSubjectAccessReview**](V1beta1SelfSubjectAccessReview.md)|  |
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **includeUninitialized** | **Boolean**| If IncludeUninitialized is specified, the object may be returned without completing initialization. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
 
 ### Return type
@@ -129,7 +137,7 @@ Name | Type | Description  | Notes
 
 <a name="createSelfSubjectRulesReview"></a>
 # **createSelfSubjectRulesReview**
-> V1beta1SelfSubjectRulesReview createSelfSubjectRulesReview(body, pretty)
+> V1beta1SelfSubjectRulesReview createSelfSubjectRulesReview(body, dryRun, includeUninitialized, pretty)
 
 
 
@@ -154,9 +162,11 @@ BearerToken.setApiKey("YOUR API KEY");
 
 AuthorizationV1beta1Api apiInstance = new AuthorizationV1beta1Api();
 V1beta1SelfSubjectRulesReview body = new V1beta1SelfSubjectRulesReview(); // V1beta1SelfSubjectRulesReview | 
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+Boolean includeUninitialized = true; // Boolean | If IncludeUninitialized is specified, the object may be returned without completing initialization.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 try {
-    V1beta1SelfSubjectRulesReview result = apiInstance.createSelfSubjectRulesReview(body, pretty);
+    V1beta1SelfSubjectRulesReview result = apiInstance.createSelfSubjectRulesReview(body, dryRun, includeUninitialized, pretty);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AuthorizationV1beta1Api#createSelfSubjectRulesReview");
@@ -169,6 +179,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**V1beta1SelfSubjectRulesReview**](V1beta1SelfSubjectRulesReview.md)|  |
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **includeUninitialized** | **Boolean**| If IncludeUninitialized is specified, the object may be returned without completing initialization. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
 
 ### Return type
@@ -186,7 +198,7 @@ Name | Type | Description  | Notes
 
 <a name="createSubjectAccessReview"></a>
 # **createSubjectAccessReview**
-> V1beta1SubjectAccessReview createSubjectAccessReview(body, pretty)
+> V1beta1SubjectAccessReview createSubjectAccessReview(body, dryRun, includeUninitialized, pretty)
 
 
 
@@ -211,9 +223,11 @@ BearerToken.setApiKey("YOUR API KEY");
 
 AuthorizationV1beta1Api apiInstance = new AuthorizationV1beta1Api();
 V1beta1SubjectAccessReview body = new V1beta1SubjectAccessReview(); // V1beta1SubjectAccessReview | 
+String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+Boolean includeUninitialized = true; // Boolean | If IncludeUninitialized is specified, the object may be returned without completing initialization.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 try {
-    V1beta1SubjectAccessReview result = apiInstance.createSubjectAccessReview(body, pretty);
+    V1beta1SubjectAccessReview result = apiInstance.createSubjectAccessReview(body, dryRun, includeUninitialized, pretty);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AuthorizationV1beta1Api#createSubjectAccessReview");
@@ -226,6 +240,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**V1beta1SubjectAccessReview**](V1beta1SubjectAccessReview.md)|  |
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **includeUninitialized** | **Boolean**| If IncludeUninitialized is specified, the object may be returned without completing initialization. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
 
 ### Return type

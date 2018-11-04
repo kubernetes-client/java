@@ -66,7 +66,8 @@ public class PatchExample {
   public ExtensionsV1beta1Deployment createDeployment(
       String namespace, ExtensionsV1beta1Deployment body, String pretty) throws ApiException {
     ExtensionsV1beta1Api api = new ExtensionsV1beta1Api();
-    ExtensionsV1beta1Deployment deploy = api.createNamespacedDeployment(namespace, body, pretty);
+    ExtensionsV1beta1Deployment deploy =
+        api.createNamespacedDeployment(namespace, body, false, pretty, "false");
     return deploy;
   }
 
@@ -74,7 +75,7 @@ public class PatchExample {
       String deployName, String namespace, Object body, String pretty) throws ApiException {
     ExtensionsV1beta1Api api = new ExtensionsV1beta1Api();
     ExtensionsV1beta1Deployment deploy =
-        api.patchNamespacedDeployment(deployName, namespace, body, pretty);
+        api.patchNamespacedDeployment(deployName, namespace, body, pretty, "false");
     return deploy;
   }
 

@@ -9,6 +9,7 @@
 # Maven builds
 */target/
 target/
+**/.factorypath
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
@@ -29,3 +30,4 @@ hs_err_pid*
 
 # generated stuff
 kubernetes/bin
+kubernetes/swagger.json.unprocessed
