@@ -37,8 +37,9 @@ public class Quantity {
   }
 
   public Quantity(final String value) {
-    this.number = fromString(value).number;
-    this.format = fromString(value).format;
+    final Quantity quantity = fromString(value);
+    this.number = quantity.number;
+    this.format = quantity.format;
   }
 
   public BigDecimal getNumber() {
