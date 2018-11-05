@@ -14,6 +14,7 @@ package io.kubernetes.client.util;
 
 import com.google.common.reflect.ClassPath;
 import io.kubernetes.client.custom.IntOrString;
+import io.kubernetes.client.custom.Quantity;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -356,6 +357,7 @@ public class Yaml {
       this.setDefaultFlowStyle(DumperOptions.FlowStyle.BLOCK);
       this.representers.put(IntOrString.class, new RepresentIntOrString());
       this.representers.put(byte[].class, new RepresentByteArray());
+      this.representers.put(Quantity.class, new RepresentQuantity());
     }
 
     private class RepresentIntOrString implements Represent {
@@ -375,6 +377,14 @@ public class Yaml {
       public Node representData(Object data) {
         String value = ByteString.of((byte[]) data).base64();
         return representScalar(Tag.STR, value);
+      }
+    }
+
+    private class RepresentQuantity implements Represent {
+      @Override
+      public Node representData(Object data) {
+        Quantity quantity = (Quantity) data;
+        return representScalar(Tag.STR, quantity.toSuffixedString());
       }
     }
 
