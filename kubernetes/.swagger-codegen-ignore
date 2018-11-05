@@ -1,5 +1,6 @@
 .gitignore
 git_push.sh
+README.md
 # Remove this once swagger-codegen 2.3.0 is released and we update. 
 # Verify the following PRs are in the release:
 #   * https://github.com/swagger-api/swagger-codegen/pull/6230

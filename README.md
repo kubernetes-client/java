@@ -123,7 +123,7 @@ mvn exec:java -Dexec.mainClass="io.kubernetes.client.examples.Example"
 
 ## Documentation
 
-All APIs and Models' documentation can be found at the [Generated client's README file](kubernetes/README.md)
+All APIs and Models' documentation can be found at the [Generated client's docs](https://github.com/kubernetes-client/java/tree/master/kubernetes/docs)
 
 ## Compatibility
 
