@@ -41,12 +41,6 @@ public class ClientBuilderTest {
   private static final String INVALID_SSL_CA_CERT_PATH =
       Resources.getResource("ca-cert-invalid.pem").getPath();
 
-  private String basePath = "http://localhost";
-  private String apiKey = "ABCD";
-  private String userName = "userName";
-  private String password = "password";
-  private String apiKeyPrefix = "Bearer";
-
   @Rule public final EnvironmentVariables environmentVariables = new EnvironmentVariables();
 
   @Before

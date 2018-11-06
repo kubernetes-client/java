@@ -59,11 +59,6 @@ public class ApiClient {
 
     private Map<String, Authentication> authentications;
 
-    private DateFormat dateFormat;
-    private DateFormat datetimeFormat;
-    private boolean lenientDatetimeFormat;
-    private int dateLength;
-
     private InputStream sslCaCert;
     private boolean verifyingSsl;
     private KeyManager[] keyManagers;
@@ -218,7 +213,7 @@ public class ApiClient {
     }
 
     public DateFormat getDateFormat() {
-        return dateFormat;
+        return this.json.getDateFormat();
     }
 
     public ApiClient setDateFormat(DateFormat dateFormat) {

@@ -364,4 +364,8 @@ public class JSON {
         return this;
     }
 
+    DateFormat getDateFormat() {
+        return dateTypeAdapter.dateFormat;
+    }
+
 }
