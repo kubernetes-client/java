@@ -38,12 +38,8 @@ public class GCPAuthenticator implements Authenticator {
   @Override
   public boolean isExpired(Map<String, Object> config) {
     Date expiry = (Date) config.get("expiry");
-    if (expiry != null && expiry.compareTo(new Date()) <= 0) {
-      return true;
-    }
-    return false;
+    return (expiry != null && expiry.compareTo(new Date()) <= 0);
   }
-
   @Override
   public Map<String, Object> refresh(Map<String, Object> config) {
     throw new IllegalStateException("Unimplemented");
