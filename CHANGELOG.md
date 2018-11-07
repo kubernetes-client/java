@@ -1,16 +1,21 @@
-# 3.0.0-beta2
-* Support client certificate chains
-* Add equals() support for the Quantity object
+# 3.0.0
+Changes Since 2.0.0
 
-# 3.0.0-beta1
-
+* Expand HOME detection on Windows.
+* Changed to set USERPROFILE on Windows environment.
+* Add utilities for copying files.
+* shutdown okhttp client after exec call
+* add constructDateTime to snakeYaml CustomConstructor
+* Dropped reference to gson internal API
+* Implemented equals method for Quantity
+* set content-type to merge-patch+json while building nodePatchCall
+* support client certificate chain
 * feat (#137): Introduce builder generation.
 * Close watches more cleanly.
 * Avoid use SystemClassLoader on Yaml.
 * Add config file persistence.
-* Support refresh for Azure Active Directory tokens. 
-* Regenerate client for Kubernetes 1.11 
-
+* Support refresh for Azure Active Directory tokens.
+* Regenerate client for Kubernetes 1.11
 
 # 2.0.0
 
