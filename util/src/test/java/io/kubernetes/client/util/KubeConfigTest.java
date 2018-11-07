@@ -14,6 +14,7 @@ package io.kubernetes.client.util;
 
 import static org.junit.Assert.*;
 
+import io.kubernetes.client.util.authenticators.AzureActiveDirectoryAuthenticator;
 import io.kubernetes.client.util.authenticators.GCPAuthenticator;
 import java.io.File;
 import java.io.FileReader;
@@ -99,6 +100,67 @@ public class KubeConfigTest {
 
       KubeConfig kc = KubeConfig.loadKubeConfig(new FileReader(config));
       assertEquals("fake-token", kc.getAccessToken());
+    } catch (Exception ex) {
+      ex.printStackTrace();
+      fail("Unexpected exception: " + ex);
+    }
+  }
+
+  @Test
+  public void testGCPAuthProviderExpiredToken() {
+    String gcpConfigExpiredToken =
+        "apiVersion: v1\n"
+            + "contexts:\n"
+            + "- context:\n"
+            + "    user: gke-cluster\n"
+            + "  name: foo-context\n"
+            + "current-context: foo-context\n"
+            + "users:\n"
+            + "- name: gke-cluster\n"
+            + "  user:\n"
+            + "    auth-provider:\n"
+            + "      config:\n"
+            + "        access-token: fake-token\n"
+            + "        cmd-args: config config-helper --format=json\n"
+            + "        cmd-path: /usr/lib/google-cloud-sdk/bin/gcloud\n"
+            + "        expiry: 1970-01-01T00:00:00Z\n"
+            + "        expiry-key: '{.credential.token_expiry}'\n"
+            + "        token-key: '{.credential.access_token}'\n"
+            + "      name: gcp";
+    KubeConfig.registerAuthenticator(new GCPAuthenticator());
+    try {
+      KubeConfig kc = KubeConfig.loadKubeConfig(new StringReader(gcpConfigExpiredToken));
+      kc.getAccessToken();
+    } catch (Exception ex) {
+      if (!(ex instanceof IllegalStateException)) {
+        fail("Unexpected exception: " + ex);
+      }
+    }
+  }
+
+  @Test
+  public void testAzureAuthProvider() {
+    KubeConfig.registerAuthenticator(new AzureActiveDirectoryAuthenticator());
+    String azureConfig =
+        "apiVersion: v1\n"
+            + "contexts:\n"
+            + "- context:\n"
+            + "    user: aks-cluster\n"
+            + "  name: foo-context\n"
+            + "current-context: foo-context\n"
+            + "users:\n"
+            + "- name: aks-cluster\n"
+            + "  user:\n"
+            + "    auth-provider:\n"
+            + "      config:\n"
+            + "        access-token: fake-azure-token\n"
+            + "        expires-on: \"1841569394\"\n"
+            + "        expiry-key: '{.credential.token_expiry}'\n"
+            + "        token-key: '{.credential.access_token}'\n"
+            + "      name: azure\n";
+    try {
+      KubeConfig kc = KubeConfig.loadKubeConfig(new StringReader(azureConfig));
+      assertEquals("fake-azure-token", kc.getAccessToken());
     } catch (Exception ex) {
       ex.printStackTrace();
       fail("Unexpected exception: " + ex);

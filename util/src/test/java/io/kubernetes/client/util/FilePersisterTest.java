@@ -32,7 +32,7 @@ public class FilePersisterTest {
   @Test
   public void testPersistence() throws IOException {
     File file = folder.newFile("testconfig");
-    FilePersister fp = new FilePersister(file);
+    FilePersister fp = new FilePersister(file.getPath());
 
     KubeConfig config = KubeConfig.loadKubeConfig(new FileReader(KUBECONFIG_FILE_PATH));
 
