@@ -17,6 +17,7 @@ import io.kubernetes.client.util.authenticators.AzureActiveDirectoryAuthenticato
 import io.kubernetes.client.util.authenticators.GCPAuthenticator;
 import java.io.IOException;
 import java.io.Reader;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -220,7 +221,7 @@ public class KubeConfig {
       String tokenFile = (String) currentUser.get("tokenFile");
       try {
         byte[] data = Files.readAllBytes(FileSystems.getDefault().getPath(tokenFile));
-        return new String(data, "UTF-8");
+        return new String(data, StandardCharsets.UTF_8);
       } catch (IOException ex) {
         log.error("Failed to read token file", ex);
       }
@@ -264,7 +265,7 @@ public class KubeConfig {
     }
     for (Object obj : list) {
       Map<String, Object> map = (Map<String, Object>) obj;
-      if (name.equals((String) map.get("name"))) {
+      if (name.equals(map.get("name"))) {
         return map;
       }
     }
