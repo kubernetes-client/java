@@ -186,7 +186,7 @@ public class V1Secret {
     }
     V1Secret v1Secret = (V1Secret) o;
     return Objects.equals(this.apiVersion, v1Secret.apiVersion) &&
-        Objects.equals(this.data, v1Secret.data) &&
+        Objects.deepEquals(this.data, v1Secret.data) &&
         Objects.equals(this.kind, v1Secret.kind) &&
         Objects.equals(this.metadata, v1Secret.metadata) &&
         Objects.equals(this.stringData, v1Secret.stringData) &&
