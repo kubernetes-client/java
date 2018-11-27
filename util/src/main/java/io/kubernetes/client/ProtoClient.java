@@ -56,7 +56,7 @@ public class ProtoClient {
 
   private ApiClient apiClient;
   // Magic number for the beginning of proto encoded.
-  // https://github.com/kubernetes/apimachinery/blob/master/pkg/runtime/serializer/protobuf/protobuf.go#L42
+  // https://github.com/kubernetes/apimachinery/blob/release-1.13/pkg/runtime/serializer/protobuf/protobuf.go#L44
   private static final byte[] MAGIC = new byte[] {0x6b, 0x38, 0x73, 0x00};
   private static final String MEDIA_TYPE = "application/vnd.kubernetes.protobuf";
 
@@ -95,7 +95,7 @@ public class ProtoClient {
   /**
    * Get a Kubernetes API object using protocol buffer encoding.
    *
-   * @param builder The appropriate Builder for the object receveived from the request.
+   * @param builder The appropriate Builder for the object received from the request.
    * @param path The URL path to call (e.g. /api/v1/namespaces/default/pods/pod-name)
    * @return An ObjectOrStatus which contains the Object requested, or a Status about the request.
    */
@@ -108,7 +108,7 @@ public class ProtoClient {
    * List is fluent, semantic sugar method on top of get, which is intended to convey that the
    * object is a List of objects rather than a single object
    *
-   * @param builder The appropriate Builder for the object receveived from the request.
+   * @param builder The appropriate Builder for the object received from the request.
    * @param path The URL path to call (e.g. /api/v1/namespaces/default/pods/pod-name)
    * @return An ObjectOrStatus which contains the Object requested, or a Status about the request.
    */
@@ -221,7 +221,7 @@ public class ProtoClient {
    * Generic protocol buffer based HTTP request. Not intended for general consumption, but public
    * for advance use cases.
    *
-   * @param builder The appropriate Builder for the object receveived from the request.
+   * @param builder The appropriate Builder for the object received from the request.
    * @param method The HTTP method (e.g. GET) for this request.
    * @param path The URL path to call (e.g. /api/v1/namespaces/default/pods/pod-name)
    * @param body The body to send with the request (optional)
