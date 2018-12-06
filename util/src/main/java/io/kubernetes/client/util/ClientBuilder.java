@@ -118,9 +118,12 @@ public class ClientBuilder {
   }
 
   private static File findHomeDir() {
-    final File config = new File(System.getenv(ENV_HOME));
-    if (config.exists()) {
-      return config;
+    final String envHome = System.getenv(ENV_HOME);
+    if (envHome != null && envHome.length() > 0) {
+      final File config = new File(envHome);
+      if (config.exists()) {
+        return config;
+      }
     }
     if (System.getProperty("os.name").toLowerCase().startsWith("windows")) {
       String homeDrive = System.getenv("HOMEDRIVE");
