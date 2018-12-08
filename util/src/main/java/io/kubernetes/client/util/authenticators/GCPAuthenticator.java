@@ -13,8 +13,11 @@ limitations under the License.
 package io.kubernetes.client.util.authenticators;
 
 import io.kubernetes.client.util.KubeConfig;
+import java.time.Instant;
 import java.util.Date;
 import java.util.Map;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * The Authenticator interface represents a plugin that can handle a specific type of authentication
@@ -24,6 +27,8 @@ public class GCPAuthenticator implements Authenticator {
   static {
     KubeConfig.registerAuthenticator(new GCPAuthenticator());
   }
+
+  private static final Logger log = LoggerFactory.getLogger(GCPAuthenticator.class);
 
   @Override
   public String getName() {
@@ -37,8 +42,18 @@ public class GCPAuthenticator implements Authenticator {
 
   @Override
   public boolean isExpired(Map<String, Object> config) {
-    Date expiry = (Date) config.get("expiry");
-    return (expiry != null && expiry.compareTo(new Date()) <= 0);
+    Object expiryObj = config.get("expiry");
+    Instant expiry = null;
+    if (expiryObj instanceof Date) {
+      expiry = ((Date) expiryObj).toInstant();
+    } else if (expiryObj instanceof Instant) {
+      expiry = (Instant) expiryObj;
+    } else if (expiryObj instanceof String) {
+      expiry = Instant.parse((String) expiryObj);
+    } else {
+      throw new RuntimeException("Unexpected object type: " + expiryObj.getClass());
+    }
+    return (expiry != null && expiry.compareTo(Instant.now()) <= 0);
   }
 
   @Override

@@ -1,3 +1,4 @@
 language: java
+script: mvn -q test -B
 after_success:
   - mvn deploy --settings settings.xml -DskipTests=true -B
