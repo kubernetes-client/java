@@ -85,6 +85,7 @@ public class Watch<T>
   }
 
   Type watchType;
+  Class watchClass;
   ResponseBody response;
   JSON json;
   Call call;
@@ -136,6 +137,10 @@ public class Watch<T>
     this.call = call;
   }
 
+  public void setWatchType(Type type) {
+    this.watchType = type;
+  }
+
   public Response<T> next() {
     try {
       String line = response.source().readUtf8Line();
@@ -143,7 +148,11 @@ public class Watch<T>
         throw new RuntimeException("Null response from the server.");
       }
       try {
-        return json.deserialize(line, watchType);
+        if (watchClass == null) {
+          return json.deserialize(line, watchType);
+        } else {
+          return json.deserialize(line, watchClass);
+        }
       } catch (JsonParseException ex) {
         Type statusType = new TypeToken<Response<V1Status>>() {}.getType();
         Response<V1Status> status = json.deserialize(line, statusType);

@@ -12,6 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.examples;
 
+import com.google.gson.reflect.TypeToken;
 import com.squareup.okhttp.Call;
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
@@ -21,7 +22,9 @@ import io.kubernetes.client.models.V1Namespace;
 import io.kubernetes.client.models.V1NamespaceList;
 import io.kubernetes.client.util.Cache;
 import io.kubernetes.client.util.Config;
+import io.kubernetes.client.util.Watch;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
 /**
@@ -35,6 +38,7 @@ import java.util.function.Function;
 public class CacheExample {
   public static void main(String[] args) throws IOException, ApiException {
     ApiClient client = Config.defaultClient();
+    client.getHttpClient().setReadTimeout(60, TimeUnit.SECONDS);
     Configuration.setDefaultApiClient(client);
 
     CoreV1Api api = new CoreV1Api();
@@ -45,22 +49,23 @@ public class CacheExample {
             return api.listNamespaceCall(
                 null, null, null, null, null, 5, null, null, watch, null, null);
           } catch (ApiException ex) {
-              return null;
+            return null;
           }
         };
 
-    Cache<V1Namespace, V1NamespaceList> cache = new Cache(client, listFn);
+    Cache<V1Namespace, V1NamespaceList> cache = new Cache(client, listFn, V1NamespaceList.class, new TypeToken<Watch.Response<V1Namespace>>() {}.getType());
 
     while (true) {
-        V1NamespaceList list = cache.list();
-        for (V1Namespace ns : list.getItems()) {
-            System.out.print(ns.getMetadata().getName());
-        }
-        System.out.println();
-        try {
-            Thread.sleep(2 * 1000);
-        } catch (InterruptedException ex) {
-        }
+      V1NamespaceList list = cache.list();
+      for (V1Namespace ns : list.getItems()) {
+        System.out.print(ns.getMetadata().getName());
+        System.out.print(", ");
+      }
+      System.out.println();
+      try {
+        Thread.sleep(2 * 1000);
+      } catch (InterruptedException ex) {
+      }
     }
   }
 }

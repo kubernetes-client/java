@@ -1,6 +1,5 @@
 package io.kubernetes.client.util;
 
-import com.google.gson.reflect.TypeToken;
 import com.squareup.okhttp.Call;
 import com.squareup.okhttp.ResponseBody;
 import io.kubernetes.client.ApiClient;
@@ -8,7 +7,8 @@ import io.kubernetes.client.ApiException;
 import io.kubernetes.client.models.V1ObjectMeta;
 import java.io.Closeable;
 import java.io.IOException;
-import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.function.Function;
@@ -19,19 +19,23 @@ public class Cache<ApiType, ApiListType> implements Closeable {
   private Function<Boolean, Call> callGenerator;
   private ApiClient client;
   private Watch<ApiType> watch;
+  private Type watchType;
   private ApiListType list;
-  protected Type listClass;
+  private Class<?> listClass;
   private Thread watchThread;
 
   private static final Logger log = LoggerFactory.getLogger(Cache.class);
 
   private Cache() {}
 
-  public Cache(ApiClient client, Function<Boolean, Call> callGenerator) {
+  public Cache(
+      ApiClient client, Function<Boolean, Call> callGenerator, Class<?> listClass, Type watchType) {
     this.client = client;
     this.callGenerator = callGenerator;
     this.watch = null;
-    this.listClass = new TypeToken<ApiListType>() {}.getType();
+    this.watchType = watchType;
+    this.listClass = listClass;
+    this.list = null;
   }
 
   public synchronized ApiListType list() throws ApiException, IOException {
@@ -44,19 +48,14 @@ public class Cache<ApiType, ApiListType> implements Closeable {
     return list;
   }
 
-  public ApiType get(String namespace, String name) throws ApiException, IOException {
+  public synchronized ApiType get(String namespace, String name) throws ApiException, IOException {
     if (list == null) {
       updateList();
     }
     if (watch == null) {
       startWatch();
     }
-    try {
-      return getItem(namespace, name);
-    } catch (NoSuchFieldException | IllegalAccessException ex) {
-      log.error("Failed to get item", ex);
-    }
-    return null;
+    return getItem(namespace, name);
   }
 
   public void close() throws IOException {
@@ -81,58 +80,86 @@ public class Cache<ApiType, ApiListType> implements Closeable {
       throw new ApiException(
           response.message(), response.code(), response.headers().toMultimap(), respBody);
     }
-    list = client.getJSON().getGson().fromJson(response.body().charStream(), listClass);
+    list =
+        (ApiListType) client.getJSON().getGson().fromJson(response.body().charStream(), listClass);
   }
 
-  private ApiType getItem(String namespace, String name)
-      throws NoSuchFieldException, IllegalAccessException {
+  private ApiType getItem(String namespace, String name) {
     try {
-      Field itemsField = listClass.getClass().getDeclaredField("items");
-      Object itemsObj = itemsField.get(list); 
-      List<ApiType> list = (List<ApiType>) itemsObj;
-      for (ApiType obj : list) {
+      Method itemsField = listClass.getDeclaredMethod("getItems");
+      Object itemsObj = itemsField.invoke(list);
+      List<ApiType> itemList = (List<ApiType>) itemsObj;
+      for (ApiType obj : itemList) {
         V1ObjectMeta meta = Reflect.objectMetadata(obj);
         if (meta.getNamespace().equals(namespace) && meta.getName().equals(name)) {
           return obj;
         }
       }
-    } catch (NoSuchFieldException | IllegalAccessException ex) {
+    } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException ex) {
       log.error("Error adding item", ex);
+      ex.printStackTrace();
     }
     return null;
   }
 
-  private void addOrUpdateItem(ApiType item) throws NoSuchFieldException, IllegalAccessException {
-    System.out.println("Adding: " + item);
+  private int findItem(List<ApiType> itemList, ApiType item)
+      throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
     V1ObjectMeta meta = Reflect.objectMetadata(item);
-    try {
-      Field itemsField = listClass.getClass().getDeclaredField("items");
-      Object itemsObj = itemsField.get(list);
-      List<ApiType> list = (List<ApiType>) itemsObj;
-      for (int i = 0; i < list.size(); i++) {
-        ApiType listItem = list.get(i);
-        V1ObjectMeta itemMeta = Reflect.objectMetadata(listItem);
-        if (itemMeta.getName().equals(meta.getName())) {
-          list.set(i, item);
-          return;
-        }
+    for (int i = 0; i < itemList.size(); i++) {
+      ApiType listItem = itemList.get(i);
+      V1ObjectMeta itemMeta = Reflect.objectMetadata(listItem);
+      if (itemMeta.getName().equals(meta.getName())) {
+        return i;
       }
-    } catch (NoSuchFieldException | IllegalAccessException ex) {
+    }
+    return -1;
+  }
+
+  private List<ApiType> getItemList()
+      throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+    Method itemsField = listClass.getDeclaredMethod("getItems");
+    Object itemsObj = itemsField.invoke(this.list);
+    return (List<ApiType>) itemsObj;
+  }
+
+  private void addOrUpdateItem(ApiType item) {
+    try {
+      List<ApiType> itemList = getItemList();
+      int ix = findItem(itemList, item);
+      if (ix != -1) {
+        itemList.set(ix, item);
+      } else {
+        itemList.add(item);
+      }
+    } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException ex) {
       log.error("Error adding item", ex);
+      ex.printStackTrace();
+    }
+  }
+
+  private void removeItem(ApiType item) {
+    try {
+      List<ApiType> itemList = getItemList();
+      int ix = findItem(itemList, item);
+      if (ix != -1) {
+        itemList.remove(ix);
+      }
+    } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException ex) {
+      log.error("Error adding item", ex);
+      ex.printStackTrace();
     }
   }
 
   private void startWatch() throws ApiException {
     System.out.println("Starting watch.");
     Call call = callGenerator.apply(Boolean.TRUE);
-    watch = Watch.createWatch(client, call, new TypeToken<Watch.Response<ApiType>>() {}.getType());
+    watch = Watch.createWatch(client, call, watchType);
     watchThread =
         new Thread(
             new Runnable() {
               public void run() {
                 try {
                   for (Watch.Response<ApiType> item : watch) {
-                    System.out.println(item);
                     if (Watch.ERROR.equals(item.type)) {
                       continue;
                     }
@@ -140,13 +167,18 @@ public class Cache<ApiType, ApiListType> implements Closeable {
                       addOrUpdateItem(item.object);
                       continue;
                     }
-                    list = null;
+                    if (Watch.DELETED.equals(item.type)) {
+                      removeItem(item.object);
+                      continue;
+                    }
                   }
                 } catch (Exception ex) {
+                  ex.printStackTrace();
                   log.error("Error watching!", ex);
                 } finally {
-                  watch = null;
+                  System.out.println("Exiting watch...");
                   synchronized (this) {
+                    watch = null;
                     list = null;
                   }
                 }
