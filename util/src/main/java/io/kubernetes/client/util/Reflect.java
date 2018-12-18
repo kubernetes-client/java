@@ -10,4 +10,9 @@ public class Reflect {
     Method mdField = obj.getClass().getDeclaredMethod("getMetadata");
     return (V1ObjectMeta) mdField.invoke(obj);
   }
+
+  public static String namespace(Object obj)
+      throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+    return objectMetadata(obj).getNamespace();
+  }
 }

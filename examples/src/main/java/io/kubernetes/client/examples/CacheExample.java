@@ -21,6 +21,7 @@ import io.kubernetes.client.apis.CoreV1Api;
 import io.kubernetes.client.models.V1Namespace;
 import io.kubernetes.client.models.V1NamespaceList;
 import io.kubernetes.client.util.Cache;
+import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.Config;
 import io.kubernetes.client.util.Watch;
 import java.io.IOException;
@@ -38,16 +39,15 @@ import java.util.function.Function;
 public class CacheExample {
   public static void main(String[] args) throws IOException, ApiException {
     ApiClient client = Config.defaultClient();
-    client.getHttpClient().setReadTimeout(60, TimeUnit.SECONDS);
     Configuration.setDefaultApiClient(client);
 
     CoreV1Api api = new CoreV1Api();
 
-    Function<Boolean, Call> listFn =
-        (Boolean watch) -> {
+    Function<CallGeneratorParams, Call> listFn =
+        (CallGeneratorParams params) -> {
           try {
             return api.listNamespaceCall(
-                null, null, null, null, null, 5, null, null, watch, null, null);
+                null, null, null, null, null, 5, params.resourceVersion, params.timeout, params.watch, null, null);
           } catch (ApiException ex) {
             return null;
           }
