@@ -33,11 +33,7 @@ import org.slf4j.LoggerFactory;
  * example CoreV1Api.listNamespace has watch parameter, so you can create a call using
  * CoreV1Api.listNamespaceCall and set watch to True and watch the changes to namespaces.
  */
-public class Watch<T>
-    implements Iterable<Watch.Response<T>>,
-        Iterator<Watch.Response<T>>,
-        java.io.Closeable,
-        AutoCloseable {
+public class Watch<T> implements Watchable<T> {
 
   private static final Logger log = LoggerFactory.getLogger(Watch.class);
 
@@ -54,13 +50,13 @@ public class Watch<T>
 
     public V1Status status;
 
-    Response(String type, T object) {
+    public Response(String type, T object) {
       this.type = type;
       this.object = object;
       this.status = null;
     }
 
-    Response(String type, V1Status status) {
+    public Response(String type, V1Status status) {
       this.type = type;
       this.object = null;
       this.status = status;
