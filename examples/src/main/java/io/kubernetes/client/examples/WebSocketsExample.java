@@ -12,7 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client.examples;
 
-import com.squareup.okhttp.ws.WebSocket;
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
 import io.kubernetes.client.util.Config;
@@ -21,6 +20,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
+import okhttp3.WebSocket;
 
 /**
  * This is a pretty low level, most people won't need to use WebSockets directly.
@@ -44,7 +44,7 @@ public class WebSocketsExample {
 
           public void close() {
             // Trigger shutdown of the dispatcher's executor so this process can exit cleanly.
-            client.getHttpClient().getDispatcher().getExecutorService().shutdown();
+            client.getHttpClient().dispatcher().executorService().shutdown();
           }
 
           public void bytesMessage(InputStream is) {}

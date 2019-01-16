@@ -5,41 +5,35 @@ package io.kubernetes.client.proto;
 
 public final class Resource {
   private Resource() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
+
+  public static void registerAllExtensions(com.google.protobuf.ExtensionRegistryLite registry) {}
+
+  public static void registerAllExtensions(com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions((com.google.protobuf.ExtensionRegistryLite) registry);
   }
 
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
-  public interface QuantityOrBuilder extends
+  public interface QuantityOrBuilder
+      extends
       // @@protoc_insertion_point(interface_extends:k8s.io.apimachinery.pkg.api.resource.Quantity)
       com.google.protobuf.MessageOrBuilder {
 
-    /**
-     * <code>optional string string = 1;</code>
-     */
+    /** <code>optional string string = 1;</code> */
     boolean hasString();
-    /**
-     * <code>optional string string = 1;</code>
-     */
+    /** <code>optional string string = 1;</code> */
     java.lang.String getString();
-    /**
-     * <code>optional string string = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getStringBytes();
+    /** <code>optional string string = 1;</code> */
+    com.google.protobuf.ByteString getStringBytes();
   }
   /**
+   *
+   *
    * <pre>
    * Quantity is a fixed-point representation of a number.
    * It provides convenient marshaling/unmarshaling in JSON and YAML,
    * in addition to String() and Int64() accessors.
-   * 
+   *
    * The serialization format is:
-   * 
+   *
    * &lt;quantity&gt;        ::= &lt;signedNumber&gt;&lt;suffix&gt;
    *   (Note that &lt;suffix&gt; may be empty, from the "" case in &lt;decimalSI&gt;.)
    * &lt;digit&gt;           ::= 0 | 1 | ... | 9
@@ -53,16 +47,16 @@ public final class Resource {
    * &lt;decimalSI&gt;       ::= m | "" | k | M | G | T | P | E
    *   (Note that 1024 = 1Ki but 1000 = 1k; I didn't choose the capitalization.)
    * &lt;decimalExponent&gt; ::= "e" &lt;signedNumber&gt; | "E" &lt;signedNumber&gt;
-   * 
+   *
    * No matter which of the three exponent forms is used, no quantity may represent
    * a number greater than 2^63-1 in magnitude, nor may it have more than 3 decimal
    * places. Numbers larger or more precise will be capped or rounded up.
    * (E.g.: 0.1m will rounded up to 1m.)
    * This may be extended in the future if we require larger or smaller quantities.
-   * 
+   *
    * When a Quantity is parsed from a string, it will remember the type of suffix
    * it had, and will use the same type again when it is serialized.
-   * 
+   *
    * Before serializing, Quantity will be put in "canonical form".
    * This means that Exponent/suffix will be adjusted up or down (with a
    * corresponding increase or decrease in Mantissa) such that:
@@ -70,27 +64,27 @@ public final class Resource {
    *   b. No fractional digits will be emitted
    *   c. The exponent (or suffix) is as large as possible.
    * The sign will be omitted unless the number is negative.
-   * 
+   *
    * Examples:
    *   1.5 will be serialized as "1500m"
    *   1.5Gi will be serialized as "1536Mi"
-   * 
+   *
    * NOTE: We reserve the right to amend this canonical format, perhaps to
    *   allow 1.5 to be canonical.
    * TODO: Remove above disclaimer after all bikeshedding about format is over,
    *   or after March 2015.
-   * 
+   *
    * Note that the quantity will NEVER be internally represented by a
    * floating point number. That is the whole point of this exercise.
-   * 
+   *
    * Non-canonical values will still parse as long as they are well formed,
    * but will be re-emitted in their canonical form. (So always use canonical
    * form, or don't diff.)
-   * 
+   *
    * This format is intended to make it difficult to use these numbers without
    * writing some sort of special handling code in the hopes that that will
    * cause implementors to also use a fixed point implementation.
-   * 
+   *
    * +protobuf=true
    * +protobuf.embed=string
    * +protobuf.options.marshal=false
@@ -100,24 +94,25 @@ public final class Resource {
    *
    * Protobuf type {@code k8s.io.apimachinery.pkg.api.resource.Quantity}
    */
-  public  static final class Quantity extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  public static final class Quantity extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:k8s.io.apimachinery.pkg.api.resource.Quantity)
       QuantityOrBuilder {
-  private static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
     // Use Quantity.newBuilder() to construct.
     private Quantity(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private Quantity() {
       string_ = "";
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
       return this.unknownFields;
     }
+
     private Quantity(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -134,62 +129,60 @@ public final class Resource {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
               }
-              break;
-            }
-            case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000001;
-              string_ = bs;
-              break;
-            }
+            case 10:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000001;
+                string_ = bs;
+                break;
+              }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.kubernetes.client.proto.Resource.internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_descriptor;
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.Resource
+          .internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.kubernetes.client.proto.Resource.internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_fieldAccessorTable
+      return io.kubernetes.client.proto.Resource
+          .internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.kubernetes.client.proto.Resource.Quantity.class, io.kubernetes.client.proto.Resource.Quantity.Builder.class);
+              io.kubernetes.client.proto.Resource.Quantity.class,
+              io.kubernetes.client.proto.Resource.Quantity.Builder.class);
     }
 
     private int bitField0_;
     public static final int STRING_FIELD_NUMBER = 1;
     private volatile java.lang.Object string_;
-    /**
-     * <code>optional string string = 1;</code>
-     */
+    /** <code>optional string string = 1;</code> */
     public boolean hasString() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    /**
-     * <code>optional string string = 1;</code>
-     */
+    /** <code>optional string string = 1;</code> */
     public java.lang.String getString() {
       java.lang.Object ref = string_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           string_ = s;
@@ -197,16 +190,12 @@ public final class Resource {
         return s;
       }
     }
-    /**
-     * <code>optional string string = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getStringBytes() {
+    /** <code>optional string string = 1;</code> */
+    public com.google.protobuf.ByteString getStringBytes() {
       java.lang.Object ref = string_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
         string_ = b;
         return b;
       } else {
@@ -215,6 +204,7 @@ public final class Resource {
     }
 
     private byte memoizedIsInitialized = -1;
+
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -224,8 +214,7 @@ public final class Resource {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, string_);
       }
@@ -248,18 +237,18 @@ public final class Resource {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof io.kubernetes.client.proto.Resource.Quantity)) {
         return super.equals(obj);
       }
-      io.kubernetes.client.proto.Resource.Quantity other = (io.kubernetes.client.proto.Resource.Quantity) obj;
+      io.kubernetes.client.proto.Resource.Quantity other =
+          (io.kubernetes.client.proto.Resource.Quantity) obj;
 
       boolean result = true;
       result = result && (hasString() == other.hasString());
       if (hasString()) {
-        result = result && getString()
-            .equals(other.getString());
+        result = result && getString().equals(other.getString());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -281,86 +270,92 @@ public final class Resource {
       return hash;
     }
 
-    public static io.kubernetes.client.proto.Resource.Quantity parseFrom(
-        java.nio.ByteBuffer data)
+    public static io.kubernetes.client.proto.Resource.Quantity parseFrom(java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.Resource.Quantity parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.Resource.Quantity parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.Resource.Quantity parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.Resource.Quantity parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.Resource.Quantity parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.Resource.Quantity parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.Resource.Quantity parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
-    public static io.kubernetes.client.proto.Resource.Quantity parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
+
     public static io.kubernetes.client.proto.Resource.Quantity parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
     }
+
+    public static io.kubernetes.client.proto.Resource.Quantity parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
     public static io.kubernetes.client.proto.Resource.Quantity parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.Resource.Quantity parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
+
     public static Builder newBuilder(io.kubernetes.client.proto.Resource.Quantity prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -370,13 +365,15 @@ public final class Resource {
       return builder;
     }
     /**
+     *
+     *
      * <pre>
      * Quantity is a fixed-point representation of a number.
      * It provides convenient marshaling/unmarshaling in JSON and YAML,
      * in addition to String() and Int64() accessors.
-     * 
+     *
      * The serialization format is:
-     * 
+     *
      * &lt;quantity&gt;        ::= &lt;signedNumber&gt;&lt;suffix&gt;
      *   (Note that &lt;suffix&gt; may be empty, from the "" case in &lt;decimalSI&gt;.)
      * &lt;digit&gt;           ::= 0 | 1 | ... | 9
@@ -390,16 +387,16 @@ public final class Resource {
      * &lt;decimalSI&gt;       ::= m | "" | k | M | G | T | P | E
      *   (Note that 1024 = 1Ki but 1000 = 1k; I didn't choose the capitalization.)
      * &lt;decimalExponent&gt; ::= "e" &lt;signedNumber&gt; | "E" &lt;signedNumber&gt;
-     * 
+     *
      * No matter which of the three exponent forms is used, no quantity may represent
      * a number greater than 2^63-1 in magnitude, nor may it have more than 3 decimal
      * places. Numbers larger or more precise will be capped or rounded up.
      * (E.g.: 0.1m will rounded up to 1m.)
      * This may be extended in the future if we require larger or smaller quantities.
-     * 
+     *
      * When a Quantity is parsed from a string, it will remember the type of suffix
      * it had, and will use the same type again when it is serialized.
-     * 
+     *
      * Before serializing, Quantity will be put in "canonical form".
      * This means that Exponent/suffix will be adjusted up or down (with a
      * corresponding increase or decrease in Mantissa) such that:
@@ -407,27 +404,27 @@ public final class Resource {
      *   b. No fractional digits will be emitted
      *   c. The exponent (or suffix) is as large as possible.
      * The sign will be omitted unless the number is negative.
-     * 
+     *
      * Examples:
      *   1.5 will be serialized as "1500m"
      *   1.5Gi will be serialized as "1536Mi"
-     * 
+     *
      * NOTE: We reserve the right to amend this canonical format, perhaps to
      *   allow 1.5 to be canonical.
      * TODO: Remove above disclaimer after all bikeshedding about format is over,
      *   or after March 2015.
-     * 
+     *
      * Note that the quantity will NEVER be internally represented by a
      * floating point number. That is the whole point of this exercise.
-     * 
+     *
      * Non-canonical values will still parse as long as they are well formed,
      * but will be re-emitted in their canonical form. (So always use canonical
      * form, or don't diff.)
-     * 
+     *
      * This format is intended to make it difficult to use these numbers without
      * writing some sort of special handling code in the hopes that that will
      * cause implementors to also use a fixed point implementation.
-     * 
+     *
      * +protobuf=true
      * +protobuf.embed=string
      * +protobuf.options.marshal=false
@@ -437,20 +434,23 @@ public final class Resource {
      *
      * Protobuf type {@code k8s.io.apimachinery.pkg.api.resource.Quantity}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:k8s.io.apimachinery.pkg.api.resource.Quantity)
         io.kubernetes.client.proto.Resource.QuantityOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.kubernetes.client.proto.Resource.internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_descriptor;
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.Resource
+            .internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.kubernetes.client.proto.Resource.internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_fieldAccessorTable
+        return io.kubernetes.client.proto.Resource
+            .internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.kubernetes.client.proto.Resource.Quantity.class, io.kubernetes.client.proto.Resource.Quantity.Builder.class);
+                io.kubernetes.client.proto.Resource.Quantity.class,
+                io.kubernetes.client.proto.Resource.Quantity.Builder.class);
       }
 
       // Construct using io.kubernetes.client.proto.Resource.Quantity.newBuilder()
@@ -458,16 +458,15 @@ public final class Resource {
         maybeForceBuilderInitialization();
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
+
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
       }
+
       public Builder clear() {
         super.clear();
         string_ = "";
@@ -475,9 +474,9 @@ public final class Resource {
         return this;
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.kubernetes.client.proto.Resource.internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_descriptor;
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.Resource
+            .internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_descriptor;
       }
 
       public io.kubernetes.client.proto.Resource.Quantity getDefaultInstanceForType() {
@@ -493,7 +492,8 @@ public final class Resource {
       }
 
       public io.kubernetes.client.proto.Resource.Quantity buildPartial() {
-        io.kubernetes.client.proto.Resource.Quantity result = new io.kubernetes.client.proto.Resource.Quantity(this);
+        io.kubernetes.client.proto.Resource.Quantity result =
+            new io.kubernetes.client.proto.Resource.Quantity(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -508,32 +508,35 @@ public final class Resource {
       public Builder clone() {
         return (Builder) super.clone();
       }
+
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.Resource.Quantity) {
-          return mergeFrom((io.kubernetes.client.proto.Resource.Quantity)other);
+          return mergeFrom((io.kubernetes.client.proto.Resource.Quantity) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -573,23 +576,19 @@ public final class Resource {
         }
         return this;
       }
+
       private int bitField0_;
 
       private java.lang.Object string_ = "";
-      /**
-       * <code>optional string string = 1;</code>
-       */
+      /** <code>optional string string = 1;</code> */
       public boolean hasString() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>optional string string = 1;</code>
-       */
+      /** <code>optional string string = 1;</code> */
       public java.lang.String getString() {
         java.lang.Object ref = string_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             string_ = s;
@@ -599,57 +598,46 @@ public final class Resource {
           return (java.lang.String) ref;
         }
       }
-      /**
-       * <code>optional string string = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getStringBytes() {
+      /** <code>optional string string = 1;</code> */
+      public com.google.protobuf.ByteString getStringBytes() {
         java.lang.Object ref = string_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
           string_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
-      /**
-       * <code>optional string string = 1;</code>
-       */
-      public Builder setString(
-          java.lang.String value) {
+      /** <code>optional string string = 1;</code> */
+      public Builder setString(java.lang.String value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
         string_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>optional string string = 1;</code>
-       */
+      /** <code>optional string string = 1;</code> */
       public Builder clearString() {
         bitField0_ = (bitField0_ & ~0x00000001);
         string_ = getDefaultInstance().getString();
         onChanged();
         return this;
       }
-      /**
-       * <code>optional string string = 1;</code>
-       */
-      public Builder setStringBytes(
-          com.google.protobuf.ByteString value) {
+      /** <code>optional string string = 1;</code> */
+      public Builder setStringBytes(com.google.protobuf.ByteString value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
         string_ = value;
         onChanged();
         return this;
       }
+
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -660,12 +648,12 @@ public final class Resource {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:k8s.io.apimachinery.pkg.api.resource.Quantity)
     }
 
     // @@protoc_insertion_point(class_scope:k8s.io.apimachinery.pkg.api.resource.Quantity)
     private static final io.kubernetes.client.proto.Resource.Quantity DEFAULT_INSTANCE;
+
     static {
       DEFAULT_INSTANCE = new io.kubernetes.client.proto.Resource.Quantity();
     }
@@ -674,15 +662,16 @@ public final class Resource {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<Quantity>
-        PARSER = new com.google.protobuf.AbstractParser<Quantity>() {
-      public Quantity parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Quantity(input, extensionRegistry);
-      }
-    };
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<Quantity> PARSER =
+        new com.google.protobuf.AbstractParser<Quantity>() {
+          public Quantity parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new Quantity(input, extensionRegistry);
+          }
+        };
 
     public static com.google.protobuf.Parser<Quantity> parser() {
       return PARSER;
@@ -696,49 +685,50 @@ public final class Resource {
     public io.kubernetes.client.proto.Resource.Quantity getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
-
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_fieldAccessorTable;
 
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
+  public static com.google.protobuf.Descriptors.FileDescriptor getDescriptor() {
     return descriptor;
   }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
+
+  private static com.google.protobuf.Descriptors.FileDescriptor descriptor;
+
   static {
     java.lang.String[] descriptorData = {
-      "\n4k8s.io/apimachinery/pkg/api/resource/g" +
-      "enerated.proto\022$k8s.io.apimachinery.pkg." +
-      "api.resource\0323k8s.io/apimachinery/pkg/ut" +
-      "il/intstr/generated.proto\"\032\n\010Quantity\022\016\n" +
-      "\006string\030\001 \001(\tB0\n\032io.kubernetes.client.pr" +
-      "otoB\010ResourceZ\010resource"
+      "\n4k8s.io/apimachinery/pkg/api/resource/g"
+          + "enerated.proto\022$k8s.io.apimachinery.pkg."
+          + "api.resource\0323k8s.io/apimachinery/pkg/ut"
+          + "il/intstr/generated.proto\"\032\n\010Quantity\022\016\n"
+          + "\006string\030\001 \001(\tB0\n\032io.kubernetes.client.pr"
+          + "otoB\010ResourceZ\010resource"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+        new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
           public com.google.protobuf.ExtensionRegistry assignDescriptors(
               com.google.protobuf.Descriptors.FileDescriptor root) {
             descriptor = root;
             return null;
           }
         };
-    com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
+    com.google.protobuf.Descriptors.FileDescriptor.internalBuildGeneratedFileFrom(
+        descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           io.kubernetes.client.proto.IntStr.getDescriptor(),
-        }, assigner);
+        },
+        assigner);
     internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_descriptor,
-        new java.lang.String[] { "String", });
+        getDescriptor().getMessageTypes().get(0);
+    internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_descriptor,
+            new java.lang.String[] {
+              "String",
+            });
     io.kubernetes.client.proto.IntStr.getDescriptor();
   }
 

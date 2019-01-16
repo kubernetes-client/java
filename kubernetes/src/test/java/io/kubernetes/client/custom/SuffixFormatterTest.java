@@ -1,9 +1,9 @@
 package io.kubernetes.client.custom;
 
-import org.junit.Test;
-
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+
+import org.junit.Test;
 
 public class SuffixFormatterTest {
 
@@ -62,13 +62,15 @@ public class SuffixFormatterTest {
 
   @Test
   public void testFormatZeroDecimalExponent() {
-    final String formattedString = new SuffixFormatter().format(Quantity.Format.DECIMAL_EXPONENT, 0);
+    final String formattedString =
+        new SuffixFormatter().format(Quantity.Format.DECIMAL_EXPONENT, 0);
     assertThat(formattedString, is(""));
   }
 
   @Test
   public void testFormatDecimalExponent() {
-    final String formattedString = new SuffixFormatter().format(Quantity.Format.DECIMAL_EXPONENT, 3);
+    final String formattedString =
+        new SuffixFormatter().format(Quantity.Format.DECIMAL_EXPONENT, 3);
     assertThat(formattedString, is("e3"));
   }
 
@@ -111,5 +113,4 @@ public class SuffixFormatterTest {
   public void testFormatBadBinarySi() {
     new SuffixFormatter().format(Quantity.Format.BINARY_SI, 4);
   }
-
 }

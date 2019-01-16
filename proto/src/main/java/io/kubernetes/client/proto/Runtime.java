@@ -5,23 +5,24 @@ package io.kubernetes.client.proto;
 
 public final class Runtime {
   private Runtime() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
+
+  public static void registerAllExtensions(com.google.protobuf.ExtensionRegistryLite registry) {}
+
+  public static void registerAllExtensions(com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions((com.google.protobuf.ExtensionRegistryLite) registry);
   }
 
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
-  public interface RawExtensionOrBuilder extends
+  public interface RawExtensionOrBuilder
+      extends
       // @@protoc_insertion_point(interface_extends:k8s.io.apimachinery.pkg.runtime.RawExtension)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     *
+     *
      * <pre>
      * Raw is the underlying serialization of this object.
-     * 
+     *
      * TODO: Determine how to detect ContentType and ContentEncoding of 'Raw' data.
      * </pre>
      *
@@ -29,9 +30,11 @@ public final class Runtime {
      */
     boolean hasRaw();
     /**
+     *
+     *
      * <pre>
      * Raw is the underlying serialization of this object.
-     * 
+     *
      * TODO: Determine how to detect ContentType and ContentEncoding of 'Raw' data.
      * </pre>
      *
@@ -40,13 +43,15 @@ public final class Runtime {
     com.google.protobuf.ByteString getRaw();
   }
   /**
+   *
+   *
    * <pre>
    * RawExtension is used to hold extensions in external versions.
-   * 
+   *
    * To use this, make a field which has RawExtension as its type in your external, versioned
    * struct, and Object in your internal struct. You also need to register your
    * various plugin types.
-   * 
+   *
    * // Internal package:
    * type MyAPIObject struct {
    * 	runtime.TypeMeta `json:",inline"`
@@ -55,7 +60,7 @@ public final class Runtime {
    * type PluginA struct {
    * 	AOption string `json:"aOption"`
    * }
-   * 
+   *
    * // External package:
    * type MyAPIObject struct {
    * 	runtime.TypeMeta `json:",inline"`
@@ -64,7 +69,7 @@ public final class Runtime {
    * type PluginA struct {
    * 	AOption string `json:"aOption"`
    * }
-   * 
+   *
    * // On the wire, the JSON will look something like this:
    * {
    * 	"kind":"MyAPIObject",
@@ -74,7 +79,7 @@ public final class Runtime {
    * 		"aOption":"foo",
    * 	},
    * }
-   * 
+   *
    * So what happens? Decode first uses json or yaml to unmarshal the serialized data into
    * your external MyAPIObject. That causes the raw JSON to be stored, but not unpacked.
    * The next step is to copy (using pkg/conversion) into the internal struct. The runtime
@@ -82,7 +87,7 @@ public final class Runtime {
    * JSON stored in RawExtension, turning it into the correct object type, and storing it
    * in the Object. (TODO: In the case where the object is of an unknown type, a
    * runtime.Unknown object will be created and stored.)
-   * 
+   *
    * +k8s:deepcopy-gen=true
    * +protobuf=true
    * +k8s:openapi-gen=true
@@ -90,24 +95,25 @@ public final class Runtime {
    *
    * Protobuf type {@code k8s.io.apimachinery.pkg.runtime.RawExtension}
    */
-  public  static final class RawExtension extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  public static final class RawExtension extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:k8s.io.apimachinery.pkg.runtime.RawExtension)
       RawExtensionOrBuilder {
-  private static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
     // Use RawExtension.newBuilder() to construct.
     private RawExtension(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private RawExtension() {
       raw_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
       return this.unknownFields;
     }
+
     private RawExtension(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -124,49 +130,54 @@ public final class Runtime {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
               }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              raw_ = input.readBytes();
-              break;
-            }
+            case 10:
+              {
+                bitField0_ |= 0x00000001;
+                raw_ = input.readBytes();
+                break;
+              }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.kubernetes.client.proto.Runtime.internal_static_k8s_io_apimachinery_pkg_runtime_RawExtension_descriptor;
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.Runtime
+          .internal_static_k8s_io_apimachinery_pkg_runtime_RawExtension_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.kubernetes.client.proto.Runtime.internal_static_k8s_io_apimachinery_pkg_runtime_RawExtension_fieldAccessorTable
+      return io.kubernetes.client.proto.Runtime
+          .internal_static_k8s_io_apimachinery_pkg_runtime_RawExtension_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.kubernetes.client.proto.Runtime.RawExtension.class, io.kubernetes.client.proto.Runtime.RawExtension.Builder.class);
+              io.kubernetes.client.proto.Runtime.RawExtension.class,
+              io.kubernetes.client.proto.Runtime.RawExtension.Builder.class);
     }
 
     private int bitField0_;
     public static final int RAW_FIELD_NUMBER = 1;
     private com.google.protobuf.ByteString raw_;
     /**
+     *
+     *
      * <pre>
      * Raw is the underlying serialization of this object.
-     * 
+     *
      * TODO: Determine how to detect ContentType and ContentEncoding of 'Raw' data.
      * </pre>
      *
@@ -176,9 +187,11 @@ public final class Runtime {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
+     *
+     *
      * <pre>
      * Raw is the underlying serialization of this object.
-     * 
+     *
      * TODO: Determine how to detect ContentType and ContentEncoding of 'Raw' data.
      * </pre>
      *
@@ -189,6 +202,7 @@ public final class Runtime {
     }
 
     private byte memoizedIsInitialized = -1;
+
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -198,8 +212,7 @@ public final class Runtime {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeBytes(1, raw_);
       }
@@ -212,8 +225,7 @@ public final class Runtime {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, raw_);
+        size += com.google.protobuf.CodedOutputStream.computeBytesSize(1, raw_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -223,18 +235,18 @@ public final class Runtime {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof io.kubernetes.client.proto.Runtime.RawExtension)) {
         return super.equals(obj);
       }
-      io.kubernetes.client.proto.Runtime.RawExtension other = (io.kubernetes.client.proto.Runtime.RawExtension) obj;
+      io.kubernetes.client.proto.Runtime.RawExtension other =
+          (io.kubernetes.client.proto.Runtime.RawExtension) obj;
 
       boolean result = true;
       result = result && (hasRaw() == other.hasRaw());
       if (hasRaw()) {
-        result = result && getRaw()
-            .equals(other.getRaw());
+        result = result && getRaw().equals(other.getRaw());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -257,85 +269,91 @@ public final class Runtime {
     }
 
     public static io.kubernetes.client.proto.Runtime.RawExtension parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.Runtime.RawExtension parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.Runtime.RawExtension parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.Runtime.RawExtension parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.Runtime.RawExtension parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.Runtime.RawExtension parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.kubernetes.client.proto.Runtime.RawExtension parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
+
     public static io.kubernetes.client.proto.Runtime.RawExtension parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
-    public static io.kubernetes.client.proto.Runtime.RawExtension parseDelimitedFrom(java.io.InputStream input)
+
+    public static io.kubernetes.client.proto.Runtime.RawExtension parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.Runtime.RawExtension parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
     }
+
+    public static io.kubernetes.client.proto.Runtime.RawExtension parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
     public static io.kubernetes.client.proto.Runtime.RawExtension parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.Runtime.RawExtension parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
+
     public static Builder newBuilder(io.kubernetes.client.proto.Runtime.RawExtension prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -345,13 +363,15 @@ public final class Runtime {
       return builder;
     }
     /**
+     *
+     *
      * <pre>
      * RawExtension is used to hold extensions in external versions.
-     * 
+     *
      * To use this, make a field which has RawExtension as its type in your external, versioned
      * struct, and Object in your internal struct. You also need to register your
      * various plugin types.
-     * 
+     *
      * // Internal package:
      * type MyAPIObject struct {
      * 	runtime.TypeMeta `json:",inline"`
@@ -360,7 +380,7 @@ public final class Runtime {
      * type PluginA struct {
      * 	AOption string `json:"aOption"`
      * }
-     * 
+     *
      * // External package:
      * type MyAPIObject struct {
      * 	runtime.TypeMeta `json:",inline"`
@@ -369,7 +389,7 @@ public final class Runtime {
      * type PluginA struct {
      * 	AOption string `json:"aOption"`
      * }
-     * 
+     *
      * // On the wire, the JSON will look something like this:
      * {
      * 	"kind":"MyAPIObject",
@@ -379,7 +399,7 @@ public final class Runtime {
      * 		"aOption":"foo",
      * 	},
      * }
-     * 
+     *
      * So what happens? Decode first uses json or yaml to unmarshal the serialized data into
      * your external MyAPIObject. That causes the raw JSON to be stored, but not unpacked.
      * The next step is to copy (using pkg/conversion) into the internal struct. The runtime
@@ -387,7 +407,7 @@ public final class Runtime {
      * JSON stored in RawExtension, turning it into the correct object type, and storing it
      * in the Object. (TODO: In the case where the object is of an unknown type, a
      * runtime.Unknown object will be created and stored.)
-     * 
+     *
      * +k8s:deepcopy-gen=true
      * +protobuf=true
      * +k8s:openapi-gen=true
@@ -395,20 +415,23 @@ public final class Runtime {
      *
      * Protobuf type {@code k8s.io.apimachinery.pkg.runtime.RawExtension}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:k8s.io.apimachinery.pkg.runtime.RawExtension)
         io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.kubernetes.client.proto.Runtime.internal_static_k8s_io_apimachinery_pkg_runtime_RawExtension_descriptor;
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.Runtime
+            .internal_static_k8s_io_apimachinery_pkg_runtime_RawExtension_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.kubernetes.client.proto.Runtime.internal_static_k8s_io_apimachinery_pkg_runtime_RawExtension_fieldAccessorTable
+        return io.kubernetes.client.proto.Runtime
+            .internal_static_k8s_io_apimachinery_pkg_runtime_RawExtension_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.kubernetes.client.proto.Runtime.RawExtension.class, io.kubernetes.client.proto.Runtime.RawExtension.Builder.class);
+                io.kubernetes.client.proto.Runtime.RawExtension.class,
+                io.kubernetes.client.proto.Runtime.RawExtension.Builder.class);
       }
 
       // Construct using io.kubernetes.client.proto.Runtime.RawExtension.newBuilder()
@@ -416,16 +439,15 @@ public final class Runtime {
         maybeForceBuilderInitialization();
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
+
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
       }
+
       public Builder clear() {
         super.clear();
         raw_ = com.google.protobuf.ByteString.EMPTY;
@@ -433,9 +455,9 @@ public final class Runtime {
         return this;
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.kubernetes.client.proto.Runtime.internal_static_k8s_io_apimachinery_pkg_runtime_RawExtension_descriptor;
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.Runtime
+            .internal_static_k8s_io_apimachinery_pkg_runtime_RawExtension_descriptor;
       }
 
       public io.kubernetes.client.proto.Runtime.RawExtension getDefaultInstanceForType() {
@@ -451,7 +473,8 @@ public final class Runtime {
       }
 
       public io.kubernetes.client.proto.Runtime.RawExtension buildPartial() {
-        io.kubernetes.client.proto.Runtime.RawExtension result = new io.kubernetes.client.proto.Runtime.RawExtension(this);
+        io.kubernetes.client.proto.Runtime.RawExtension result =
+            new io.kubernetes.client.proto.Runtime.RawExtension(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -466,32 +489,35 @@ public final class Runtime {
       public Builder clone() {
         return (Builder) super.clone();
       }
+
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.Runtime.RawExtension) {
-          return mergeFrom((io.kubernetes.client.proto.Runtime.RawExtension)other);
+          return mergeFrom((io.kubernetes.client.proto.Runtime.RawExtension) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -499,7 +525,8 @@ public final class Runtime {
       }
 
       public Builder mergeFrom(io.kubernetes.client.proto.Runtime.RawExtension other) {
-        if (other == io.kubernetes.client.proto.Runtime.RawExtension.getDefaultInstance()) return this;
+        if (other == io.kubernetes.client.proto.Runtime.RawExtension.getDefaultInstance())
+          return this;
         if (other.hasRaw()) {
           setRaw(other.getRaw());
         }
@@ -520,7 +547,8 @@ public final class Runtime {
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.kubernetes.client.proto.Runtime.RawExtension) e.getUnfinishedMessage();
+          parsedMessage =
+              (io.kubernetes.client.proto.Runtime.RawExtension) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -529,13 +557,16 @@ public final class Runtime {
         }
         return this;
       }
+
       private int bitField0_;
 
       private com.google.protobuf.ByteString raw_ = com.google.protobuf.ByteString.EMPTY;
       /**
+       *
+       *
        * <pre>
        * Raw is the underlying serialization of this object.
-       * 
+       *
        * TODO: Determine how to detect ContentType and ContentEncoding of 'Raw' data.
        * </pre>
        *
@@ -545,9 +576,11 @@ public final class Runtime {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
+       *
+       *
        * <pre>
        * Raw is the underlying serialization of this object.
-       * 
+       *
        * TODO: Determine how to detect ContentType and ContentEncoding of 'Raw' data.
        * </pre>
        *
@@ -557,9 +590,11 @@ public final class Runtime {
         return raw_;
       }
       /**
+       *
+       *
        * <pre>
        * Raw is the underlying serialization of this object.
-       * 
+       *
        * TODO: Determine how to detect ContentType and ContentEncoding of 'Raw' data.
        * </pre>
        *
@@ -567,17 +602,19 @@ public final class Runtime {
        */
       public Builder setRaw(com.google.protobuf.ByteString value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
         raw_ = value;
         onChanged();
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Raw is the underlying serialization of this object.
-       * 
+       *
        * TODO: Determine how to detect ContentType and ContentEncoding of 'Raw' data.
        * </pre>
        *
@@ -589,6 +626,7 @@ public final class Runtime {
         onChanged();
         return this;
       }
+
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -599,12 +637,12 @@ public final class Runtime {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:k8s.io.apimachinery.pkg.runtime.RawExtension)
     }
 
     // @@protoc_insertion_point(class_scope:k8s.io.apimachinery.pkg.runtime.RawExtension)
     private static final io.kubernetes.client.proto.Runtime.RawExtension DEFAULT_INSTANCE;
+
     static {
       DEFAULT_INSTANCE = new io.kubernetes.client.proto.Runtime.RawExtension();
     }
@@ -613,15 +651,16 @@ public final class Runtime {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<RawExtension>
-        PARSER = new com.google.protobuf.AbstractParser<RawExtension>() {
-      public RawExtension parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new RawExtension(input, extensionRegistry);
-      }
-    };
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<RawExtension> PARSER =
+        new com.google.protobuf.AbstractParser<RawExtension>() {
+          public RawExtension parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new RawExtension(input, extensionRegistry);
+          }
+        };
 
     public static com.google.protobuf.Parser<RawExtension> parser() {
       return PARSER;
@@ -635,14 +674,16 @@ public final class Runtime {
     public io.kubernetes.client.proto.Runtime.RawExtension getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
-
   }
 
-  public interface TypeMetaOrBuilder extends
+  public interface TypeMetaOrBuilder
+      extends
       // @@protoc_insertion_point(interface_extends:k8s.io.apimachinery.pkg.runtime.TypeMeta)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     *
+     *
      * <pre>
      * +optional
      * </pre>
@@ -651,6 +692,8 @@ public final class Runtime {
      */
     boolean hasApiVersion();
     /**
+     *
+     *
      * <pre>
      * +optional
      * </pre>
@@ -659,16 +702,19 @@ public final class Runtime {
      */
     java.lang.String getApiVersion();
     /**
+     *
+     *
      * <pre>
      * +optional
      * </pre>
      *
      * <code>optional string apiVersion = 1;</code>
      */
-    com.google.protobuf.ByteString
-        getApiVersionBytes();
+    com.google.protobuf.ByteString getApiVersionBytes();
 
     /**
+     *
+     *
      * <pre>
      * +optional
      * </pre>
@@ -677,6 +723,8 @@ public final class Runtime {
      */
     boolean hasKind();
     /**
+     *
+     *
      * <pre>
      * +optional
      * </pre>
@@ -685,16 +733,19 @@ public final class Runtime {
      */
     java.lang.String getKind();
     /**
+     *
+     *
      * <pre>
      * +optional
      * </pre>
      *
      * <code>optional string kind = 2;</code>
      */
-    com.google.protobuf.ByteString
-        getKindBytes();
+    com.google.protobuf.ByteString getKindBytes();
   }
   /**
+   *
+   *
    * <pre>
    * TypeMeta is shared by all top level objects. The proper way to use it is to inline it in your type,
    * like this:
@@ -703,10 +754,10 @@ public final class Runtime {
    *      ... // other fields
    * }
    * func (obj *MyAwesomeAPIObject) SetGroupVersionKind(gvk *metav1.GroupVersionKind) { metav1.UpdateTypeMeta(obj,gvk) }; GroupVersionKind() *GroupVersionKind
-   * 
+   *
    * TypeMeta is provided here for convenience. You may use it directly from this package or define
    * your own with the same fields.
-   * 
+   *
    * +k8s:deepcopy-gen=false
    * +protobuf=true
    * +k8s:openapi-gen=true
@@ -714,25 +765,26 @@ public final class Runtime {
    *
    * Protobuf type {@code k8s.io.apimachinery.pkg.runtime.TypeMeta}
    */
-  public  static final class TypeMeta extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  public static final class TypeMeta extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:k8s.io.apimachinery.pkg.runtime.TypeMeta)
       TypeMetaOrBuilder {
-  private static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
     // Use TypeMeta.newBuilder() to construct.
     private TypeMeta(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private TypeMeta() {
       apiVersion_ = "";
       kind_ = "";
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
       return this.unknownFields;
     }
+
     private TypeMeta(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -749,53 +801,59 @@ public final class Runtime {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
               }
-              break;
-            }
-            case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000001;
-              apiVersion_ = bs;
-              break;
-            }
-            case 18: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000002;
-              kind_ = bs;
-              break;
-            }
+            case 10:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000001;
+                apiVersion_ = bs;
+                break;
+              }
+            case 18:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000002;
+                kind_ = bs;
+                break;
+              }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.kubernetes.client.proto.Runtime.internal_static_k8s_io_apimachinery_pkg_runtime_TypeMeta_descriptor;
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.Runtime
+          .internal_static_k8s_io_apimachinery_pkg_runtime_TypeMeta_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.kubernetes.client.proto.Runtime.internal_static_k8s_io_apimachinery_pkg_runtime_TypeMeta_fieldAccessorTable
+      return io.kubernetes.client.proto.Runtime
+          .internal_static_k8s_io_apimachinery_pkg_runtime_TypeMeta_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.kubernetes.client.proto.Runtime.TypeMeta.class, io.kubernetes.client.proto.Runtime.TypeMeta.Builder.class);
+              io.kubernetes.client.proto.Runtime.TypeMeta.class,
+              io.kubernetes.client.proto.Runtime.TypeMeta.Builder.class);
     }
 
     private int bitField0_;
     public static final int APIVERSION_FIELD_NUMBER = 1;
     private volatile java.lang.Object apiVersion_;
     /**
+     *
+     *
      * <pre>
      * +optional
      * </pre>
@@ -806,6 +864,8 @@ public final class Runtime {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
+     *
+     *
      * <pre>
      * +optional
      * </pre>
@@ -817,8 +877,7 @@ public final class Runtime {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           apiVersion_ = s;
@@ -827,19 +886,19 @@ public final class Runtime {
       }
     }
     /**
+     *
+     *
      * <pre>
      * +optional
      * </pre>
      *
      * <code>optional string apiVersion = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getApiVersionBytes() {
+    public com.google.protobuf.ByteString getApiVersionBytes() {
       java.lang.Object ref = apiVersion_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
         apiVersion_ = b;
         return b;
       } else {
@@ -850,6 +909,8 @@ public final class Runtime {
     public static final int KIND_FIELD_NUMBER = 2;
     private volatile java.lang.Object kind_;
     /**
+     *
+     *
      * <pre>
      * +optional
      * </pre>
@@ -860,6 +921,8 @@ public final class Runtime {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
+     *
+     *
      * <pre>
      * +optional
      * </pre>
@@ -871,8 +934,7 @@ public final class Runtime {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           kind_ = s;
@@ -881,19 +943,19 @@ public final class Runtime {
       }
     }
     /**
+     *
+     *
      * <pre>
      * +optional
      * </pre>
      *
      * <code>optional string kind = 2;</code>
      */
-    public com.google.protobuf.ByteString
-        getKindBytes() {
+    public com.google.protobuf.ByteString getKindBytes() {
       java.lang.Object ref = kind_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
         kind_ = b;
         return b;
       } else {
@@ -902,6 +964,7 @@ public final class Runtime {
     }
 
     private byte memoizedIsInitialized = -1;
+
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -911,8 +974,7 @@ public final class Runtime {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, apiVersion_);
       }
@@ -941,23 +1003,22 @@ public final class Runtime {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof io.kubernetes.client.proto.Runtime.TypeMeta)) {
         return super.equals(obj);
       }
-      io.kubernetes.client.proto.Runtime.TypeMeta other = (io.kubernetes.client.proto.Runtime.TypeMeta) obj;
+      io.kubernetes.client.proto.Runtime.TypeMeta other =
+          (io.kubernetes.client.proto.Runtime.TypeMeta) obj;
 
       boolean result = true;
       result = result && (hasApiVersion() == other.hasApiVersion());
       if (hasApiVersion()) {
-        result = result && getApiVersion()
-            .equals(other.getApiVersion());
+        result = result && getApiVersion().equals(other.getApiVersion());
       }
       result = result && (hasKind() == other.hasKind());
       if (hasKind()) {
-        result = result && getKind()
-            .equals(other.getKind());
+        result = result && getKind().equals(other.getKind());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -983,86 +1044,92 @@ public final class Runtime {
       return hash;
     }
 
-    public static io.kubernetes.client.proto.Runtime.TypeMeta parseFrom(
-        java.nio.ByteBuffer data)
+    public static io.kubernetes.client.proto.Runtime.TypeMeta parseFrom(java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.Runtime.TypeMeta parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.Runtime.TypeMeta parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.Runtime.TypeMeta parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.Runtime.TypeMeta parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.Runtime.TypeMeta parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.Runtime.TypeMeta parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.Runtime.TypeMeta parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
-    public static io.kubernetes.client.proto.Runtime.TypeMeta parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
+
     public static io.kubernetes.client.proto.Runtime.TypeMeta parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
     }
+
+    public static io.kubernetes.client.proto.Runtime.TypeMeta parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
     public static io.kubernetes.client.proto.Runtime.TypeMeta parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.Runtime.TypeMeta parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
+
     public static Builder newBuilder(io.kubernetes.client.proto.Runtime.TypeMeta prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -1072,6 +1139,8 @@ public final class Runtime {
       return builder;
     }
     /**
+     *
+     *
      * <pre>
      * TypeMeta is shared by all top level objects. The proper way to use it is to inline it in your type,
      * like this:
@@ -1080,10 +1149,10 @@ public final class Runtime {
      *      ... // other fields
      * }
      * func (obj *MyAwesomeAPIObject) SetGroupVersionKind(gvk *metav1.GroupVersionKind) { metav1.UpdateTypeMeta(obj,gvk) }; GroupVersionKind() *GroupVersionKind
-     * 
+     *
      * TypeMeta is provided here for convenience. You may use it directly from this package or define
      * your own with the same fields.
-     * 
+     *
      * +k8s:deepcopy-gen=false
      * +protobuf=true
      * +k8s:openapi-gen=true
@@ -1091,20 +1160,23 @@ public final class Runtime {
      *
      * Protobuf type {@code k8s.io.apimachinery.pkg.runtime.TypeMeta}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:k8s.io.apimachinery.pkg.runtime.TypeMeta)
         io.kubernetes.client.proto.Runtime.TypeMetaOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.kubernetes.client.proto.Runtime.internal_static_k8s_io_apimachinery_pkg_runtime_TypeMeta_descriptor;
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.Runtime
+            .internal_static_k8s_io_apimachinery_pkg_runtime_TypeMeta_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.kubernetes.client.proto.Runtime.internal_static_k8s_io_apimachinery_pkg_runtime_TypeMeta_fieldAccessorTable
+        return io.kubernetes.client.proto.Runtime
+            .internal_static_k8s_io_apimachinery_pkg_runtime_TypeMeta_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.kubernetes.client.proto.Runtime.TypeMeta.class, io.kubernetes.client.proto.Runtime.TypeMeta.Builder.class);
+                io.kubernetes.client.proto.Runtime.TypeMeta.class,
+                io.kubernetes.client.proto.Runtime.TypeMeta.Builder.class);
       }
 
       // Construct using io.kubernetes.client.proto.Runtime.TypeMeta.newBuilder()
@@ -1112,16 +1184,15 @@ public final class Runtime {
         maybeForceBuilderInitialization();
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
+
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
       }
+
       public Builder clear() {
         super.clear();
         apiVersion_ = "";
@@ -1131,9 +1202,9 @@ public final class Runtime {
         return this;
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.kubernetes.client.proto.Runtime.internal_static_k8s_io_apimachinery_pkg_runtime_TypeMeta_descriptor;
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.Runtime
+            .internal_static_k8s_io_apimachinery_pkg_runtime_TypeMeta_descriptor;
       }
 
       public io.kubernetes.client.proto.Runtime.TypeMeta getDefaultInstanceForType() {
@@ -1149,7 +1220,8 @@ public final class Runtime {
       }
 
       public io.kubernetes.client.proto.Runtime.TypeMeta buildPartial() {
-        io.kubernetes.client.proto.Runtime.TypeMeta result = new io.kubernetes.client.proto.Runtime.TypeMeta(this);
+        io.kubernetes.client.proto.Runtime.TypeMeta result =
+            new io.kubernetes.client.proto.Runtime.TypeMeta(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1168,32 +1240,35 @@ public final class Runtime {
       public Builder clone() {
         return (Builder) super.clone();
       }
+
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.Runtime.TypeMeta) {
-          return mergeFrom((io.kubernetes.client.proto.Runtime.TypeMeta)other);
+          return mergeFrom((io.kubernetes.client.proto.Runtime.TypeMeta) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -1238,10 +1313,13 @@ public final class Runtime {
         }
         return this;
       }
+
       private int bitField0_;
 
       private java.lang.Object apiVersion_ = "";
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
@@ -1252,6 +1330,8 @@ public final class Runtime {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
@@ -1261,8 +1341,7 @@ public final class Runtime {
       public java.lang.String getApiVersion() {
         java.lang.Object ref = apiVersion_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             apiVersion_ = s;
@@ -1273,19 +1352,19 @@ public final class Runtime {
         }
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
        *
        * <code>optional string apiVersion = 1;</code>
        */
-      public com.google.protobuf.ByteString
-          getApiVersionBytes() {
+      public com.google.protobuf.ByteString getApiVersionBytes() {
         java.lang.Object ref = apiVersion_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
           apiVersion_ = b;
           return b;
         } else {
@@ -1293,23 +1372,26 @@ public final class Runtime {
         }
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
        *
        * <code>optional string apiVersion = 1;</code>
        */
-      public Builder setApiVersion(
-          java.lang.String value) {
+      public Builder setApiVersion(java.lang.String value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
         apiVersion_ = value;
         onChanged();
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
@@ -1323,18 +1405,19 @@ public final class Runtime {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
        *
        * <code>optional string apiVersion = 1;</code>
        */
-      public Builder setApiVersionBytes(
-          com.google.protobuf.ByteString value) {
+      public Builder setApiVersionBytes(com.google.protobuf.ByteString value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
         apiVersion_ = value;
         onChanged();
         return this;
@@ -1342,6 +1425,8 @@ public final class Runtime {
 
       private java.lang.Object kind_ = "";
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
@@ -1352,6 +1437,8 @@ public final class Runtime {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
@@ -1361,8 +1448,7 @@ public final class Runtime {
       public java.lang.String getKind() {
         java.lang.Object ref = kind_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             kind_ = s;
@@ -1373,19 +1459,19 @@ public final class Runtime {
         }
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
        *
        * <code>optional string kind = 2;</code>
        */
-      public com.google.protobuf.ByteString
-          getKindBytes() {
+      public com.google.protobuf.ByteString getKindBytes() {
         java.lang.Object ref = kind_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
           kind_ = b;
           return b;
         } else {
@@ -1393,23 +1479,26 @@ public final class Runtime {
         }
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
        *
        * <code>optional string kind = 2;</code>
        */
-      public Builder setKind(
-          java.lang.String value) {
+      public Builder setKind(java.lang.String value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
         kind_ = value;
         onChanged();
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
@@ -1423,22 +1512,24 @@ public final class Runtime {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
        *
        * <code>optional string kind = 2;</code>
        */
-      public Builder setKindBytes(
-          com.google.protobuf.ByteString value) {
+      public Builder setKindBytes(com.google.protobuf.ByteString value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
         kind_ = value;
         onChanged();
         return this;
       }
+
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -1449,12 +1540,12 @@ public final class Runtime {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:k8s.io.apimachinery.pkg.runtime.TypeMeta)
     }
 
     // @@protoc_insertion_point(class_scope:k8s.io.apimachinery.pkg.runtime.TypeMeta)
     private static final io.kubernetes.client.proto.Runtime.TypeMeta DEFAULT_INSTANCE;
+
     static {
       DEFAULT_INSTANCE = new io.kubernetes.client.proto.Runtime.TypeMeta();
     }
@@ -1463,15 +1554,16 @@ public final class Runtime {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<TypeMeta>
-        PARSER = new com.google.protobuf.AbstractParser<TypeMeta>() {
-      public TypeMeta parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new TypeMeta(input, extensionRegistry);
-      }
-    };
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<TypeMeta> PARSER =
+        new com.google.protobuf.AbstractParser<TypeMeta>() {
+          public TypeMeta parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new TypeMeta(input, extensionRegistry);
+          }
+        };
 
     public static com.google.protobuf.Parser<TypeMeta> parser() {
       return PARSER;
@@ -1485,27 +1577,23 @@ public final class Runtime {
     public io.kubernetes.client.proto.Runtime.TypeMeta getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
-
   }
 
-  public interface UnknownOrBuilder extends
+  public interface UnknownOrBuilder
+      extends
       // @@protoc_insertion_point(interface_extends:k8s.io.apimachinery.pkg.runtime.Unknown)
       com.google.protobuf.MessageOrBuilder {
 
-    /**
-     * <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code>
-     */
+    /** <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code> */
     boolean hasTypeMeta();
-    /**
-     * <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code>
-     */
+    /** <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code> */
     io.kubernetes.client.proto.Runtime.TypeMeta getTypeMeta();
-    /**
-     * <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code>
-     */
+    /** <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code> */
     io.kubernetes.client.proto.Runtime.TypeMetaOrBuilder getTypeMetaOrBuilder();
 
     /**
+     *
+     *
      * <pre>
      * Raw will hold the complete serialized object which couldn't be matched
      * with a registered type. Most likely, nothing should be done with this
@@ -1516,6 +1604,8 @@ public final class Runtime {
      */
     boolean hasRaw();
     /**
+     *
+     *
      * <pre>
      * Raw will hold the complete serialized object which couldn't be matched
      * with a registered type. Most likely, nothing should be done with this
@@ -1527,6 +1617,8 @@ public final class Runtime {
     com.google.protobuf.ByteString getRaw();
 
     /**
+     *
+     *
      * <pre>
      * ContentEncoding is encoding used to encode 'Raw' data.
      * Unspecified means no encoding.
@@ -1536,6 +1628,8 @@ public final class Runtime {
      */
     boolean hasContentEncoding();
     /**
+     *
+     *
      * <pre>
      * ContentEncoding is encoding used to encode 'Raw' data.
      * Unspecified means no encoding.
@@ -1545,6 +1639,8 @@ public final class Runtime {
      */
     java.lang.String getContentEncoding();
     /**
+     *
+     *
      * <pre>
      * ContentEncoding is encoding used to encode 'Raw' data.
      * Unspecified means no encoding.
@@ -1552,10 +1648,11 @@ public final class Runtime {
      *
      * <code>optional string contentEncoding = 3;</code>
      */
-    com.google.protobuf.ByteString
-        getContentEncodingBytes();
+    com.google.protobuf.ByteString getContentEncodingBytes();
 
     /**
+     *
+     *
      * <pre>
      * ContentType  is serialization method used to serialize 'Raw'.
      * Unspecified means ContentTypeJSON.
@@ -1565,6 +1662,8 @@ public final class Runtime {
      */
     boolean hasContentType();
     /**
+     *
+     *
      * <pre>
      * ContentType  is serialization method used to serialize 'Raw'.
      * Unspecified means ContentTypeJSON.
@@ -1574,6 +1673,8 @@ public final class Runtime {
      */
     java.lang.String getContentType();
     /**
+     *
+     *
      * <pre>
      * ContentType  is serialization method used to serialize 'Raw'.
      * Unspecified means ContentTypeJSON.
@@ -1581,17 +1682,18 @@ public final class Runtime {
      *
      * <code>optional string contentType = 4;</code>
      */
-    com.google.protobuf.ByteString
-        getContentTypeBytes();
+    com.google.protobuf.ByteString getContentTypeBytes();
   }
   /**
+   *
+   *
    * <pre>
    * Unknown allows api objects with unknown types to be passed-through. This can be used
    * to deal with the API objects from a plug-in. Unknown objects still have functioning
    * TypeMeta features-- kind, version, etc.
    * TODO: Make this object have easy access to field based accessors and settors for
    * metadata and field mutatation.
-   * 
+   *
    * +k8s:deepcopy-gen=true
    * +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
    * +protobuf=true
@@ -1600,15 +1702,16 @@ public final class Runtime {
    *
    * Protobuf type {@code k8s.io.apimachinery.pkg.runtime.Unknown}
    */
-  public  static final class Unknown extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  public static final class Unknown extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:k8s.io.apimachinery.pkg.runtime.Unknown)
       UnknownOrBuilder {
-  private static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
     // Use Unknown.newBuilder() to construct.
     private Unknown(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private Unknown() {
       raw_ = com.google.protobuf.ByteString.EMPTY;
       contentEncoding_ = "";
@@ -1616,10 +1719,10 @@ public final class Runtime {
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
       return this.unknownFields;
     }
+
     private Unknown(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1636,92 +1739,100 @@ public final class Runtime {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
               }
-              break;
-            }
-            case 10: {
-              io.kubernetes.client.proto.Runtime.TypeMeta.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                subBuilder = typeMeta_.toBuilder();
+            case 10:
+              {
+                io.kubernetes.client.proto.Runtime.TypeMeta.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                  subBuilder = typeMeta_.toBuilder();
+                }
+                typeMeta_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Runtime.TypeMeta.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(typeMeta_);
+                  typeMeta_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000001;
+                break;
               }
-              typeMeta_ = input.readMessage(io.kubernetes.client.proto.Runtime.TypeMeta.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(typeMeta_);
-                typeMeta_ = subBuilder.buildPartial();
+            case 18:
+              {
+                bitField0_ |= 0x00000002;
+                raw_ = input.readBytes();
+                break;
               }
-              bitField0_ |= 0x00000001;
-              break;
-            }
-            case 18: {
-              bitField0_ |= 0x00000002;
-              raw_ = input.readBytes();
-              break;
-            }
-            case 26: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000004;
-              contentEncoding_ = bs;
-              break;
-            }
-            case 34: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000008;
-              contentType_ = bs;
-              break;
-            }
+            case 26:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000004;
+                contentEncoding_ = bs;
+                break;
+              }
+            case 34:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000008;
+                contentType_ = bs;
+                break;
+              }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.kubernetes.client.proto.Runtime.internal_static_k8s_io_apimachinery_pkg_runtime_Unknown_descriptor;
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.Runtime
+          .internal_static_k8s_io_apimachinery_pkg_runtime_Unknown_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.kubernetes.client.proto.Runtime.internal_static_k8s_io_apimachinery_pkg_runtime_Unknown_fieldAccessorTable
+      return io.kubernetes.client.proto.Runtime
+          .internal_static_k8s_io_apimachinery_pkg_runtime_Unknown_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.kubernetes.client.proto.Runtime.Unknown.class, io.kubernetes.client.proto.Runtime.Unknown.Builder.class);
+              io.kubernetes.client.proto.Runtime.Unknown.class,
+              io.kubernetes.client.proto.Runtime.Unknown.Builder.class);
     }
 
     private int bitField0_;
     public static final int TYPEMETA_FIELD_NUMBER = 1;
     private io.kubernetes.client.proto.Runtime.TypeMeta typeMeta_;
-    /**
-     * <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code>
-     */
+    /** <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code> */
     public boolean hasTypeMeta() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    /**
-     * <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code>
-     */
+    /** <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code> */
     public io.kubernetes.client.proto.Runtime.TypeMeta getTypeMeta() {
-      return typeMeta_ == null ? io.kubernetes.client.proto.Runtime.TypeMeta.getDefaultInstance() : typeMeta_;
+      return typeMeta_ == null
+          ? io.kubernetes.client.proto.Runtime.TypeMeta.getDefaultInstance()
+          : typeMeta_;
     }
-    /**
-     * <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code>
-     */
+    /** <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code> */
     public io.kubernetes.client.proto.Runtime.TypeMetaOrBuilder getTypeMetaOrBuilder() {
-      return typeMeta_ == null ? io.kubernetes.client.proto.Runtime.TypeMeta.getDefaultInstance() : typeMeta_;
+      return typeMeta_ == null
+          ? io.kubernetes.client.proto.Runtime.TypeMeta.getDefaultInstance()
+          : typeMeta_;
     }
 
     public static final int RAW_FIELD_NUMBER = 2;
     private com.google.protobuf.ByteString raw_;
     /**
+     *
+     *
      * <pre>
      * Raw will hold the complete serialized object which couldn't be matched
      * with a registered type. Most likely, nothing should be done with this
@@ -1734,6 +1845,8 @@ public final class Runtime {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
+     *
+     *
      * <pre>
      * Raw will hold the complete serialized object which couldn't be matched
      * with a registered type. Most likely, nothing should be done with this
@@ -1749,6 +1862,8 @@ public final class Runtime {
     public static final int CONTENTENCODING_FIELD_NUMBER = 3;
     private volatile java.lang.Object contentEncoding_;
     /**
+     *
+     *
      * <pre>
      * ContentEncoding is encoding used to encode 'Raw' data.
      * Unspecified means no encoding.
@@ -1760,6 +1875,8 @@ public final class Runtime {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
+     *
+     *
      * <pre>
      * ContentEncoding is encoding used to encode 'Raw' data.
      * Unspecified means no encoding.
@@ -1772,8 +1889,7 @@ public final class Runtime {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           contentEncoding_ = s;
@@ -1782,6 +1898,8 @@ public final class Runtime {
       }
     }
     /**
+     *
+     *
      * <pre>
      * ContentEncoding is encoding used to encode 'Raw' data.
      * Unspecified means no encoding.
@@ -1789,13 +1907,11 @@ public final class Runtime {
      *
      * <code>optional string contentEncoding = 3;</code>
      */
-    public com.google.protobuf.ByteString
-        getContentEncodingBytes() {
+    public com.google.protobuf.ByteString getContentEncodingBytes() {
       java.lang.Object ref = contentEncoding_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
         contentEncoding_ = b;
         return b;
       } else {
@@ -1806,6 +1922,8 @@ public final class Runtime {
     public static final int CONTENTTYPE_FIELD_NUMBER = 4;
     private volatile java.lang.Object contentType_;
     /**
+     *
+     *
      * <pre>
      * ContentType  is serialization method used to serialize 'Raw'.
      * Unspecified means ContentTypeJSON.
@@ -1817,6 +1935,8 @@ public final class Runtime {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
+     *
+     *
      * <pre>
      * ContentType  is serialization method used to serialize 'Raw'.
      * Unspecified means ContentTypeJSON.
@@ -1829,8 +1949,7 @@ public final class Runtime {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           contentType_ = s;
@@ -1839,6 +1958,8 @@ public final class Runtime {
       }
     }
     /**
+     *
+     *
      * <pre>
      * ContentType  is serialization method used to serialize 'Raw'.
      * Unspecified means ContentTypeJSON.
@@ -1846,13 +1967,11 @@ public final class Runtime {
      *
      * <code>optional string contentType = 4;</code>
      */
-    public com.google.protobuf.ByteString
-        getContentTypeBytes() {
+    public com.google.protobuf.ByteString getContentTypeBytes() {
       java.lang.Object ref = contentType_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
         contentType_ = b;
         return b;
       } else {
@@ -1861,6 +1980,7 @@ public final class Runtime {
     }
 
     private byte memoizedIsInitialized = -1;
+
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1870,8 +1990,7 @@ public final class Runtime {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeMessage(1, getTypeMeta());
       }
@@ -1893,12 +2012,10 @@ public final class Runtime {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getTypeMeta());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, getTypeMeta());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, raw_);
+        size += com.google.protobuf.CodedOutputStream.computeBytesSize(2, raw_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, contentEncoding_);
@@ -1914,33 +2031,30 @@ public final class Runtime {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof io.kubernetes.client.proto.Runtime.Unknown)) {
         return super.equals(obj);
       }
-      io.kubernetes.client.proto.Runtime.Unknown other = (io.kubernetes.client.proto.Runtime.Unknown) obj;
+      io.kubernetes.client.proto.Runtime.Unknown other =
+          (io.kubernetes.client.proto.Runtime.Unknown) obj;
 
       boolean result = true;
       result = result && (hasTypeMeta() == other.hasTypeMeta());
       if (hasTypeMeta()) {
-        result = result && getTypeMeta()
-            .equals(other.getTypeMeta());
+        result = result && getTypeMeta().equals(other.getTypeMeta());
       }
       result = result && (hasRaw() == other.hasRaw());
       if (hasRaw()) {
-        result = result && getRaw()
-            .equals(other.getRaw());
+        result = result && getRaw().equals(other.getRaw());
       }
       result = result && (hasContentEncoding() == other.hasContentEncoding());
       if (hasContentEncoding()) {
-        result = result && getContentEncoding()
-            .equals(other.getContentEncoding());
+        result = result && getContentEncoding().equals(other.getContentEncoding());
       }
       result = result && (hasContentType() == other.hasContentType());
       if (hasContentType()) {
-        result = result && getContentType()
-            .equals(other.getContentType());
+        result = result && getContentType().equals(other.getContentType());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -1974,86 +2088,92 @@ public final class Runtime {
       return hash;
     }
 
-    public static io.kubernetes.client.proto.Runtime.Unknown parseFrom(
-        java.nio.ByteBuffer data)
+    public static io.kubernetes.client.proto.Runtime.Unknown parseFrom(java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.Runtime.Unknown parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.Runtime.Unknown parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.Runtime.Unknown parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.Runtime.Unknown parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.Runtime.Unknown parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.Runtime.Unknown parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.Runtime.Unknown parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
-    public static io.kubernetes.client.proto.Runtime.Unknown parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
+
     public static io.kubernetes.client.proto.Runtime.Unknown parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
     }
+
+    public static io.kubernetes.client.proto.Runtime.Unknown parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
     public static io.kubernetes.client.proto.Runtime.Unknown parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.Runtime.Unknown parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
+
     public static Builder newBuilder(io.kubernetes.client.proto.Runtime.Unknown prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -2063,13 +2183,15 @@ public final class Runtime {
       return builder;
     }
     /**
+     *
+     *
      * <pre>
      * Unknown allows api objects with unknown types to be passed-through. This can be used
      * to deal with the API objects from a plug-in. Unknown objects still have functioning
      * TypeMeta features-- kind, version, etc.
      * TODO: Make this object have easy access to field based accessors and settors for
      * metadata and field mutatation.
-     * 
+     *
      * +k8s:deepcopy-gen=true
      * +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
      * +protobuf=true
@@ -2078,20 +2200,23 @@ public final class Runtime {
      *
      * Protobuf type {@code k8s.io.apimachinery.pkg.runtime.Unknown}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:k8s.io.apimachinery.pkg.runtime.Unknown)
         io.kubernetes.client.proto.Runtime.UnknownOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.kubernetes.client.proto.Runtime.internal_static_k8s_io_apimachinery_pkg_runtime_Unknown_descriptor;
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.Runtime
+            .internal_static_k8s_io_apimachinery_pkg_runtime_Unknown_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.kubernetes.client.proto.Runtime.internal_static_k8s_io_apimachinery_pkg_runtime_Unknown_fieldAccessorTable
+        return io.kubernetes.client.proto.Runtime
+            .internal_static_k8s_io_apimachinery_pkg_runtime_Unknown_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.kubernetes.client.proto.Runtime.Unknown.class, io.kubernetes.client.proto.Runtime.Unknown.Builder.class);
+                io.kubernetes.client.proto.Runtime.Unknown.class,
+                io.kubernetes.client.proto.Runtime.Unknown.Builder.class);
       }
 
       // Construct using io.kubernetes.client.proto.Runtime.Unknown.newBuilder()
@@ -2099,17 +2224,17 @@ public final class Runtime {
         maybeForceBuilderInitialization();
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
+
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
           getTypeMetaFieldBuilder();
         }
       }
+
       public Builder clear() {
         super.clear();
         if (typeMetaBuilder_ == null) {
@@ -2127,9 +2252,9 @@ public final class Runtime {
         return this;
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.kubernetes.client.proto.Runtime.internal_static_k8s_io_apimachinery_pkg_runtime_Unknown_descriptor;
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.Runtime
+            .internal_static_k8s_io_apimachinery_pkg_runtime_Unknown_descriptor;
       }
 
       public io.kubernetes.client.proto.Runtime.Unknown getDefaultInstanceForType() {
@@ -2145,7 +2270,8 @@ public final class Runtime {
       }
 
       public io.kubernetes.client.proto.Runtime.Unknown buildPartial() {
-        io.kubernetes.client.proto.Runtime.Unknown result = new io.kubernetes.client.proto.Runtime.Unknown(this);
+        io.kubernetes.client.proto.Runtime.Unknown result =
+            new io.kubernetes.client.proto.Runtime.Unknown(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2176,32 +2302,35 @@ public final class Runtime {
       public Builder clone() {
         return (Builder) super.clone();
       }
+
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.Runtime.Unknown) {
-          return mergeFrom((io.kubernetes.client.proto.Runtime.Unknown)other);
+          return mergeFrom((io.kubernetes.client.proto.Runtime.Unknown) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -2252,30 +2381,30 @@ public final class Runtime {
         }
         return this;
       }
+
       private int bitField0_;
 
       private io.kubernetes.client.proto.Runtime.TypeMeta typeMeta_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Runtime.TypeMeta, io.kubernetes.client.proto.Runtime.TypeMeta.Builder, io.kubernetes.client.proto.Runtime.TypeMetaOrBuilder> typeMetaBuilder_;
-      /**
-       * <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code>
-       */
+              io.kubernetes.client.proto.Runtime.TypeMeta,
+              io.kubernetes.client.proto.Runtime.TypeMeta.Builder,
+              io.kubernetes.client.proto.Runtime.TypeMetaOrBuilder>
+          typeMetaBuilder_;
+      /** <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code> */
       public boolean hasTypeMeta() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code>
-       */
+      /** <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code> */
       public io.kubernetes.client.proto.Runtime.TypeMeta getTypeMeta() {
         if (typeMetaBuilder_ == null) {
-          return typeMeta_ == null ? io.kubernetes.client.proto.Runtime.TypeMeta.getDefaultInstance() : typeMeta_;
+          return typeMeta_ == null
+              ? io.kubernetes.client.proto.Runtime.TypeMeta.getDefaultInstance()
+              : typeMeta_;
         } else {
           return typeMetaBuilder_.getMessage();
         }
       }
-      /**
-       * <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code>
-       */
+      /** <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code> */
       public Builder setTypeMeta(io.kubernetes.client.proto.Runtime.TypeMeta value) {
         if (typeMetaBuilder_ == null) {
           if (value == null) {
@@ -2289,9 +2418,7 @@ public final class Runtime {
         bitField0_ |= 0x00000001;
         return this;
       }
-      /**
-       * <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code>
-       */
+      /** <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code> */
       public Builder setTypeMeta(
           io.kubernetes.client.proto.Runtime.TypeMeta.Builder builderForValue) {
         if (typeMetaBuilder_ == null) {
@@ -2303,16 +2430,16 @@ public final class Runtime {
         bitField0_ |= 0x00000001;
         return this;
       }
-      /**
-       * <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code>
-       */
+      /** <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code> */
       public Builder mergeTypeMeta(io.kubernetes.client.proto.Runtime.TypeMeta value) {
         if (typeMetaBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              typeMeta_ != null &&
-              typeMeta_ != io.kubernetes.client.proto.Runtime.TypeMeta.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)
+              && typeMeta_ != null
+              && typeMeta_ != io.kubernetes.client.proto.Runtime.TypeMeta.getDefaultInstance()) {
             typeMeta_ =
-              io.kubernetes.client.proto.Runtime.TypeMeta.newBuilder(typeMeta_).mergeFrom(value).buildPartial();
+                io.kubernetes.client.proto.Runtime.TypeMeta.newBuilder(typeMeta_)
+                    .mergeFrom(value)
+                    .buildPartial();
           } else {
             typeMeta_ = value;
           }
@@ -2323,9 +2450,7 @@ public final class Runtime {
         bitField0_ |= 0x00000001;
         return this;
       }
-      /**
-       * <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code>
-       */
+      /** <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code> */
       public Builder clearTypeMeta() {
         if (typeMetaBuilder_ == null) {
           typeMeta_ = null;
@@ -2336,37 +2461,35 @@ public final class Runtime {
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-      /**
-       * <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code>
-       */
+      /** <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code> */
       public io.kubernetes.client.proto.Runtime.TypeMeta.Builder getTypeMetaBuilder() {
         bitField0_ |= 0x00000001;
         onChanged();
         return getTypeMetaFieldBuilder().getBuilder();
       }
-      /**
-       * <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code>
-       */
+      /** <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code> */
       public io.kubernetes.client.proto.Runtime.TypeMetaOrBuilder getTypeMetaOrBuilder() {
         if (typeMetaBuilder_ != null) {
           return typeMetaBuilder_.getMessageOrBuilder();
         } else {
-          return typeMeta_ == null ?
-              io.kubernetes.client.proto.Runtime.TypeMeta.getDefaultInstance() : typeMeta_;
+          return typeMeta_ == null
+              ? io.kubernetes.client.proto.Runtime.TypeMeta.getDefaultInstance()
+              : typeMeta_;
         }
       }
-      /**
-       * <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code>
-       */
+      /** <code>optional .k8s.io.apimachinery.pkg.runtime.TypeMeta typeMeta = 1;</code> */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Runtime.TypeMeta, io.kubernetes.client.proto.Runtime.TypeMeta.Builder, io.kubernetes.client.proto.Runtime.TypeMetaOrBuilder> 
+              io.kubernetes.client.proto.Runtime.TypeMeta,
+              io.kubernetes.client.proto.Runtime.TypeMeta.Builder,
+              io.kubernetes.client.proto.Runtime.TypeMetaOrBuilder>
           getTypeMetaFieldBuilder() {
         if (typeMetaBuilder_ == null) {
-          typeMetaBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.Runtime.TypeMeta, io.kubernetes.client.proto.Runtime.TypeMeta.Builder, io.kubernetes.client.proto.Runtime.TypeMetaOrBuilder>(
-                  getTypeMeta(),
-                  getParentForChildren(),
-                  isClean());
+          typeMetaBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Runtime.TypeMeta,
+                  io.kubernetes.client.proto.Runtime.TypeMeta.Builder,
+                  io.kubernetes.client.proto.Runtime.TypeMetaOrBuilder>(
+                  getTypeMeta(), getParentForChildren(), isClean());
           typeMeta_ = null;
         }
         return typeMetaBuilder_;
@@ -2374,6 +2497,8 @@ public final class Runtime {
 
       private com.google.protobuf.ByteString raw_ = com.google.protobuf.ByteString.EMPTY;
       /**
+       *
+       *
        * <pre>
        * Raw will hold the complete serialized object which couldn't be matched
        * with a registered type. Most likely, nothing should be done with this
@@ -2386,6 +2511,8 @@ public final class Runtime {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
+       *
+       *
        * <pre>
        * Raw will hold the complete serialized object which couldn't be matched
        * with a registered type. Most likely, nothing should be done with this
@@ -2398,6 +2525,8 @@ public final class Runtime {
         return raw_;
       }
       /**
+       *
+       *
        * <pre>
        * Raw will hold the complete serialized object which couldn't be matched
        * with a registered type. Most likely, nothing should be done with this
@@ -2408,14 +2537,16 @@ public final class Runtime {
        */
       public Builder setRaw(com.google.protobuf.ByteString value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
         raw_ = value;
         onChanged();
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Raw will hold the complete serialized object which couldn't be matched
        * with a registered type. Most likely, nothing should be done with this
@@ -2433,6 +2564,8 @@ public final class Runtime {
 
       private java.lang.Object contentEncoding_ = "";
       /**
+       *
+       *
        * <pre>
        * ContentEncoding is encoding used to encode 'Raw' data.
        * Unspecified means no encoding.
@@ -2444,6 +2577,8 @@ public final class Runtime {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
+       *
+       *
        * <pre>
        * ContentEncoding is encoding used to encode 'Raw' data.
        * Unspecified means no encoding.
@@ -2454,8 +2589,7 @@ public final class Runtime {
       public java.lang.String getContentEncoding() {
         java.lang.Object ref = contentEncoding_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             contentEncoding_ = s;
@@ -2466,6 +2600,8 @@ public final class Runtime {
         }
       }
       /**
+       *
+       *
        * <pre>
        * ContentEncoding is encoding used to encode 'Raw' data.
        * Unspecified means no encoding.
@@ -2473,13 +2609,11 @@ public final class Runtime {
        *
        * <code>optional string contentEncoding = 3;</code>
        */
-      public com.google.protobuf.ByteString
-          getContentEncodingBytes() {
+      public com.google.protobuf.ByteString getContentEncodingBytes() {
         java.lang.Object ref = contentEncoding_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
           contentEncoding_ = b;
           return b;
         } else {
@@ -2487,6 +2621,8 @@ public final class Runtime {
         }
       }
       /**
+       *
+       *
        * <pre>
        * ContentEncoding is encoding used to encode 'Raw' data.
        * Unspecified means no encoding.
@@ -2494,17 +2630,18 @@ public final class Runtime {
        *
        * <code>optional string contentEncoding = 3;</code>
        */
-      public Builder setContentEncoding(
-          java.lang.String value) {
+      public Builder setContentEncoding(java.lang.String value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000004;
         contentEncoding_ = value;
         onChanged();
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * ContentEncoding is encoding used to encode 'Raw' data.
        * Unspecified means no encoding.
@@ -2519,6 +2656,8 @@ public final class Runtime {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * ContentEncoding is encoding used to encode 'Raw' data.
        * Unspecified means no encoding.
@@ -2526,12 +2665,11 @@ public final class Runtime {
        *
        * <code>optional string contentEncoding = 3;</code>
        */
-      public Builder setContentEncodingBytes(
-          com.google.protobuf.ByteString value) {
+      public Builder setContentEncodingBytes(com.google.protobuf.ByteString value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000004;
         contentEncoding_ = value;
         onChanged();
         return this;
@@ -2539,6 +2677,8 @@ public final class Runtime {
 
       private java.lang.Object contentType_ = "";
       /**
+       *
+       *
        * <pre>
        * ContentType  is serialization method used to serialize 'Raw'.
        * Unspecified means ContentTypeJSON.
@@ -2550,6 +2690,8 @@ public final class Runtime {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
+       *
+       *
        * <pre>
        * ContentType  is serialization method used to serialize 'Raw'.
        * Unspecified means ContentTypeJSON.
@@ -2560,8 +2702,7 @@ public final class Runtime {
       public java.lang.String getContentType() {
         java.lang.Object ref = contentType_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             contentType_ = s;
@@ -2572,6 +2713,8 @@ public final class Runtime {
         }
       }
       /**
+       *
+       *
        * <pre>
        * ContentType  is serialization method used to serialize 'Raw'.
        * Unspecified means ContentTypeJSON.
@@ -2579,13 +2722,11 @@ public final class Runtime {
        *
        * <code>optional string contentType = 4;</code>
        */
-      public com.google.protobuf.ByteString
-          getContentTypeBytes() {
+      public com.google.protobuf.ByteString getContentTypeBytes() {
         java.lang.Object ref = contentType_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
           contentType_ = b;
           return b;
         } else {
@@ -2593,6 +2734,8 @@ public final class Runtime {
         }
       }
       /**
+       *
+       *
        * <pre>
        * ContentType  is serialization method used to serialize 'Raw'.
        * Unspecified means ContentTypeJSON.
@@ -2600,17 +2743,18 @@ public final class Runtime {
        *
        * <code>optional string contentType = 4;</code>
        */
-      public Builder setContentType(
-          java.lang.String value) {
+      public Builder setContentType(java.lang.String value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000008;
         contentType_ = value;
         onChanged();
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * ContentType  is serialization method used to serialize 'Raw'.
        * Unspecified means ContentTypeJSON.
@@ -2625,6 +2769,8 @@ public final class Runtime {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * ContentType  is serialization method used to serialize 'Raw'.
        * Unspecified means ContentTypeJSON.
@@ -2632,16 +2778,16 @@ public final class Runtime {
        *
        * <code>optional string contentType = 4;</code>
        */
-      public Builder setContentTypeBytes(
-          com.google.protobuf.ByteString value) {
+      public Builder setContentTypeBytes(com.google.protobuf.ByteString value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000008;
         contentType_ = value;
         onChanged();
         return this;
       }
+
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -2652,12 +2798,12 @@ public final class Runtime {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:k8s.io.apimachinery.pkg.runtime.Unknown)
     }
 
     // @@protoc_insertion_point(class_scope:k8s.io.apimachinery.pkg.runtime.Unknown)
     private static final io.kubernetes.client.proto.Runtime.Unknown DEFAULT_INSTANCE;
+
     static {
       DEFAULT_INSTANCE = new io.kubernetes.client.proto.Runtime.Unknown();
     }
@@ -2666,15 +2812,16 @@ public final class Runtime {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<Unknown>
-        PARSER = new com.google.protobuf.AbstractParser<Unknown>() {
-      public Unknown parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Unknown(input, extensionRegistry);
-      }
-    };
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<Unknown> PARSER =
+        new com.google.protobuf.AbstractParser<Unknown>() {
+          public Unknown parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new Unknown(input, extensionRegistry);
+          }
+        };
 
     public static com.google.protobuf.Parser<Unknown> parser() {
       return PARSER;
@@ -2688,75 +2835,78 @@ public final class Runtime {
     public io.kubernetes.client.proto.Runtime.Unknown getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
-
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_k8s_io_apimachinery_pkg_runtime_RawExtension_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_apimachinery_pkg_runtime_RawExtension_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_apimachinery_pkg_runtime_RawExtension_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_k8s_io_apimachinery_pkg_runtime_TypeMeta_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_apimachinery_pkg_runtime_TypeMeta_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_apimachinery_pkg_runtime_TypeMeta_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_k8s_io_apimachinery_pkg_runtime_Unknown_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_apimachinery_pkg_runtime_Unknown_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_apimachinery_pkg_runtime_Unknown_fieldAccessorTable;
 
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
+  public static com.google.protobuf.Descriptors.FileDescriptor getDescriptor() {
     return descriptor;
   }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
+
+  private static com.google.protobuf.Descriptors.FileDescriptor descriptor;
+
   static {
     java.lang.String[] descriptorData = {
-      "\n/k8s.io/apimachinery/pkg/runtime/genera" +
-      "ted.proto\022\037k8s.io.apimachinery.pkg.runti" +
-      "me\0323k8s.io/apimachinery/pkg/util/intstr/" +
-      "generated.proto\"\033\n\014RawExtension\022\013\n\003raw\030\001" +
-      " \001(\014\",\n\010TypeMeta\022\022\n\napiVersion\030\001 \001(\t\022\014\n\004" +
-      "kind\030\002 \001(\t\"\201\001\n\007Unknown\022;\n\010typeMeta\030\001 \001(\013" +
-      "2).k8s.io.apimachinery.pkg.runtime.TypeM" +
-      "eta\022\013\n\003raw\030\002 \001(\014\022\027\n\017contentEncoding\030\003 \001(" +
-      "\t\022\023\n\013contentType\030\004 \001(\tB.\n\032io.kubernetes." +
-      "client.protoB\007RuntimeZ\007runtime"
+      "\n/k8s.io/apimachinery/pkg/runtime/genera"
+          + "ted.proto\022\037k8s.io.apimachinery.pkg.runti"
+          + "me\0323k8s.io/apimachinery/pkg/util/intstr/"
+          + "generated.proto\"\033\n\014RawExtension\022\013\n\003raw\030\001"
+          + " \001(\014\",\n\010TypeMeta\022\022\n\napiVersion\030\001 \001(\t\022\014\n\004"
+          + "kind\030\002 \001(\t\"\201\001\n\007Unknown\022;\n\010typeMeta\030\001 \001(\013"
+          + "2).k8s.io.apimachinery.pkg.runtime.TypeM"
+          + "eta\022\013\n\003raw\030\002 \001(\014\022\027\n\017contentEncoding\030\003 \001("
+          + "\t\022\023\n\013contentType\030\004 \001(\tB.\n\032io.kubernetes."
+          + "client.protoB\007RuntimeZ\007runtime"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+        new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
           public com.google.protobuf.ExtensionRegistry assignDescriptors(
               com.google.protobuf.Descriptors.FileDescriptor root) {
             descriptor = root;
             return null;
           }
         };
-    com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
+    com.google.protobuf.Descriptors.FileDescriptor.internalBuildGeneratedFileFrom(
+        descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           io.kubernetes.client.proto.IntStr.getDescriptor(),
-        }, assigner);
+        },
+        assigner);
     internal_static_k8s_io_apimachinery_pkg_runtime_RawExtension_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_k8s_io_apimachinery_pkg_runtime_RawExtension_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_k8s_io_apimachinery_pkg_runtime_RawExtension_descriptor,
-        new java.lang.String[] { "Raw", });
+        getDescriptor().getMessageTypes().get(0);
+    internal_static_k8s_io_apimachinery_pkg_runtime_RawExtension_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_apimachinery_pkg_runtime_RawExtension_descriptor,
+            new java.lang.String[] {
+              "Raw",
+            });
     internal_static_k8s_io_apimachinery_pkg_runtime_TypeMeta_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_k8s_io_apimachinery_pkg_runtime_TypeMeta_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_k8s_io_apimachinery_pkg_runtime_TypeMeta_descriptor,
-        new java.lang.String[] { "ApiVersion", "Kind", });
+        getDescriptor().getMessageTypes().get(1);
+    internal_static_k8s_io_apimachinery_pkg_runtime_TypeMeta_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_apimachinery_pkg_runtime_TypeMeta_descriptor,
+            new java.lang.String[] {
+              "ApiVersion", "Kind",
+            });
     internal_static_k8s_io_apimachinery_pkg_runtime_Unknown_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_k8s_io_apimachinery_pkg_runtime_Unknown_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_k8s_io_apimachinery_pkg_runtime_Unknown_descriptor,
-        new java.lang.String[] { "TypeMeta", "Raw", "ContentEncoding", "ContentType", });
+        getDescriptor().getMessageTypes().get(2);
+    internal_static_k8s_io_apimachinery_pkg_runtime_Unknown_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_apimachinery_pkg_runtime_Unknown_descriptor,
+            new java.lang.String[] {
+              "TypeMeta", "Raw", "ContentEncoding", "ContentType",
+            });
     io.kubernetes.client.proto.IntStr.getDescriptor();
   }
 

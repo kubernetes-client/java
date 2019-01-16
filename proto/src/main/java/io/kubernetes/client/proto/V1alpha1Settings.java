@@ -5,20 +5,21 @@ package io.kubernetes.client.proto;
 
 public final class V1alpha1Settings {
   private V1alpha1Settings() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
+
+  public static void registerAllExtensions(com.google.protobuf.ExtensionRegistryLite registry) {}
+
+  public static void registerAllExtensions(com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions((com.google.protobuf.ExtensionRegistryLite) registry);
   }
 
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
-  public interface PodPresetOrBuilder extends
+  public interface PodPresetOrBuilder
+      extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.settings.v1alpha1.PodPreset)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     *
+     *
      * <pre>
      * +optional
      * </pre>
@@ -27,6 +28,8 @@ public final class V1alpha1Settings {
      */
     boolean hasMetadata();
     /**
+     *
+     *
      * <pre>
      * +optional
      * </pre>
@@ -35,6 +38,8 @@ public final class V1alpha1Settings {
      */
     io.kubernetes.client.proto.Meta.ObjectMeta getMetadata();
     /**
+     *
+     *
      * <pre>
      * +optional
      * </pre>
@@ -44,6 +49,8 @@ public final class V1alpha1Settings {
     io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder getMetadataOrBuilder();
 
     /**
+     *
+     *
      * <pre>
      * +optional
      * </pre>
@@ -52,6 +59,8 @@ public final class V1alpha1Settings {
      */
     boolean hasSpec();
     /**
+     *
+     *
      * <pre>
      * +optional
      * </pre>
@@ -60,6 +69,8 @@ public final class V1alpha1Settings {
      */
     io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec getSpec();
     /**
+     *
+     *
      * <pre>
      * +optional
      * </pre>
@@ -69,6 +80,8 @@ public final class V1alpha1Settings {
     io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpecOrBuilder getSpecOrBuilder();
   }
   /**
+   *
+   *
    * <pre>
    * PodPreset is a policy resource that defines additional runtime
    * requirements for a Pod.
@@ -76,23 +89,23 @@ public final class V1alpha1Settings {
    *
    * Protobuf type {@code k8s.io.api.settings.v1alpha1.PodPreset}
    */
-  public  static final class PodPreset extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  public static final class PodPreset extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:k8s.io.api.settings.v1alpha1.PodPreset)
       PodPresetOrBuilder {
-  private static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
     // Use PodPreset.newBuilder() to construct.
     private PodPreset(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private PodPreset() {
-    }
+
+    private PodPreset() {}
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
       return this.unknownFields;
     }
+
     private PodPreset(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -109,67 +122,78 @@ public final class V1alpha1Settings {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
               }
-              break;
-            }
-            case 10: {
-              io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                subBuilder = metadata_.toBuilder();
+            case 10:
+              {
+                io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                  subBuilder = metadata_.toBuilder();
+                }
+                metadata_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.ObjectMeta.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(metadata_);
+                  metadata_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000001;
+                break;
               }
-              metadata_ = input.readMessage(io.kubernetes.client.proto.Meta.ObjectMeta.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(metadata_);
-                metadata_ = subBuilder.buildPartial();
+            case 18:
+              {
+                io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                  subBuilder = spec_.toBuilder();
+                }
+                spec_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.PARSER,
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(spec_);
+                  spec_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000002;
+                break;
               }
-              bitField0_ |= 0x00000001;
-              break;
-            }
-            case 18: {
-              io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                subBuilder = spec_.toBuilder();
-              }
-              spec_ = input.readMessage(io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(spec_);
-                spec_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000002;
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPreset_descriptor;
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1alpha1Settings
+          .internal_static_k8s_io_api_settings_v1alpha1_PodPreset_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPreset_fieldAccessorTable
+      return io.kubernetes.client.proto.V1alpha1Settings
+          .internal_static_k8s_io_api_settings_v1alpha1_PodPreset_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.kubernetes.client.proto.V1alpha1Settings.PodPreset.class, io.kubernetes.client.proto.V1alpha1Settings.PodPreset.Builder.class);
+              io.kubernetes.client.proto.V1alpha1Settings.PodPreset.class,
+              io.kubernetes.client.proto.V1alpha1Settings.PodPreset.Builder.class);
     }
 
     private int bitField0_;
     public static final int METADATA_FIELD_NUMBER = 1;
     private io.kubernetes.client.proto.Meta.ObjectMeta metadata_;
     /**
+     *
+     *
      * <pre>
      * +optional
      * </pre>
@@ -180,6 +204,8 @@ public final class V1alpha1Settings {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
+     *
+     *
      * <pre>
      * +optional
      * </pre>
@@ -187,9 +213,13 @@ public final class V1alpha1Settings {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
      */
     public io.kubernetes.client.proto.Meta.ObjectMeta getMetadata() {
-      return metadata_ == null ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance() : metadata_;
+      return metadata_ == null
+          ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()
+          : metadata_;
     }
     /**
+     *
+     *
      * <pre>
      * +optional
      * </pre>
@@ -197,12 +227,16 @@ public final class V1alpha1Settings {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
      */
     public io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder getMetadataOrBuilder() {
-      return metadata_ == null ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance() : metadata_;
+      return metadata_ == null
+          ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()
+          : metadata_;
     }
 
     public static final int SPEC_FIELD_NUMBER = 2;
     private io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec spec_;
     /**
+     *
+     *
      * <pre>
      * +optional
      * </pre>
@@ -213,6 +247,8 @@ public final class V1alpha1Settings {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
+     *
+     *
      * <pre>
      * +optional
      * </pre>
@@ -220,9 +256,13 @@ public final class V1alpha1Settings {
      * <code>optional .k8s.io.api.settings.v1alpha1.PodPresetSpec spec = 2;</code>
      */
     public io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec getSpec() {
-      return spec_ == null ? io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.getDefaultInstance() : spec_;
+      return spec_ == null
+          ? io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.getDefaultInstance()
+          : spec_;
     }
     /**
+     *
+     *
      * <pre>
      * +optional
      * </pre>
@@ -230,10 +270,13 @@ public final class V1alpha1Settings {
      * <code>optional .k8s.io.api.settings.v1alpha1.PodPresetSpec spec = 2;</code>
      */
     public io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpecOrBuilder getSpecOrBuilder() {
-      return spec_ == null ? io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.getDefaultInstance() : spec_;
+      return spec_ == null
+          ? io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.getDefaultInstance()
+          : spec_;
     }
 
     private byte memoizedIsInitialized = -1;
+
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -243,8 +286,7 @@ public final class V1alpha1Settings {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeMessage(1, getMetadata());
       }
@@ -260,12 +302,10 @@ public final class V1alpha1Settings {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getMetadata());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, getMetadata());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getSpec());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, getSpec());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -275,23 +315,22 @@ public final class V1alpha1Settings {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof io.kubernetes.client.proto.V1alpha1Settings.PodPreset)) {
         return super.equals(obj);
       }
-      io.kubernetes.client.proto.V1alpha1Settings.PodPreset other = (io.kubernetes.client.proto.V1alpha1Settings.PodPreset) obj;
+      io.kubernetes.client.proto.V1alpha1Settings.PodPreset other =
+          (io.kubernetes.client.proto.V1alpha1Settings.PodPreset) obj;
 
       boolean result = true;
       result = result && (hasMetadata() == other.hasMetadata());
       if (hasMetadata()) {
-        result = result && getMetadata()
-            .equals(other.getMetadata());
+        result = result && getMetadata().equals(other.getMetadata());
       }
       result = result && (hasSpec() == other.hasSpec());
       if (hasSpec()) {
-        result = result && getSpec()
-            .equals(other.getSpec());
+        result = result && getSpec().equals(other.getSpec());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -318,85 +357,92 @@ public final class V1alpha1Settings {
     }
 
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPreset parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPreset parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPreset parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPreset parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPreset parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPreset parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.kubernetes.client.proto.V1alpha1Settings.PodPreset parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPreset parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
-    public static io.kubernetes.client.proto.V1alpha1Settings.PodPreset parseDelimitedFrom(java.io.InputStream input)
+
+    public static io.kubernetes.client.proto.V1alpha1Settings.PodPreset parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPreset parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
     }
+
+    public static io.kubernetes.client.proto.V1alpha1Settings.PodPreset parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPreset parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPreset parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.kubernetes.client.proto.V1alpha1Settings.PodPreset prototype) {
+
+    public static Builder newBuilder(
+        io.kubernetes.client.proto.V1alpha1Settings.PodPreset prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -406,6 +452,8 @@ public final class V1alpha1Settings {
       return builder;
     }
     /**
+     *
+     *
      * <pre>
      * PodPreset is a policy resource that defines additional runtime
      * requirements for a Pod.
@@ -413,20 +461,23 @@ public final class V1alpha1Settings {
      *
      * Protobuf type {@code k8s.io.api.settings.v1alpha1.PodPreset}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:k8s.io.api.settings.v1alpha1.PodPreset)
         io.kubernetes.client.proto.V1alpha1Settings.PodPresetOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPreset_descriptor;
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1alpha1Settings
+            .internal_static_k8s_io_api_settings_v1alpha1_PodPreset_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPreset_fieldAccessorTable
+        return io.kubernetes.client.proto.V1alpha1Settings
+            .internal_static_k8s_io_api_settings_v1alpha1_PodPreset_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.kubernetes.client.proto.V1alpha1Settings.PodPreset.class, io.kubernetes.client.proto.V1alpha1Settings.PodPreset.Builder.class);
+                io.kubernetes.client.proto.V1alpha1Settings.PodPreset.class,
+                io.kubernetes.client.proto.V1alpha1Settings.PodPreset.Builder.class);
       }
 
       // Construct using io.kubernetes.client.proto.V1alpha1Settings.PodPreset.newBuilder()
@@ -434,18 +485,18 @@ public final class V1alpha1Settings {
         maybeForceBuilderInitialization();
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
+
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
           getMetadataFieldBuilder();
           getSpecFieldBuilder();
         }
       }
+
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -463,9 +514,9 @@ public final class V1alpha1Settings {
         return this;
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPreset_descriptor;
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1alpha1Settings
+            .internal_static_k8s_io_api_settings_v1alpha1_PodPreset_descriptor;
       }
 
       public io.kubernetes.client.proto.V1alpha1Settings.PodPreset getDefaultInstanceForType() {
@@ -481,7 +532,8 @@ public final class V1alpha1Settings {
       }
 
       public io.kubernetes.client.proto.V1alpha1Settings.PodPreset buildPartial() {
-        io.kubernetes.client.proto.V1alpha1Settings.PodPreset result = new io.kubernetes.client.proto.V1alpha1Settings.PodPreset(this);
+        io.kubernetes.client.proto.V1alpha1Settings.PodPreset result =
+            new io.kubernetes.client.proto.V1alpha1Settings.PodPreset(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -508,32 +560,35 @@ public final class V1alpha1Settings {
       public Builder clone() {
         return (Builder) super.clone();
       }
+
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1alpha1Settings.PodPreset) {
-          return mergeFrom((io.kubernetes.client.proto.V1alpha1Settings.PodPreset)other);
+          return mergeFrom((io.kubernetes.client.proto.V1alpha1Settings.PodPreset) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -541,7 +596,8 @@ public final class V1alpha1Settings {
       }
 
       public Builder mergeFrom(io.kubernetes.client.proto.V1alpha1Settings.PodPreset other) {
-        if (other == io.kubernetes.client.proto.V1alpha1Settings.PodPreset.getDefaultInstance()) return this;
+        if (other == io.kubernetes.client.proto.V1alpha1Settings.PodPreset.getDefaultInstance())
+          return this;
         if (other.hasMetadata()) {
           mergeMetadata(other.getMetadata());
         }
@@ -565,7 +621,8 @@ public final class V1alpha1Settings {
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.kubernetes.client.proto.V1alpha1Settings.PodPreset) e.getUnfinishedMessage();
+          parsedMessage =
+              (io.kubernetes.client.proto.V1alpha1Settings.PodPreset) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -574,12 +631,18 @@ public final class V1alpha1Settings {
         }
         return this;
       }
+
       private int bitField0_;
 
       private io.kubernetes.client.proto.Meta.ObjectMeta metadata_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.ObjectMeta, io.kubernetes.client.proto.Meta.ObjectMeta.Builder, io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder> metadataBuilder_;
+              io.kubernetes.client.proto.Meta.ObjectMeta,
+              io.kubernetes.client.proto.Meta.ObjectMeta.Builder,
+              io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder>
+          metadataBuilder_;
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
@@ -590,6 +653,8 @@ public final class V1alpha1Settings {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
@@ -598,12 +663,16 @@ public final class V1alpha1Settings {
        */
       public io.kubernetes.client.proto.Meta.ObjectMeta getMetadata() {
         if (metadataBuilder_ == null) {
-          return metadata_ == null ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance() : metadata_;
+          return metadata_ == null
+              ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()
+              : metadata_;
         } else {
           return metadataBuilder_.getMessage();
         }
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
@@ -624,6 +693,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
@@ -642,6 +713,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
@@ -650,11 +723,13 @@ public final class V1alpha1Settings {
        */
       public Builder mergeMetadata(io.kubernetes.client.proto.Meta.ObjectMeta value) {
         if (metadataBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              metadata_ != null &&
-              metadata_ != io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)
+              && metadata_ != null
+              && metadata_ != io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()) {
             metadata_ =
-              io.kubernetes.client.proto.Meta.ObjectMeta.newBuilder(metadata_).mergeFrom(value).buildPartial();
+                io.kubernetes.client.proto.Meta.ObjectMeta.newBuilder(metadata_)
+                    .mergeFrom(value)
+                    .buildPartial();
           } else {
             metadata_ = value;
           }
@@ -666,6 +741,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
@@ -683,6 +760,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
@@ -695,6 +774,8 @@ public final class V1alpha1Settings {
         return getMetadataFieldBuilder().getBuilder();
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
@@ -705,11 +786,14 @@ public final class V1alpha1Settings {
         if (metadataBuilder_ != null) {
           return metadataBuilder_.getMessageOrBuilder();
         } else {
-          return metadata_ == null ?
-              io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance() : metadata_;
+          return metadata_ == null
+              ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()
+              : metadata_;
         }
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
@@ -717,14 +801,17 @@ public final class V1alpha1Settings {
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.ObjectMeta, io.kubernetes.client.proto.Meta.ObjectMeta.Builder, io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder> 
+              io.kubernetes.client.proto.Meta.ObjectMeta,
+              io.kubernetes.client.proto.Meta.ObjectMeta.Builder,
+              io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder>
           getMetadataFieldBuilder() {
         if (metadataBuilder_ == null) {
-          metadataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.Meta.ObjectMeta, io.kubernetes.client.proto.Meta.ObjectMeta.Builder, io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder>(
-                  getMetadata(),
-                  getParentForChildren(),
-                  isClean());
+          metadataBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.ObjectMeta,
+                  io.kubernetes.client.proto.Meta.ObjectMeta.Builder,
+                  io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder>(
+                  getMetadata(), getParentForChildren(), isClean());
           metadata_ = null;
         }
         return metadataBuilder_;
@@ -732,8 +819,13 @@ public final class V1alpha1Settings {
 
       private io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec spec_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec, io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.Builder, io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpecOrBuilder> specBuilder_;
+              io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec,
+              io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.Builder,
+              io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpecOrBuilder>
+          specBuilder_;
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
@@ -744,6 +836,8 @@ public final class V1alpha1Settings {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
@@ -752,12 +846,16 @@ public final class V1alpha1Settings {
        */
       public io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec getSpec() {
         if (specBuilder_ == null) {
-          return spec_ == null ? io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.getDefaultInstance() : spec_;
+          return spec_ == null
+              ? io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.getDefaultInstance()
+              : spec_;
         } else {
           return specBuilder_.getMessage();
         }
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
@@ -778,6 +876,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
@@ -796,6 +896,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
@@ -804,11 +906,15 @@ public final class V1alpha1Settings {
        */
       public Builder mergeSpec(io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec value) {
         if (specBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              spec_ != null &&
-              spec_ != io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)
+              && spec_ != null
+              && spec_
+                  != io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec
+                      .getDefaultInstance()) {
             spec_ =
-              io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.newBuilder(spec_).mergeFrom(value).buildPartial();
+                io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.newBuilder(spec_)
+                    .mergeFrom(value)
+                    .buildPartial();
           } else {
             spec_ = value;
           }
@@ -820,6 +926,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
@@ -837,6 +945,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
@@ -849,6 +959,8 @@ public final class V1alpha1Settings {
         return getSpecFieldBuilder().getBuilder();
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
@@ -859,11 +971,14 @@ public final class V1alpha1Settings {
         if (specBuilder_ != null) {
           return specBuilder_.getMessageOrBuilder();
         } else {
-          return spec_ == null ?
-              io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.getDefaultInstance() : spec_;
+          return spec_ == null
+              ? io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.getDefaultInstance()
+              : spec_;
         }
       }
       /**
+       *
+       *
        * <pre>
        * +optional
        * </pre>
@@ -871,18 +986,22 @@ public final class V1alpha1Settings {
        * <code>optional .k8s.io.api.settings.v1alpha1.PodPresetSpec spec = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec, io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.Builder, io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpecOrBuilder> 
+              io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec,
+              io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.Builder,
+              io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpecOrBuilder>
           getSpecFieldBuilder() {
         if (specBuilder_ == null) {
-          specBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec, io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.Builder, io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpecOrBuilder>(
-                  getSpec(),
-                  getParentForChildren(),
-                  isClean());
+          specBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec,
+                  io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.Builder,
+                  io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpecOrBuilder>(
+                  getSpec(), getParentForChildren(), isClean());
           spec_ = null;
         }
         return specBuilder_;
       }
+
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -893,12 +1012,12 @@ public final class V1alpha1Settings {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:k8s.io.api.settings.v1alpha1.PodPreset)
     }
 
     // @@protoc_insertion_point(class_scope:k8s.io.api.settings.v1alpha1.PodPreset)
     private static final io.kubernetes.client.proto.V1alpha1Settings.PodPreset DEFAULT_INSTANCE;
+
     static {
       DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1alpha1Settings.PodPreset();
     }
@@ -907,15 +1026,16 @@ public final class V1alpha1Settings {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<PodPreset>
-        PARSER = new com.google.protobuf.AbstractParser<PodPreset>() {
-      public PodPreset parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new PodPreset(input, extensionRegistry);
-      }
-    };
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<PodPreset> PARSER =
+        new com.google.protobuf.AbstractParser<PodPreset>() {
+          public PodPreset parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new PodPreset(input, extensionRegistry);
+          }
+        };
 
     public static com.google.protobuf.Parser<PodPreset> parser() {
       return PARSER;
@@ -929,14 +1049,16 @@ public final class V1alpha1Settings {
     public io.kubernetes.client.proto.V1alpha1Settings.PodPreset getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
-
   }
 
-  public interface PodPresetListOrBuilder extends
+  public interface PodPresetListOrBuilder
+      extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.settings.v1alpha1.PodPresetList)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     *
+     *
      * <pre>
      * Standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -947,6 +1069,8 @@ public final class V1alpha1Settings {
      */
     boolean hasMetadata();
     /**
+     *
+     *
      * <pre>
      * Standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -957,6 +1081,8 @@ public final class V1alpha1Settings {
      */
     io.kubernetes.client.proto.Meta.ListMeta getMetadata();
     /**
+     *
+     *
      * <pre>
      * Standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -968,15 +1094,18 @@ public final class V1alpha1Settings {
     io.kubernetes.client.proto.Meta.ListMetaOrBuilder getMetadataOrBuilder();
 
     /**
+     *
+     *
      * <pre>
      * Items is a list of schema objects.
      * </pre>
      *
      * <code>repeated .k8s.io.api.settings.v1alpha1.PodPreset items = 2;</code>
      */
-    java.util.List<io.kubernetes.client.proto.V1alpha1Settings.PodPreset> 
-        getItemsList();
+    java.util.List<io.kubernetes.client.proto.V1alpha1Settings.PodPreset> getItemsList();
     /**
+     *
+     *
      * <pre>
      * Items is a list of schema objects.
      * </pre>
@@ -985,6 +1114,8 @@ public final class V1alpha1Settings {
      */
     io.kubernetes.client.proto.V1alpha1Settings.PodPreset getItems(int index);
     /**
+     *
+     *
      * <pre>
      * Items is a list of schema objects.
      * </pre>
@@ -993,49 +1124,55 @@ public final class V1alpha1Settings {
      */
     int getItemsCount();
     /**
+     *
+     *
      * <pre>
      * Items is a list of schema objects.
      * </pre>
      *
      * <code>repeated .k8s.io.api.settings.v1alpha1.PodPreset items = 2;</code>
      */
-    java.util.List<? extends io.kubernetes.client.proto.V1alpha1Settings.PodPresetOrBuilder> 
+    java.util.List<? extends io.kubernetes.client.proto.V1alpha1Settings.PodPresetOrBuilder>
         getItemsOrBuilderList();
     /**
+     *
+     *
      * <pre>
      * Items is a list of schema objects.
      * </pre>
      *
      * <code>repeated .k8s.io.api.settings.v1alpha1.PodPreset items = 2;</code>
      */
-    io.kubernetes.client.proto.V1alpha1Settings.PodPresetOrBuilder getItemsOrBuilder(
-        int index);
+    io.kubernetes.client.proto.V1alpha1Settings.PodPresetOrBuilder getItemsOrBuilder(int index);
   }
   /**
+   *
+   *
    * <pre>
    * PodPresetList is a list of PodPreset objects.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.settings.v1alpha1.PodPresetList}
    */
-  public  static final class PodPresetList extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  public static final class PodPresetList extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:k8s.io.api.settings.v1alpha1.PodPresetList)
       PodPresetListOrBuilder {
-  private static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
     // Use PodPresetList.newBuilder() to construct.
     private PodPresetList(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private PodPresetList() {
       items_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
       return this.unknownFields;
     }
+
     private PodPresetList(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1052,42 +1189,49 @@ public final class V1alpha1Settings {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
               }
-              break;
-            }
-            case 10: {
-              io.kubernetes.client.proto.Meta.ListMeta.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                subBuilder = metadata_.toBuilder();
+            case 10:
+              {
+                io.kubernetes.client.proto.Meta.ListMeta.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                  subBuilder = metadata_.toBuilder();
+                }
+                metadata_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.ListMeta.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(metadata_);
+                  metadata_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000001;
+                break;
               }
-              metadata_ = input.readMessage(io.kubernetes.client.proto.Meta.ListMeta.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(metadata_);
-                metadata_ = subBuilder.buildPartial();
+            case 18:
+              {
+                if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                  items_ =
+                      new java.util.ArrayList<
+                          io.kubernetes.client.proto.V1alpha1Settings.PodPreset>();
+                  mutable_bitField0_ |= 0x00000002;
+                }
+                items_.add(
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1alpha1Settings.PodPreset.PARSER,
+                        extensionRegistry));
+                break;
               }
-              bitField0_ |= 0x00000001;
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                items_ = new java.util.ArrayList<io.kubernetes.client.proto.V1alpha1Settings.PodPreset>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              items_.add(
-                  input.readMessage(io.kubernetes.client.proto.V1alpha1Settings.PodPreset.PARSER, extensionRegistry));
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
           items_ = java.util.Collections.unmodifiableList(items_);
@@ -1096,22 +1240,27 @@ public final class V1alpha1Settings {
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPresetList_descriptor;
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1alpha1Settings
+          .internal_static_k8s_io_api_settings_v1alpha1_PodPresetList_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPresetList_fieldAccessorTable
+      return io.kubernetes.client.proto.V1alpha1Settings
+          .internal_static_k8s_io_api_settings_v1alpha1_PodPresetList_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.kubernetes.client.proto.V1alpha1Settings.PodPresetList.class, io.kubernetes.client.proto.V1alpha1Settings.PodPresetList.Builder.class);
+              io.kubernetes.client.proto.V1alpha1Settings.PodPresetList.class,
+              io.kubernetes.client.proto.V1alpha1Settings.PodPresetList.Builder.class);
     }
 
     private int bitField0_;
     public static final int METADATA_FIELD_NUMBER = 1;
     private io.kubernetes.client.proto.Meta.ListMeta metadata_;
     /**
+     *
+     *
      * <pre>
      * Standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -1124,6 +1273,8 @@ public final class V1alpha1Settings {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
+     *
+     *
      * <pre>
      * Standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -1133,9 +1284,13 @@ public final class V1alpha1Settings {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
      */
     public io.kubernetes.client.proto.Meta.ListMeta getMetadata() {
-      return metadata_ == null ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance() : metadata_;
+      return metadata_ == null
+          ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()
+          : metadata_;
     }
     /**
+     *
+     *
      * <pre>
      * Standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -1145,12 +1300,16 @@ public final class V1alpha1Settings {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
      */
     public io.kubernetes.client.proto.Meta.ListMetaOrBuilder getMetadataOrBuilder() {
-      return metadata_ == null ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance() : metadata_;
+      return metadata_ == null
+          ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()
+          : metadata_;
     }
 
     public static final int ITEMS_FIELD_NUMBER = 2;
     private java.util.List<io.kubernetes.client.proto.V1alpha1Settings.PodPreset> items_;
     /**
+     *
+     *
      * <pre>
      * Items is a list of schema objects.
      * </pre>
@@ -1161,17 +1320,21 @@ public final class V1alpha1Settings {
       return items_;
     }
     /**
+     *
+     *
      * <pre>
      * Items is a list of schema objects.
      * </pre>
      *
      * <code>repeated .k8s.io.api.settings.v1alpha1.PodPreset items = 2;</code>
      */
-    public java.util.List<? extends io.kubernetes.client.proto.V1alpha1Settings.PodPresetOrBuilder> 
+    public java.util.List<? extends io.kubernetes.client.proto.V1alpha1Settings.PodPresetOrBuilder>
         getItemsOrBuilderList() {
       return items_;
     }
     /**
+     *
+     *
      * <pre>
      * Items is a list of schema objects.
      * </pre>
@@ -1182,6 +1345,8 @@ public final class V1alpha1Settings {
       return items_.size();
     }
     /**
+     *
+     *
      * <pre>
      * Items is a list of schema objects.
      * </pre>
@@ -1192,6 +1357,8 @@ public final class V1alpha1Settings {
       return items_.get(index);
     }
     /**
+     *
+     *
      * <pre>
      * Items is a list of schema objects.
      * </pre>
@@ -1204,6 +1371,7 @@ public final class V1alpha1Settings {
     }
 
     private byte memoizedIsInitialized = -1;
+
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1213,8 +1381,7 @@ public final class V1alpha1Settings {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeMessage(1, getMetadata());
       }
@@ -1230,12 +1397,10 @@ public final class V1alpha1Settings {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getMetadata());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, getMetadata());
       }
       for (int i = 0; i < items_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, items_.get(i));
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, items_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1245,21 +1410,20 @@ public final class V1alpha1Settings {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof io.kubernetes.client.proto.V1alpha1Settings.PodPresetList)) {
         return super.equals(obj);
       }
-      io.kubernetes.client.proto.V1alpha1Settings.PodPresetList other = (io.kubernetes.client.proto.V1alpha1Settings.PodPresetList) obj;
+      io.kubernetes.client.proto.V1alpha1Settings.PodPresetList other =
+          (io.kubernetes.client.proto.V1alpha1Settings.PodPresetList) obj;
 
       boolean result = true;
       result = result && (hasMetadata() == other.hasMetadata());
       if (hasMetadata()) {
-        result = result && getMetadata()
-            .equals(other.getMetadata());
+        result = result && getMetadata().equals(other.getMetadata());
       }
-      result = result && getItemsList()
-          .equals(other.getItemsList());
+      result = result && getItemsList().equals(other.getItemsList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -1285,85 +1449,92 @@ public final class V1alpha1Settings {
     }
 
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetList parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetList parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetList parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetList parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetList parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetList parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetList parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetList parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
-    public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetList parseDelimitedFrom(java.io.InputStream input)
+
+    public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetList parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetList parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
     }
+
+    public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetList parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetList parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetList parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.kubernetes.client.proto.V1alpha1Settings.PodPresetList prototype) {
+
+    public static Builder newBuilder(
+        io.kubernetes.client.proto.V1alpha1Settings.PodPresetList prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -1373,26 +1544,31 @@ public final class V1alpha1Settings {
       return builder;
     }
     /**
+     *
+     *
      * <pre>
      * PodPresetList is a list of PodPreset objects.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.settings.v1alpha1.PodPresetList}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:k8s.io.api.settings.v1alpha1.PodPresetList)
         io.kubernetes.client.proto.V1alpha1Settings.PodPresetListOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPresetList_descriptor;
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1alpha1Settings
+            .internal_static_k8s_io_api_settings_v1alpha1_PodPresetList_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPresetList_fieldAccessorTable
+        return io.kubernetes.client.proto.V1alpha1Settings
+            .internal_static_k8s_io_api_settings_v1alpha1_PodPresetList_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.kubernetes.client.proto.V1alpha1Settings.PodPresetList.class, io.kubernetes.client.proto.V1alpha1Settings.PodPresetList.Builder.class);
+                io.kubernetes.client.proto.V1alpha1Settings.PodPresetList.class,
+                io.kubernetes.client.proto.V1alpha1Settings.PodPresetList.Builder.class);
       }
 
       // Construct using io.kubernetes.client.proto.V1alpha1Settings.PodPresetList.newBuilder()
@@ -1400,18 +1576,18 @@ public final class V1alpha1Settings {
         maybeForceBuilderInitialization();
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
+
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
           getMetadataFieldBuilder();
           getItemsFieldBuilder();
         }
       }
+
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -1429,9 +1605,9 @@ public final class V1alpha1Settings {
         return this;
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPresetList_descriptor;
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1alpha1Settings
+            .internal_static_k8s_io_api_settings_v1alpha1_PodPresetList_descriptor;
       }
 
       public io.kubernetes.client.proto.V1alpha1Settings.PodPresetList getDefaultInstanceForType() {
@@ -1447,7 +1623,8 @@ public final class V1alpha1Settings {
       }
 
       public io.kubernetes.client.proto.V1alpha1Settings.PodPresetList buildPartial() {
-        io.kubernetes.client.proto.V1alpha1Settings.PodPresetList result = new io.kubernetes.client.proto.V1alpha1Settings.PodPresetList(this);
+        io.kubernetes.client.proto.V1alpha1Settings.PodPresetList result =
+            new io.kubernetes.client.proto.V1alpha1Settings.PodPresetList(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1475,32 +1652,35 @@ public final class V1alpha1Settings {
       public Builder clone() {
         return (Builder) super.clone();
       }
+
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1alpha1Settings.PodPresetList) {
-          return mergeFrom((io.kubernetes.client.proto.V1alpha1Settings.PodPresetList)other);
+          return mergeFrom((io.kubernetes.client.proto.V1alpha1Settings.PodPresetList) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -1508,7 +1688,8 @@ public final class V1alpha1Settings {
       }
 
       public Builder mergeFrom(io.kubernetes.client.proto.V1alpha1Settings.PodPresetList other) {
-        if (other == io.kubernetes.client.proto.V1alpha1Settings.PodPresetList.getDefaultInstance()) return this;
+        if (other == io.kubernetes.client.proto.V1alpha1Settings.PodPresetList.getDefaultInstance())
+          return this;
         if (other.hasMetadata()) {
           mergeMetadata(other.getMetadata());
         }
@@ -1530,9 +1711,10 @@ public final class V1alpha1Settings {
               itemsBuilder_ = null;
               items_ = other.items_;
               bitField0_ = (bitField0_ & ~0x00000002);
-              itemsBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getItemsFieldBuilder() : null;
+              itemsBuilder_ =
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders
+                      ? getItemsFieldBuilder()
+                      : null;
             } else {
               itemsBuilder_.addAllMessages(other.items_);
             }
@@ -1555,7 +1737,8 @@ public final class V1alpha1Settings {
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.kubernetes.client.proto.V1alpha1Settings.PodPresetList) e.getUnfinishedMessage();
+          parsedMessage =
+              (io.kubernetes.client.proto.V1alpha1Settings.PodPresetList) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1564,12 +1747,18 @@ public final class V1alpha1Settings {
         }
         return this;
       }
+
       private int bitField0_;
 
       private io.kubernetes.client.proto.Meta.ListMeta metadata_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.ListMeta, io.kubernetes.client.proto.Meta.ListMeta.Builder, io.kubernetes.client.proto.Meta.ListMetaOrBuilder> metadataBuilder_;
+              io.kubernetes.client.proto.Meta.ListMeta,
+              io.kubernetes.client.proto.Meta.ListMeta.Builder,
+              io.kubernetes.client.proto.Meta.ListMetaOrBuilder>
+          metadataBuilder_;
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -1582,6 +1771,8 @@ public final class V1alpha1Settings {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -1592,12 +1783,16 @@ public final class V1alpha1Settings {
        */
       public io.kubernetes.client.proto.Meta.ListMeta getMetadata() {
         if (metadataBuilder_ == null) {
-          return metadata_ == null ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance() : metadata_;
+          return metadata_ == null
+              ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()
+              : metadata_;
         } else {
           return metadataBuilder_.getMessage();
         }
       }
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -1620,6 +1815,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -1628,8 +1825,7 @@ public final class V1alpha1Settings {
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
        */
-      public Builder setMetadata(
-          io.kubernetes.client.proto.Meta.ListMeta.Builder builderForValue) {
+      public Builder setMetadata(io.kubernetes.client.proto.Meta.ListMeta.Builder builderForValue) {
         if (metadataBuilder_ == null) {
           metadata_ = builderForValue.build();
           onChanged();
@@ -1640,6 +1836,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -1650,11 +1848,13 @@ public final class V1alpha1Settings {
        */
       public Builder mergeMetadata(io.kubernetes.client.proto.Meta.ListMeta value) {
         if (metadataBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              metadata_ != null &&
-              metadata_ != io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)
+              && metadata_ != null
+              && metadata_ != io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()) {
             metadata_ =
-              io.kubernetes.client.proto.Meta.ListMeta.newBuilder(metadata_).mergeFrom(value).buildPartial();
+                io.kubernetes.client.proto.Meta.ListMeta.newBuilder(metadata_)
+                    .mergeFrom(value)
+                    .buildPartial();
           } else {
             metadata_ = value;
           }
@@ -1666,6 +1866,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -1685,6 +1887,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -1699,6 +1903,8 @@ public final class V1alpha1Settings {
         return getMetadataFieldBuilder().getBuilder();
       }
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -1711,11 +1917,14 @@ public final class V1alpha1Settings {
         if (metadataBuilder_ != null) {
           return metadataBuilder_.getMessageOrBuilder();
         } else {
-          return metadata_ == null ?
-              io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance() : metadata_;
+          return metadata_ == null
+              ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()
+              : metadata_;
         }
       }
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -1725,32 +1934,43 @@ public final class V1alpha1Settings {
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.ListMeta, io.kubernetes.client.proto.Meta.ListMeta.Builder, io.kubernetes.client.proto.Meta.ListMetaOrBuilder> 
+              io.kubernetes.client.proto.Meta.ListMeta,
+              io.kubernetes.client.proto.Meta.ListMeta.Builder,
+              io.kubernetes.client.proto.Meta.ListMetaOrBuilder>
           getMetadataFieldBuilder() {
         if (metadataBuilder_ == null) {
-          metadataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.Meta.ListMeta, io.kubernetes.client.proto.Meta.ListMeta.Builder, io.kubernetes.client.proto.Meta.ListMetaOrBuilder>(
-                  getMetadata(),
-                  getParentForChildren(),
-                  isClean());
+          metadataBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.ListMeta,
+                  io.kubernetes.client.proto.Meta.ListMeta.Builder,
+                  io.kubernetes.client.proto.Meta.ListMetaOrBuilder>(
+                  getMetadata(), getParentForChildren(), isClean());
           metadata_ = null;
         }
         return metadataBuilder_;
       }
 
       private java.util.List<io.kubernetes.client.proto.V1alpha1Settings.PodPreset> items_ =
-        java.util.Collections.emptyList();
+          java.util.Collections.emptyList();
+
       private void ensureItemsIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          items_ = new java.util.ArrayList<io.kubernetes.client.proto.V1alpha1Settings.PodPreset>(items_);
+          items_ =
+              new java.util.ArrayList<io.kubernetes.client.proto.V1alpha1Settings.PodPreset>(
+                  items_);
           bitField0_ |= 0x00000002;
-         }
+        }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.kubernetes.client.proto.V1alpha1Settings.PodPreset, io.kubernetes.client.proto.V1alpha1Settings.PodPreset.Builder, io.kubernetes.client.proto.V1alpha1Settings.PodPresetOrBuilder> itemsBuilder_;
+              io.kubernetes.client.proto.V1alpha1Settings.PodPreset,
+              io.kubernetes.client.proto.V1alpha1Settings.PodPreset.Builder,
+              io.kubernetes.client.proto.V1alpha1Settings.PodPresetOrBuilder>
+          itemsBuilder_;
 
       /**
+       *
+       *
        * <pre>
        * Items is a list of schema objects.
        * </pre>
@@ -1765,6 +1985,8 @@ public final class V1alpha1Settings {
         }
       }
       /**
+       *
+       *
        * <pre>
        * Items is a list of schema objects.
        * </pre>
@@ -1779,6 +2001,8 @@ public final class V1alpha1Settings {
         }
       }
       /**
+       *
+       *
        * <pre>
        * Items is a list of schema objects.
        * </pre>
@@ -1793,6 +2017,8 @@ public final class V1alpha1Settings {
         }
       }
       /**
+       *
+       *
        * <pre>
        * Items is a list of schema objects.
        * </pre>
@@ -1814,6 +2040,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Items is a list of schema objects.
        * </pre>
@@ -1821,7 +2049,8 @@ public final class V1alpha1Settings {
        * <code>repeated .k8s.io.api.settings.v1alpha1.PodPreset items = 2;</code>
        */
       public Builder setItems(
-          int index, io.kubernetes.client.proto.V1alpha1Settings.PodPreset.Builder builderForValue) {
+          int index,
+          io.kubernetes.client.proto.V1alpha1Settings.PodPreset.Builder builderForValue) {
         if (itemsBuilder_ == null) {
           ensureItemsIsMutable();
           items_.set(index, builderForValue.build());
@@ -1832,6 +2061,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Items is a list of schema objects.
        * </pre>
@@ -1852,6 +2083,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Items is a list of schema objects.
        * </pre>
@@ -1873,6 +2106,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Items is a list of schema objects.
        * </pre>
@@ -1891,6 +2126,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Items is a list of schema objects.
        * </pre>
@@ -1898,7 +2135,8 @@ public final class V1alpha1Settings {
        * <code>repeated .k8s.io.api.settings.v1alpha1.PodPreset items = 2;</code>
        */
       public Builder addItems(
-          int index, io.kubernetes.client.proto.V1alpha1Settings.PodPreset.Builder builderForValue) {
+          int index,
+          io.kubernetes.client.proto.V1alpha1Settings.PodPreset.Builder builderForValue) {
         if (itemsBuilder_ == null) {
           ensureItemsIsMutable();
           items_.add(index, builderForValue.build());
@@ -1909,6 +2147,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Items is a list of schema objects.
        * </pre>
@@ -1916,11 +2156,11 @@ public final class V1alpha1Settings {
        * <code>repeated .k8s.io.api.settings.v1alpha1.PodPreset items = 2;</code>
        */
       public Builder addAllItems(
-          java.lang.Iterable<? extends io.kubernetes.client.proto.V1alpha1Settings.PodPreset> values) {
+          java.lang.Iterable<? extends io.kubernetes.client.proto.V1alpha1Settings.PodPreset>
+              values) {
         if (itemsBuilder_ == null) {
           ensureItemsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, items_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(values, items_);
           onChanged();
         } else {
           itemsBuilder_.addAllMessages(values);
@@ -1928,6 +2168,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Items is a list of schema objects.
        * </pre>
@@ -1945,6 +2187,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Items is a list of schema objects.
        * </pre>
@@ -1962,6 +2206,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Items is a list of schema objects.
        * </pre>
@@ -1973,6 +2219,8 @@ public final class V1alpha1Settings {
         return getItemsFieldBuilder().getBuilder(index);
       }
       /**
+       *
+       *
        * <pre>
        * Items is a list of schema objects.
        * </pre>
@@ -1982,19 +2230,23 @@ public final class V1alpha1Settings {
       public io.kubernetes.client.proto.V1alpha1Settings.PodPresetOrBuilder getItemsOrBuilder(
           int index) {
         if (itemsBuilder_ == null) {
-          return items_.get(index);  } else {
+          return items_.get(index);
+        } else {
           return itemsBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
+       *
+       *
        * <pre>
        * Items is a list of schema objects.
        * </pre>
        *
        * <code>repeated .k8s.io.api.settings.v1alpha1.PodPreset items = 2;</code>
        */
-      public java.util.List<? extends io.kubernetes.client.proto.V1alpha1Settings.PodPresetOrBuilder> 
-           getItemsOrBuilderList() {
+      public java.util.List<
+              ? extends io.kubernetes.client.proto.V1alpha1Settings.PodPresetOrBuilder>
+          getItemsOrBuilderList() {
         if (itemsBuilder_ != null) {
           return itemsBuilder_.getMessageOrBuilderList();
         } else {
@@ -2002,6 +2254,8 @@ public final class V1alpha1Settings {
         }
       }
       /**
+       *
+       *
        * <pre>
        * Items is a list of schema objects.
        * </pre>
@@ -2009,10 +2263,12 @@ public final class V1alpha1Settings {
        * <code>repeated .k8s.io.api.settings.v1alpha1.PodPreset items = 2;</code>
        */
       public io.kubernetes.client.proto.V1alpha1Settings.PodPreset.Builder addItemsBuilder() {
-        return getItemsFieldBuilder().addBuilder(
-            io.kubernetes.client.proto.V1alpha1Settings.PodPreset.getDefaultInstance());
+        return getItemsFieldBuilder()
+            .addBuilder(io.kubernetes.client.proto.V1alpha1Settings.PodPreset.getDefaultInstance());
       }
       /**
+       *
+       *
        * <pre>
        * Items is a list of schema objects.
        * </pre>
@@ -2021,26 +2277,35 @@ public final class V1alpha1Settings {
        */
       public io.kubernetes.client.proto.V1alpha1Settings.PodPreset.Builder addItemsBuilder(
           int index) {
-        return getItemsFieldBuilder().addBuilder(
-            index, io.kubernetes.client.proto.V1alpha1Settings.PodPreset.getDefaultInstance());
+        return getItemsFieldBuilder()
+            .addBuilder(
+                index, io.kubernetes.client.proto.V1alpha1Settings.PodPreset.getDefaultInstance());
       }
       /**
+       *
+       *
        * <pre>
        * Items is a list of schema objects.
        * </pre>
        *
        * <code>repeated .k8s.io.api.settings.v1alpha1.PodPreset items = 2;</code>
        */
-      public java.util.List<io.kubernetes.client.proto.V1alpha1Settings.PodPreset.Builder> 
-           getItemsBuilderList() {
+      public java.util.List<io.kubernetes.client.proto.V1alpha1Settings.PodPreset.Builder>
+          getItemsBuilderList() {
         return getItemsFieldBuilder().getBuilderList();
       }
+
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.kubernetes.client.proto.V1alpha1Settings.PodPreset, io.kubernetes.client.proto.V1alpha1Settings.PodPreset.Builder, io.kubernetes.client.proto.V1alpha1Settings.PodPresetOrBuilder> 
+              io.kubernetes.client.proto.V1alpha1Settings.PodPreset,
+              io.kubernetes.client.proto.V1alpha1Settings.PodPreset.Builder,
+              io.kubernetes.client.proto.V1alpha1Settings.PodPresetOrBuilder>
           getItemsFieldBuilder() {
         if (itemsBuilder_ == null) {
-          itemsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              io.kubernetes.client.proto.V1alpha1Settings.PodPreset, io.kubernetes.client.proto.V1alpha1Settings.PodPreset.Builder, io.kubernetes.client.proto.V1alpha1Settings.PodPresetOrBuilder>(
+          itemsBuilder_ =
+              new com.google.protobuf.RepeatedFieldBuilderV3<
+                  io.kubernetes.client.proto.V1alpha1Settings.PodPreset,
+                  io.kubernetes.client.proto.V1alpha1Settings.PodPreset.Builder,
+                  io.kubernetes.client.proto.V1alpha1Settings.PodPresetOrBuilder>(
                   items_,
                   ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
@@ -2049,6 +2314,7 @@ public final class V1alpha1Settings {
         }
         return itemsBuilder_;
       }
+
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -2059,12 +2325,12 @@ public final class V1alpha1Settings {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:k8s.io.api.settings.v1alpha1.PodPresetList)
     }
 
     // @@protoc_insertion_point(class_scope:k8s.io.api.settings.v1alpha1.PodPresetList)
     private static final io.kubernetes.client.proto.V1alpha1Settings.PodPresetList DEFAULT_INSTANCE;
+
     static {
       DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1alpha1Settings.PodPresetList();
     }
@@ -2073,15 +2339,16 @@ public final class V1alpha1Settings {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<PodPresetList>
-        PARSER = new com.google.protobuf.AbstractParser<PodPresetList>() {
-      public PodPresetList parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new PodPresetList(input, extensionRegistry);
-      }
-    };
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<PodPresetList> PARSER =
+        new com.google.protobuf.AbstractParser<PodPresetList>() {
+          public PodPresetList parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new PodPresetList(input, extensionRegistry);
+          }
+        };
 
     public static com.google.protobuf.Parser<PodPresetList> parser() {
       return PARSER;
@@ -2095,14 +2362,16 @@ public final class V1alpha1Settings {
     public io.kubernetes.client.proto.V1alpha1Settings.PodPresetList getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
-
   }
 
-  public interface PodPresetSpecOrBuilder extends
+  public interface PodPresetSpecOrBuilder
+      extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.settings.v1alpha1.PodPresetSpec)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     *
+     *
      * <pre>
      * Selector is a label query over a set of resources, in this case pods.
      * Required.
@@ -2112,6 +2381,8 @@ public final class V1alpha1Settings {
      */
     boolean hasSelector();
     /**
+     *
+     *
      * <pre>
      * Selector is a label query over a set of resources, in this case pods.
      * Required.
@@ -2121,6 +2392,8 @@ public final class V1alpha1Settings {
      */
     io.kubernetes.client.proto.Meta.LabelSelector getSelector();
     /**
+     *
+     *
      * <pre>
      * Selector is a label query over a set of resources, in this case pods.
      * Required.
@@ -2131,6 +2404,8 @@ public final class V1alpha1Settings {
     io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder();
 
     /**
+     *
+     *
      * <pre>
      * Env defines the collection of EnvVar to inject into containers.
      * +optional
@@ -2138,9 +2413,10 @@ public final class V1alpha1Settings {
      *
      * <code>repeated .k8s.io.api.core.v1.EnvVar env = 2;</code>
      */
-    java.util.List<io.kubernetes.client.proto.V1.EnvVar> 
-        getEnvList();
+    java.util.List<io.kubernetes.client.proto.V1.EnvVar> getEnvList();
     /**
+     *
+     *
      * <pre>
      * Env defines the collection of EnvVar to inject into containers.
      * +optional
@@ -2150,6 +2426,8 @@ public final class V1alpha1Settings {
      */
     io.kubernetes.client.proto.V1.EnvVar getEnv(int index);
     /**
+     *
+     *
      * <pre>
      * Env defines the collection of EnvVar to inject into containers.
      * +optional
@@ -2159,6 +2437,8 @@ public final class V1alpha1Settings {
      */
     int getEnvCount();
     /**
+     *
+     *
      * <pre>
      * Env defines the collection of EnvVar to inject into containers.
      * +optional
@@ -2166,9 +2446,10 @@ public final class V1alpha1Settings {
      *
      * <code>repeated .k8s.io.api.core.v1.EnvVar env = 2;</code>
      */
-    java.util.List<? extends io.kubernetes.client.proto.V1.EnvVarOrBuilder> 
-        getEnvOrBuilderList();
+    java.util.List<? extends io.kubernetes.client.proto.V1.EnvVarOrBuilder> getEnvOrBuilderList();
     /**
+     *
+     *
      * <pre>
      * Env defines the collection of EnvVar to inject into containers.
      * +optional
@@ -2176,10 +2457,11 @@ public final class V1alpha1Settings {
      *
      * <code>repeated .k8s.io.api.core.v1.EnvVar env = 2;</code>
      */
-    io.kubernetes.client.proto.V1.EnvVarOrBuilder getEnvOrBuilder(
-        int index);
+    io.kubernetes.client.proto.V1.EnvVarOrBuilder getEnvOrBuilder(int index);
 
     /**
+     *
+     *
      * <pre>
      * EnvFrom defines the collection of EnvFromSource to inject into containers.
      * +optional
@@ -2187,9 +2469,10 @@ public final class V1alpha1Settings {
      *
      * <code>repeated .k8s.io.api.core.v1.EnvFromSource envFrom = 3;</code>
      */
-    java.util.List<io.kubernetes.client.proto.V1.EnvFromSource> 
-        getEnvFromList();
+    java.util.List<io.kubernetes.client.proto.V1.EnvFromSource> getEnvFromList();
     /**
+     *
+     *
      * <pre>
      * EnvFrom defines the collection of EnvFromSource to inject into containers.
      * +optional
@@ -2199,6 +2482,8 @@ public final class V1alpha1Settings {
      */
     io.kubernetes.client.proto.V1.EnvFromSource getEnvFrom(int index);
     /**
+     *
+     *
      * <pre>
      * EnvFrom defines the collection of EnvFromSource to inject into containers.
      * +optional
@@ -2208,6 +2493,8 @@ public final class V1alpha1Settings {
      */
     int getEnvFromCount();
     /**
+     *
+     *
      * <pre>
      * EnvFrom defines the collection of EnvFromSource to inject into containers.
      * +optional
@@ -2215,9 +2502,11 @@ public final class V1alpha1Settings {
      *
      * <code>repeated .k8s.io.api.core.v1.EnvFromSource envFrom = 3;</code>
      */
-    java.util.List<? extends io.kubernetes.client.proto.V1.EnvFromSourceOrBuilder> 
+    java.util.List<? extends io.kubernetes.client.proto.V1.EnvFromSourceOrBuilder>
         getEnvFromOrBuilderList();
     /**
+     *
+     *
      * <pre>
      * EnvFrom defines the collection of EnvFromSource to inject into containers.
      * +optional
@@ -2225,10 +2514,11 @@ public final class V1alpha1Settings {
      *
      * <code>repeated .k8s.io.api.core.v1.EnvFromSource envFrom = 3;</code>
      */
-    io.kubernetes.client.proto.V1.EnvFromSourceOrBuilder getEnvFromOrBuilder(
-        int index);
+    io.kubernetes.client.proto.V1.EnvFromSourceOrBuilder getEnvFromOrBuilder(int index);
 
     /**
+     *
+     *
      * <pre>
      * Volumes defines the collection of Volume to inject into the pod.
      * +optional
@@ -2236,9 +2526,10 @@ public final class V1alpha1Settings {
      *
      * <code>repeated .k8s.io.api.core.v1.Volume volumes = 4;</code>
      */
-    java.util.List<io.kubernetes.client.proto.V1.Volume> 
-        getVolumesList();
+    java.util.List<io.kubernetes.client.proto.V1.Volume> getVolumesList();
     /**
+     *
+     *
      * <pre>
      * Volumes defines the collection of Volume to inject into the pod.
      * +optional
@@ -2248,6 +2539,8 @@ public final class V1alpha1Settings {
      */
     io.kubernetes.client.proto.V1.Volume getVolumes(int index);
     /**
+     *
+     *
      * <pre>
      * Volumes defines the collection of Volume to inject into the pod.
      * +optional
@@ -2257,6 +2550,8 @@ public final class V1alpha1Settings {
      */
     int getVolumesCount();
     /**
+     *
+     *
      * <pre>
      * Volumes defines the collection of Volume to inject into the pod.
      * +optional
@@ -2264,9 +2559,11 @@ public final class V1alpha1Settings {
      *
      * <code>repeated .k8s.io.api.core.v1.Volume volumes = 4;</code>
      */
-    java.util.List<? extends io.kubernetes.client.proto.V1.VolumeOrBuilder> 
+    java.util.List<? extends io.kubernetes.client.proto.V1.VolumeOrBuilder>
         getVolumesOrBuilderList();
     /**
+     *
+     *
      * <pre>
      * Volumes defines the collection of Volume to inject into the pod.
      * +optional
@@ -2274,10 +2571,11 @@ public final class V1alpha1Settings {
      *
      * <code>repeated .k8s.io.api.core.v1.Volume volumes = 4;</code>
      */
-    io.kubernetes.client.proto.V1.VolumeOrBuilder getVolumesOrBuilder(
-        int index);
+    io.kubernetes.client.proto.V1.VolumeOrBuilder getVolumesOrBuilder(int index);
 
     /**
+     *
+     *
      * <pre>
      * VolumeMounts defines the collection of VolumeMount to inject into containers.
      * +optional
@@ -2285,9 +2583,10 @@ public final class V1alpha1Settings {
      *
      * <code>repeated .k8s.io.api.core.v1.VolumeMount volumeMounts = 5;</code>
      */
-    java.util.List<io.kubernetes.client.proto.V1.VolumeMount> 
-        getVolumeMountsList();
+    java.util.List<io.kubernetes.client.proto.V1.VolumeMount> getVolumeMountsList();
     /**
+     *
+     *
      * <pre>
      * VolumeMounts defines the collection of VolumeMount to inject into containers.
      * +optional
@@ -2297,6 +2596,8 @@ public final class V1alpha1Settings {
      */
     io.kubernetes.client.proto.V1.VolumeMount getVolumeMounts(int index);
     /**
+     *
+     *
      * <pre>
      * VolumeMounts defines the collection of VolumeMount to inject into containers.
      * +optional
@@ -2306,6 +2607,8 @@ public final class V1alpha1Settings {
      */
     int getVolumeMountsCount();
     /**
+     *
+     *
      * <pre>
      * VolumeMounts defines the collection of VolumeMount to inject into containers.
      * +optional
@@ -2313,9 +2616,11 @@ public final class V1alpha1Settings {
      *
      * <code>repeated .k8s.io.api.core.v1.VolumeMount volumeMounts = 5;</code>
      */
-    java.util.List<? extends io.kubernetes.client.proto.V1.VolumeMountOrBuilder> 
+    java.util.List<? extends io.kubernetes.client.proto.V1.VolumeMountOrBuilder>
         getVolumeMountsOrBuilderList();
     /**
+     *
+     *
      * <pre>
      * VolumeMounts defines the collection of VolumeMount to inject into containers.
      * +optional
@@ -2323,25 +2628,27 @@ public final class V1alpha1Settings {
      *
      * <code>repeated .k8s.io.api.core.v1.VolumeMount volumeMounts = 5;</code>
      */
-    io.kubernetes.client.proto.V1.VolumeMountOrBuilder getVolumeMountsOrBuilder(
-        int index);
+    io.kubernetes.client.proto.V1.VolumeMountOrBuilder getVolumeMountsOrBuilder(int index);
   }
   /**
+   *
+   *
    * <pre>
    * PodPresetSpec is a description of a pod preset.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.settings.v1alpha1.PodPresetSpec}
    */
-  public  static final class PodPresetSpec extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  public static final class PodPresetSpec extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:k8s.io.api.settings.v1alpha1.PodPresetSpec)
       PodPresetSpecOrBuilder {
-  private static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
     // Use PodPresetSpec.newBuilder() to construct.
     private PodPresetSpec(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private PodPresetSpec() {
       env_ = java.util.Collections.emptyList();
       envFrom_ = java.util.Collections.emptyList();
@@ -2350,10 +2657,10 @@ public final class V1alpha1Settings {
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
       return this.unknownFields;
     }
+
     private PodPresetSpec(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2370,69 +2677,80 @@ public final class V1alpha1Settings {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
               }
-              break;
-            }
-            case 10: {
-              io.kubernetes.client.proto.Meta.LabelSelector.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                subBuilder = selector_.toBuilder();
+            case 10:
+              {
+                io.kubernetes.client.proto.Meta.LabelSelector.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                  subBuilder = selector_.toBuilder();
+                }
+                selector_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.LabelSelector.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(selector_);
+                  selector_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000001;
+                break;
               }
-              selector_ = input.readMessage(io.kubernetes.client.proto.Meta.LabelSelector.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(selector_);
-                selector_ = subBuilder.buildPartial();
+            case 18:
+              {
+                if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                  env_ = new java.util.ArrayList<io.kubernetes.client.proto.V1.EnvVar>();
+                  mutable_bitField0_ |= 0x00000002;
+                }
+                env_.add(
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1.EnvVar.PARSER, extensionRegistry));
+                break;
               }
-              bitField0_ |= 0x00000001;
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                env_ = new java.util.ArrayList<io.kubernetes.client.proto.V1.EnvVar>();
-                mutable_bitField0_ |= 0x00000002;
+            case 26:
+              {
+                if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                  envFrom_ = new java.util.ArrayList<io.kubernetes.client.proto.V1.EnvFromSource>();
+                  mutable_bitField0_ |= 0x00000004;
+                }
+                envFrom_.add(
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1.EnvFromSource.PARSER, extensionRegistry));
+                break;
               }
-              env_.add(
-                  input.readMessage(io.kubernetes.client.proto.V1.EnvVar.PARSER, extensionRegistry));
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                envFrom_ = new java.util.ArrayList<io.kubernetes.client.proto.V1.EnvFromSource>();
-                mutable_bitField0_ |= 0x00000004;
+            case 34:
+              {
+                if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                  volumes_ = new java.util.ArrayList<io.kubernetes.client.proto.V1.Volume>();
+                  mutable_bitField0_ |= 0x00000008;
+                }
+                volumes_.add(
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1.Volume.PARSER, extensionRegistry));
+                break;
               }
-              envFrom_.add(
-                  input.readMessage(io.kubernetes.client.proto.V1.EnvFromSource.PARSER, extensionRegistry));
-              break;
-            }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                volumes_ = new java.util.ArrayList<io.kubernetes.client.proto.V1.Volume>();
-                mutable_bitField0_ |= 0x00000008;
+            case 42:
+              {
+                if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                  volumeMounts_ =
+                      new java.util.ArrayList<io.kubernetes.client.proto.V1.VolumeMount>();
+                  mutable_bitField0_ |= 0x00000010;
+                }
+                volumeMounts_.add(
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1.VolumeMount.PARSER, extensionRegistry));
+                break;
               }
-              volumes_.add(
-                  input.readMessage(io.kubernetes.client.proto.V1.Volume.PARSER, extensionRegistry));
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                volumeMounts_ = new java.util.ArrayList<io.kubernetes.client.proto.V1.VolumeMount>();
-                mutable_bitField0_ |= 0x00000010;
-              }
-              volumeMounts_.add(
-                  input.readMessage(io.kubernetes.client.proto.V1.VolumeMount.PARSER, extensionRegistry));
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
           env_ = java.util.Collections.unmodifiableList(env_);
@@ -2450,22 +2768,27 @@ public final class V1alpha1Settings {
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPresetSpec_descriptor;
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1alpha1Settings
+          .internal_static_k8s_io_api_settings_v1alpha1_PodPresetSpec_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPresetSpec_fieldAccessorTable
+      return io.kubernetes.client.proto.V1alpha1Settings
+          .internal_static_k8s_io_api_settings_v1alpha1_PodPresetSpec_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.class, io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.Builder.class);
+              io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.class,
+              io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.Builder.class);
     }
 
     private int bitField0_;
     public static final int SELECTOR_FIELD_NUMBER = 1;
     private io.kubernetes.client.proto.Meta.LabelSelector selector_;
     /**
+     *
+     *
      * <pre>
      * Selector is a label query over a set of resources, in this case pods.
      * Required.
@@ -2477,6 +2800,8 @@ public final class V1alpha1Settings {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
+     *
+     *
      * <pre>
      * Selector is a label query over a set of resources, in this case pods.
      * Required.
@@ -2485,9 +2810,13 @@ public final class V1alpha1Settings {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
      */
     public io.kubernetes.client.proto.Meta.LabelSelector getSelector() {
-      return selector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+      return selector_ == null
+          ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+          : selector_;
     }
     /**
+     *
+     *
      * <pre>
      * Selector is a label query over a set of resources, in this case pods.
      * Required.
@@ -2496,12 +2825,16 @@ public final class V1alpha1Settings {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
      */
     public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder() {
-      return selector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+      return selector_ == null
+          ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+          : selector_;
     }
 
     public static final int ENV_FIELD_NUMBER = 2;
     private java.util.List<io.kubernetes.client.proto.V1.EnvVar> env_;
     /**
+     *
+     *
      * <pre>
      * Env defines the collection of EnvVar to inject into containers.
      * +optional
@@ -2513,6 +2846,8 @@ public final class V1alpha1Settings {
       return env_;
     }
     /**
+     *
+     *
      * <pre>
      * Env defines the collection of EnvVar to inject into containers.
      * +optional
@@ -2520,11 +2855,13 @@ public final class V1alpha1Settings {
      *
      * <code>repeated .k8s.io.api.core.v1.EnvVar env = 2;</code>
      */
-    public java.util.List<? extends io.kubernetes.client.proto.V1.EnvVarOrBuilder> 
+    public java.util.List<? extends io.kubernetes.client.proto.V1.EnvVarOrBuilder>
         getEnvOrBuilderList() {
       return env_;
     }
     /**
+     *
+     *
      * <pre>
      * Env defines the collection of EnvVar to inject into containers.
      * +optional
@@ -2536,6 +2873,8 @@ public final class V1alpha1Settings {
       return env_.size();
     }
     /**
+     *
+     *
      * <pre>
      * Env defines the collection of EnvVar to inject into containers.
      * +optional
@@ -2547,6 +2886,8 @@ public final class V1alpha1Settings {
       return env_.get(index);
     }
     /**
+     *
+     *
      * <pre>
      * Env defines the collection of EnvVar to inject into containers.
      * +optional
@@ -2554,14 +2895,15 @@ public final class V1alpha1Settings {
      *
      * <code>repeated .k8s.io.api.core.v1.EnvVar env = 2;</code>
      */
-    public io.kubernetes.client.proto.V1.EnvVarOrBuilder getEnvOrBuilder(
-        int index) {
+    public io.kubernetes.client.proto.V1.EnvVarOrBuilder getEnvOrBuilder(int index) {
       return env_.get(index);
     }
 
     public static final int ENVFROM_FIELD_NUMBER = 3;
     private java.util.List<io.kubernetes.client.proto.V1.EnvFromSource> envFrom_;
     /**
+     *
+     *
      * <pre>
      * EnvFrom defines the collection of EnvFromSource to inject into containers.
      * +optional
@@ -2573,6 +2915,8 @@ public final class V1alpha1Settings {
       return envFrom_;
     }
     /**
+     *
+     *
      * <pre>
      * EnvFrom defines the collection of EnvFromSource to inject into containers.
      * +optional
@@ -2580,11 +2924,13 @@ public final class V1alpha1Settings {
      *
      * <code>repeated .k8s.io.api.core.v1.EnvFromSource envFrom = 3;</code>
      */
-    public java.util.List<? extends io.kubernetes.client.proto.V1.EnvFromSourceOrBuilder> 
+    public java.util.List<? extends io.kubernetes.client.proto.V1.EnvFromSourceOrBuilder>
         getEnvFromOrBuilderList() {
       return envFrom_;
     }
     /**
+     *
+     *
      * <pre>
      * EnvFrom defines the collection of EnvFromSource to inject into containers.
      * +optional
@@ -2596,6 +2942,8 @@ public final class V1alpha1Settings {
       return envFrom_.size();
     }
     /**
+     *
+     *
      * <pre>
      * EnvFrom defines the collection of EnvFromSource to inject into containers.
      * +optional
@@ -2607,6 +2955,8 @@ public final class V1alpha1Settings {
       return envFrom_.get(index);
     }
     /**
+     *
+     *
      * <pre>
      * EnvFrom defines the collection of EnvFromSource to inject into containers.
      * +optional
@@ -2614,14 +2964,15 @@ public final class V1alpha1Settings {
      *
      * <code>repeated .k8s.io.api.core.v1.EnvFromSource envFrom = 3;</code>
      */
-    public io.kubernetes.client.proto.V1.EnvFromSourceOrBuilder getEnvFromOrBuilder(
-        int index) {
+    public io.kubernetes.client.proto.V1.EnvFromSourceOrBuilder getEnvFromOrBuilder(int index) {
       return envFrom_.get(index);
     }
 
     public static final int VOLUMES_FIELD_NUMBER = 4;
     private java.util.List<io.kubernetes.client.proto.V1.Volume> volumes_;
     /**
+     *
+     *
      * <pre>
      * Volumes defines the collection of Volume to inject into the pod.
      * +optional
@@ -2633,6 +2984,8 @@ public final class V1alpha1Settings {
       return volumes_;
     }
     /**
+     *
+     *
      * <pre>
      * Volumes defines the collection of Volume to inject into the pod.
      * +optional
@@ -2640,11 +2993,13 @@ public final class V1alpha1Settings {
      *
      * <code>repeated .k8s.io.api.core.v1.Volume volumes = 4;</code>
      */
-    public java.util.List<? extends io.kubernetes.client.proto.V1.VolumeOrBuilder> 
+    public java.util.List<? extends io.kubernetes.client.proto.V1.VolumeOrBuilder>
         getVolumesOrBuilderList() {
       return volumes_;
     }
     /**
+     *
+     *
      * <pre>
      * Volumes defines the collection of Volume to inject into the pod.
      * +optional
@@ -2656,6 +3011,8 @@ public final class V1alpha1Settings {
       return volumes_.size();
     }
     /**
+     *
+     *
      * <pre>
      * Volumes defines the collection of Volume to inject into the pod.
      * +optional
@@ -2667,6 +3024,8 @@ public final class V1alpha1Settings {
       return volumes_.get(index);
     }
     /**
+     *
+     *
      * <pre>
      * Volumes defines the collection of Volume to inject into the pod.
      * +optional
@@ -2674,14 +3033,15 @@ public final class V1alpha1Settings {
      *
      * <code>repeated .k8s.io.api.core.v1.Volume volumes = 4;</code>
      */
-    public io.kubernetes.client.proto.V1.VolumeOrBuilder getVolumesOrBuilder(
-        int index) {
+    public io.kubernetes.client.proto.V1.VolumeOrBuilder getVolumesOrBuilder(int index) {
       return volumes_.get(index);
     }
 
     public static final int VOLUMEMOUNTS_FIELD_NUMBER = 5;
     private java.util.List<io.kubernetes.client.proto.V1.VolumeMount> volumeMounts_;
     /**
+     *
+     *
      * <pre>
      * VolumeMounts defines the collection of VolumeMount to inject into containers.
      * +optional
@@ -2693,6 +3053,8 @@ public final class V1alpha1Settings {
       return volumeMounts_;
     }
     /**
+     *
+     *
      * <pre>
      * VolumeMounts defines the collection of VolumeMount to inject into containers.
      * +optional
@@ -2700,11 +3062,13 @@ public final class V1alpha1Settings {
      *
      * <code>repeated .k8s.io.api.core.v1.VolumeMount volumeMounts = 5;</code>
      */
-    public java.util.List<? extends io.kubernetes.client.proto.V1.VolumeMountOrBuilder> 
+    public java.util.List<? extends io.kubernetes.client.proto.V1.VolumeMountOrBuilder>
         getVolumeMountsOrBuilderList() {
       return volumeMounts_;
     }
     /**
+     *
+     *
      * <pre>
      * VolumeMounts defines the collection of VolumeMount to inject into containers.
      * +optional
@@ -2716,6 +3080,8 @@ public final class V1alpha1Settings {
       return volumeMounts_.size();
     }
     /**
+     *
+     *
      * <pre>
      * VolumeMounts defines the collection of VolumeMount to inject into containers.
      * +optional
@@ -2727,6 +3093,8 @@ public final class V1alpha1Settings {
       return volumeMounts_.get(index);
     }
     /**
+     *
+     *
      * <pre>
      * VolumeMounts defines the collection of VolumeMount to inject into containers.
      * +optional
@@ -2734,12 +3102,12 @@ public final class V1alpha1Settings {
      *
      * <code>repeated .k8s.io.api.core.v1.VolumeMount volumeMounts = 5;</code>
      */
-    public io.kubernetes.client.proto.V1.VolumeMountOrBuilder getVolumeMountsOrBuilder(
-        int index) {
+    public io.kubernetes.client.proto.V1.VolumeMountOrBuilder getVolumeMountsOrBuilder(int index) {
       return volumeMounts_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
+
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2749,8 +3117,7 @@ public final class V1alpha1Settings {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeMessage(1, getSelector());
       }
@@ -2775,24 +3142,19 @@ public final class V1alpha1Settings {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getSelector());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, getSelector());
       }
       for (int i = 0; i < env_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, env_.get(i));
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, env_.get(i));
       }
       for (int i = 0; i < envFrom_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, envFrom_.get(i));
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(3, envFrom_.get(i));
       }
       for (int i = 0; i < volumes_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, volumes_.get(i));
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(4, volumes_.get(i));
       }
       for (int i = 0; i < volumeMounts_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, volumeMounts_.get(i));
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(5, volumeMounts_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2802,27 +3164,23 @@ public final class V1alpha1Settings {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec)) {
         return super.equals(obj);
       }
-      io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec other = (io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec) obj;
+      io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec other =
+          (io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec) obj;
 
       boolean result = true;
       result = result && (hasSelector() == other.hasSelector());
       if (hasSelector()) {
-        result = result && getSelector()
-            .equals(other.getSelector());
+        result = result && getSelector().equals(other.getSelector());
       }
-      result = result && getEnvList()
-          .equals(other.getEnvList());
-      result = result && getEnvFromList()
-          .equals(other.getEnvFromList());
-      result = result && getVolumesList()
-          .equals(other.getVolumesList());
-      result = result && getVolumeMountsList()
-          .equals(other.getVolumeMountsList());
+      result = result && getEnvList().equals(other.getEnvList());
+      result = result && getEnvFromList().equals(other.getEnvFromList());
+      result = result && getVolumesList().equals(other.getVolumesList());
+      result = result && getVolumeMountsList().equals(other.getVolumeMountsList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -2860,85 +3218,92 @@ public final class V1alpha1Settings {
     }
 
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
-    public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec parseDelimitedFrom(java.io.InputStream input)
+
+    public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
     }
+
+    public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec prototype) {
+
+    public static Builder newBuilder(
+        io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -2948,26 +3313,31 @@ public final class V1alpha1Settings {
       return builder;
     }
     /**
+     *
+     *
      * <pre>
      * PodPresetSpec is a description of a pod preset.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.settings.v1alpha1.PodPresetSpec}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:k8s.io.api.settings.v1alpha1.PodPresetSpec)
         io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpecOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPresetSpec_descriptor;
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1alpha1Settings
+            .internal_static_k8s_io_api_settings_v1alpha1_PodPresetSpec_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPresetSpec_fieldAccessorTable
+        return io.kubernetes.client.proto.V1alpha1Settings
+            .internal_static_k8s_io_api_settings_v1alpha1_PodPresetSpec_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.class, io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.Builder.class);
+                io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.class,
+                io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.Builder.class);
       }
 
       // Construct using io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.newBuilder()
@@ -2975,14 +3345,13 @@ public final class V1alpha1Settings {
         maybeForceBuilderInitialization();
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
+
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
           getSelectorFieldBuilder();
           getEnvFieldBuilder();
           getEnvFromFieldBuilder();
@@ -2990,6 +3359,7 @@ public final class V1alpha1Settings {
           getVolumeMountsFieldBuilder();
         }
       }
+
       public Builder clear() {
         super.clear();
         if (selectorBuilder_ == null) {
@@ -3025,9 +3395,9 @@ public final class V1alpha1Settings {
         return this;
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPresetSpec_descriptor;
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1alpha1Settings
+            .internal_static_k8s_io_api_settings_v1alpha1_PodPresetSpec_descriptor;
       }
 
       public io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec getDefaultInstanceForType() {
@@ -3043,7 +3413,8 @@ public final class V1alpha1Settings {
       }
 
       public io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec buildPartial() {
-        io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec result = new io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec(this);
+        io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec result =
+            new io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -3098,32 +3469,35 @@ public final class V1alpha1Settings {
       public Builder clone() {
         return (Builder) super.clone();
       }
+
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec) {
-          return mergeFrom((io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec)other);
+          return mergeFrom((io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -3131,7 +3505,8 @@ public final class V1alpha1Settings {
       }
 
       public Builder mergeFrom(io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec other) {
-        if (other == io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.getDefaultInstance()) return this;
+        if (other == io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.getDefaultInstance())
+          return this;
         if (other.hasSelector()) {
           mergeSelector(other.getSelector());
         }
@@ -3153,9 +3528,10 @@ public final class V1alpha1Settings {
               envBuilder_ = null;
               env_ = other.env_;
               bitField0_ = (bitField0_ & ~0x00000002);
-              envBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getEnvFieldBuilder() : null;
+              envBuilder_ =
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders
+                      ? getEnvFieldBuilder()
+                      : null;
             } else {
               envBuilder_.addAllMessages(other.env_);
             }
@@ -3179,9 +3555,10 @@ public final class V1alpha1Settings {
               envFromBuilder_ = null;
               envFrom_ = other.envFrom_;
               bitField0_ = (bitField0_ & ~0x00000004);
-              envFromBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getEnvFromFieldBuilder() : null;
+              envFromBuilder_ =
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders
+                      ? getEnvFromFieldBuilder()
+                      : null;
             } else {
               envFromBuilder_.addAllMessages(other.envFrom_);
             }
@@ -3205,9 +3582,10 @@ public final class V1alpha1Settings {
               volumesBuilder_ = null;
               volumes_ = other.volumes_;
               bitField0_ = (bitField0_ & ~0x00000008);
-              volumesBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getVolumesFieldBuilder() : null;
+              volumesBuilder_ =
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders
+                      ? getVolumesFieldBuilder()
+                      : null;
             } else {
               volumesBuilder_.addAllMessages(other.volumes_);
             }
@@ -3231,9 +3609,10 @@ public final class V1alpha1Settings {
               volumeMountsBuilder_ = null;
               volumeMounts_ = other.volumeMounts_;
               bitField0_ = (bitField0_ & ~0x00000010);
-              volumeMountsBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getVolumeMountsFieldBuilder() : null;
+              volumeMountsBuilder_ =
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders
+                      ? getVolumeMountsFieldBuilder()
+                      : null;
             } else {
               volumeMountsBuilder_.addAllMessages(other.volumeMounts_);
             }
@@ -3256,7 +3635,8 @@ public final class V1alpha1Settings {
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec) e.getUnfinishedMessage();
+          parsedMessage =
+              (io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -3265,12 +3645,18 @@ public final class V1alpha1Settings {
         }
         return this;
       }
+
       private int bitField0_;
 
       private io.kubernetes.client.proto.Meta.LabelSelector selector_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder> selectorBuilder_;
+              io.kubernetes.client.proto.Meta.LabelSelector,
+              io.kubernetes.client.proto.Meta.LabelSelector.Builder,
+              io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>
+          selectorBuilder_;
       /**
+       *
+       *
        * <pre>
        * Selector is a label query over a set of resources, in this case pods.
        * Required.
@@ -3282,6 +3668,8 @@ public final class V1alpha1Settings {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
+       *
+       *
        * <pre>
        * Selector is a label query over a set of resources, in this case pods.
        * Required.
@@ -3291,12 +3679,16 @@ public final class V1alpha1Settings {
        */
       public io.kubernetes.client.proto.Meta.LabelSelector getSelector() {
         if (selectorBuilder_ == null) {
-          return selector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+          return selector_ == null
+              ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+              : selector_;
         } else {
           return selectorBuilder_.getMessage();
         }
       }
       /**
+       *
+       *
        * <pre>
        * Selector is a label query over a set of resources, in this case pods.
        * Required.
@@ -3318,6 +3710,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Selector is a label query over a set of resources, in this case pods.
        * Required.
@@ -3337,6 +3731,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Selector is a label query over a set of resources, in this case pods.
        * Required.
@@ -3346,11 +3742,13 @@ public final class V1alpha1Settings {
        */
       public Builder mergeSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
         if (selectorBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              selector_ != null &&
-              selector_ != io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)
+              && selector_ != null
+              && selector_ != io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()) {
             selector_ =
-              io.kubernetes.client.proto.Meta.LabelSelector.newBuilder(selector_).mergeFrom(value).buildPartial();
+                io.kubernetes.client.proto.Meta.LabelSelector.newBuilder(selector_)
+                    .mergeFrom(value)
+                    .buildPartial();
           } else {
             selector_ = value;
           }
@@ -3362,6 +3760,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Selector is a label query over a set of resources, in this case pods.
        * Required.
@@ -3380,6 +3780,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Selector is a label query over a set of resources, in this case pods.
        * Required.
@@ -3393,6 +3795,8 @@ public final class V1alpha1Settings {
         return getSelectorFieldBuilder().getBuilder();
       }
       /**
+       *
+       *
        * <pre>
        * Selector is a label query over a set of resources, in this case pods.
        * Required.
@@ -3404,11 +3808,14 @@ public final class V1alpha1Settings {
         if (selectorBuilder_ != null) {
           return selectorBuilder_.getMessageOrBuilder();
         } else {
-          return selector_ == null ?
-              io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+          return selector_ == null
+              ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+              : selector_;
         }
       }
       /**
+       *
+       *
        * <pre>
        * Selector is a label query over a set of resources, in this case pods.
        * Required.
@@ -3417,32 +3824,41 @@ public final class V1alpha1Settings {
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder> 
+              io.kubernetes.client.proto.Meta.LabelSelector,
+              io.kubernetes.client.proto.Meta.LabelSelector.Builder,
+              io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>
           getSelectorFieldBuilder() {
         if (selectorBuilder_ == null) {
-          selectorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>(
-                  getSelector(),
-                  getParentForChildren(),
-                  isClean());
+          selectorBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.LabelSelector,
+                  io.kubernetes.client.proto.Meta.LabelSelector.Builder,
+                  io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>(
+                  getSelector(), getParentForChildren(), isClean());
           selector_ = null;
         }
         return selectorBuilder_;
       }
 
       private java.util.List<io.kubernetes.client.proto.V1.EnvVar> env_ =
-        java.util.Collections.emptyList();
+          java.util.Collections.emptyList();
+
       private void ensureEnvIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
           env_ = new java.util.ArrayList<io.kubernetes.client.proto.V1.EnvVar>(env_);
           bitField0_ |= 0x00000002;
-         }
+        }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.kubernetes.client.proto.V1.EnvVar, io.kubernetes.client.proto.V1.EnvVar.Builder, io.kubernetes.client.proto.V1.EnvVarOrBuilder> envBuilder_;
+              io.kubernetes.client.proto.V1.EnvVar,
+              io.kubernetes.client.proto.V1.EnvVar.Builder,
+              io.kubernetes.client.proto.V1.EnvVarOrBuilder>
+          envBuilder_;
 
       /**
+       *
+       *
        * <pre>
        * Env defines the collection of EnvVar to inject into containers.
        * +optional
@@ -3458,6 +3874,8 @@ public final class V1alpha1Settings {
         }
       }
       /**
+       *
+       *
        * <pre>
        * Env defines the collection of EnvVar to inject into containers.
        * +optional
@@ -3473,6 +3891,8 @@ public final class V1alpha1Settings {
         }
       }
       /**
+       *
+       *
        * <pre>
        * Env defines the collection of EnvVar to inject into containers.
        * +optional
@@ -3488,6 +3908,8 @@ public final class V1alpha1Settings {
         }
       }
       /**
+       *
+       *
        * <pre>
        * Env defines the collection of EnvVar to inject into containers.
        * +optional
@@ -3495,8 +3917,7 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.EnvVar env = 2;</code>
        */
-      public Builder setEnv(
-          int index, io.kubernetes.client.proto.V1.EnvVar value) {
+      public Builder setEnv(int index, io.kubernetes.client.proto.V1.EnvVar value) {
         if (envBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3510,6 +3931,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Env defines the collection of EnvVar to inject into containers.
        * +optional
@@ -3529,6 +3952,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Env defines the collection of EnvVar to inject into containers.
        * +optional
@@ -3550,6 +3975,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Env defines the collection of EnvVar to inject into containers.
        * +optional
@@ -3557,8 +3984,7 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.EnvVar env = 2;</code>
        */
-      public Builder addEnv(
-          int index, io.kubernetes.client.proto.V1.EnvVar value) {
+      public Builder addEnv(int index, io.kubernetes.client.proto.V1.EnvVar value) {
         if (envBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3572,6 +3998,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Env defines the collection of EnvVar to inject into containers.
        * +optional
@@ -3579,8 +4007,7 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.EnvVar env = 2;</code>
        */
-      public Builder addEnv(
-          io.kubernetes.client.proto.V1.EnvVar.Builder builderForValue) {
+      public Builder addEnv(io.kubernetes.client.proto.V1.EnvVar.Builder builderForValue) {
         if (envBuilder_ == null) {
           ensureEnvIsMutable();
           env_.add(builderForValue.build());
@@ -3591,6 +4018,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Env defines the collection of EnvVar to inject into containers.
        * +optional
@@ -3610,6 +4039,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Env defines the collection of EnvVar to inject into containers.
        * +optional
@@ -3621,8 +4052,7 @@ public final class V1alpha1Settings {
           java.lang.Iterable<? extends io.kubernetes.client.proto.V1.EnvVar> values) {
         if (envBuilder_ == null) {
           ensureEnvIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, env_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(values, env_);
           onChanged();
         } else {
           envBuilder_.addAllMessages(values);
@@ -3630,6 +4060,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Env defines the collection of EnvVar to inject into containers.
        * +optional
@@ -3648,6 +4080,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Env defines the collection of EnvVar to inject into containers.
        * +optional
@@ -3666,6 +4100,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Env defines the collection of EnvVar to inject into containers.
        * +optional
@@ -3673,11 +4109,12 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.EnvVar env = 2;</code>
        */
-      public io.kubernetes.client.proto.V1.EnvVar.Builder getEnvBuilder(
-          int index) {
+      public io.kubernetes.client.proto.V1.EnvVar.Builder getEnvBuilder(int index) {
         return getEnvFieldBuilder().getBuilder(index);
       }
       /**
+       *
+       *
        * <pre>
        * Env defines the collection of EnvVar to inject into containers.
        * +optional
@@ -3685,14 +4122,16 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.EnvVar env = 2;</code>
        */
-      public io.kubernetes.client.proto.V1.EnvVarOrBuilder getEnvOrBuilder(
-          int index) {
+      public io.kubernetes.client.proto.V1.EnvVarOrBuilder getEnvOrBuilder(int index) {
         if (envBuilder_ == null) {
-          return env_.get(index);  } else {
+          return env_.get(index);
+        } else {
           return envBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
+       *
+       *
        * <pre>
        * Env defines the collection of EnvVar to inject into containers.
        * +optional
@@ -3700,8 +4139,8 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.EnvVar env = 2;</code>
        */
-      public java.util.List<? extends io.kubernetes.client.proto.V1.EnvVarOrBuilder> 
-           getEnvOrBuilderList() {
+      public java.util.List<? extends io.kubernetes.client.proto.V1.EnvVarOrBuilder>
+          getEnvOrBuilderList() {
         if (envBuilder_ != null) {
           return envBuilder_.getMessageOrBuilderList();
         } else {
@@ -3709,6 +4148,8 @@ public final class V1alpha1Settings {
         }
       }
       /**
+       *
+       *
        * <pre>
        * Env defines the collection of EnvVar to inject into containers.
        * +optional
@@ -3717,10 +4158,12 @@ public final class V1alpha1Settings {
        * <code>repeated .k8s.io.api.core.v1.EnvVar env = 2;</code>
        */
       public io.kubernetes.client.proto.V1.EnvVar.Builder addEnvBuilder() {
-        return getEnvFieldBuilder().addBuilder(
-            io.kubernetes.client.proto.V1.EnvVar.getDefaultInstance());
+        return getEnvFieldBuilder()
+            .addBuilder(io.kubernetes.client.proto.V1.EnvVar.getDefaultInstance());
       }
       /**
+       *
+       *
        * <pre>
        * Env defines the collection of EnvVar to inject into containers.
        * +optional
@@ -3728,12 +4171,13 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.EnvVar env = 2;</code>
        */
-      public io.kubernetes.client.proto.V1.EnvVar.Builder addEnvBuilder(
-          int index) {
-        return getEnvFieldBuilder().addBuilder(
-            index, io.kubernetes.client.proto.V1.EnvVar.getDefaultInstance());
+      public io.kubernetes.client.proto.V1.EnvVar.Builder addEnvBuilder(int index) {
+        return getEnvFieldBuilder()
+            .addBuilder(index, io.kubernetes.client.proto.V1.EnvVar.getDefaultInstance());
       }
       /**
+       *
+       *
        * <pre>
        * Env defines the collection of EnvVar to inject into containers.
        * +optional
@@ -3741,16 +4185,21 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.EnvVar env = 2;</code>
        */
-      public java.util.List<io.kubernetes.client.proto.V1.EnvVar.Builder> 
-           getEnvBuilderList() {
+      public java.util.List<io.kubernetes.client.proto.V1.EnvVar.Builder> getEnvBuilderList() {
         return getEnvFieldBuilder().getBuilderList();
       }
+
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.kubernetes.client.proto.V1.EnvVar, io.kubernetes.client.proto.V1.EnvVar.Builder, io.kubernetes.client.proto.V1.EnvVarOrBuilder> 
+              io.kubernetes.client.proto.V1.EnvVar,
+              io.kubernetes.client.proto.V1.EnvVar.Builder,
+              io.kubernetes.client.proto.V1.EnvVarOrBuilder>
           getEnvFieldBuilder() {
         if (envBuilder_ == null) {
-          envBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              io.kubernetes.client.proto.V1.EnvVar, io.kubernetes.client.proto.V1.EnvVar.Builder, io.kubernetes.client.proto.V1.EnvVarOrBuilder>(
+          envBuilder_ =
+              new com.google.protobuf.RepeatedFieldBuilderV3<
+                  io.kubernetes.client.proto.V1.EnvVar,
+                  io.kubernetes.client.proto.V1.EnvVar.Builder,
+                  io.kubernetes.client.proto.V1.EnvVarOrBuilder>(
                   env_,
                   ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
@@ -3761,18 +4210,24 @@ public final class V1alpha1Settings {
       }
 
       private java.util.List<io.kubernetes.client.proto.V1.EnvFromSource> envFrom_ =
-        java.util.Collections.emptyList();
+          java.util.Collections.emptyList();
+
       private void ensureEnvFromIsMutable() {
         if (!((bitField0_ & 0x00000004) == 0x00000004)) {
           envFrom_ = new java.util.ArrayList<io.kubernetes.client.proto.V1.EnvFromSource>(envFrom_);
           bitField0_ |= 0x00000004;
-         }
+        }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.kubernetes.client.proto.V1.EnvFromSource, io.kubernetes.client.proto.V1.EnvFromSource.Builder, io.kubernetes.client.proto.V1.EnvFromSourceOrBuilder> envFromBuilder_;
+              io.kubernetes.client.proto.V1.EnvFromSource,
+              io.kubernetes.client.proto.V1.EnvFromSource.Builder,
+              io.kubernetes.client.proto.V1.EnvFromSourceOrBuilder>
+          envFromBuilder_;
 
       /**
+       *
+       *
        * <pre>
        * EnvFrom defines the collection of EnvFromSource to inject into containers.
        * +optional
@@ -3788,6 +4243,8 @@ public final class V1alpha1Settings {
         }
       }
       /**
+       *
+       *
        * <pre>
        * EnvFrom defines the collection of EnvFromSource to inject into containers.
        * +optional
@@ -3803,6 +4260,8 @@ public final class V1alpha1Settings {
         }
       }
       /**
+       *
+       *
        * <pre>
        * EnvFrom defines the collection of EnvFromSource to inject into containers.
        * +optional
@@ -3818,6 +4277,8 @@ public final class V1alpha1Settings {
         }
       }
       /**
+       *
+       *
        * <pre>
        * EnvFrom defines the collection of EnvFromSource to inject into containers.
        * +optional
@@ -3825,8 +4286,7 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.EnvFromSource envFrom = 3;</code>
        */
-      public Builder setEnvFrom(
-          int index, io.kubernetes.client.proto.V1.EnvFromSource value) {
+      public Builder setEnvFrom(int index, io.kubernetes.client.proto.V1.EnvFromSource value) {
         if (envFromBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3840,6 +4300,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * EnvFrom defines the collection of EnvFromSource to inject into containers.
        * +optional
@@ -3859,6 +4321,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * EnvFrom defines the collection of EnvFromSource to inject into containers.
        * +optional
@@ -3880,6 +4344,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * EnvFrom defines the collection of EnvFromSource to inject into containers.
        * +optional
@@ -3887,8 +4353,7 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.EnvFromSource envFrom = 3;</code>
        */
-      public Builder addEnvFrom(
-          int index, io.kubernetes.client.proto.V1.EnvFromSource value) {
+      public Builder addEnvFrom(int index, io.kubernetes.client.proto.V1.EnvFromSource value) {
         if (envFromBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3902,6 +4367,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * EnvFrom defines the collection of EnvFromSource to inject into containers.
        * +optional
@@ -3921,6 +4388,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * EnvFrom defines the collection of EnvFromSource to inject into containers.
        * +optional
@@ -3940,6 +4409,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * EnvFrom defines the collection of EnvFromSource to inject into containers.
        * +optional
@@ -3951,8 +4422,7 @@ public final class V1alpha1Settings {
           java.lang.Iterable<? extends io.kubernetes.client.proto.V1.EnvFromSource> values) {
         if (envFromBuilder_ == null) {
           ensureEnvFromIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, envFrom_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(values, envFrom_);
           onChanged();
         } else {
           envFromBuilder_.addAllMessages(values);
@@ -3960,6 +4430,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * EnvFrom defines the collection of EnvFromSource to inject into containers.
        * +optional
@@ -3978,6 +4450,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * EnvFrom defines the collection of EnvFromSource to inject into containers.
        * +optional
@@ -3996,6 +4470,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * EnvFrom defines the collection of EnvFromSource to inject into containers.
        * +optional
@@ -4003,11 +4479,12 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.EnvFromSource envFrom = 3;</code>
        */
-      public io.kubernetes.client.proto.V1.EnvFromSource.Builder getEnvFromBuilder(
-          int index) {
+      public io.kubernetes.client.proto.V1.EnvFromSource.Builder getEnvFromBuilder(int index) {
         return getEnvFromFieldBuilder().getBuilder(index);
       }
       /**
+       *
+       *
        * <pre>
        * EnvFrom defines the collection of EnvFromSource to inject into containers.
        * +optional
@@ -4015,14 +4492,16 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.EnvFromSource envFrom = 3;</code>
        */
-      public io.kubernetes.client.proto.V1.EnvFromSourceOrBuilder getEnvFromOrBuilder(
-          int index) {
+      public io.kubernetes.client.proto.V1.EnvFromSourceOrBuilder getEnvFromOrBuilder(int index) {
         if (envFromBuilder_ == null) {
-          return envFrom_.get(index);  } else {
+          return envFrom_.get(index);
+        } else {
           return envFromBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
+       *
+       *
        * <pre>
        * EnvFrom defines the collection of EnvFromSource to inject into containers.
        * +optional
@@ -4030,8 +4509,8 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.EnvFromSource envFrom = 3;</code>
        */
-      public java.util.List<? extends io.kubernetes.client.proto.V1.EnvFromSourceOrBuilder> 
-           getEnvFromOrBuilderList() {
+      public java.util.List<? extends io.kubernetes.client.proto.V1.EnvFromSourceOrBuilder>
+          getEnvFromOrBuilderList() {
         if (envFromBuilder_ != null) {
           return envFromBuilder_.getMessageOrBuilderList();
         } else {
@@ -4039,6 +4518,8 @@ public final class V1alpha1Settings {
         }
       }
       /**
+       *
+       *
        * <pre>
        * EnvFrom defines the collection of EnvFromSource to inject into containers.
        * +optional
@@ -4047,10 +4528,12 @@ public final class V1alpha1Settings {
        * <code>repeated .k8s.io.api.core.v1.EnvFromSource envFrom = 3;</code>
        */
       public io.kubernetes.client.proto.V1.EnvFromSource.Builder addEnvFromBuilder() {
-        return getEnvFromFieldBuilder().addBuilder(
-            io.kubernetes.client.proto.V1.EnvFromSource.getDefaultInstance());
+        return getEnvFromFieldBuilder()
+            .addBuilder(io.kubernetes.client.proto.V1.EnvFromSource.getDefaultInstance());
       }
       /**
+       *
+       *
        * <pre>
        * EnvFrom defines the collection of EnvFromSource to inject into containers.
        * +optional
@@ -4058,12 +4541,13 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.EnvFromSource envFrom = 3;</code>
        */
-      public io.kubernetes.client.proto.V1.EnvFromSource.Builder addEnvFromBuilder(
-          int index) {
-        return getEnvFromFieldBuilder().addBuilder(
-            index, io.kubernetes.client.proto.V1.EnvFromSource.getDefaultInstance());
+      public io.kubernetes.client.proto.V1.EnvFromSource.Builder addEnvFromBuilder(int index) {
+        return getEnvFromFieldBuilder()
+            .addBuilder(index, io.kubernetes.client.proto.V1.EnvFromSource.getDefaultInstance());
       }
       /**
+       *
+       *
        * <pre>
        * EnvFrom defines the collection of EnvFromSource to inject into containers.
        * +optional
@@ -4071,16 +4555,22 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.EnvFromSource envFrom = 3;</code>
        */
-      public java.util.List<io.kubernetes.client.proto.V1.EnvFromSource.Builder> 
-           getEnvFromBuilderList() {
+      public java.util.List<io.kubernetes.client.proto.V1.EnvFromSource.Builder>
+          getEnvFromBuilderList() {
         return getEnvFromFieldBuilder().getBuilderList();
       }
+
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.kubernetes.client.proto.V1.EnvFromSource, io.kubernetes.client.proto.V1.EnvFromSource.Builder, io.kubernetes.client.proto.V1.EnvFromSourceOrBuilder> 
+              io.kubernetes.client.proto.V1.EnvFromSource,
+              io.kubernetes.client.proto.V1.EnvFromSource.Builder,
+              io.kubernetes.client.proto.V1.EnvFromSourceOrBuilder>
           getEnvFromFieldBuilder() {
         if (envFromBuilder_ == null) {
-          envFromBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              io.kubernetes.client.proto.V1.EnvFromSource, io.kubernetes.client.proto.V1.EnvFromSource.Builder, io.kubernetes.client.proto.V1.EnvFromSourceOrBuilder>(
+          envFromBuilder_ =
+              new com.google.protobuf.RepeatedFieldBuilderV3<
+                  io.kubernetes.client.proto.V1.EnvFromSource,
+                  io.kubernetes.client.proto.V1.EnvFromSource.Builder,
+                  io.kubernetes.client.proto.V1.EnvFromSourceOrBuilder>(
                   envFrom_,
                   ((bitField0_ & 0x00000004) == 0x00000004),
                   getParentForChildren(),
@@ -4091,18 +4581,24 @@ public final class V1alpha1Settings {
       }
 
       private java.util.List<io.kubernetes.client.proto.V1.Volume> volumes_ =
-        java.util.Collections.emptyList();
+          java.util.Collections.emptyList();
+
       private void ensureVolumesIsMutable() {
         if (!((bitField0_ & 0x00000008) == 0x00000008)) {
           volumes_ = new java.util.ArrayList<io.kubernetes.client.proto.V1.Volume>(volumes_);
           bitField0_ |= 0x00000008;
-         }
+        }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.kubernetes.client.proto.V1.Volume, io.kubernetes.client.proto.V1.Volume.Builder, io.kubernetes.client.proto.V1.VolumeOrBuilder> volumesBuilder_;
+              io.kubernetes.client.proto.V1.Volume,
+              io.kubernetes.client.proto.V1.Volume.Builder,
+              io.kubernetes.client.proto.V1.VolumeOrBuilder>
+          volumesBuilder_;
 
       /**
+       *
+       *
        * <pre>
        * Volumes defines the collection of Volume to inject into the pod.
        * +optional
@@ -4118,6 +4614,8 @@ public final class V1alpha1Settings {
         }
       }
       /**
+       *
+       *
        * <pre>
        * Volumes defines the collection of Volume to inject into the pod.
        * +optional
@@ -4133,6 +4631,8 @@ public final class V1alpha1Settings {
         }
       }
       /**
+       *
+       *
        * <pre>
        * Volumes defines the collection of Volume to inject into the pod.
        * +optional
@@ -4148,6 +4648,8 @@ public final class V1alpha1Settings {
         }
       }
       /**
+       *
+       *
        * <pre>
        * Volumes defines the collection of Volume to inject into the pod.
        * +optional
@@ -4155,8 +4657,7 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.Volume volumes = 4;</code>
        */
-      public Builder setVolumes(
-          int index, io.kubernetes.client.proto.V1.Volume value) {
+      public Builder setVolumes(int index, io.kubernetes.client.proto.V1.Volume value) {
         if (volumesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4170,6 +4671,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Volumes defines the collection of Volume to inject into the pod.
        * +optional
@@ -4189,6 +4692,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Volumes defines the collection of Volume to inject into the pod.
        * +optional
@@ -4210,6 +4715,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Volumes defines the collection of Volume to inject into the pod.
        * +optional
@@ -4217,8 +4724,7 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.Volume volumes = 4;</code>
        */
-      public Builder addVolumes(
-          int index, io.kubernetes.client.proto.V1.Volume value) {
+      public Builder addVolumes(int index, io.kubernetes.client.proto.V1.Volume value) {
         if (volumesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4232,6 +4738,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Volumes defines the collection of Volume to inject into the pod.
        * +optional
@@ -4239,8 +4747,7 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.Volume volumes = 4;</code>
        */
-      public Builder addVolumes(
-          io.kubernetes.client.proto.V1.Volume.Builder builderForValue) {
+      public Builder addVolumes(io.kubernetes.client.proto.V1.Volume.Builder builderForValue) {
         if (volumesBuilder_ == null) {
           ensureVolumesIsMutable();
           volumes_.add(builderForValue.build());
@@ -4251,6 +4758,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Volumes defines the collection of Volume to inject into the pod.
        * +optional
@@ -4270,6 +4779,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Volumes defines the collection of Volume to inject into the pod.
        * +optional
@@ -4281,8 +4792,7 @@ public final class V1alpha1Settings {
           java.lang.Iterable<? extends io.kubernetes.client.proto.V1.Volume> values) {
         if (volumesBuilder_ == null) {
           ensureVolumesIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, volumes_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(values, volumes_);
           onChanged();
         } else {
           volumesBuilder_.addAllMessages(values);
@@ -4290,6 +4800,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Volumes defines the collection of Volume to inject into the pod.
        * +optional
@@ -4308,6 +4820,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Volumes defines the collection of Volume to inject into the pod.
        * +optional
@@ -4326,6 +4840,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Volumes defines the collection of Volume to inject into the pod.
        * +optional
@@ -4333,11 +4849,12 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.Volume volumes = 4;</code>
        */
-      public io.kubernetes.client.proto.V1.Volume.Builder getVolumesBuilder(
-          int index) {
+      public io.kubernetes.client.proto.V1.Volume.Builder getVolumesBuilder(int index) {
         return getVolumesFieldBuilder().getBuilder(index);
       }
       /**
+       *
+       *
        * <pre>
        * Volumes defines the collection of Volume to inject into the pod.
        * +optional
@@ -4345,14 +4862,16 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.Volume volumes = 4;</code>
        */
-      public io.kubernetes.client.proto.V1.VolumeOrBuilder getVolumesOrBuilder(
-          int index) {
+      public io.kubernetes.client.proto.V1.VolumeOrBuilder getVolumesOrBuilder(int index) {
         if (volumesBuilder_ == null) {
-          return volumes_.get(index);  } else {
+          return volumes_.get(index);
+        } else {
           return volumesBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
+       *
+       *
        * <pre>
        * Volumes defines the collection of Volume to inject into the pod.
        * +optional
@@ -4360,8 +4879,8 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.Volume volumes = 4;</code>
        */
-      public java.util.List<? extends io.kubernetes.client.proto.V1.VolumeOrBuilder> 
-           getVolumesOrBuilderList() {
+      public java.util.List<? extends io.kubernetes.client.proto.V1.VolumeOrBuilder>
+          getVolumesOrBuilderList() {
         if (volumesBuilder_ != null) {
           return volumesBuilder_.getMessageOrBuilderList();
         } else {
@@ -4369,6 +4888,8 @@ public final class V1alpha1Settings {
         }
       }
       /**
+       *
+       *
        * <pre>
        * Volumes defines the collection of Volume to inject into the pod.
        * +optional
@@ -4377,10 +4898,12 @@ public final class V1alpha1Settings {
        * <code>repeated .k8s.io.api.core.v1.Volume volumes = 4;</code>
        */
       public io.kubernetes.client.proto.V1.Volume.Builder addVolumesBuilder() {
-        return getVolumesFieldBuilder().addBuilder(
-            io.kubernetes.client.proto.V1.Volume.getDefaultInstance());
+        return getVolumesFieldBuilder()
+            .addBuilder(io.kubernetes.client.proto.V1.Volume.getDefaultInstance());
       }
       /**
+       *
+       *
        * <pre>
        * Volumes defines the collection of Volume to inject into the pod.
        * +optional
@@ -4388,12 +4911,13 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.Volume volumes = 4;</code>
        */
-      public io.kubernetes.client.proto.V1.Volume.Builder addVolumesBuilder(
-          int index) {
-        return getVolumesFieldBuilder().addBuilder(
-            index, io.kubernetes.client.proto.V1.Volume.getDefaultInstance());
+      public io.kubernetes.client.proto.V1.Volume.Builder addVolumesBuilder(int index) {
+        return getVolumesFieldBuilder()
+            .addBuilder(index, io.kubernetes.client.proto.V1.Volume.getDefaultInstance());
       }
       /**
+       *
+       *
        * <pre>
        * Volumes defines the collection of Volume to inject into the pod.
        * +optional
@@ -4401,16 +4925,21 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.Volume volumes = 4;</code>
        */
-      public java.util.List<io.kubernetes.client.proto.V1.Volume.Builder> 
-           getVolumesBuilderList() {
+      public java.util.List<io.kubernetes.client.proto.V1.Volume.Builder> getVolumesBuilderList() {
         return getVolumesFieldBuilder().getBuilderList();
       }
+
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.kubernetes.client.proto.V1.Volume, io.kubernetes.client.proto.V1.Volume.Builder, io.kubernetes.client.proto.V1.VolumeOrBuilder> 
+              io.kubernetes.client.proto.V1.Volume,
+              io.kubernetes.client.proto.V1.Volume.Builder,
+              io.kubernetes.client.proto.V1.VolumeOrBuilder>
           getVolumesFieldBuilder() {
         if (volumesBuilder_ == null) {
-          volumesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              io.kubernetes.client.proto.V1.Volume, io.kubernetes.client.proto.V1.Volume.Builder, io.kubernetes.client.proto.V1.VolumeOrBuilder>(
+          volumesBuilder_ =
+              new com.google.protobuf.RepeatedFieldBuilderV3<
+                  io.kubernetes.client.proto.V1.Volume,
+                  io.kubernetes.client.proto.V1.Volume.Builder,
+                  io.kubernetes.client.proto.V1.VolumeOrBuilder>(
                   volumes_,
                   ((bitField0_ & 0x00000008) == 0x00000008),
                   getParentForChildren(),
@@ -4421,18 +4950,25 @@ public final class V1alpha1Settings {
       }
 
       private java.util.List<io.kubernetes.client.proto.V1.VolumeMount> volumeMounts_ =
-        java.util.Collections.emptyList();
+          java.util.Collections.emptyList();
+
       private void ensureVolumeMountsIsMutable() {
         if (!((bitField0_ & 0x00000010) == 0x00000010)) {
-          volumeMounts_ = new java.util.ArrayList<io.kubernetes.client.proto.V1.VolumeMount>(volumeMounts_);
+          volumeMounts_ =
+              new java.util.ArrayList<io.kubernetes.client.proto.V1.VolumeMount>(volumeMounts_);
           bitField0_ |= 0x00000010;
-         }
+        }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.kubernetes.client.proto.V1.VolumeMount, io.kubernetes.client.proto.V1.VolumeMount.Builder, io.kubernetes.client.proto.V1.VolumeMountOrBuilder> volumeMountsBuilder_;
+              io.kubernetes.client.proto.V1.VolumeMount,
+              io.kubernetes.client.proto.V1.VolumeMount.Builder,
+              io.kubernetes.client.proto.V1.VolumeMountOrBuilder>
+          volumeMountsBuilder_;
 
       /**
+       *
+       *
        * <pre>
        * VolumeMounts defines the collection of VolumeMount to inject into containers.
        * +optional
@@ -4448,6 +4984,8 @@ public final class V1alpha1Settings {
         }
       }
       /**
+       *
+       *
        * <pre>
        * VolumeMounts defines the collection of VolumeMount to inject into containers.
        * +optional
@@ -4463,6 +5001,8 @@ public final class V1alpha1Settings {
         }
       }
       /**
+       *
+       *
        * <pre>
        * VolumeMounts defines the collection of VolumeMount to inject into containers.
        * +optional
@@ -4478,6 +5018,8 @@ public final class V1alpha1Settings {
         }
       }
       /**
+       *
+       *
        * <pre>
        * VolumeMounts defines the collection of VolumeMount to inject into containers.
        * +optional
@@ -4485,8 +5027,7 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.VolumeMount volumeMounts = 5;</code>
        */
-      public Builder setVolumeMounts(
-          int index, io.kubernetes.client.proto.V1.VolumeMount value) {
+      public Builder setVolumeMounts(int index, io.kubernetes.client.proto.V1.VolumeMount value) {
         if (volumeMountsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4500,6 +5041,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * VolumeMounts defines the collection of VolumeMount to inject into containers.
        * +optional
@@ -4519,6 +5062,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * VolumeMounts defines the collection of VolumeMount to inject into containers.
        * +optional
@@ -4540,6 +5085,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * VolumeMounts defines the collection of VolumeMount to inject into containers.
        * +optional
@@ -4547,8 +5094,7 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.VolumeMount volumeMounts = 5;</code>
        */
-      public Builder addVolumeMounts(
-          int index, io.kubernetes.client.proto.V1.VolumeMount value) {
+      public Builder addVolumeMounts(int index, io.kubernetes.client.proto.V1.VolumeMount value) {
         if (volumeMountsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4562,6 +5108,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * VolumeMounts defines the collection of VolumeMount to inject into containers.
        * +optional
@@ -4581,6 +5129,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * VolumeMounts defines the collection of VolumeMount to inject into containers.
        * +optional
@@ -4600,6 +5150,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * VolumeMounts defines the collection of VolumeMount to inject into containers.
        * +optional
@@ -4611,8 +5163,7 @@ public final class V1alpha1Settings {
           java.lang.Iterable<? extends io.kubernetes.client.proto.V1.VolumeMount> values) {
         if (volumeMountsBuilder_ == null) {
           ensureVolumeMountsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, volumeMounts_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(values, volumeMounts_);
           onChanged();
         } else {
           volumeMountsBuilder_.addAllMessages(values);
@@ -4620,6 +5171,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * VolumeMounts defines the collection of VolumeMount to inject into containers.
        * +optional
@@ -4638,6 +5191,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * VolumeMounts defines the collection of VolumeMount to inject into containers.
        * +optional
@@ -4656,6 +5211,8 @@ public final class V1alpha1Settings {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * VolumeMounts defines the collection of VolumeMount to inject into containers.
        * +optional
@@ -4663,11 +5220,12 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.VolumeMount volumeMounts = 5;</code>
        */
-      public io.kubernetes.client.proto.V1.VolumeMount.Builder getVolumeMountsBuilder(
-          int index) {
+      public io.kubernetes.client.proto.V1.VolumeMount.Builder getVolumeMountsBuilder(int index) {
         return getVolumeMountsFieldBuilder().getBuilder(index);
       }
       /**
+       *
+       *
        * <pre>
        * VolumeMounts defines the collection of VolumeMount to inject into containers.
        * +optional
@@ -4678,11 +5236,14 @@ public final class V1alpha1Settings {
       public io.kubernetes.client.proto.V1.VolumeMountOrBuilder getVolumeMountsOrBuilder(
           int index) {
         if (volumeMountsBuilder_ == null) {
-          return volumeMounts_.get(index);  } else {
+          return volumeMounts_.get(index);
+        } else {
           return volumeMountsBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
+       *
+       *
        * <pre>
        * VolumeMounts defines the collection of VolumeMount to inject into containers.
        * +optional
@@ -4690,8 +5251,8 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.VolumeMount volumeMounts = 5;</code>
        */
-      public java.util.List<? extends io.kubernetes.client.proto.V1.VolumeMountOrBuilder> 
-           getVolumeMountsOrBuilderList() {
+      public java.util.List<? extends io.kubernetes.client.proto.V1.VolumeMountOrBuilder>
+          getVolumeMountsOrBuilderList() {
         if (volumeMountsBuilder_ != null) {
           return volumeMountsBuilder_.getMessageOrBuilderList();
         } else {
@@ -4699,6 +5260,8 @@ public final class V1alpha1Settings {
         }
       }
       /**
+       *
+       *
        * <pre>
        * VolumeMounts defines the collection of VolumeMount to inject into containers.
        * +optional
@@ -4707,10 +5270,12 @@ public final class V1alpha1Settings {
        * <code>repeated .k8s.io.api.core.v1.VolumeMount volumeMounts = 5;</code>
        */
       public io.kubernetes.client.proto.V1.VolumeMount.Builder addVolumeMountsBuilder() {
-        return getVolumeMountsFieldBuilder().addBuilder(
-            io.kubernetes.client.proto.V1.VolumeMount.getDefaultInstance());
+        return getVolumeMountsFieldBuilder()
+            .addBuilder(io.kubernetes.client.proto.V1.VolumeMount.getDefaultInstance());
       }
       /**
+       *
+       *
        * <pre>
        * VolumeMounts defines the collection of VolumeMount to inject into containers.
        * +optional
@@ -4718,12 +5283,13 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.VolumeMount volumeMounts = 5;</code>
        */
-      public io.kubernetes.client.proto.V1.VolumeMount.Builder addVolumeMountsBuilder(
-          int index) {
-        return getVolumeMountsFieldBuilder().addBuilder(
-            index, io.kubernetes.client.proto.V1.VolumeMount.getDefaultInstance());
+      public io.kubernetes.client.proto.V1.VolumeMount.Builder addVolumeMountsBuilder(int index) {
+        return getVolumeMountsFieldBuilder()
+            .addBuilder(index, io.kubernetes.client.proto.V1.VolumeMount.getDefaultInstance());
       }
       /**
+       *
+       *
        * <pre>
        * VolumeMounts defines the collection of VolumeMount to inject into containers.
        * +optional
@@ -4731,16 +5297,22 @@ public final class V1alpha1Settings {
        *
        * <code>repeated .k8s.io.api.core.v1.VolumeMount volumeMounts = 5;</code>
        */
-      public java.util.List<io.kubernetes.client.proto.V1.VolumeMount.Builder> 
-           getVolumeMountsBuilderList() {
+      public java.util.List<io.kubernetes.client.proto.V1.VolumeMount.Builder>
+          getVolumeMountsBuilderList() {
         return getVolumeMountsFieldBuilder().getBuilderList();
       }
+
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.kubernetes.client.proto.V1.VolumeMount, io.kubernetes.client.proto.V1.VolumeMount.Builder, io.kubernetes.client.proto.V1.VolumeMountOrBuilder> 
+              io.kubernetes.client.proto.V1.VolumeMount,
+              io.kubernetes.client.proto.V1.VolumeMount.Builder,
+              io.kubernetes.client.proto.V1.VolumeMountOrBuilder>
           getVolumeMountsFieldBuilder() {
         if (volumeMountsBuilder_ == null) {
-          volumeMountsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              io.kubernetes.client.proto.V1.VolumeMount, io.kubernetes.client.proto.V1.VolumeMount.Builder, io.kubernetes.client.proto.V1.VolumeMountOrBuilder>(
+          volumeMountsBuilder_ =
+              new com.google.protobuf.RepeatedFieldBuilderV3<
+                  io.kubernetes.client.proto.V1.VolumeMount,
+                  io.kubernetes.client.proto.V1.VolumeMount.Builder,
+                  io.kubernetes.client.proto.V1.VolumeMountOrBuilder>(
                   volumeMounts_,
                   ((bitField0_ & 0x00000010) == 0x00000010),
                   getParentForChildren(),
@@ -4749,6 +5321,7 @@ public final class V1alpha1Settings {
         }
         return volumeMountsBuilder_;
       }
+
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -4759,12 +5332,12 @@ public final class V1alpha1Settings {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:k8s.io.api.settings.v1alpha1.PodPresetSpec)
     }
 
     // @@protoc_insertion_point(class_scope:k8s.io.api.settings.v1alpha1.PodPresetSpec)
     private static final io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec DEFAULT_INSTANCE;
+
     static {
       DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec();
     }
@@ -4773,15 +5346,16 @@ public final class V1alpha1Settings {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<PodPresetSpec>
-        PARSER = new com.google.protobuf.AbstractParser<PodPresetSpec>() {
-      public PodPresetSpec parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new PodPresetSpec(input, extensionRegistry);
-      }
-    };
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<PodPresetSpec> PARSER =
+        new com.google.protobuf.AbstractParser<PodPresetSpec>() {
+          public PodPresetSpec parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new PodPresetSpec(input, extensionRegistry);
+          }
+        };
 
     public static com.google.protobuf.Parser<PodPresetSpec> parser() {
       return PARSER;
@@ -4795,93 +5369,96 @@ public final class V1alpha1Settings {
     public io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
-
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_k8s_io_api_settings_v1alpha1_PodPreset_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_settings_v1alpha1_PodPreset_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_settings_v1alpha1_PodPreset_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_k8s_io_api_settings_v1alpha1_PodPresetList_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_settings_v1alpha1_PodPresetList_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_settings_v1alpha1_PodPresetList_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_k8s_io_api_settings_v1alpha1_PodPresetSpec_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_settings_v1alpha1_PodPresetSpec_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_settings_v1alpha1_PodPresetSpec_fieldAccessorTable;
 
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
+  public static com.google.protobuf.Descriptors.FileDescriptor getDescriptor() {
     return descriptor;
   }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
+
+  private static com.google.protobuf.Descriptors.FileDescriptor descriptor;
+
   static {
     java.lang.String[] descriptorData = {
-      "\n,k8s.io/api/settings/v1alpha1/generated" +
-      ".proto\022\034k8s.io.api.settings.v1alpha1\032\"k8" +
-      "s.io/api/core/v1/generated.proto\0324k8s.io" +
-      "/apimachinery/pkg/apis/meta/v1/generated" +
-      ".proto\032/k8s.io/apimachinery/pkg/runtime/" +
-      "generated.proto\0326k8s.io/apimachinery/pkg" +
-      "/runtime/schema/generated.proto\0323k8s.io/" +
-      "apimachinery/pkg/util/intstr/generated.p" +
-      "roto\"\212\001\n\tPodPreset\022B\n\010metadata\030\001 \001(\01320.k" +
-      "8s.io.apimachinery.pkg.apis.meta.v1.Obje",
-      "ctMeta\0229\n\004spec\030\002 \001(\0132+.k8s.io.api.settin" +
-      "gs.v1alpha1.PodPresetSpec\"\211\001\n\rPodPresetL" +
-      "ist\022@\n\010metadata\030\001 \001(\0132..k8s.io.apimachin" +
-      "ery.pkg.apis.meta.v1.ListMeta\0226\n\005items\030\002" +
-      " \003(\0132\'.k8s.io.api.settings.v1alpha1.PodP" +
-      "reset\"\227\002\n\rPodPresetSpec\022E\n\010selector\030\001 \001(" +
-      "\01323.k8s.io.apimachinery.pkg.apis.meta.v1" +
-      ".LabelSelector\022\'\n\003env\030\002 \003(\0132\032.k8s.io.api" +
-      ".core.v1.EnvVar\0222\n\007envFrom\030\003 \003(\0132!.k8s.i" +
-      "o.api.core.v1.EnvFromSource\022+\n\007volumes\030\004",
-      " \003(\0132\032.k8s.io.api.core.v1.Volume\0225\n\014volu" +
-      "meMounts\030\005 \003(\0132\037.k8s.io.api.core.v1.Volu" +
-      "meMountB8\n\032io.kubernetes.client.protoB\020V" +
-      "1alpha1SettingsZ\010v1alpha1"
+      "\n,k8s.io/api/settings/v1alpha1/generated"
+          + ".proto\022\034k8s.io.api.settings.v1alpha1\032\"k8"
+          + "s.io/api/core/v1/generated.proto\0324k8s.io"
+          + "/apimachinery/pkg/apis/meta/v1/generated"
+          + ".proto\032/k8s.io/apimachinery/pkg/runtime/"
+          + "generated.proto\0326k8s.io/apimachinery/pkg"
+          + "/runtime/schema/generated.proto\0323k8s.io/"
+          + "apimachinery/pkg/util/intstr/generated.p"
+          + "roto\"\212\001\n\tPodPreset\022B\n\010metadata\030\001 \001(\01320.k"
+          + "8s.io.apimachinery.pkg.apis.meta.v1.Obje",
+      "ctMeta\0229\n\004spec\030\002 \001(\0132+.k8s.io.api.settin"
+          + "gs.v1alpha1.PodPresetSpec\"\211\001\n\rPodPresetL"
+          + "ist\022@\n\010metadata\030\001 \001(\0132..k8s.io.apimachin"
+          + "ery.pkg.apis.meta.v1.ListMeta\0226\n\005items\030\002"
+          + " \003(\0132\'.k8s.io.api.settings.v1alpha1.PodP"
+          + "reset\"\227\002\n\rPodPresetSpec\022E\n\010selector\030\001 \001("
+          + "\01323.k8s.io.apimachinery.pkg.apis.meta.v1"
+          + ".LabelSelector\022\'\n\003env\030\002 \003(\0132\032.k8s.io.api"
+          + ".core.v1.EnvVar\0222\n\007envFrom\030\003 \003(\0132!.k8s.i"
+          + "o.api.core.v1.EnvFromSource\022+\n\007volumes\030\004",
+      " \003(\0132\032.k8s.io.api.core.v1.Volume\0225\n\014volu"
+          + "meMounts\030\005 \003(\0132\037.k8s.io.api.core.v1.Volu"
+          + "meMountB8\n\032io.kubernetes.client.protoB\020V"
+          + "1alpha1SettingsZ\010v1alpha1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+        new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
           public com.google.protobuf.ExtensionRegistry assignDescriptors(
               com.google.protobuf.Descriptors.FileDescriptor root) {
             descriptor = root;
             return null;
           }
         };
-    com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
+    com.google.protobuf.Descriptors.FileDescriptor.internalBuildGeneratedFileFrom(
+        descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           io.kubernetes.client.proto.V1.getDescriptor(),
           io.kubernetes.client.proto.Meta.getDescriptor(),
           io.kubernetes.client.proto.Runtime.getDescriptor(),
           io.kubernetes.client.proto.RuntimeSchema.getDescriptor(),
           io.kubernetes.client.proto.IntStr.getDescriptor(),
-        }, assigner);
+        },
+        assigner);
     internal_static_k8s_io_api_settings_v1alpha1_PodPreset_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_k8s_io_api_settings_v1alpha1_PodPreset_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_k8s_io_api_settings_v1alpha1_PodPreset_descriptor,
-        new java.lang.String[] { "Metadata", "Spec", });
+        getDescriptor().getMessageTypes().get(0);
+    internal_static_k8s_io_api_settings_v1alpha1_PodPreset_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_settings_v1alpha1_PodPreset_descriptor,
+            new java.lang.String[] {
+              "Metadata", "Spec",
+            });
     internal_static_k8s_io_api_settings_v1alpha1_PodPresetList_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_k8s_io_api_settings_v1alpha1_PodPresetList_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_k8s_io_api_settings_v1alpha1_PodPresetList_descriptor,
-        new java.lang.String[] { "Metadata", "Items", });
+        getDescriptor().getMessageTypes().get(1);
+    internal_static_k8s_io_api_settings_v1alpha1_PodPresetList_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_settings_v1alpha1_PodPresetList_descriptor,
+            new java.lang.String[] {
+              "Metadata", "Items",
+            });
     internal_static_k8s_io_api_settings_v1alpha1_PodPresetSpec_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_k8s_io_api_settings_v1alpha1_PodPresetSpec_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_k8s_io_api_settings_v1alpha1_PodPresetSpec_descriptor,
-        new java.lang.String[] { "Selector", "Env", "EnvFrom", "Volumes", "VolumeMounts", });
+        getDescriptor().getMessageTypes().get(2);
+    internal_static_k8s_io_api_settings_v1alpha1_PodPresetSpec_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_settings_v1alpha1_PodPresetSpec_descriptor,
+            new java.lang.String[] {
+              "Selector", "Env", "EnvFrom", "Volumes", "VolumeMounts",
+            });
     io.kubernetes.client.proto.V1.getDescriptor();
     io.kubernetes.client.proto.Meta.getDescriptor();
     io.kubernetes.client.proto.Runtime.getDescriptor();

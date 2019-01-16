@@ -1,11 +1,11 @@
 package io.kubernetes.client.custom;
 
-import org.junit.Test;
-
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.*;
+
+import org.junit.Test;
 
 public class IntOrStringTest {
   @Test
@@ -103,6 +103,4 @@ public class IntOrStringTest {
 
     assertThat(intOrString1, not(equalTo(intOrString2)));
   }
-
-
 }

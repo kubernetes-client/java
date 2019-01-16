@@ -4,11 +4,9 @@ import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Objects;
-
 import org.apache.commons.lang3.ObjectUtils;
 
 @JsonAdapter(Quantity.QuantityAdapter.class)
@@ -18,7 +16,9 @@ public class Quantity {
   private Format format;
 
   public enum Format {
-    DECIMAL_EXPONENT(10), DECIMAL_SI(10), BINARY_SI(2);
+    DECIMAL_EXPONENT(10),
+    DECIMAL_SI(10),
+    BINARY_SI(2);
 
     private int base;
 
@@ -60,10 +60,7 @@ public class Quantity {
 
   @Override
   public String toString() {
-    return "Quantity{" +
-           "number=" + number +
-           ", format=" + format +
-           '}';
+    return "Quantity{" + "number=" + number + ", format=" + format + '}';
   }
 
   @Override
@@ -77,8 +74,8 @@ public class Quantity {
 
     Quantity otherQuantity = (Quantity) o;
 
-    return ObjectUtils.compare(this.number, otherQuantity.number) == 0 &&
-           Objects.equals(this.format, otherQuantity.format);
+    return ObjectUtils.compare(this.number, otherQuantity.number) == 0
+        && Objects.equals(this.format, otherQuantity.format);
   }
 
   public class QuantityAdapter extends TypeAdapter<Quantity> {

@@ -5,20 +5,21 @@ package io.kubernetes.client.proto;
 
 public final class V1Apps {
   private V1Apps() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
+
+  public static void registerAllExtensions(com.google.protobuf.ExtensionRegistryLite registry) {}
+
+  public static void registerAllExtensions(com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions((com.google.protobuf.ExtensionRegistryLite) registry);
   }
 
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
-  public interface DaemonSetOrBuilder extends
+  public interface DaemonSetOrBuilder
+      extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.apps.v1.DaemonSet)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     *
+     *
      * <pre>
      * Standard object's metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -29,6 +30,8 @@ public final class V1Apps {
      */
     boolean hasMetadata();
     /**
+     *
+     *
      * <pre>
      * Standard object's metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -39,6 +42,8 @@ public final class V1Apps {
      */
     io.kubernetes.client.proto.Meta.ObjectMeta getMetadata();
     /**
+     *
+     *
      * <pre>
      * Standard object's metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -50,6 +55,8 @@ public final class V1Apps {
     io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder getMetadataOrBuilder();
 
     /**
+     *
+     *
      * <pre>
      * The desired behavior of this daemon set.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -60,6 +67,8 @@ public final class V1Apps {
      */
     boolean hasSpec();
     /**
+     *
+     *
      * <pre>
      * The desired behavior of this daemon set.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -70,6 +79,8 @@ public final class V1Apps {
      */
     io.kubernetes.client.proto.V1Apps.DaemonSetSpec getSpec();
     /**
+     *
+     *
      * <pre>
      * The desired behavior of this daemon set.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -81,6 +92,8 @@ public final class V1Apps {
     io.kubernetes.client.proto.V1Apps.DaemonSetSpecOrBuilder getSpecOrBuilder();
 
     /**
+     *
+     *
      * <pre>
      * The current status of this daemon set. This data may be
      * out of date by some window of time.
@@ -94,6 +107,8 @@ public final class V1Apps {
      */
     boolean hasStatus();
     /**
+     *
+     *
      * <pre>
      * The current status of this daemon set. This data may be
      * out of date by some window of time.
@@ -107,6 +122,8 @@ public final class V1Apps {
      */
     io.kubernetes.client.proto.V1Apps.DaemonSetStatus getStatus();
     /**
+     *
+     *
      * <pre>
      * The current status of this daemon set. This data may be
      * out of date by some window of time.
@@ -121,29 +138,31 @@ public final class V1Apps {
     io.kubernetes.client.proto.V1Apps.DaemonSetStatusOrBuilder getStatusOrBuilder();
   }
   /**
+   *
+   *
    * <pre>
    * DaemonSet represents the configuration of a daemon set.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.apps.v1.DaemonSet}
    */
-  public  static final class DaemonSet extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  public static final class DaemonSet extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:k8s.io.api.apps.v1.DaemonSet)
       DaemonSetOrBuilder {
-  private static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
     // Use DaemonSet.newBuilder() to construct.
     private DaemonSet(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private DaemonSet() {
-    }
+
+    private DaemonSet() {}
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
       return this.unknownFields;
     }
+
     private DaemonSet(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -160,80 +179,94 @@ public final class V1Apps {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
               }
-              break;
-            }
-            case 10: {
-              io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                subBuilder = metadata_.toBuilder();
+            case 10:
+              {
+                io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                  subBuilder = metadata_.toBuilder();
+                }
+                metadata_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.ObjectMeta.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(metadata_);
+                  metadata_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000001;
+                break;
               }
-              metadata_ = input.readMessage(io.kubernetes.client.proto.Meta.ObjectMeta.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(metadata_);
-                metadata_ = subBuilder.buildPartial();
+            case 18:
+              {
+                io.kubernetes.client.proto.V1Apps.DaemonSetSpec.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                  subBuilder = spec_.toBuilder();
+                }
+                spec_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1Apps.DaemonSetSpec.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(spec_);
+                  spec_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000002;
+                break;
               }
-              bitField0_ |= 0x00000001;
-              break;
-            }
-            case 18: {
-              io.kubernetes.client.proto.V1Apps.DaemonSetSpec.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                subBuilder = spec_.toBuilder();
+            case 26:
+              {
+                io.kubernetes.client.proto.V1Apps.DaemonSetStatus.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                  subBuilder = status_.toBuilder();
+                }
+                status_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1Apps.DaemonSetStatus.PARSER,
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(status_);
+                  status_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000004;
+                break;
               }
-              spec_ = input.readMessage(io.kubernetes.client.proto.V1Apps.DaemonSetSpec.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(spec_);
-                spec_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000002;
-              break;
-            }
-            case 26: {
-              io.kubernetes.client.proto.V1Apps.DaemonSetStatus.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                subBuilder = status_.toBuilder();
-              }
-              status_ = input.readMessage(io.kubernetes.client.proto.V1Apps.DaemonSetStatus.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(status_);
-                status_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000004;
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_DaemonSet_descriptor;
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1Apps
+          .internal_static_k8s_io_api_apps_v1_DaemonSet_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_DaemonSet_fieldAccessorTable
+      return io.kubernetes.client.proto.V1Apps
+          .internal_static_k8s_io_api_apps_v1_DaemonSet_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.kubernetes.client.proto.V1Apps.DaemonSet.class, io.kubernetes.client.proto.V1Apps.DaemonSet.Builder.class);
+              io.kubernetes.client.proto.V1Apps.DaemonSet.class,
+              io.kubernetes.client.proto.V1Apps.DaemonSet.Builder.class);
     }
 
     private int bitField0_;
     public static final int METADATA_FIELD_NUMBER = 1;
     private io.kubernetes.client.proto.Meta.ObjectMeta metadata_;
     /**
+     *
+     *
      * <pre>
      * Standard object's metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -246,6 +279,8 @@ public final class V1Apps {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
+     *
+     *
      * <pre>
      * Standard object's metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -255,9 +290,13 @@ public final class V1Apps {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
      */
     public io.kubernetes.client.proto.Meta.ObjectMeta getMetadata() {
-      return metadata_ == null ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance() : metadata_;
+      return metadata_ == null
+          ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()
+          : metadata_;
     }
     /**
+     *
+     *
      * <pre>
      * Standard object's metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -267,12 +306,16 @@ public final class V1Apps {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
      */
     public io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder getMetadataOrBuilder() {
-      return metadata_ == null ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance() : metadata_;
+      return metadata_ == null
+          ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()
+          : metadata_;
     }
 
     public static final int SPEC_FIELD_NUMBER = 2;
     private io.kubernetes.client.proto.V1Apps.DaemonSetSpec spec_;
     /**
+     *
+     *
      * <pre>
      * The desired behavior of this daemon set.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -285,6 +328,8 @@ public final class V1Apps {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
+     *
+     *
      * <pre>
      * The desired behavior of this daemon set.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -294,9 +339,13 @@ public final class V1Apps {
      * <code>optional .k8s.io.api.apps.v1.DaemonSetSpec spec = 2;</code>
      */
     public io.kubernetes.client.proto.V1Apps.DaemonSetSpec getSpec() {
-      return spec_ == null ? io.kubernetes.client.proto.V1Apps.DaemonSetSpec.getDefaultInstance() : spec_;
+      return spec_ == null
+          ? io.kubernetes.client.proto.V1Apps.DaemonSetSpec.getDefaultInstance()
+          : spec_;
     }
     /**
+     *
+     *
      * <pre>
      * The desired behavior of this daemon set.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -306,12 +355,16 @@ public final class V1Apps {
      * <code>optional .k8s.io.api.apps.v1.DaemonSetSpec spec = 2;</code>
      */
     public io.kubernetes.client.proto.V1Apps.DaemonSetSpecOrBuilder getSpecOrBuilder() {
-      return spec_ == null ? io.kubernetes.client.proto.V1Apps.DaemonSetSpec.getDefaultInstance() : spec_;
+      return spec_ == null
+          ? io.kubernetes.client.proto.V1Apps.DaemonSetSpec.getDefaultInstance()
+          : spec_;
     }
 
     public static final int STATUS_FIELD_NUMBER = 3;
     private io.kubernetes.client.proto.V1Apps.DaemonSetStatus status_;
     /**
+     *
+     *
      * <pre>
      * The current status of this daemon set. This data may be
      * out of date by some window of time.
@@ -327,6 +380,8 @@ public final class V1Apps {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
+     *
+     *
      * <pre>
      * The current status of this daemon set. This data may be
      * out of date by some window of time.
@@ -339,9 +394,13 @@ public final class V1Apps {
      * <code>optional .k8s.io.api.apps.v1.DaemonSetStatus status = 3;</code>
      */
     public io.kubernetes.client.proto.V1Apps.DaemonSetStatus getStatus() {
-      return status_ == null ? io.kubernetes.client.proto.V1Apps.DaemonSetStatus.getDefaultInstance() : status_;
+      return status_ == null
+          ? io.kubernetes.client.proto.V1Apps.DaemonSetStatus.getDefaultInstance()
+          : status_;
     }
     /**
+     *
+     *
      * <pre>
      * The current status of this daemon set. This data may be
      * out of date by some window of time.
@@ -354,10 +413,13 @@ public final class V1Apps {
      * <code>optional .k8s.io.api.apps.v1.DaemonSetStatus status = 3;</code>
      */
     public io.kubernetes.client.proto.V1Apps.DaemonSetStatusOrBuilder getStatusOrBuilder() {
-      return status_ == null ? io.kubernetes.client.proto.V1Apps.DaemonSetStatus.getDefaultInstance() : status_;
+      return status_ == null
+          ? io.kubernetes.client.proto.V1Apps.DaemonSetStatus.getDefaultInstance()
+          : status_;
     }
 
     private byte memoizedIsInitialized = -1;
+
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -367,8 +429,7 @@ public final class V1Apps {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeMessage(1, getMetadata());
       }
@@ -387,16 +448,13 @@ public final class V1Apps {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getMetadata());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, getMetadata());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getSpec());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, getSpec());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getStatus());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(3, getStatus());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -406,28 +464,26 @@ public final class V1Apps {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof io.kubernetes.client.proto.V1Apps.DaemonSet)) {
         return super.equals(obj);
       }
-      io.kubernetes.client.proto.V1Apps.DaemonSet other = (io.kubernetes.client.proto.V1Apps.DaemonSet) obj;
+      io.kubernetes.client.proto.V1Apps.DaemonSet other =
+          (io.kubernetes.client.proto.V1Apps.DaemonSet) obj;
 
       boolean result = true;
       result = result && (hasMetadata() == other.hasMetadata());
       if (hasMetadata()) {
-        result = result && getMetadata()
-            .equals(other.getMetadata());
+        result = result && getMetadata().equals(other.getMetadata());
       }
       result = result && (hasSpec() == other.hasSpec());
       if (hasSpec()) {
-        result = result && getSpec()
-            .equals(other.getSpec());
+        result = result && getSpec().equals(other.getSpec());
       }
       result = result && (hasStatus() == other.hasStatus());
       if (hasStatus()) {
-        result = result && getStatus()
-            .equals(other.getStatus());
+        result = result && getStatus().equals(other.getStatus());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -457,86 +513,92 @@ public final class V1Apps {
       return hash;
     }
 
-    public static io.kubernetes.client.proto.V1Apps.DaemonSet parseFrom(
-        java.nio.ByteBuffer data)
+    public static io.kubernetes.client.proto.V1Apps.DaemonSet parseFrom(java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSet parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSet parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSet parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSet parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSet parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSet parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSet parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
-    public static io.kubernetes.client.proto.V1Apps.DaemonSet parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSet parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
     }
+
+    public static io.kubernetes.client.proto.V1Apps.DaemonSet parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSet parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSet parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
+
     public static Builder newBuilder(io.kubernetes.client.proto.V1Apps.DaemonSet prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -546,26 +608,31 @@ public final class V1Apps {
       return builder;
     }
     /**
+     *
+     *
      * <pre>
      * DaemonSet represents the configuration of a daemon set.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.apps.v1.DaemonSet}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:k8s.io.api.apps.v1.DaemonSet)
         io.kubernetes.client.proto.V1Apps.DaemonSetOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_DaemonSet_descriptor;
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1Apps
+            .internal_static_k8s_io_api_apps_v1_DaemonSet_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_DaemonSet_fieldAccessorTable
+        return io.kubernetes.client.proto.V1Apps
+            .internal_static_k8s_io_api_apps_v1_DaemonSet_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.kubernetes.client.proto.V1Apps.DaemonSet.class, io.kubernetes.client.proto.V1Apps.DaemonSet.Builder.class);
+                io.kubernetes.client.proto.V1Apps.DaemonSet.class,
+                io.kubernetes.client.proto.V1Apps.DaemonSet.Builder.class);
       }
 
       // Construct using io.kubernetes.client.proto.V1Apps.DaemonSet.newBuilder()
@@ -573,19 +640,19 @@ public final class V1Apps {
         maybeForceBuilderInitialization();
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
+
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
           getMetadataFieldBuilder();
           getSpecFieldBuilder();
           getStatusFieldBuilder();
         }
       }
+
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -609,9 +676,9 @@ public final class V1Apps {
         return this;
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_DaemonSet_descriptor;
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Apps
+            .internal_static_k8s_io_api_apps_v1_DaemonSet_descriptor;
       }
 
       public io.kubernetes.client.proto.V1Apps.DaemonSet getDefaultInstanceForType() {
@@ -627,7 +694,8 @@ public final class V1Apps {
       }
 
       public io.kubernetes.client.proto.V1Apps.DaemonSet buildPartial() {
-        io.kubernetes.client.proto.V1Apps.DaemonSet result = new io.kubernetes.client.proto.V1Apps.DaemonSet(this);
+        io.kubernetes.client.proto.V1Apps.DaemonSet result =
+            new io.kubernetes.client.proto.V1Apps.DaemonSet(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -662,32 +730,35 @@ public final class V1Apps {
       public Builder clone() {
         return (Builder) super.clone();
       }
+
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Apps.DaemonSet) {
-          return mergeFrom((io.kubernetes.client.proto.V1Apps.DaemonSet)other);
+          return mergeFrom((io.kubernetes.client.proto.V1Apps.DaemonSet) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -731,12 +802,18 @@ public final class V1Apps {
         }
         return this;
       }
+
       private int bitField0_;
 
       private io.kubernetes.client.proto.Meta.ObjectMeta metadata_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.ObjectMeta, io.kubernetes.client.proto.Meta.ObjectMeta.Builder, io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder> metadataBuilder_;
+              io.kubernetes.client.proto.Meta.ObjectMeta,
+              io.kubernetes.client.proto.Meta.ObjectMeta.Builder,
+              io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder>
+          metadataBuilder_;
       /**
+       *
+       *
        * <pre>
        * Standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -749,6 +826,8 @@ public final class V1Apps {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
+       *
+       *
        * <pre>
        * Standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -759,12 +838,16 @@ public final class V1Apps {
        */
       public io.kubernetes.client.proto.Meta.ObjectMeta getMetadata() {
         if (metadataBuilder_ == null) {
-          return metadata_ == null ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance() : metadata_;
+          return metadata_ == null
+              ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()
+              : metadata_;
         } else {
           return metadataBuilder_.getMessage();
         }
       }
       /**
+       *
+       *
        * <pre>
        * Standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -787,6 +870,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -807,6 +892,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -817,11 +904,13 @@ public final class V1Apps {
        */
       public Builder mergeMetadata(io.kubernetes.client.proto.Meta.ObjectMeta value) {
         if (metadataBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              metadata_ != null &&
-              metadata_ != io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)
+              && metadata_ != null
+              && metadata_ != io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()) {
             metadata_ =
-              io.kubernetes.client.proto.Meta.ObjectMeta.newBuilder(metadata_).mergeFrom(value).buildPartial();
+                io.kubernetes.client.proto.Meta.ObjectMeta.newBuilder(metadata_)
+                    .mergeFrom(value)
+                    .buildPartial();
           } else {
             metadata_ = value;
           }
@@ -833,6 +922,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -852,6 +943,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -866,6 +959,8 @@ public final class V1Apps {
         return getMetadataFieldBuilder().getBuilder();
       }
       /**
+       *
+       *
        * <pre>
        * Standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -878,11 +973,14 @@ public final class V1Apps {
         if (metadataBuilder_ != null) {
           return metadataBuilder_.getMessageOrBuilder();
         } else {
-          return metadata_ == null ?
-              io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance() : metadata_;
+          return metadata_ == null
+              ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()
+              : metadata_;
         }
       }
       /**
+       *
+       *
        * <pre>
        * Standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -892,14 +990,17 @@ public final class V1Apps {
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.ObjectMeta, io.kubernetes.client.proto.Meta.ObjectMeta.Builder, io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder> 
+              io.kubernetes.client.proto.Meta.ObjectMeta,
+              io.kubernetes.client.proto.Meta.ObjectMeta.Builder,
+              io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder>
           getMetadataFieldBuilder() {
         if (metadataBuilder_ == null) {
-          metadataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.Meta.ObjectMeta, io.kubernetes.client.proto.Meta.ObjectMeta.Builder, io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder>(
-                  getMetadata(),
-                  getParentForChildren(),
-                  isClean());
+          metadataBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.ObjectMeta,
+                  io.kubernetes.client.proto.Meta.ObjectMeta.Builder,
+                  io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder>(
+                  getMetadata(), getParentForChildren(), isClean());
           metadata_ = null;
         }
         return metadataBuilder_;
@@ -907,8 +1008,13 @@ public final class V1Apps {
 
       private io.kubernetes.client.proto.V1Apps.DaemonSetSpec spec_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.V1Apps.DaemonSetSpec, io.kubernetes.client.proto.V1Apps.DaemonSetSpec.Builder, io.kubernetes.client.proto.V1Apps.DaemonSetSpecOrBuilder> specBuilder_;
+              io.kubernetes.client.proto.V1Apps.DaemonSetSpec,
+              io.kubernetes.client.proto.V1Apps.DaemonSetSpec.Builder,
+              io.kubernetes.client.proto.V1Apps.DaemonSetSpecOrBuilder>
+          specBuilder_;
       /**
+       *
+       *
        * <pre>
        * The desired behavior of this daemon set.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -921,6 +1027,8 @@ public final class V1Apps {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
+       *
+       *
        * <pre>
        * The desired behavior of this daemon set.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -931,12 +1039,16 @@ public final class V1Apps {
        */
       public io.kubernetes.client.proto.V1Apps.DaemonSetSpec getSpec() {
         if (specBuilder_ == null) {
-          return spec_ == null ? io.kubernetes.client.proto.V1Apps.DaemonSetSpec.getDefaultInstance() : spec_;
+          return spec_ == null
+              ? io.kubernetes.client.proto.V1Apps.DaemonSetSpec.getDefaultInstance()
+              : spec_;
         } else {
           return specBuilder_.getMessage();
         }
       }
       /**
+       *
+       *
        * <pre>
        * The desired behavior of this daemon set.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -959,6 +1071,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The desired behavior of this daemon set.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -979,6 +1093,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The desired behavior of this daemon set.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -989,11 +1105,13 @@ public final class V1Apps {
        */
       public Builder mergeSpec(io.kubernetes.client.proto.V1Apps.DaemonSetSpec value) {
         if (specBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              spec_ != null &&
-              spec_ != io.kubernetes.client.proto.V1Apps.DaemonSetSpec.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)
+              && spec_ != null
+              && spec_ != io.kubernetes.client.proto.V1Apps.DaemonSetSpec.getDefaultInstance()) {
             spec_ =
-              io.kubernetes.client.proto.V1Apps.DaemonSetSpec.newBuilder(spec_).mergeFrom(value).buildPartial();
+                io.kubernetes.client.proto.V1Apps.DaemonSetSpec.newBuilder(spec_)
+                    .mergeFrom(value)
+                    .buildPartial();
           } else {
             spec_ = value;
           }
@@ -1005,6 +1123,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The desired behavior of this daemon set.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -1024,6 +1144,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The desired behavior of this daemon set.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -1038,6 +1160,8 @@ public final class V1Apps {
         return getSpecFieldBuilder().getBuilder();
       }
       /**
+       *
+       *
        * <pre>
        * The desired behavior of this daemon set.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -1050,11 +1174,14 @@ public final class V1Apps {
         if (specBuilder_ != null) {
           return specBuilder_.getMessageOrBuilder();
         } else {
-          return spec_ == null ?
-              io.kubernetes.client.proto.V1Apps.DaemonSetSpec.getDefaultInstance() : spec_;
+          return spec_ == null
+              ? io.kubernetes.client.proto.V1Apps.DaemonSetSpec.getDefaultInstance()
+              : spec_;
         }
       }
       /**
+       *
+       *
        * <pre>
        * The desired behavior of this daemon set.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -1064,14 +1191,17 @@ public final class V1Apps {
        * <code>optional .k8s.io.api.apps.v1.DaemonSetSpec spec = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.V1Apps.DaemonSetSpec, io.kubernetes.client.proto.V1Apps.DaemonSetSpec.Builder, io.kubernetes.client.proto.V1Apps.DaemonSetSpecOrBuilder> 
+              io.kubernetes.client.proto.V1Apps.DaemonSetSpec,
+              io.kubernetes.client.proto.V1Apps.DaemonSetSpec.Builder,
+              io.kubernetes.client.proto.V1Apps.DaemonSetSpecOrBuilder>
           getSpecFieldBuilder() {
         if (specBuilder_ == null) {
-          specBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.V1Apps.DaemonSetSpec, io.kubernetes.client.proto.V1Apps.DaemonSetSpec.Builder, io.kubernetes.client.proto.V1Apps.DaemonSetSpecOrBuilder>(
-                  getSpec(),
-                  getParentForChildren(),
-                  isClean());
+          specBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.V1Apps.DaemonSetSpec,
+                  io.kubernetes.client.proto.V1Apps.DaemonSetSpec.Builder,
+                  io.kubernetes.client.proto.V1Apps.DaemonSetSpecOrBuilder>(
+                  getSpec(), getParentForChildren(), isClean());
           spec_ = null;
         }
         return specBuilder_;
@@ -1079,8 +1209,13 @@ public final class V1Apps {
 
       private io.kubernetes.client.proto.V1Apps.DaemonSetStatus status_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.V1Apps.DaemonSetStatus, io.kubernetes.client.proto.V1Apps.DaemonSetStatus.Builder, io.kubernetes.client.proto.V1Apps.DaemonSetStatusOrBuilder> statusBuilder_;
+              io.kubernetes.client.proto.V1Apps.DaemonSetStatus,
+              io.kubernetes.client.proto.V1Apps.DaemonSetStatus.Builder,
+              io.kubernetes.client.proto.V1Apps.DaemonSetStatusOrBuilder>
+          statusBuilder_;
       /**
+       *
+       *
        * <pre>
        * The current status of this daemon set. This data may be
        * out of date by some window of time.
@@ -1096,6 +1231,8 @@ public final class V1Apps {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
+       *
+       *
        * <pre>
        * The current status of this daemon set. This data may be
        * out of date by some window of time.
@@ -1109,12 +1246,16 @@ public final class V1Apps {
        */
       public io.kubernetes.client.proto.V1Apps.DaemonSetStatus getStatus() {
         if (statusBuilder_ == null) {
-          return status_ == null ? io.kubernetes.client.proto.V1Apps.DaemonSetStatus.getDefaultInstance() : status_;
+          return status_ == null
+              ? io.kubernetes.client.proto.V1Apps.DaemonSetStatus.getDefaultInstance()
+              : status_;
         } else {
           return statusBuilder_.getMessage();
         }
       }
       /**
+       *
+       *
        * <pre>
        * The current status of this daemon set. This data may be
        * out of date by some window of time.
@@ -1140,6 +1281,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The current status of this daemon set. This data may be
        * out of date by some window of time.
@@ -1163,6 +1306,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The current status of this daemon set. This data may be
        * out of date by some window of time.
@@ -1176,11 +1321,14 @@ public final class V1Apps {
        */
       public Builder mergeStatus(io.kubernetes.client.proto.V1Apps.DaemonSetStatus value) {
         if (statusBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004) &&
-              status_ != null &&
-              status_ != io.kubernetes.client.proto.V1Apps.DaemonSetStatus.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)
+              && status_ != null
+              && status_
+                  != io.kubernetes.client.proto.V1Apps.DaemonSetStatus.getDefaultInstance()) {
             status_ =
-              io.kubernetes.client.proto.V1Apps.DaemonSetStatus.newBuilder(status_).mergeFrom(value).buildPartial();
+                io.kubernetes.client.proto.V1Apps.DaemonSetStatus.newBuilder(status_)
+                    .mergeFrom(value)
+                    .buildPartial();
           } else {
             status_ = value;
           }
@@ -1192,6 +1340,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The current status of this daemon set. This data may be
        * out of date by some window of time.
@@ -1214,6 +1364,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The current status of this daemon set. This data may be
        * out of date by some window of time.
@@ -1231,6 +1383,8 @@ public final class V1Apps {
         return getStatusFieldBuilder().getBuilder();
       }
       /**
+       *
+       *
        * <pre>
        * The current status of this daemon set. This data may be
        * out of date by some window of time.
@@ -1246,11 +1400,14 @@ public final class V1Apps {
         if (statusBuilder_ != null) {
           return statusBuilder_.getMessageOrBuilder();
         } else {
-          return status_ == null ?
-              io.kubernetes.client.proto.V1Apps.DaemonSetStatus.getDefaultInstance() : status_;
+          return status_ == null
+              ? io.kubernetes.client.proto.V1Apps.DaemonSetStatus.getDefaultInstance()
+              : status_;
         }
       }
       /**
+       *
+       *
        * <pre>
        * The current status of this daemon set. This data may be
        * out of date by some window of time.
@@ -1263,18 +1420,22 @@ public final class V1Apps {
        * <code>optional .k8s.io.api.apps.v1.DaemonSetStatus status = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.V1Apps.DaemonSetStatus, io.kubernetes.client.proto.V1Apps.DaemonSetStatus.Builder, io.kubernetes.client.proto.V1Apps.DaemonSetStatusOrBuilder> 
+              io.kubernetes.client.proto.V1Apps.DaemonSetStatus,
+              io.kubernetes.client.proto.V1Apps.DaemonSetStatus.Builder,
+              io.kubernetes.client.proto.V1Apps.DaemonSetStatusOrBuilder>
           getStatusFieldBuilder() {
         if (statusBuilder_ == null) {
-          statusBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.V1Apps.DaemonSetStatus, io.kubernetes.client.proto.V1Apps.DaemonSetStatus.Builder, io.kubernetes.client.proto.V1Apps.DaemonSetStatusOrBuilder>(
-                  getStatus(),
-                  getParentForChildren(),
-                  isClean());
+          statusBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.V1Apps.DaemonSetStatus,
+                  io.kubernetes.client.proto.V1Apps.DaemonSetStatus.Builder,
+                  io.kubernetes.client.proto.V1Apps.DaemonSetStatusOrBuilder>(
+                  getStatus(), getParentForChildren(), isClean());
           status_ = null;
         }
         return statusBuilder_;
       }
+
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -1285,12 +1446,12 @@ public final class V1Apps {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:k8s.io.api.apps.v1.DaemonSet)
     }
 
     // @@protoc_insertion_point(class_scope:k8s.io.api.apps.v1.DaemonSet)
     private static final io.kubernetes.client.proto.V1Apps.DaemonSet DEFAULT_INSTANCE;
+
     static {
       DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Apps.DaemonSet();
     }
@@ -1299,15 +1460,16 @@ public final class V1Apps {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<DaemonSet>
-        PARSER = new com.google.protobuf.AbstractParser<DaemonSet>() {
-      public DaemonSet parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new DaemonSet(input, extensionRegistry);
-      }
-    };
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<DaemonSet> PARSER =
+        new com.google.protobuf.AbstractParser<DaemonSet>() {
+          public DaemonSet parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new DaemonSet(input, extensionRegistry);
+          }
+        };
 
     public static com.google.protobuf.Parser<DaemonSet> parser() {
       return PARSER;
@@ -1321,14 +1483,16 @@ public final class V1Apps {
     public io.kubernetes.client.proto.V1Apps.DaemonSet getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
-
   }
 
-  public interface DaemonSetListOrBuilder extends
+  public interface DaemonSetListOrBuilder
+      extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.apps.v1.DaemonSetList)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     *
+     *
      * <pre>
      * Standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -1339,6 +1503,8 @@ public final class V1Apps {
      */
     boolean hasMetadata();
     /**
+     *
+     *
      * <pre>
      * Standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -1349,6 +1515,8 @@ public final class V1Apps {
      */
     io.kubernetes.client.proto.Meta.ListMeta getMetadata();
     /**
+     *
+     *
      * <pre>
      * Standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -1360,15 +1528,18 @@ public final class V1Apps {
     io.kubernetes.client.proto.Meta.ListMetaOrBuilder getMetadataOrBuilder();
 
     /**
+     *
+     *
      * <pre>
      * A list of daemon sets.
      * </pre>
      *
      * <code>repeated .k8s.io.api.apps.v1.DaemonSet items = 2;</code>
      */
-    java.util.List<io.kubernetes.client.proto.V1Apps.DaemonSet> 
-        getItemsList();
+    java.util.List<io.kubernetes.client.proto.V1Apps.DaemonSet> getItemsList();
     /**
+     *
+     *
      * <pre>
      * A list of daemon sets.
      * </pre>
@@ -1377,6 +1548,8 @@ public final class V1Apps {
      */
     io.kubernetes.client.proto.V1Apps.DaemonSet getItems(int index);
     /**
+     *
+     *
      * <pre>
      * A list of daemon sets.
      * </pre>
@@ -1385,49 +1558,55 @@ public final class V1Apps {
      */
     int getItemsCount();
     /**
+     *
+     *
      * <pre>
      * A list of daemon sets.
      * </pre>
      *
      * <code>repeated .k8s.io.api.apps.v1.DaemonSet items = 2;</code>
      */
-    java.util.List<? extends io.kubernetes.client.proto.V1Apps.DaemonSetOrBuilder> 
+    java.util.List<? extends io.kubernetes.client.proto.V1Apps.DaemonSetOrBuilder>
         getItemsOrBuilderList();
     /**
+     *
+     *
      * <pre>
      * A list of daemon sets.
      * </pre>
      *
      * <code>repeated .k8s.io.api.apps.v1.DaemonSet items = 2;</code>
      */
-    io.kubernetes.client.proto.V1Apps.DaemonSetOrBuilder getItemsOrBuilder(
-        int index);
+    io.kubernetes.client.proto.V1Apps.DaemonSetOrBuilder getItemsOrBuilder(int index);
   }
   /**
+   *
+   *
    * <pre>
    * DaemonSetList is a collection of daemon sets.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.apps.v1.DaemonSetList}
    */
-  public  static final class DaemonSetList extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  public static final class DaemonSetList extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:k8s.io.api.apps.v1.DaemonSetList)
       DaemonSetListOrBuilder {
-  private static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
     // Use DaemonSetList.newBuilder() to construct.
     private DaemonSetList(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private DaemonSetList() {
       items_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
       return this.unknownFields;
     }
+
     private DaemonSetList(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1444,42 +1623,46 @@ public final class V1Apps {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
               }
-              break;
-            }
-            case 10: {
-              io.kubernetes.client.proto.Meta.ListMeta.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                subBuilder = metadata_.toBuilder();
+            case 10:
+              {
+                io.kubernetes.client.proto.Meta.ListMeta.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                  subBuilder = metadata_.toBuilder();
+                }
+                metadata_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.ListMeta.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(metadata_);
+                  metadata_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000001;
+                break;
               }
-              metadata_ = input.readMessage(io.kubernetes.client.proto.Meta.ListMeta.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(metadata_);
-                metadata_ = subBuilder.buildPartial();
+            case 18:
+              {
+                if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                  items_ = new java.util.ArrayList<io.kubernetes.client.proto.V1Apps.DaemonSet>();
+                  mutable_bitField0_ |= 0x00000002;
+                }
+                items_.add(
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1Apps.DaemonSet.PARSER, extensionRegistry));
+                break;
               }
-              bitField0_ |= 0x00000001;
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                items_ = new java.util.ArrayList<io.kubernetes.client.proto.V1Apps.DaemonSet>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              items_.add(
-                  input.readMessage(io.kubernetes.client.proto.V1Apps.DaemonSet.PARSER, extensionRegistry));
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
           items_ = java.util.Collections.unmodifiableList(items_);
@@ -1488,22 +1671,27 @@ public final class V1Apps {
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_DaemonSetList_descriptor;
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1Apps
+          .internal_static_k8s_io_api_apps_v1_DaemonSetList_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_DaemonSetList_fieldAccessorTable
+      return io.kubernetes.client.proto.V1Apps
+          .internal_static_k8s_io_api_apps_v1_DaemonSetList_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.kubernetes.client.proto.V1Apps.DaemonSetList.class, io.kubernetes.client.proto.V1Apps.DaemonSetList.Builder.class);
+              io.kubernetes.client.proto.V1Apps.DaemonSetList.class,
+              io.kubernetes.client.proto.V1Apps.DaemonSetList.Builder.class);
     }
 
     private int bitField0_;
     public static final int METADATA_FIELD_NUMBER = 1;
     private io.kubernetes.client.proto.Meta.ListMeta metadata_;
     /**
+     *
+     *
      * <pre>
      * Standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -1516,6 +1704,8 @@ public final class V1Apps {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
+     *
+     *
      * <pre>
      * Standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -1525,9 +1715,13 @@ public final class V1Apps {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
      */
     public io.kubernetes.client.proto.Meta.ListMeta getMetadata() {
-      return metadata_ == null ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance() : metadata_;
+      return metadata_ == null
+          ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()
+          : metadata_;
     }
     /**
+     *
+     *
      * <pre>
      * Standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -1537,12 +1731,16 @@ public final class V1Apps {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
      */
     public io.kubernetes.client.proto.Meta.ListMetaOrBuilder getMetadataOrBuilder() {
-      return metadata_ == null ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance() : metadata_;
+      return metadata_ == null
+          ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()
+          : metadata_;
     }
 
     public static final int ITEMS_FIELD_NUMBER = 2;
     private java.util.List<io.kubernetes.client.proto.V1Apps.DaemonSet> items_;
     /**
+     *
+     *
      * <pre>
      * A list of daemon sets.
      * </pre>
@@ -1553,17 +1751,21 @@ public final class V1Apps {
       return items_;
     }
     /**
+     *
+     *
      * <pre>
      * A list of daemon sets.
      * </pre>
      *
      * <code>repeated .k8s.io.api.apps.v1.DaemonSet items = 2;</code>
      */
-    public java.util.List<? extends io.kubernetes.client.proto.V1Apps.DaemonSetOrBuilder> 
+    public java.util.List<? extends io.kubernetes.client.proto.V1Apps.DaemonSetOrBuilder>
         getItemsOrBuilderList() {
       return items_;
     }
     /**
+     *
+     *
      * <pre>
      * A list of daemon sets.
      * </pre>
@@ -1574,6 +1776,8 @@ public final class V1Apps {
       return items_.size();
     }
     /**
+     *
+     *
      * <pre>
      * A list of daemon sets.
      * </pre>
@@ -1584,18 +1788,20 @@ public final class V1Apps {
       return items_.get(index);
     }
     /**
+     *
+     *
      * <pre>
      * A list of daemon sets.
      * </pre>
      *
      * <code>repeated .k8s.io.api.apps.v1.DaemonSet items = 2;</code>
      */
-    public io.kubernetes.client.proto.V1Apps.DaemonSetOrBuilder getItemsOrBuilder(
-        int index) {
+    public io.kubernetes.client.proto.V1Apps.DaemonSetOrBuilder getItemsOrBuilder(int index) {
       return items_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
+
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1605,8 +1811,7 @@ public final class V1Apps {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeMessage(1, getMetadata());
       }
@@ -1622,12 +1827,10 @@ public final class V1Apps {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getMetadata());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, getMetadata());
       }
       for (int i = 0; i < items_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, items_.get(i));
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, items_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1637,21 +1840,20 @@ public final class V1Apps {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof io.kubernetes.client.proto.V1Apps.DaemonSetList)) {
         return super.equals(obj);
       }
-      io.kubernetes.client.proto.V1Apps.DaemonSetList other = (io.kubernetes.client.proto.V1Apps.DaemonSetList) obj;
+      io.kubernetes.client.proto.V1Apps.DaemonSetList other =
+          (io.kubernetes.client.proto.V1Apps.DaemonSetList) obj;
 
       boolean result = true;
       result = result && (hasMetadata() == other.hasMetadata());
       if (hasMetadata()) {
-        result = result && getMetadata()
-            .equals(other.getMetadata());
+        result = result && getMetadata().equals(other.getMetadata());
       }
-      result = result && getItemsList()
-          .equals(other.getItemsList());
+      result = result && getItemsList().equals(other.getItemsList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -1677,85 +1879,91 @@ public final class V1Apps {
     }
 
     public static io.kubernetes.client.proto.V1Apps.DaemonSetList parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetList parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetList parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetList parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetList parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetList parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.kubernetes.client.proto.V1Apps.DaemonSetList parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetList parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
-    public static io.kubernetes.client.proto.V1Apps.DaemonSetList parseDelimitedFrom(java.io.InputStream input)
+
+    public static io.kubernetes.client.proto.V1Apps.DaemonSetList parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetList parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
     }
+
+    public static io.kubernetes.client.proto.V1Apps.DaemonSetList parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetList parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetList parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
+
     public static Builder newBuilder(io.kubernetes.client.proto.V1Apps.DaemonSetList prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -1765,26 +1973,31 @@ public final class V1Apps {
       return builder;
     }
     /**
+     *
+     *
      * <pre>
      * DaemonSetList is a collection of daemon sets.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.apps.v1.DaemonSetList}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:k8s.io.api.apps.v1.DaemonSetList)
         io.kubernetes.client.proto.V1Apps.DaemonSetListOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_DaemonSetList_descriptor;
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1Apps
+            .internal_static_k8s_io_api_apps_v1_DaemonSetList_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_DaemonSetList_fieldAccessorTable
+        return io.kubernetes.client.proto.V1Apps
+            .internal_static_k8s_io_api_apps_v1_DaemonSetList_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.kubernetes.client.proto.V1Apps.DaemonSetList.class, io.kubernetes.client.proto.V1Apps.DaemonSetList.Builder.class);
+                io.kubernetes.client.proto.V1Apps.DaemonSetList.class,
+                io.kubernetes.client.proto.V1Apps.DaemonSetList.Builder.class);
       }
 
       // Construct using io.kubernetes.client.proto.V1Apps.DaemonSetList.newBuilder()
@@ -1792,18 +2005,18 @@ public final class V1Apps {
         maybeForceBuilderInitialization();
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
+
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
           getMetadataFieldBuilder();
           getItemsFieldBuilder();
         }
       }
+
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -1821,9 +2034,9 @@ public final class V1Apps {
         return this;
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_DaemonSetList_descriptor;
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Apps
+            .internal_static_k8s_io_api_apps_v1_DaemonSetList_descriptor;
       }
 
       public io.kubernetes.client.proto.V1Apps.DaemonSetList getDefaultInstanceForType() {
@@ -1839,7 +2052,8 @@ public final class V1Apps {
       }
 
       public io.kubernetes.client.proto.V1Apps.DaemonSetList buildPartial() {
-        io.kubernetes.client.proto.V1Apps.DaemonSetList result = new io.kubernetes.client.proto.V1Apps.DaemonSetList(this);
+        io.kubernetes.client.proto.V1Apps.DaemonSetList result =
+            new io.kubernetes.client.proto.V1Apps.DaemonSetList(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1867,32 +2081,35 @@ public final class V1Apps {
       public Builder clone() {
         return (Builder) super.clone();
       }
+
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Apps.DaemonSetList) {
-          return mergeFrom((io.kubernetes.client.proto.V1Apps.DaemonSetList)other);
+          return mergeFrom((io.kubernetes.client.proto.V1Apps.DaemonSetList) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -1900,7 +2117,8 @@ public final class V1Apps {
       }
 
       public Builder mergeFrom(io.kubernetes.client.proto.V1Apps.DaemonSetList other) {
-        if (other == io.kubernetes.client.proto.V1Apps.DaemonSetList.getDefaultInstance()) return this;
+        if (other == io.kubernetes.client.proto.V1Apps.DaemonSetList.getDefaultInstance())
+          return this;
         if (other.hasMetadata()) {
           mergeMetadata(other.getMetadata());
         }
@@ -1922,9 +2140,10 @@ public final class V1Apps {
               itemsBuilder_ = null;
               items_ = other.items_;
               bitField0_ = (bitField0_ & ~0x00000002);
-              itemsBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getItemsFieldBuilder() : null;
+              itemsBuilder_ =
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders
+                      ? getItemsFieldBuilder()
+                      : null;
             } else {
               itemsBuilder_.addAllMessages(other.items_);
             }
@@ -1947,7 +2166,8 @@ public final class V1Apps {
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.kubernetes.client.proto.V1Apps.DaemonSetList) e.getUnfinishedMessage();
+          parsedMessage =
+              (io.kubernetes.client.proto.V1Apps.DaemonSetList) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1956,12 +2176,18 @@ public final class V1Apps {
         }
         return this;
       }
+
       private int bitField0_;
 
       private io.kubernetes.client.proto.Meta.ListMeta metadata_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.ListMeta, io.kubernetes.client.proto.Meta.ListMeta.Builder, io.kubernetes.client.proto.Meta.ListMetaOrBuilder> metadataBuilder_;
+              io.kubernetes.client.proto.Meta.ListMeta,
+              io.kubernetes.client.proto.Meta.ListMeta.Builder,
+              io.kubernetes.client.proto.Meta.ListMetaOrBuilder>
+          metadataBuilder_;
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -1974,6 +2200,8 @@ public final class V1Apps {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -1984,12 +2212,16 @@ public final class V1Apps {
        */
       public io.kubernetes.client.proto.Meta.ListMeta getMetadata() {
         if (metadataBuilder_ == null) {
-          return metadata_ == null ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance() : metadata_;
+          return metadata_ == null
+              ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()
+              : metadata_;
         } else {
           return metadataBuilder_.getMessage();
         }
       }
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -2012,6 +2244,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -2020,8 +2254,7 @@ public final class V1Apps {
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
        */
-      public Builder setMetadata(
-          io.kubernetes.client.proto.Meta.ListMeta.Builder builderForValue) {
+      public Builder setMetadata(io.kubernetes.client.proto.Meta.ListMeta.Builder builderForValue) {
         if (metadataBuilder_ == null) {
           metadata_ = builderForValue.build();
           onChanged();
@@ -2032,6 +2265,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -2042,11 +2277,13 @@ public final class V1Apps {
        */
       public Builder mergeMetadata(io.kubernetes.client.proto.Meta.ListMeta value) {
         if (metadataBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              metadata_ != null &&
-              metadata_ != io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)
+              && metadata_ != null
+              && metadata_ != io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()) {
             metadata_ =
-              io.kubernetes.client.proto.Meta.ListMeta.newBuilder(metadata_).mergeFrom(value).buildPartial();
+                io.kubernetes.client.proto.Meta.ListMeta.newBuilder(metadata_)
+                    .mergeFrom(value)
+                    .buildPartial();
           } else {
             metadata_ = value;
           }
@@ -2058,6 +2295,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -2077,6 +2316,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -2091,6 +2332,8 @@ public final class V1Apps {
         return getMetadataFieldBuilder().getBuilder();
       }
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -2103,11 +2346,14 @@ public final class V1Apps {
         if (metadataBuilder_ != null) {
           return metadataBuilder_.getMessageOrBuilder();
         } else {
-          return metadata_ == null ?
-              io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance() : metadata_;
+          return metadata_ == null
+              ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()
+              : metadata_;
         }
       }
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -2117,32 +2363,41 @@ public final class V1Apps {
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.ListMeta, io.kubernetes.client.proto.Meta.ListMeta.Builder, io.kubernetes.client.proto.Meta.ListMetaOrBuilder> 
+              io.kubernetes.client.proto.Meta.ListMeta,
+              io.kubernetes.client.proto.Meta.ListMeta.Builder,
+              io.kubernetes.client.proto.Meta.ListMetaOrBuilder>
           getMetadataFieldBuilder() {
         if (metadataBuilder_ == null) {
-          metadataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.Meta.ListMeta, io.kubernetes.client.proto.Meta.ListMeta.Builder, io.kubernetes.client.proto.Meta.ListMetaOrBuilder>(
-                  getMetadata(),
-                  getParentForChildren(),
-                  isClean());
+          metadataBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.ListMeta,
+                  io.kubernetes.client.proto.Meta.ListMeta.Builder,
+                  io.kubernetes.client.proto.Meta.ListMetaOrBuilder>(
+                  getMetadata(), getParentForChildren(), isClean());
           metadata_ = null;
         }
         return metadataBuilder_;
       }
 
       private java.util.List<io.kubernetes.client.proto.V1Apps.DaemonSet> items_ =
-        java.util.Collections.emptyList();
+          java.util.Collections.emptyList();
+
       private void ensureItemsIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
           items_ = new java.util.ArrayList<io.kubernetes.client.proto.V1Apps.DaemonSet>(items_);
           bitField0_ |= 0x00000002;
-         }
+        }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.kubernetes.client.proto.V1Apps.DaemonSet, io.kubernetes.client.proto.V1Apps.DaemonSet.Builder, io.kubernetes.client.proto.V1Apps.DaemonSetOrBuilder> itemsBuilder_;
+              io.kubernetes.client.proto.V1Apps.DaemonSet,
+              io.kubernetes.client.proto.V1Apps.DaemonSet.Builder,
+              io.kubernetes.client.proto.V1Apps.DaemonSetOrBuilder>
+          itemsBuilder_;
 
       /**
+       *
+       *
        * <pre>
        * A list of daemon sets.
        * </pre>
@@ -2157,6 +2412,8 @@ public final class V1Apps {
         }
       }
       /**
+       *
+       *
        * <pre>
        * A list of daemon sets.
        * </pre>
@@ -2171,6 +2428,8 @@ public final class V1Apps {
         }
       }
       /**
+       *
+       *
        * <pre>
        * A list of daemon sets.
        * </pre>
@@ -2185,14 +2444,15 @@ public final class V1Apps {
         }
       }
       /**
+       *
+       *
        * <pre>
        * A list of daemon sets.
        * </pre>
        *
        * <code>repeated .k8s.io.api.apps.v1.DaemonSet items = 2;</code>
        */
-      public Builder setItems(
-          int index, io.kubernetes.client.proto.V1Apps.DaemonSet value) {
+      public Builder setItems(int index, io.kubernetes.client.proto.V1Apps.DaemonSet value) {
         if (itemsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2206,6 +2466,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * A list of daemon sets.
        * </pre>
@@ -2224,6 +2486,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * A list of daemon sets.
        * </pre>
@@ -2244,14 +2508,15 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * A list of daemon sets.
        * </pre>
        *
        * <code>repeated .k8s.io.api.apps.v1.DaemonSet items = 2;</code>
        */
-      public Builder addItems(
-          int index, io.kubernetes.client.proto.V1Apps.DaemonSet value) {
+      public Builder addItems(int index, io.kubernetes.client.proto.V1Apps.DaemonSet value) {
         if (itemsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2265,14 +2530,15 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * A list of daemon sets.
        * </pre>
        *
        * <code>repeated .k8s.io.api.apps.v1.DaemonSet items = 2;</code>
        */
-      public Builder addItems(
-          io.kubernetes.client.proto.V1Apps.DaemonSet.Builder builderForValue) {
+      public Builder addItems(io.kubernetes.client.proto.V1Apps.DaemonSet.Builder builderForValue) {
         if (itemsBuilder_ == null) {
           ensureItemsIsMutable();
           items_.add(builderForValue.build());
@@ -2283,6 +2549,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * A list of daemon sets.
        * </pre>
@@ -2301,6 +2569,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * A list of daemon sets.
        * </pre>
@@ -2311,8 +2581,7 @@ public final class V1Apps {
           java.lang.Iterable<? extends io.kubernetes.client.proto.V1Apps.DaemonSet> values) {
         if (itemsBuilder_ == null) {
           ensureItemsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, items_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(values, items_);
           onChanged();
         } else {
           itemsBuilder_.addAllMessages(values);
@@ -2320,6 +2589,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * A list of daemon sets.
        * </pre>
@@ -2337,6 +2608,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * A list of daemon sets.
        * </pre>
@@ -2354,39 +2627,44 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * A list of daemon sets.
        * </pre>
        *
        * <code>repeated .k8s.io.api.apps.v1.DaemonSet items = 2;</code>
        */
-      public io.kubernetes.client.proto.V1Apps.DaemonSet.Builder getItemsBuilder(
-          int index) {
+      public io.kubernetes.client.proto.V1Apps.DaemonSet.Builder getItemsBuilder(int index) {
         return getItemsFieldBuilder().getBuilder(index);
       }
       /**
+       *
+       *
        * <pre>
        * A list of daemon sets.
        * </pre>
        *
        * <code>repeated .k8s.io.api.apps.v1.DaemonSet items = 2;</code>
        */
-      public io.kubernetes.client.proto.V1Apps.DaemonSetOrBuilder getItemsOrBuilder(
-          int index) {
+      public io.kubernetes.client.proto.V1Apps.DaemonSetOrBuilder getItemsOrBuilder(int index) {
         if (itemsBuilder_ == null) {
-          return items_.get(index);  } else {
+          return items_.get(index);
+        } else {
           return itemsBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
+       *
+       *
        * <pre>
        * A list of daemon sets.
        * </pre>
        *
        * <code>repeated .k8s.io.api.apps.v1.DaemonSet items = 2;</code>
        */
-      public java.util.List<? extends io.kubernetes.client.proto.V1Apps.DaemonSetOrBuilder> 
-           getItemsOrBuilderList() {
+      public java.util.List<? extends io.kubernetes.client.proto.V1Apps.DaemonSetOrBuilder>
+          getItemsOrBuilderList() {
         if (itemsBuilder_ != null) {
           return itemsBuilder_.getMessageOrBuilderList();
         } else {
@@ -2394,6 +2672,8 @@ public final class V1Apps {
         }
       }
       /**
+       *
+       *
        * <pre>
        * A list of daemon sets.
        * </pre>
@@ -2401,38 +2681,47 @@ public final class V1Apps {
        * <code>repeated .k8s.io.api.apps.v1.DaemonSet items = 2;</code>
        */
       public io.kubernetes.client.proto.V1Apps.DaemonSet.Builder addItemsBuilder() {
-        return getItemsFieldBuilder().addBuilder(
-            io.kubernetes.client.proto.V1Apps.DaemonSet.getDefaultInstance());
+        return getItemsFieldBuilder()
+            .addBuilder(io.kubernetes.client.proto.V1Apps.DaemonSet.getDefaultInstance());
       }
       /**
+       *
+       *
        * <pre>
        * A list of daemon sets.
        * </pre>
        *
        * <code>repeated .k8s.io.api.apps.v1.DaemonSet items = 2;</code>
        */
-      public io.kubernetes.client.proto.V1Apps.DaemonSet.Builder addItemsBuilder(
-          int index) {
-        return getItemsFieldBuilder().addBuilder(
-            index, io.kubernetes.client.proto.V1Apps.DaemonSet.getDefaultInstance());
+      public io.kubernetes.client.proto.V1Apps.DaemonSet.Builder addItemsBuilder(int index) {
+        return getItemsFieldBuilder()
+            .addBuilder(index, io.kubernetes.client.proto.V1Apps.DaemonSet.getDefaultInstance());
       }
       /**
+       *
+       *
        * <pre>
        * A list of daemon sets.
        * </pre>
        *
        * <code>repeated .k8s.io.api.apps.v1.DaemonSet items = 2;</code>
        */
-      public java.util.List<io.kubernetes.client.proto.V1Apps.DaemonSet.Builder> 
-           getItemsBuilderList() {
+      public java.util.List<io.kubernetes.client.proto.V1Apps.DaemonSet.Builder>
+          getItemsBuilderList() {
         return getItemsFieldBuilder().getBuilderList();
       }
+
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.kubernetes.client.proto.V1Apps.DaemonSet, io.kubernetes.client.proto.V1Apps.DaemonSet.Builder, io.kubernetes.client.proto.V1Apps.DaemonSetOrBuilder> 
+              io.kubernetes.client.proto.V1Apps.DaemonSet,
+              io.kubernetes.client.proto.V1Apps.DaemonSet.Builder,
+              io.kubernetes.client.proto.V1Apps.DaemonSetOrBuilder>
           getItemsFieldBuilder() {
         if (itemsBuilder_ == null) {
-          itemsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              io.kubernetes.client.proto.V1Apps.DaemonSet, io.kubernetes.client.proto.V1Apps.DaemonSet.Builder, io.kubernetes.client.proto.V1Apps.DaemonSetOrBuilder>(
+          itemsBuilder_ =
+              new com.google.protobuf.RepeatedFieldBuilderV3<
+                  io.kubernetes.client.proto.V1Apps.DaemonSet,
+                  io.kubernetes.client.proto.V1Apps.DaemonSet.Builder,
+                  io.kubernetes.client.proto.V1Apps.DaemonSetOrBuilder>(
                   items_,
                   ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
@@ -2441,6 +2730,7 @@ public final class V1Apps {
         }
         return itemsBuilder_;
       }
+
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -2451,12 +2741,12 @@ public final class V1Apps {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:k8s.io.api.apps.v1.DaemonSetList)
     }
 
     // @@protoc_insertion_point(class_scope:k8s.io.api.apps.v1.DaemonSetList)
     private static final io.kubernetes.client.proto.V1Apps.DaemonSetList DEFAULT_INSTANCE;
+
     static {
       DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Apps.DaemonSetList();
     }
@@ -2465,15 +2755,16 @@ public final class V1Apps {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<DaemonSetList>
-        PARSER = new com.google.protobuf.AbstractParser<DaemonSetList>() {
-      public DaemonSetList parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new DaemonSetList(input, extensionRegistry);
-      }
-    };
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<DaemonSetList> PARSER =
+        new com.google.protobuf.AbstractParser<DaemonSetList>() {
+          public DaemonSetList parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new DaemonSetList(input, extensionRegistry);
+          }
+        };
 
     public static com.google.protobuf.Parser<DaemonSetList> parser() {
       return PARSER;
@@ -2487,14 +2778,16 @@ public final class V1Apps {
     public io.kubernetes.client.proto.V1Apps.DaemonSetList getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
-
   }
 
-  public interface DaemonSetSpecOrBuilder extends
+  public interface DaemonSetSpecOrBuilder
+      extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.apps.v1.DaemonSetSpec)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     *
+     *
      * <pre>
      * A label query over pods that are managed by the daemon set.
      * Must match in order to be controlled.
@@ -2507,6 +2800,8 @@ public final class V1Apps {
      */
     boolean hasSelector();
     /**
+     *
+     *
      * <pre>
      * A label query over pods that are managed by the daemon set.
      * Must match in order to be controlled.
@@ -2519,6 +2814,8 @@ public final class V1Apps {
      */
     io.kubernetes.client.proto.Meta.LabelSelector getSelector();
     /**
+     *
+     *
      * <pre>
      * A label query over pods that are managed by the daemon set.
      * Must match in order to be controlled.
@@ -2532,6 +2829,8 @@ public final class V1Apps {
     io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder();
 
     /**
+     *
+     *
      * <pre>
      * An object that describes the pod that will be created.
      * The DaemonSet will create exactly one copy of this pod on every node
@@ -2544,6 +2843,8 @@ public final class V1Apps {
      */
     boolean hasTemplate();
     /**
+     *
+     *
      * <pre>
      * An object that describes the pod that will be created.
      * The DaemonSet will create exactly one copy of this pod on every node
@@ -2556,6 +2857,8 @@ public final class V1Apps {
      */
     io.kubernetes.client.proto.V1.PodTemplateSpec getTemplate();
     /**
+     *
+     *
      * <pre>
      * An object that describes the pod that will be created.
      * The DaemonSet will create exactly one copy of this pod on every node
@@ -2569,6 +2872,8 @@ public final class V1Apps {
     io.kubernetes.client.proto.V1.PodTemplateSpecOrBuilder getTemplateOrBuilder();
 
     /**
+     *
+     *
      * <pre>
      * An update strategy to replace existing DaemonSet pods with new pods.
      * +optional
@@ -2578,6 +2883,8 @@ public final class V1Apps {
      */
     boolean hasUpdateStrategy();
     /**
+     *
+     *
      * <pre>
      * An update strategy to replace existing DaemonSet pods with new pods.
      * +optional
@@ -2587,6 +2894,8 @@ public final class V1Apps {
      */
     io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy getUpdateStrategy();
     /**
+     *
+     *
      * <pre>
      * An update strategy to replace existing DaemonSet pods with new pods.
      * +optional
@@ -2597,6 +2906,8 @@ public final class V1Apps {
     io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategyOrBuilder getUpdateStrategyOrBuilder();
 
     /**
+     *
+     *
      * <pre>
      * The minimum number of seconds for which a newly created DaemonSet pod should
      * be ready without any of its container crashing, for it to be considered
@@ -2609,6 +2920,8 @@ public final class V1Apps {
      */
     boolean hasMinReadySeconds();
     /**
+     *
+     *
      * <pre>
      * The minimum number of seconds for which a newly created DaemonSet pod should
      * be ready without any of its container crashing, for it to be considered
@@ -2622,6 +2935,8 @@ public final class V1Apps {
     int getMinReadySeconds();
 
     /**
+     *
+     *
      * <pre>
      * The number of old history to retain to allow rollback.
      * This is a pointer to distinguish between explicit zero and not specified.
@@ -2633,6 +2948,8 @@ public final class V1Apps {
      */
     boolean hasRevisionHistoryLimit();
     /**
+     *
+     *
      * <pre>
      * The number of old history to retain to allow rollback.
      * This is a pointer to distinguish between explicit zero and not specified.
@@ -2645,31 +2962,34 @@ public final class V1Apps {
     int getRevisionHistoryLimit();
   }
   /**
+   *
+   *
    * <pre>
    * DaemonSetSpec is the specification of a daemon set.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.apps.v1.DaemonSetSpec}
    */
-  public  static final class DaemonSetSpec extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  public static final class DaemonSetSpec extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:k8s.io.api.apps.v1.DaemonSetSpec)
       DaemonSetSpecOrBuilder {
-  private static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
     // Use DaemonSetSpec.newBuilder() to construct.
     private DaemonSetSpec(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private DaemonSetSpec() {
       minReadySeconds_ = 0;
       revisionHistoryLimit_ = 0;
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
       return this.unknownFields;
     }
+
     private DaemonSetSpec(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2686,90 +3006,106 @@ public final class V1Apps {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
               }
-              break;
-            }
-            case 10: {
-              io.kubernetes.client.proto.Meta.LabelSelector.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                subBuilder = selector_.toBuilder();
+            case 10:
+              {
+                io.kubernetes.client.proto.Meta.LabelSelector.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                  subBuilder = selector_.toBuilder();
+                }
+                selector_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.LabelSelector.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(selector_);
+                  selector_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000001;
+                break;
               }
-              selector_ = input.readMessage(io.kubernetes.client.proto.Meta.LabelSelector.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(selector_);
-                selector_ = subBuilder.buildPartial();
+            case 18:
+              {
+                io.kubernetes.client.proto.V1.PodTemplateSpec.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                  subBuilder = template_.toBuilder();
+                }
+                template_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1.PodTemplateSpec.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(template_);
+                  template_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000002;
+                break;
               }
-              bitField0_ |= 0x00000001;
-              break;
-            }
-            case 18: {
-              io.kubernetes.client.proto.V1.PodTemplateSpec.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                subBuilder = template_.toBuilder();
+            case 26:
+              {
+                io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                  subBuilder = updateStrategy_.toBuilder();
+                }
+                updateStrategy_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.PARSER,
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(updateStrategy_);
+                  updateStrategy_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000004;
+                break;
               }
-              template_ = input.readMessage(io.kubernetes.client.proto.V1.PodTemplateSpec.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(template_);
-                template_ = subBuilder.buildPartial();
+            case 32:
+              {
+                bitField0_ |= 0x00000008;
+                minReadySeconds_ = input.readInt32();
+                break;
               }
-              bitField0_ |= 0x00000002;
-              break;
-            }
-            case 26: {
-              io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                subBuilder = updateStrategy_.toBuilder();
+            case 48:
+              {
+                bitField0_ |= 0x00000010;
+                revisionHistoryLimit_ = input.readInt32();
+                break;
               }
-              updateStrategy_ = input.readMessage(io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(updateStrategy_);
-                updateStrategy_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000004;
-              break;
-            }
-            case 32: {
-              bitField0_ |= 0x00000008;
-              minReadySeconds_ = input.readInt32();
-              break;
-            }
-            case 48: {
-              bitField0_ |= 0x00000010;
-              revisionHistoryLimit_ = input.readInt32();
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_DaemonSetSpec_descriptor;
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1Apps
+          .internal_static_k8s_io_api_apps_v1_DaemonSetSpec_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_DaemonSetSpec_fieldAccessorTable
+      return io.kubernetes.client.proto.V1Apps
+          .internal_static_k8s_io_api_apps_v1_DaemonSetSpec_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.kubernetes.client.proto.V1Apps.DaemonSetSpec.class, io.kubernetes.client.proto.V1Apps.DaemonSetSpec.Builder.class);
+              io.kubernetes.client.proto.V1Apps.DaemonSetSpec.class,
+              io.kubernetes.client.proto.V1Apps.DaemonSetSpec.Builder.class);
     }
 
     private int bitField0_;
     public static final int SELECTOR_FIELD_NUMBER = 1;
     private io.kubernetes.client.proto.Meta.LabelSelector selector_;
     /**
+     *
+     *
      * <pre>
      * A label query over pods that are managed by the daemon set.
      * Must match in order to be controlled.
@@ -2784,6 +3120,8 @@ public final class V1Apps {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
+     *
+     *
      * <pre>
      * A label query over pods that are managed by the daemon set.
      * Must match in order to be controlled.
@@ -2795,9 +3133,13 @@ public final class V1Apps {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
      */
     public io.kubernetes.client.proto.Meta.LabelSelector getSelector() {
-      return selector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+      return selector_ == null
+          ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+          : selector_;
     }
     /**
+     *
+     *
      * <pre>
      * A label query over pods that are managed by the daemon set.
      * Must match in order to be controlled.
@@ -2809,12 +3151,16 @@ public final class V1Apps {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
      */
     public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder() {
-      return selector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+      return selector_ == null
+          ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+          : selector_;
     }
 
     public static final int TEMPLATE_FIELD_NUMBER = 2;
     private io.kubernetes.client.proto.V1.PodTemplateSpec template_;
     /**
+     *
+     *
      * <pre>
      * An object that describes the pod that will be created.
      * The DaemonSet will create exactly one copy of this pod on every node
@@ -2829,6 +3175,8 @@ public final class V1Apps {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
+     *
+     *
      * <pre>
      * An object that describes the pod that will be created.
      * The DaemonSet will create exactly one copy of this pod on every node
@@ -2840,9 +3188,13 @@ public final class V1Apps {
      * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 2;</code>
      */
     public io.kubernetes.client.proto.V1.PodTemplateSpec getTemplate() {
-      return template_ == null ? io.kubernetes.client.proto.V1.PodTemplateSpec.getDefaultInstance() : template_;
+      return template_ == null
+          ? io.kubernetes.client.proto.V1.PodTemplateSpec.getDefaultInstance()
+          : template_;
     }
     /**
+     *
+     *
      * <pre>
      * An object that describes the pod that will be created.
      * The DaemonSet will create exactly one copy of this pod on every node
@@ -2854,12 +3206,16 @@ public final class V1Apps {
      * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 2;</code>
      */
     public io.kubernetes.client.proto.V1.PodTemplateSpecOrBuilder getTemplateOrBuilder() {
-      return template_ == null ? io.kubernetes.client.proto.V1.PodTemplateSpec.getDefaultInstance() : template_;
+      return template_ == null
+          ? io.kubernetes.client.proto.V1.PodTemplateSpec.getDefaultInstance()
+          : template_;
     }
 
     public static final int UPDATESTRATEGY_FIELD_NUMBER = 3;
     private io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy updateStrategy_;
     /**
+     *
+     *
      * <pre>
      * An update strategy to replace existing DaemonSet pods with new pods.
      * +optional
@@ -2871,6 +3227,8 @@ public final class V1Apps {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
+     *
+     *
      * <pre>
      * An update strategy to replace existing DaemonSet pods with new pods.
      * +optional
@@ -2879,9 +3237,13 @@ public final class V1Apps {
      * <code>optional .k8s.io.api.apps.v1.DaemonSetUpdateStrategy updateStrategy = 3;</code>
      */
     public io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy getUpdateStrategy() {
-      return updateStrategy_ == null ? io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.getDefaultInstance() : updateStrategy_;
+      return updateStrategy_ == null
+          ? io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.getDefaultInstance()
+          : updateStrategy_;
     }
     /**
+     *
+     *
      * <pre>
      * An update strategy to replace existing DaemonSet pods with new pods.
      * +optional
@@ -2889,13 +3251,18 @@ public final class V1Apps {
      *
      * <code>optional .k8s.io.api.apps.v1.DaemonSetUpdateStrategy updateStrategy = 3;</code>
      */
-    public io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategyOrBuilder getUpdateStrategyOrBuilder() {
-      return updateStrategy_ == null ? io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.getDefaultInstance() : updateStrategy_;
+    public io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategyOrBuilder
+        getUpdateStrategyOrBuilder() {
+      return updateStrategy_ == null
+          ? io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.getDefaultInstance()
+          : updateStrategy_;
     }
 
     public static final int MINREADYSECONDS_FIELD_NUMBER = 4;
     private int minReadySeconds_;
     /**
+     *
+     *
      * <pre>
      * The minimum number of seconds for which a newly created DaemonSet pod should
      * be ready without any of its container crashing, for it to be considered
@@ -2910,6 +3277,8 @@ public final class V1Apps {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
+     *
+     *
      * <pre>
      * The minimum number of seconds for which a newly created DaemonSet pod should
      * be ready without any of its container crashing, for it to be considered
@@ -2927,6 +3296,8 @@ public final class V1Apps {
     public static final int REVISIONHISTORYLIMIT_FIELD_NUMBER = 6;
     private int revisionHistoryLimit_;
     /**
+     *
+     *
      * <pre>
      * The number of old history to retain to allow rollback.
      * This is a pointer to distinguish between explicit zero and not specified.
@@ -2940,6 +3311,8 @@ public final class V1Apps {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
+     *
+     *
      * <pre>
      * The number of old history to retain to allow rollback.
      * This is a pointer to distinguish between explicit zero and not specified.
@@ -2954,6 +3327,7 @@ public final class V1Apps {
     }
 
     private byte memoizedIsInitialized = -1;
+
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2963,8 +3337,7 @@ public final class V1Apps {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeMessage(1, getSelector());
       }
@@ -2989,24 +3362,19 @@ public final class V1Apps {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getSelector());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, getSelector());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getTemplate());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, getTemplate());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getUpdateStrategy());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(3, getUpdateStrategy());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, minReadySeconds_);
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(4, minReadySeconds_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(6, revisionHistoryLimit_);
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(6, revisionHistoryLimit_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3016,38 +3384,34 @@ public final class V1Apps {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof io.kubernetes.client.proto.V1Apps.DaemonSetSpec)) {
         return super.equals(obj);
       }
-      io.kubernetes.client.proto.V1Apps.DaemonSetSpec other = (io.kubernetes.client.proto.V1Apps.DaemonSetSpec) obj;
+      io.kubernetes.client.proto.V1Apps.DaemonSetSpec other =
+          (io.kubernetes.client.proto.V1Apps.DaemonSetSpec) obj;
 
       boolean result = true;
       result = result && (hasSelector() == other.hasSelector());
       if (hasSelector()) {
-        result = result && getSelector()
-            .equals(other.getSelector());
+        result = result && getSelector().equals(other.getSelector());
       }
       result = result && (hasTemplate() == other.hasTemplate());
       if (hasTemplate()) {
-        result = result && getTemplate()
-            .equals(other.getTemplate());
+        result = result && getTemplate().equals(other.getTemplate());
       }
       result = result && (hasUpdateStrategy() == other.hasUpdateStrategy());
       if (hasUpdateStrategy()) {
-        result = result && getUpdateStrategy()
-            .equals(other.getUpdateStrategy());
+        result = result && getUpdateStrategy().equals(other.getUpdateStrategy());
       }
       result = result && (hasMinReadySeconds() == other.hasMinReadySeconds());
       if (hasMinReadySeconds()) {
-        result = result && (getMinReadySeconds()
-            == other.getMinReadySeconds());
+        result = result && (getMinReadySeconds() == other.getMinReadySeconds());
       }
       result = result && (hasRevisionHistoryLimit() == other.hasRevisionHistoryLimit());
       if (hasRevisionHistoryLimit()) {
-        result = result && (getRevisionHistoryLimit()
-            == other.getRevisionHistoryLimit());
+        result = result && (getRevisionHistoryLimit() == other.getRevisionHistoryLimit());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -3086,85 +3450,91 @@ public final class V1Apps {
     }
 
     public static io.kubernetes.client.proto.V1Apps.DaemonSetSpec parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetSpec parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetSpec parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetSpec parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetSpec parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetSpec parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.kubernetes.client.proto.V1Apps.DaemonSetSpec parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetSpec parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
-    public static io.kubernetes.client.proto.V1Apps.DaemonSetSpec parseDelimitedFrom(java.io.InputStream input)
+
+    public static io.kubernetes.client.proto.V1Apps.DaemonSetSpec parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetSpec parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
     }
+
+    public static io.kubernetes.client.proto.V1Apps.DaemonSetSpec parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetSpec parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetSpec parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
+
     public static Builder newBuilder(io.kubernetes.client.proto.V1Apps.DaemonSetSpec prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -3174,26 +3544,31 @@ public final class V1Apps {
       return builder;
     }
     /**
+     *
+     *
      * <pre>
      * DaemonSetSpec is the specification of a daemon set.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.apps.v1.DaemonSetSpec}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:k8s.io.api.apps.v1.DaemonSetSpec)
         io.kubernetes.client.proto.V1Apps.DaemonSetSpecOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_DaemonSetSpec_descriptor;
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1Apps
+            .internal_static_k8s_io_api_apps_v1_DaemonSetSpec_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_DaemonSetSpec_fieldAccessorTable
+        return io.kubernetes.client.proto.V1Apps
+            .internal_static_k8s_io_api_apps_v1_DaemonSetSpec_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.kubernetes.client.proto.V1Apps.DaemonSetSpec.class, io.kubernetes.client.proto.V1Apps.DaemonSetSpec.Builder.class);
+                io.kubernetes.client.proto.V1Apps.DaemonSetSpec.class,
+                io.kubernetes.client.proto.V1Apps.DaemonSetSpec.Builder.class);
       }
 
       // Construct using io.kubernetes.client.proto.V1Apps.DaemonSetSpec.newBuilder()
@@ -3201,19 +3576,19 @@ public final class V1Apps {
         maybeForceBuilderInitialization();
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
+
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
           getSelectorFieldBuilder();
           getTemplateFieldBuilder();
           getUpdateStrategyFieldBuilder();
         }
       }
+
       public Builder clear() {
         super.clear();
         if (selectorBuilder_ == null) {
@@ -3241,9 +3616,9 @@ public final class V1Apps {
         return this;
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_DaemonSetSpec_descriptor;
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Apps
+            .internal_static_k8s_io_api_apps_v1_DaemonSetSpec_descriptor;
       }
 
       public io.kubernetes.client.proto.V1Apps.DaemonSetSpec getDefaultInstanceForType() {
@@ -3259,7 +3634,8 @@ public final class V1Apps {
       }
 
       public io.kubernetes.client.proto.V1Apps.DaemonSetSpec buildPartial() {
-        io.kubernetes.client.proto.V1Apps.DaemonSetSpec result = new io.kubernetes.client.proto.V1Apps.DaemonSetSpec(this);
+        io.kubernetes.client.proto.V1Apps.DaemonSetSpec result =
+            new io.kubernetes.client.proto.V1Apps.DaemonSetSpec(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -3302,32 +3678,35 @@ public final class V1Apps {
       public Builder clone() {
         return (Builder) super.clone();
       }
+
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Apps.DaemonSetSpec) {
-          return mergeFrom((io.kubernetes.client.proto.V1Apps.DaemonSetSpec)other);
+          return mergeFrom((io.kubernetes.client.proto.V1Apps.DaemonSetSpec) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -3335,7 +3714,8 @@ public final class V1Apps {
       }
 
       public Builder mergeFrom(io.kubernetes.client.proto.V1Apps.DaemonSetSpec other) {
-        if (other == io.kubernetes.client.proto.V1Apps.DaemonSetSpec.getDefaultInstance()) return this;
+        if (other == io.kubernetes.client.proto.V1Apps.DaemonSetSpec.getDefaultInstance())
+          return this;
         if (other.hasSelector()) {
           mergeSelector(other.getSelector());
         }
@@ -3368,7 +3748,8 @@ public final class V1Apps {
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.kubernetes.client.proto.V1Apps.DaemonSetSpec) e.getUnfinishedMessage();
+          parsedMessage =
+              (io.kubernetes.client.proto.V1Apps.DaemonSetSpec) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -3377,12 +3758,18 @@ public final class V1Apps {
         }
         return this;
       }
+
       private int bitField0_;
 
       private io.kubernetes.client.proto.Meta.LabelSelector selector_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder> selectorBuilder_;
+              io.kubernetes.client.proto.Meta.LabelSelector,
+              io.kubernetes.client.proto.Meta.LabelSelector.Builder,
+              io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>
+          selectorBuilder_;
       /**
+       *
+       *
        * <pre>
        * A label query over pods that are managed by the daemon set.
        * Must match in order to be controlled.
@@ -3397,6 +3784,8 @@ public final class V1Apps {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
+       *
+       *
        * <pre>
        * A label query over pods that are managed by the daemon set.
        * Must match in order to be controlled.
@@ -3409,12 +3798,16 @@ public final class V1Apps {
        */
       public io.kubernetes.client.proto.Meta.LabelSelector getSelector() {
         if (selectorBuilder_ == null) {
-          return selector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+          return selector_ == null
+              ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+              : selector_;
         } else {
           return selectorBuilder_.getMessage();
         }
       }
       /**
+       *
+       *
        * <pre>
        * A label query over pods that are managed by the daemon set.
        * Must match in order to be controlled.
@@ -3439,6 +3832,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * A label query over pods that are managed by the daemon set.
        * Must match in order to be controlled.
@@ -3461,6 +3856,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * A label query over pods that are managed by the daemon set.
        * Must match in order to be controlled.
@@ -3473,11 +3870,13 @@ public final class V1Apps {
        */
       public Builder mergeSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
         if (selectorBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              selector_ != null &&
-              selector_ != io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)
+              && selector_ != null
+              && selector_ != io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()) {
             selector_ =
-              io.kubernetes.client.proto.Meta.LabelSelector.newBuilder(selector_).mergeFrom(value).buildPartial();
+                io.kubernetes.client.proto.Meta.LabelSelector.newBuilder(selector_)
+                    .mergeFrom(value)
+                    .buildPartial();
           } else {
             selector_ = value;
           }
@@ -3489,6 +3888,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * A label query over pods that are managed by the daemon set.
        * Must match in order to be controlled.
@@ -3510,6 +3911,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * A label query over pods that are managed by the daemon set.
        * Must match in order to be controlled.
@@ -3526,6 +3929,8 @@ public final class V1Apps {
         return getSelectorFieldBuilder().getBuilder();
       }
       /**
+       *
+       *
        * <pre>
        * A label query over pods that are managed by the daemon set.
        * Must match in order to be controlled.
@@ -3540,11 +3945,14 @@ public final class V1Apps {
         if (selectorBuilder_ != null) {
           return selectorBuilder_.getMessageOrBuilder();
         } else {
-          return selector_ == null ?
-              io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+          return selector_ == null
+              ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+              : selector_;
         }
       }
       /**
+       *
+       *
        * <pre>
        * A label query over pods that are managed by the daemon set.
        * Must match in order to be controlled.
@@ -3556,14 +3964,17 @@ public final class V1Apps {
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder> 
+              io.kubernetes.client.proto.Meta.LabelSelector,
+              io.kubernetes.client.proto.Meta.LabelSelector.Builder,
+              io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>
           getSelectorFieldBuilder() {
         if (selectorBuilder_ == null) {
-          selectorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>(
-                  getSelector(),
-                  getParentForChildren(),
-                  isClean());
+          selectorBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.LabelSelector,
+                  io.kubernetes.client.proto.Meta.LabelSelector.Builder,
+                  io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>(
+                  getSelector(), getParentForChildren(), isClean());
           selector_ = null;
         }
         return selectorBuilder_;
@@ -3571,8 +3982,13 @@ public final class V1Apps {
 
       private io.kubernetes.client.proto.V1.PodTemplateSpec template_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.V1.PodTemplateSpec, io.kubernetes.client.proto.V1.PodTemplateSpec.Builder, io.kubernetes.client.proto.V1.PodTemplateSpecOrBuilder> templateBuilder_;
+              io.kubernetes.client.proto.V1.PodTemplateSpec,
+              io.kubernetes.client.proto.V1.PodTemplateSpec.Builder,
+              io.kubernetes.client.proto.V1.PodTemplateSpecOrBuilder>
+          templateBuilder_;
       /**
+       *
+       *
        * <pre>
        * An object that describes the pod that will be created.
        * The DaemonSet will create exactly one copy of this pod on every node
@@ -3587,6 +4003,8 @@ public final class V1Apps {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
+       *
+       *
        * <pre>
        * An object that describes the pod that will be created.
        * The DaemonSet will create exactly one copy of this pod on every node
@@ -3599,12 +4017,16 @@ public final class V1Apps {
        */
       public io.kubernetes.client.proto.V1.PodTemplateSpec getTemplate() {
         if (templateBuilder_ == null) {
-          return template_ == null ? io.kubernetes.client.proto.V1.PodTemplateSpec.getDefaultInstance() : template_;
+          return template_ == null
+              ? io.kubernetes.client.proto.V1.PodTemplateSpec.getDefaultInstance()
+              : template_;
         } else {
           return templateBuilder_.getMessage();
         }
       }
       /**
+       *
+       *
        * <pre>
        * An object that describes the pod that will be created.
        * The DaemonSet will create exactly one copy of this pod on every node
@@ -3629,6 +4051,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * An object that describes the pod that will be created.
        * The DaemonSet will create exactly one copy of this pod on every node
@@ -3651,6 +4075,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * An object that describes the pod that will be created.
        * The DaemonSet will create exactly one copy of this pod on every node
@@ -3663,11 +4089,13 @@ public final class V1Apps {
        */
       public Builder mergeTemplate(io.kubernetes.client.proto.V1.PodTemplateSpec value) {
         if (templateBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              template_ != null &&
-              template_ != io.kubernetes.client.proto.V1.PodTemplateSpec.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)
+              && template_ != null
+              && template_ != io.kubernetes.client.proto.V1.PodTemplateSpec.getDefaultInstance()) {
             template_ =
-              io.kubernetes.client.proto.V1.PodTemplateSpec.newBuilder(template_).mergeFrom(value).buildPartial();
+                io.kubernetes.client.proto.V1.PodTemplateSpec.newBuilder(template_)
+                    .mergeFrom(value)
+                    .buildPartial();
           } else {
             template_ = value;
           }
@@ -3679,6 +4107,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * An object that describes the pod that will be created.
        * The DaemonSet will create exactly one copy of this pod on every node
@@ -3700,6 +4130,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * An object that describes the pod that will be created.
        * The DaemonSet will create exactly one copy of this pod on every node
@@ -3716,6 +4148,8 @@ public final class V1Apps {
         return getTemplateFieldBuilder().getBuilder();
       }
       /**
+       *
+       *
        * <pre>
        * An object that describes the pod that will be created.
        * The DaemonSet will create exactly one copy of this pod on every node
@@ -3730,11 +4164,14 @@ public final class V1Apps {
         if (templateBuilder_ != null) {
           return templateBuilder_.getMessageOrBuilder();
         } else {
-          return template_ == null ?
-              io.kubernetes.client.proto.V1.PodTemplateSpec.getDefaultInstance() : template_;
+          return template_ == null
+              ? io.kubernetes.client.proto.V1.PodTemplateSpec.getDefaultInstance()
+              : template_;
         }
       }
       /**
+       *
+       *
        * <pre>
        * An object that describes the pod that will be created.
        * The DaemonSet will create exactly one copy of this pod on every node
@@ -3746,14 +4183,17 @@ public final class V1Apps {
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.V1.PodTemplateSpec, io.kubernetes.client.proto.V1.PodTemplateSpec.Builder, io.kubernetes.client.proto.V1.PodTemplateSpecOrBuilder> 
+              io.kubernetes.client.proto.V1.PodTemplateSpec,
+              io.kubernetes.client.proto.V1.PodTemplateSpec.Builder,
+              io.kubernetes.client.proto.V1.PodTemplateSpecOrBuilder>
           getTemplateFieldBuilder() {
         if (templateBuilder_ == null) {
-          templateBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.V1.PodTemplateSpec, io.kubernetes.client.proto.V1.PodTemplateSpec.Builder, io.kubernetes.client.proto.V1.PodTemplateSpecOrBuilder>(
-                  getTemplate(),
-                  getParentForChildren(),
-                  isClean());
+          templateBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.V1.PodTemplateSpec,
+                  io.kubernetes.client.proto.V1.PodTemplateSpec.Builder,
+                  io.kubernetes.client.proto.V1.PodTemplateSpecOrBuilder>(
+                  getTemplate(), getParentForChildren(), isClean());
           template_ = null;
         }
         return templateBuilder_;
@@ -3761,8 +4201,13 @@ public final class V1Apps {
 
       private io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy updateStrategy_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy, io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.Builder, io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategyOrBuilder> updateStrategyBuilder_;
+              io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy,
+              io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.Builder,
+              io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategyOrBuilder>
+          updateStrategyBuilder_;
       /**
+       *
+       *
        * <pre>
        * An update strategy to replace existing DaemonSet pods with new pods.
        * +optional
@@ -3774,6 +4219,8 @@ public final class V1Apps {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
+       *
+       *
        * <pre>
        * An update strategy to replace existing DaemonSet pods with new pods.
        * +optional
@@ -3783,12 +4230,16 @@ public final class V1Apps {
        */
       public io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy getUpdateStrategy() {
         if (updateStrategyBuilder_ == null) {
-          return updateStrategy_ == null ? io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.getDefaultInstance() : updateStrategy_;
+          return updateStrategy_ == null
+              ? io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.getDefaultInstance()
+              : updateStrategy_;
         } else {
           return updateStrategyBuilder_.getMessage();
         }
       }
       /**
+       *
+       *
        * <pre>
        * An update strategy to replace existing DaemonSet pods with new pods.
        * +optional
@@ -3796,7 +4247,8 @@ public final class V1Apps {
        *
        * <code>optional .k8s.io.api.apps.v1.DaemonSetUpdateStrategy updateStrategy = 3;</code>
        */
-      public Builder setUpdateStrategy(io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy value) {
+      public Builder setUpdateStrategy(
+          io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy value) {
         if (updateStrategyBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3810,6 +4262,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * An update strategy to replace existing DaemonSet pods with new pods.
        * +optional
@@ -3829,6 +4283,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * An update strategy to replace existing DaemonSet pods with new pods.
        * +optional
@@ -3836,13 +4292,19 @@ public final class V1Apps {
        *
        * <code>optional .k8s.io.api.apps.v1.DaemonSetUpdateStrategy updateStrategy = 3;</code>
        */
-      public Builder mergeUpdateStrategy(io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy value) {
+      public Builder mergeUpdateStrategy(
+          io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy value) {
         if (updateStrategyBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004) &&
-              updateStrategy_ != null &&
-              updateStrategy_ != io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)
+              && updateStrategy_ != null
+              && updateStrategy_
+                  != io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy
+                      .getDefaultInstance()) {
             updateStrategy_ =
-              io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.newBuilder(updateStrategy_).mergeFrom(value).buildPartial();
+                io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.newBuilder(
+                        updateStrategy_)
+                    .mergeFrom(value)
+                    .buildPartial();
           } else {
             updateStrategy_ = value;
           }
@@ -3854,6 +4316,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * An update strategy to replace existing DaemonSet pods with new pods.
        * +optional
@@ -3872,6 +4336,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * An update strategy to replace existing DaemonSet pods with new pods.
        * +optional
@@ -3879,12 +4345,15 @@ public final class V1Apps {
        *
        * <code>optional .k8s.io.api.apps.v1.DaemonSetUpdateStrategy updateStrategy = 3;</code>
        */
-      public io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.Builder getUpdateStrategyBuilder() {
+      public io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.Builder
+          getUpdateStrategyBuilder() {
         bitField0_ |= 0x00000004;
         onChanged();
         return getUpdateStrategyFieldBuilder().getBuilder();
       }
       /**
+       *
+       *
        * <pre>
        * An update strategy to replace existing DaemonSet pods with new pods.
        * +optional
@@ -3892,15 +4361,19 @@ public final class V1Apps {
        *
        * <code>optional .k8s.io.api.apps.v1.DaemonSetUpdateStrategy updateStrategy = 3;</code>
        */
-      public io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategyOrBuilder getUpdateStrategyOrBuilder() {
+      public io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategyOrBuilder
+          getUpdateStrategyOrBuilder() {
         if (updateStrategyBuilder_ != null) {
           return updateStrategyBuilder_.getMessageOrBuilder();
         } else {
-          return updateStrategy_ == null ?
-              io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.getDefaultInstance() : updateStrategy_;
+          return updateStrategy_ == null
+              ? io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.getDefaultInstance()
+              : updateStrategy_;
         }
       }
       /**
+       *
+       *
        * <pre>
        * An update strategy to replace existing DaemonSet pods with new pods.
        * +optional
@@ -3909,21 +4382,26 @@ public final class V1Apps {
        * <code>optional .k8s.io.api.apps.v1.DaemonSetUpdateStrategy updateStrategy = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy, io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.Builder, io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategyOrBuilder> 
+              io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy,
+              io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.Builder,
+              io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategyOrBuilder>
           getUpdateStrategyFieldBuilder() {
         if (updateStrategyBuilder_ == null) {
-          updateStrategyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy, io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.Builder, io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategyOrBuilder>(
-                  getUpdateStrategy(),
-                  getParentForChildren(),
-                  isClean());
+          updateStrategyBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy,
+                  io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.Builder,
+                  io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategyOrBuilder>(
+                  getUpdateStrategy(), getParentForChildren(), isClean());
           updateStrategy_ = null;
         }
         return updateStrategyBuilder_;
       }
 
-      private int minReadySeconds_ ;
+      private int minReadySeconds_;
       /**
+       *
+       *
        * <pre>
        * The minimum number of seconds for which a newly created DaemonSet pod should
        * be ready without any of its container crashing, for it to be considered
@@ -3938,6 +4416,8 @@ public final class V1Apps {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
+       *
+       *
        * <pre>
        * The minimum number of seconds for which a newly created DaemonSet pod should
        * be ready without any of its container crashing, for it to be considered
@@ -3952,6 +4432,8 @@ public final class V1Apps {
         return minReadySeconds_;
       }
       /**
+       *
+       *
        * <pre>
        * The minimum number of seconds for which a newly created DaemonSet pod should
        * be ready without any of its container crashing, for it to be considered
@@ -3969,6 +4451,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The minimum number of seconds for which a newly created DaemonSet pod should
        * be ready without any of its container crashing, for it to be considered
@@ -3986,8 +4470,10 @@ public final class V1Apps {
         return this;
       }
 
-      private int revisionHistoryLimit_ ;
+      private int revisionHistoryLimit_;
       /**
+       *
+       *
        * <pre>
        * The number of old history to retain to allow rollback.
        * This is a pointer to distinguish between explicit zero and not specified.
@@ -4001,6 +4487,8 @@ public final class V1Apps {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
+       *
+       *
        * <pre>
        * The number of old history to retain to allow rollback.
        * This is a pointer to distinguish between explicit zero and not specified.
@@ -4014,6 +4502,8 @@ public final class V1Apps {
         return revisionHistoryLimit_;
       }
       /**
+       *
+       *
        * <pre>
        * The number of old history to retain to allow rollback.
        * This is a pointer to distinguish between explicit zero and not specified.
@@ -4030,6 +4520,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The number of old history to retain to allow rollback.
        * This is a pointer to distinguish between explicit zero and not specified.
@@ -4045,6 +4537,7 @@ public final class V1Apps {
         onChanged();
         return this;
       }
+
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -4055,12 +4548,12 @@ public final class V1Apps {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:k8s.io.api.apps.v1.DaemonSetSpec)
     }
 
     // @@protoc_insertion_point(class_scope:k8s.io.api.apps.v1.DaemonSetSpec)
     private static final io.kubernetes.client.proto.V1Apps.DaemonSetSpec DEFAULT_INSTANCE;
+
     static {
       DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Apps.DaemonSetSpec();
     }
@@ -4069,15 +4562,16 @@ public final class V1Apps {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<DaemonSetSpec>
-        PARSER = new com.google.protobuf.AbstractParser<DaemonSetSpec>() {
-      public DaemonSetSpec parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new DaemonSetSpec(input, extensionRegistry);
-      }
-    };
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<DaemonSetSpec> PARSER =
+        new com.google.protobuf.AbstractParser<DaemonSetSpec>() {
+          public DaemonSetSpec parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new DaemonSetSpec(input, extensionRegistry);
+          }
+        };
 
     public static com.google.protobuf.Parser<DaemonSetSpec> parser() {
       return PARSER;
@@ -4091,14 +4585,16 @@ public final class V1Apps {
     public io.kubernetes.client.proto.V1Apps.DaemonSetSpec getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
-
   }
 
-  public interface DaemonSetStatusOrBuilder extends
+  public interface DaemonSetStatusOrBuilder
+      extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.apps.v1.DaemonSetStatus)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     *
+     *
      * <pre>
      * The number of nodes that are running at least 1
      * daemon pod and are supposed to run the daemon pod.
@@ -4109,6 +4605,8 @@ public final class V1Apps {
      */
     boolean hasCurrentNumberScheduled();
     /**
+     *
+     *
      * <pre>
      * The number of nodes that are running at least 1
      * daemon pod and are supposed to run the daemon pod.
@@ -4120,6 +4618,8 @@ public final class V1Apps {
     int getCurrentNumberScheduled();
 
     /**
+     *
+     *
      * <pre>
      * The number of nodes that are running the daemon pod, but are
      * not supposed to run the daemon pod.
@@ -4130,6 +4630,8 @@ public final class V1Apps {
      */
     boolean hasNumberMisscheduled();
     /**
+     *
+     *
      * <pre>
      * The number of nodes that are running the daemon pod, but are
      * not supposed to run the daemon pod.
@@ -4141,6 +4643,8 @@ public final class V1Apps {
     int getNumberMisscheduled();
 
     /**
+     *
+     *
      * <pre>
      * The total number of nodes that should be running the daemon
      * pod (including nodes correctly running the daemon pod).
@@ -4151,6 +4655,8 @@ public final class V1Apps {
      */
     boolean hasDesiredNumberScheduled();
     /**
+     *
+     *
      * <pre>
      * The total number of nodes that should be running the daemon
      * pod (including nodes correctly running the daemon pod).
@@ -4162,6 +4668,8 @@ public final class V1Apps {
     int getDesiredNumberScheduled();
 
     /**
+     *
+     *
      * <pre>
      * The number of nodes that should be running the daemon pod and have one
      * or more of the daemon pod running and ready.
@@ -4171,6 +4679,8 @@ public final class V1Apps {
      */
     boolean hasNumberReady();
     /**
+     *
+     *
      * <pre>
      * The number of nodes that should be running the daemon pod and have one
      * or more of the daemon pod running and ready.
@@ -4181,6 +4691,8 @@ public final class V1Apps {
     int getNumberReady();
 
     /**
+     *
+     *
      * <pre>
      * The most recent generation observed by the daemon set controller.
      * +optional
@@ -4190,6 +4702,8 @@ public final class V1Apps {
      */
     boolean hasObservedGeneration();
     /**
+     *
+     *
      * <pre>
      * The most recent generation observed by the daemon set controller.
      * +optional
@@ -4200,6 +4714,8 @@ public final class V1Apps {
     long getObservedGeneration();
 
     /**
+     *
+     *
      * <pre>
      * The total number of nodes that are running updated daemon pod
      * +optional
@@ -4209,6 +4725,8 @@ public final class V1Apps {
      */
     boolean hasUpdatedNumberScheduled();
     /**
+     *
+     *
      * <pre>
      * The total number of nodes that are running updated daemon pod
      * +optional
@@ -4219,6 +4737,8 @@ public final class V1Apps {
     int getUpdatedNumberScheduled();
 
     /**
+     *
+     *
      * <pre>
      * The number of nodes that should be running the
      * daemon pod and have one or more of the daemon pod running and
@@ -4230,6 +4750,8 @@ public final class V1Apps {
      */
     boolean hasNumberAvailable();
     /**
+     *
+     *
      * <pre>
      * The number of nodes that should be running the
      * daemon pod and have one or more of the daemon pod running and
@@ -4242,6 +4764,8 @@ public final class V1Apps {
     int getNumberAvailable();
 
     /**
+     *
+     *
      * <pre>
      * The number of nodes that should be running the
      * daemon pod and have none of the daemon pod running and available
@@ -4253,6 +4777,8 @@ public final class V1Apps {
      */
     boolean hasNumberUnavailable();
     /**
+     *
+     *
      * <pre>
      * The number of nodes that should be running the
      * daemon pod and have none of the daemon pod running and available
@@ -4265,6 +4791,8 @@ public final class V1Apps {
     int getNumberUnavailable();
 
     /**
+     *
+     *
      * <pre>
      * Count of hash collisions for the DaemonSet. The DaemonSet controller
      * uses this field as a collision avoidance mechanism when it needs to
@@ -4276,6 +4804,8 @@ public final class V1Apps {
      */
     boolean hasCollisionCount();
     /**
+     *
+     *
      * <pre>
      * Count of hash collisions for the DaemonSet. The DaemonSet controller
      * uses this field as a collision avoidance mechanism when it needs to
@@ -4288,21 +4818,24 @@ public final class V1Apps {
     int getCollisionCount();
   }
   /**
+   *
+   *
    * <pre>
    * DaemonSetStatus represents the current status of a daemon set.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.apps.v1.DaemonSetStatus}
    */
-  public  static final class DaemonSetStatus extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  public static final class DaemonSetStatus extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:k8s.io.api.apps.v1.DaemonSetStatus)
       DaemonSetStatusOrBuilder {
-  private static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
     // Use DaemonSetStatus.newBuilder() to construct.
     private DaemonSetStatus(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private DaemonSetStatus() {
       currentNumberScheduled_ = 0;
       numberMisscheduled_ = 0;
@@ -4316,10 +4849,10 @@ public final class V1Apps {
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
       return this.unknownFields;
     }
+
     private DaemonSetStatus(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4336,86 +4869,99 @@ public final class V1Apps {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
               }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              currentNumberScheduled_ = input.readInt32();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              numberMisscheduled_ = input.readInt32();
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000004;
-              desiredNumberScheduled_ = input.readInt32();
-              break;
-            }
-            case 32: {
-              bitField0_ |= 0x00000008;
-              numberReady_ = input.readInt32();
-              break;
-            }
-            case 40: {
-              bitField0_ |= 0x00000010;
-              observedGeneration_ = input.readInt64();
-              break;
-            }
-            case 48: {
-              bitField0_ |= 0x00000020;
-              updatedNumberScheduled_ = input.readInt32();
-              break;
-            }
-            case 56: {
-              bitField0_ |= 0x00000040;
-              numberAvailable_ = input.readInt32();
-              break;
-            }
-            case 64: {
-              bitField0_ |= 0x00000080;
-              numberUnavailable_ = input.readInt32();
-              break;
-            }
-            case 72: {
-              bitField0_ |= 0x00000100;
-              collisionCount_ = input.readInt32();
-              break;
-            }
+            case 8:
+              {
+                bitField0_ |= 0x00000001;
+                currentNumberScheduled_ = input.readInt32();
+                break;
+              }
+            case 16:
+              {
+                bitField0_ |= 0x00000002;
+                numberMisscheduled_ = input.readInt32();
+                break;
+              }
+            case 24:
+              {
+                bitField0_ |= 0x00000004;
+                desiredNumberScheduled_ = input.readInt32();
+                break;
+              }
+            case 32:
+              {
+                bitField0_ |= 0x00000008;
+                numberReady_ = input.readInt32();
+                break;
+              }
+            case 40:
+              {
+                bitField0_ |= 0x00000010;
+                observedGeneration_ = input.readInt64();
+                break;
+              }
+            case 48:
+              {
+                bitField0_ |= 0x00000020;
+                updatedNumberScheduled_ = input.readInt32();
+                break;
+              }
+            case 56:
+              {
+                bitField0_ |= 0x00000040;
+                numberAvailable_ = input.readInt32();
+                break;
+              }
+            case 64:
+              {
+                bitField0_ |= 0x00000080;
+                numberUnavailable_ = input.readInt32();
+                break;
+              }
+            case 72:
+              {
+                bitField0_ |= 0x00000100;
+                collisionCount_ = input.readInt32();
+                break;
+              }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_DaemonSetStatus_descriptor;
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1Apps
+          .internal_static_k8s_io_api_apps_v1_DaemonSetStatus_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_DaemonSetStatus_fieldAccessorTable
+      return io.kubernetes.client.proto.V1Apps
+          .internal_static_k8s_io_api_apps_v1_DaemonSetStatus_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.kubernetes.client.proto.V1Apps.DaemonSetStatus.class, io.kubernetes.client.proto.V1Apps.DaemonSetStatus.Builder.class);
+              io.kubernetes.client.proto.V1Apps.DaemonSetStatus.class,
+              io.kubernetes.client.proto.V1Apps.DaemonSetStatus.Builder.class);
     }
 
     private int bitField0_;
     public static final int CURRENTNUMBERSCHEDULED_FIELD_NUMBER = 1;
     private int currentNumberScheduled_;
     /**
+     *
+     *
      * <pre>
      * The number of nodes that are running at least 1
      * daemon pod and are supposed to run the daemon pod.
@@ -4428,6 +4974,8 @@ public final class V1Apps {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
+     *
+     *
      * <pre>
      * The number of nodes that are running at least 1
      * daemon pod and are supposed to run the daemon pod.
@@ -4443,6 +4991,8 @@ public final class V1Apps {
     public static final int NUMBERMISSCHEDULED_FIELD_NUMBER = 2;
     private int numberMisscheduled_;
     /**
+     *
+     *
      * <pre>
      * The number of nodes that are running the daemon pod, but are
      * not supposed to run the daemon pod.
@@ -4455,6 +5005,8 @@ public final class V1Apps {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
+     *
+     *
      * <pre>
      * The number of nodes that are running the daemon pod, but are
      * not supposed to run the daemon pod.
@@ -4470,6 +5022,8 @@ public final class V1Apps {
     public static final int DESIREDNUMBERSCHEDULED_FIELD_NUMBER = 3;
     private int desiredNumberScheduled_;
     /**
+     *
+     *
      * <pre>
      * The total number of nodes that should be running the daemon
      * pod (including nodes correctly running the daemon pod).
@@ -4482,6 +5036,8 @@ public final class V1Apps {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
+     *
+     *
      * <pre>
      * The total number of nodes that should be running the daemon
      * pod (including nodes correctly running the daemon pod).
@@ -4497,6 +5053,8 @@ public final class V1Apps {
     public static final int NUMBERREADY_FIELD_NUMBER = 4;
     private int numberReady_;
     /**
+     *
+     *
      * <pre>
      * The number of nodes that should be running the daemon pod and have one
      * or more of the daemon pod running and ready.
@@ -4508,6 +5066,8 @@ public final class V1Apps {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
+     *
+     *
      * <pre>
      * The number of nodes that should be running the daemon pod and have one
      * or more of the daemon pod running and ready.
@@ -4522,6 +5082,8 @@ public final class V1Apps {
     public static final int OBSERVEDGENERATION_FIELD_NUMBER = 5;
     private long observedGeneration_;
     /**
+     *
+     *
      * <pre>
      * The most recent generation observed by the daemon set controller.
      * +optional
@@ -4533,6 +5095,8 @@ public final class V1Apps {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
+     *
+     *
      * <pre>
      * The most recent generation observed by the daemon set controller.
      * +optional
@@ -4547,6 +5111,8 @@ public final class V1Apps {
     public static final int UPDATEDNUMBERSCHEDULED_FIELD_NUMBER = 6;
     private int updatedNumberScheduled_;
     /**
+     *
+     *
      * <pre>
      * The total number of nodes that are running updated daemon pod
      * +optional
@@ -4558,6 +5124,8 @@ public final class V1Apps {
       return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
+     *
+     *
      * <pre>
      * The total number of nodes that are running updated daemon pod
      * +optional
@@ -4572,6 +5140,8 @@ public final class V1Apps {
     public static final int NUMBERAVAILABLE_FIELD_NUMBER = 7;
     private int numberAvailable_;
     /**
+     *
+     *
      * <pre>
      * The number of nodes that should be running the
      * daemon pod and have one or more of the daemon pod running and
@@ -4585,6 +5155,8 @@ public final class V1Apps {
       return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
+     *
+     *
      * <pre>
      * The number of nodes that should be running the
      * daemon pod and have one or more of the daemon pod running and
@@ -4601,6 +5173,8 @@ public final class V1Apps {
     public static final int NUMBERUNAVAILABLE_FIELD_NUMBER = 8;
     private int numberUnavailable_;
     /**
+     *
+     *
      * <pre>
      * The number of nodes that should be running the
      * daemon pod and have none of the daemon pod running and available
@@ -4614,6 +5188,8 @@ public final class V1Apps {
       return ((bitField0_ & 0x00000080) == 0x00000080);
     }
     /**
+     *
+     *
      * <pre>
      * The number of nodes that should be running the
      * daemon pod and have none of the daemon pod running and available
@@ -4630,6 +5206,8 @@ public final class V1Apps {
     public static final int COLLISIONCOUNT_FIELD_NUMBER = 9;
     private int collisionCount_;
     /**
+     *
+     *
      * <pre>
      * Count of hash collisions for the DaemonSet. The DaemonSet controller
      * uses this field as a collision avoidance mechanism when it needs to
@@ -4643,6 +5221,8 @@ public final class V1Apps {
       return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
+     *
+     *
      * <pre>
      * Count of hash collisions for the DaemonSet. The DaemonSet controller
      * uses this field as a collision avoidance mechanism when it needs to
@@ -4657,6 +5237,7 @@ public final class V1Apps {
     }
 
     private byte memoizedIsInitialized = -1;
+
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -4666,8 +5247,7 @@ public final class V1Apps {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, currentNumberScheduled_);
       }
@@ -4704,40 +5284,31 @@ public final class V1Apps {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, currentNumberScheduled_);
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(1, currentNumberScheduled_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, numberMisscheduled_);
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(2, numberMisscheduled_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, desiredNumberScheduled_);
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(3, desiredNumberScheduled_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, numberReady_);
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(4, numberReady_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(5, observedGeneration_);
+        size += com.google.protobuf.CodedOutputStream.computeInt64Size(5, observedGeneration_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(6, updatedNumberScheduled_);
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(6, updatedNumberScheduled_);
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(7, numberAvailable_);
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(7, numberAvailable_);
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(8, numberUnavailable_);
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(8, numberUnavailable_);
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(9, collisionCount_);
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(9, collisionCount_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4747,58 +5318,50 @@ public final class V1Apps {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof io.kubernetes.client.proto.V1Apps.DaemonSetStatus)) {
         return super.equals(obj);
       }
-      io.kubernetes.client.proto.V1Apps.DaemonSetStatus other = (io.kubernetes.client.proto.V1Apps.DaemonSetStatus) obj;
+      io.kubernetes.client.proto.V1Apps.DaemonSetStatus other =
+          (io.kubernetes.client.proto.V1Apps.DaemonSetStatus) obj;
 
       boolean result = true;
       result = result && (hasCurrentNumberScheduled() == other.hasCurrentNumberScheduled());
       if (hasCurrentNumberScheduled()) {
-        result = result && (getCurrentNumberScheduled()
-            == other.getCurrentNumberScheduled());
+        result = result && (getCurrentNumberScheduled() == other.getCurrentNumberScheduled());
       }
       result = result && (hasNumberMisscheduled() == other.hasNumberMisscheduled());
       if (hasNumberMisscheduled()) {
-        result = result && (getNumberMisscheduled()
-            == other.getNumberMisscheduled());
+        result = result && (getNumberMisscheduled() == other.getNumberMisscheduled());
       }
       result = result && (hasDesiredNumberScheduled() == other.hasDesiredNumberScheduled());
       if (hasDesiredNumberScheduled()) {
-        result = result && (getDesiredNumberScheduled()
-            == other.getDesiredNumberScheduled());
+        result = result && (getDesiredNumberScheduled() == other.getDesiredNumberScheduled());
       }
       result = result && (hasNumberReady() == other.hasNumberReady());
       if (hasNumberReady()) {
-        result = result && (getNumberReady()
-            == other.getNumberReady());
+        result = result && (getNumberReady() == other.getNumberReady());
       }
       result = result && (hasObservedGeneration() == other.hasObservedGeneration());
       if (hasObservedGeneration()) {
-        result = result && (getObservedGeneration()
-            == other.getObservedGeneration());
+        result = result && (getObservedGeneration() == other.getObservedGeneration());
       }
       result = result && (hasUpdatedNumberScheduled() == other.hasUpdatedNumberScheduled());
       if (hasUpdatedNumberScheduled()) {
-        result = result && (getUpdatedNumberScheduled()
-            == other.getUpdatedNumberScheduled());
+        result = result && (getUpdatedNumberScheduled() == other.getUpdatedNumberScheduled());
       }
       result = result && (hasNumberAvailable() == other.hasNumberAvailable());
       if (hasNumberAvailable()) {
-        result = result && (getNumberAvailable()
-            == other.getNumberAvailable());
+        result = result && (getNumberAvailable() == other.getNumberAvailable());
       }
       result = result && (hasNumberUnavailable() == other.hasNumberUnavailable());
       if (hasNumberUnavailable()) {
-        result = result && (getNumberUnavailable()
-            == other.getNumberUnavailable());
+        result = result && (getNumberUnavailable() == other.getNumberUnavailable());
       }
       result = result && (hasCollisionCount() == other.hasCollisionCount());
       if (hasCollisionCount()) {
-        result = result && (getCollisionCount()
-            == other.getCollisionCount());
+        result = result && (getCollisionCount() == other.getCollisionCount());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -4829,8 +5392,7 @@ public final class V1Apps {
       }
       if (hasObservedGeneration()) {
         hash = (37 * hash) + OBSERVEDGENERATION_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getObservedGeneration());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getObservedGeneration());
       }
       if (hasUpdatedNumberScheduled()) {
         hash = (37 * hash) + UPDATEDNUMBERSCHEDULED_FIELD_NUMBER;
@@ -4854,85 +5416,91 @@ public final class V1Apps {
     }
 
     public static io.kubernetes.client.proto.V1Apps.DaemonSetStatus parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetStatus parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetStatus parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetStatus parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetStatus parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetStatus parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.kubernetes.client.proto.V1Apps.DaemonSetStatus parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetStatus parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
-    public static io.kubernetes.client.proto.V1Apps.DaemonSetStatus parseDelimitedFrom(java.io.InputStream input)
+
+    public static io.kubernetes.client.proto.V1Apps.DaemonSetStatus parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetStatus parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
     }
+
+    public static io.kubernetes.client.proto.V1Apps.DaemonSetStatus parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetStatus parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetStatus parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
+
     public static Builder newBuilder(io.kubernetes.client.proto.V1Apps.DaemonSetStatus prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -4942,26 +5510,31 @@ public final class V1Apps {
       return builder;
     }
     /**
+     *
+     *
      * <pre>
      * DaemonSetStatus represents the current status of a daemon set.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.apps.v1.DaemonSetStatus}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:k8s.io.api.apps.v1.DaemonSetStatus)
         io.kubernetes.client.proto.V1Apps.DaemonSetStatusOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_DaemonSetStatus_descriptor;
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1Apps
+            .internal_static_k8s_io_api_apps_v1_DaemonSetStatus_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_DaemonSetStatus_fieldAccessorTable
+        return io.kubernetes.client.proto.V1Apps
+            .internal_static_k8s_io_api_apps_v1_DaemonSetStatus_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.kubernetes.client.proto.V1Apps.DaemonSetStatus.class, io.kubernetes.client.proto.V1Apps.DaemonSetStatus.Builder.class);
+                io.kubernetes.client.proto.V1Apps.DaemonSetStatus.class,
+                io.kubernetes.client.proto.V1Apps.DaemonSetStatus.Builder.class);
       }
 
       // Construct using io.kubernetes.client.proto.V1Apps.DaemonSetStatus.newBuilder()
@@ -4969,16 +5542,15 @@ public final class V1Apps {
         maybeForceBuilderInitialization();
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
+
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
       }
+
       public Builder clear() {
         super.clear();
         currentNumberScheduled_ = 0;
@@ -5002,9 +5574,9 @@ public final class V1Apps {
         return this;
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_DaemonSetStatus_descriptor;
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Apps
+            .internal_static_k8s_io_api_apps_v1_DaemonSetStatus_descriptor;
       }
 
       public io.kubernetes.client.proto.V1Apps.DaemonSetStatus getDefaultInstanceForType() {
@@ -5020,7 +5592,8 @@ public final class V1Apps {
       }
 
       public io.kubernetes.client.proto.V1Apps.DaemonSetStatus buildPartial() {
-        io.kubernetes.client.proto.V1Apps.DaemonSetStatus result = new io.kubernetes.client.proto.V1Apps.DaemonSetStatus(this);
+        io.kubernetes.client.proto.V1Apps.DaemonSetStatus result =
+            new io.kubernetes.client.proto.V1Apps.DaemonSetStatus(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -5067,32 +5640,35 @@ public final class V1Apps {
       public Builder clone() {
         return (Builder) super.clone();
       }
+
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Apps.DaemonSetStatus) {
-          return mergeFrom((io.kubernetes.client.proto.V1Apps.DaemonSetStatus)other);
+          return mergeFrom((io.kubernetes.client.proto.V1Apps.DaemonSetStatus) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -5100,7 +5676,8 @@ public final class V1Apps {
       }
 
       public Builder mergeFrom(io.kubernetes.client.proto.V1Apps.DaemonSetStatus other) {
-        if (other == io.kubernetes.client.proto.V1Apps.DaemonSetStatus.getDefaultInstance()) return this;
+        if (other == io.kubernetes.client.proto.V1Apps.DaemonSetStatus.getDefaultInstance())
+          return this;
         if (other.hasCurrentNumberScheduled()) {
           setCurrentNumberScheduled(other.getCurrentNumberScheduled());
         }
@@ -5145,7 +5722,8 @@ public final class V1Apps {
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.kubernetes.client.proto.V1Apps.DaemonSetStatus) e.getUnfinishedMessage();
+          parsedMessage =
+              (io.kubernetes.client.proto.V1Apps.DaemonSetStatus) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -5154,10 +5732,13 @@ public final class V1Apps {
         }
         return this;
       }
+
       private int bitField0_;
 
-      private int currentNumberScheduled_ ;
+      private int currentNumberScheduled_;
       /**
+       *
+       *
        * <pre>
        * The number of nodes that are running at least 1
        * daemon pod and are supposed to run the daemon pod.
@@ -5170,6 +5751,8 @@ public final class V1Apps {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
+       *
+       *
        * <pre>
        * The number of nodes that are running at least 1
        * daemon pod and are supposed to run the daemon pod.
@@ -5182,6 +5765,8 @@ public final class V1Apps {
         return currentNumberScheduled_;
       }
       /**
+       *
+       *
        * <pre>
        * The number of nodes that are running at least 1
        * daemon pod and are supposed to run the daemon pod.
@@ -5197,6 +5782,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The number of nodes that are running at least 1
        * daemon pod and are supposed to run the daemon pod.
@@ -5212,8 +5799,10 @@ public final class V1Apps {
         return this;
       }
 
-      private int numberMisscheduled_ ;
+      private int numberMisscheduled_;
       /**
+       *
+       *
        * <pre>
        * The number of nodes that are running the daemon pod, but are
        * not supposed to run the daemon pod.
@@ -5226,6 +5815,8 @@ public final class V1Apps {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
+       *
+       *
        * <pre>
        * The number of nodes that are running the daemon pod, but are
        * not supposed to run the daemon pod.
@@ -5238,6 +5829,8 @@ public final class V1Apps {
         return numberMisscheduled_;
       }
       /**
+       *
+       *
        * <pre>
        * The number of nodes that are running the daemon pod, but are
        * not supposed to run the daemon pod.
@@ -5253,6 +5846,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The number of nodes that are running the daemon pod, but are
        * not supposed to run the daemon pod.
@@ -5268,8 +5863,10 @@ public final class V1Apps {
         return this;
       }
 
-      private int desiredNumberScheduled_ ;
+      private int desiredNumberScheduled_;
       /**
+       *
+       *
        * <pre>
        * The total number of nodes that should be running the daemon
        * pod (including nodes correctly running the daemon pod).
@@ -5282,6 +5879,8 @@ public final class V1Apps {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
+       *
+       *
        * <pre>
        * The total number of nodes that should be running the daemon
        * pod (including nodes correctly running the daemon pod).
@@ -5294,6 +5893,8 @@ public final class V1Apps {
         return desiredNumberScheduled_;
       }
       /**
+       *
+       *
        * <pre>
        * The total number of nodes that should be running the daemon
        * pod (including nodes correctly running the daemon pod).
@@ -5309,6 +5910,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The total number of nodes that should be running the daemon
        * pod (including nodes correctly running the daemon pod).
@@ -5324,8 +5927,10 @@ public final class V1Apps {
         return this;
       }
 
-      private int numberReady_ ;
+      private int numberReady_;
       /**
+       *
+       *
        * <pre>
        * The number of nodes that should be running the daemon pod and have one
        * or more of the daemon pod running and ready.
@@ -5337,6 +5942,8 @@ public final class V1Apps {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
+       *
+       *
        * <pre>
        * The number of nodes that should be running the daemon pod and have one
        * or more of the daemon pod running and ready.
@@ -5348,6 +5955,8 @@ public final class V1Apps {
         return numberReady_;
       }
       /**
+       *
+       *
        * <pre>
        * The number of nodes that should be running the daemon pod and have one
        * or more of the daemon pod running and ready.
@@ -5362,6 +5971,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The number of nodes that should be running the daemon pod and have one
        * or more of the daemon pod running and ready.
@@ -5376,8 +5987,10 @@ public final class V1Apps {
         return this;
       }
 
-      private long observedGeneration_ ;
+      private long observedGeneration_;
       /**
+       *
+       *
        * <pre>
        * The most recent generation observed by the daemon set controller.
        * +optional
@@ -5389,6 +6002,8 @@ public final class V1Apps {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
+       *
+       *
        * <pre>
        * The most recent generation observed by the daemon set controller.
        * +optional
@@ -5400,6 +6015,8 @@ public final class V1Apps {
         return observedGeneration_;
       }
       /**
+       *
+       *
        * <pre>
        * The most recent generation observed by the daemon set controller.
        * +optional
@@ -5414,6 +6031,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The most recent generation observed by the daemon set controller.
        * +optional
@@ -5428,8 +6047,10 @@ public final class V1Apps {
         return this;
       }
 
-      private int updatedNumberScheduled_ ;
+      private int updatedNumberScheduled_;
       /**
+       *
+       *
        * <pre>
        * The total number of nodes that are running updated daemon pod
        * +optional
@@ -5441,6 +6062,8 @@ public final class V1Apps {
         return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
+       *
+       *
        * <pre>
        * The total number of nodes that are running updated daemon pod
        * +optional
@@ -5452,6 +6075,8 @@ public final class V1Apps {
         return updatedNumberScheduled_;
       }
       /**
+       *
+       *
        * <pre>
        * The total number of nodes that are running updated daemon pod
        * +optional
@@ -5466,6 +6091,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The total number of nodes that are running updated daemon pod
        * +optional
@@ -5480,8 +6107,10 @@ public final class V1Apps {
         return this;
       }
 
-      private int numberAvailable_ ;
+      private int numberAvailable_;
       /**
+       *
+       *
        * <pre>
        * The number of nodes that should be running the
        * daemon pod and have one or more of the daemon pod running and
@@ -5495,6 +6124,8 @@ public final class V1Apps {
         return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
+       *
+       *
        * <pre>
        * The number of nodes that should be running the
        * daemon pod and have one or more of the daemon pod running and
@@ -5508,6 +6139,8 @@ public final class V1Apps {
         return numberAvailable_;
       }
       /**
+       *
+       *
        * <pre>
        * The number of nodes that should be running the
        * daemon pod and have one or more of the daemon pod running and
@@ -5524,6 +6157,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The number of nodes that should be running the
        * daemon pod and have one or more of the daemon pod running and
@@ -5540,8 +6175,10 @@ public final class V1Apps {
         return this;
       }
 
-      private int numberUnavailable_ ;
+      private int numberUnavailable_;
       /**
+       *
+       *
        * <pre>
        * The number of nodes that should be running the
        * daemon pod and have none of the daemon pod running and available
@@ -5555,6 +6192,8 @@ public final class V1Apps {
         return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
+       *
+       *
        * <pre>
        * The number of nodes that should be running the
        * daemon pod and have none of the daemon pod running and available
@@ -5568,6 +6207,8 @@ public final class V1Apps {
         return numberUnavailable_;
       }
       /**
+       *
+       *
        * <pre>
        * The number of nodes that should be running the
        * daemon pod and have none of the daemon pod running and available
@@ -5584,6 +6225,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The number of nodes that should be running the
        * daemon pod and have none of the daemon pod running and available
@@ -5600,8 +6243,10 @@ public final class V1Apps {
         return this;
       }
 
-      private int collisionCount_ ;
+      private int collisionCount_;
       /**
+       *
+       *
        * <pre>
        * Count of hash collisions for the DaemonSet. The DaemonSet controller
        * uses this field as a collision avoidance mechanism when it needs to
@@ -5615,6 +6260,8 @@ public final class V1Apps {
         return ((bitField0_ & 0x00000100) == 0x00000100);
       }
       /**
+       *
+       *
        * <pre>
        * Count of hash collisions for the DaemonSet. The DaemonSet controller
        * uses this field as a collision avoidance mechanism when it needs to
@@ -5628,6 +6275,8 @@ public final class V1Apps {
         return collisionCount_;
       }
       /**
+       *
+       *
        * <pre>
        * Count of hash collisions for the DaemonSet. The DaemonSet controller
        * uses this field as a collision avoidance mechanism when it needs to
@@ -5644,6 +6293,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Count of hash collisions for the DaemonSet. The DaemonSet controller
        * uses this field as a collision avoidance mechanism when it needs to
@@ -5659,6 +6310,7 @@ public final class V1Apps {
         onChanged();
         return this;
       }
+
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -5669,12 +6321,12 @@ public final class V1Apps {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:k8s.io.api.apps.v1.DaemonSetStatus)
     }
 
     // @@protoc_insertion_point(class_scope:k8s.io.api.apps.v1.DaemonSetStatus)
     private static final io.kubernetes.client.proto.V1Apps.DaemonSetStatus DEFAULT_INSTANCE;
+
     static {
       DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Apps.DaemonSetStatus();
     }
@@ -5683,15 +6335,16 @@ public final class V1Apps {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<DaemonSetStatus>
-        PARSER = new com.google.protobuf.AbstractParser<DaemonSetStatus>() {
-      public DaemonSetStatus parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new DaemonSetStatus(input, extensionRegistry);
-      }
-    };
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<DaemonSetStatus> PARSER =
+        new com.google.protobuf.AbstractParser<DaemonSetStatus>() {
+          public DaemonSetStatus parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new DaemonSetStatus(input, extensionRegistry);
+          }
+        };
 
     public static com.google.protobuf.Parser<DaemonSetStatus> parser() {
       return PARSER;
@@ -5705,14 +6358,16 @@ public final class V1Apps {
     public io.kubernetes.client.proto.V1Apps.DaemonSetStatus getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
-
   }
 
-  public interface DaemonSetUpdateStrategyOrBuilder extends
+  public interface DaemonSetUpdateStrategyOrBuilder
+      extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.apps.v1.DaemonSetUpdateStrategy)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     *
+     *
      * <pre>
      * Type of daemon set update. Can be "RollingUpdate" or "OnDelete". Default is RollingUpdate.
      * +optional
@@ -5722,6 +6377,8 @@ public final class V1Apps {
      */
     boolean hasType();
     /**
+     *
+     *
      * <pre>
      * Type of daemon set update. Can be "RollingUpdate" or "OnDelete". Default is RollingUpdate.
      * +optional
@@ -5731,6 +6388,8 @@ public final class V1Apps {
      */
     java.lang.String getType();
     /**
+     *
+     *
      * <pre>
      * Type of daemon set update. Can be "RollingUpdate" or "OnDelete". Default is RollingUpdate.
      * +optional
@@ -5738,10 +6397,11 @@ public final class V1Apps {
      *
      * <code>optional string type = 1;</code>
      */
-    com.google.protobuf.ByteString
-        getTypeBytes();
+    com.google.protobuf.ByteString getTypeBytes();
 
     /**
+     *
+     *
      * <pre>
      * Rolling update config params. Present only if type = "RollingUpdate".
      * ---
@@ -5755,6 +6415,8 @@ public final class V1Apps {
      */
     boolean hasRollingUpdate();
     /**
+     *
+     *
      * <pre>
      * Rolling update config params. Present only if type = "RollingUpdate".
      * ---
@@ -5768,6 +6430,8 @@ public final class V1Apps {
      */
     io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet getRollingUpdate();
     /**
+     *
+     *
      * <pre>
      * Rolling update config params. Present only if type = "RollingUpdate".
      * ---
@@ -5782,30 +6446,33 @@ public final class V1Apps {
     io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSetOrBuilder getRollingUpdateOrBuilder();
   }
   /**
+   *
+   *
    * <pre>
    * DaemonSetUpdateStrategy is a struct used to control the update strategy for a DaemonSet.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.apps.v1.DaemonSetUpdateStrategy}
    */
-  public  static final class DaemonSetUpdateStrategy extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  public static final class DaemonSetUpdateStrategy extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:k8s.io.api.apps.v1.DaemonSetUpdateStrategy)
       DaemonSetUpdateStrategyOrBuilder {
-  private static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
     // Use DaemonSetUpdateStrategy.newBuilder() to construct.
     private DaemonSetUpdateStrategy(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private DaemonSetUpdateStrategy() {
       type_ = "";
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
       return this.unknownFields;
     }
+
     private DaemonSetUpdateStrategy(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -5822,60 +6489,69 @@ public final class V1Apps {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
               }
-              break;
-            }
-            case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000001;
-              type_ = bs;
-              break;
-            }
-            case 18: {
-              io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                subBuilder = rollingUpdate_.toBuilder();
+            case 10:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000001;
+                type_ = bs;
+                break;
               }
-              rollingUpdate_ = input.readMessage(io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(rollingUpdate_);
-                rollingUpdate_ = subBuilder.buildPartial();
+            case 18:
+              {
+                io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                  subBuilder = rollingUpdate_.toBuilder();
+                }
+                rollingUpdate_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.PARSER,
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(rollingUpdate_);
+                  rollingUpdate_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000002;
+                break;
               }
-              bitField0_ |= 0x00000002;
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_DaemonSetUpdateStrategy_descriptor;
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1Apps
+          .internal_static_k8s_io_api_apps_v1_DaemonSetUpdateStrategy_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_DaemonSetUpdateStrategy_fieldAccessorTable
+      return io.kubernetes.client.proto.V1Apps
+          .internal_static_k8s_io_api_apps_v1_DaemonSetUpdateStrategy_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.class, io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.Builder.class);
+              io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.class,
+              io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.Builder.class);
     }
 
     private int bitField0_;
     public static final int TYPE_FIELD_NUMBER = 1;
     private volatile java.lang.Object type_;
     /**
+     *
+     *
      * <pre>
      * Type of daemon set update. Can be "RollingUpdate" or "OnDelete". Default is RollingUpdate.
      * +optional
@@ -5887,6 +6563,8 @@ public final class V1Apps {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
+     *
+     *
      * <pre>
      * Type of daemon set update. Can be "RollingUpdate" or "OnDelete". Default is RollingUpdate.
      * +optional
@@ -5899,8 +6577,7 @@ public final class V1Apps {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           type_ = s;
@@ -5909,6 +6586,8 @@ public final class V1Apps {
       }
     }
     /**
+     *
+     *
      * <pre>
      * Type of daemon set update. Can be "RollingUpdate" or "OnDelete". Default is RollingUpdate.
      * +optional
@@ -5916,13 +6595,11 @@ public final class V1Apps {
      *
      * <code>optional string type = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getTypeBytes() {
+    public com.google.protobuf.ByteString getTypeBytes() {
       java.lang.Object ref = type_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
         type_ = b;
         return b;
       } else {
@@ -5933,6 +6610,8 @@ public final class V1Apps {
     public static final int ROLLINGUPDATE_FIELD_NUMBER = 2;
     private io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet rollingUpdate_;
     /**
+     *
+     *
      * <pre>
      * Rolling update config params. Present only if type = "RollingUpdate".
      * ---
@@ -5948,6 +6627,8 @@ public final class V1Apps {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
+     *
+     *
      * <pre>
      * Rolling update config params. Present only if type = "RollingUpdate".
      * ---
@@ -5960,9 +6641,13 @@ public final class V1Apps {
      * <code>optional .k8s.io.api.apps.v1.RollingUpdateDaemonSet rollingUpdate = 2;</code>
      */
     public io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet getRollingUpdate() {
-      return rollingUpdate_ == null ? io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.getDefaultInstance() : rollingUpdate_;
+      return rollingUpdate_ == null
+          ? io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.getDefaultInstance()
+          : rollingUpdate_;
     }
     /**
+     *
+     *
      * <pre>
      * Rolling update config params. Present only if type = "RollingUpdate".
      * ---
@@ -5974,11 +6659,15 @@ public final class V1Apps {
      *
      * <code>optional .k8s.io.api.apps.v1.RollingUpdateDaemonSet rollingUpdate = 2;</code>
      */
-    public io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSetOrBuilder getRollingUpdateOrBuilder() {
-      return rollingUpdate_ == null ? io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.getDefaultInstance() : rollingUpdate_;
+    public io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSetOrBuilder
+        getRollingUpdateOrBuilder() {
+      return rollingUpdate_ == null
+          ? io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.getDefaultInstance()
+          : rollingUpdate_;
     }
 
     private byte memoizedIsInitialized = -1;
+
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -5988,8 +6677,7 @@ public final class V1Apps {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, type_);
       }
@@ -6008,8 +6696,7 @@ public final class V1Apps {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, type_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getRollingUpdate());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, getRollingUpdate());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6019,23 +6706,22 @@ public final class V1Apps {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy)) {
         return super.equals(obj);
       }
-      io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy other = (io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy) obj;
+      io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy other =
+          (io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy) obj;
 
       boolean result = true;
       result = result && (hasType() == other.hasType());
       if (hasType()) {
-        result = result && getType()
-            .equals(other.getType());
+        result = result && getType().equals(other.getType());
       }
       result = result && (hasRollingUpdate() == other.hasRollingUpdate());
       if (hasRollingUpdate()) {
-        result = result && getRollingUpdate()
-            .equals(other.getRollingUpdate());
+        result = result && getRollingUpdate().equals(other.getRollingUpdate());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -6062,85 +6748,92 @@ public final class V1Apps {
     }
 
     public static io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
-    public static io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy parseDelimitedFrom(java.io.InputStream input)
+
+    public static io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
     }
+
+    public static io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy prototype) {
+
+    public static Builder newBuilder(
+        io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -6150,26 +6843,31 @@ public final class V1Apps {
       return builder;
     }
     /**
+     *
+     *
      * <pre>
      * DaemonSetUpdateStrategy is a struct used to control the update strategy for a DaemonSet.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.apps.v1.DaemonSetUpdateStrategy}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:k8s.io.api.apps.v1.DaemonSetUpdateStrategy)
         io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategyOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_DaemonSetUpdateStrategy_descriptor;
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1Apps
+            .internal_static_k8s_io_api_apps_v1_DaemonSetUpdateStrategy_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_DaemonSetUpdateStrategy_fieldAccessorTable
+        return io.kubernetes.client.proto.V1Apps
+            .internal_static_k8s_io_api_apps_v1_DaemonSetUpdateStrategy_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.class, io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.Builder.class);
+                io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.class,
+                io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.Builder.class);
       }
 
       // Construct using io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.newBuilder()
@@ -6177,17 +6875,17 @@ public final class V1Apps {
         maybeForceBuilderInitialization();
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
+
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
           getRollingUpdateFieldBuilder();
         }
       }
+
       public Builder clear() {
         super.clear();
         type_ = "";
@@ -6201,9 +6899,9 @@ public final class V1Apps {
         return this;
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_DaemonSetUpdateStrategy_descriptor;
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Apps
+            .internal_static_k8s_io_api_apps_v1_DaemonSetUpdateStrategy_descriptor;
       }
 
       public io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy getDefaultInstanceForType() {
@@ -6219,7 +6917,8 @@ public final class V1Apps {
       }
 
       public io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy buildPartial() {
-        io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy result = new io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy(this);
+        io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy result =
+            new io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -6242,32 +6941,35 @@ public final class V1Apps {
       public Builder clone() {
         return (Builder) super.clone();
       }
+
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy) {
-          return mergeFrom((io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy)other);
+          return mergeFrom((io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -6275,7 +6977,8 @@ public final class V1Apps {
       }
 
       public Builder mergeFrom(io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy other) {
-        if (other == io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.getDefaultInstance()) return this;
+        if (other == io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy.getDefaultInstance())
+          return this;
         if (other.hasType()) {
           bitField0_ |= 0x00000001;
           type_ = other.type_;
@@ -6301,7 +7004,8 @@ public final class V1Apps {
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy) e.getUnfinishedMessage();
+          parsedMessage =
+              (io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -6310,10 +7014,13 @@ public final class V1Apps {
         }
         return this;
       }
+
       private int bitField0_;
 
       private java.lang.Object type_ = "";
       /**
+       *
+       *
        * <pre>
        * Type of daemon set update. Can be "RollingUpdate" or "OnDelete". Default is RollingUpdate.
        * +optional
@@ -6325,6 +7032,8 @@ public final class V1Apps {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
+       *
+       *
        * <pre>
        * Type of daemon set update. Can be "RollingUpdate" or "OnDelete". Default is RollingUpdate.
        * +optional
@@ -6335,8 +7044,7 @@ public final class V1Apps {
       public java.lang.String getType() {
         java.lang.Object ref = type_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             type_ = s;
@@ -6347,6 +7055,8 @@ public final class V1Apps {
         }
       }
       /**
+       *
+       *
        * <pre>
        * Type of daemon set update. Can be "RollingUpdate" or "OnDelete". Default is RollingUpdate.
        * +optional
@@ -6354,13 +7064,11 @@ public final class V1Apps {
        *
        * <code>optional string type = 1;</code>
        */
-      public com.google.protobuf.ByteString
-          getTypeBytes() {
+      public com.google.protobuf.ByteString getTypeBytes() {
         java.lang.Object ref = type_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
           type_ = b;
           return b;
         } else {
@@ -6368,6 +7076,8 @@ public final class V1Apps {
         }
       }
       /**
+       *
+       *
        * <pre>
        * Type of daemon set update. Can be "RollingUpdate" or "OnDelete". Default is RollingUpdate.
        * +optional
@@ -6375,17 +7085,18 @@ public final class V1Apps {
        *
        * <code>optional string type = 1;</code>
        */
-      public Builder setType(
-          java.lang.String value) {
+      public Builder setType(java.lang.String value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
         type_ = value;
         onChanged();
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Type of daemon set update. Can be "RollingUpdate" or "OnDelete". Default is RollingUpdate.
        * +optional
@@ -6400,6 +7111,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Type of daemon set update. Can be "RollingUpdate" or "OnDelete". Default is RollingUpdate.
        * +optional
@@ -6407,12 +7120,11 @@ public final class V1Apps {
        *
        * <code>optional string type = 1;</code>
        */
-      public Builder setTypeBytes(
-          com.google.protobuf.ByteString value) {
+      public Builder setTypeBytes(com.google.protobuf.ByteString value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
         type_ = value;
         onChanged();
         return this;
@@ -6420,8 +7132,13 @@ public final class V1Apps {
 
       private io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet rollingUpdate_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet, io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.Builder, io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSetOrBuilder> rollingUpdateBuilder_;
+              io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet,
+              io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.Builder,
+              io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSetOrBuilder>
+          rollingUpdateBuilder_;
       /**
+       *
+       *
        * <pre>
        * Rolling update config params. Present only if type = "RollingUpdate".
        * ---
@@ -6437,6 +7154,8 @@ public final class V1Apps {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
+       *
+       *
        * <pre>
        * Rolling update config params. Present only if type = "RollingUpdate".
        * ---
@@ -6450,12 +7169,16 @@ public final class V1Apps {
        */
       public io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet getRollingUpdate() {
         if (rollingUpdateBuilder_ == null) {
-          return rollingUpdate_ == null ? io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.getDefaultInstance() : rollingUpdate_;
+          return rollingUpdate_ == null
+              ? io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.getDefaultInstance()
+              : rollingUpdate_;
         } else {
           return rollingUpdateBuilder_.getMessage();
         }
       }
       /**
+       *
+       *
        * <pre>
        * Rolling update config params. Present only if type = "RollingUpdate".
        * ---
@@ -6467,7 +7190,8 @@ public final class V1Apps {
        *
        * <code>optional .k8s.io.api.apps.v1.RollingUpdateDaemonSet rollingUpdate = 2;</code>
        */
-      public Builder setRollingUpdate(io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet value) {
+      public Builder setRollingUpdate(
+          io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet value) {
         if (rollingUpdateBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -6481,6 +7205,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Rolling update config params. Present only if type = "RollingUpdate".
        * ---
@@ -6504,6 +7230,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Rolling update config params. Present only if type = "RollingUpdate".
        * ---
@@ -6515,13 +7243,18 @@ public final class V1Apps {
        *
        * <code>optional .k8s.io.api.apps.v1.RollingUpdateDaemonSet rollingUpdate = 2;</code>
        */
-      public Builder mergeRollingUpdate(io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet value) {
+      public Builder mergeRollingUpdate(
+          io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet value) {
         if (rollingUpdateBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              rollingUpdate_ != null &&
-              rollingUpdate_ != io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)
+              && rollingUpdate_ != null
+              && rollingUpdate_
+                  != io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet
+                      .getDefaultInstance()) {
             rollingUpdate_ =
-              io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.newBuilder(rollingUpdate_).mergeFrom(value).buildPartial();
+                io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.newBuilder(rollingUpdate_)
+                    .mergeFrom(value)
+                    .buildPartial();
           } else {
             rollingUpdate_ = value;
           }
@@ -6533,6 +7266,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Rolling update config params. Present only if type = "RollingUpdate".
        * ---
@@ -6555,6 +7290,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Rolling update config params. Present only if type = "RollingUpdate".
        * ---
@@ -6566,12 +7303,15 @@ public final class V1Apps {
        *
        * <code>optional .k8s.io.api.apps.v1.RollingUpdateDaemonSet rollingUpdate = 2;</code>
        */
-      public io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.Builder getRollingUpdateBuilder() {
+      public io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.Builder
+          getRollingUpdateBuilder() {
         bitField0_ |= 0x00000002;
         onChanged();
         return getRollingUpdateFieldBuilder().getBuilder();
       }
       /**
+       *
+       *
        * <pre>
        * Rolling update config params. Present only if type = "RollingUpdate".
        * ---
@@ -6583,15 +7323,19 @@ public final class V1Apps {
        *
        * <code>optional .k8s.io.api.apps.v1.RollingUpdateDaemonSet rollingUpdate = 2;</code>
        */
-      public io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSetOrBuilder getRollingUpdateOrBuilder() {
+      public io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSetOrBuilder
+          getRollingUpdateOrBuilder() {
         if (rollingUpdateBuilder_ != null) {
           return rollingUpdateBuilder_.getMessageOrBuilder();
         } else {
-          return rollingUpdate_ == null ?
-              io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.getDefaultInstance() : rollingUpdate_;
+          return rollingUpdate_ == null
+              ? io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.getDefaultInstance()
+              : rollingUpdate_;
         }
       }
       /**
+       *
+       *
        * <pre>
        * Rolling update config params. Present only if type = "RollingUpdate".
        * ---
@@ -6604,18 +7348,22 @@ public final class V1Apps {
        * <code>optional .k8s.io.api.apps.v1.RollingUpdateDaemonSet rollingUpdate = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet, io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.Builder, io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSetOrBuilder> 
+              io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet,
+              io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.Builder,
+              io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSetOrBuilder>
           getRollingUpdateFieldBuilder() {
         if (rollingUpdateBuilder_ == null) {
-          rollingUpdateBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet, io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.Builder, io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSetOrBuilder>(
-                  getRollingUpdate(),
-                  getParentForChildren(),
-                  isClean());
+          rollingUpdateBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet,
+                  io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.Builder,
+                  io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSetOrBuilder>(
+                  getRollingUpdate(), getParentForChildren(), isClean());
           rollingUpdate_ = null;
         }
         return rollingUpdateBuilder_;
       }
+
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -6626,12 +7374,12 @@ public final class V1Apps {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:k8s.io.api.apps.v1.DaemonSetUpdateStrategy)
     }
 
     // @@protoc_insertion_point(class_scope:k8s.io.api.apps.v1.DaemonSetUpdateStrategy)
     private static final io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy DEFAULT_INSTANCE;
+
     static {
       DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy();
     }
@@ -6640,15 +7388,16 @@ public final class V1Apps {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<DaemonSetUpdateStrategy>
-        PARSER = new com.google.protobuf.AbstractParser<DaemonSetUpdateStrategy>() {
-      public DaemonSetUpdateStrategy parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new DaemonSetUpdateStrategy(input, extensionRegistry);
-      }
-    };
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<DaemonSetUpdateStrategy> PARSER =
+        new com.google.protobuf.AbstractParser<DaemonSetUpdateStrategy>() {
+          public DaemonSetUpdateStrategy parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new DaemonSetUpdateStrategy(input, extensionRegistry);
+          }
+        };
 
     public static com.google.protobuf.Parser<DaemonSetUpdateStrategy> parser() {
       return PARSER;
@@ -6662,14 +7411,16 @@ public final class V1Apps {
     public io.kubernetes.client.proto.V1Apps.DaemonSetUpdateStrategy getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
-
   }
 
-  public interface RollingUpdateDaemonSetOrBuilder extends
+  public interface RollingUpdateDaemonSetOrBuilder
+      extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.apps.v1.RollingUpdateDaemonSet)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     *
+     *
      * <pre>
      * The maximum number of DaemonSet pods that can be unavailable during the
      * update. Value can be an absolute number (ex: 5) or a percentage of total
@@ -6692,6 +7443,8 @@ public final class V1Apps {
      */
     boolean hasMaxUnavailable();
     /**
+     *
+     *
      * <pre>
      * The maximum number of DaemonSet pods that can be unavailable during the
      * update. Value can be an absolute number (ex: 5) or a percentage of total
@@ -6714,6 +7467,8 @@ public final class V1Apps {
      */
     io.kubernetes.client.proto.IntStr.IntOrString getMaxUnavailable();
     /**
+     *
+     *
      * <pre>
      * The maximum number of DaemonSet pods that can be unavailable during the
      * update. Value can be an absolute number (ex: 5) or a percentage of total
@@ -6737,29 +7492,31 @@ public final class V1Apps {
     io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getMaxUnavailableOrBuilder();
   }
   /**
+   *
+   *
    * <pre>
    * Spec to control the desired behavior of daemon set rolling update.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.apps.v1.RollingUpdateDaemonSet}
    */
-  public  static final class RollingUpdateDaemonSet extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  public static final class RollingUpdateDaemonSet extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:k8s.io.api.apps.v1.RollingUpdateDaemonSet)
       RollingUpdateDaemonSetOrBuilder {
-  private static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
     // Use RollingUpdateDaemonSet.newBuilder() to construct.
     private RollingUpdateDaemonSet(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private RollingUpdateDaemonSet() {
-    }
+
+    private RollingUpdateDaemonSet() {}
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
       return this.unknownFields;
     }
+
     private RollingUpdateDaemonSet(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -6776,54 +7533,61 @@ public final class V1Apps {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
               }
-              break;
-            }
-            case 10: {
-              io.kubernetes.client.proto.IntStr.IntOrString.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                subBuilder = maxUnavailable_.toBuilder();
+            case 10:
+              {
+                io.kubernetes.client.proto.IntStr.IntOrString.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                  subBuilder = maxUnavailable_.toBuilder();
+                }
+                maxUnavailable_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.IntStr.IntOrString.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(maxUnavailable_);
+                  maxUnavailable_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000001;
+                break;
               }
-              maxUnavailable_ = input.readMessage(io.kubernetes.client.proto.IntStr.IntOrString.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(maxUnavailable_);
-                maxUnavailable_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000001;
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_RollingUpdateDaemonSet_descriptor;
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1Apps
+          .internal_static_k8s_io_api_apps_v1_RollingUpdateDaemonSet_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_RollingUpdateDaemonSet_fieldAccessorTable
+      return io.kubernetes.client.proto.V1Apps
+          .internal_static_k8s_io_api_apps_v1_RollingUpdateDaemonSet_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.class, io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.Builder.class);
+              io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.class,
+              io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.Builder.class);
     }
 
     private int bitField0_;
     public static final int MAXUNAVAILABLE_FIELD_NUMBER = 1;
     private io.kubernetes.client.proto.IntStr.IntOrString maxUnavailable_;
     /**
+     *
+     *
      * <pre>
      * The maximum number of DaemonSet pods that can be unavailable during the
      * update. Value can be an absolute number (ex: 5) or a percentage of total
@@ -6848,6 +7612,8 @@ public final class V1Apps {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
+     *
+     *
      * <pre>
      * The maximum number of DaemonSet pods that can be unavailable during the
      * update. Value can be an absolute number (ex: 5) or a percentage of total
@@ -6869,9 +7635,13 @@ public final class V1Apps {
      * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     public io.kubernetes.client.proto.IntStr.IntOrString getMaxUnavailable() {
-      return maxUnavailable_ == null ? io.kubernetes.client.proto.IntStr.IntOrString.getDefaultInstance() : maxUnavailable_;
+      return maxUnavailable_ == null
+          ? io.kubernetes.client.proto.IntStr.IntOrString.getDefaultInstance()
+          : maxUnavailable_;
     }
     /**
+     *
+     *
      * <pre>
      * The maximum number of DaemonSet pods that can be unavailable during the
      * update. Value can be an absolute number (ex: 5) or a percentage of total
@@ -6893,10 +7663,13 @@ public final class V1Apps {
      * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     public io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getMaxUnavailableOrBuilder() {
-      return maxUnavailable_ == null ? io.kubernetes.client.proto.IntStr.IntOrString.getDefaultInstance() : maxUnavailable_;
+      return maxUnavailable_ == null
+          ? io.kubernetes.client.proto.IntStr.IntOrString.getDefaultInstance()
+          : maxUnavailable_;
     }
 
     private byte memoizedIsInitialized = -1;
+
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -6906,8 +7679,7 @@ public final class V1Apps {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeMessage(1, getMaxUnavailable());
       }
@@ -6920,8 +7692,7 @@ public final class V1Apps {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getMaxUnavailable());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, getMaxUnavailable());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6931,18 +7702,18 @@ public final class V1Apps {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet)) {
         return super.equals(obj);
       }
-      io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet other = (io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet) obj;
+      io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet other =
+          (io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet) obj;
 
       boolean result = true;
       result = result && (hasMaxUnavailable() == other.hasMaxUnavailable());
       if (hasMaxUnavailable()) {
-        result = result && getMaxUnavailable()
-            .equals(other.getMaxUnavailable());
+        result = result && getMaxUnavailable().equals(other.getMaxUnavailable());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -6965,85 +7736,92 @@ public final class V1Apps {
     }
 
     public static io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
+
     public static io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
-    public static io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet parseDelimitedFrom(java.io.InputStream input)
+
+    public static io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
     }
+
+    public static io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
     public static io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet prototype) {
+
+    public static Builder newBuilder(
+        io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -7053,26 +7831,31 @@ public final class V1Apps {
       return builder;
     }
     /**
+     *
+     *
      * <pre>
      * Spec to control the desired behavior of daemon set rolling update.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.apps.v1.RollingUpdateDaemonSet}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:k8s.io.api.apps.v1.RollingUpdateDaemonSet)
         io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSetOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_RollingUpdateDaemonSet_descriptor;
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1Apps
+            .internal_static_k8s_io_api_apps_v1_RollingUpdateDaemonSet_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_RollingUpdateDaemonSet_fieldAccessorTable
+        return io.kubernetes.client.proto.V1Apps
+            .internal_static_k8s_io_api_apps_v1_RollingUpdateDaemonSet_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.class, io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.Builder.class);
+                io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.class,
+                io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.Builder.class);
       }
 
       // Construct using io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.newBuilder()
@@ -7080,17 +7863,17 @@ public final class V1Apps {
         maybeForceBuilderInitialization();
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
+
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
           getMaxUnavailableFieldBuilder();
         }
       }
+
       public Builder clear() {
         super.clear();
         if (maxUnavailableBuilder_ == null) {
@@ -7102,9 +7885,9 @@ public final class V1Apps {
         return this;
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.kubernetes.client.proto.V1Apps.internal_static_k8s_io_api_apps_v1_RollingUpdateDaemonSet_descriptor;
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Apps
+            .internal_static_k8s_io_api_apps_v1_RollingUpdateDaemonSet_descriptor;
       }
 
       public io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet getDefaultInstanceForType() {
@@ -7120,7 +7903,8 @@ public final class V1Apps {
       }
 
       public io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet buildPartial() {
-        io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet result = new io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet(this);
+        io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet result =
+            new io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -7139,32 +7923,35 @@ public final class V1Apps {
       public Builder clone() {
         return (Builder) super.clone();
       }
+
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet) {
-          return mergeFrom((io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet)other);
+          return mergeFrom((io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -7172,7 +7959,8 @@ public final class V1Apps {
       }
 
       public Builder mergeFrom(io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet other) {
-        if (other == io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.getDefaultInstance()) return this;
+        if (other == io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet.getDefaultInstance())
+          return this;
         if (other.hasMaxUnavailable()) {
           mergeMaxUnavailable(other.getMaxUnavailable());
         }
@@ -7193,7 +7981,8 @@ public final class V1Apps {
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet) e.getUnfinishedMessage();
+          parsedMessage =
+              (io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -7202,12 +7991,18 @@ public final class V1Apps {
         }
         return this;
       }
+
       private int bitField0_;
 
       private io.kubernetes.client.proto.IntStr.IntOrString maxUnavailable_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.IntStr.IntOrString, io.kubernetes.client.proto.IntStr.IntOrString.Builder, io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder> maxUnavailableBuilder_;
+              io.kubernetes.client.proto.IntStr.IntOrString,
+              io.kubernetes.client.proto.IntStr.IntOrString.Builder,
+              io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder>
+          maxUnavailableBuilder_;
       /**
+       *
+       *
        * <pre>
        * The maximum number of DaemonSet pods that can be unavailable during the
        * update. Value can be an absolute number (ex: 5) or a percentage of total
@@ -7232,6 +8027,8 @@ public final class V1Apps {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
+       *
+       *
        * <pre>
        * The maximum number of DaemonSet pods that can be unavailable during the
        * update. Value can be an absolute number (ex: 5) or a percentage of total
@@ -7254,12 +8051,16 @@ public final class V1Apps {
        */
       public io.kubernetes.client.proto.IntStr.IntOrString getMaxUnavailable() {
         if (maxUnavailableBuilder_ == null) {
-          return maxUnavailable_ == null ? io.kubernetes.client.proto.IntStr.IntOrString.getDefaultInstance() : maxUnavailable_;
+          return maxUnavailable_ == null
+              ? io.kubernetes.client.proto.IntStr.IntOrString.getDefaultInstance()
+              : maxUnavailable_;
         } else {
           return maxUnavailableBuilder_.getMessage();
         }
       }
       /**
+       *
+       *
        * <pre>
        * The maximum number of DaemonSet pods that can be unavailable during the
        * update. Value can be an absolute number (ex: 5) or a percentage of total
@@ -7294,6 +8095,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The maximum number of DaemonSet pods that can be unavailable during the
        * update. Value can be an absolute number (ex: 5) or a percentage of total
@@ -7326,6 +8129,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The maximum number of DaemonSet pods that can be unavailable during the
        * update. Value can be an absolute number (ex: 5) or a percentage of total
@@ -7348,11 +8153,14 @@ public final class V1Apps {
        */
       public Builder mergeMaxUnavailable(io.kubernetes.client.proto.IntStr.IntOrString value) {
         if (maxUnavailableBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              maxUnavailable_ != null &&
-              maxUnavailable_ != io.kubernetes.client.proto.IntStr.IntOrString.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)
+              && maxUnavailable_ != null
+              && maxUnavailable_
+                  != io.kubernetes.client.proto.IntStr.IntOrString.getDefaultInstance()) {
             maxUnavailable_ =
-              io.kubernetes.client.proto.IntStr.IntOrString.newBuilder(maxUnavailable_).mergeFrom(value).buildPartial();
+                io.kubernetes.client.proto.IntStr.IntOrString.newBuilder(maxUnavailable_)
+                    .mergeFrom(value)
+                    .buildPartial();
           } else {
             maxUnavailable_ = value;
           }
@@ -7364,6 +8172,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The maximum number of DaemonSet pods that can be unavailable during the
        * update. Value can be an absolute number (ex: 5) or a percentage of total
@@ -7395,6 +8205,8 @@ public final class V1Apps {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The maximum number of DaemonSet pods that can be unavailable during the
        * update. Value can be an absolute number (ex: 5) or a percentage of total
@@ -7421,6 +8233,8 @@ public final class V1Apps {
         return getMaxUnavailableFieldBuilder().getBuilder();
       }
       /**
+       *
+       *
        * <pre>
        * The maximum number of DaemonSet pods that can be unavailable during the
        * update. Value can be an absolute number (ex: 5) or a percentage of total
@@ -7445,11 +8259,14 @@ public final class V1Apps {
         if (maxUnavailableBuilder_ != null) {
           return maxUnavailableBuilder_.getMessageOrBuilder();
         } else {
-          return maxUnavailable_ == null ?
-              io.kubernetes.client.proto.IntStr.IntOrString.getDefaultInstance() : maxUnavailable_;
+          return maxUnavailable_ == null
+              ? io.kubernetes.client.proto.IntStr.IntOrString.getDefaultInstance()
+              : maxUnavailable_;
         }
       }
       /**
+       *
+       *
        * <pre>
        * The maximum number of DaemonSet pods that can be unavailable during the
        * update. Value can be an absolute number (ex: 5) or a percentage of total
@@ -7471,18 +8288,22 @@ public final class V1Apps {
        * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.IntStr.IntOrString, io.kubernetes.client.proto.IntStr.IntOrString.Builder, io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder> 
+              io.kubernetes.client.proto.IntStr.IntOrString,
+              io.kubernetes.client.proto.IntStr.IntOrString.Builder,
+              io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder>
           getMaxUnavailableFieldBuilder() {
         if (maxUnavailableBuilder_ == null) {
-          maxUnavailableBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.IntStr.IntOrString, io.kubernetes.client.proto.IntStr.IntOrString.Builder, io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder>(
-                  getMaxUnavailable(),
-                  getParentForChildren(),
-                  isClean());
+          maxUnavailableBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.IntStr.IntOrString,
+                  io.kubernetes.client.proto.IntStr.IntOrString.Builder,
+                  io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder>(
+                  getMaxUnavailable(), getParentForChildren(), isClean());
           maxUnavailable_ = null;
         }
         return maxUnavailableBuilder_;
       }
+
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -7493,12 +8314,12 @@ public final class V1Apps {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:k8s.io.api.apps.v1.RollingUpdateDaemonSet)
     }
 
     // @@protoc_insertion_point(class_scope:k8s.io.api.apps.v1.RollingUpdateDaemonSet)
     private static final io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet DEFAULT_INSTANCE;
+
     static {
       DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet();
     }
@@ -7507,15 +8328,16 @@ public final class V1Apps {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<RollingUpdateDaemonSet>
-        PARSER = new com.google.protobuf.AbstractParser<RollingUpdateDaemonSet>() {
-      public RollingUpdateDaemonSet parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new RollingUpdateDaemonSet(input, extensionRegistry);
-      }
-    };
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<RollingUpdateDaemonSet> PARSER =
+        new com.google.protobuf.AbstractParser<RollingUpdateDaemonSet>() {
+          public RollingUpdateDaemonSet parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new RollingUpdateDaemonSet(input, extensionRegistry);
+          }
+        };
 
     public static com.google.protobuf.Parser<RollingUpdateDaemonSet> parser() {
       return PARSER;
@@ -7529,96 +8351,89 @@ public final class V1Apps {
     public io.kubernetes.client.proto.V1Apps.RollingUpdateDaemonSet getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
-
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_k8s_io_api_apps_v1_DaemonSet_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_apps_v1_DaemonSet_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_apps_v1_DaemonSet_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_k8s_io_api_apps_v1_DaemonSetList_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_apps_v1_DaemonSetList_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_apps_v1_DaemonSetList_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_k8s_io_api_apps_v1_DaemonSetSpec_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_apps_v1_DaemonSetSpec_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_apps_v1_DaemonSetSpec_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_k8s_io_api_apps_v1_DaemonSetStatus_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_apps_v1_DaemonSetStatus_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_apps_v1_DaemonSetStatus_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_k8s_io_api_apps_v1_DaemonSetUpdateStrategy_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_apps_v1_DaemonSetUpdateStrategy_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_apps_v1_DaemonSetUpdateStrategy_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_k8s_io_api_apps_v1_RollingUpdateDaemonSet_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_apps_v1_RollingUpdateDaemonSet_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_apps_v1_RollingUpdateDaemonSet_fieldAccessorTable;
 
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
+  public static com.google.protobuf.Descriptors.FileDescriptor getDescriptor() {
     return descriptor;
   }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
+
+  private static com.google.protobuf.Descriptors.FileDescriptor descriptor;
+
   static {
     java.lang.String[] descriptorData = {
-      "\n\"k8s.io/api/apps/v1/generated.proto\022\022k8" +
-      "s.io.api.apps.v1\032\"k8s.io/api/core/v1/gen" +
-      "erated.proto\032)k8s.io/api/policy/v1beta1/" +
-      "generated.proto\0324k8s.io/apimachinery/pkg" +
-      "/apis/meta/v1/generated.proto\032/k8s.io/ap" +
-      "imachinery/pkg/runtime/generated.proto\0326" +
-      "k8s.io/apimachinery/pkg/runtime/schema/g" +
-      "enerated.proto\0323k8s.io/apimachinery/pkg/" +
-      "util/intstr/generated.proto\"\265\001\n\tDaemonSe" +
-      "t\022B\n\010metadata\030\001 \001(\01320.k8s.io.apimachiner",
-      "y.pkg.apis.meta.v1.ObjectMeta\022/\n\004spec\030\002 " +
-      "\001(\0132!.k8s.io.api.apps.v1.DaemonSetSpec\0223" +
-      "\n\006status\030\003 \001(\0132#.k8s.io.api.apps.v1.Daem" +
-      "onSetStatus\"\177\n\rDaemonSetList\022@\n\010metadata" +
-      "\030\001 \001(\0132..k8s.io.apimachinery.pkg.apis.me" +
-      "ta.v1.ListMeta\022,\n\005items\030\002 \003(\0132\035.k8s.io.a" +
-      "pi.apps.v1.DaemonSet\"\211\002\n\rDaemonSetSpec\022E" +
-      "\n\010selector\030\001 \001(\01323.k8s.io.apimachinery.p" +
-      "kg.apis.meta.v1.LabelSelector\0225\n\010templat" +
-      "e\030\002 \001(\0132#.k8s.io.api.core.v1.PodTemplate",
-      "Spec\022C\n\016updateStrategy\030\003 \001(\0132+.k8s.io.ap" +
-      "i.apps.v1.DaemonSetUpdateStrategy\022\027\n\017min" +
-      "ReadySeconds\030\004 \001(\005\022\034\n\024revisionHistoryLim" +
-      "it\030\006 \001(\005\"\212\002\n\017DaemonSetStatus\022\036\n\026currentN" +
-      "umberScheduled\030\001 \001(\005\022\032\n\022numberMisschedul" +
-      "ed\030\002 \001(\005\022\036\n\026desiredNumberScheduled\030\003 \001(\005" +
-      "\022\023\n\013numberReady\030\004 \001(\005\022\032\n\022observedGenerat" +
-      "ion\030\005 \001(\003\022\036\n\026updatedNumberScheduled\030\006 \001(" +
-      "\005\022\027\n\017numberAvailable\030\007 \001(\005\022\031\n\021numberUnav" +
-      "ailable\030\010 \001(\005\022\026\n\016collisionCount\030\t \001(\005\"j\n",
-      "\027DaemonSetUpdateStrategy\022\014\n\004type\030\001 \001(\t\022A" +
-      "\n\rrollingUpdate\030\002 \001(\0132*.k8s.io.api.apps." +
-      "v1.RollingUpdateDaemonSet\"b\n\026RollingUpda" +
-      "teDaemonSet\022H\n\016maxUnavailable\030\001 \001(\01320.k8" +
-      "s.io.apimachinery.pkg.util.intstr.IntOrS" +
-      "tringB(\n\032io.kubernetes.client.protoB\006V1A" +
-      "ppsZ\002v1"
+      "\n\"k8s.io/api/apps/v1/generated.proto\022\022k8"
+          + "s.io.api.apps.v1\032\"k8s.io/api/core/v1/gen"
+          + "erated.proto\032)k8s.io/api/policy/v1beta1/"
+          + "generated.proto\0324k8s.io/apimachinery/pkg"
+          + "/apis/meta/v1/generated.proto\032/k8s.io/ap"
+          + "imachinery/pkg/runtime/generated.proto\0326"
+          + "k8s.io/apimachinery/pkg/runtime/schema/g"
+          + "enerated.proto\0323k8s.io/apimachinery/pkg/"
+          + "util/intstr/generated.proto\"\265\001\n\tDaemonSe"
+          + "t\022B\n\010metadata\030\001 \001(\01320.k8s.io.apimachiner",
+      "y.pkg.apis.meta.v1.ObjectMeta\022/\n\004spec\030\002 "
+          + "\001(\0132!.k8s.io.api.apps.v1.DaemonSetSpec\0223"
+          + "\n\006status\030\003 \001(\0132#.k8s.io.api.apps.v1.Daem"
+          + "onSetStatus\"\177\n\rDaemonSetList\022@\n\010metadata"
+          + "\030\001 \001(\0132..k8s.io.apimachinery.pkg.apis.me"
+          + "ta.v1.ListMeta\022,\n\005items\030\002 \003(\0132\035.k8s.io.a"
+          + "pi.apps.v1.DaemonSet\"\211\002\n\rDaemonSetSpec\022E"
+          + "\n\010selector\030\001 \001(\01323.k8s.io.apimachinery.p"
+          + "kg.apis.meta.v1.LabelSelector\0225\n\010templat"
+          + "e\030\002 \001(\0132#.k8s.io.api.core.v1.PodTemplate",
+      "Spec\022C\n\016updateStrategy\030\003 \001(\0132+.k8s.io.ap"
+          + "i.apps.v1.DaemonSetUpdateStrategy\022\027\n\017min"
+          + "ReadySeconds\030\004 \001(\005\022\034\n\024revisionHistoryLim"
+          + "it\030\006 \001(\005\"\212\002\n\017DaemonSetStatus\022\036\n\026currentN"
+          + "umberScheduled\030\001 \001(\005\022\032\n\022numberMisschedul"
+          + "ed\030\002 \001(\005\022\036\n\026desiredNumberScheduled\030\003 \001(\005"
+          + "\022\023\n\013numberReady\030\004 \001(\005\022\032\n\022observedGenerat"
+          + "ion\030\005 \001(\003\022\036\n\026updatedNumberScheduled\030\006 \001("
+          + "\005\022\027\n\017numberAvailable\030\007 \001(\005\022\031\n\021numberUnav"
+          + "ailable\030\010 \001(\005\022\026\n\016collisionCount\030\t \001(\005\"j\n",
+      "\027DaemonSetUpdateStrategy\022\014\n\004type\030\001 \001(\t\022A"
+          + "\n\rrollingUpdate\030\002 \001(\0132*.k8s.io.api.apps."
+          + "v1.RollingUpdateDaemonSet\"b\n\026RollingUpda"
+          + "teDaemonSet\022H\n\016maxUnavailable\030\001 \001(\01320.k8"
+          + "s.io.apimachinery.pkg.util.intstr.IntOrS"
+          + "tringB(\n\032io.kubernetes.client.protoB\006V1A"
+          + "ppsZ\002v1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+        new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
           public com.google.protobuf.ExtensionRegistry assignDescriptors(
               com.google.protobuf.Descriptors.FileDescriptor root) {
             descriptor = root;
             return null;
           }
         };
-    com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
+    com.google.protobuf.Descriptors.FileDescriptor.internalBuildGeneratedFileFrom(
+        descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           io.kubernetes.client.proto.V1.getDescriptor(),
           io.kubernetes.client.proto.V1beta1Policy.getDescriptor(),
@@ -7626,43 +8441,64 @@ public final class V1Apps {
           io.kubernetes.client.proto.Runtime.getDescriptor(),
           io.kubernetes.client.proto.RuntimeSchema.getDescriptor(),
           io.kubernetes.client.proto.IntStr.getDescriptor(),
-        }, assigner);
+        },
+        assigner);
     internal_static_k8s_io_api_apps_v1_DaemonSet_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_k8s_io_api_apps_v1_DaemonSet_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_k8s_io_api_apps_v1_DaemonSet_descriptor,
-        new java.lang.String[] { "Metadata", "Spec", "Status", });
+        getDescriptor().getMessageTypes().get(0);
+    internal_static_k8s_io_api_apps_v1_DaemonSet_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_apps_v1_DaemonSet_descriptor,
+            new java.lang.String[] {
+              "Metadata", "Spec", "Status",
+            });
     internal_static_k8s_io_api_apps_v1_DaemonSetList_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_k8s_io_api_apps_v1_DaemonSetList_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_k8s_io_api_apps_v1_DaemonSetList_descriptor,
-        new java.lang.String[] { "Metadata", "Items", });
+        getDescriptor().getMessageTypes().get(1);
+    internal_static_k8s_io_api_apps_v1_DaemonSetList_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_apps_v1_DaemonSetList_descriptor,
+            new java.lang.String[] {
+              "Metadata", "Items",
+            });
     internal_static_k8s_io_api_apps_v1_DaemonSetSpec_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_k8s_io_api_apps_v1_DaemonSetSpec_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_k8s_io_api_apps_v1_DaemonSetSpec_descriptor,
-        new java.lang.String[] { "Selector", "Template", "UpdateStrategy", "MinReadySeconds", "RevisionHistoryLimit", });
+        getDescriptor().getMessageTypes().get(2);
+    internal_static_k8s_io_api_apps_v1_DaemonSetSpec_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_apps_v1_DaemonSetSpec_descriptor,
+            new java.lang.String[] {
+              "Selector", "Template", "UpdateStrategy", "MinReadySeconds", "RevisionHistoryLimit",
+            });
     internal_static_k8s_io_api_apps_v1_DaemonSetStatus_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_k8s_io_api_apps_v1_DaemonSetStatus_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_k8s_io_api_apps_v1_DaemonSetStatus_descriptor,
-        new java.lang.String[] { "CurrentNumberScheduled", "NumberMisscheduled", "DesiredNumberScheduled", "NumberReady", "ObservedGeneration", "UpdatedNumberScheduled", "NumberAvailable", "NumberUnavailable", "CollisionCount", });
+        getDescriptor().getMessageTypes().get(3);
+    internal_static_k8s_io_api_apps_v1_DaemonSetStatus_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_apps_v1_DaemonSetStatus_descriptor,
+            new java.lang.String[] {
+              "CurrentNumberScheduled",
+              "NumberMisscheduled",
+              "DesiredNumberScheduled",
+              "NumberReady",
+              "ObservedGeneration",
+              "UpdatedNumberScheduled",
+              "NumberAvailable",
+              "NumberUnavailable",
+              "CollisionCount",
+            });
     internal_static_k8s_io_api_apps_v1_DaemonSetUpdateStrategy_descriptor =
-      getDescriptor().getMessageTypes().get(4);
-    internal_static_k8s_io_api_apps_v1_DaemonSetUpdateStrategy_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_k8s_io_api_apps_v1_DaemonSetUpdateStrategy_descriptor,
-        new java.lang.String[] { "Type", "RollingUpdate", });
+        getDescriptor().getMessageTypes().get(4);
+    internal_static_k8s_io_api_apps_v1_DaemonSetUpdateStrategy_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_apps_v1_DaemonSetUpdateStrategy_descriptor,
+            new java.lang.String[] {
+              "Type", "RollingUpdate",
+            });
     internal_static_k8s_io_api_apps_v1_RollingUpdateDaemonSet_descriptor =
-      getDescriptor().getMessageTypes().get(5);
-    internal_static_k8s_io_api_apps_v1_RollingUpdateDaemonSet_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_k8s_io_api_apps_v1_RollingUpdateDaemonSet_descriptor,
-        new java.lang.String[] { "MaxUnavailable", });
+        getDescriptor().getMessageTypes().get(5);
+    internal_static_k8s_io_api_apps_v1_RollingUpdateDaemonSet_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_apps_v1_RollingUpdateDaemonSet_descriptor,
+            new java.lang.String[] {
+              "MaxUnavailable",
+            });
     io.kubernetes.client.proto.V1.getDescriptor();
     io.kubernetes.client.proto.V1beta1Policy.getDescriptor();
     io.kubernetes.client.proto.Meta.getDescriptor();

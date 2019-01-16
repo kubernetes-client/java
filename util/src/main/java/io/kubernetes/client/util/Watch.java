@@ -15,8 +15,6 @@ package io.kubernetes.client.util;
 import com.google.gson.JsonParseException;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
-import com.squareup.okhttp.Call;
-import com.squareup.okhttp.ResponseBody;
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
 import io.kubernetes.client.JSON;
@@ -24,6 +22,8 @@ import io.kubernetes.client.models.V1Status;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Iterator;
+import okhttp3.Call;
+import okhttp3.ResponseBody;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -92,7 +92,7 @@ public class Watch<T>
       throw new ApiException("Watch is incompatible with debugging mode active.");
     }
     try {
-      com.squareup.okhttp.Response response = call.execute();
+      okhttp3.Response response = call.execute();
       if (!response.isSuccessful()) {
         String respBody = null;
         try (ResponseBody body = response.body()) {

@@ -5,20 +5,21 @@ package io.kubernetes.client.proto;
 
 public final class V1Batch {
   private V1Batch() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
+
+  public static void registerAllExtensions(com.google.protobuf.ExtensionRegistryLite registry) {}
+
+  public static void registerAllExtensions(com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions((com.google.protobuf.ExtensionRegistryLite) registry);
   }
 
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
-  public interface JobOrBuilder extends
+  public interface JobOrBuilder
+      extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.batch.v1.Job)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     *
+     *
      * <pre>
      * Standard object's metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -29,6 +30,8 @@ public final class V1Batch {
      */
     boolean hasMetadata();
     /**
+     *
+     *
      * <pre>
      * Standard object's metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -39,6 +42,8 @@ public final class V1Batch {
      */
     io.kubernetes.client.proto.Meta.ObjectMeta getMetadata();
     /**
+     *
+     *
      * <pre>
      * Standard object's metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -50,6 +55,8 @@ public final class V1Batch {
     io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder getMetadataOrBuilder();
 
     /**
+     *
+     *
      * <pre>
      * Specification of the desired behavior of a job.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -60,6 +67,8 @@ public final class V1Batch {
      */
     boolean hasSpec();
     /**
+     *
+     *
      * <pre>
      * Specification of the desired behavior of a job.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -70,6 +79,8 @@ public final class V1Batch {
      */
     io.kubernetes.client.proto.V1Batch.JobSpec getSpec();
     /**
+     *
+     *
      * <pre>
      * Specification of the desired behavior of a job.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -81,6 +92,8 @@ public final class V1Batch {
     io.kubernetes.client.proto.V1Batch.JobSpecOrBuilder getSpecOrBuilder();
 
     /**
+     *
+     *
      * <pre>
      * Current status of a job.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -91,6 +104,8 @@ public final class V1Batch {
      */
     boolean hasStatus();
     /**
+     *
+     *
      * <pre>
      * Current status of a job.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -101,6 +116,8 @@ public final class V1Batch {
      */
     io.kubernetes.client.proto.V1Batch.JobStatus getStatus();
     /**
+     *
+     *
      * <pre>
      * Current status of a job.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -112,29 +129,31 @@ public final class V1Batch {
     io.kubernetes.client.proto.V1Batch.JobStatusOrBuilder getStatusOrBuilder();
   }
   /**
+   *
+   *
    * <pre>
    * Job represents the configuration of a single job.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.batch.v1.Job}
    */
-  public  static final class Job extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  public static final class Job extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:k8s.io.api.batch.v1.Job)
       JobOrBuilder {
-  private static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
     // Use Job.newBuilder() to construct.
     private Job(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private Job() {
-    }
+
+    private Job() {}
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
       return this.unknownFields;
     }
+
     private Job(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -151,80 +170,92 @@ public final class V1Batch {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
               }
-              break;
-            }
-            case 10: {
-              io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                subBuilder = metadata_.toBuilder();
+            case 10:
+              {
+                io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                  subBuilder = metadata_.toBuilder();
+                }
+                metadata_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.ObjectMeta.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(metadata_);
+                  metadata_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000001;
+                break;
               }
-              metadata_ = input.readMessage(io.kubernetes.client.proto.Meta.ObjectMeta.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(metadata_);
-                metadata_ = subBuilder.buildPartial();
+            case 18:
+              {
+                io.kubernetes.client.proto.V1Batch.JobSpec.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                  subBuilder = spec_.toBuilder();
+                }
+                spec_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1Batch.JobSpec.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(spec_);
+                  spec_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000002;
+                break;
               }
-              bitField0_ |= 0x00000001;
-              break;
-            }
-            case 18: {
-              io.kubernetes.client.proto.V1Batch.JobSpec.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                subBuilder = spec_.toBuilder();
+            case 26:
+              {
+                io.kubernetes.client.proto.V1Batch.JobStatus.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                  subBuilder = status_.toBuilder();
+                }
+                status_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1Batch.JobStatus.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(status_);
+                  status_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000004;
+                break;
               }
-              spec_ = input.readMessage(io.kubernetes.client.proto.V1Batch.JobSpec.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(spec_);
-                spec_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000002;
-              break;
-            }
-            case 26: {
-              io.kubernetes.client.proto.V1Batch.JobStatus.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                subBuilder = status_.toBuilder();
-              }
-              status_ = input.readMessage(io.kubernetes.client.proto.V1Batch.JobStatus.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(status_);
-                status_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000004;
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
       return io.kubernetes.client.proto.V1Batch.internal_static_k8s_io_api_batch_v1_Job_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.kubernetes.client.proto.V1Batch.internal_static_k8s_io_api_batch_v1_Job_fieldAccessorTable
+      return io.kubernetes.client.proto.V1Batch
+          .internal_static_k8s_io_api_batch_v1_Job_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.kubernetes.client.proto.V1Batch.Job.class, io.kubernetes.client.proto.V1Batch.Job.Builder.class);
+              io.kubernetes.client.proto.V1Batch.Job.class,
+              io.kubernetes.client.proto.V1Batch.Job.Builder.class);
     }
 
     private int bitField0_;
     public static final int METADATA_FIELD_NUMBER = 1;
     private io.kubernetes.client.proto.Meta.ObjectMeta metadata_;
     /**
+     *
+     *
      * <pre>
      * Standard object's metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -237,6 +268,8 @@ public final class V1Batch {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
+     *
+     *
      * <pre>
      * Standard object's metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -246,9 +279,13 @@ public final class V1Batch {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
      */
     public io.kubernetes.client.proto.Meta.ObjectMeta getMetadata() {
-      return metadata_ == null ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance() : metadata_;
+      return metadata_ == null
+          ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()
+          : metadata_;
     }
     /**
+     *
+     *
      * <pre>
      * Standard object's metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -258,12 +295,16 @@ public final class V1Batch {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
      */
     public io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder getMetadataOrBuilder() {
-      return metadata_ == null ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance() : metadata_;
+      return metadata_ == null
+          ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()
+          : metadata_;
     }
 
     public static final int SPEC_FIELD_NUMBER = 2;
     private io.kubernetes.client.proto.V1Batch.JobSpec spec_;
     /**
+     *
+     *
      * <pre>
      * Specification of the desired behavior of a job.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -276,6 +317,8 @@ public final class V1Batch {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
+     *
+     *
      * <pre>
      * Specification of the desired behavior of a job.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -285,9 +328,13 @@ public final class V1Batch {
      * <code>optional .k8s.io.api.batch.v1.JobSpec spec = 2;</code>
      */
     public io.kubernetes.client.proto.V1Batch.JobSpec getSpec() {
-      return spec_ == null ? io.kubernetes.client.proto.V1Batch.JobSpec.getDefaultInstance() : spec_;
+      return spec_ == null
+          ? io.kubernetes.client.proto.V1Batch.JobSpec.getDefaultInstance()
+          : spec_;
     }
     /**
+     *
+     *
      * <pre>
      * Specification of the desired behavior of a job.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -297,12 +344,16 @@ public final class V1Batch {
      * <code>optional .k8s.io.api.batch.v1.JobSpec spec = 2;</code>
      */
     public io.kubernetes.client.proto.V1Batch.JobSpecOrBuilder getSpecOrBuilder() {
-      return spec_ == null ? io.kubernetes.client.proto.V1Batch.JobSpec.getDefaultInstance() : spec_;
+      return spec_ == null
+          ? io.kubernetes.client.proto.V1Batch.JobSpec.getDefaultInstance()
+          : spec_;
     }
 
     public static final int STATUS_FIELD_NUMBER = 3;
     private io.kubernetes.client.proto.V1Batch.JobStatus status_;
     /**
+     *
+     *
      * <pre>
      * Current status of a job.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -315,6 +366,8 @@ public final class V1Batch {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
+     *
+     *
      * <pre>
      * Current status of a job.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -324,9 +377,13 @@ public final class V1Batch {
      * <code>optional .k8s.io.api.batch.v1.JobStatus status = 3;</code>
      */
     public io.kubernetes.client.proto.V1Batch.JobStatus getStatus() {
-      return status_ == null ? io.kubernetes.client.proto.V1Batch.JobStatus.getDefaultInstance() : status_;
+      return status_ == null
+          ? io.kubernetes.client.proto.V1Batch.JobStatus.getDefaultInstance()
+          : status_;
     }
     /**
+     *
+     *
      * <pre>
      * Current status of a job.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -336,10 +393,13 @@ public final class V1Batch {
      * <code>optional .k8s.io.api.batch.v1.JobStatus status = 3;</code>
      */
     public io.kubernetes.client.proto.V1Batch.JobStatusOrBuilder getStatusOrBuilder() {
-      return status_ == null ? io.kubernetes.client.proto.V1Batch.JobStatus.getDefaultInstance() : status_;
+      return status_ == null
+          ? io.kubernetes.client.proto.V1Batch.JobStatus.getDefaultInstance()
+          : status_;
     }
 
     private byte memoizedIsInitialized = -1;
+
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -349,8 +409,7 @@ public final class V1Batch {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeMessage(1, getMetadata());
       }
@@ -369,16 +428,13 @@ public final class V1Batch {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getMetadata());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, getMetadata());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getSpec());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, getSpec());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getStatus());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(3, getStatus());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -388,7 +444,7 @@ public final class V1Batch {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof io.kubernetes.client.proto.V1Batch.Job)) {
         return super.equals(obj);
@@ -398,18 +454,15 @@ public final class V1Batch {
       boolean result = true;
       result = result && (hasMetadata() == other.hasMetadata());
       if (hasMetadata()) {
-        result = result && getMetadata()
-            .equals(other.getMetadata());
+        result = result && getMetadata().equals(other.getMetadata());
       }
       result = result && (hasSpec() == other.hasSpec());
       if (hasSpec()) {
-        result = result && getSpec()
-            .equals(other.getSpec());
+        result = result && getSpec().equals(other.getSpec());
       }
       result = result && (hasStatus() == other.hasStatus());
       if (hasStatus()) {
-        result = result && getStatus()
-            .equals(other.getStatus());
+        result = result && getStatus().equals(other.getStatus());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -439,86 +492,92 @@ public final class V1Batch {
       return hash;
     }
 
-    public static io.kubernetes.client.proto.V1Batch.Job parseFrom(
-        java.nio.ByteBuffer data)
+    public static io.kubernetes.client.proto.V1Batch.Job parseFrom(java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Batch.Job parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Batch.Job parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Batch.Job parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Batch.Job parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Batch.Job parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Batch.Job parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.V1Batch.Job parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
-    public static io.kubernetes.client.proto.V1Batch.Job parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
+
     public static io.kubernetes.client.proto.V1Batch.Job parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
     }
+
+    public static io.kubernetes.client.proto.V1Batch.Job parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
     public static io.kubernetes.client.proto.V1Batch.Job parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.V1Batch.Job parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
+
     public static Builder newBuilder(io.kubernetes.client.proto.V1Batch.Job prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -528,26 +587,31 @@ public final class V1Batch {
       return builder;
     }
     /**
+     *
+     *
      * <pre>
      * Job represents the configuration of a single job.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.batch.v1.Job}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:k8s.io.api.batch.v1.Job)
         io.kubernetes.client.proto.V1Batch.JobOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.kubernetes.client.proto.V1Batch.internal_static_k8s_io_api_batch_v1_Job_descriptor;
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1Batch
+            .internal_static_k8s_io_api_batch_v1_Job_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.kubernetes.client.proto.V1Batch.internal_static_k8s_io_api_batch_v1_Job_fieldAccessorTable
+        return io.kubernetes.client.proto.V1Batch
+            .internal_static_k8s_io_api_batch_v1_Job_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.kubernetes.client.proto.V1Batch.Job.class, io.kubernetes.client.proto.V1Batch.Job.Builder.class);
+                io.kubernetes.client.proto.V1Batch.Job.class,
+                io.kubernetes.client.proto.V1Batch.Job.Builder.class);
       }
 
       // Construct using io.kubernetes.client.proto.V1Batch.Job.newBuilder()
@@ -555,19 +619,19 @@ public final class V1Batch {
         maybeForceBuilderInitialization();
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
+
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
           getMetadataFieldBuilder();
           getSpecFieldBuilder();
           getStatusFieldBuilder();
         }
       }
+
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -591,9 +655,9 @@ public final class V1Batch {
         return this;
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.kubernetes.client.proto.V1Batch.internal_static_k8s_io_api_batch_v1_Job_descriptor;
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Batch
+            .internal_static_k8s_io_api_batch_v1_Job_descriptor;
       }
 
       public io.kubernetes.client.proto.V1Batch.Job getDefaultInstanceForType() {
@@ -609,7 +673,8 @@ public final class V1Batch {
       }
 
       public io.kubernetes.client.proto.V1Batch.Job buildPartial() {
-        io.kubernetes.client.proto.V1Batch.Job result = new io.kubernetes.client.proto.V1Batch.Job(this);
+        io.kubernetes.client.proto.V1Batch.Job result =
+            new io.kubernetes.client.proto.V1Batch.Job(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -644,32 +709,35 @@ public final class V1Batch {
       public Builder clone() {
         return (Builder) super.clone();
       }
+
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Batch.Job) {
-          return mergeFrom((io.kubernetes.client.proto.V1Batch.Job)other);
+          return mergeFrom((io.kubernetes.client.proto.V1Batch.Job) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -713,12 +781,18 @@ public final class V1Batch {
         }
         return this;
       }
+
       private int bitField0_;
 
       private io.kubernetes.client.proto.Meta.ObjectMeta metadata_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.ObjectMeta, io.kubernetes.client.proto.Meta.ObjectMeta.Builder, io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder> metadataBuilder_;
+              io.kubernetes.client.proto.Meta.ObjectMeta,
+              io.kubernetes.client.proto.Meta.ObjectMeta.Builder,
+              io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder>
+          metadataBuilder_;
       /**
+       *
+       *
        * <pre>
        * Standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -731,6 +805,8 @@ public final class V1Batch {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
+       *
+       *
        * <pre>
        * Standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -741,12 +817,16 @@ public final class V1Batch {
        */
       public io.kubernetes.client.proto.Meta.ObjectMeta getMetadata() {
         if (metadataBuilder_ == null) {
-          return metadata_ == null ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance() : metadata_;
+          return metadata_ == null
+              ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()
+              : metadata_;
         } else {
           return metadataBuilder_.getMessage();
         }
       }
       /**
+       *
+       *
        * <pre>
        * Standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -769,6 +849,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -789,6 +871,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -799,11 +883,13 @@ public final class V1Batch {
        */
       public Builder mergeMetadata(io.kubernetes.client.proto.Meta.ObjectMeta value) {
         if (metadataBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              metadata_ != null &&
-              metadata_ != io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)
+              && metadata_ != null
+              && metadata_ != io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()) {
             metadata_ =
-              io.kubernetes.client.proto.Meta.ObjectMeta.newBuilder(metadata_).mergeFrom(value).buildPartial();
+                io.kubernetes.client.proto.Meta.ObjectMeta.newBuilder(metadata_)
+                    .mergeFrom(value)
+                    .buildPartial();
           } else {
             metadata_ = value;
           }
@@ -815,6 +901,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -834,6 +922,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -848,6 +938,8 @@ public final class V1Batch {
         return getMetadataFieldBuilder().getBuilder();
       }
       /**
+       *
+       *
        * <pre>
        * Standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -860,11 +952,14 @@ public final class V1Batch {
         if (metadataBuilder_ != null) {
           return metadataBuilder_.getMessageOrBuilder();
         } else {
-          return metadata_ == null ?
-              io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance() : metadata_;
+          return metadata_ == null
+              ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()
+              : metadata_;
         }
       }
       /**
+       *
+       *
        * <pre>
        * Standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -874,14 +969,17 @@ public final class V1Batch {
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.ObjectMeta, io.kubernetes.client.proto.Meta.ObjectMeta.Builder, io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder> 
+              io.kubernetes.client.proto.Meta.ObjectMeta,
+              io.kubernetes.client.proto.Meta.ObjectMeta.Builder,
+              io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder>
           getMetadataFieldBuilder() {
         if (metadataBuilder_ == null) {
-          metadataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.Meta.ObjectMeta, io.kubernetes.client.proto.Meta.ObjectMeta.Builder, io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder>(
-                  getMetadata(),
-                  getParentForChildren(),
-                  isClean());
+          metadataBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.ObjectMeta,
+                  io.kubernetes.client.proto.Meta.ObjectMeta.Builder,
+                  io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder>(
+                  getMetadata(), getParentForChildren(), isClean());
           metadata_ = null;
         }
         return metadataBuilder_;
@@ -889,8 +987,13 @@ public final class V1Batch {
 
       private io.kubernetes.client.proto.V1Batch.JobSpec spec_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.V1Batch.JobSpec, io.kubernetes.client.proto.V1Batch.JobSpec.Builder, io.kubernetes.client.proto.V1Batch.JobSpecOrBuilder> specBuilder_;
+              io.kubernetes.client.proto.V1Batch.JobSpec,
+              io.kubernetes.client.proto.V1Batch.JobSpec.Builder,
+              io.kubernetes.client.proto.V1Batch.JobSpecOrBuilder>
+          specBuilder_;
       /**
+       *
+       *
        * <pre>
        * Specification of the desired behavior of a job.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -903,6 +1006,8 @@ public final class V1Batch {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
+       *
+       *
        * <pre>
        * Specification of the desired behavior of a job.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -913,12 +1018,16 @@ public final class V1Batch {
        */
       public io.kubernetes.client.proto.V1Batch.JobSpec getSpec() {
         if (specBuilder_ == null) {
-          return spec_ == null ? io.kubernetes.client.proto.V1Batch.JobSpec.getDefaultInstance() : spec_;
+          return spec_ == null
+              ? io.kubernetes.client.proto.V1Batch.JobSpec.getDefaultInstance()
+              : spec_;
         } else {
           return specBuilder_.getMessage();
         }
       }
       /**
+       *
+       *
        * <pre>
        * Specification of the desired behavior of a job.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -941,6 +1050,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Specification of the desired behavior of a job.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -949,8 +1060,7 @@ public final class V1Batch {
        *
        * <code>optional .k8s.io.api.batch.v1.JobSpec spec = 2;</code>
        */
-      public Builder setSpec(
-          io.kubernetes.client.proto.V1Batch.JobSpec.Builder builderForValue) {
+      public Builder setSpec(io.kubernetes.client.proto.V1Batch.JobSpec.Builder builderForValue) {
         if (specBuilder_ == null) {
           spec_ = builderForValue.build();
           onChanged();
@@ -961,6 +1071,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Specification of the desired behavior of a job.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -971,11 +1083,13 @@ public final class V1Batch {
        */
       public Builder mergeSpec(io.kubernetes.client.proto.V1Batch.JobSpec value) {
         if (specBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              spec_ != null &&
-              spec_ != io.kubernetes.client.proto.V1Batch.JobSpec.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)
+              && spec_ != null
+              && spec_ != io.kubernetes.client.proto.V1Batch.JobSpec.getDefaultInstance()) {
             spec_ =
-              io.kubernetes.client.proto.V1Batch.JobSpec.newBuilder(spec_).mergeFrom(value).buildPartial();
+                io.kubernetes.client.proto.V1Batch.JobSpec.newBuilder(spec_)
+                    .mergeFrom(value)
+                    .buildPartial();
           } else {
             spec_ = value;
           }
@@ -987,6 +1101,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Specification of the desired behavior of a job.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -1006,6 +1122,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Specification of the desired behavior of a job.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -1020,6 +1138,8 @@ public final class V1Batch {
         return getSpecFieldBuilder().getBuilder();
       }
       /**
+       *
+       *
        * <pre>
        * Specification of the desired behavior of a job.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -1032,11 +1152,14 @@ public final class V1Batch {
         if (specBuilder_ != null) {
           return specBuilder_.getMessageOrBuilder();
         } else {
-          return spec_ == null ?
-              io.kubernetes.client.proto.V1Batch.JobSpec.getDefaultInstance() : spec_;
+          return spec_ == null
+              ? io.kubernetes.client.proto.V1Batch.JobSpec.getDefaultInstance()
+              : spec_;
         }
       }
       /**
+       *
+       *
        * <pre>
        * Specification of the desired behavior of a job.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -1046,14 +1169,17 @@ public final class V1Batch {
        * <code>optional .k8s.io.api.batch.v1.JobSpec spec = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.V1Batch.JobSpec, io.kubernetes.client.proto.V1Batch.JobSpec.Builder, io.kubernetes.client.proto.V1Batch.JobSpecOrBuilder> 
+              io.kubernetes.client.proto.V1Batch.JobSpec,
+              io.kubernetes.client.proto.V1Batch.JobSpec.Builder,
+              io.kubernetes.client.proto.V1Batch.JobSpecOrBuilder>
           getSpecFieldBuilder() {
         if (specBuilder_ == null) {
-          specBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.V1Batch.JobSpec, io.kubernetes.client.proto.V1Batch.JobSpec.Builder, io.kubernetes.client.proto.V1Batch.JobSpecOrBuilder>(
-                  getSpec(),
-                  getParentForChildren(),
-                  isClean());
+          specBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.V1Batch.JobSpec,
+                  io.kubernetes.client.proto.V1Batch.JobSpec.Builder,
+                  io.kubernetes.client.proto.V1Batch.JobSpecOrBuilder>(
+                  getSpec(), getParentForChildren(), isClean());
           spec_ = null;
         }
         return specBuilder_;
@@ -1061,8 +1187,13 @@ public final class V1Batch {
 
       private io.kubernetes.client.proto.V1Batch.JobStatus status_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.V1Batch.JobStatus, io.kubernetes.client.proto.V1Batch.JobStatus.Builder, io.kubernetes.client.proto.V1Batch.JobStatusOrBuilder> statusBuilder_;
+              io.kubernetes.client.proto.V1Batch.JobStatus,
+              io.kubernetes.client.proto.V1Batch.JobStatus.Builder,
+              io.kubernetes.client.proto.V1Batch.JobStatusOrBuilder>
+          statusBuilder_;
       /**
+       *
+       *
        * <pre>
        * Current status of a job.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -1075,6 +1206,8 @@ public final class V1Batch {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
+       *
+       *
        * <pre>
        * Current status of a job.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -1085,12 +1218,16 @@ public final class V1Batch {
        */
       public io.kubernetes.client.proto.V1Batch.JobStatus getStatus() {
         if (statusBuilder_ == null) {
-          return status_ == null ? io.kubernetes.client.proto.V1Batch.JobStatus.getDefaultInstance() : status_;
+          return status_ == null
+              ? io.kubernetes.client.proto.V1Batch.JobStatus.getDefaultInstance()
+              : status_;
         } else {
           return statusBuilder_.getMessage();
         }
       }
       /**
+       *
+       *
        * <pre>
        * Current status of a job.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -1113,6 +1250,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Current status of a job.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -1133,6 +1272,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Current status of a job.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -1143,11 +1284,13 @@ public final class V1Batch {
        */
       public Builder mergeStatus(io.kubernetes.client.proto.V1Batch.JobStatus value) {
         if (statusBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004) &&
-              status_ != null &&
-              status_ != io.kubernetes.client.proto.V1Batch.JobStatus.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)
+              && status_ != null
+              && status_ != io.kubernetes.client.proto.V1Batch.JobStatus.getDefaultInstance()) {
             status_ =
-              io.kubernetes.client.proto.V1Batch.JobStatus.newBuilder(status_).mergeFrom(value).buildPartial();
+                io.kubernetes.client.proto.V1Batch.JobStatus.newBuilder(status_)
+                    .mergeFrom(value)
+                    .buildPartial();
           } else {
             status_ = value;
           }
@@ -1159,6 +1302,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Current status of a job.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -1178,6 +1323,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Current status of a job.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -1192,6 +1339,8 @@ public final class V1Batch {
         return getStatusFieldBuilder().getBuilder();
       }
       /**
+       *
+       *
        * <pre>
        * Current status of a job.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -1204,11 +1353,14 @@ public final class V1Batch {
         if (statusBuilder_ != null) {
           return statusBuilder_.getMessageOrBuilder();
         } else {
-          return status_ == null ?
-              io.kubernetes.client.proto.V1Batch.JobStatus.getDefaultInstance() : status_;
+          return status_ == null
+              ? io.kubernetes.client.proto.V1Batch.JobStatus.getDefaultInstance()
+              : status_;
         }
       }
       /**
+       *
+       *
        * <pre>
        * Current status of a job.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
@@ -1218,18 +1370,22 @@ public final class V1Batch {
        * <code>optional .k8s.io.api.batch.v1.JobStatus status = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.V1Batch.JobStatus, io.kubernetes.client.proto.V1Batch.JobStatus.Builder, io.kubernetes.client.proto.V1Batch.JobStatusOrBuilder> 
+              io.kubernetes.client.proto.V1Batch.JobStatus,
+              io.kubernetes.client.proto.V1Batch.JobStatus.Builder,
+              io.kubernetes.client.proto.V1Batch.JobStatusOrBuilder>
           getStatusFieldBuilder() {
         if (statusBuilder_ == null) {
-          statusBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.V1Batch.JobStatus, io.kubernetes.client.proto.V1Batch.JobStatus.Builder, io.kubernetes.client.proto.V1Batch.JobStatusOrBuilder>(
-                  getStatus(),
-                  getParentForChildren(),
-                  isClean());
+          statusBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.V1Batch.JobStatus,
+                  io.kubernetes.client.proto.V1Batch.JobStatus.Builder,
+                  io.kubernetes.client.proto.V1Batch.JobStatusOrBuilder>(
+                  getStatus(), getParentForChildren(), isClean());
           status_ = null;
         }
         return statusBuilder_;
       }
+
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -1240,12 +1396,12 @@ public final class V1Batch {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:k8s.io.api.batch.v1.Job)
     }
 
     // @@protoc_insertion_point(class_scope:k8s.io.api.batch.v1.Job)
     private static final io.kubernetes.client.proto.V1Batch.Job DEFAULT_INSTANCE;
+
     static {
       DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Batch.Job();
     }
@@ -1254,15 +1410,16 @@ public final class V1Batch {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<Job>
-        PARSER = new com.google.protobuf.AbstractParser<Job>() {
-      public Job parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Job(input, extensionRegistry);
-      }
-    };
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<Job> PARSER =
+        new com.google.protobuf.AbstractParser<Job>() {
+          public Job parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new Job(input, extensionRegistry);
+          }
+        };
 
     public static com.google.protobuf.Parser<Job> parser() {
       return PARSER;
@@ -1276,14 +1433,16 @@ public final class V1Batch {
     public io.kubernetes.client.proto.V1Batch.Job getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
-
   }
 
-  public interface JobConditionOrBuilder extends
+  public interface JobConditionOrBuilder
+      extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.batch.v1.JobCondition)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     *
+     *
      * <pre>
      * Type of job condition, Complete or Failed.
      * </pre>
@@ -1292,6 +1451,8 @@ public final class V1Batch {
      */
     boolean hasType();
     /**
+     *
+     *
      * <pre>
      * Type of job condition, Complete or Failed.
      * </pre>
@@ -1300,16 +1461,19 @@ public final class V1Batch {
      */
     java.lang.String getType();
     /**
+     *
+     *
      * <pre>
      * Type of job condition, Complete or Failed.
      * </pre>
      *
      * <code>optional string type = 1;</code>
      */
-    com.google.protobuf.ByteString
-        getTypeBytes();
+    com.google.protobuf.ByteString getTypeBytes();
 
     /**
+     *
+     *
      * <pre>
      * Status of the condition, one of True, False, Unknown.
      * </pre>
@@ -1318,6 +1482,8 @@ public final class V1Batch {
      */
     boolean hasStatus();
     /**
+     *
+     *
      * <pre>
      * Status of the condition, one of True, False, Unknown.
      * </pre>
@@ -1326,16 +1492,19 @@ public final class V1Batch {
      */
     java.lang.String getStatus();
     /**
+     *
+     *
      * <pre>
      * Status of the condition, one of True, False, Unknown.
      * </pre>
      *
      * <code>optional string status = 2;</code>
      */
-    com.google.protobuf.ByteString
-        getStatusBytes();
+    com.google.protobuf.ByteString getStatusBytes();
 
     /**
+     *
+     *
      * <pre>
      * Last time the condition was checked.
      * +optional
@@ -1345,6 +1514,8 @@ public final class V1Batch {
      */
     boolean hasLastProbeTime();
     /**
+     *
+     *
      * <pre>
      * Last time the condition was checked.
      * +optional
@@ -1354,6 +1525,8 @@ public final class V1Batch {
      */
     io.kubernetes.client.proto.Meta.Time getLastProbeTime();
     /**
+     *
+     *
      * <pre>
      * Last time the condition was checked.
      * +optional
@@ -1364,6 +1537,8 @@ public final class V1Batch {
     io.kubernetes.client.proto.Meta.TimeOrBuilder getLastProbeTimeOrBuilder();
 
     /**
+     *
+     *
      * <pre>
      * Last time the condition transit from one status to another.
      * +optional
@@ -1373,6 +1548,8 @@ public final class V1Batch {
      */
     boolean hasLastTransitionTime();
     /**
+     *
+     *
      * <pre>
      * Last time the condition transit from one status to another.
      * +optional
@@ -1382,6 +1559,8 @@ public final class V1Batch {
      */
     io.kubernetes.client.proto.Meta.Time getLastTransitionTime();
     /**
+     *
+     *
      * <pre>
      * Last time the condition transit from one status to another.
      * +optional
@@ -1392,6 +1571,8 @@ public final class V1Batch {
     io.kubernetes.client.proto.Meta.TimeOrBuilder getLastTransitionTimeOrBuilder();
 
     /**
+     *
+     *
      * <pre>
      * (brief) reason for the condition's last transition.
      * +optional
@@ -1401,6 +1582,8 @@ public final class V1Batch {
      */
     boolean hasReason();
     /**
+     *
+     *
      * <pre>
      * (brief) reason for the condition's last transition.
      * +optional
@@ -1410,6 +1593,8 @@ public final class V1Batch {
      */
     java.lang.String getReason();
     /**
+     *
+     *
      * <pre>
      * (brief) reason for the condition's last transition.
      * +optional
@@ -1417,10 +1602,11 @@ public final class V1Batch {
      *
      * <code>optional string reason = 5;</code>
      */
-    com.google.protobuf.ByteString
-        getReasonBytes();
+    com.google.protobuf.ByteString getReasonBytes();
 
     /**
+     *
+     *
      * <pre>
      * Human readable message indicating details about last transition.
      * +optional
@@ -1430,6 +1616,8 @@ public final class V1Batch {
      */
     boolean hasMessage();
     /**
+     *
+     *
      * <pre>
      * Human readable message indicating details about last transition.
      * +optional
@@ -1439,6 +1627,8 @@ public final class V1Batch {
      */
     java.lang.String getMessage();
     /**
+     *
+     *
      * <pre>
      * Human readable message indicating details about last transition.
      * +optional
@@ -1446,25 +1636,27 @@ public final class V1Batch {
      *
      * <code>optional string message = 6;</code>
      */
-    com.google.protobuf.ByteString
-        getMessageBytes();
+    com.google.protobuf.ByteString getMessageBytes();
   }
   /**
+   *
+   *
    * <pre>
    * JobCondition describes current state of a job.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.batch.v1.JobCondition}
    */
-  public  static final class JobCondition extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  public static final class JobCondition extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:k8s.io.api.batch.v1.JobCondition)
       JobConditionOrBuilder {
-  private static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
     // Use JobCondition.newBuilder() to construct.
     private JobCondition(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private JobCondition() {
       type_ = "";
       status_ = "";
@@ -1473,10 +1665,10 @@ public final class V1Batch {
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
       return this.unknownFields;
     }
+
     private JobCondition(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1493,91 +1685,105 @@ public final class V1Batch {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
               }
-              break;
-            }
-            case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000001;
-              type_ = bs;
-              break;
-            }
-            case 18: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000002;
-              status_ = bs;
-              break;
-            }
-            case 26: {
-              io.kubernetes.client.proto.Meta.Time.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                subBuilder = lastProbeTime_.toBuilder();
+            case 10:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000001;
+                type_ = bs;
+                break;
               }
-              lastProbeTime_ = input.readMessage(io.kubernetes.client.proto.Meta.Time.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(lastProbeTime_);
-                lastProbeTime_ = subBuilder.buildPartial();
+            case 18:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000002;
+                status_ = bs;
+                break;
               }
-              bitField0_ |= 0x00000004;
-              break;
-            }
-            case 34: {
-              io.kubernetes.client.proto.Meta.Time.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000008) == 0x00000008)) {
-                subBuilder = lastTransitionTime_.toBuilder();
+            case 26:
+              {
+                io.kubernetes.client.proto.Meta.Time.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                  subBuilder = lastProbeTime_.toBuilder();
+                }
+                lastProbeTime_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.Time.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(lastProbeTime_);
+                  lastProbeTime_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000004;
+                break;
               }
-              lastTransitionTime_ = input.readMessage(io.kubernetes.client.proto.Meta.Time.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(lastTransitionTime_);
-                lastTransitionTime_ = subBuilder.buildPartial();
+            case 34:
+              {
+                io.kubernetes.client.proto.Meta.Time.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                  subBuilder = lastTransitionTime_.toBuilder();
+                }
+                lastTransitionTime_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.Time.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(lastTransitionTime_);
+                  lastTransitionTime_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000008;
+                break;
               }
-              bitField0_ |= 0x00000008;
-              break;
-            }
-            case 42: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000010;
-              reason_ = bs;
-              break;
-            }
-            case 50: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000020;
-              message_ = bs;
-              break;
-            }
+            case 42:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000010;
+                reason_ = bs;
+                break;
+              }
+            case 50:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000020;
+                message_ = bs;
+                break;
+              }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.kubernetes.client.proto.V1Batch.internal_static_k8s_io_api_batch_v1_JobCondition_descriptor;
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1Batch
+          .internal_static_k8s_io_api_batch_v1_JobCondition_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.kubernetes.client.proto.V1Batch.internal_static_k8s_io_api_batch_v1_JobCondition_fieldAccessorTable
+      return io.kubernetes.client.proto.V1Batch
+          .internal_static_k8s_io_api_batch_v1_JobCondition_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.kubernetes.client.proto.V1Batch.JobCondition.class, io.kubernetes.client.proto.V1Batch.JobCondition.Builder.class);
+              io.kubernetes.client.proto.V1Batch.JobCondition.class,
+              io.kubernetes.client.proto.V1Batch.JobCondition.Builder.class);
     }
 
     private int bitField0_;
     public static final int TYPE_FIELD_NUMBER = 1;
     private volatile java.lang.Object type_;
     /**
+     *
+     *
      * <pre>
      * Type of job condition, Complete or Failed.
      * </pre>
@@ -1588,6 +1794,8 @@ public final class V1Batch {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
+     *
+     *
      * <pre>
      * Type of job condition, Complete or Failed.
      * </pre>
@@ -1599,8 +1807,7 @@ public final class V1Batch {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           type_ = s;
@@ -1609,19 +1816,19 @@ public final class V1Batch {
       }
     }
     /**
+     *
+     *
      * <pre>
      * Type of job condition, Complete or Failed.
      * </pre>
      *
      * <code>optional string type = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getTypeBytes() {
+    public com.google.protobuf.ByteString getTypeBytes() {
       java.lang.Object ref = type_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
         type_ = b;
         return b;
       } else {
@@ -1632,6 +1839,8 @@ public final class V1Batch {
     public static final int STATUS_FIELD_NUMBER = 2;
     private volatile java.lang.Object status_;
     /**
+     *
+     *
      * <pre>
      * Status of the condition, one of True, False, Unknown.
      * </pre>
@@ -1642,6 +1851,8 @@ public final class V1Batch {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
+     *
+     *
      * <pre>
      * Status of the condition, one of True, False, Unknown.
      * </pre>
@@ -1653,8 +1864,7 @@ public final class V1Batch {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           status_ = s;
@@ -1663,19 +1873,19 @@ public final class V1Batch {
       }
     }
     /**
+     *
+     *
      * <pre>
      * Status of the condition, one of True, False, Unknown.
      * </pre>
      *
      * <code>optional string status = 2;</code>
      */
-    public com.google.protobuf.ByteString
-        getStatusBytes() {
+    public com.google.protobuf.ByteString getStatusBytes() {
       java.lang.Object ref = status_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
         status_ = b;
         return b;
       } else {
@@ -1686,6 +1896,8 @@ public final class V1Batch {
     public static final int LASTPROBETIME_FIELD_NUMBER = 3;
     private io.kubernetes.client.proto.Meta.Time lastProbeTime_;
     /**
+     *
+     *
      * <pre>
      * Last time the condition was checked.
      * +optional
@@ -1697,6 +1909,8 @@ public final class V1Batch {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
+     *
+     *
      * <pre>
      * Last time the condition was checked.
      * +optional
@@ -1705,9 +1919,13 @@ public final class V1Batch {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastProbeTime = 3;</code>
      */
     public io.kubernetes.client.proto.Meta.Time getLastProbeTime() {
-      return lastProbeTime_ == null ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance() : lastProbeTime_;
+      return lastProbeTime_ == null
+          ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance()
+          : lastProbeTime_;
     }
     /**
+     *
+     *
      * <pre>
      * Last time the condition was checked.
      * +optional
@@ -1716,12 +1934,16 @@ public final class V1Batch {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastProbeTime = 3;</code>
      */
     public io.kubernetes.client.proto.Meta.TimeOrBuilder getLastProbeTimeOrBuilder() {
-      return lastProbeTime_ == null ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance() : lastProbeTime_;
+      return lastProbeTime_ == null
+          ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance()
+          : lastProbeTime_;
     }
 
     public static final int LASTTRANSITIONTIME_FIELD_NUMBER = 4;
     private io.kubernetes.client.proto.Meta.Time lastTransitionTime_;
     /**
+     *
+     *
      * <pre>
      * Last time the condition transit from one status to another.
      * +optional
@@ -1733,6 +1955,8 @@ public final class V1Batch {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
+     *
+     *
      * <pre>
      * Last time the condition transit from one status to another.
      * +optional
@@ -1741,9 +1965,13 @@ public final class V1Batch {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 4;</code>
      */
     public io.kubernetes.client.proto.Meta.Time getLastTransitionTime() {
-      return lastTransitionTime_ == null ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance() : lastTransitionTime_;
+      return lastTransitionTime_ == null
+          ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance()
+          : lastTransitionTime_;
     }
     /**
+     *
+     *
      * <pre>
      * Last time the condition transit from one status to another.
      * +optional
@@ -1752,12 +1980,16 @@ public final class V1Batch {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 4;</code>
      */
     public io.kubernetes.client.proto.Meta.TimeOrBuilder getLastTransitionTimeOrBuilder() {
-      return lastTransitionTime_ == null ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance() : lastTransitionTime_;
+      return lastTransitionTime_ == null
+          ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance()
+          : lastTransitionTime_;
     }
 
     public static final int REASON_FIELD_NUMBER = 5;
     private volatile java.lang.Object reason_;
     /**
+     *
+     *
      * <pre>
      * (brief) reason for the condition's last transition.
      * +optional
@@ -1769,6 +2001,8 @@ public final class V1Batch {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
+     *
+     *
      * <pre>
      * (brief) reason for the condition's last transition.
      * +optional
@@ -1781,8 +2015,7 @@ public final class V1Batch {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           reason_ = s;
@@ -1791,6 +2024,8 @@ public final class V1Batch {
       }
     }
     /**
+     *
+     *
      * <pre>
      * (brief) reason for the condition's last transition.
      * +optional
@@ -1798,13 +2033,11 @@ public final class V1Batch {
      *
      * <code>optional string reason = 5;</code>
      */
-    public com.google.protobuf.ByteString
-        getReasonBytes() {
+    public com.google.protobuf.ByteString getReasonBytes() {
       java.lang.Object ref = reason_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
         reason_ = b;
         return b;
       } else {
@@ -1815,6 +2048,8 @@ public final class V1Batch {
     public static final int MESSAGE_FIELD_NUMBER = 6;
     private volatile java.lang.Object message_;
     /**
+     *
+     *
      * <pre>
      * Human readable message indicating details about last transition.
      * +optional
@@ -1826,6 +2061,8 @@ public final class V1Batch {
       return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
+     *
+     *
      * <pre>
      * Human readable message indicating details about last transition.
      * +optional
@@ -1838,8 +2075,7 @@ public final class V1Batch {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           message_ = s;
@@ -1848,6 +2084,8 @@ public final class V1Batch {
       }
     }
     /**
+     *
+     *
      * <pre>
      * Human readable message indicating details about last transition.
      * +optional
@@ -1855,13 +2093,11 @@ public final class V1Batch {
      *
      * <code>optional string message = 6;</code>
      */
-    public com.google.protobuf.ByteString
-        getMessageBytes() {
+    public com.google.protobuf.ByteString getMessageBytes() {
       java.lang.Object ref = message_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
         message_ = b;
         return b;
       } else {
@@ -1870,6 +2106,7 @@ public final class V1Batch {
     }
 
     private byte memoizedIsInitialized = -1;
+
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1879,8 +2116,7 @@ public final class V1Batch {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, type_);
       }
@@ -1914,12 +2150,11 @@ public final class V1Batch {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, status_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getLastProbeTime());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(3, getLastProbeTime());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, getLastTransitionTime());
+        size +=
+            com.google.protobuf.CodedOutputStream.computeMessageSize(4, getLastTransitionTime());
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, reason_);
@@ -1935,43 +2170,38 @@ public final class V1Batch {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof io.kubernetes.client.proto.V1Batch.JobCondition)) {
         return super.equals(obj);
       }
-      io.kubernetes.client.proto.V1Batch.JobCondition other = (io.kubernetes.client.proto.V1Batch.JobCondition) obj;
+      io.kubernetes.client.proto.V1Batch.JobCondition other =
+          (io.kubernetes.client.proto.V1Batch.JobCondition) obj;
 
       boolean result = true;
       result = result && (hasType() == other.hasType());
       if (hasType()) {
-        result = result && getType()
-            .equals(other.getType());
+        result = result && getType().equals(other.getType());
       }
       result = result && (hasStatus() == other.hasStatus());
       if (hasStatus()) {
-        result = result && getStatus()
-            .equals(other.getStatus());
+        result = result && getStatus().equals(other.getStatus());
       }
       result = result && (hasLastProbeTime() == other.hasLastProbeTime());
       if (hasLastProbeTime()) {
-        result = result && getLastProbeTime()
-            .equals(other.getLastProbeTime());
+        result = result && getLastProbeTime().equals(other.getLastProbeTime());
       }
       result = result && (hasLastTransitionTime() == other.hasLastTransitionTime());
       if (hasLastTransitionTime()) {
-        result = result && getLastTransitionTime()
-            .equals(other.getLastTransitionTime());
+        result = result && getLastTransitionTime().equals(other.getLastTransitionTime());
       }
       result = result && (hasReason() == other.hasReason());
       if (hasReason()) {
-        result = result && getReason()
-            .equals(other.getReason());
+        result = result && getReason().equals(other.getReason());
       }
       result = result && (hasMessage() == other.hasMessage());
       if (hasMessage()) {
-        result = result && getMessage()
-            .equals(other.getMessage());
+        result = result && getMessage().equals(other.getMessage());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -2014,85 +2244,91 @@ public final class V1Batch {
     }
 
     public static io.kubernetes.client.proto.V1Batch.JobCondition parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobCondition parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobCondition parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobCondition parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobCondition parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobCondition parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.kubernetes.client.proto.V1Batch.JobCondition parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
+
     public static io.kubernetes.client.proto.V1Batch.JobCondition parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
-    public static io.kubernetes.client.proto.V1Batch.JobCondition parseDelimitedFrom(java.io.InputStream input)
+
+    public static io.kubernetes.client.proto.V1Batch.JobCondition parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobCondition parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
     }
+
+    public static io.kubernetes.client.proto.V1Batch.JobCondition parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
     public static io.kubernetes.client.proto.V1Batch.JobCondition parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobCondition parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
+
     public static Builder newBuilder(io.kubernetes.client.proto.V1Batch.JobCondition prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -2102,26 +2338,31 @@ public final class V1Batch {
       return builder;
     }
     /**
+     *
+     *
      * <pre>
      * JobCondition describes current state of a job.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.batch.v1.JobCondition}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:k8s.io.api.batch.v1.JobCondition)
         io.kubernetes.client.proto.V1Batch.JobConditionOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.kubernetes.client.proto.V1Batch.internal_static_k8s_io_api_batch_v1_JobCondition_descriptor;
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1Batch
+            .internal_static_k8s_io_api_batch_v1_JobCondition_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.kubernetes.client.proto.V1Batch.internal_static_k8s_io_api_batch_v1_JobCondition_fieldAccessorTable
+        return io.kubernetes.client.proto.V1Batch
+            .internal_static_k8s_io_api_batch_v1_JobCondition_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.kubernetes.client.proto.V1Batch.JobCondition.class, io.kubernetes.client.proto.V1Batch.JobCondition.Builder.class);
+                io.kubernetes.client.proto.V1Batch.JobCondition.class,
+                io.kubernetes.client.proto.V1Batch.JobCondition.Builder.class);
       }
 
       // Construct using io.kubernetes.client.proto.V1Batch.JobCondition.newBuilder()
@@ -2129,18 +2370,18 @@ public final class V1Batch {
         maybeForceBuilderInitialization();
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
+
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
           getLastProbeTimeFieldBuilder();
           getLastTransitionTimeFieldBuilder();
         }
       }
+
       public Builder clear() {
         super.clear();
         type_ = "";
@@ -2166,9 +2407,9 @@ public final class V1Batch {
         return this;
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.kubernetes.client.proto.V1Batch.internal_static_k8s_io_api_batch_v1_JobCondition_descriptor;
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Batch
+            .internal_static_k8s_io_api_batch_v1_JobCondition_descriptor;
       }
 
       public io.kubernetes.client.proto.V1Batch.JobCondition getDefaultInstanceForType() {
@@ -2184,7 +2425,8 @@ public final class V1Batch {
       }
 
       public io.kubernetes.client.proto.V1Batch.JobCondition buildPartial() {
-        io.kubernetes.client.proto.V1Batch.JobCondition result = new io.kubernetes.client.proto.V1Batch.JobCondition(this);
+        io.kubernetes.client.proto.V1Batch.JobCondition result =
+            new io.kubernetes.client.proto.V1Batch.JobCondition(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2227,32 +2469,35 @@ public final class V1Batch {
       public Builder clone() {
         return (Builder) super.clone();
       }
+
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Batch.JobCondition) {
-          return mergeFrom((io.kubernetes.client.proto.V1Batch.JobCondition)other);
+          return mergeFrom((io.kubernetes.client.proto.V1Batch.JobCondition) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -2260,7 +2505,8 @@ public final class V1Batch {
       }
 
       public Builder mergeFrom(io.kubernetes.client.proto.V1Batch.JobCondition other) {
-        if (other == io.kubernetes.client.proto.V1Batch.JobCondition.getDefaultInstance()) return this;
+        if (other == io.kubernetes.client.proto.V1Batch.JobCondition.getDefaultInstance())
+          return this;
         if (other.hasType()) {
           bitField0_ |= 0x00000001;
           type_ = other.type_;
@@ -2304,7 +2550,8 @@ public final class V1Batch {
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.kubernetes.client.proto.V1Batch.JobCondition) e.getUnfinishedMessage();
+          parsedMessage =
+              (io.kubernetes.client.proto.V1Batch.JobCondition) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -2313,10 +2560,13 @@ public final class V1Batch {
         }
         return this;
       }
+
       private int bitField0_;
 
       private java.lang.Object type_ = "";
       /**
+       *
+       *
        * <pre>
        * Type of job condition, Complete or Failed.
        * </pre>
@@ -2327,6 +2577,8 @@ public final class V1Batch {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
+       *
+       *
        * <pre>
        * Type of job condition, Complete or Failed.
        * </pre>
@@ -2336,8 +2588,7 @@ public final class V1Batch {
       public java.lang.String getType() {
         java.lang.Object ref = type_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             type_ = s;
@@ -2348,19 +2599,19 @@ public final class V1Batch {
         }
       }
       /**
+       *
+       *
        * <pre>
        * Type of job condition, Complete or Failed.
        * </pre>
        *
        * <code>optional string type = 1;</code>
        */
-      public com.google.protobuf.ByteString
-          getTypeBytes() {
+      public com.google.protobuf.ByteString getTypeBytes() {
         java.lang.Object ref = type_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
           type_ = b;
           return b;
         } else {
@@ -2368,23 +2619,26 @@ public final class V1Batch {
         }
       }
       /**
+       *
+       *
        * <pre>
        * Type of job condition, Complete or Failed.
        * </pre>
        *
        * <code>optional string type = 1;</code>
        */
-      public Builder setType(
-          java.lang.String value) {
+      public Builder setType(java.lang.String value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
         type_ = value;
         onChanged();
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Type of job condition, Complete or Failed.
        * </pre>
@@ -2398,18 +2652,19 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Type of job condition, Complete or Failed.
        * </pre>
        *
        * <code>optional string type = 1;</code>
        */
-      public Builder setTypeBytes(
-          com.google.protobuf.ByteString value) {
+      public Builder setTypeBytes(com.google.protobuf.ByteString value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
         type_ = value;
         onChanged();
         return this;
@@ -2417,6 +2672,8 @@ public final class V1Batch {
 
       private java.lang.Object status_ = "";
       /**
+       *
+       *
        * <pre>
        * Status of the condition, one of True, False, Unknown.
        * </pre>
@@ -2427,6 +2684,8 @@ public final class V1Batch {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
+       *
+       *
        * <pre>
        * Status of the condition, one of True, False, Unknown.
        * </pre>
@@ -2436,8 +2695,7 @@ public final class V1Batch {
       public java.lang.String getStatus() {
         java.lang.Object ref = status_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             status_ = s;
@@ -2448,19 +2706,19 @@ public final class V1Batch {
         }
       }
       /**
+       *
+       *
        * <pre>
        * Status of the condition, one of True, False, Unknown.
        * </pre>
        *
        * <code>optional string status = 2;</code>
        */
-      public com.google.protobuf.ByteString
-          getStatusBytes() {
+      public com.google.protobuf.ByteString getStatusBytes() {
         java.lang.Object ref = status_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
           status_ = b;
           return b;
         } else {
@@ -2468,23 +2726,26 @@ public final class V1Batch {
         }
       }
       /**
+       *
+       *
        * <pre>
        * Status of the condition, one of True, False, Unknown.
        * </pre>
        *
        * <code>optional string status = 2;</code>
        */
-      public Builder setStatus(
-          java.lang.String value) {
+      public Builder setStatus(java.lang.String value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
         status_ = value;
         onChanged();
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Status of the condition, one of True, False, Unknown.
        * </pre>
@@ -2498,18 +2759,19 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Status of the condition, one of True, False, Unknown.
        * </pre>
        *
        * <code>optional string status = 2;</code>
        */
-      public Builder setStatusBytes(
-          com.google.protobuf.ByteString value) {
+      public Builder setStatusBytes(com.google.protobuf.ByteString value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
         status_ = value;
         onChanged();
         return this;
@@ -2517,8 +2779,13 @@ public final class V1Batch {
 
       private io.kubernetes.client.proto.Meta.Time lastProbeTime_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.Time, io.kubernetes.client.proto.Meta.Time.Builder, io.kubernetes.client.proto.Meta.TimeOrBuilder> lastProbeTimeBuilder_;
+              io.kubernetes.client.proto.Meta.Time,
+              io.kubernetes.client.proto.Meta.Time.Builder,
+              io.kubernetes.client.proto.Meta.TimeOrBuilder>
+          lastProbeTimeBuilder_;
       /**
+       *
+       *
        * <pre>
        * Last time the condition was checked.
        * +optional
@@ -2530,6 +2797,8 @@ public final class V1Batch {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
+       *
+       *
        * <pre>
        * Last time the condition was checked.
        * +optional
@@ -2539,12 +2808,16 @@ public final class V1Batch {
        */
       public io.kubernetes.client.proto.Meta.Time getLastProbeTime() {
         if (lastProbeTimeBuilder_ == null) {
-          return lastProbeTime_ == null ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance() : lastProbeTime_;
+          return lastProbeTime_ == null
+              ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance()
+              : lastProbeTime_;
         } else {
           return lastProbeTimeBuilder_.getMessage();
         }
       }
       /**
+       *
+       *
        * <pre>
        * Last time the condition was checked.
        * +optional
@@ -2566,6 +2839,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Last time the condition was checked.
        * +optional
@@ -2585,6 +2860,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Last time the condition was checked.
        * +optional
@@ -2594,11 +2871,13 @@ public final class V1Batch {
        */
       public Builder mergeLastProbeTime(io.kubernetes.client.proto.Meta.Time value) {
         if (lastProbeTimeBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004) &&
-              lastProbeTime_ != null &&
-              lastProbeTime_ != io.kubernetes.client.proto.Meta.Time.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)
+              && lastProbeTime_ != null
+              && lastProbeTime_ != io.kubernetes.client.proto.Meta.Time.getDefaultInstance()) {
             lastProbeTime_ =
-              io.kubernetes.client.proto.Meta.Time.newBuilder(lastProbeTime_).mergeFrom(value).buildPartial();
+                io.kubernetes.client.proto.Meta.Time.newBuilder(lastProbeTime_)
+                    .mergeFrom(value)
+                    .buildPartial();
           } else {
             lastProbeTime_ = value;
           }
@@ -2610,6 +2889,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Last time the condition was checked.
        * +optional
@@ -2628,6 +2909,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Last time the condition was checked.
        * +optional
@@ -2641,6 +2924,8 @@ public final class V1Batch {
         return getLastProbeTimeFieldBuilder().getBuilder();
       }
       /**
+       *
+       *
        * <pre>
        * Last time the condition was checked.
        * +optional
@@ -2652,11 +2937,14 @@ public final class V1Batch {
         if (lastProbeTimeBuilder_ != null) {
           return lastProbeTimeBuilder_.getMessageOrBuilder();
         } else {
-          return lastProbeTime_ == null ?
-              io.kubernetes.client.proto.Meta.Time.getDefaultInstance() : lastProbeTime_;
+          return lastProbeTime_ == null
+              ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance()
+              : lastProbeTime_;
         }
       }
       /**
+       *
+       *
        * <pre>
        * Last time the condition was checked.
        * +optional
@@ -2665,14 +2953,17 @@ public final class V1Batch {
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastProbeTime = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.Time, io.kubernetes.client.proto.Meta.Time.Builder, io.kubernetes.client.proto.Meta.TimeOrBuilder> 
+              io.kubernetes.client.proto.Meta.Time,
+              io.kubernetes.client.proto.Meta.Time.Builder,
+              io.kubernetes.client.proto.Meta.TimeOrBuilder>
           getLastProbeTimeFieldBuilder() {
         if (lastProbeTimeBuilder_ == null) {
-          lastProbeTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.Meta.Time, io.kubernetes.client.proto.Meta.Time.Builder, io.kubernetes.client.proto.Meta.TimeOrBuilder>(
-                  getLastProbeTime(),
-                  getParentForChildren(),
-                  isClean());
+          lastProbeTimeBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.Time,
+                  io.kubernetes.client.proto.Meta.Time.Builder,
+                  io.kubernetes.client.proto.Meta.TimeOrBuilder>(
+                  getLastProbeTime(), getParentForChildren(), isClean());
           lastProbeTime_ = null;
         }
         return lastProbeTimeBuilder_;
@@ -2680,8 +2971,13 @@ public final class V1Batch {
 
       private io.kubernetes.client.proto.Meta.Time lastTransitionTime_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.Time, io.kubernetes.client.proto.Meta.Time.Builder, io.kubernetes.client.proto.Meta.TimeOrBuilder> lastTransitionTimeBuilder_;
+              io.kubernetes.client.proto.Meta.Time,
+              io.kubernetes.client.proto.Meta.Time.Builder,
+              io.kubernetes.client.proto.Meta.TimeOrBuilder>
+          lastTransitionTimeBuilder_;
       /**
+       *
+       *
        * <pre>
        * Last time the condition transit from one status to another.
        * +optional
@@ -2693,6 +2989,8 @@ public final class V1Batch {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
+       *
+       *
        * <pre>
        * Last time the condition transit from one status to another.
        * +optional
@@ -2702,12 +3000,16 @@ public final class V1Batch {
        */
       public io.kubernetes.client.proto.Meta.Time getLastTransitionTime() {
         if (lastTransitionTimeBuilder_ == null) {
-          return lastTransitionTime_ == null ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance() : lastTransitionTime_;
+          return lastTransitionTime_ == null
+              ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance()
+              : lastTransitionTime_;
         } else {
           return lastTransitionTimeBuilder_.getMessage();
         }
       }
       /**
+       *
+       *
        * <pre>
        * Last time the condition transit from one status to another.
        * +optional
@@ -2729,6 +3031,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Last time the condition transit from one status to another.
        * +optional
@@ -2748,6 +3052,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Last time the condition transit from one status to another.
        * +optional
@@ -2757,11 +3063,13 @@ public final class V1Batch {
        */
       public Builder mergeLastTransitionTime(io.kubernetes.client.proto.Meta.Time value) {
         if (lastTransitionTimeBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) == 0x00000008) &&
-              lastTransitionTime_ != null &&
-              lastTransitionTime_ != io.kubernetes.client.proto.Meta.Time.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000008) == 0x00000008)
+              && lastTransitionTime_ != null
+              && lastTransitionTime_ != io.kubernetes.client.proto.Meta.Time.getDefaultInstance()) {
             lastTransitionTime_ =
-              io.kubernetes.client.proto.Meta.Time.newBuilder(lastTransitionTime_).mergeFrom(value).buildPartial();
+                io.kubernetes.client.proto.Meta.Time.newBuilder(lastTransitionTime_)
+                    .mergeFrom(value)
+                    .buildPartial();
           } else {
             lastTransitionTime_ = value;
           }
@@ -2773,6 +3081,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Last time the condition transit from one status to another.
        * +optional
@@ -2791,6 +3101,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Last time the condition transit from one status to another.
        * +optional
@@ -2804,6 +3116,8 @@ public final class V1Batch {
         return getLastTransitionTimeFieldBuilder().getBuilder();
       }
       /**
+       *
+       *
        * <pre>
        * Last time the condition transit from one status to another.
        * +optional
@@ -2815,11 +3129,14 @@ public final class V1Batch {
         if (lastTransitionTimeBuilder_ != null) {
           return lastTransitionTimeBuilder_.getMessageOrBuilder();
         } else {
-          return lastTransitionTime_ == null ?
-              io.kubernetes.client.proto.Meta.Time.getDefaultInstance() : lastTransitionTime_;
+          return lastTransitionTime_ == null
+              ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance()
+              : lastTransitionTime_;
         }
       }
       /**
+       *
+       *
        * <pre>
        * Last time the condition transit from one status to another.
        * +optional
@@ -2828,14 +3145,17 @@ public final class V1Batch {
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.Time, io.kubernetes.client.proto.Meta.Time.Builder, io.kubernetes.client.proto.Meta.TimeOrBuilder> 
+              io.kubernetes.client.proto.Meta.Time,
+              io.kubernetes.client.proto.Meta.Time.Builder,
+              io.kubernetes.client.proto.Meta.TimeOrBuilder>
           getLastTransitionTimeFieldBuilder() {
         if (lastTransitionTimeBuilder_ == null) {
-          lastTransitionTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.Meta.Time, io.kubernetes.client.proto.Meta.Time.Builder, io.kubernetes.client.proto.Meta.TimeOrBuilder>(
-                  getLastTransitionTime(),
-                  getParentForChildren(),
-                  isClean());
+          lastTransitionTimeBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.Time,
+                  io.kubernetes.client.proto.Meta.Time.Builder,
+                  io.kubernetes.client.proto.Meta.TimeOrBuilder>(
+                  getLastTransitionTime(), getParentForChildren(), isClean());
           lastTransitionTime_ = null;
         }
         return lastTransitionTimeBuilder_;
@@ -2843,6 +3163,8 @@ public final class V1Batch {
 
       private java.lang.Object reason_ = "";
       /**
+       *
+       *
        * <pre>
        * (brief) reason for the condition's last transition.
        * +optional
@@ -2854,6 +3176,8 @@ public final class V1Batch {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
+       *
+       *
        * <pre>
        * (brief) reason for the condition's last transition.
        * +optional
@@ -2864,8 +3188,7 @@ public final class V1Batch {
       public java.lang.String getReason() {
         java.lang.Object ref = reason_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             reason_ = s;
@@ -2876,6 +3199,8 @@ public final class V1Batch {
         }
       }
       /**
+       *
+       *
        * <pre>
        * (brief) reason for the condition's last transition.
        * +optional
@@ -2883,13 +3208,11 @@ public final class V1Batch {
        *
        * <code>optional string reason = 5;</code>
        */
-      public com.google.protobuf.ByteString
-          getReasonBytes() {
+      public com.google.protobuf.ByteString getReasonBytes() {
         java.lang.Object ref = reason_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
           reason_ = b;
           return b;
         } else {
@@ -2897,6 +3220,8 @@ public final class V1Batch {
         }
       }
       /**
+       *
+       *
        * <pre>
        * (brief) reason for the condition's last transition.
        * +optional
@@ -2904,17 +3229,18 @@ public final class V1Batch {
        *
        * <code>optional string reason = 5;</code>
        */
-      public Builder setReason(
-          java.lang.String value) {
+      public Builder setReason(java.lang.String value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000010;
         reason_ = value;
         onChanged();
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * (brief) reason for the condition's last transition.
        * +optional
@@ -2929,6 +3255,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * (brief) reason for the condition's last transition.
        * +optional
@@ -2936,12 +3264,11 @@ public final class V1Batch {
        *
        * <code>optional string reason = 5;</code>
        */
-      public Builder setReasonBytes(
-          com.google.protobuf.ByteString value) {
+      public Builder setReasonBytes(com.google.protobuf.ByteString value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000010;
         reason_ = value;
         onChanged();
         return this;
@@ -2949,6 +3276,8 @@ public final class V1Batch {
 
       private java.lang.Object message_ = "";
       /**
+       *
+       *
        * <pre>
        * Human readable message indicating details about last transition.
        * +optional
@@ -2960,6 +3289,8 @@ public final class V1Batch {
         return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
+       *
+       *
        * <pre>
        * Human readable message indicating details about last transition.
        * +optional
@@ -2970,8 +3301,7 @@ public final class V1Batch {
       public java.lang.String getMessage() {
         java.lang.Object ref = message_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             message_ = s;
@@ -2982,6 +3312,8 @@ public final class V1Batch {
         }
       }
       /**
+       *
+       *
        * <pre>
        * Human readable message indicating details about last transition.
        * +optional
@@ -2989,13 +3321,11 @@ public final class V1Batch {
        *
        * <code>optional string message = 6;</code>
        */
-      public com.google.protobuf.ByteString
-          getMessageBytes() {
+      public com.google.protobuf.ByteString getMessageBytes() {
         java.lang.Object ref = message_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
           message_ = b;
           return b;
         } else {
@@ -3003,6 +3333,8 @@ public final class V1Batch {
         }
       }
       /**
+       *
+       *
        * <pre>
        * Human readable message indicating details about last transition.
        * +optional
@@ -3010,17 +3342,18 @@ public final class V1Batch {
        *
        * <code>optional string message = 6;</code>
        */
-      public Builder setMessage(
-          java.lang.String value) {
+      public Builder setMessage(java.lang.String value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000020;
         message_ = value;
         onChanged();
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Human readable message indicating details about last transition.
        * +optional
@@ -3035,6 +3368,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Human readable message indicating details about last transition.
        * +optional
@@ -3042,16 +3377,16 @@ public final class V1Batch {
        *
        * <code>optional string message = 6;</code>
        */
-      public Builder setMessageBytes(
-          com.google.protobuf.ByteString value) {
+      public Builder setMessageBytes(com.google.protobuf.ByteString value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000020;
         message_ = value;
         onChanged();
         return this;
       }
+
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -3062,12 +3397,12 @@ public final class V1Batch {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:k8s.io.api.batch.v1.JobCondition)
     }
 
     // @@protoc_insertion_point(class_scope:k8s.io.api.batch.v1.JobCondition)
     private static final io.kubernetes.client.proto.V1Batch.JobCondition DEFAULT_INSTANCE;
+
     static {
       DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Batch.JobCondition();
     }
@@ -3076,15 +3411,16 @@ public final class V1Batch {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<JobCondition>
-        PARSER = new com.google.protobuf.AbstractParser<JobCondition>() {
-      public JobCondition parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new JobCondition(input, extensionRegistry);
-      }
-    };
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<JobCondition> PARSER =
+        new com.google.protobuf.AbstractParser<JobCondition>() {
+          public JobCondition parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new JobCondition(input, extensionRegistry);
+          }
+        };
 
     public static com.google.protobuf.Parser<JobCondition> parser() {
       return PARSER;
@@ -3098,14 +3434,16 @@ public final class V1Batch {
     public io.kubernetes.client.proto.V1Batch.JobCondition getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
-
   }
 
-  public interface JobListOrBuilder extends
+  public interface JobListOrBuilder
+      extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.batch.v1.JobList)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     *
+     *
      * <pre>
      * Standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -3116,6 +3454,8 @@ public final class V1Batch {
      */
     boolean hasMetadata();
     /**
+     *
+     *
      * <pre>
      * Standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -3126,6 +3466,8 @@ public final class V1Batch {
      */
     io.kubernetes.client.proto.Meta.ListMeta getMetadata();
     /**
+     *
+     *
      * <pre>
      * Standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -3137,15 +3479,18 @@ public final class V1Batch {
     io.kubernetes.client.proto.Meta.ListMetaOrBuilder getMetadataOrBuilder();
 
     /**
+     *
+     *
      * <pre>
      * items is the list of Jobs.
      * </pre>
      *
      * <code>repeated .k8s.io.api.batch.v1.Job items = 2;</code>
      */
-    java.util.List<io.kubernetes.client.proto.V1Batch.Job> 
-        getItemsList();
+    java.util.List<io.kubernetes.client.proto.V1Batch.Job> getItemsList();
     /**
+     *
+     *
      * <pre>
      * items is the list of Jobs.
      * </pre>
@@ -3154,6 +3499,8 @@ public final class V1Batch {
      */
     io.kubernetes.client.proto.V1Batch.Job getItems(int index);
     /**
+     *
+     *
      * <pre>
      * items is the list of Jobs.
      * </pre>
@@ -3162,49 +3509,55 @@ public final class V1Batch {
      */
     int getItemsCount();
     /**
+     *
+     *
      * <pre>
      * items is the list of Jobs.
      * </pre>
      *
      * <code>repeated .k8s.io.api.batch.v1.Job items = 2;</code>
      */
-    java.util.List<? extends io.kubernetes.client.proto.V1Batch.JobOrBuilder> 
+    java.util.List<? extends io.kubernetes.client.proto.V1Batch.JobOrBuilder>
         getItemsOrBuilderList();
     /**
+     *
+     *
      * <pre>
      * items is the list of Jobs.
      * </pre>
      *
      * <code>repeated .k8s.io.api.batch.v1.Job items = 2;</code>
      */
-    io.kubernetes.client.proto.V1Batch.JobOrBuilder getItemsOrBuilder(
-        int index);
+    io.kubernetes.client.proto.V1Batch.JobOrBuilder getItemsOrBuilder(int index);
   }
   /**
+   *
+   *
    * <pre>
    * JobList is a collection of jobs.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.batch.v1.JobList}
    */
-  public  static final class JobList extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  public static final class JobList extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:k8s.io.api.batch.v1.JobList)
       JobListOrBuilder {
-  private static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
     // Use JobList.newBuilder() to construct.
     private JobList(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private JobList() {
       items_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
       return this.unknownFields;
     }
+
     private JobList(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3221,42 +3574,46 @@ public final class V1Batch {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
               }
-              break;
-            }
-            case 10: {
-              io.kubernetes.client.proto.Meta.ListMeta.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                subBuilder = metadata_.toBuilder();
+            case 10:
+              {
+                io.kubernetes.client.proto.Meta.ListMeta.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                  subBuilder = metadata_.toBuilder();
+                }
+                metadata_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.ListMeta.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(metadata_);
+                  metadata_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000001;
+                break;
               }
-              metadata_ = input.readMessage(io.kubernetes.client.proto.Meta.ListMeta.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(metadata_);
-                metadata_ = subBuilder.buildPartial();
+            case 18:
+              {
+                if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                  items_ = new java.util.ArrayList<io.kubernetes.client.proto.V1Batch.Job>();
+                  mutable_bitField0_ |= 0x00000002;
+                }
+                items_.add(
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1Batch.Job.PARSER, extensionRegistry));
+                break;
               }
-              bitField0_ |= 0x00000001;
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                items_ = new java.util.ArrayList<io.kubernetes.client.proto.V1Batch.Job>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              items_.add(
-                  input.readMessage(io.kubernetes.client.proto.V1Batch.Job.PARSER, extensionRegistry));
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
           items_ = java.util.Collections.unmodifiableList(items_);
@@ -3265,22 +3622,27 @@ public final class V1Batch {
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.kubernetes.client.proto.V1Batch.internal_static_k8s_io_api_batch_v1_JobList_descriptor;
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1Batch
+          .internal_static_k8s_io_api_batch_v1_JobList_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.kubernetes.client.proto.V1Batch.internal_static_k8s_io_api_batch_v1_JobList_fieldAccessorTable
+      return io.kubernetes.client.proto.V1Batch
+          .internal_static_k8s_io_api_batch_v1_JobList_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.kubernetes.client.proto.V1Batch.JobList.class, io.kubernetes.client.proto.V1Batch.JobList.Builder.class);
+              io.kubernetes.client.proto.V1Batch.JobList.class,
+              io.kubernetes.client.proto.V1Batch.JobList.Builder.class);
     }
 
     private int bitField0_;
     public static final int METADATA_FIELD_NUMBER = 1;
     private io.kubernetes.client.proto.Meta.ListMeta metadata_;
     /**
+     *
+     *
      * <pre>
      * Standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -3293,6 +3655,8 @@ public final class V1Batch {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
+     *
+     *
      * <pre>
      * Standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -3302,9 +3666,13 @@ public final class V1Batch {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
      */
     public io.kubernetes.client.proto.Meta.ListMeta getMetadata() {
-      return metadata_ == null ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance() : metadata_;
+      return metadata_ == null
+          ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()
+          : metadata_;
     }
     /**
+     *
+     *
      * <pre>
      * Standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -3314,12 +3682,16 @@ public final class V1Batch {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
      */
     public io.kubernetes.client.proto.Meta.ListMetaOrBuilder getMetadataOrBuilder() {
-      return metadata_ == null ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance() : metadata_;
+      return metadata_ == null
+          ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()
+          : metadata_;
     }
 
     public static final int ITEMS_FIELD_NUMBER = 2;
     private java.util.List<io.kubernetes.client.proto.V1Batch.Job> items_;
     /**
+     *
+     *
      * <pre>
      * items is the list of Jobs.
      * </pre>
@@ -3330,17 +3702,21 @@ public final class V1Batch {
       return items_;
     }
     /**
+     *
+     *
      * <pre>
      * items is the list of Jobs.
      * </pre>
      *
      * <code>repeated .k8s.io.api.batch.v1.Job items = 2;</code>
      */
-    public java.util.List<? extends io.kubernetes.client.proto.V1Batch.JobOrBuilder> 
+    public java.util.List<? extends io.kubernetes.client.proto.V1Batch.JobOrBuilder>
         getItemsOrBuilderList() {
       return items_;
     }
     /**
+     *
+     *
      * <pre>
      * items is the list of Jobs.
      * </pre>
@@ -3351,6 +3727,8 @@ public final class V1Batch {
       return items_.size();
     }
     /**
+     *
+     *
      * <pre>
      * items is the list of Jobs.
      * </pre>
@@ -3361,18 +3739,20 @@ public final class V1Batch {
       return items_.get(index);
     }
     /**
+     *
+     *
      * <pre>
      * items is the list of Jobs.
      * </pre>
      *
      * <code>repeated .k8s.io.api.batch.v1.Job items = 2;</code>
      */
-    public io.kubernetes.client.proto.V1Batch.JobOrBuilder getItemsOrBuilder(
-        int index) {
+    public io.kubernetes.client.proto.V1Batch.JobOrBuilder getItemsOrBuilder(int index) {
       return items_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
+
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -3382,8 +3762,7 @@ public final class V1Batch {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeMessage(1, getMetadata());
       }
@@ -3399,12 +3778,10 @@ public final class V1Batch {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getMetadata());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, getMetadata());
       }
       for (int i = 0; i < items_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, items_.get(i));
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, items_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3414,21 +3791,20 @@ public final class V1Batch {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof io.kubernetes.client.proto.V1Batch.JobList)) {
         return super.equals(obj);
       }
-      io.kubernetes.client.proto.V1Batch.JobList other = (io.kubernetes.client.proto.V1Batch.JobList) obj;
+      io.kubernetes.client.proto.V1Batch.JobList other =
+          (io.kubernetes.client.proto.V1Batch.JobList) obj;
 
       boolean result = true;
       result = result && (hasMetadata() == other.hasMetadata());
       if (hasMetadata()) {
-        result = result && getMetadata()
-            .equals(other.getMetadata());
+        result = result && getMetadata().equals(other.getMetadata());
       }
-      result = result && getItemsList()
-          .equals(other.getItemsList());
+      result = result && getItemsList().equals(other.getItemsList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -3453,86 +3829,92 @@ public final class V1Batch {
       return hash;
     }
 
-    public static io.kubernetes.client.proto.V1Batch.JobList parseFrom(
-        java.nio.ByteBuffer data)
+    public static io.kubernetes.client.proto.V1Batch.JobList parseFrom(java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobList parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobList parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobList parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobList parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobList parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobList parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobList parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
-    public static io.kubernetes.client.proto.V1Batch.JobList parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
+
     public static io.kubernetes.client.proto.V1Batch.JobList parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
     }
+
+    public static io.kubernetes.client.proto.V1Batch.JobList parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
     public static io.kubernetes.client.proto.V1Batch.JobList parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobList parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
+
     public static Builder newBuilder(io.kubernetes.client.proto.V1Batch.JobList prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -3542,26 +3924,31 @@ public final class V1Batch {
       return builder;
     }
     /**
+     *
+     *
      * <pre>
      * JobList is a collection of jobs.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.batch.v1.JobList}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:k8s.io.api.batch.v1.JobList)
         io.kubernetes.client.proto.V1Batch.JobListOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.kubernetes.client.proto.V1Batch.internal_static_k8s_io_api_batch_v1_JobList_descriptor;
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1Batch
+            .internal_static_k8s_io_api_batch_v1_JobList_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.kubernetes.client.proto.V1Batch.internal_static_k8s_io_api_batch_v1_JobList_fieldAccessorTable
+        return io.kubernetes.client.proto.V1Batch
+            .internal_static_k8s_io_api_batch_v1_JobList_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.kubernetes.client.proto.V1Batch.JobList.class, io.kubernetes.client.proto.V1Batch.JobList.Builder.class);
+                io.kubernetes.client.proto.V1Batch.JobList.class,
+                io.kubernetes.client.proto.V1Batch.JobList.Builder.class);
       }
 
       // Construct using io.kubernetes.client.proto.V1Batch.JobList.newBuilder()
@@ -3569,18 +3956,18 @@ public final class V1Batch {
         maybeForceBuilderInitialization();
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
+
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
           getMetadataFieldBuilder();
           getItemsFieldBuilder();
         }
       }
+
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -3598,9 +3985,9 @@ public final class V1Batch {
         return this;
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.kubernetes.client.proto.V1Batch.internal_static_k8s_io_api_batch_v1_JobList_descriptor;
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Batch
+            .internal_static_k8s_io_api_batch_v1_JobList_descriptor;
       }
 
       public io.kubernetes.client.proto.V1Batch.JobList getDefaultInstanceForType() {
@@ -3616,7 +4003,8 @@ public final class V1Batch {
       }
 
       public io.kubernetes.client.proto.V1Batch.JobList buildPartial() {
-        io.kubernetes.client.proto.V1Batch.JobList result = new io.kubernetes.client.proto.V1Batch.JobList(this);
+        io.kubernetes.client.proto.V1Batch.JobList result =
+            new io.kubernetes.client.proto.V1Batch.JobList(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -3644,32 +4032,35 @@ public final class V1Batch {
       public Builder clone() {
         return (Builder) super.clone();
       }
+
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Batch.JobList) {
-          return mergeFrom((io.kubernetes.client.proto.V1Batch.JobList)other);
+          return mergeFrom((io.kubernetes.client.proto.V1Batch.JobList) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -3699,9 +4090,10 @@ public final class V1Batch {
               itemsBuilder_ = null;
               items_ = other.items_;
               bitField0_ = (bitField0_ & ~0x00000002);
-              itemsBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getItemsFieldBuilder() : null;
+              itemsBuilder_ =
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders
+                      ? getItemsFieldBuilder()
+                      : null;
             } else {
               itemsBuilder_.addAllMessages(other.items_);
             }
@@ -3733,12 +4125,18 @@ public final class V1Batch {
         }
         return this;
       }
+
       private int bitField0_;
 
       private io.kubernetes.client.proto.Meta.ListMeta metadata_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.ListMeta, io.kubernetes.client.proto.Meta.ListMeta.Builder, io.kubernetes.client.proto.Meta.ListMetaOrBuilder> metadataBuilder_;
+              io.kubernetes.client.proto.Meta.ListMeta,
+              io.kubernetes.client.proto.Meta.ListMeta.Builder,
+              io.kubernetes.client.proto.Meta.ListMetaOrBuilder>
+          metadataBuilder_;
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -3751,6 +4149,8 @@ public final class V1Batch {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -3761,12 +4161,16 @@ public final class V1Batch {
        */
       public io.kubernetes.client.proto.Meta.ListMeta getMetadata() {
         if (metadataBuilder_ == null) {
-          return metadata_ == null ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance() : metadata_;
+          return metadata_ == null
+              ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()
+              : metadata_;
         } else {
           return metadataBuilder_.getMessage();
         }
       }
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -3789,6 +4193,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -3797,8 +4203,7 @@ public final class V1Batch {
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
        */
-      public Builder setMetadata(
-          io.kubernetes.client.proto.Meta.ListMeta.Builder builderForValue) {
+      public Builder setMetadata(io.kubernetes.client.proto.Meta.ListMeta.Builder builderForValue) {
         if (metadataBuilder_ == null) {
           metadata_ = builderForValue.build();
           onChanged();
@@ -3809,6 +4214,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -3819,11 +4226,13 @@ public final class V1Batch {
        */
       public Builder mergeMetadata(io.kubernetes.client.proto.Meta.ListMeta value) {
         if (metadataBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              metadata_ != null &&
-              metadata_ != io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)
+              && metadata_ != null
+              && metadata_ != io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()) {
             metadata_ =
-              io.kubernetes.client.proto.Meta.ListMeta.newBuilder(metadata_).mergeFrom(value).buildPartial();
+                io.kubernetes.client.proto.Meta.ListMeta.newBuilder(metadata_)
+                    .mergeFrom(value)
+                    .buildPartial();
           } else {
             metadata_ = value;
           }
@@ -3835,6 +4244,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -3854,6 +4265,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -3868,6 +4281,8 @@ public final class V1Batch {
         return getMetadataFieldBuilder().getBuilder();
       }
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -3880,11 +4295,14 @@ public final class V1Batch {
         if (metadataBuilder_ != null) {
           return metadataBuilder_.getMessageOrBuilder();
         } else {
-          return metadata_ == null ?
-              io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance() : metadata_;
+          return metadata_ == null
+              ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()
+              : metadata_;
         }
       }
       /**
+       *
+       *
        * <pre>
        * Standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
@@ -3894,32 +4312,41 @@ public final class V1Batch {
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.ListMeta, io.kubernetes.client.proto.Meta.ListMeta.Builder, io.kubernetes.client.proto.Meta.ListMetaOrBuilder> 
+              io.kubernetes.client.proto.Meta.ListMeta,
+              io.kubernetes.client.proto.Meta.ListMeta.Builder,
+              io.kubernetes.client.proto.Meta.ListMetaOrBuilder>
           getMetadataFieldBuilder() {
         if (metadataBuilder_ == null) {
-          metadataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.Meta.ListMeta, io.kubernetes.client.proto.Meta.ListMeta.Builder, io.kubernetes.client.proto.Meta.ListMetaOrBuilder>(
-                  getMetadata(),
-                  getParentForChildren(),
-                  isClean());
+          metadataBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.ListMeta,
+                  io.kubernetes.client.proto.Meta.ListMeta.Builder,
+                  io.kubernetes.client.proto.Meta.ListMetaOrBuilder>(
+                  getMetadata(), getParentForChildren(), isClean());
           metadata_ = null;
         }
         return metadataBuilder_;
       }
 
       private java.util.List<io.kubernetes.client.proto.V1Batch.Job> items_ =
-        java.util.Collections.emptyList();
+          java.util.Collections.emptyList();
+
       private void ensureItemsIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
           items_ = new java.util.ArrayList<io.kubernetes.client.proto.V1Batch.Job>(items_);
           bitField0_ |= 0x00000002;
-         }
+        }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.kubernetes.client.proto.V1Batch.Job, io.kubernetes.client.proto.V1Batch.Job.Builder, io.kubernetes.client.proto.V1Batch.JobOrBuilder> itemsBuilder_;
+              io.kubernetes.client.proto.V1Batch.Job,
+              io.kubernetes.client.proto.V1Batch.Job.Builder,
+              io.kubernetes.client.proto.V1Batch.JobOrBuilder>
+          itemsBuilder_;
 
       /**
+       *
+       *
        * <pre>
        * items is the list of Jobs.
        * </pre>
@@ -3934,6 +4361,8 @@ public final class V1Batch {
         }
       }
       /**
+       *
+       *
        * <pre>
        * items is the list of Jobs.
        * </pre>
@@ -3948,6 +4377,8 @@ public final class V1Batch {
         }
       }
       /**
+       *
+       *
        * <pre>
        * items is the list of Jobs.
        * </pre>
@@ -3962,14 +4393,15 @@ public final class V1Batch {
         }
       }
       /**
+       *
+       *
        * <pre>
        * items is the list of Jobs.
        * </pre>
        *
        * <code>repeated .k8s.io.api.batch.v1.Job items = 2;</code>
        */
-      public Builder setItems(
-          int index, io.kubernetes.client.proto.V1Batch.Job value) {
+      public Builder setItems(int index, io.kubernetes.client.proto.V1Batch.Job value) {
         if (itemsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3983,6 +4415,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * items is the list of Jobs.
        * </pre>
@@ -4001,6 +4435,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * items is the list of Jobs.
        * </pre>
@@ -4021,14 +4457,15 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * items is the list of Jobs.
        * </pre>
        *
        * <code>repeated .k8s.io.api.batch.v1.Job items = 2;</code>
        */
-      public Builder addItems(
-          int index, io.kubernetes.client.proto.V1Batch.Job value) {
+      public Builder addItems(int index, io.kubernetes.client.proto.V1Batch.Job value) {
         if (itemsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4042,14 +4479,15 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * items is the list of Jobs.
        * </pre>
        *
        * <code>repeated .k8s.io.api.batch.v1.Job items = 2;</code>
        */
-      public Builder addItems(
-          io.kubernetes.client.proto.V1Batch.Job.Builder builderForValue) {
+      public Builder addItems(io.kubernetes.client.proto.V1Batch.Job.Builder builderForValue) {
         if (itemsBuilder_ == null) {
           ensureItemsIsMutable();
           items_.add(builderForValue.build());
@@ -4060,6 +4498,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * items is the list of Jobs.
        * </pre>
@@ -4078,6 +4518,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * items is the list of Jobs.
        * </pre>
@@ -4088,8 +4530,7 @@ public final class V1Batch {
           java.lang.Iterable<? extends io.kubernetes.client.proto.V1Batch.Job> values) {
         if (itemsBuilder_ == null) {
           ensureItemsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, items_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(values, items_);
           onChanged();
         } else {
           itemsBuilder_.addAllMessages(values);
@@ -4097,6 +4538,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * items is the list of Jobs.
        * </pre>
@@ -4114,6 +4557,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * items is the list of Jobs.
        * </pre>
@@ -4131,39 +4576,44 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * items is the list of Jobs.
        * </pre>
        *
        * <code>repeated .k8s.io.api.batch.v1.Job items = 2;</code>
        */
-      public io.kubernetes.client.proto.V1Batch.Job.Builder getItemsBuilder(
-          int index) {
+      public io.kubernetes.client.proto.V1Batch.Job.Builder getItemsBuilder(int index) {
         return getItemsFieldBuilder().getBuilder(index);
       }
       /**
+       *
+       *
        * <pre>
        * items is the list of Jobs.
        * </pre>
        *
        * <code>repeated .k8s.io.api.batch.v1.Job items = 2;</code>
        */
-      public io.kubernetes.client.proto.V1Batch.JobOrBuilder getItemsOrBuilder(
-          int index) {
+      public io.kubernetes.client.proto.V1Batch.JobOrBuilder getItemsOrBuilder(int index) {
         if (itemsBuilder_ == null) {
-          return items_.get(index);  } else {
+          return items_.get(index);
+        } else {
           return itemsBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
+       *
+       *
        * <pre>
        * items is the list of Jobs.
        * </pre>
        *
        * <code>repeated .k8s.io.api.batch.v1.Job items = 2;</code>
        */
-      public java.util.List<? extends io.kubernetes.client.proto.V1Batch.JobOrBuilder> 
-           getItemsOrBuilderList() {
+      public java.util.List<? extends io.kubernetes.client.proto.V1Batch.JobOrBuilder>
+          getItemsOrBuilderList() {
         if (itemsBuilder_ != null) {
           return itemsBuilder_.getMessageOrBuilderList();
         } else {
@@ -4171,6 +4621,8 @@ public final class V1Batch {
         }
       }
       /**
+       *
+       *
        * <pre>
        * items is the list of Jobs.
        * </pre>
@@ -4178,38 +4630,46 @@ public final class V1Batch {
        * <code>repeated .k8s.io.api.batch.v1.Job items = 2;</code>
        */
       public io.kubernetes.client.proto.V1Batch.Job.Builder addItemsBuilder() {
-        return getItemsFieldBuilder().addBuilder(
-            io.kubernetes.client.proto.V1Batch.Job.getDefaultInstance());
+        return getItemsFieldBuilder()
+            .addBuilder(io.kubernetes.client.proto.V1Batch.Job.getDefaultInstance());
       }
       /**
+       *
+       *
        * <pre>
        * items is the list of Jobs.
        * </pre>
        *
        * <code>repeated .k8s.io.api.batch.v1.Job items = 2;</code>
        */
-      public io.kubernetes.client.proto.V1Batch.Job.Builder addItemsBuilder(
-          int index) {
-        return getItemsFieldBuilder().addBuilder(
-            index, io.kubernetes.client.proto.V1Batch.Job.getDefaultInstance());
+      public io.kubernetes.client.proto.V1Batch.Job.Builder addItemsBuilder(int index) {
+        return getItemsFieldBuilder()
+            .addBuilder(index, io.kubernetes.client.proto.V1Batch.Job.getDefaultInstance());
       }
       /**
+       *
+       *
        * <pre>
        * items is the list of Jobs.
        * </pre>
        *
        * <code>repeated .k8s.io.api.batch.v1.Job items = 2;</code>
        */
-      public java.util.List<io.kubernetes.client.proto.V1Batch.Job.Builder> 
-           getItemsBuilderList() {
+      public java.util.List<io.kubernetes.client.proto.V1Batch.Job.Builder> getItemsBuilderList() {
         return getItemsFieldBuilder().getBuilderList();
       }
+
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.kubernetes.client.proto.V1Batch.Job, io.kubernetes.client.proto.V1Batch.Job.Builder, io.kubernetes.client.proto.V1Batch.JobOrBuilder> 
+              io.kubernetes.client.proto.V1Batch.Job,
+              io.kubernetes.client.proto.V1Batch.Job.Builder,
+              io.kubernetes.client.proto.V1Batch.JobOrBuilder>
           getItemsFieldBuilder() {
         if (itemsBuilder_ == null) {
-          itemsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              io.kubernetes.client.proto.V1Batch.Job, io.kubernetes.client.proto.V1Batch.Job.Builder, io.kubernetes.client.proto.V1Batch.JobOrBuilder>(
+          itemsBuilder_ =
+              new com.google.protobuf.RepeatedFieldBuilderV3<
+                  io.kubernetes.client.proto.V1Batch.Job,
+                  io.kubernetes.client.proto.V1Batch.Job.Builder,
+                  io.kubernetes.client.proto.V1Batch.JobOrBuilder>(
                   items_,
                   ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
@@ -4218,6 +4678,7 @@ public final class V1Batch {
         }
         return itemsBuilder_;
       }
+
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -4228,12 +4689,12 @@ public final class V1Batch {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:k8s.io.api.batch.v1.JobList)
     }
 
     // @@protoc_insertion_point(class_scope:k8s.io.api.batch.v1.JobList)
     private static final io.kubernetes.client.proto.V1Batch.JobList DEFAULT_INSTANCE;
+
     static {
       DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Batch.JobList();
     }
@@ -4242,15 +4703,16 @@ public final class V1Batch {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<JobList>
-        PARSER = new com.google.protobuf.AbstractParser<JobList>() {
-      public JobList parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new JobList(input, extensionRegistry);
-      }
-    };
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<JobList> PARSER =
+        new com.google.protobuf.AbstractParser<JobList>() {
+          public JobList parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new JobList(input, extensionRegistry);
+          }
+        };
 
     public static com.google.protobuf.Parser<JobList> parser() {
       return PARSER;
@@ -4264,14 +4726,16 @@ public final class V1Batch {
     public io.kubernetes.client.proto.V1Batch.JobList getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
-
   }
 
-  public interface JobSpecOrBuilder extends
+  public interface JobSpecOrBuilder
+      extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.batch.v1.JobSpec)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     *
+     *
      * <pre>
      * Specifies the maximum desired number of pods the job should
      * run at any given time. The actual number of pods running in steady state will
@@ -4285,6 +4749,8 @@ public final class V1Batch {
      */
     boolean hasParallelism();
     /**
+     *
+     *
      * <pre>
      * Specifies the maximum desired number of pods the job should
      * run at any given time. The actual number of pods running in steady state will
@@ -4299,6 +4765,8 @@ public final class V1Batch {
     int getParallelism();
 
     /**
+     *
+     *
      * <pre>
      * Specifies the desired number of successfully finished pods the
      * job should be run with.  Setting to nil means that the success of any
@@ -4313,6 +4781,8 @@ public final class V1Batch {
      */
     boolean hasCompletions();
     /**
+     *
+     *
      * <pre>
      * Specifies the desired number of successfully finished pods the
      * job should be run with.  Setting to nil means that the success of any
@@ -4328,6 +4798,8 @@ public final class V1Batch {
     int getCompletions();
 
     /**
+     *
+     *
      * <pre>
      * Specifies the duration in seconds relative to the startTime that the job may be active
      * before the system tries to terminate it; value must be positive integer
@@ -4338,6 +4810,8 @@ public final class V1Batch {
      */
     boolean hasActiveDeadlineSeconds();
     /**
+     *
+     *
      * <pre>
      * Specifies the duration in seconds relative to the startTime that the job may be active
      * before the system tries to terminate it; value must be positive integer
@@ -4349,6 +4823,8 @@ public final class V1Batch {
     long getActiveDeadlineSeconds();
 
     /**
+     *
+     *
      * <pre>
      * Specifies the number of retries before marking this job failed.
      * Defaults to 6
@@ -4359,6 +4835,8 @@ public final class V1Batch {
      */
     boolean hasBackoffLimit();
     /**
+     *
+     *
      * <pre>
      * Specifies the number of retries before marking this job failed.
      * Defaults to 6
@@ -4370,6 +4848,8 @@ public final class V1Batch {
     int getBackoffLimit();
 
     /**
+     *
+     *
      * <pre>
      * A label query over pods that should match the pod count.
      * Normally, the system sets this field for you.
@@ -4381,6 +4861,8 @@ public final class V1Batch {
      */
     boolean hasSelector();
     /**
+     *
+     *
      * <pre>
      * A label query over pods that should match the pod count.
      * Normally, the system sets this field for you.
@@ -4392,6 +4874,8 @@ public final class V1Batch {
      */
     io.kubernetes.client.proto.Meta.LabelSelector getSelector();
     /**
+     *
+     *
      * <pre>
      * A label query over pods that should match the pod count.
      * Normally, the system sets this field for you.
@@ -4404,6 +4888,8 @@ public final class V1Batch {
     io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder();
 
     /**
+     *
+     *
      * <pre>
      * manualSelector controls generation of pod labels and pod selectors.
      * Leave `manualSelector` unset unless you are certain what you are doing.
@@ -4422,6 +4908,8 @@ public final class V1Batch {
      */
     boolean hasManualSelector();
     /**
+     *
+     *
      * <pre>
      * manualSelector controls generation of pod labels and pod selectors.
      * Leave `manualSelector` unset unless you are certain what you are doing.
@@ -4441,6 +4929,8 @@ public final class V1Batch {
     boolean getManualSelector();
 
     /**
+     *
+     *
      * <pre>
      * Describes the pod that will be created when executing a job.
      * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -4450,6 +4940,8 @@ public final class V1Batch {
      */
     boolean hasTemplate();
     /**
+     *
+     *
      * <pre>
      * Describes the pod that will be created when executing a job.
      * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -4459,6 +4951,8 @@ public final class V1Batch {
      */
     io.kubernetes.client.proto.V1.PodTemplateSpec getTemplate();
     /**
+     *
+     *
      * <pre>
      * Describes the pod that will be created when executing a job.
      * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -4469,21 +4963,24 @@ public final class V1Batch {
     io.kubernetes.client.proto.V1.PodTemplateSpecOrBuilder getTemplateOrBuilder();
   }
   /**
+   *
+   *
    * <pre>
    * JobSpec describes how the job execution will look like.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.batch.v1.JobSpec}
    */
-  public  static final class JobSpec extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  public static final class JobSpec extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:k8s.io.api.batch.v1.JobSpec)
       JobSpecOrBuilder {
-  private static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
     // Use JobSpec.newBuilder() to construct.
     private JobSpec(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private JobSpec() {
       parallelism_ = 0;
       completions_ = 0;
@@ -4493,10 +4990,10 @@ public final class V1Batch {
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
       return this.unknownFields;
     }
+
     private JobSpec(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4513,92 +5010,107 @@ public final class V1Batch {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
               }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              parallelism_ = input.readInt32();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              completions_ = input.readInt32();
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000004;
-              activeDeadlineSeconds_ = input.readInt64();
-              break;
-            }
-            case 34: {
-              io.kubernetes.client.proto.Meta.LabelSelector.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000010) == 0x00000010)) {
-                subBuilder = selector_.toBuilder();
+            case 8:
+              {
+                bitField0_ |= 0x00000001;
+                parallelism_ = input.readInt32();
+                break;
               }
-              selector_ = input.readMessage(io.kubernetes.client.proto.Meta.LabelSelector.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(selector_);
-                selector_ = subBuilder.buildPartial();
+            case 16:
+              {
+                bitField0_ |= 0x00000002;
+                completions_ = input.readInt32();
+                break;
               }
-              bitField0_ |= 0x00000010;
-              break;
-            }
-            case 40: {
-              bitField0_ |= 0x00000020;
-              manualSelector_ = input.readBool();
-              break;
-            }
-            case 50: {
-              io.kubernetes.client.proto.V1.PodTemplateSpec.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000040) == 0x00000040)) {
-                subBuilder = template_.toBuilder();
+            case 24:
+              {
+                bitField0_ |= 0x00000004;
+                activeDeadlineSeconds_ = input.readInt64();
+                break;
               }
-              template_ = input.readMessage(io.kubernetes.client.proto.V1.PodTemplateSpec.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(template_);
-                template_ = subBuilder.buildPartial();
+            case 34:
+              {
+                io.kubernetes.client.proto.Meta.LabelSelector.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000010) == 0x00000010)) {
+                  subBuilder = selector_.toBuilder();
+                }
+                selector_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.LabelSelector.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(selector_);
+                  selector_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000010;
+                break;
               }
-              bitField0_ |= 0x00000040;
-              break;
-            }
-            case 56: {
-              bitField0_ |= 0x00000008;
-              backoffLimit_ = input.readInt32();
-              break;
-            }
+            case 40:
+              {
+                bitField0_ |= 0x00000020;
+                manualSelector_ = input.readBool();
+                break;
+              }
+            case 50:
+              {
+                io.kubernetes.client.proto.V1.PodTemplateSpec.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000040) == 0x00000040)) {
+                  subBuilder = template_.toBuilder();
+                }
+                template_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1.PodTemplateSpec.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(template_);
+                  template_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000040;
+                break;
+              }
+            case 56:
+              {
+                bitField0_ |= 0x00000008;
+                backoffLimit_ = input.readInt32();
+                break;
+              }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.kubernetes.client.proto.V1Batch.internal_static_k8s_io_api_batch_v1_JobSpec_descriptor;
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1Batch
+          .internal_static_k8s_io_api_batch_v1_JobSpec_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.kubernetes.client.proto.V1Batch.internal_static_k8s_io_api_batch_v1_JobSpec_fieldAccessorTable
+      return io.kubernetes.client.proto.V1Batch
+          .internal_static_k8s_io_api_batch_v1_JobSpec_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.kubernetes.client.proto.V1Batch.JobSpec.class, io.kubernetes.client.proto.V1Batch.JobSpec.Builder.class);
+              io.kubernetes.client.proto.V1Batch.JobSpec.class,
+              io.kubernetes.client.proto.V1Batch.JobSpec.Builder.class);
     }
 
     private int bitField0_;
     public static final int PARALLELISM_FIELD_NUMBER = 1;
     private int parallelism_;
     /**
+     *
+     *
      * <pre>
      * Specifies the maximum desired number of pods the job should
      * run at any given time. The actual number of pods running in steady state will
@@ -4614,6 +5126,8 @@ public final class V1Batch {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
+     *
+     *
      * <pre>
      * Specifies the maximum desired number of pods the job should
      * run at any given time. The actual number of pods running in steady state will
@@ -4632,6 +5146,8 @@ public final class V1Batch {
     public static final int COMPLETIONS_FIELD_NUMBER = 2;
     private int completions_;
     /**
+     *
+     *
      * <pre>
      * Specifies the desired number of successfully finished pods the
      * job should be run with.  Setting to nil means that the success of any
@@ -4648,6 +5164,8 @@ public final class V1Batch {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
+     *
+     *
      * <pre>
      * Specifies the desired number of successfully finished pods the
      * job should be run with.  Setting to nil means that the success of any
@@ -4667,6 +5185,8 @@ public final class V1Batch {
     public static final int ACTIVEDEADLINESECONDS_FIELD_NUMBER = 3;
     private long activeDeadlineSeconds_;
     /**
+     *
+     *
      * <pre>
      * Specifies the duration in seconds relative to the startTime that the job may be active
      * before the system tries to terminate it; value must be positive integer
@@ -4679,6 +5199,8 @@ public final class V1Batch {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
+     *
+     *
      * <pre>
      * Specifies the duration in seconds relative to the startTime that the job may be active
      * before the system tries to terminate it; value must be positive integer
@@ -4694,6 +5216,8 @@ public final class V1Batch {
     public static final int BACKOFFLIMIT_FIELD_NUMBER = 7;
     private int backoffLimit_;
     /**
+     *
+     *
      * <pre>
      * Specifies the number of retries before marking this job failed.
      * Defaults to 6
@@ -4706,6 +5230,8 @@ public final class V1Batch {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
+     *
+     *
      * <pre>
      * Specifies the number of retries before marking this job failed.
      * Defaults to 6
@@ -4721,6 +5247,8 @@ public final class V1Batch {
     public static final int SELECTOR_FIELD_NUMBER = 4;
     private io.kubernetes.client.proto.Meta.LabelSelector selector_;
     /**
+     *
+     *
      * <pre>
      * A label query over pods that should match the pod count.
      * Normally, the system sets this field for you.
@@ -4734,6 +5262,8 @@ public final class V1Batch {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
+     *
+     *
      * <pre>
      * A label query over pods that should match the pod count.
      * Normally, the system sets this field for you.
@@ -4744,9 +5274,13 @@ public final class V1Batch {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
      */
     public io.kubernetes.client.proto.Meta.LabelSelector getSelector() {
-      return selector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+      return selector_ == null
+          ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+          : selector_;
     }
     /**
+     *
+     *
      * <pre>
      * A label query over pods that should match the pod count.
      * Normally, the system sets this field for you.
@@ -4757,12 +5291,16 @@ public final class V1Batch {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
      */
     public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder() {
-      return selector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+      return selector_ == null
+          ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+          : selector_;
     }
 
     public static final int MANUALSELECTOR_FIELD_NUMBER = 5;
     private boolean manualSelector_;
     /**
+     *
+     *
      * <pre>
      * manualSelector controls generation of pod labels and pod selectors.
      * Leave `manualSelector` unset unless you are certain what you are doing.
@@ -4783,6 +5321,8 @@ public final class V1Batch {
       return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
+     *
+     *
      * <pre>
      * manualSelector controls generation of pod labels and pod selectors.
      * Leave `manualSelector` unset unless you are certain what you are doing.
@@ -4806,6 +5346,8 @@ public final class V1Batch {
     public static final int TEMPLATE_FIELD_NUMBER = 6;
     private io.kubernetes.client.proto.V1.PodTemplateSpec template_;
     /**
+     *
+     *
      * <pre>
      * Describes the pod that will be created when executing a job.
      * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -4817,6 +5359,8 @@ public final class V1Batch {
       return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
+     *
+     *
      * <pre>
      * Describes the pod that will be created when executing a job.
      * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -4825,9 +5369,13 @@ public final class V1Batch {
      * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 6;</code>
      */
     public io.kubernetes.client.proto.V1.PodTemplateSpec getTemplate() {
-      return template_ == null ? io.kubernetes.client.proto.V1.PodTemplateSpec.getDefaultInstance() : template_;
+      return template_ == null
+          ? io.kubernetes.client.proto.V1.PodTemplateSpec.getDefaultInstance()
+          : template_;
     }
     /**
+     *
+     *
      * <pre>
      * Describes the pod that will be created when executing a job.
      * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -4836,10 +5384,13 @@ public final class V1Batch {
      * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 6;</code>
      */
     public io.kubernetes.client.proto.V1.PodTemplateSpecOrBuilder getTemplateOrBuilder() {
-      return template_ == null ? io.kubernetes.client.proto.V1.PodTemplateSpec.getDefaultInstance() : template_;
+      return template_ == null
+          ? io.kubernetes.client.proto.V1.PodTemplateSpec.getDefaultInstance()
+          : template_;
     }
 
     private byte memoizedIsInitialized = -1;
+
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -4849,8 +5400,7 @@ public final class V1Batch {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, parallelism_);
       }
@@ -4881,32 +5431,25 @@ public final class V1Batch {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, parallelism_);
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(1, parallelism_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, completions_);
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(2, completions_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, activeDeadlineSeconds_);
+        size += com.google.protobuf.CodedOutputStream.computeInt64Size(3, activeDeadlineSeconds_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, getSelector());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(4, getSelector());
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(5, manualSelector_);
+        size += com.google.protobuf.CodedOutputStream.computeBoolSize(5, manualSelector_);
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, getTemplate());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(6, getTemplate());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(7, backoffLimit_);
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(7, backoffLimit_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4916,48 +5459,42 @@ public final class V1Batch {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof io.kubernetes.client.proto.V1Batch.JobSpec)) {
         return super.equals(obj);
       }
-      io.kubernetes.client.proto.V1Batch.JobSpec other = (io.kubernetes.client.proto.V1Batch.JobSpec) obj;
+      io.kubernetes.client.proto.V1Batch.JobSpec other =
+          (io.kubernetes.client.proto.V1Batch.JobSpec) obj;
 
       boolean result = true;
       result = result && (hasParallelism() == other.hasParallelism());
       if (hasParallelism()) {
-        result = result && (getParallelism()
-            == other.getParallelism());
+        result = result && (getParallelism() == other.getParallelism());
       }
       result = result && (hasCompletions() == other.hasCompletions());
       if (hasCompletions()) {
-        result = result && (getCompletions()
-            == other.getCompletions());
+        result = result && (getCompletions() == other.getCompletions());
       }
       result = result && (hasActiveDeadlineSeconds() == other.hasActiveDeadlineSeconds());
       if (hasActiveDeadlineSeconds()) {
-        result = result && (getActiveDeadlineSeconds()
-            == other.getActiveDeadlineSeconds());
+        result = result && (getActiveDeadlineSeconds() == other.getActiveDeadlineSeconds());
       }
       result = result && (hasBackoffLimit() == other.hasBackoffLimit());
       if (hasBackoffLimit()) {
-        result = result && (getBackoffLimit()
-            == other.getBackoffLimit());
+        result = result && (getBackoffLimit() == other.getBackoffLimit());
       }
       result = result && (hasSelector() == other.hasSelector());
       if (hasSelector()) {
-        result = result && getSelector()
-            .equals(other.getSelector());
+        result = result && getSelector().equals(other.getSelector());
       }
       result = result && (hasManualSelector() == other.hasManualSelector());
       if (hasManualSelector()) {
-        result = result && (getManualSelector()
-            == other.getManualSelector());
+        result = result && (getManualSelector() == other.getManualSelector());
       }
       result = result && (hasTemplate() == other.hasTemplate());
       if (hasTemplate()) {
-        result = result && getTemplate()
-            .equals(other.getTemplate());
+        result = result && getTemplate().equals(other.getTemplate());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -4980,8 +5517,7 @@ public final class V1Batch {
       }
       if (hasActiveDeadlineSeconds()) {
         hash = (37 * hash) + ACTIVEDEADLINESECONDS_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getActiveDeadlineSeconds());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getActiveDeadlineSeconds());
       }
       if (hasBackoffLimit()) {
         hash = (37 * hash) + BACKOFFLIMIT_FIELD_NUMBER;
@@ -4993,8 +5529,7 @@ public final class V1Batch {
       }
       if (hasManualSelector()) {
         hash = (37 * hash) + MANUALSELECTOR_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-            getManualSelector());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(getManualSelector());
       }
       if (hasTemplate()) {
         hash = (37 * hash) + TEMPLATE_FIELD_NUMBER;
@@ -5005,86 +5540,92 @@ public final class V1Batch {
       return hash;
     }
 
-    public static io.kubernetes.client.proto.V1Batch.JobSpec parseFrom(
-        java.nio.ByteBuffer data)
+    public static io.kubernetes.client.proto.V1Batch.JobSpec parseFrom(java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobSpec parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobSpec parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobSpec parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobSpec parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobSpec parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobSpec parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobSpec parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
-    public static io.kubernetes.client.proto.V1Batch.JobSpec parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
+
     public static io.kubernetes.client.proto.V1Batch.JobSpec parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
     }
+
+    public static io.kubernetes.client.proto.V1Batch.JobSpec parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
     public static io.kubernetes.client.proto.V1Batch.JobSpec parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobSpec parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
+
     public static Builder newBuilder(io.kubernetes.client.proto.V1Batch.JobSpec prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -5094,26 +5635,31 @@ public final class V1Batch {
       return builder;
     }
     /**
+     *
+     *
      * <pre>
      * JobSpec describes how the job execution will look like.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.batch.v1.JobSpec}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:k8s.io.api.batch.v1.JobSpec)
         io.kubernetes.client.proto.V1Batch.JobSpecOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.kubernetes.client.proto.V1Batch.internal_static_k8s_io_api_batch_v1_JobSpec_descriptor;
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1Batch
+            .internal_static_k8s_io_api_batch_v1_JobSpec_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.kubernetes.client.proto.V1Batch.internal_static_k8s_io_api_batch_v1_JobSpec_fieldAccessorTable
+        return io.kubernetes.client.proto.V1Batch
+            .internal_static_k8s_io_api_batch_v1_JobSpec_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.kubernetes.client.proto.V1Batch.JobSpec.class, io.kubernetes.client.proto.V1Batch.JobSpec.Builder.class);
+                io.kubernetes.client.proto.V1Batch.JobSpec.class,
+                io.kubernetes.client.proto.V1Batch.JobSpec.Builder.class);
       }
 
       // Construct using io.kubernetes.client.proto.V1Batch.JobSpec.newBuilder()
@@ -5121,18 +5667,18 @@ public final class V1Batch {
         maybeForceBuilderInitialization();
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
+
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
           getSelectorFieldBuilder();
           getTemplateFieldBuilder();
         }
       }
+
       public Builder clear() {
         super.clear();
         parallelism_ = 0;
@@ -5160,9 +5706,9 @@ public final class V1Batch {
         return this;
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.kubernetes.client.proto.V1Batch.internal_static_k8s_io_api_batch_v1_JobSpec_descriptor;
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Batch
+            .internal_static_k8s_io_api_batch_v1_JobSpec_descriptor;
       }
 
       public io.kubernetes.client.proto.V1Batch.JobSpec getDefaultInstanceForType() {
@@ -5178,7 +5724,8 @@ public final class V1Batch {
       }
 
       public io.kubernetes.client.proto.V1Batch.JobSpec buildPartial() {
-        io.kubernetes.client.proto.V1Batch.JobSpec result = new io.kubernetes.client.proto.V1Batch.JobSpec(this);
+        io.kubernetes.client.proto.V1Batch.JobSpec result =
+            new io.kubernetes.client.proto.V1Batch.JobSpec(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -5225,32 +5772,35 @@ public final class V1Batch {
       public Builder clone() {
         return (Builder) super.clone();
       }
+
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Batch.JobSpec) {
-          return mergeFrom((io.kubernetes.client.proto.V1Batch.JobSpec)other);
+          return mergeFrom((io.kubernetes.client.proto.V1Batch.JobSpec) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -5306,10 +5856,13 @@ public final class V1Batch {
         }
         return this;
       }
+
       private int bitField0_;
 
-      private int parallelism_ ;
+      private int parallelism_;
       /**
+       *
+       *
        * <pre>
        * Specifies the maximum desired number of pods the job should
        * run at any given time. The actual number of pods running in steady state will
@@ -5325,6 +5878,8 @@ public final class V1Batch {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
+       *
+       *
        * <pre>
        * Specifies the maximum desired number of pods the job should
        * run at any given time. The actual number of pods running in steady state will
@@ -5340,6 +5895,8 @@ public final class V1Batch {
         return parallelism_;
       }
       /**
+       *
+       *
        * <pre>
        * Specifies the maximum desired number of pods the job should
        * run at any given time. The actual number of pods running in steady state will
@@ -5358,6 +5915,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Specifies the maximum desired number of pods the job should
        * run at any given time. The actual number of pods running in steady state will
@@ -5376,8 +5935,10 @@ public final class V1Batch {
         return this;
       }
 
-      private int completions_ ;
+      private int completions_;
       /**
+       *
+       *
        * <pre>
        * Specifies the desired number of successfully finished pods the
        * job should be run with.  Setting to nil means that the success of any
@@ -5394,6 +5955,8 @@ public final class V1Batch {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
+       *
+       *
        * <pre>
        * Specifies the desired number of successfully finished pods the
        * job should be run with.  Setting to nil means that the success of any
@@ -5410,6 +5973,8 @@ public final class V1Batch {
         return completions_;
       }
       /**
+       *
+       *
        * <pre>
        * Specifies the desired number of successfully finished pods the
        * job should be run with.  Setting to nil means that the success of any
@@ -5429,6 +5994,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Specifies the desired number of successfully finished pods the
        * job should be run with.  Setting to nil means that the success of any
@@ -5448,8 +6015,10 @@ public final class V1Batch {
         return this;
       }
 
-      private long activeDeadlineSeconds_ ;
+      private long activeDeadlineSeconds_;
       /**
+       *
+       *
        * <pre>
        * Specifies the duration in seconds relative to the startTime that the job may be active
        * before the system tries to terminate it; value must be positive integer
@@ -5462,6 +6031,8 @@ public final class V1Batch {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
+       *
+       *
        * <pre>
        * Specifies the duration in seconds relative to the startTime that the job may be active
        * before the system tries to terminate it; value must be positive integer
@@ -5474,6 +6045,8 @@ public final class V1Batch {
         return activeDeadlineSeconds_;
       }
       /**
+       *
+       *
        * <pre>
        * Specifies the duration in seconds relative to the startTime that the job may be active
        * before the system tries to terminate it; value must be positive integer
@@ -5489,6 +6062,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Specifies the duration in seconds relative to the startTime that the job may be active
        * before the system tries to terminate it; value must be positive integer
@@ -5504,8 +6079,10 @@ public final class V1Batch {
         return this;
       }
 
-      private int backoffLimit_ ;
+      private int backoffLimit_;
       /**
+       *
+       *
        * <pre>
        * Specifies the number of retries before marking this job failed.
        * Defaults to 6
@@ -5518,6 +6095,8 @@ public final class V1Batch {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
+       *
+       *
        * <pre>
        * Specifies the number of retries before marking this job failed.
        * Defaults to 6
@@ -5530,6 +6109,8 @@ public final class V1Batch {
         return backoffLimit_;
       }
       /**
+       *
+       *
        * <pre>
        * Specifies the number of retries before marking this job failed.
        * Defaults to 6
@@ -5545,6 +6126,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Specifies the number of retries before marking this job failed.
        * Defaults to 6
@@ -5562,8 +6145,13 @@ public final class V1Batch {
 
       private io.kubernetes.client.proto.Meta.LabelSelector selector_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder> selectorBuilder_;
+              io.kubernetes.client.proto.Meta.LabelSelector,
+              io.kubernetes.client.proto.Meta.LabelSelector.Builder,
+              io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>
+          selectorBuilder_;
       /**
+       *
+       *
        * <pre>
        * A label query over pods that should match the pod count.
        * Normally, the system sets this field for you.
@@ -5577,6 +6165,8 @@ public final class V1Batch {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
+       *
+       *
        * <pre>
        * A label query over pods that should match the pod count.
        * Normally, the system sets this field for you.
@@ -5588,12 +6178,16 @@ public final class V1Batch {
        */
       public io.kubernetes.client.proto.Meta.LabelSelector getSelector() {
         if (selectorBuilder_ == null) {
-          return selector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+          return selector_ == null
+              ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+              : selector_;
         } else {
           return selectorBuilder_.getMessage();
         }
       }
       /**
+       *
+       *
        * <pre>
        * A label query over pods that should match the pod count.
        * Normally, the system sets this field for you.
@@ -5617,6 +6211,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * A label query over pods that should match the pod count.
        * Normally, the system sets this field for you.
@@ -5638,6 +6234,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * A label query over pods that should match the pod count.
        * Normally, the system sets this field for you.
@@ -5649,11 +6247,13 @@ public final class V1Batch {
        */
       public Builder mergeSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
         if (selectorBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) == 0x00000010) &&
-              selector_ != null &&
-              selector_ != io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000010) == 0x00000010)
+              && selector_ != null
+              && selector_ != io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()) {
             selector_ =
-              io.kubernetes.client.proto.Meta.LabelSelector.newBuilder(selector_).mergeFrom(value).buildPartial();
+                io.kubernetes.client.proto.Meta.LabelSelector.newBuilder(selector_)
+                    .mergeFrom(value)
+                    .buildPartial();
           } else {
             selector_ = value;
           }
@@ -5665,6 +6265,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * A label query over pods that should match the pod count.
        * Normally, the system sets this field for you.
@@ -5685,6 +6287,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * A label query over pods that should match the pod count.
        * Normally, the system sets this field for you.
@@ -5700,6 +6304,8 @@ public final class V1Batch {
         return getSelectorFieldBuilder().getBuilder();
       }
       /**
+       *
+       *
        * <pre>
        * A label query over pods that should match the pod count.
        * Normally, the system sets this field for you.
@@ -5713,11 +6319,14 @@ public final class V1Batch {
         if (selectorBuilder_ != null) {
           return selectorBuilder_.getMessageOrBuilder();
         } else {
-          return selector_ == null ?
-              io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+          return selector_ == null
+              ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+              : selector_;
         }
       }
       /**
+       *
+       *
        * <pre>
        * A label query over pods that should match the pod count.
        * Normally, the system sets this field for you.
@@ -5728,21 +6337,26 @@ public final class V1Batch {
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder> 
+              io.kubernetes.client.proto.Meta.LabelSelector,
+              io.kubernetes.client.proto.Meta.LabelSelector.Builder,
+              io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>
           getSelectorFieldBuilder() {
         if (selectorBuilder_ == null) {
-          selectorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>(
-                  getSelector(),
-                  getParentForChildren(),
-                  isClean());
+          selectorBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.LabelSelector,
+                  io.kubernetes.client.proto.Meta.LabelSelector.Builder,
+                  io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>(
+                  getSelector(), getParentForChildren(), isClean());
           selector_ = null;
         }
         return selectorBuilder_;
       }
 
-      private boolean manualSelector_ ;
+      private boolean manualSelector_;
       /**
+       *
+       *
        * <pre>
        * manualSelector controls generation of pod labels and pod selectors.
        * Leave `manualSelector` unset unless you are certain what you are doing.
@@ -5763,6 +6377,8 @@ public final class V1Batch {
         return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
+       *
+       *
        * <pre>
        * manualSelector controls generation of pod labels and pod selectors.
        * Leave `manualSelector` unset unless you are certain what you are doing.
@@ -5783,6 +6399,8 @@ public final class V1Batch {
         return manualSelector_;
       }
       /**
+       *
+       *
        * <pre>
        * manualSelector controls generation of pod labels and pod selectors.
        * Leave `manualSelector` unset unless you are certain what you are doing.
@@ -5806,6 +6424,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * manualSelector controls generation of pod labels and pod selectors.
        * Leave `manualSelector` unset unless you are certain what you are doing.
@@ -5831,8 +6451,13 @@ public final class V1Batch {
 
       private io.kubernetes.client.proto.V1.PodTemplateSpec template_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.V1.PodTemplateSpec, io.kubernetes.client.proto.V1.PodTemplateSpec.Builder, io.kubernetes.client.proto.V1.PodTemplateSpecOrBuilder> templateBuilder_;
+              io.kubernetes.client.proto.V1.PodTemplateSpec,
+              io.kubernetes.client.proto.V1.PodTemplateSpec.Builder,
+              io.kubernetes.client.proto.V1.PodTemplateSpecOrBuilder>
+          templateBuilder_;
       /**
+       *
+       *
        * <pre>
        * Describes the pod that will be created when executing a job.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -5844,6 +6469,8 @@ public final class V1Batch {
         return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
+       *
+       *
        * <pre>
        * Describes the pod that will be created when executing a job.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -5853,12 +6480,16 @@ public final class V1Batch {
        */
       public io.kubernetes.client.proto.V1.PodTemplateSpec getTemplate() {
         if (templateBuilder_ == null) {
-          return template_ == null ? io.kubernetes.client.proto.V1.PodTemplateSpec.getDefaultInstance() : template_;
+          return template_ == null
+              ? io.kubernetes.client.proto.V1.PodTemplateSpec.getDefaultInstance()
+              : template_;
         } else {
           return templateBuilder_.getMessage();
         }
       }
       /**
+       *
+       *
        * <pre>
        * Describes the pod that will be created when executing a job.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -5880,6 +6511,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Describes the pod that will be created when executing a job.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -5899,6 +6532,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Describes the pod that will be created when executing a job.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -5908,11 +6543,13 @@ public final class V1Batch {
        */
       public Builder mergeTemplate(io.kubernetes.client.proto.V1.PodTemplateSpec value) {
         if (templateBuilder_ == null) {
-          if (((bitField0_ & 0x00000040) == 0x00000040) &&
-              template_ != null &&
-              template_ != io.kubernetes.client.proto.V1.PodTemplateSpec.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000040) == 0x00000040)
+              && template_ != null
+              && template_ != io.kubernetes.client.proto.V1.PodTemplateSpec.getDefaultInstance()) {
             template_ =
-              io.kubernetes.client.proto.V1.PodTemplateSpec.newBuilder(template_).mergeFrom(value).buildPartial();
+                io.kubernetes.client.proto.V1.PodTemplateSpec.newBuilder(template_)
+                    .mergeFrom(value)
+                    .buildPartial();
           } else {
             template_ = value;
           }
@@ -5924,6 +6561,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Describes the pod that will be created when executing a job.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -5942,6 +6581,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Describes the pod that will be created when executing a job.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -5955,6 +6596,8 @@ public final class V1Batch {
         return getTemplateFieldBuilder().getBuilder();
       }
       /**
+       *
+       *
        * <pre>
        * Describes the pod that will be created when executing a job.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -5966,11 +6609,14 @@ public final class V1Batch {
         if (templateBuilder_ != null) {
           return templateBuilder_.getMessageOrBuilder();
         } else {
-          return template_ == null ?
-              io.kubernetes.client.proto.V1.PodTemplateSpec.getDefaultInstance() : template_;
+          return template_ == null
+              ? io.kubernetes.client.proto.V1.PodTemplateSpec.getDefaultInstance()
+              : template_;
         }
       }
       /**
+       *
+       *
        * <pre>
        * Describes the pod that will be created when executing a job.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -5979,18 +6625,22 @@ public final class V1Batch {
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 6;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.V1.PodTemplateSpec, io.kubernetes.client.proto.V1.PodTemplateSpec.Builder, io.kubernetes.client.proto.V1.PodTemplateSpecOrBuilder> 
+              io.kubernetes.client.proto.V1.PodTemplateSpec,
+              io.kubernetes.client.proto.V1.PodTemplateSpec.Builder,
+              io.kubernetes.client.proto.V1.PodTemplateSpecOrBuilder>
           getTemplateFieldBuilder() {
         if (templateBuilder_ == null) {
-          templateBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.V1.PodTemplateSpec, io.kubernetes.client.proto.V1.PodTemplateSpec.Builder, io.kubernetes.client.proto.V1.PodTemplateSpecOrBuilder>(
-                  getTemplate(),
-                  getParentForChildren(),
-                  isClean());
+          templateBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.V1.PodTemplateSpec,
+                  io.kubernetes.client.proto.V1.PodTemplateSpec.Builder,
+                  io.kubernetes.client.proto.V1.PodTemplateSpecOrBuilder>(
+                  getTemplate(), getParentForChildren(), isClean());
           template_ = null;
         }
         return templateBuilder_;
       }
+
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -6001,12 +6651,12 @@ public final class V1Batch {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:k8s.io.api.batch.v1.JobSpec)
     }
 
     // @@protoc_insertion_point(class_scope:k8s.io.api.batch.v1.JobSpec)
     private static final io.kubernetes.client.proto.V1Batch.JobSpec DEFAULT_INSTANCE;
+
     static {
       DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Batch.JobSpec();
     }
@@ -6015,15 +6665,16 @@ public final class V1Batch {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<JobSpec>
-        PARSER = new com.google.protobuf.AbstractParser<JobSpec>() {
-      public JobSpec parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new JobSpec(input, extensionRegistry);
-      }
-    };
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<JobSpec> PARSER =
+        new com.google.protobuf.AbstractParser<JobSpec>() {
+          public JobSpec parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new JobSpec(input, extensionRegistry);
+          }
+        };
 
     public static com.google.protobuf.Parser<JobSpec> parser() {
       return PARSER;
@@ -6037,14 +6688,16 @@ public final class V1Batch {
     public io.kubernetes.client.proto.V1Batch.JobSpec getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
-
   }
 
-  public interface JobStatusOrBuilder extends
+  public interface JobStatusOrBuilder
+      extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.batch.v1.JobStatus)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     *
+     *
      * <pre>
      * The latest available observations of an object's current state.
      * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -6055,9 +6708,10 @@ public final class V1Batch {
      *
      * <code>repeated .k8s.io.api.batch.v1.JobCondition conditions = 1;</code>
      */
-    java.util.List<io.kubernetes.client.proto.V1Batch.JobCondition> 
-        getConditionsList();
+    java.util.List<io.kubernetes.client.proto.V1Batch.JobCondition> getConditionsList();
     /**
+     *
+     *
      * <pre>
      * The latest available observations of an object's current state.
      * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -6070,6 +6724,8 @@ public final class V1Batch {
      */
     io.kubernetes.client.proto.V1Batch.JobCondition getConditions(int index);
     /**
+     *
+     *
      * <pre>
      * The latest available observations of an object's current state.
      * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -6082,6 +6738,8 @@ public final class V1Batch {
      */
     int getConditionsCount();
     /**
+     *
+     *
      * <pre>
      * The latest available observations of an object's current state.
      * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -6092,9 +6750,11 @@ public final class V1Batch {
      *
      * <code>repeated .k8s.io.api.batch.v1.JobCondition conditions = 1;</code>
      */
-    java.util.List<? extends io.kubernetes.client.proto.V1Batch.JobConditionOrBuilder> 
+    java.util.List<? extends io.kubernetes.client.proto.V1Batch.JobConditionOrBuilder>
         getConditionsOrBuilderList();
     /**
+     *
+     *
      * <pre>
      * The latest available observations of an object's current state.
      * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -6105,10 +6765,11 @@ public final class V1Batch {
      *
      * <code>repeated .k8s.io.api.batch.v1.JobCondition conditions = 1;</code>
      */
-    io.kubernetes.client.proto.V1Batch.JobConditionOrBuilder getConditionsOrBuilder(
-        int index);
+    io.kubernetes.client.proto.V1Batch.JobConditionOrBuilder getConditionsOrBuilder(int index);
 
     /**
+     *
+     *
      * <pre>
      * Represents time when the job was acknowledged by the job controller.
      * It is not guaranteed to be set in happens-before order across separate operations.
@@ -6120,6 +6781,8 @@ public final class V1Batch {
      */
     boolean hasStartTime();
     /**
+     *
+     *
      * <pre>
      * Represents time when the job was acknowledged by the job controller.
      * It is not guaranteed to be set in happens-before order across separate operations.
@@ -6131,6 +6794,8 @@ public final class V1Batch {
      */
     io.kubernetes.client.proto.Meta.Time getStartTime();
     /**
+     *
+     *
      * <pre>
      * Represents time when the job was acknowledged by the job controller.
      * It is not guaranteed to be set in happens-before order across separate operations.
@@ -6143,6 +6808,8 @@ public final class V1Batch {
     io.kubernetes.client.proto.Meta.TimeOrBuilder getStartTimeOrBuilder();
 
     /**
+     *
+     *
      * <pre>
      * Represents time when the job was completed. It is not guaranteed to
      * be set in happens-before order across separate operations.
@@ -6154,6 +6821,8 @@ public final class V1Batch {
      */
     boolean hasCompletionTime();
     /**
+     *
+     *
      * <pre>
      * Represents time when the job was completed. It is not guaranteed to
      * be set in happens-before order across separate operations.
@@ -6165,6 +6834,8 @@ public final class V1Batch {
      */
     io.kubernetes.client.proto.Meta.Time getCompletionTime();
     /**
+     *
+     *
      * <pre>
      * Represents time when the job was completed. It is not guaranteed to
      * be set in happens-before order across separate operations.
@@ -6177,6 +6848,8 @@ public final class V1Batch {
     io.kubernetes.client.proto.Meta.TimeOrBuilder getCompletionTimeOrBuilder();
 
     /**
+     *
+     *
      * <pre>
      * The number of actively running pods.
      * +optional
@@ -6186,6 +6859,8 @@ public final class V1Batch {
      */
     boolean hasActive();
     /**
+     *
+     *
      * <pre>
      * The number of actively running pods.
      * +optional
@@ -6196,6 +6871,8 @@ public final class V1Batch {
     int getActive();
 
     /**
+     *
+     *
      * <pre>
      * The number of pods which reached phase Succeeded.
      * +optional
@@ -6205,6 +6882,8 @@ public final class V1Batch {
      */
     boolean hasSucceeded();
     /**
+     *
+     *
      * <pre>
      * The number of pods which reached phase Succeeded.
      * +optional
@@ -6215,6 +6894,8 @@ public final class V1Batch {
     int getSucceeded();
 
     /**
+     *
+     *
      * <pre>
      * The number of pods which reached phase Failed.
      * +optional
@@ -6224,6 +6905,8 @@ public final class V1Batch {
      */
     boolean hasFailed();
     /**
+     *
+     *
      * <pre>
      * The number of pods which reached phase Failed.
      * +optional
@@ -6234,21 +6917,24 @@ public final class V1Batch {
     int getFailed();
   }
   /**
+   *
+   *
    * <pre>
    * JobStatus represents the current state of a Job.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.batch.v1.JobStatus}
    */
-  public  static final class JobStatus extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  public static final class JobStatus extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:k8s.io.api.batch.v1.JobStatus)
       JobStatusOrBuilder {
-  private static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 0L;
     // Use JobStatus.newBuilder() to construct.
     private JobStatus(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private JobStatus() {
       conditions_ = java.util.Collections.emptyList();
       active_ = 0;
@@ -6257,10 +6943,10 @@ public final class V1Batch {
     }
 
     @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
       return this.unknownFields;
     }
+
     private JobStatus(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -6277,70 +6963,81 @@ public final class V1Batch {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
               }
-              break;
-            }
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                conditions_ = new java.util.ArrayList<io.kubernetes.client.proto.V1Batch.JobCondition>();
-                mutable_bitField0_ |= 0x00000001;
+            case 10:
+              {
+                if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                  conditions_ =
+                      new java.util.ArrayList<io.kubernetes.client.proto.V1Batch.JobCondition>();
+                  mutable_bitField0_ |= 0x00000001;
+                }
+                conditions_.add(
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1Batch.JobCondition.PARSER, extensionRegistry));
+                break;
               }
-              conditions_.add(
-                  input.readMessage(io.kubernetes.client.proto.V1Batch.JobCondition.PARSER, extensionRegistry));
-              break;
-            }
-            case 18: {
-              io.kubernetes.client.proto.Meta.Time.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                subBuilder = startTime_.toBuilder();
+            case 18:
+              {
+                io.kubernetes.client.proto.Meta.Time.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                  subBuilder = startTime_.toBuilder();
+                }
+                startTime_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.Time.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(startTime_);
+                  startTime_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000001;
+                break;
               }
-              startTime_ = input.readMessage(io.kubernetes.client.proto.Meta.Time.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(startTime_);
-                startTime_ = subBuilder.buildPartial();
+            case 26:
+              {
+                io.kubernetes.client.proto.Meta.Time.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                  subBuilder = completionTime_.toBuilder();
+                }
+                completionTime_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.Time.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(completionTime_);
+                  completionTime_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000002;
+                break;
               }
-              bitField0_ |= 0x00000001;
-              break;
-            }
-            case 26: {
-              io.kubernetes.client.proto.Meta.Time.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                subBuilder = completionTime_.toBuilder();
+            case 32:
+              {
+                bitField0_ |= 0x00000004;
+                active_ = input.readInt32();
+                break;
               }
-              completionTime_ = input.readMessage(io.kubernetes.client.proto.Meta.Time.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(completionTime_);
-                completionTime_ = subBuilder.buildPartial();
+            case 40:
+              {
+                bitField0_ |= 0x00000008;
+                succeeded_ = input.readInt32();
+                break;
               }
-              bitField0_ |= 0x00000002;
-              break;
-            }
-            case 32: {
-              bitField0_ |= 0x00000004;
-              active_ = input.readInt32();
-              break;
-            }
-            case 40: {
-              bitField0_ |= 0x00000008;
-              succeeded_ = input.readInt32();
-              break;
-            }
-            case 48: {
-              bitField0_ |= 0x00000010;
-              failed_ = input.readInt32();
-              break;
-            }
+            case 48:
+              {
+                bitField0_ |= 0x00000010;
+                failed_ = input.readInt32();
+                break;
+              }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           conditions_ = java.util.Collections.unmodifiableList(conditions_);
@@ -6349,22 +7046,27 @@ public final class V1Batch {
         makeExtensionsImmutable();
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.kubernetes.client.proto.V1Batch.internal_static_k8s_io_api_batch_v1_JobStatus_descriptor;
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1Batch
+          .internal_static_k8s_io_api_batch_v1_JobStatus_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.kubernetes.client.proto.V1Batch.internal_static_k8s_io_api_batch_v1_JobStatus_fieldAccessorTable
+      return io.kubernetes.client.proto.V1Batch
+          .internal_static_k8s_io_api_batch_v1_JobStatus_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.kubernetes.client.proto.V1Batch.JobStatus.class, io.kubernetes.client.proto.V1Batch.JobStatus.Builder.class);
+              io.kubernetes.client.proto.V1Batch.JobStatus.class,
+              io.kubernetes.client.proto.V1Batch.JobStatus.Builder.class);
     }
 
     private int bitField0_;
     public static final int CONDITIONS_FIELD_NUMBER = 1;
     private java.util.List<io.kubernetes.client.proto.V1Batch.JobCondition> conditions_;
     /**
+     *
+     *
      * <pre>
      * The latest available observations of an object's current state.
      * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -6379,6 +7081,8 @@ public final class V1Batch {
       return conditions_;
     }
     /**
+     *
+     *
      * <pre>
      * The latest available observations of an object's current state.
      * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -6389,11 +7093,13 @@ public final class V1Batch {
      *
      * <code>repeated .k8s.io.api.batch.v1.JobCondition conditions = 1;</code>
      */
-    public java.util.List<? extends io.kubernetes.client.proto.V1Batch.JobConditionOrBuilder> 
+    public java.util.List<? extends io.kubernetes.client.proto.V1Batch.JobConditionOrBuilder>
         getConditionsOrBuilderList() {
       return conditions_;
     }
     /**
+     *
+     *
      * <pre>
      * The latest available observations of an object's current state.
      * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -6408,6 +7114,8 @@ public final class V1Batch {
       return conditions_.size();
     }
     /**
+     *
+     *
      * <pre>
      * The latest available observations of an object's current state.
      * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -6422,6 +7130,8 @@ public final class V1Batch {
       return conditions_.get(index);
     }
     /**
+     *
+     *
      * <pre>
      * The latest available observations of an object's current state.
      * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -6440,6 +7150,8 @@ public final class V1Batch {
     public static final int STARTTIME_FIELD_NUMBER = 2;
     private io.kubernetes.client.proto.Meta.Time startTime_;
     /**
+     *
+     *
      * <pre>
      * Represents time when the job was acknowledged by the job controller.
      * It is not guaranteed to be set in happens-before order across separate operations.
@@ -6453,6 +7165,8 @@ public final class V1Batch {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
+     *
+     *
      * <pre>
      * Represents time when the job was acknowledged by the job controller.
      * It is not guaranteed to be set in happens-before order across separate operations.
@@ -6463,9 +7177,13 @@ public final class V1Batch {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time startTime = 2;</code>
      */
     public io.kubernetes.client.proto.Meta.Time getStartTime() {
-      return startTime_ == null ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance() : startTime_;
+      return startTime_ == null
+          ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance()
+          : startTime_;
     }
     /**
+     *
+     *
      * <pre>
      * Represents time when the job was acknowledged by the job controller.
      * It is not guaranteed to be set in happens-before order across separate operations.
@@ -6476,12 +7194,16 @@ public final class V1Batch {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time startTime = 2;</code>
      */
     public io.kubernetes.client.proto.Meta.TimeOrBuilder getStartTimeOrBuilder() {
-      return startTime_ == null ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance() : startTime_;
+      return startTime_ == null
+          ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance()
+          : startTime_;
     }
 
     public static final int COMPLETIONTIME_FIELD_NUMBER = 3;
     private io.kubernetes.client.proto.Meta.Time completionTime_;
     /**
+     *
+     *
      * <pre>
      * Represents time when the job was completed. It is not guaranteed to
      * be set in happens-before order across separate operations.
@@ -6495,6 +7217,8 @@ public final class V1Batch {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
+     *
+     *
      * <pre>
      * Represents time when the job was completed. It is not guaranteed to
      * be set in happens-before order across separate operations.
@@ -6505,9 +7229,13 @@ public final class V1Batch {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time completionTime = 3;</code>
      */
     public io.kubernetes.client.proto.Meta.Time getCompletionTime() {
-      return completionTime_ == null ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance() : completionTime_;
+      return completionTime_ == null
+          ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance()
+          : completionTime_;
     }
     /**
+     *
+     *
      * <pre>
      * Represents time when the job was completed. It is not guaranteed to
      * be set in happens-before order across separate operations.
@@ -6518,12 +7246,16 @@ public final class V1Batch {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time completionTime = 3;</code>
      */
     public io.kubernetes.client.proto.Meta.TimeOrBuilder getCompletionTimeOrBuilder() {
-      return completionTime_ == null ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance() : completionTime_;
+      return completionTime_ == null
+          ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance()
+          : completionTime_;
     }
 
     public static final int ACTIVE_FIELD_NUMBER = 4;
     private int active_;
     /**
+     *
+     *
      * <pre>
      * The number of actively running pods.
      * +optional
@@ -6535,6 +7267,8 @@ public final class V1Batch {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
+     *
+     *
      * <pre>
      * The number of actively running pods.
      * +optional
@@ -6549,6 +7283,8 @@ public final class V1Batch {
     public static final int SUCCEEDED_FIELD_NUMBER = 5;
     private int succeeded_;
     /**
+     *
+     *
      * <pre>
      * The number of pods which reached phase Succeeded.
      * +optional
@@ -6560,6 +7296,8 @@ public final class V1Batch {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
+     *
+     *
      * <pre>
      * The number of pods which reached phase Succeeded.
      * +optional
@@ -6574,6 +7312,8 @@ public final class V1Batch {
     public static final int FAILED_FIELD_NUMBER = 6;
     private int failed_;
     /**
+     *
+     *
      * <pre>
      * The number of pods which reached phase Failed.
      * +optional
@@ -6585,6 +7325,8 @@ public final class V1Batch {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
+     *
+     *
      * <pre>
      * The number of pods which reached phase Failed.
      * +optional
@@ -6597,6 +7339,7 @@ public final class V1Batch {
     }
 
     private byte memoizedIsInitialized = -1;
+
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -6606,8 +7349,7 @@ public final class V1Batch {
       return true;
     }
 
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       for (int i = 0; i < conditions_.size(); i++) {
         output.writeMessage(1, conditions_.get(i));
       }
@@ -6635,28 +7377,22 @@ public final class V1Batch {
 
       size = 0;
       for (int i = 0; i < conditions_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, conditions_.get(i));
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, conditions_.get(i));
       }
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getStartTime());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, getStartTime());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getCompletionTime());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(3, getCompletionTime());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, active_);
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(4, active_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, succeeded_);
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(5, succeeded_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(6, failed_);
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(6, failed_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6666,40 +7402,35 @@ public final class V1Batch {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof io.kubernetes.client.proto.V1Batch.JobStatus)) {
         return super.equals(obj);
       }
-      io.kubernetes.client.proto.V1Batch.JobStatus other = (io.kubernetes.client.proto.V1Batch.JobStatus) obj;
+      io.kubernetes.client.proto.V1Batch.JobStatus other =
+          (io.kubernetes.client.proto.V1Batch.JobStatus) obj;
 
       boolean result = true;
-      result = result && getConditionsList()
-          .equals(other.getConditionsList());
+      result = result && getConditionsList().equals(other.getConditionsList());
       result = result && (hasStartTime() == other.hasStartTime());
       if (hasStartTime()) {
-        result = result && getStartTime()
-            .equals(other.getStartTime());
+        result = result && getStartTime().equals(other.getStartTime());
       }
       result = result && (hasCompletionTime() == other.hasCompletionTime());
       if (hasCompletionTime()) {
-        result = result && getCompletionTime()
-            .equals(other.getCompletionTime());
+        result = result && getCompletionTime().equals(other.getCompletionTime());
       }
       result = result && (hasActive() == other.hasActive());
       if (hasActive()) {
-        result = result && (getActive()
-            == other.getActive());
+        result = result && (getActive() == other.getActive());
       }
       result = result && (hasSucceeded() == other.hasSucceeded());
       if (hasSucceeded()) {
-        result = result && (getSucceeded()
-            == other.getSucceeded());
+        result = result && (getSucceeded() == other.getSucceeded());
       }
       result = result && (hasFailed() == other.hasFailed());
       if (hasFailed()) {
-        result = result && (getFailed()
-            == other.getFailed());
+        result = result && (getFailed() == other.getFailed());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -6741,86 +7472,92 @@ public final class V1Batch {
       return hash;
     }
 
-    public static io.kubernetes.client.proto.V1Batch.JobStatus parseFrom(
-        java.nio.ByteBuffer data)
+    public static io.kubernetes.client.proto.V1Batch.JobStatus parseFrom(java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobStatus parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobStatus parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobStatus parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobStatus parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobStatus parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobStatus parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobStatus parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
-    public static io.kubernetes.client.proto.V1Batch.JobStatus parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
+
     public static io.kubernetes.client.proto.V1Batch.JobStatus parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
     }
+
+    public static io.kubernetes.client.proto.V1Batch.JobStatus parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
     public static io.kubernetes.client.proto.V1Batch.JobStatus parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
+
     public static io.kubernetes.client.proto.V1Batch.JobStatus parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
+
     public static Builder newBuilder(io.kubernetes.client.proto.V1Batch.JobStatus prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -6830,26 +7567,31 @@ public final class V1Batch {
       return builder;
     }
     /**
+     *
+     *
      * <pre>
      * JobStatus represents the current state of a Job.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.batch.v1.JobStatus}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:k8s.io.api.batch.v1.JobStatus)
         io.kubernetes.client.proto.V1Batch.JobStatusOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.kubernetes.client.proto.V1Batch.internal_static_k8s_io_api_batch_v1_JobStatus_descriptor;
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1Batch
+            .internal_static_k8s_io_api_batch_v1_JobStatus_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.kubernetes.client.proto.V1Batch.internal_static_k8s_io_api_batch_v1_JobStatus_fieldAccessorTable
+        return io.kubernetes.client.proto.V1Batch
+            .internal_static_k8s_io_api_batch_v1_JobStatus_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.kubernetes.client.proto.V1Batch.JobStatus.class, io.kubernetes.client.proto.V1Batch.JobStatus.Builder.class);
+                io.kubernetes.client.proto.V1Batch.JobStatus.class,
+                io.kubernetes.client.proto.V1Batch.JobStatus.Builder.class);
       }
 
       // Construct using io.kubernetes.client.proto.V1Batch.JobStatus.newBuilder()
@@ -6857,19 +7599,19 @@ public final class V1Batch {
         maybeForceBuilderInitialization();
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
+
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
           getConditionsFieldBuilder();
           getStartTimeFieldBuilder();
           getCompletionTimeFieldBuilder();
         }
       }
+
       public Builder clear() {
         super.clear();
         if (conditionsBuilder_ == null) {
@@ -6899,9 +7641,9 @@ public final class V1Batch {
         return this;
       }
 
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.kubernetes.client.proto.V1Batch.internal_static_k8s_io_api_batch_v1_JobStatus_descriptor;
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Batch
+            .internal_static_k8s_io_api_batch_v1_JobStatus_descriptor;
       }
 
       public io.kubernetes.client.proto.V1Batch.JobStatus getDefaultInstanceForType() {
@@ -6917,7 +7659,8 @@ public final class V1Batch {
       }
 
       public io.kubernetes.client.proto.V1Batch.JobStatus buildPartial() {
-        io.kubernetes.client.proto.V1Batch.JobStatus result = new io.kubernetes.client.proto.V1Batch.JobStatus(this);
+        io.kubernetes.client.proto.V1Batch.JobStatus result =
+            new io.kubernetes.client.proto.V1Batch.JobStatus(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (conditionsBuilder_ == null) {
@@ -6965,32 +7708,35 @@ public final class V1Batch {
       public Builder clone() {
         return (Builder) super.clone();
       }
+
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Batch.JobStatus) {
-          return mergeFrom((io.kubernetes.client.proto.V1Batch.JobStatus)other);
+          return mergeFrom((io.kubernetes.client.proto.V1Batch.JobStatus) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -7017,9 +7763,10 @@ public final class V1Batch {
               conditionsBuilder_ = null;
               conditions_ = other.conditions_;
               bitField0_ = (bitField0_ & ~0x00000001);
-              conditionsBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getConditionsFieldBuilder() : null;
+              conditionsBuilder_ =
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders
+                      ? getConditionsFieldBuilder()
+                      : null;
             } else {
               conditionsBuilder_.addAllMessages(other.conditions_);
             }
@@ -7066,21 +7813,29 @@ public final class V1Batch {
         }
         return this;
       }
+
       private int bitField0_;
 
       private java.util.List<io.kubernetes.client.proto.V1Batch.JobCondition> conditions_ =
-        java.util.Collections.emptyList();
+          java.util.Collections.emptyList();
+
       private void ensureConditionsIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          conditions_ = new java.util.ArrayList<io.kubernetes.client.proto.V1Batch.JobCondition>(conditions_);
+          conditions_ =
+              new java.util.ArrayList<io.kubernetes.client.proto.V1Batch.JobCondition>(conditions_);
           bitField0_ |= 0x00000001;
-         }
+        }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.kubernetes.client.proto.V1Batch.JobCondition, io.kubernetes.client.proto.V1Batch.JobCondition.Builder, io.kubernetes.client.proto.V1Batch.JobConditionOrBuilder> conditionsBuilder_;
+              io.kubernetes.client.proto.V1Batch.JobCondition,
+              io.kubernetes.client.proto.V1Batch.JobCondition.Builder,
+              io.kubernetes.client.proto.V1Batch.JobConditionOrBuilder>
+          conditionsBuilder_;
 
       /**
+       *
+       *
        * <pre>
        * The latest available observations of an object's current state.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -7099,6 +7854,8 @@ public final class V1Batch {
         }
       }
       /**
+       *
+       *
        * <pre>
        * The latest available observations of an object's current state.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -7117,6 +7874,8 @@ public final class V1Batch {
         }
       }
       /**
+       *
+       *
        * <pre>
        * The latest available observations of an object's current state.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -7135,6 +7894,8 @@ public final class V1Batch {
         }
       }
       /**
+       *
+       *
        * <pre>
        * The latest available observations of an object's current state.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -7160,6 +7921,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The latest available observations of an object's current state.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -7182,6 +7945,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The latest available observations of an object's current state.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -7206,6 +7971,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The latest available observations of an object's current state.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -7231,6 +7998,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The latest available observations of an object's current state.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -7253,6 +8022,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The latest available observations of an object's current state.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -7275,6 +8046,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The latest available observations of an object's current state.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -7289,8 +8062,7 @@ public final class V1Batch {
           java.lang.Iterable<? extends io.kubernetes.client.proto.V1Batch.JobCondition> values) {
         if (conditionsBuilder_ == null) {
           ensureConditionsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, conditions_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(values, conditions_);
           onChanged();
         } else {
           conditionsBuilder_.addAllMessages(values);
@@ -7298,6 +8070,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The latest available observations of an object's current state.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -7319,6 +8093,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The latest available observations of an object's current state.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -7340,6 +8116,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The latest available observations of an object's current state.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -7355,6 +8133,8 @@ public final class V1Batch {
         return getConditionsFieldBuilder().getBuilder(index);
       }
       /**
+       *
+       *
        * <pre>
        * The latest available observations of an object's current state.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -7368,11 +8148,14 @@ public final class V1Batch {
       public io.kubernetes.client.proto.V1Batch.JobConditionOrBuilder getConditionsOrBuilder(
           int index) {
         if (conditionsBuilder_ == null) {
-          return conditions_.get(index);  } else {
+          return conditions_.get(index);
+        } else {
           return conditionsBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
+       *
+       *
        * <pre>
        * The latest available observations of an object's current state.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -7383,8 +8166,8 @@ public final class V1Batch {
        *
        * <code>repeated .k8s.io.api.batch.v1.JobCondition conditions = 1;</code>
        */
-      public java.util.List<? extends io.kubernetes.client.proto.V1Batch.JobConditionOrBuilder> 
-           getConditionsOrBuilderList() {
+      public java.util.List<? extends io.kubernetes.client.proto.V1Batch.JobConditionOrBuilder>
+          getConditionsOrBuilderList() {
         if (conditionsBuilder_ != null) {
           return conditionsBuilder_.getMessageOrBuilderList();
         } else {
@@ -7392,6 +8175,8 @@ public final class V1Batch {
         }
       }
       /**
+       *
+       *
        * <pre>
        * The latest available observations of an object's current state.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -7403,10 +8188,12 @@ public final class V1Batch {
        * <code>repeated .k8s.io.api.batch.v1.JobCondition conditions = 1;</code>
        */
       public io.kubernetes.client.proto.V1Batch.JobCondition.Builder addConditionsBuilder() {
-        return getConditionsFieldBuilder().addBuilder(
-            io.kubernetes.client.proto.V1Batch.JobCondition.getDefaultInstance());
+        return getConditionsFieldBuilder()
+            .addBuilder(io.kubernetes.client.proto.V1Batch.JobCondition.getDefaultInstance());
       }
       /**
+       *
+       *
        * <pre>
        * The latest available observations of an object's current state.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -7419,10 +8206,13 @@ public final class V1Batch {
        */
       public io.kubernetes.client.proto.V1Batch.JobCondition.Builder addConditionsBuilder(
           int index) {
-        return getConditionsFieldBuilder().addBuilder(
-            index, io.kubernetes.client.proto.V1Batch.JobCondition.getDefaultInstance());
+        return getConditionsFieldBuilder()
+            .addBuilder(
+                index, io.kubernetes.client.proto.V1Batch.JobCondition.getDefaultInstance());
       }
       /**
+       *
+       *
        * <pre>
        * The latest available observations of an object's current state.
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
@@ -7433,16 +8223,22 @@ public final class V1Batch {
        *
        * <code>repeated .k8s.io.api.batch.v1.JobCondition conditions = 1;</code>
        */
-      public java.util.List<io.kubernetes.client.proto.V1Batch.JobCondition.Builder> 
-           getConditionsBuilderList() {
+      public java.util.List<io.kubernetes.client.proto.V1Batch.JobCondition.Builder>
+          getConditionsBuilderList() {
         return getConditionsFieldBuilder().getBuilderList();
       }
+
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          io.kubernetes.client.proto.V1Batch.JobCondition, io.kubernetes.client.proto.V1Batch.JobCondition.Builder, io.kubernetes.client.proto.V1Batch.JobConditionOrBuilder> 
+              io.kubernetes.client.proto.V1Batch.JobCondition,
+              io.kubernetes.client.proto.V1Batch.JobCondition.Builder,
+              io.kubernetes.client.proto.V1Batch.JobConditionOrBuilder>
           getConditionsFieldBuilder() {
         if (conditionsBuilder_ == null) {
-          conditionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              io.kubernetes.client.proto.V1Batch.JobCondition, io.kubernetes.client.proto.V1Batch.JobCondition.Builder, io.kubernetes.client.proto.V1Batch.JobConditionOrBuilder>(
+          conditionsBuilder_ =
+              new com.google.protobuf.RepeatedFieldBuilderV3<
+                  io.kubernetes.client.proto.V1Batch.JobCondition,
+                  io.kubernetes.client.proto.V1Batch.JobCondition.Builder,
+                  io.kubernetes.client.proto.V1Batch.JobConditionOrBuilder>(
                   conditions_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
@@ -7454,8 +8250,13 @@ public final class V1Batch {
 
       private io.kubernetes.client.proto.Meta.Time startTime_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.Time, io.kubernetes.client.proto.Meta.Time.Builder, io.kubernetes.client.proto.Meta.TimeOrBuilder> startTimeBuilder_;
+              io.kubernetes.client.proto.Meta.Time,
+              io.kubernetes.client.proto.Meta.Time.Builder,
+              io.kubernetes.client.proto.Meta.TimeOrBuilder>
+          startTimeBuilder_;
       /**
+       *
+       *
        * <pre>
        * Represents time when the job was acknowledged by the job controller.
        * It is not guaranteed to be set in happens-before order across separate operations.
@@ -7469,6 +8270,8 @@ public final class V1Batch {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
+       *
+       *
        * <pre>
        * Represents time when the job was acknowledged by the job controller.
        * It is not guaranteed to be set in happens-before order across separate operations.
@@ -7480,12 +8283,16 @@ public final class V1Batch {
        */
       public io.kubernetes.client.proto.Meta.Time getStartTime() {
         if (startTimeBuilder_ == null) {
-          return startTime_ == null ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance() : startTime_;
+          return startTime_ == null
+              ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance()
+              : startTime_;
         } else {
           return startTimeBuilder_.getMessage();
         }
       }
       /**
+       *
+       *
        * <pre>
        * Represents time when the job was acknowledged by the job controller.
        * It is not guaranteed to be set in happens-before order across separate operations.
@@ -7509,6 +8316,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Represents time when the job was acknowledged by the job controller.
        * It is not guaranteed to be set in happens-before order across separate operations.
@@ -7518,8 +8327,7 @@ public final class V1Batch {
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time startTime = 2;</code>
        */
-      public Builder setStartTime(
-          io.kubernetes.client.proto.Meta.Time.Builder builderForValue) {
+      public Builder setStartTime(io.kubernetes.client.proto.Meta.Time.Builder builderForValue) {
         if (startTimeBuilder_ == null) {
           startTime_ = builderForValue.build();
           onChanged();
@@ -7530,6 +8338,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Represents time when the job was acknowledged by the job controller.
        * It is not guaranteed to be set in happens-before order across separate operations.
@@ -7541,11 +8351,13 @@ public final class V1Batch {
        */
       public Builder mergeStartTime(io.kubernetes.client.proto.Meta.Time value) {
         if (startTimeBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              startTime_ != null &&
-              startTime_ != io.kubernetes.client.proto.Meta.Time.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)
+              && startTime_ != null
+              && startTime_ != io.kubernetes.client.proto.Meta.Time.getDefaultInstance()) {
             startTime_ =
-              io.kubernetes.client.proto.Meta.Time.newBuilder(startTime_).mergeFrom(value).buildPartial();
+                io.kubernetes.client.proto.Meta.Time.newBuilder(startTime_)
+                    .mergeFrom(value)
+                    .buildPartial();
           } else {
             startTime_ = value;
           }
@@ -7557,6 +8369,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Represents time when the job was acknowledged by the job controller.
        * It is not guaranteed to be set in happens-before order across separate operations.
@@ -7577,6 +8391,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Represents time when the job was acknowledged by the job controller.
        * It is not guaranteed to be set in happens-before order across separate operations.
@@ -7592,6 +8408,8 @@ public final class V1Batch {
         return getStartTimeFieldBuilder().getBuilder();
       }
       /**
+       *
+       *
        * <pre>
        * Represents time when the job was acknowledged by the job controller.
        * It is not guaranteed to be set in happens-before order across separate operations.
@@ -7605,11 +8423,14 @@ public final class V1Batch {
         if (startTimeBuilder_ != null) {
           return startTimeBuilder_.getMessageOrBuilder();
         } else {
-          return startTime_ == null ?
-              io.kubernetes.client.proto.Meta.Time.getDefaultInstance() : startTime_;
+          return startTime_ == null
+              ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance()
+              : startTime_;
         }
       }
       /**
+       *
+       *
        * <pre>
        * Represents time when the job was acknowledged by the job controller.
        * It is not guaranteed to be set in happens-before order across separate operations.
@@ -7620,14 +8441,17 @@ public final class V1Batch {
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time startTime = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.Time, io.kubernetes.client.proto.Meta.Time.Builder, io.kubernetes.client.proto.Meta.TimeOrBuilder> 
+              io.kubernetes.client.proto.Meta.Time,
+              io.kubernetes.client.proto.Meta.Time.Builder,
+              io.kubernetes.client.proto.Meta.TimeOrBuilder>
           getStartTimeFieldBuilder() {
         if (startTimeBuilder_ == null) {
-          startTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.Meta.Time, io.kubernetes.client.proto.Meta.Time.Builder, io.kubernetes.client.proto.Meta.TimeOrBuilder>(
-                  getStartTime(),
-                  getParentForChildren(),
-                  isClean());
+          startTimeBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.Time,
+                  io.kubernetes.client.proto.Meta.Time.Builder,
+                  io.kubernetes.client.proto.Meta.TimeOrBuilder>(
+                  getStartTime(), getParentForChildren(), isClean());
           startTime_ = null;
         }
         return startTimeBuilder_;
@@ -7635,8 +8459,13 @@ public final class V1Batch {
 
       private io.kubernetes.client.proto.Meta.Time completionTime_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.Time, io.kubernetes.client.proto.Meta.Time.Builder, io.kubernetes.client.proto.Meta.TimeOrBuilder> completionTimeBuilder_;
+              io.kubernetes.client.proto.Meta.Time,
+              io.kubernetes.client.proto.Meta.Time.Builder,
+              io.kubernetes.client.proto.Meta.TimeOrBuilder>
+          completionTimeBuilder_;
       /**
+       *
+       *
        * <pre>
        * Represents time when the job was completed. It is not guaranteed to
        * be set in happens-before order across separate operations.
@@ -7650,6 +8479,8 @@ public final class V1Batch {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
+       *
+       *
        * <pre>
        * Represents time when the job was completed. It is not guaranteed to
        * be set in happens-before order across separate operations.
@@ -7661,12 +8492,16 @@ public final class V1Batch {
        */
       public io.kubernetes.client.proto.Meta.Time getCompletionTime() {
         if (completionTimeBuilder_ == null) {
-          return completionTime_ == null ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance() : completionTime_;
+          return completionTime_ == null
+              ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance()
+              : completionTime_;
         } else {
           return completionTimeBuilder_.getMessage();
         }
       }
       /**
+       *
+       *
        * <pre>
        * Represents time when the job was completed. It is not guaranteed to
        * be set in happens-before order across separate operations.
@@ -7690,6 +8525,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Represents time when the job was completed. It is not guaranteed to
        * be set in happens-before order across separate operations.
@@ -7711,6 +8548,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Represents time when the job was completed. It is not guaranteed to
        * be set in happens-before order across separate operations.
@@ -7722,11 +8561,13 @@ public final class V1Batch {
        */
       public Builder mergeCompletionTime(io.kubernetes.client.proto.Meta.Time value) {
         if (completionTimeBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004) &&
-              completionTime_ != null &&
-              completionTime_ != io.kubernetes.client.proto.Meta.Time.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)
+              && completionTime_ != null
+              && completionTime_ != io.kubernetes.client.proto.Meta.Time.getDefaultInstance()) {
             completionTime_ =
-              io.kubernetes.client.proto.Meta.Time.newBuilder(completionTime_).mergeFrom(value).buildPartial();
+                io.kubernetes.client.proto.Meta.Time.newBuilder(completionTime_)
+                    .mergeFrom(value)
+                    .buildPartial();
           } else {
             completionTime_ = value;
           }
@@ -7738,6 +8579,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Represents time when the job was completed. It is not guaranteed to
        * be set in happens-before order across separate operations.
@@ -7758,6 +8601,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * Represents time when the job was completed. It is not guaranteed to
        * be set in happens-before order across separate operations.
@@ -7773,6 +8618,8 @@ public final class V1Batch {
         return getCompletionTimeFieldBuilder().getBuilder();
       }
       /**
+       *
+       *
        * <pre>
        * Represents time when the job was completed. It is not guaranteed to
        * be set in happens-before order across separate operations.
@@ -7786,11 +8633,14 @@ public final class V1Batch {
         if (completionTimeBuilder_ != null) {
           return completionTimeBuilder_.getMessageOrBuilder();
         } else {
-          return completionTime_ == null ?
-              io.kubernetes.client.proto.Meta.Time.getDefaultInstance() : completionTime_;
+          return completionTime_ == null
+              ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance()
+              : completionTime_;
         }
       }
       /**
+       *
+       *
        * <pre>
        * Represents time when the job was completed. It is not guaranteed to
        * be set in happens-before order across separate operations.
@@ -7801,21 +8651,26 @@ public final class V1Batch {
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time completionTime = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.kubernetes.client.proto.Meta.Time, io.kubernetes.client.proto.Meta.Time.Builder, io.kubernetes.client.proto.Meta.TimeOrBuilder> 
+              io.kubernetes.client.proto.Meta.Time,
+              io.kubernetes.client.proto.Meta.Time.Builder,
+              io.kubernetes.client.proto.Meta.TimeOrBuilder>
           getCompletionTimeFieldBuilder() {
         if (completionTimeBuilder_ == null) {
-          completionTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.Meta.Time, io.kubernetes.client.proto.Meta.Time.Builder, io.kubernetes.client.proto.Meta.TimeOrBuilder>(
-                  getCompletionTime(),
-                  getParentForChildren(),
-                  isClean());
+          completionTimeBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.Time,
+                  io.kubernetes.client.proto.Meta.Time.Builder,
+                  io.kubernetes.client.proto.Meta.TimeOrBuilder>(
+                  getCompletionTime(), getParentForChildren(), isClean());
           completionTime_ = null;
         }
         return completionTimeBuilder_;
       }
 
-      private int active_ ;
+      private int active_;
       /**
+       *
+       *
        * <pre>
        * The number of actively running pods.
        * +optional
@@ -7827,6 +8682,8 @@ public final class V1Batch {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
+       *
+       *
        * <pre>
        * The number of actively running pods.
        * +optional
@@ -7838,6 +8695,8 @@ public final class V1Batch {
         return active_;
       }
       /**
+       *
+       *
        * <pre>
        * The number of actively running pods.
        * +optional
@@ -7852,6 +8711,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The number of actively running pods.
        * +optional
@@ -7866,8 +8727,10 @@ public final class V1Batch {
         return this;
       }
 
-      private int succeeded_ ;
+      private int succeeded_;
       /**
+       *
+       *
        * <pre>
        * The number of pods which reached phase Succeeded.
        * +optional
@@ -7879,6 +8742,8 @@ public final class V1Batch {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
+       *
+       *
        * <pre>
        * The number of pods which reached phase Succeeded.
        * +optional
@@ -7890,6 +8755,8 @@ public final class V1Batch {
         return succeeded_;
       }
       /**
+       *
+       *
        * <pre>
        * The number of pods which reached phase Succeeded.
        * +optional
@@ -7904,6 +8771,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The number of pods which reached phase Succeeded.
        * +optional
@@ -7918,8 +8787,10 @@ public final class V1Batch {
         return this;
       }
 
-      private int failed_ ;
+      private int failed_;
       /**
+       *
+       *
        * <pre>
        * The number of pods which reached phase Failed.
        * +optional
@@ -7931,6 +8802,8 @@ public final class V1Batch {
         return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
+       *
+       *
        * <pre>
        * The number of pods which reached phase Failed.
        * +optional
@@ -7942,6 +8815,8 @@ public final class V1Batch {
         return failed_;
       }
       /**
+       *
+       *
        * <pre>
        * The number of pods which reached phase Failed.
        * +optional
@@ -7956,6 +8831,8 @@ public final class V1Batch {
         return this;
       }
       /**
+       *
+       *
        * <pre>
        * The number of pods which reached phase Failed.
        * +optional
@@ -7969,6 +8846,7 @@ public final class V1Batch {
         onChanged();
         return this;
       }
+
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -7979,12 +8857,12 @@ public final class V1Batch {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:k8s.io.api.batch.v1.JobStatus)
     }
 
     // @@protoc_insertion_point(class_scope:k8s.io.api.batch.v1.JobStatus)
     private static final io.kubernetes.client.proto.V1Batch.JobStatus DEFAULT_INSTANCE;
+
     static {
       DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Batch.JobStatus();
     }
@@ -7993,15 +8871,16 @@ public final class V1Batch {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<JobStatus>
-        PARSER = new com.google.protobuf.AbstractParser<JobStatus>() {
-      public JobStatus parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new JobStatus(input, extensionRegistry);
-      }
-    };
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<JobStatus> PARSER =
+        new com.google.protobuf.AbstractParser<JobStatus>() {
+          public JobStatus parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new JobStatus(input, extensionRegistry);
+          }
+        };
 
     public static com.google.protobuf.Parser<JobStatus> parser() {
       return PARSER;
@@ -8015,126 +8894,136 @@ public final class V1Batch {
     public io.kubernetes.client.proto.V1Batch.JobStatus getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
-
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_k8s_io_api_batch_v1_Job_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_batch_v1_Job_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_batch_v1_Job_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_k8s_io_api_batch_v1_JobCondition_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_batch_v1_JobCondition_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_batch_v1_JobCondition_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_k8s_io_api_batch_v1_JobList_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_batch_v1_JobList_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_batch_v1_JobList_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_k8s_io_api_batch_v1_JobSpec_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_batch_v1_JobSpec_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_batch_v1_JobSpec_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_k8s_io_api_batch_v1_JobStatus_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_batch_v1_JobStatus_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_batch_v1_JobStatus_fieldAccessorTable;
 
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
+  public static com.google.protobuf.Descriptors.FileDescriptor getDescriptor() {
     return descriptor;
   }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
+
+  private static com.google.protobuf.Descriptors.FileDescriptor descriptor;
+
   static {
     java.lang.String[] descriptorData = {
-      "\n#k8s.io/api/batch/v1/generated.proto\022\023k" +
-      "8s.io.api.batch.v1\032\"k8s.io/api/core/v1/g" +
-      "enerated.proto\0324k8s.io/apimachinery/pkg/" +
-      "apis/meta/v1/generated.proto\032/k8s.io/api" +
-      "machinery/pkg/runtime/generated.proto\0326k" +
-      "8s.io/apimachinery/pkg/runtime/schema/ge" +
-      "nerated.proto\0323k8s.io/apimachinery/pkg/u" +
-      "til/intstr/generated.proto\"\245\001\n\003Job\022B\n\010me" +
-      "tadata\030\001 \001(\01320.k8s.io.apimachinery.pkg.a" +
-      "pis.meta.v1.ObjectMeta\022*\n\004spec\030\002 \001(\0132\034.k",
-      "8s.io.api.batch.v1.JobSpec\022.\n\006status\030\003 \001" +
-      "(\0132\036.k8s.io.api.batch.v1.JobStatus\"\330\001\n\014J" +
-      "obCondition\022\014\n\004type\030\001 \001(\t\022\016\n\006status\030\002 \001(" +
-      "\t\022A\n\rlastProbeTime\030\003 \001(\0132*.k8s.io.apimac" +
-      "hinery.pkg.apis.meta.v1.Time\022F\n\022lastTran" +
-      "sitionTime\030\004 \001(\0132*.k8s.io.apimachinery.p" +
-      "kg.apis.meta.v1.Time\022\016\n\006reason\030\005 \001(\t\022\017\n\007" +
-      "message\030\006 \001(\t\"t\n\007JobList\022@\n\010metadata\030\001 \001" +
-      "(\0132..k8s.io.apimachinery.pkg.apis.meta.v" +
-      "1.ListMeta\022\'\n\005items\030\002 \003(\0132\030.k8s.io.api.b",
-      "atch.v1.Job\"\376\001\n\007JobSpec\022\023\n\013parallelism\030\001" +
-      " \001(\005\022\023\n\013completions\030\002 \001(\005\022\035\n\025activeDeadl" +
-      "ineSeconds\030\003 \001(\003\022\024\n\014backoffLimit\030\007 \001(\005\022E" +
-      "\n\010selector\030\004 \001(\01323.k8s.io.apimachinery.p" +
-      "kg.apis.meta.v1.LabelSelector\022\026\n\016manualS" +
-      "elector\030\005 \001(\010\0225\n\010template\030\006 \001(\0132#.k8s.io" +
-      ".api.core.v1.PodTemplateSpec\"\370\001\n\tJobStat" +
-      "us\0225\n\nconditions\030\001 \003(\0132!.k8s.io.api.batc" +
-      "h.v1.JobCondition\022=\n\tstartTime\030\002 \001(\0132*.k" +
-      "8s.io.apimachinery.pkg.apis.meta.v1.Time",
-      "\022B\n\016completionTime\030\003 \001(\0132*.k8s.io.apimac" +
-      "hinery.pkg.apis.meta.v1.Time\022\016\n\006active\030\004" +
-      " \001(\005\022\021\n\tsucceeded\030\005 \001(\005\022\016\n\006failed\030\006 \001(\005B" +
-      ")\n\032io.kubernetes.client.protoB\007V1BatchZ\002" +
-      "v1"
+      "\n#k8s.io/api/batch/v1/generated.proto\022\023k"
+          + "8s.io.api.batch.v1\032\"k8s.io/api/core/v1/g"
+          + "enerated.proto\0324k8s.io/apimachinery/pkg/"
+          + "apis/meta/v1/generated.proto\032/k8s.io/api"
+          + "machinery/pkg/runtime/generated.proto\0326k"
+          + "8s.io/apimachinery/pkg/runtime/schema/ge"
+          + "nerated.proto\0323k8s.io/apimachinery/pkg/u"
+          + "til/intstr/generated.proto\"\245\001\n\003Job\022B\n\010me"
+          + "tadata\030\001 \001(\01320.k8s.io.apimachinery.pkg.a"
+          + "pis.meta.v1.ObjectMeta\022*\n\004spec\030\002 \001(\0132\034.k",
+      "8s.io.api.batch.v1.JobSpec\022.\n\006status\030\003 \001"
+          + "(\0132\036.k8s.io.api.batch.v1.JobStatus\"\330\001\n\014J"
+          + "obCondition\022\014\n\004type\030\001 \001(\t\022\016\n\006status\030\002 \001("
+          + "\t\022A\n\rlastProbeTime\030\003 \001(\0132*.k8s.io.apimac"
+          + "hinery.pkg.apis.meta.v1.Time\022F\n\022lastTran"
+          + "sitionTime\030\004 \001(\0132*.k8s.io.apimachinery.p"
+          + "kg.apis.meta.v1.Time\022\016\n\006reason\030\005 \001(\t\022\017\n\007"
+          + "message\030\006 \001(\t\"t\n\007JobList\022@\n\010metadata\030\001 \001"
+          + "(\0132..k8s.io.apimachinery.pkg.apis.meta.v"
+          + "1.ListMeta\022\'\n\005items\030\002 \003(\0132\030.k8s.io.api.b",
+      "atch.v1.Job\"\376\001\n\007JobSpec\022\023\n\013parallelism\030\001"
+          + " \001(\005\022\023\n\013completions\030\002 \001(\005\022\035\n\025activeDeadl"
+          + "ineSeconds\030\003 \001(\003\022\024\n\014backoffLimit\030\007 \001(\005\022E"
+          + "\n\010selector\030\004 \001(\01323.k8s.io.apimachinery.p"
+          + "kg.apis.meta.v1.LabelSelector\022\026\n\016manualS"
+          + "elector\030\005 \001(\010\0225\n\010template\030\006 \001(\0132#.k8s.io"
+          + ".api.core.v1.PodTemplateSpec\"\370\001\n\tJobStat"
+          + "us\0225\n\nconditions\030\001 \003(\0132!.k8s.io.api.batc"
+          + "h.v1.JobCondition\022=\n\tstartTime\030\002 \001(\0132*.k"
+          + "8s.io.apimachinery.pkg.apis.meta.v1.Time",
+      "\022B\n\016completionTime\030\003 \001(\0132*.k8s.io.apimac"
+          + "hinery.pkg.apis.meta.v1.Time\022\016\n\006active\030\004"
+          + " \001(\005\022\021\n\tsucceeded\030\005 \001(\005\022\016\n\006failed\030\006 \001(\005B"
+          + ")\n\032io.kubernetes.client.protoB\007V1BatchZ\002"
+          + "v1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+        new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
           public com.google.protobuf.ExtensionRegistry assignDescriptors(
               com.google.protobuf.Descriptors.FileDescriptor root) {
             descriptor = root;
             return null;
           }
         };
-    com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
+    com.google.protobuf.Descriptors.FileDescriptor.internalBuildGeneratedFileFrom(
+        descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           io.kubernetes.client.proto.V1.getDescriptor(),
           io.kubernetes.client.proto.Meta.getDescriptor(),
           io.kubernetes.client.proto.Runtime.getDescriptor(),
           io.kubernetes.client.proto.RuntimeSchema.getDescriptor(),
           io.kubernetes.client.proto.IntStr.getDescriptor(),
-        }, assigner);
-    internal_static_k8s_io_api_batch_v1_Job_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_k8s_io_api_batch_v1_Job_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_k8s_io_api_batch_v1_Job_descriptor,
-        new java.lang.String[] { "Metadata", "Spec", "Status", });
+        },
+        assigner);
+    internal_static_k8s_io_api_batch_v1_Job_descriptor = getDescriptor().getMessageTypes().get(0);
+    internal_static_k8s_io_api_batch_v1_Job_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_batch_v1_Job_descriptor,
+            new java.lang.String[] {
+              "Metadata", "Spec", "Status",
+            });
     internal_static_k8s_io_api_batch_v1_JobCondition_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_k8s_io_api_batch_v1_JobCondition_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_k8s_io_api_batch_v1_JobCondition_descriptor,
-        new java.lang.String[] { "Type", "Status", "LastProbeTime", "LastTransitionTime", "Reason", "Message", });
+        getDescriptor().getMessageTypes().get(1);
+    internal_static_k8s_io_api_batch_v1_JobCondition_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_batch_v1_JobCondition_descriptor,
+            new java.lang.String[] {
+              "Type", "Status", "LastProbeTime", "LastTransitionTime", "Reason", "Message",
+            });
     internal_static_k8s_io_api_batch_v1_JobList_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_k8s_io_api_batch_v1_JobList_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_k8s_io_api_batch_v1_JobList_descriptor,
-        new java.lang.String[] { "Metadata", "Items", });
+        getDescriptor().getMessageTypes().get(2);
+    internal_static_k8s_io_api_batch_v1_JobList_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_batch_v1_JobList_descriptor,
+            new java.lang.String[] {
+              "Metadata", "Items",
+            });
     internal_static_k8s_io_api_batch_v1_JobSpec_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_k8s_io_api_batch_v1_JobSpec_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_k8s_io_api_batch_v1_JobSpec_descriptor,
-        new java.lang.String[] { "Parallelism", "Completions", "ActiveDeadlineSeconds", "BackoffLimit", "Selector", "ManualSelector", "Template", });
+        getDescriptor().getMessageTypes().get(3);
+    internal_static_k8s_io_api_batch_v1_JobSpec_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_batch_v1_JobSpec_descriptor,
+            new java.lang.String[] {
+              "Parallelism",
+              "Completions",
+              "ActiveDeadlineSeconds",
+              "BackoffLimit",
+              "Selector",
+              "ManualSelector",
+              "Template",
+            });
     internal_static_k8s_io_api_batch_v1_JobStatus_descriptor =
-      getDescriptor().getMessageTypes().get(4);
-    internal_static_k8s_io_api_batch_v1_JobStatus_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_k8s_io_api_batch_v1_JobStatus_descriptor,
-        new java.lang.String[] { "Conditions", "StartTime", "CompletionTime", "Active", "Succeeded", "Failed", });
+        getDescriptor().getMessageTypes().get(4);
+    internal_static_k8s_io_api_batch_v1_JobStatus_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_batch_v1_JobStatus_descriptor,
+            new java.lang.String[] {
+              "Conditions", "StartTime", "CompletionTime", "Active", "Succeeded", "Failed",
+            });
     io.kubernetes.client.proto.V1.getDescriptor();
     io.kubernetes.client.proto.Meta.getDescriptor();
     io.kubernetes.client.proto.Runtime.getDescriptor();

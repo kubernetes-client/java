@@ -15,8 +15,6 @@ package io.kubernetes.client.util;
 import com.google.common.base.Charsets;
 import com.google.common.io.ByteStreams;
 import com.google.common.io.CharStreams;
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.ws.WebSocket;
 import java.io.ByteArrayInputStream;
 import java.io.Closeable;
 import java.io.IOException;
@@ -28,6 +26,7 @@ import java.io.PipedOutputStream;
 import java.io.Reader;
 import java.util.HashMap;
 import java.util.Map;
+import okhttp3.WebSocket;
 import okio.ByteString;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -207,8 +206,7 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
       byte[] buffer = new byte[length + 1];
       buffer[0] = stream;
       System.arraycopy(b, offset, buffer, 1, length);
-      WebSocketStreamHandler.this.socket.sendMessage(
-          RequestBody.create(WebSocket.BINARY, ByteString.of(buffer)));
+      WebSocketStreamHandler.this.socket.send(ByteString.of(buffer));
     }
   }
 }

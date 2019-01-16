@@ -16,10 +16,6 @@ package io.kubernetes.client;
 import com.google.common.io.ByteStreams;
 import com.google.common.primitives.Bytes;
 import com.google.protobuf.Message;
-import com.squareup.okhttp.MediaType;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.Response;
 import io.kubernetes.client.proto.Meta.DeleteOptions;
 import io.kubernetes.client.proto.Meta.Status;
 import io.kubernetes.client.proto.Runtime.TypeMeta;
@@ -29,6 +25,10 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import okhttp3.MediaType;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class ProtoClient {
   /**

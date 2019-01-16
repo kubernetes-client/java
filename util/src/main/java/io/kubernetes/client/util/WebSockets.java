@@ -12,26 +12,24 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import static com.squareup.okhttp.ws.WebSocket.BINARY;
-import static com.squareup.okhttp.ws.WebSocket.TEXT;
-
 import com.google.common.net.HttpHeaders;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
-import com.squareup.okhttp.ResponseBody;
-import com.squareup.okhttp.ws.WebSocket;
-import com.squareup.okhttp.ws.WebSocketCall;
-import com.squareup.okhttp.ws.WebSocketListener;
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
 import io.kubernetes.client.Pair;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import okio.Buffer;
+import javax.annotation.Nullable;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.WebSocket;
+import okhttp3.WebSocketListener;
+import okio.ByteString;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -111,10 +109,10 @@ public class WebSockets {
   */
 
   private static void streamRequest(Request request, ApiClient client, SocketListener listener) {
-    WebSocketCall.create(client.getHttpClient(), request).enqueue(new Listener(listener));
+    client.getHttpClient().newWebSocket(request, new Listener(listener));
   }
 
-  public static class Listener implements WebSocketListener {
+  public static class Listener extends WebSocketListener {
     private SocketListener listener;
 
     public Listener(SocketListener listener) {
@@ -122,32 +120,32 @@ public class WebSockets {
     }
 
     @Override
-    public void onOpen(final WebSocket webSocket, Response response) {
+    public void onOpen(WebSocket webSocket, Response response) {
       String protocol = response.header(STREAM_PROTOCOL_HEADER, "missing");
       listener.open(protocol, webSocket);
     }
 
     @Override
-    public void onMessage(ResponseBody body) throws IOException {
-      if (body.contentType() == TEXT) {
-        listener.textMessage(body.charStream());
-      } else if (body.contentType() == BINARY) {
-        listener.bytesMessage(body.byteStream());
-      }
-      body.close();
+    public void onMessage(WebSocket webSocket, String text) {
+      listener.textMessage(new StringReader(text));
     }
 
     @Override
-    public void onPong(Buffer payload) {}
+    public void onMessage(WebSocket webSocket, ByteString bytes) {
+      listener.bytesMessage(new ByteArrayInputStream(bytes.toByteArray()));
+    }
 
     @Override
-    public void onClose(int code, String reason) {
+    public void onClosing(WebSocket webSocket, int code, String reason) {}
+
+    @Override
+    public void onClosed(WebSocket webSocket, int code, String reason) {
       listener.close();
     }
 
     @Override
-    public void onFailure(IOException e, Response res) {
-      e.printStackTrace();
+    public void onFailure(WebSocket webSocket, Throwable t, @Nullable Response response) {
+      t.printStackTrace();
       listener.close();
     }
   }
