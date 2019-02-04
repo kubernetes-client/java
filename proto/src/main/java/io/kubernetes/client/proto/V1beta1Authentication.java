@@ -69,6 +69,9 @@ public final class V1beta1Authentication {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -80,13 +83,6 @@ public final class V1beta1Authentication {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -94,6 +90,13 @@ public final class V1beta1Authentication {
                 mutable_bitField0_ |= 0x00000001;
               }
               items_.add(bs);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -116,6 +119,7 @@ public final class V1beta1Authentication {
       return io.kubernetes.client.proto.V1beta1Authentication.internal_static_k8s_io_api_authentication_v1beta1_ExtraValue_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Authentication.internal_static_k8s_io_api_authentication_v1beta1_ExtraValue_fieldAccessorTable
@@ -153,6 +157,7 @@ public final class V1beta1Authentication {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -162,6 +167,7 @@ public final class V1beta1Authentication {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < items_.size(); i++) {
@@ -170,6 +176,7 @@ public final class V1beta1Authentication {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -291,6 +298,7 @@ public final class V1beta1Authentication {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -298,6 +306,7 @@ public final class V1beta1Authentication {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Authentication.ExtraValue prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -327,6 +336,7 @@ public final class V1beta1Authentication {
         return io.kubernetes.client.proto.V1beta1Authentication.internal_static_k8s_io_api_authentication_v1beta1_ExtraValue_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Authentication.internal_static_k8s_io_api_authentication_v1beta1_ExtraValue_fieldAccessorTable
@@ -349,6 +359,7 @@ public final class V1beta1Authentication {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         items_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -356,15 +367,18 @@ public final class V1beta1Authentication {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Authentication.internal_static_k8s_io_api_authentication_v1beta1_ExtraValue_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Authentication.ExtraValue getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Authentication.ExtraValue.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Authentication.ExtraValue build() {
         io.kubernetes.client.proto.V1beta1Authentication.ExtraValue result = buildPartial();
         if (!result.isInitialized()) {
@@ -373,6 +387,7 @@ public final class V1beta1Authentication {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Authentication.ExtraValue buildPartial() {
         io.kubernetes.client.proto.V1beta1Authentication.ExtraValue result = new io.kubernetes.client.proto.V1beta1Authentication.ExtraValue(this);
         int from_bitField0_ = bitField0_;
@@ -385,32 +400,39 @@ public final class V1beta1Authentication {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Authentication.ExtraValue) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Authentication.ExtraValue)other);
@@ -437,10 +459,12 @@ public final class V1beta1Authentication {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -552,11 +576,13 @@ public final class V1beta1Authentication {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -578,11 +604,12 @@ public final class V1beta1Authentication {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<ExtraValue>
         PARSER = new com.google.protobuf.AbstractParser<ExtraValue>() {
+      @java.lang.Override
       public ExtraValue parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ExtraValue(input, extensionRegistry);
+        return new ExtraValue(input, extensionRegistry);
       }
     };
 
@@ -595,6 +622,7 @@ public final class V1beta1Authentication {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Authentication.ExtraValue getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -714,6 +742,9 @@ public final class V1beta1Authentication {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -725,13 +756,6 @@ public final class V1beta1Authentication {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -771,6 +795,13 @@ public final class V1beta1Authentication {
               bitField0_ |= 0x00000004;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -788,6 +819,7 @@ public final class V1beta1Authentication {
       return io.kubernetes.client.proto.V1beta1Authentication.internal_static_k8s_io_api_authentication_v1beta1_TokenReview_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Authentication.internal_static_k8s_io_api_authentication_v1beta1_TokenReview_fieldAccessorTable
@@ -899,6 +931,7 @@ public final class V1beta1Authentication {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -908,6 +941,7 @@ public final class V1beta1Authentication {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -922,6 +956,7 @@ public final class V1beta1Authentication {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1068,6 +1103,7 @@ public final class V1beta1Authentication {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1075,6 +1111,7 @@ public final class V1beta1Authentication {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Authentication.TokenReview prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1104,6 +1141,7 @@ public final class V1beta1Authentication {
         return io.kubernetes.client.proto.V1beta1Authentication.internal_static_k8s_io_api_authentication_v1beta1_TokenReview_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Authentication.internal_static_k8s_io_api_authentication_v1beta1_TokenReview_fieldAccessorTable
@@ -1129,6 +1167,7 @@ public final class V1beta1Authentication {
           getStatusFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -1152,15 +1191,18 @@ public final class V1beta1Authentication {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Authentication.internal_static_k8s_io_api_authentication_v1beta1_TokenReview_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Authentication.TokenReview getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Authentication.TokenReview.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Authentication.TokenReview build() {
         io.kubernetes.client.proto.V1beta1Authentication.TokenReview result = buildPartial();
         if (!result.isInitialized()) {
@@ -1169,6 +1211,7 @@ public final class V1beta1Authentication {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Authentication.TokenReview buildPartial() {
         io.kubernetes.client.proto.V1beta1Authentication.TokenReview result = new io.kubernetes.client.proto.V1beta1Authentication.TokenReview(this);
         int from_bitField0_ = bitField0_;
@@ -1202,32 +1245,39 @@ public final class V1beta1Authentication {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Authentication.TokenReview) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Authentication.TokenReview)other);
@@ -1253,10 +1303,12 @@ public final class V1beta1Authentication {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1746,11 +1798,13 @@ public final class V1beta1Authentication {
         }
         return statusBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1772,11 +1826,12 @@ public final class V1beta1Authentication {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<TokenReview>
         PARSER = new com.google.protobuf.AbstractParser<TokenReview>() {
+      @java.lang.Override
       public TokenReview parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new TokenReview(input, extensionRegistry);
+        return new TokenReview(input, extensionRegistry);
       }
     };
 
@@ -1789,6 +1844,7 @@ public final class V1beta1Authentication {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Authentication.TokenReview getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -1827,6 +1883,61 @@ public final class V1beta1Authentication {
      */
     com.google.protobuf.ByteString
         getTokenBytes();
+
+    /**
+     * <pre>
+     * Audiences is a list of the identifiers that the resource server presented
+     * with the token identifies as. Audience-aware token authenticators will
+     * verify that the token was intended for at least one of the audiences in
+     * this list. If no audiences are provided, the audience will default to the
+     * audience of the Kubernetes apiserver.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 2;</code>
+     */
+    java.util.List<java.lang.String>
+        getAudiencesList();
+    /**
+     * <pre>
+     * Audiences is a list of the identifiers that the resource server presented
+     * with the token identifies as. Audience-aware token authenticators will
+     * verify that the token was intended for at least one of the audiences in
+     * this list. If no audiences are provided, the audience will default to the
+     * audience of the Kubernetes apiserver.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 2;</code>
+     */
+    int getAudiencesCount();
+    /**
+     * <pre>
+     * Audiences is a list of the identifiers that the resource server presented
+     * with the token identifies as. Audience-aware token authenticators will
+     * verify that the token was intended for at least one of the audiences in
+     * this list. If no audiences are provided, the audience will default to the
+     * audience of the Kubernetes apiserver.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 2;</code>
+     */
+    java.lang.String getAudiences(int index);
+    /**
+     * <pre>
+     * Audiences is a list of the identifiers that the resource server presented
+     * with the token identifies as. Audience-aware token authenticators will
+     * verify that the token was intended for at least one of the audiences in
+     * this list. If no audiences are provided, the audience will default to the
+     * audience of the Kubernetes apiserver.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getAudiencesBytes(int index);
   }
   /**
    * <pre>
@@ -1846,6 +1957,7 @@ public final class V1beta1Authentication {
     }
     private TokenReviewSpec() {
       token_ = "";
+      audiences_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -1858,6 +1970,9 @@ public final class V1beta1Authentication {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1869,17 +1984,26 @@ public final class V1beta1Authentication {
             case 0:
               done = true;
               break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              token_ = bs;
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                audiences_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              audiences_.add(bs);
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
-              break;
-            }
-            case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000001;
-              token_ = bs;
               break;
             }
           }
@@ -1890,6 +2014,9 @@ public final class V1beta1Authentication {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          audiences_ = audiences_.getUnmodifiableView();
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -1899,6 +2026,7 @@ public final class V1beta1Authentication {
       return io.kubernetes.client.proto.V1beta1Authentication.internal_static_k8s_io_api_authentication_v1beta1_TokenReviewSpec_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Authentication.internal_static_k8s_io_api_authentication_v1beta1_TokenReviewSpec_fieldAccessorTable
@@ -1964,7 +2092,73 @@ public final class V1beta1Authentication {
       }
     }
 
+    public static final int AUDIENCES_FIELD_NUMBER = 2;
+    private com.google.protobuf.LazyStringList audiences_;
+    /**
+     * <pre>
+     * Audiences is a list of the identifiers that the resource server presented
+     * with the token identifies as. Audience-aware token authenticators will
+     * verify that the token was intended for at least one of the audiences in
+     * this list. If no audiences are provided, the audience will default to the
+     * audience of the Kubernetes apiserver.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 2;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getAudiencesList() {
+      return audiences_;
+    }
+    /**
+     * <pre>
+     * Audiences is a list of the identifiers that the resource server presented
+     * with the token identifies as. Audience-aware token authenticators will
+     * verify that the token was intended for at least one of the audiences in
+     * this list. If no audiences are provided, the audience will default to the
+     * audience of the Kubernetes apiserver.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 2;</code>
+     */
+    public int getAudiencesCount() {
+      return audiences_.size();
+    }
+    /**
+     * <pre>
+     * Audiences is a list of the identifiers that the resource server presented
+     * with the token identifies as. Audience-aware token authenticators will
+     * verify that the token was intended for at least one of the audiences in
+     * this list. If no audiences are provided, the audience will default to the
+     * audience of the Kubernetes apiserver.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 2;</code>
+     */
+    public java.lang.String getAudiences(int index) {
+      return audiences_.get(index);
+    }
+    /**
+     * <pre>
+     * Audiences is a list of the identifiers that the resource server presented
+     * with the token identifies as. Audience-aware token authenticators will
+     * verify that the token was intended for at least one of the audiences in
+     * this list. If no audiences are provided, the audience will default to the
+     * audience of the Kubernetes apiserver.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAudiencesBytes(int index) {
+      return audiences_.getByteString(index);
+    }
+
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1974,14 +2168,19 @@ public final class V1beta1Authentication {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, token_);
       }
+      for (int i = 0; i < audiences_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, audiences_.getRaw(i));
+      }
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1989,6 +2188,14 @@ public final class V1beta1Authentication {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, token_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < audiences_.size(); i++) {
+          dataSize += computeStringSizeNoTag(audiences_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getAudiencesList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2011,6 +2218,8 @@ public final class V1beta1Authentication {
         result = result && getToken()
             .equals(other.getToken());
       }
+      result = result && getAudiencesList()
+          .equals(other.getAudiencesList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -2025,6 +2234,10 @@ public final class V1beta1Authentication {
       if (hasToken()) {
         hash = (37 * hash) + TOKEN_FIELD_NUMBER;
         hash = (53 * hash) + getToken().hashCode();
+      }
+      if (getAudiencesCount() > 0) {
+        hash = (37 * hash) + AUDIENCES_FIELD_NUMBER;
+        hash = (53 * hash) + getAudiencesList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -2101,6 +2314,7 @@ public final class V1beta1Authentication {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -2108,6 +2322,7 @@ public final class V1beta1Authentication {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Authentication.TokenReviewSpec prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -2135,6 +2350,7 @@ public final class V1beta1Authentication {
         return io.kubernetes.client.proto.V1beta1Authentication.internal_static_k8s_io_api_authentication_v1beta1_TokenReviewSpec_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Authentication.internal_static_k8s_io_api_authentication_v1beta1_TokenReviewSpec_fieldAccessorTable
@@ -2157,22 +2373,28 @@ public final class V1beta1Authentication {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         token_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
+        audiences_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Authentication.internal_static_k8s_io_api_authentication_v1beta1_TokenReviewSpec_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Authentication.TokenReviewSpec getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Authentication.TokenReviewSpec.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Authentication.TokenReviewSpec build() {
         io.kubernetes.client.proto.V1beta1Authentication.TokenReviewSpec result = buildPartial();
         if (!result.isInitialized()) {
@@ -2181,6 +2403,7 @@ public final class V1beta1Authentication {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Authentication.TokenReviewSpec buildPartial() {
         io.kubernetes.client.proto.V1beta1Authentication.TokenReviewSpec result = new io.kubernetes.client.proto.V1beta1Authentication.TokenReviewSpec(this);
         int from_bitField0_ = bitField0_;
@@ -2189,37 +2412,49 @@ public final class V1beta1Authentication {
           to_bitField0_ |= 0x00000001;
         }
         result.token_ = token_;
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          audiences_ = audiences_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.audiences_ = audiences_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Authentication.TokenReviewSpec) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Authentication.TokenReviewSpec)other);
@@ -2236,15 +2471,27 @@ public final class V1beta1Authentication {
           token_ = other.token_;
           onChanged();
         }
+        if (!other.audiences_.isEmpty()) {
+          if (audiences_.isEmpty()) {
+            audiences_ = other.audiences_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureAudiencesIsMutable();
+            audiences_.addAll(other.audiences_);
+          }
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2369,11 +2616,187 @@ public final class V1beta1Authentication {
         onChanged();
         return this;
       }
+
+      private com.google.protobuf.LazyStringList audiences_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureAudiencesIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          audiences_ = new com.google.protobuf.LazyStringArrayList(audiences_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <pre>
+       * Audiences is a list of the identifiers that the resource server presented
+       * with the token identifies as. Audience-aware token authenticators will
+       * verify that the token was intended for at least one of the audiences in
+       * this list. If no audiences are provided, the audience will default to the
+       * audience of the Kubernetes apiserver.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 2;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getAudiencesList() {
+        return audiences_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * Audiences is a list of the identifiers that the resource server presented
+       * with the token identifies as. Audience-aware token authenticators will
+       * verify that the token was intended for at least one of the audiences in
+       * this list. If no audiences are provided, the audience will default to the
+       * audience of the Kubernetes apiserver.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 2;</code>
+       */
+      public int getAudiencesCount() {
+        return audiences_.size();
+      }
+      /**
+       * <pre>
+       * Audiences is a list of the identifiers that the resource server presented
+       * with the token identifies as. Audience-aware token authenticators will
+       * verify that the token was intended for at least one of the audiences in
+       * this list. If no audiences are provided, the audience will default to the
+       * audience of the Kubernetes apiserver.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 2;</code>
+       */
+      public java.lang.String getAudiences(int index) {
+        return audiences_.get(index);
+      }
+      /**
+       * <pre>
+       * Audiences is a list of the identifiers that the resource server presented
+       * with the token identifies as. Audience-aware token authenticators will
+       * verify that the token was intended for at least one of the audiences in
+       * this list. If no audiences are provided, the audience will default to the
+       * audience of the Kubernetes apiserver.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAudiencesBytes(int index) {
+        return audiences_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * Audiences is a list of the identifiers that the resource server presented
+       * with the token identifies as. Audience-aware token authenticators will
+       * verify that the token was intended for at least one of the audiences in
+       * this list. If no audiences are provided, the audience will default to the
+       * audience of the Kubernetes apiserver.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 2;</code>
+       */
+      public Builder setAudiences(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAudiencesIsMutable();
+        audiences_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Audiences is a list of the identifiers that the resource server presented
+       * with the token identifies as. Audience-aware token authenticators will
+       * verify that the token was intended for at least one of the audiences in
+       * this list. If no audiences are provided, the audience will default to the
+       * audience of the Kubernetes apiserver.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 2;</code>
+       */
+      public Builder addAudiences(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAudiencesIsMutable();
+        audiences_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Audiences is a list of the identifiers that the resource server presented
+       * with the token identifies as. Audience-aware token authenticators will
+       * verify that the token was intended for at least one of the audiences in
+       * this list. If no audiences are provided, the audience will default to the
+       * audience of the Kubernetes apiserver.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 2;</code>
+       */
+      public Builder addAllAudiences(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureAudiencesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, audiences_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Audiences is a list of the identifiers that the resource server presented
+       * with the token identifies as. Audience-aware token authenticators will
+       * verify that the token was intended for at least one of the audiences in
+       * this list. If no audiences are provided, the audience will default to the
+       * audience of the Kubernetes apiserver.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 2;</code>
+       */
+      public Builder clearAudiences() {
+        audiences_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Audiences is a list of the identifiers that the resource server presented
+       * with the token identifies as. Audience-aware token authenticators will
+       * verify that the token was intended for at least one of the audiences in
+       * this list. If no audiences are provided, the audience will default to the
+       * audience of the Kubernetes apiserver.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 2;</code>
+       */
+      public Builder addAudiencesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAudiencesIsMutable();
+        audiences_.add(value);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -2395,11 +2818,12 @@ public final class V1beta1Authentication {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<TokenReviewSpec>
         PARSER = new com.google.protobuf.AbstractParser<TokenReviewSpec>() {
+      @java.lang.Override
       public TokenReviewSpec parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new TokenReviewSpec(input, extensionRegistry);
+        return new TokenReviewSpec(input, extensionRegistry);
       }
     };
 
@@ -2412,6 +2836,7 @@ public final class V1beta1Authentication {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Authentication.TokenReviewSpec getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -2471,6 +2896,77 @@ public final class V1beta1Authentication {
 
     /**
      * <pre>
+     * Audiences are audience identifiers chosen by the authenticator that are
+     * compatible with both the TokenReview and token. An identifier is any
+     * identifier in the intersection of the TokenReviewSpec audiences and the
+     * token's audiences. A client of the TokenReview API that sets the
+     * spec.audiences field should validate that a compatible audience identifier
+     * is returned in the status.audiences field to ensure that the TokenReview
+     * server is audience aware. If a TokenReview returns an empty
+     * status.audience field where status.authenticated is "true", the token is
+     * valid against the audience of the Kubernetes API server.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 4;</code>
+     */
+    java.util.List<java.lang.String>
+        getAudiencesList();
+    /**
+     * <pre>
+     * Audiences are audience identifiers chosen by the authenticator that are
+     * compatible with both the TokenReview and token. An identifier is any
+     * identifier in the intersection of the TokenReviewSpec audiences and the
+     * token's audiences. A client of the TokenReview API that sets the
+     * spec.audiences field should validate that a compatible audience identifier
+     * is returned in the status.audiences field to ensure that the TokenReview
+     * server is audience aware. If a TokenReview returns an empty
+     * status.audience field where status.authenticated is "true", the token is
+     * valid against the audience of the Kubernetes API server.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 4;</code>
+     */
+    int getAudiencesCount();
+    /**
+     * <pre>
+     * Audiences are audience identifiers chosen by the authenticator that are
+     * compatible with both the TokenReview and token. An identifier is any
+     * identifier in the intersection of the TokenReviewSpec audiences and the
+     * token's audiences. A client of the TokenReview API that sets the
+     * spec.audiences field should validate that a compatible audience identifier
+     * is returned in the status.audiences field to ensure that the TokenReview
+     * server is audience aware. If a TokenReview returns an empty
+     * status.audience field where status.authenticated is "true", the token is
+     * valid against the audience of the Kubernetes API server.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 4;</code>
+     */
+    java.lang.String getAudiences(int index);
+    /**
+     * <pre>
+     * Audiences are audience identifiers chosen by the authenticator that are
+     * compatible with both the TokenReview and token. An identifier is any
+     * identifier in the intersection of the TokenReviewSpec audiences and the
+     * token's audiences. A client of the TokenReview API that sets the
+     * spec.audiences field should validate that a compatible audience identifier
+     * is returned in the status.audiences field to ensure that the TokenReview
+     * server is audience aware. If a TokenReview returns an empty
+     * status.audience field where status.authenticated is "true", the token is
+     * valid against the audience of the Kubernetes API server.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getAudiencesBytes(int index);
+
+    /**
+     * <pre>
      * Error indicates that the token couldn't be checked
      * +optional
      * </pre>
@@ -2516,6 +3012,7 @@ public final class V1beta1Authentication {
     }
     private TokenReviewStatus() {
       authenticated_ = false;
+      audiences_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       error_ = "";
     }
 
@@ -2529,6 +3026,9 @@ public final class V1beta1Authentication {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -2540,13 +3040,6 @@ public final class V1beta1Authentication {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               bitField0_ |= 0x00000001;
               authenticated_ = input.readBool();
@@ -2571,6 +3064,22 @@ public final class V1beta1Authentication {
               error_ = bs;
               break;
             }
+            case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                audiences_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              audiences_.add(bs);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -2579,6 +3088,9 @@ public final class V1beta1Authentication {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          audiences_ = audiences_.getUnmodifiableView();
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -2588,6 +3100,7 @@ public final class V1beta1Authentication {
       return io.kubernetes.client.proto.V1beta1Authentication.internal_static_k8s_io_api_authentication_v1beta1_TokenReviewStatus_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Authentication.internal_static_k8s_io_api_authentication_v1beta1_TokenReviewStatus_fieldAccessorTable
@@ -2657,6 +3170,87 @@ public final class V1beta1Authentication {
       return user_ == null ? io.kubernetes.client.proto.V1beta1Authentication.UserInfo.getDefaultInstance() : user_;
     }
 
+    public static final int AUDIENCES_FIELD_NUMBER = 4;
+    private com.google.protobuf.LazyStringList audiences_;
+    /**
+     * <pre>
+     * Audiences are audience identifiers chosen by the authenticator that are
+     * compatible with both the TokenReview and token. An identifier is any
+     * identifier in the intersection of the TokenReviewSpec audiences and the
+     * token's audiences. A client of the TokenReview API that sets the
+     * spec.audiences field should validate that a compatible audience identifier
+     * is returned in the status.audiences field to ensure that the TokenReview
+     * server is audience aware. If a TokenReview returns an empty
+     * status.audience field where status.authenticated is "true", the token is
+     * valid against the audience of the Kubernetes API server.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 4;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getAudiencesList() {
+      return audiences_;
+    }
+    /**
+     * <pre>
+     * Audiences are audience identifiers chosen by the authenticator that are
+     * compatible with both the TokenReview and token. An identifier is any
+     * identifier in the intersection of the TokenReviewSpec audiences and the
+     * token's audiences. A client of the TokenReview API that sets the
+     * spec.audiences field should validate that a compatible audience identifier
+     * is returned in the status.audiences field to ensure that the TokenReview
+     * server is audience aware. If a TokenReview returns an empty
+     * status.audience field where status.authenticated is "true", the token is
+     * valid against the audience of the Kubernetes API server.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 4;</code>
+     */
+    public int getAudiencesCount() {
+      return audiences_.size();
+    }
+    /**
+     * <pre>
+     * Audiences are audience identifiers chosen by the authenticator that are
+     * compatible with both the TokenReview and token. An identifier is any
+     * identifier in the intersection of the TokenReviewSpec audiences and the
+     * token's audiences. A client of the TokenReview API that sets the
+     * spec.audiences field should validate that a compatible audience identifier
+     * is returned in the status.audiences field to ensure that the TokenReview
+     * server is audience aware. If a TokenReview returns an empty
+     * status.audience field where status.authenticated is "true", the token is
+     * valid against the audience of the Kubernetes API server.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 4;</code>
+     */
+    public java.lang.String getAudiences(int index) {
+      return audiences_.get(index);
+    }
+    /**
+     * <pre>
+     * Audiences are audience identifiers chosen by the authenticator that are
+     * compatible with both the TokenReview and token. An identifier is any
+     * identifier in the intersection of the TokenReviewSpec audiences and the
+     * token's audiences. A client of the TokenReview API that sets the
+     * spec.audiences field should validate that a compatible audience identifier
+     * is returned in the status.audiences field to ensure that the TokenReview
+     * server is audience aware. If a TokenReview returns an empty
+     * status.audience field where status.authenticated is "true", the token is
+     * valid against the audience of the Kubernetes API server.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAudiencesBytes(int index) {
+      return audiences_.getByteString(index);
+    }
+
     public static final int ERROR_FIELD_NUMBER = 3;
     private volatile java.lang.Object error_;
     /**
@@ -2715,6 +3309,7 @@ public final class V1beta1Authentication {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2724,6 +3319,7 @@ public final class V1beta1Authentication {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2735,9 +3331,13 @@ public final class V1beta1Authentication {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, error_);
       }
+      for (int i = 0; i < audiences_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, audiences_.getRaw(i));
+      }
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -2753,6 +3353,14 @@ public final class V1beta1Authentication {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, error_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < audiences_.size(); i++) {
+          dataSize += computeStringSizeNoTag(audiences_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getAudiencesList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2780,6 +3388,8 @@ public final class V1beta1Authentication {
         result = result && getUser()
             .equals(other.getUser());
       }
+      result = result && getAudiencesList()
+          .equals(other.getAudiencesList());
       result = result && (hasError() == other.hasError());
       if (hasError()) {
         result = result && getError()
@@ -2804,6 +3414,10 @@ public final class V1beta1Authentication {
       if (hasUser()) {
         hash = (37 * hash) + USER_FIELD_NUMBER;
         hash = (53 * hash) + getUser().hashCode();
+      }
+      if (getAudiencesCount() > 0) {
+        hash = (37 * hash) + AUDIENCES_FIELD_NUMBER;
+        hash = (53 * hash) + getAudiencesList().hashCode();
       }
       if (hasError()) {
         hash = (37 * hash) + ERROR_FIELD_NUMBER;
@@ -2884,6 +3498,7 @@ public final class V1beta1Authentication {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -2891,6 +3506,7 @@ public final class V1beta1Authentication {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Authentication.TokenReviewStatus prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -2918,6 +3534,7 @@ public final class V1beta1Authentication {
         return io.kubernetes.client.proto.V1beta1Authentication.internal_static_k8s_io_api_authentication_v1beta1_TokenReviewStatus_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Authentication.internal_static_k8s_io_api_authentication_v1beta1_TokenReviewStatus_fieldAccessorTable
@@ -2941,6 +3558,7 @@ public final class V1beta1Authentication {
           getUserFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         authenticated_ = false;
@@ -2951,20 +3569,25 @@ public final class V1beta1Authentication {
           userBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
-        error_ = "";
+        audiences_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
+        error_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Authentication.internal_static_k8s_io_api_authentication_v1beta1_TokenReviewStatus_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Authentication.TokenReviewStatus getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Authentication.TokenReviewStatus.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Authentication.TokenReviewStatus build() {
         io.kubernetes.client.proto.V1beta1Authentication.TokenReviewStatus result = buildPartial();
         if (!result.isInitialized()) {
@@ -2973,6 +3596,7 @@ public final class V1beta1Authentication {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Authentication.TokenReviewStatus buildPartial() {
         io.kubernetes.client.proto.V1beta1Authentication.TokenReviewStatus result = new io.kubernetes.client.proto.V1beta1Authentication.TokenReviewStatus(this);
         int from_bitField0_ = bitField0_;
@@ -2989,7 +3613,12 @@ public final class V1beta1Authentication {
         } else {
           result.user_ = userBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          audiences_ = audiences_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.audiences_ = audiences_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000004;
         }
         result.error_ = error_;
@@ -2998,32 +3627,39 @@ public final class V1beta1Authentication {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Authentication.TokenReviewStatus) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Authentication.TokenReviewStatus)other);
@@ -3041,8 +3677,18 @@ public final class V1beta1Authentication {
         if (other.hasUser()) {
           mergeUser(other.getUser());
         }
+        if (!other.audiences_.isEmpty()) {
+          if (audiences_.isEmpty()) {
+            audiences_ = other.audiences_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureAudiencesIsMutable();
+            audiences_.addAll(other.audiences_);
+          }
+          onChanged();
+        }
         if (other.hasError()) {
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000008;
           error_ = other.error_;
           onChanged();
         }
@@ -3051,10 +3697,12 @@ public final class V1beta1Authentication {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3289,6 +3937,216 @@ public final class V1beta1Authentication {
         return userBuilder_;
       }
 
+      private com.google.protobuf.LazyStringList audiences_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureAudiencesIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          audiences_ = new com.google.protobuf.LazyStringArrayList(audiences_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+      /**
+       * <pre>
+       * Audiences are audience identifiers chosen by the authenticator that are
+       * compatible with both the TokenReview and token. An identifier is any
+       * identifier in the intersection of the TokenReviewSpec audiences and the
+       * token's audiences. A client of the TokenReview API that sets the
+       * spec.audiences field should validate that a compatible audience identifier
+       * is returned in the status.audiences field to ensure that the TokenReview
+       * server is audience aware. If a TokenReview returns an empty
+       * status.audience field where status.authenticated is "true", the token is
+       * valid against the audience of the Kubernetes API server.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 4;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getAudiencesList() {
+        return audiences_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * Audiences are audience identifiers chosen by the authenticator that are
+       * compatible with both the TokenReview and token. An identifier is any
+       * identifier in the intersection of the TokenReviewSpec audiences and the
+       * token's audiences. A client of the TokenReview API that sets the
+       * spec.audiences field should validate that a compatible audience identifier
+       * is returned in the status.audiences field to ensure that the TokenReview
+       * server is audience aware. If a TokenReview returns an empty
+       * status.audience field where status.authenticated is "true", the token is
+       * valid against the audience of the Kubernetes API server.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 4;</code>
+       */
+      public int getAudiencesCount() {
+        return audiences_.size();
+      }
+      /**
+       * <pre>
+       * Audiences are audience identifiers chosen by the authenticator that are
+       * compatible with both the TokenReview and token. An identifier is any
+       * identifier in the intersection of the TokenReviewSpec audiences and the
+       * token's audiences. A client of the TokenReview API that sets the
+       * spec.audiences field should validate that a compatible audience identifier
+       * is returned in the status.audiences field to ensure that the TokenReview
+       * server is audience aware. If a TokenReview returns an empty
+       * status.audience field where status.authenticated is "true", the token is
+       * valid against the audience of the Kubernetes API server.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 4;</code>
+       */
+      public java.lang.String getAudiences(int index) {
+        return audiences_.get(index);
+      }
+      /**
+       * <pre>
+       * Audiences are audience identifiers chosen by the authenticator that are
+       * compatible with both the TokenReview and token. An identifier is any
+       * identifier in the intersection of the TokenReviewSpec audiences and the
+       * token's audiences. A client of the TokenReview API that sets the
+       * spec.audiences field should validate that a compatible audience identifier
+       * is returned in the status.audiences field to ensure that the TokenReview
+       * server is audience aware. If a TokenReview returns an empty
+       * status.audience field where status.authenticated is "true", the token is
+       * valid against the audience of the Kubernetes API server.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAudiencesBytes(int index) {
+        return audiences_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * Audiences are audience identifiers chosen by the authenticator that are
+       * compatible with both the TokenReview and token. An identifier is any
+       * identifier in the intersection of the TokenReviewSpec audiences and the
+       * token's audiences. A client of the TokenReview API that sets the
+       * spec.audiences field should validate that a compatible audience identifier
+       * is returned in the status.audiences field to ensure that the TokenReview
+       * server is audience aware. If a TokenReview returns an empty
+       * status.audience field where status.authenticated is "true", the token is
+       * valid against the audience of the Kubernetes API server.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 4;</code>
+       */
+      public Builder setAudiences(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAudiencesIsMutable();
+        audiences_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Audiences are audience identifiers chosen by the authenticator that are
+       * compatible with both the TokenReview and token. An identifier is any
+       * identifier in the intersection of the TokenReviewSpec audiences and the
+       * token's audiences. A client of the TokenReview API that sets the
+       * spec.audiences field should validate that a compatible audience identifier
+       * is returned in the status.audiences field to ensure that the TokenReview
+       * server is audience aware. If a TokenReview returns an empty
+       * status.audience field where status.authenticated is "true", the token is
+       * valid against the audience of the Kubernetes API server.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 4;</code>
+       */
+      public Builder addAudiences(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAudiencesIsMutable();
+        audiences_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Audiences are audience identifiers chosen by the authenticator that are
+       * compatible with both the TokenReview and token. An identifier is any
+       * identifier in the intersection of the TokenReviewSpec audiences and the
+       * token's audiences. A client of the TokenReview API that sets the
+       * spec.audiences field should validate that a compatible audience identifier
+       * is returned in the status.audiences field to ensure that the TokenReview
+       * server is audience aware. If a TokenReview returns an empty
+       * status.audience field where status.authenticated is "true", the token is
+       * valid against the audience of the Kubernetes API server.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 4;</code>
+       */
+      public Builder addAllAudiences(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureAudiencesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, audiences_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Audiences are audience identifiers chosen by the authenticator that are
+       * compatible with both the TokenReview and token. An identifier is any
+       * identifier in the intersection of the TokenReviewSpec audiences and the
+       * token's audiences. A client of the TokenReview API that sets the
+       * spec.audiences field should validate that a compatible audience identifier
+       * is returned in the status.audiences field to ensure that the TokenReview
+       * server is audience aware. If a TokenReview returns an empty
+       * status.audience field where status.authenticated is "true", the token is
+       * valid against the audience of the Kubernetes API server.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 4;</code>
+       */
+      public Builder clearAudiences() {
+        audiences_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Audiences are audience identifiers chosen by the authenticator that are
+       * compatible with both the TokenReview and token. An identifier is any
+       * identifier in the intersection of the TokenReviewSpec audiences and the
+       * token's audiences. A client of the TokenReview API that sets the
+       * spec.audiences field should validate that a compatible audience identifier
+       * is returned in the status.audiences field to ensure that the TokenReview
+       * server is audience aware. If a TokenReview returns an empty
+       * status.audience field where status.authenticated is "true", the token is
+       * valid against the audience of the Kubernetes API server.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 4;</code>
+       */
+      public Builder addAudiencesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAudiencesIsMutable();
+        audiences_.add(value);
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object error_ = "";
       /**
        * <pre>
@@ -3299,7 +4157,7 @@ public final class V1beta1Authentication {
        * <code>optional string error = 3;</code>
        */
       public boolean hasError() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
        * <pre>
@@ -3357,7 +4215,7 @@ public final class V1beta1Authentication {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         error_ = value;
         onChanged();
         return this;
@@ -3371,7 +4229,7 @@ public final class V1beta1Authentication {
        * <code>optional string error = 3;</code>
        */
       public Builder clearError() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         error_ = getDefaultInstance().getError();
         onChanged();
         return this;
@@ -3389,16 +4247,18 @@ public final class V1beta1Authentication {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         error_ = value;
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -3420,11 +4280,12 @@ public final class V1beta1Authentication {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<TokenReviewStatus>
         PARSER = new com.google.protobuf.AbstractParser<TokenReviewStatus>() {
+      @java.lang.Override
       public TokenReviewStatus parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new TokenReviewStatus(input, extensionRegistry);
+        return new TokenReviewStatus(input, extensionRegistry);
       }
     };
 
@@ -3437,6 +4298,7 @@ public final class V1beta1Authentication {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Authentication.TokenReviewStatus getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -3642,6 +4504,9 @@ public final class V1beta1Authentication {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -3653,13 +4518,6 @@ public final class V1beta1Authentication {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -3694,6 +4552,13 @@ public final class V1beta1Authentication {
                   extra__.getKey(), extra__.getValue());
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -3715,6 +4580,7 @@ public final class V1beta1Authentication {
     }
 
     @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
@@ -3725,6 +4591,7 @@ public final class V1beta1Authentication {
               "Invalid map field number: " + number);
       }
     }
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Authentication.internal_static_k8s_io_api_authentication_v1beta1_UserInfo_fieldAccessorTable
@@ -3999,6 +4866,7 @@ public final class V1beta1Authentication {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -4008,6 +4876,7 @@ public final class V1beta1Authentication {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -4028,6 +4897,7 @@ public final class V1beta1Authentication {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -4189,6 +5059,7 @@ public final class V1beta1Authentication {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -4196,6 +5067,7 @@ public final class V1beta1Authentication {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Authentication.UserInfo prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -4246,6 +5118,7 @@ public final class V1beta1Authentication {
                 "Invalid map field number: " + number);
         }
       }
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Authentication.internal_static_k8s_io_api_authentication_v1beta1_UserInfo_fieldAccessorTable
@@ -4268,6 +5141,7 @@ public final class V1beta1Authentication {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         username_ = "";
@@ -4280,15 +5154,18 @@ public final class V1beta1Authentication {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Authentication.internal_static_k8s_io_api_authentication_v1beta1_UserInfo_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Authentication.UserInfo getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Authentication.UserInfo.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Authentication.UserInfo build() {
         io.kubernetes.client.proto.V1beta1Authentication.UserInfo result = buildPartial();
         if (!result.isInitialized()) {
@@ -4297,6 +5174,7 @@ public final class V1beta1Authentication {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Authentication.UserInfo buildPartial() {
         io.kubernetes.client.proto.V1beta1Authentication.UserInfo result = new io.kubernetes.client.proto.V1beta1Authentication.UserInfo(this);
         int from_bitField0_ = bitField0_;
@@ -4321,32 +5199,39 @@ public final class V1beta1Authentication {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Authentication.UserInfo) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Authentication.UserInfo)other);
@@ -4385,10 +5270,12 @@ public final class V1beta1Authentication {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4927,11 +5814,13 @@ public final class V1beta1Authentication {
             .putAll(values);
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -4953,11 +5842,12 @@ public final class V1beta1Authentication {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<UserInfo>
         PARSER = new com.google.protobuf.AbstractParser<UserInfo>() {
+      @java.lang.Override
       public UserInfo parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new UserInfo(input, extensionRegistry);
+        return new UserInfo(input, extensionRegistry);
       }
     };
 
@@ -4970,6 +5860,7 @@ public final class V1beta1Authentication {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Authentication.UserInfo getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -5021,25 +5912,25 @@ public final class V1beta1Authentication {
       "a/v1/generated.proto\032/k8s.io/apimachiner" +
       "y/pkg/runtime/generated.proto\0326k8s.io/ap" +
       "imachinery/pkg/runtime/schema/generated." +
-      "proto\0323k8s.io/apimachinery/pkg/util/ints" +
-      "tr/generated.proto\"\033\n\nExtraValue\022\r\n\005item" +
-      "s\030\001 \003(\t\"\331\001\n\013TokenReview\022B\n\010metadata\030\001 \001(" +
-      "\01320.k8s.io.apimachinery.pkg.apis.meta.v1",
-      ".ObjectMeta\022@\n\004spec\030\002 \001(\01322.k8s.io.api.a" +
-      "uthentication.v1beta1.TokenReviewSpec\022D\n" +
-      "\006status\030\003 \001(\01324.k8s.io.api.authenticatio" +
-      "n.v1beta1.TokenReviewStatus\" \n\017TokenRevi" +
-      "ewSpec\022\r\n\005token\030\001 \001(\t\"t\n\021TokenReviewStat" +
-      "us\022\025\n\rauthenticated\030\001 \001(\010\0229\n\004user\030\002 \001(\0132" +
-      "+.k8s.io.api.authentication.v1beta1.User" +
-      "Info\022\r\n\005error\030\003 \001(\t\"\335\001\n\010UserInfo\022\020\n\010user" +
-      "name\030\001 \001(\t\022\013\n\003uid\030\002 \001(\t\022\016\n\006groups\030\003 \003(\t\022" +
-      "E\n\005extra\030\004 \003(\01326.k8s.io.api.authenticati",
-      "on.v1beta1.UserInfo.ExtraEntry\032[\n\nExtraE" +
-      "ntry\022\013\n\003key\030\001 \001(\t\022<\n\005value\030\002 \001(\0132-.k8s.i" +
-      "o.api.authentication.v1beta1.ExtraValue:" +
-      "\0028\001B<\n\032io.kubernetes.client.protoB\025V1bet" +
-      "a1AuthenticationZ\007v1beta1"
+      "proto\"\033\n\nExtraValue\022\r\n\005items\030\001 \003(\t\"\331\001\n\013T" +
+      "okenReview\022B\n\010metadata\030\001 \001(\01320.k8s.io.ap" +
+      "imachinery.pkg.apis.meta.v1.ObjectMeta\022@" +
+      "\n\004spec\030\002 \001(\01322.k8s.io.api.authentication" +
+      ".v1beta1.TokenReviewSpec\022D\n\006status\030\003 \001(\013" +
+      "24.k8s.io.api.authentication.v1beta1.Tok" +
+      "enReviewStatus\"3\n\017TokenReviewSpec\022\r\n\005tok" +
+      "en\030\001 \001(\t\022\021\n\taudiences\030\002 \003(\t\"\207\001\n\021TokenRev" +
+      "iewStatus\022\025\n\rauthenticated\030\001 \001(\010\0229\n\004user" +
+      "\030\002 \001(\0132+.k8s.io.api.authentication.v1bet" +
+      "a1.UserInfo\022\021\n\taudiences\030\004 \003(\t\022\r\n\005error\030" +
+      "\003 \001(\t\"\335\001\n\010UserInfo\022\020\n\010username\030\001 \001(\t\022\013\n\003" +
+      "uid\030\002 \001(\t\022\016\n\006groups\030\003 \003(\t\022E\n\005extra\030\004 \003(\013" +
+      "26.k8s.io.api.authentication.v1beta1.Use" +
+      "rInfo.ExtraEntry\032[\n\nExtraEntry\022\013\n\003key\030\001 " +
+      "\001(\t\022<\n\005value\030\002 \001(\0132-.k8s.io.api.authenti" +
+      "cation.v1beta1.ExtraValue:\0028\001B<\n\032io.kube" +
+      "rnetes.client.protoB\025V1beta1Authenticati" +
+      "onZ\007v1beta1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -5055,7 +5946,6 @@ public final class V1beta1Authentication {
           io.kubernetes.client.proto.Meta.getDescriptor(),
           io.kubernetes.client.proto.Runtime.getDescriptor(),
           io.kubernetes.client.proto.RuntimeSchema.getDescriptor(),
-          io.kubernetes.client.proto.IntStr.getDescriptor(),
         }, assigner);
     internal_static_k8s_io_api_authentication_v1beta1_ExtraValue_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -5074,13 +5964,13 @@ public final class V1beta1Authentication {
     internal_static_k8s_io_api_authentication_v1beta1_TokenReviewSpec_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_authentication_v1beta1_TokenReviewSpec_descriptor,
-        new java.lang.String[] { "Token", });
+        new java.lang.String[] { "Token", "Audiences", });
     internal_static_k8s_io_api_authentication_v1beta1_TokenReviewStatus_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_k8s_io_api_authentication_v1beta1_TokenReviewStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_authentication_v1beta1_TokenReviewStatus_descriptor,
-        new java.lang.String[] { "Authenticated", "User", "Error", });
+        new java.lang.String[] { "Authenticated", "User", "Audiences", "Error", });
     internal_static_k8s_io_api_authentication_v1beta1_UserInfo_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_k8s_io_api_authentication_v1beta1_UserInfo_fieldAccessorTable = new
@@ -5096,7 +5986,6 @@ public final class V1beta1Authentication {
     io.kubernetes.client.proto.Meta.getDescriptor();
     io.kubernetes.client.proto.Runtime.getDescriptor();
     io.kubernetes.client.proto.RuntimeSchema.getDescriptor();
-    io.kubernetes.client.proto.IntStr.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

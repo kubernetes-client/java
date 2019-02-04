@@ -14,6 +14,6498 @@ public final class V1beta1Apiextensions {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  public interface ConversionRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * `uid` is an identifier for the individual request/response. It allows us to distinguish instances of requests which are
+     * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
+     * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
+     * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
+     * </pre>
+     *
+     * <code>optional string uid = 1;</code>
+     */
+    boolean hasUid();
+    /**
+     * <pre>
+     * `uid` is an identifier for the individual request/response. It allows us to distinguish instances of requests which are
+     * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
+     * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
+     * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
+     * </pre>
+     *
+     * <code>optional string uid = 1;</code>
+     */
+    java.lang.String getUid();
+    /**
+     * <pre>
+     * `uid` is an identifier for the individual request/response. It allows us to distinguish instances of requests which are
+     * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
+     * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
+     * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
+     * </pre>
+     *
+     * <code>optional string uid = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getUidBytes();
+
+    /**
+     * <pre>
+     * `desiredAPIVersion` is the version to convert given objects to. e.g. "myapi.example.com/v1"
+     * </pre>
+     *
+     * <code>optional string desiredAPIVersion = 2;</code>
+     */
+    boolean hasDesiredAPIVersion();
+    /**
+     * <pre>
+     * `desiredAPIVersion` is the version to convert given objects to. e.g. "myapi.example.com/v1"
+     * </pre>
+     *
+     * <code>optional string desiredAPIVersion = 2;</code>
+     */
+    java.lang.String getDesiredAPIVersion();
+    /**
+     * <pre>
+     * `desiredAPIVersion` is the version to convert given objects to. e.g. "myapi.example.com/v1"
+     * </pre>
+     *
+     * <code>optional string desiredAPIVersion = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getDesiredAPIVersionBytes();
+
+    /**
+     * <pre>
+     * `objects` is the list of CR objects to be converted.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+     */
+    java.util.List<io.kubernetes.client.proto.Runtime.RawExtension> 
+        getObjectsList();
+    /**
+     * <pre>
+     * `objects` is the list of CR objects to be converted.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+     */
+    io.kubernetes.client.proto.Runtime.RawExtension getObjects(int index);
+    /**
+     * <pre>
+     * `objects` is the list of CR objects to be converted.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+     */
+    int getObjectsCount();
+    /**
+     * <pre>
+     * `objects` is the list of CR objects to be converted.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+     */
+    java.util.List<? extends io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder> 
+        getObjectsOrBuilderList();
+    /**
+     * <pre>
+     * `objects` is the list of CR objects to be converted.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+     */
+    io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder getObjectsOrBuilder(
+        int index);
+  }
+  /**
+   * <pre>
+   * ConversionRequest describes the conversion request parameters.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionRequest}
+   */
+  public  static final class ConversionRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionRequest)
+      ConversionRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ConversionRequest.newBuilder() to construct.
+    private ConversionRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ConversionRequest() {
+      uid_ = "";
+      desiredAPIVersion_ = "";
+      objects_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ConversionRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              uid_ = bs;
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              desiredAPIVersion_ = bs;
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                objects_ = new java.util.ArrayList<io.kubernetes.client.proto.Runtime.RawExtension>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              objects_.add(
+                  input.readMessage(io.kubernetes.client.proto.Runtime.RawExtension.PARSER, extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          objects_ = java.util.Collections.unmodifiableList(objects_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest.class, io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int UID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object uid_;
+    /**
+     * <pre>
+     * `uid` is an identifier for the individual request/response. It allows us to distinguish instances of requests which are
+     * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
+     * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
+     * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
+     * </pre>
+     *
+     * <code>optional string uid = 1;</code>
+     */
+    public boolean hasUid() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * `uid` is an identifier for the individual request/response. It allows us to distinguish instances of requests which are
+     * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
+     * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
+     * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
+     * </pre>
+     *
+     * <code>optional string uid = 1;</code>
+     */
+    public java.lang.String getUid() {
+      java.lang.Object ref = uid_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          uid_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * `uid` is an identifier for the individual request/response. It allows us to distinguish instances of requests which are
+     * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
+     * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
+     * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
+     * </pre>
+     *
+     * <code>optional string uid = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUidBytes() {
+      java.lang.Object ref = uid_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        uid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DESIREDAPIVERSION_FIELD_NUMBER = 2;
+    private volatile java.lang.Object desiredAPIVersion_;
+    /**
+     * <pre>
+     * `desiredAPIVersion` is the version to convert given objects to. e.g. "myapi.example.com/v1"
+     * </pre>
+     *
+     * <code>optional string desiredAPIVersion = 2;</code>
+     */
+    public boolean hasDesiredAPIVersion() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * `desiredAPIVersion` is the version to convert given objects to. e.g. "myapi.example.com/v1"
+     * </pre>
+     *
+     * <code>optional string desiredAPIVersion = 2;</code>
+     */
+    public java.lang.String getDesiredAPIVersion() {
+      java.lang.Object ref = desiredAPIVersion_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          desiredAPIVersion_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * `desiredAPIVersion` is the version to convert given objects to. e.g. "myapi.example.com/v1"
+     * </pre>
+     *
+     * <code>optional string desiredAPIVersion = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDesiredAPIVersionBytes() {
+      java.lang.Object ref = desiredAPIVersion_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        desiredAPIVersion_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int OBJECTS_FIELD_NUMBER = 3;
+    private java.util.List<io.kubernetes.client.proto.Runtime.RawExtension> objects_;
+    /**
+     * <pre>
+     * `objects` is the list of CR objects to be converted.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+     */
+    public java.util.List<io.kubernetes.client.proto.Runtime.RawExtension> getObjectsList() {
+      return objects_;
+    }
+    /**
+     * <pre>
+     * `objects` is the list of CR objects to be converted.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+     */
+    public java.util.List<? extends io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder> 
+        getObjectsOrBuilderList() {
+      return objects_;
+    }
+    /**
+     * <pre>
+     * `objects` is the list of CR objects to be converted.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+     */
+    public int getObjectsCount() {
+      return objects_.size();
+    }
+    /**
+     * <pre>
+     * `objects` is the list of CR objects to be converted.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+     */
+    public io.kubernetes.client.proto.Runtime.RawExtension getObjects(int index) {
+      return objects_.get(index);
+    }
+    /**
+     * <pre>
+     * `objects` is the list of CR objects to be converted.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+     */
+    public io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder getObjectsOrBuilder(
+        int index) {
+      return objects_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uid_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, desiredAPIVersion_);
+      }
+      for (int i = 0; i < objects_.size(); i++) {
+        output.writeMessage(3, objects_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uid_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, desiredAPIVersion_);
+      }
+      for (int i = 0; i < objects_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, objects_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest other = (io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest) obj;
+
+      boolean result = true;
+      result = result && (hasUid() == other.hasUid());
+      if (hasUid()) {
+        result = result && getUid()
+            .equals(other.getUid());
+      }
+      result = result && (hasDesiredAPIVersion() == other.hasDesiredAPIVersion());
+      if (hasDesiredAPIVersion()) {
+        result = result && getDesiredAPIVersion()
+            .equals(other.getDesiredAPIVersion());
+      }
+      result = result && getObjectsList()
+          .equals(other.getObjectsList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasUid()) {
+        hash = (37 * hash) + UID_FIELD_NUMBER;
+        hash = (53 * hash) + getUid().hashCode();
+      }
+      if (hasDesiredAPIVersion()) {
+        hash = (37 * hash) + DESIREDAPIVERSION_FIELD_NUMBER;
+        hash = (53 * hash) + getDesiredAPIVersion().hashCode();
+      }
+      if (getObjectsCount() > 0) {
+        hash = (37 * hash) + OBJECTS_FIELD_NUMBER;
+        hash = (53 * hash) + getObjectsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * ConversionRequest describes the conversion request parameters.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionRequest)
+        io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest.class, io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getObjectsFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        uid_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        desiredAPIVersion_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (objectsBuilder_ == null) {
+          objects_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          objectsBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest build() {
+        io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest buildPartial() {
+        io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest result = new io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.uid_ = uid_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.desiredAPIVersion_ = desiredAPIVersion_;
+        if (objectsBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            objects_ = java.util.Collections.unmodifiableList(objects_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.objects_ = objects_;
+        } else {
+          result.objects_ = objectsBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest) {
+          return mergeFrom((io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest other) {
+        if (other == io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest.getDefaultInstance()) return this;
+        if (other.hasUid()) {
+          bitField0_ |= 0x00000001;
+          uid_ = other.uid_;
+          onChanged();
+        }
+        if (other.hasDesiredAPIVersion()) {
+          bitField0_ |= 0x00000002;
+          desiredAPIVersion_ = other.desiredAPIVersion_;
+          onChanged();
+        }
+        if (objectsBuilder_ == null) {
+          if (!other.objects_.isEmpty()) {
+            if (objects_.isEmpty()) {
+              objects_ = other.objects_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureObjectsIsMutable();
+              objects_.addAll(other.objects_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.objects_.isEmpty()) {
+            if (objectsBuilder_.isEmpty()) {
+              objectsBuilder_.dispose();
+              objectsBuilder_ = null;
+              objects_ = other.objects_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              objectsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getObjectsFieldBuilder() : null;
+            } else {
+              objectsBuilder_.addAllMessages(other.objects_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object uid_ = "";
+      /**
+       * <pre>
+       * `uid` is an identifier for the individual request/response. It allows us to distinguish instances of requests which are
+       * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
+       * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
+       * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
+       * </pre>
+       *
+       * <code>optional string uid = 1;</code>
+       */
+      public boolean hasUid() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * `uid` is an identifier for the individual request/response. It allows us to distinguish instances of requests which are
+       * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
+       * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
+       * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
+       * </pre>
+       *
+       * <code>optional string uid = 1;</code>
+       */
+      public java.lang.String getUid() {
+        java.lang.Object ref = uid_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            uid_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * `uid` is an identifier for the individual request/response. It allows us to distinguish instances of requests which are
+       * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
+       * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
+       * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
+       * </pre>
+       *
+       * <code>optional string uid = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUidBytes() {
+        java.lang.Object ref = uid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          uid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * `uid` is an identifier for the individual request/response. It allows us to distinguish instances of requests which are
+       * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
+       * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
+       * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
+       * </pre>
+       *
+       * <code>optional string uid = 1;</code>
+       */
+      public Builder setUid(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        uid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * `uid` is an identifier for the individual request/response. It allows us to distinguish instances of requests which are
+       * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
+       * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
+       * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
+       * </pre>
+       *
+       * <code>optional string uid = 1;</code>
+       */
+      public Builder clearUid() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        uid_ = getDefaultInstance().getUid();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * `uid` is an identifier for the individual request/response. It allows us to distinguish instances of requests which are
+       * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
+       * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
+       * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
+       * </pre>
+       *
+       * <code>optional string uid = 1;</code>
+       */
+      public Builder setUidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        uid_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object desiredAPIVersion_ = "";
+      /**
+       * <pre>
+       * `desiredAPIVersion` is the version to convert given objects to. e.g. "myapi.example.com/v1"
+       * </pre>
+       *
+       * <code>optional string desiredAPIVersion = 2;</code>
+       */
+      public boolean hasDesiredAPIVersion() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * `desiredAPIVersion` is the version to convert given objects to. e.g. "myapi.example.com/v1"
+       * </pre>
+       *
+       * <code>optional string desiredAPIVersion = 2;</code>
+       */
+      public java.lang.String getDesiredAPIVersion() {
+        java.lang.Object ref = desiredAPIVersion_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            desiredAPIVersion_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * `desiredAPIVersion` is the version to convert given objects to. e.g. "myapi.example.com/v1"
+       * </pre>
+       *
+       * <code>optional string desiredAPIVersion = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDesiredAPIVersionBytes() {
+        java.lang.Object ref = desiredAPIVersion_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          desiredAPIVersion_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * `desiredAPIVersion` is the version to convert given objects to. e.g. "myapi.example.com/v1"
+       * </pre>
+       *
+       * <code>optional string desiredAPIVersion = 2;</code>
+       */
+      public Builder setDesiredAPIVersion(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        desiredAPIVersion_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * `desiredAPIVersion` is the version to convert given objects to. e.g. "myapi.example.com/v1"
+       * </pre>
+       *
+       * <code>optional string desiredAPIVersion = 2;</code>
+       */
+      public Builder clearDesiredAPIVersion() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        desiredAPIVersion_ = getDefaultInstance().getDesiredAPIVersion();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * `desiredAPIVersion` is the version to convert given objects to. e.g. "myapi.example.com/v1"
+       * </pre>
+       *
+       * <code>optional string desiredAPIVersion = 2;</code>
+       */
+      public Builder setDesiredAPIVersionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        desiredAPIVersion_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<io.kubernetes.client.proto.Runtime.RawExtension> objects_ =
+        java.util.Collections.emptyList();
+      private void ensureObjectsIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          objects_ = new java.util.ArrayList<io.kubernetes.client.proto.Runtime.RawExtension>(objects_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.kubernetes.client.proto.Runtime.RawExtension, io.kubernetes.client.proto.Runtime.RawExtension.Builder, io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder> objectsBuilder_;
+
+      /**
+       * <pre>
+       * `objects` is the list of CR objects to be converted.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.Runtime.RawExtension> getObjectsList() {
+        if (objectsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(objects_);
+        } else {
+          return objectsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * `objects` is the list of CR objects to be converted.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+       */
+      public int getObjectsCount() {
+        if (objectsBuilder_ == null) {
+          return objects_.size();
+        } else {
+          return objectsBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * `objects` is the list of CR objects to be converted.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+       */
+      public io.kubernetes.client.proto.Runtime.RawExtension getObjects(int index) {
+        if (objectsBuilder_ == null) {
+          return objects_.get(index);
+        } else {
+          return objectsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * `objects` is the list of CR objects to be converted.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+       */
+      public Builder setObjects(
+          int index, io.kubernetes.client.proto.Runtime.RawExtension value) {
+        if (objectsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureObjectsIsMutable();
+          objects_.set(index, value);
+          onChanged();
+        } else {
+          objectsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * `objects` is the list of CR objects to be converted.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+       */
+      public Builder setObjects(
+          int index, io.kubernetes.client.proto.Runtime.RawExtension.Builder builderForValue) {
+        if (objectsBuilder_ == null) {
+          ensureObjectsIsMutable();
+          objects_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          objectsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * `objects` is the list of CR objects to be converted.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+       */
+      public Builder addObjects(io.kubernetes.client.proto.Runtime.RawExtension value) {
+        if (objectsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureObjectsIsMutable();
+          objects_.add(value);
+          onChanged();
+        } else {
+          objectsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * `objects` is the list of CR objects to be converted.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+       */
+      public Builder addObjects(
+          int index, io.kubernetes.client.proto.Runtime.RawExtension value) {
+        if (objectsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureObjectsIsMutable();
+          objects_.add(index, value);
+          onChanged();
+        } else {
+          objectsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * `objects` is the list of CR objects to be converted.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+       */
+      public Builder addObjects(
+          io.kubernetes.client.proto.Runtime.RawExtension.Builder builderForValue) {
+        if (objectsBuilder_ == null) {
+          ensureObjectsIsMutable();
+          objects_.add(builderForValue.build());
+          onChanged();
+        } else {
+          objectsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * `objects` is the list of CR objects to be converted.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+       */
+      public Builder addObjects(
+          int index, io.kubernetes.client.proto.Runtime.RawExtension.Builder builderForValue) {
+        if (objectsBuilder_ == null) {
+          ensureObjectsIsMutable();
+          objects_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          objectsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * `objects` is the list of CR objects to be converted.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+       */
+      public Builder addAllObjects(
+          java.lang.Iterable<? extends io.kubernetes.client.proto.Runtime.RawExtension> values) {
+        if (objectsBuilder_ == null) {
+          ensureObjectsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, objects_);
+          onChanged();
+        } else {
+          objectsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * `objects` is the list of CR objects to be converted.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+       */
+      public Builder clearObjects() {
+        if (objectsBuilder_ == null) {
+          objects_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          objectsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * `objects` is the list of CR objects to be converted.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+       */
+      public Builder removeObjects(int index) {
+        if (objectsBuilder_ == null) {
+          ensureObjectsIsMutable();
+          objects_.remove(index);
+          onChanged();
+        } else {
+          objectsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * `objects` is the list of CR objects to be converted.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+       */
+      public io.kubernetes.client.proto.Runtime.RawExtension.Builder getObjectsBuilder(
+          int index) {
+        return getObjectsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * `objects` is the list of CR objects to be converted.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+       */
+      public io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder getObjectsOrBuilder(
+          int index) {
+        if (objectsBuilder_ == null) {
+          return objects_.get(index);  } else {
+          return objectsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * `objects` is the list of CR objects to be converted.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+       */
+      public java.util.List<? extends io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder> 
+           getObjectsOrBuilderList() {
+        if (objectsBuilder_ != null) {
+          return objectsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(objects_);
+        }
+      }
+      /**
+       * <pre>
+       * `objects` is the list of CR objects to be converted.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+       */
+      public io.kubernetes.client.proto.Runtime.RawExtension.Builder addObjectsBuilder() {
+        return getObjectsFieldBuilder().addBuilder(
+            io.kubernetes.client.proto.Runtime.RawExtension.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * `objects` is the list of CR objects to be converted.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+       */
+      public io.kubernetes.client.proto.Runtime.RawExtension.Builder addObjectsBuilder(
+          int index) {
+        return getObjectsFieldBuilder().addBuilder(
+            index, io.kubernetes.client.proto.Runtime.RawExtension.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * `objects` is the list of CR objects to be converted.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.Runtime.RawExtension.Builder> 
+           getObjectsBuilderList() {
+        return getObjectsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.kubernetes.client.proto.Runtime.RawExtension, io.kubernetes.client.proto.Runtime.RawExtension.Builder, io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder> 
+          getObjectsFieldBuilder() {
+        if (objectsBuilder_ == null) {
+          objectsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.Runtime.RawExtension, io.kubernetes.client.proto.Runtime.RawExtension.Builder, io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder>(
+                  objects_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          objects_ = null;
+        }
+        return objectsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionRequest)
+    private static final io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest();
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ConversionRequest>
+        PARSER = new com.google.protobuf.AbstractParser<ConversionRequest>() {
+      @java.lang.Override
+      public ConversionRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ConversionRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ConversionRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ConversionRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ConversionResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * `uid` is an identifier for the individual request/response.
+     * This should be copied over from the corresponding AdmissionRequest.
+     * </pre>
+     *
+     * <code>optional string uid = 1;</code>
+     */
+    boolean hasUid();
+    /**
+     * <pre>
+     * `uid` is an identifier for the individual request/response.
+     * This should be copied over from the corresponding AdmissionRequest.
+     * </pre>
+     *
+     * <code>optional string uid = 1;</code>
+     */
+    java.lang.String getUid();
+    /**
+     * <pre>
+     * `uid` is an identifier for the individual request/response.
+     * This should be copied over from the corresponding AdmissionRequest.
+     * </pre>
+     *
+     * <code>optional string uid = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getUidBytes();
+
+    /**
+     * <pre>
+     * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+     * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+     * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+     */
+    java.util.List<io.kubernetes.client.proto.Runtime.RawExtension> 
+        getConvertedObjectsList();
+    /**
+     * <pre>
+     * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+     * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+     * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+     */
+    io.kubernetes.client.proto.Runtime.RawExtension getConvertedObjects(int index);
+    /**
+     * <pre>
+     * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+     * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+     * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+     */
+    int getConvertedObjectsCount();
+    /**
+     * <pre>
+     * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+     * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+     * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+     */
+    java.util.List<? extends io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder> 
+        getConvertedObjectsOrBuilderList();
+    /**
+     * <pre>
+     * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+     * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+     * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+     */
+    io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder getConvertedObjectsOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+     * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+     * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
+     * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
+     * will be used to construct an error message for the end user.
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Status result = 3;</code>
+     */
+    boolean hasResult();
+    /**
+     * <pre>
+     * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+     * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+     * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
+     * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
+     * will be used to construct an error message for the end user.
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Status result = 3;</code>
+     */
+    io.kubernetes.client.proto.Meta.Status getResult();
+    /**
+     * <pre>
+     * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+     * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+     * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
+     * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
+     * will be used to construct an error message for the end user.
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Status result = 3;</code>
+     */
+    io.kubernetes.client.proto.Meta.StatusOrBuilder getResultOrBuilder();
+  }
+  /**
+   * <pre>
+   * ConversionResponse describes a conversion response.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionResponse}
+   */
+  public  static final class ConversionResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionResponse)
+      ConversionResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ConversionResponse.newBuilder() to construct.
+    private ConversionResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ConversionResponse() {
+      uid_ = "";
+      convertedObjects_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ConversionResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              uid_ = bs;
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                convertedObjects_ = new java.util.ArrayList<io.kubernetes.client.proto.Runtime.RawExtension>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              convertedObjects_.add(
+                  input.readMessage(io.kubernetes.client.proto.Runtime.RawExtension.PARSER, extensionRegistry));
+              break;
+            }
+            case 26: {
+              io.kubernetes.client.proto.Meta.Status.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = result_.toBuilder();
+              }
+              result_ = input.readMessage(io.kubernetes.client.proto.Meta.Status.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(result_);
+                result_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          convertedObjects_ = java.util.Collections.unmodifiableList(convertedObjects_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse.class, io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int UID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object uid_;
+    /**
+     * <pre>
+     * `uid` is an identifier for the individual request/response.
+     * This should be copied over from the corresponding AdmissionRequest.
+     * </pre>
+     *
+     * <code>optional string uid = 1;</code>
+     */
+    public boolean hasUid() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * `uid` is an identifier for the individual request/response.
+     * This should be copied over from the corresponding AdmissionRequest.
+     * </pre>
+     *
+     * <code>optional string uid = 1;</code>
+     */
+    public java.lang.String getUid() {
+      java.lang.Object ref = uid_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          uid_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * `uid` is an identifier for the individual request/response.
+     * This should be copied over from the corresponding AdmissionRequest.
+     * </pre>
+     *
+     * <code>optional string uid = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUidBytes() {
+      java.lang.Object ref = uid_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        uid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CONVERTEDOBJECTS_FIELD_NUMBER = 2;
+    private java.util.List<io.kubernetes.client.proto.Runtime.RawExtension> convertedObjects_;
+    /**
+     * <pre>
+     * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+     * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+     * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+     */
+    public java.util.List<io.kubernetes.client.proto.Runtime.RawExtension> getConvertedObjectsList() {
+      return convertedObjects_;
+    }
+    /**
+     * <pre>
+     * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+     * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+     * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+     */
+    public java.util.List<? extends io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder> 
+        getConvertedObjectsOrBuilderList() {
+      return convertedObjects_;
+    }
+    /**
+     * <pre>
+     * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+     * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+     * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+     */
+    public int getConvertedObjectsCount() {
+      return convertedObjects_.size();
+    }
+    /**
+     * <pre>
+     * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+     * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+     * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+     */
+    public io.kubernetes.client.proto.Runtime.RawExtension getConvertedObjects(int index) {
+      return convertedObjects_.get(index);
+    }
+    /**
+     * <pre>
+     * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+     * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+     * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+     */
+    public io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder getConvertedObjectsOrBuilder(
+        int index) {
+      return convertedObjects_.get(index);
+    }
+
+    public static final int RESULT_FIELD_NUMBER = 3;
+    private io.kubernetes.client.proto.Meta.Status result_;
+    /**
+     * <pre>
+     * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+     * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+     * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
+     * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
+     * will be used to construct an error message for the end user.
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Status result = 3;</code>
+     */
+    public boolean hasResult() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+     * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+     * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
+     * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
+     * will be used to construct an error message for the end user.
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Status result = 3;</code>
+     */
+    public io.kubernetes.client.proto.Meta.Status getResult() {
+      return result_ == null ? io.kubernetes.client.proto.Meta.Status.getDefaultInstance() : result_;
+    }
+    /**
+     * <pre>
+     * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+     * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+     * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
+     * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
+     * will be used to construct an error message for the end user.
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Status result = 3;</code>
+     */
+    public io.kubernetes.client.proto.Meta.StatusOrBuilder getResultOrBuilder() {
+      return result_ == null ? io.kubernetes.client.proto.Meta.Status.getDefaultInstance() : result_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uid_);
+      }
+      for (int i = 0; i < convertedObjects_.size(); i++) {
+        output.writeMessage(2, convertedObjects_.get(i));
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(3, getResult());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uid_);
+      }
+      for (int i = 0; i < convertedObjects_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, convertedObjects_.get(i));
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getResult());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse other = (io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse) obj;
+
+      boolean result = true;
+      result = result && (hasUid() == other.hasUid());
+      if (hasUid()) {
+        result = result && getUid()
+            .equals(other.getUid());
+      }
+      result = result && getConvertedObjectsList()
+          .equals(other.getConvertedObjectsList());
+      result = result && (hasResult() == other.hasResult());
+      if (hasResult()) {
+        result = result && getResult()
+            .equals(other.getResult());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasUid()) {
+        hash = (37 * hash) + UID_FIELD_NUMBER;
+        hash = (53 * hash) + getUid().hashCode();
+      }
+      if (getConvertedObjectsCount() > 0) {
+        hash = (37 * hash) + CONVERTEDOBJECTS_FIELD_NUMBER;
+        hash = (53 * hash) + getConvertedObjectsList().hashCode();
+      }
+      if (hasResult()) {
+        hash = (37 * hash) + RESULT_FIELD_NUMBER;
+        hash = (53 * hash) + getResult().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * ConversionResponse describes a conversion response.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionResponse)
+        io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse.class, io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getConvertedObjectsFieldBuilder();
+          getResultFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        uid_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (convertedObjectsBuilder_ == null) {
+          convertedObjects_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          convertedObjectsBuilder_.clear();
+        }
+        if (resultBuilder_ == null) {
+          result_ = null;
+        } else {
+          resultBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse build() {
+        io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse buildPartial() {
+        io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse result = new io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.uid_ = uid_;
+        if (convertedObjectsBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            convertedObjects_ = java.util.Collections.unmodifiableList(convertedObjects_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.convertedObjects_ = convertedObjects_;
+        } else {
+          result.convertedObjects_ = convertedObjectsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (resultBuilder_ == null) {
+          result.result_ = result_;
+        } else {
+          result.result_ = resultBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse) {
+          return mergeFrom((io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse other) {
+        if (other == io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse.getDefaultInstance()) return this;
+        if (other.hasUid()) {
+          bitField0_ |= 0x00000001;
+          uid_ = other.uid_;
+          onChanged();
+        }
+        if (convertedObjectsBuilder_ == null) {
+          if (!other.convertedObjects_.isEmpty()) {
+            if (convertedObjects_.isEmpty()) {
+              convertedObjects_ = other.convertedObjects_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureConvertedObjectsIsMutable();
+              convertedObjects_.addAll(other.convertedObjects_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.convertedObjects_.isEmpty()) {
+            if (convertedObjectsBuilder_.isEmpty()) {
+              convertedObjectsBuilder_.dispose();
+              convertedObjectsBuilder_ = null;
+              convertedObjects_ = other.convertedObjects_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              convertedObjectsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getConvertedObjectsFieldBuilder() : null;
+            } else {
+              convertedObjectsBuilder_.addAllMessages(other.convertedObjects_);
+            }
+          }
+        }
+        if (other.hasResult()) {
+          mergeResult(other.getResult());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object uid_ = "";
+      /**
+       * <pre>
+       * `uid` is an identifier for the individual request/response.
+       * This should be copied over from the corresponding AdmissionRequest.
+       * </pre>
+       *
+       * <code>optional string uid = 1;</code>
+       */
+      public boolean hasUid() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * `uid` is an identifier for the individual request/response.
+       * This should be copied over from the corresponding AdmissionRequest.
+       * </pre>
+       *
+       * <code>optional string uid = 1;</code>
+       */
+      public java.lang.String getUid() {
+        java.lang.Object ref = uid_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            uid_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * `uid` is an identifier for the individual request/response.
+       * This should be copied over from the corresponding AdmissionRequest.
+       * </pre>
+       *
+       * <code>optional string uid = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUidBytes() {
+        java.lang.Object ref = uid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          uid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * `uid` is an identifier for the individual request/response.
+       * This should be copied over from the corresponding AdmissionRequest.
+       * </pre>
+       *
+       * <code>optional string uid = 1;</code>
+       */
+      public Builder setUid(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        uid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * `uid` is an identifier for the individual request/response.
+       * This should be copied over from the corresponding AdmissionRequest.
+       * </pre>
+       *
+       * <code>optional string uid = 1;</code>
+       */
+      public Builder clearUid() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        uid_ = getDefaultInstance().getUid();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * `uid` is an identifier for the individual request/response.
+       * This should be copied over from the corresponding AdmissionRequest.
+       * </pre>
+       *
+       * <code>optional string uid = 1;</code>
+       */
+      public Builder setUidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        uid_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<io.kubernetes.client.proto.Runtime.RawExtension> convertedObjects_ =
+        java.util.Collections.emptyList();
+      private void ensureConvertedObjectsIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          convertedObjects_ = new java.util.ArrayList<io.kubernetes.client.proto.Runtime.RawExtension>(convertedObjects_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.kubernetes.client.proto.Runtime.RawExtension, io.kubernetes.client.proto.Runtime.RawExtension.Builder, io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder> convertedObjectsBuilder_;
+
+      /**
+       * <pre>
+       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.Runtime.RawExtension> getConvertedObjectsList() {
+        if (convertedObjectsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(convertedObjects_);
+        } else {
+          return convertedObjectsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+       */
+      public int getConvertedObjectsCount() {
+        if (convertedObjectsBuilder_ == null) {
+          return convertedObjects_.size();
+        } else {
+          return convertedObjectsBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+       */
+      public io.kubernetes.client.proto.Runtime.RawExtension getConvertedObjects(int index) {
+        if (convertedObjectsBuilder_ == null) {
+          return convertedObjects_.get(index);
+        } else {
+          return convertedObjectsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+       */
+      public Builder setConvertedObjects(
+          int index, io.kubernetes.client.proto.Runtime.RawExtension value) {
+        if (convertedObjectsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureConvertedObjectsIsMutable();
+          convertedObjects_.set(index, value);
+          onChanged();
+        } else {
+          convertedObjectsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+       */
+      public Builder setConvertedObjects(
+          int index, io.kubernetes.client.proto.Runtime.RawExtension.Builder builderForValue) {
+        if (convertedObjectsBuilder_ == null) {
+          ensureConvertedObjectsIsMutable();
+          convertedObjects_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          convertedObjectsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+       */
+      public Builder addConvertedObjects(io.kubernetes.client.proto.Runtime.RawExtension value) {
+        if (convertedObjectsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureConvertedObjectsIsMutable();
+          convertedObjects_.add(value);
+          onChanged();
+        } else {
+          convertedObjectsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+       */
+      public Builder addConvertedObjects(
+          int index, io.kubernetes.client.proto.Runtime.RawExtension value) {
+        if (convertedObjectsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureConvertedObjectsIsMutable();
+          convertedObjects_.add(index, value);
+          onChanged();
+        } else {
+          convertedObjectsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+       */
+      public Builder addConvertedObjects(
+          io.kubernetes.client.proto.Runtime.RawExtension.Builder builderForValue) {
+        if (convertedObjectsBuilder_ == null) {
+          ensureConvertedObjectsIsMutable();
+          convertedObjects_.add(builderForValue.build());
+          onChanged();
+        } else {
+          convertedObjectsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+       */
+      public Builder addConvertedObjects(
+          int index, io.kubernetes.client.proto.Runtime.RawExtension.Builder builderForValue) {
+        if (convertedObjectsBuilder_ == null) {
+          ensureConvertedObjectsIsMutable();
+          convertedObjects_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          convertedObjectsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+       */
+      public Builder addAllConvertedObjects(
+          java.lang.Iterable<? extends io.kubernetes.client.proto.Runtime.RawExtension> values) {
+        if (convertedObjectsBuilder_ == null) {
+          ensureConvertedObjectsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, convertedObjects_);
+          onChanged();
+        } else {
+          convertedObjectsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+       */
+      public Builder clearConvertedObjects() {
+        if (convertedObjectsBuilder_ == null) {
+          convertedObjects_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          convertedObjectsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+       */
+      public Builder removeConvertedObjects(int index) {
+        if (convertedObjectsBuilder_ == null) {
+          ensureConvertedObjectsIsMutable();
+          convertedObjects_.remove(index);
+          onChanged();
+        } else {
+          convertedObjectsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+       */
+      public io.kubernetes.client.proto.Runtime.RawExtension.Builder getConvertedObjectsBuilder(
+          int index) {
+        return getConvertedObjectsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+       */
+      public io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder getConvertedObjectsOrBuilder(
+          int index) {
+        if (convertedObjectsBuilder_ == null) {
+          return convertedObjects_.get(index);  } else {
+          return convertedObjectsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+       */
+      public java.util.List<? extends io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder> 
+           getConvertedObjectsOrBuilderList() {
+        if (convertedObjectsBuilder_ != null) {
+          return convertedObjectsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(convertedObjects_);
+        }
+      }
+      /**
+       * <pre>
+       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+       */
+      public io.kubernetes.client.proto.Runtime.RawExtension.Builder addConvertedObjectsBuilder() {
+        return getConvertedObjectsFieldBuilder().addBuilder(
+            io.kubernetes.client.proto.Runtime.RawExtension.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+       */
+      public io.kubernetes.client.proto.Runtime.RawExtension.Builder addConvertedObjectsBuilder(
+          int index) {
+        return getConvertedObjectsFieldBuilder().addBuilder(
+            index, io.kubernetes.client.proto.Runtime.RawExtension.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
+       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
+       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.Runtime.RawExtension.Builder> 
+           getConvertedObjectsBuilderList() {
+        return getConvertedObjectsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.kubernetes.client.proto.Runtime.RawExtension, io.kubernetes.client.proto.Runtime.RawExtension.Builder, io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder> 
+          getConvertedObjectsFieldBuilder() {
+        if (convertedObjectsBuilder_ == null) {
+          convertedObjectsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.Runtime.RawExtension, io.kubernetes.client.proto.Runtime.RawExtension.Builder, io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder>(
+                  convertedObjects_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          convertedObjects_ = null;
+        }
+        return convertedObjectsBuilder_;
+      }
+
+      private io.kubernetes.client.proto.Meta.Status result_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Meta.Status, io.kubernetes.client.proto.Meta.Status.Builder, io.kubernetes.client.proto.Meta.StatusOrBuilder> resultBuilder_;
+      /**
+       * <pre>
+       * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+       * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+       * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
+       * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
+       * will be used to construct an error message for the end user.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Status result = 3;</code>
+       */
+      public boolean hasResult() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+       * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+       * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
+       * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
+       * will be used to construct an error message for the end user.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Status result = 3;</code>
+       */
+      public io.kubernetes.client.proto.Meta.Status getResult() {
+        if (resultBuilder_ == null) {
+          return result_ == null ? io.kubernetes.client.proto.Meta.Status.getDefaultInstance() : result_;
+        } else {
+          return resultBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+       * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+       * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
+       * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
+       * will be used to construct an error message for the end user.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Status result = 3;</code>
+       */
+      public Builder setResult(io.kubernetes.client.proto.Meta.Status value) {
+        if (resultBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          result_ = value;
+          onChanged();
+        } else {
+          resultBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+       * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+       * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
+       * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
+       * will be used to construct an error message for the end user.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Status result = 3;</code>
+       */
+      public Builder setResult(
+          io.kubernetes.client.proto.Meta.Status.Builder builderForValue) {
+        if (resultBuilder_ == null) {
+          result_ = builderForValue.build();
+          onChanged();
+        } else {
+          resultBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+       * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+       * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
+       * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
+       * will be used to construct an error message for the end user.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Status result = 3;</code>
+       */
+      public Builder mergeResult(io.kubernetes.client.proto.Meta.Status value) {
+        if (resultBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+              result_ != null &&
+              result_ != io.kubernetes.client.proto.Meta.Status.getDefaultInstance()) {
+            result_ =
+              io.kubernetes.client.proto.Meta.Status.newBuilder(result_).mergeFrom(value).buildPartial();
+          } else {
+            result_ = value;
+          }
+          onChanged();
+        } else {
+          resultBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+       * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+       * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
+       * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
+       * will be used to construct an error message for the end user.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Status result = 3;</code>
+       */
+      public Builder clearResult() {
+        if (resultBuilder_ == null) {
+          result_ = null;
+          onChanged();
+        } else {
+          resultBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       * <pre>
+       * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+       * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+       * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
+       * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
+       * will be used to construct an error message for the end user.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Status result = 3;</code>
+       */
+      public io.kubernetes.client.proto.Meta.Status.Builder getResultBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getResultFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+       * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+       * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
+       * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
+       * will be used to construct an error message for the end user.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Status result = 3;</code>
+       */
+      public io.kubernetes.client.proto.Meta.StatusOrBuilder getResultOrBuilder() {
+        if (resultBuilder_ != null) {
+          return resultBuilder_.getMessageOrBuilder();
+        } else {
+          return result_ == null ?
+              io.kubernetes.client.proto.Meta.Status.getDefaultInstance() : result_;
+        }
+      }
+      /**
+       * <pre>
+       * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+       * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+       * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
+       * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
+       * will be used to construct an error message for the end user.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Status result = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Meta.Status, io.kubernetes.client.proto.Meta.Status.Builder, io.kubernetes.client.proto.Meta.StatusOrBuilder> 
+          getResultFieldBuilder() {
+        if (resultBuilder_ == null) {
+          resultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.Status, io.kubernetes.client.proto.Meta.Status.Builder, io.kubernetes.client.proto.Meta.StatusOrBuilder>(
+                  getResult(),
+                  getParentForChildren(),
+                  isClean());
+          result_ = null;
+        }
+        return resultBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionResponse)
+    private static final io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse();
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ConversionResponse>
+        PARSER = new com.google.protobuf.AbstractParser<ConversionResponse>() {
+      @java.lang.Override
+      public ConversionResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ConversionResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ConversionResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ConversionResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ConversionReviewOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionReview)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * `request` describes the attributes for the conversion request.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionRequest request = 1;</code>
+     */
+    boolean hasRequest();
+    /**
+     * <pre>
+     * `request` describes the attributes for the conversion request.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionRequest request = 1;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest getRequest();
+    /**
+     * <pre>
+     * `request` describes the attributes for the conversion request.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionRequest request = 1;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequestOrBuilder getRequestOrBuilder();
+
+    /**
+     * <pre>
+     * `response` describes the attributes for the conversion response.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionResponse response = 2;</code>
+     */
+    boolean hasResponse();
+    /**
+     * <pre>
+     * `response` describes the attributes for the conversion response.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionResponse response = 2;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse getResponse();
+    /**
+     * <pre>
+     * `response` describes the attributes for the conversion response.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionResponse response = 2;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponseOrBuilder getResponseOrBuilder();
+  }
+  /**
+   * <pre>
+   * ConversionReview describes a conversion request/response.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionReview}
+   */
+  public  static final class ConversionReview extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionReview)
+      ConversionReviewOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ConversionReview.newBuilder() to construct.
+    private ConversionReview(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ConversionReview() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ConversionReview(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = request_.toBuilder();
+              }
+              request_ = input.readMessage(io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(request_);
+                request_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+            case 18: {
+              io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = response_.toBuilder();
+              }
+              response_ = input.readMessage(io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(response_);
+                response_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionReview_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionReview_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview.class, io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int REQUEST_FIELD_NUMBER = 1;
+    private io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest request_;
+    /**
+     * <pre>
+     * `request` describes the attributes for the conversion request.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionRequest request = 1;</code>
+     */
+    public boolean hasRequest() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * `request` describes the attributes for the conversion request.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionRequest request = 1;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest getRequest() {
+      return request_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest.getDefaultInstance() : request_;
+    }
+    /**
+     * <pre>
+     * `request` describes the attributes for the conversion request.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionRequest request = 1;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequestOrBuilder getRequestOrBuilder() {
+      return request_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest.getDefaultInstance() : request_;
+    }
+
+    public static final int RESPONSE_FIELD_NUMBER = 2;
+    private io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse response_;
+    /**
+     * <pre>
+     * `response` describes the attributes for the conversion response.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionResponse response = 2;</code>
+     */
+    public boolean hasResponse() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * `response` describes the attributes for the conversion response.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionResponse response = 2;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse getResponse() {
+      return response_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse.getDefaultInstance() : response_;
+    }
+    /**
+     * <pre>
+     * `response` describes the attributes for the conversion response.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionResponse response = 2;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponseOrBuilder getResponseOrBuilder() {
+      return response_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse.getDefaultInstance() : response_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, getRequest());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, getResponse());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getRequest());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getResponse());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview other = (io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview) obj;
+
+      boolean result = true;
+      result = result && (hasRequest() == other.hasRequest());
+      if (hasRequest()) {
+        result = result && getRequest()
+            .equals(other.getRequest());
+      }
+      result = result && (hasResponse() == other.hasResponse());
+      if (hasResponse()) {
+        result = result && getResponse()
+            .equals(other.getResponse());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasRequest()) {
+        hash = (37 * hash) + REQUEST_FIELD_NUMBER;
+        hash = (53 * hash) + getRequest().hashCode();
+      }
+      if (hasResponse()) {
+        hash = (37 * hash) + RESPONSE_FIELD_NUMBER;
+        hash = (53 * hash) + getResponse().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * ConversionReview describes a conversion request/response.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionReview}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionReview)
+        io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReviewOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionReview_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionReview_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview.class, io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getRequestFieldBuilder();
+          getResponseFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (requestBuilder_ == null) {
+          request_ = null;
+        } else {
+          requestBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (responseBuilder_ == null) {
+          response_ = null;
+        } else {
+          responseBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionReview_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview build() {
+        io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview buildPartial() {
+        io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview result = new io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (requestBuilder_ == null) {
+          result.request_ = request_;
+        } else {
+          result.request_ = requestBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (responseBuilder_ == null) {
+          result.response_ = response_;
+        } else {
+          result.response_ = responseBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview) {
+          return mergeFrom((io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview other) {
+        if (other == io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview.getDefaultInstance()) return this;
+        if (other.hasRequest()) {
+          mergeRequest(other.getRequest());
+        }
+        if (other.hasResponse()) {
+          mergeResponse(other.getResponse());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest request_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest, io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequestOrBuilder> requestBuilder_;
+      /**
+       * <pre>
+       * `request` describes the attributes for the conversion request.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionRequest request = 1;</code>
+       */
+      public boolean hasRequest() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * `request` describes the attributes for the conversion request.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionRequest request = 1;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest getRequest() {
+        if (requestBuilder_ == null) {
+          return request_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest.getDefaultInstance() : request_;
+        } else {
+          return requestBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * `request` describes the attributes for the conversion request.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionRequest request = 1;</code>
+       */
+      public Builder setRequest(io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest value) {
+        if (requestBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          request_ = value;
+          onChanged();
+        } else {
+          requestBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <pre>
+       * `request` describes the attributes for the conversion request.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionRequest request = 1;</code>
+       */
+      public Builder setRequest(
+          io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest.Builder builderForValue) {
+        if (requestBuilder_ == null) {
+          request_ = builderForValue.build();
+          onChanged();
+        } else {
+          requestBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <pre>
+       * `request` describes the attributes for the conversion request.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionRequest request = 1;</code>
+       */
+      public Builder mergeRequest(io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest value) {
+        if (requestBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              request_ != null &&
+              request_ != io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest.getDefaultInstance()) {
+            request_ =
+              io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest.newBuilder(request_).mergeFrom(value).buildPartial();
+          } else {
+            request_ = value;
+          }
+          onChanged();
+        } else {
+          requestBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <pre>
+       * `request` describes the attributes for the conversion request.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionRequest request = 1;</code>
+       */
+      public Builder clearRequest() {
+        if (requestBuilder_ == null) {
+          request_ = null;
+          onChanged();
+        } else {
+          requestBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       * <pre>
+       * `request` describes the attributes for the conversion request.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionRequest request = 1;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest.Builder getRequestBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getRequestFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * `request` describes the attributes for the conversion request.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionRequest request = 1;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequestOrBuilder getRequestOrBuilder() {
+        if (requestBuilder_ != null) {
+          return requestBuilder_.getMessageOrBuilder();
+        } else {
+          return request_ == null ?
+              io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest.getDefaultInstance() : request_;
+        }
+      }
+      /**
+       * <pre>
+       * `request` describes the attributes for the conversion request.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionRequest request = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest, io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequestOrBuilder> 
+          getRequestFieldBuilder() {
+        if (requestBuilder_ == null) {
+          requestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest, io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequest.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.ConversionRequestOrBuilder>(
+                  getRequest(),
+                  getParentForChildren(),
+                  isClean());
+          request_ = null;
+        }
+        return requestBuilder_;
+      }
+
+      private io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse response_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse, io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponseOrBuilder> responseBuilder_;
+      /**
+       * <pre>
+       * `response` describes the attributes for the conversion response.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionResponse response = 2;</code>
+       */
+      public boolean hasResponse() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * `response` describes the attributes for the conversion response.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionResponse response = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse getResponse() {
+        if (responseBuilder_ == null) {
+          return response_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse.getDefaultInstance() : response_;
+        } else {
+          return responseBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * `response` describes the attributes for the conversion response.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionResponse response = 2;</code>
+       */
+      public Builder setResponse(io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse value) {
+        if (responseBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          response_ = value;
+          onChanged();
+        } else {
+          responseBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <pre>
+       * `response` describes the attributes for the conversion response.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionResponse response = 2;</code>
+       */
+      public Builder setResponse(
+          io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse.Builder builderForValue) {
+        if (responseBuilder_ == null) {
+          response_ = builderForValue.build();
+          onChanged();
+        } else {
+          responseBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <pre>
+       * `response` describes the attributes for the conversion response.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionResponse response = 2;</code>
+       */
+      public Builder mergeResponse(io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse value) {
+        if (responseBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              response_ != null &&
+              response_ != io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse.getDefaultInstance()) {
+            response_ =
+              io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse.newBuilder(response_).mergeFrom(value).buildPartial();
+          } else {
+            response_ = value;
+          }
+          onChanged();
+        } else {
+          responseBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <pre>
+       * `response` describes the attributes for the conversion response.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionResponse response = 2;</code>
+       */
+      public Builder clearResponse() {
+        if (responseBuilder_ == null) {
+          response_ = null;
+          onChanged();
+        } else {
+          responseBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       * <pre>
+       * `response` describes the attributes for the conversion response.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionResponse response = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse.Builder getResponseBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getResponseFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * `response` describes the attributes for the conversion response.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionResponse response = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponseOrBuilder getResponseOrBuilder() {
+        if (responseBuilder_ != null) {
+          return responseBuilder_.getMessageOrBuilder();
+        } else {
+          return response_ == null ?
+              io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse.getDefaultInstance() : response_;
+        }
+      }
+      /**
+       * <pre>
+       * `response` describes the attributes for the conversion response.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionResponse response = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse, io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponseOrBuilder> 
+          getResponseFieldBuilder() {
+        if (responseBuilder_ == null) {
+          responseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse, io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponse.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.ConversionResponseOrBuilder>(
+                  getResponse(),
+                  getParentForChildren(),
+                  isClean());
+          response_ = null;
+        }
+        return responseBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionReview)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ConversionReview)
+    private static final io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview();
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ConversionReview>
+        PARSER = new com.google.protobuf.AbstractParser<ConversionReview>() {
+      @java.lang.Override
+      public ConversionReview parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ConversionReview(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ConversionReview> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ConversionReview> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1beta1Apiextensions.ConversionReview getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface CustomResourceColumnDefinitionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * name is a human readable name for the column.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    boolean hasName();
+    /**
+     * <pre>
+     * name is a human readable name for the column.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <pre>
+     * name is a human readable name for the column.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <pre>
+     * type is an OpenAPI type definition for this column.
+     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+     * </pre>
+     *
+     * <code>optional string type = 2;</code>
+     */
+    boolean hasType();
+    /**
+     * <pre>
+     * type is an OpenAPI type definition for this column.
+     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+     * </pre>
+     *
+     * <code>optional string type = 2;</code>
+     */
+    java.lang.String getType();
+    /**
+     * <pre>
+     * type is an OpenAPI type definition for this column.
+     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+     * </pre>
+     *
+     * <code>optional string type = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getTypeBytes();
+
+    /**
+     * <pre>
+     * format is an optional OpenAPI type definition for this column. The 'name' format is applied
+     * to the primary identifier column to assist in clients identifying column is the resource name.
+     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string format = 3;</code>
+     */
+    boolean hasFormat();
+    /**
+     * <pre>
+     * format is an optional OpenAPI type definition for this column. The 'name' format is applied
+     * to the primary identifier column to assist in clients identifying column is the resource name.
+     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string format = 3;</code>
+     */
+    java.lang.String getFormat();
+    /**
+     * <pre>
+     * format is an optional OpenAPI type definition for this column. The 'name' format is applied
+     * to the primary identifier column to assist in clients identifying column is the resource name.
+     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string format = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getFormatBytes();
+
+    /**
+     * <pre>
+     * description is a human readable description of this column.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string description = 4;</code>
+     */
+    boolean hasDescription();
+    /**
+     * <pre>
+     * description is a human readable description of this column.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string description = 4;</code>
+     */
+    java.lang.String getDescription();
+    /**
+     * <pre>
+     * description is a human readable description of this column.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string description = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getDescriptionBytes();
+
+    /**
+     * <pre>
+     * priority is an integer defining the relative importance of this column compared to others. Lower
+     * numbers are considered higher priority. Columns that may be omitted in limited space scenarios
+     * should be given a higher priority.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 priority = 5;</code>
+     */
+    boolean hasPriority();
+    /**
+     * <pre>
+     * priority is an integer defining the relative importance of this column compared to others. Lower
+     * numbers are considered higher priority. Columns that may be omitted in limited space scenarios
+     * should be given a higher priority.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 priority = 5;</code>
+     */
+    int getPriority();
+
+    /**
+     * <pre>
+     * JSONPath is a simple JSON path, i.e. with array notation.
+     * </pre>
+     *
+     * <code>optional string JSONPath = 6;</code>
+     */
+    boolean hasJSONPath();
+    /**
+     * <pre>
+     * JSONPath is a simple JSON path, i.e. with array notation.
+     * </pre>
+     *
+     * <code>optional string JSONPath = 6;</code>
+     */
+    java.lang.String getJSONPath();
+    /**
+     * <pre>
+     * JSONPath is a simple JSON path, i.e. with array notation.
+     * </pre>
+     *
+     * <code>optional string JSONPath = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getJSONPathBytes();
+  }
+  /**
+   * <pre>
+   * CustomResourceColumnDefinition specifies a column for server side printing.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition}
+   */
+  public  static final class CustomResourceColumnDefinition extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition)
+      CustomResourceColumnDefinitionOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CustomResourceColumnDefinition.newBuilder() to construct.
+    private CustomResourceColumnDefinition(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CustomResourceColumnDefinition() {
+      name_ = "";
+      type_ = "";
+      format_ = "";
+      description_ = "";
+      priority_ = 0;
+      jSONPath_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CustomResourceColumnDefinition(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              name_ = bs;
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              type_ = bs;
+              break;
+            }
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000004;
+              format_ = bs;
+              break;
+            }
+            case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000008;
+              description_ = bs;
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              priority_ = input.readInt32();
+              break;
+            }
+            case 50: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000020;
+              jSONPath_ = bs;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceColumnDefinition_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceColumnDefinition_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.class, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     * <pre>
+     * name is a human readable name for the column.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * name is a human readable name for the column.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * name is a human readable name for the column.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object type_;
+    /**
+     * <pre>
+     * type is an OpenAPI type definition for this column.
+     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+     * </pre>
+     *
+     * <code>optional string type = 2;</code>
+     */
+    public boolean hasType() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * type is an OpenAPI type definition for this column.
+     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+     * </pre>
+     *
+     * <code>optional string type = 2;</code>
+     */
+    public java.lang.String getType() {
+      java.lang.Object ref = type_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          type_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * type is an OpenAPI type definition for this column.
+     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+     * </pre>
+     *
+     * <code>optional string type = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTypeBytes() {
+      java.lang.Object ref = type_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        type_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FORMAT_FIELD_NUMBER = 3;
+    private volatile java.lang.Object format_;
+    /**
+     * <pre>
+     * format is an optional OpenAPI type definition for this column. The 'name' format is applied
+     * to the primary identifier column to assist in clients identifying column is the resource name.
+     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string format = 3;</code>
+     */
+    public boolean hasFormat() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     * format is an optional OpenAPI type definition for this column. The 'name' format is applied
+     * to the primary identifier column to assist in clients identifying column is the resource name.
+     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string format = 3;</code>
+     */
+    public java.lang.String getFormat() {
+      java.lang.Object ref = format_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          format_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * format is an optional OpenAPI type definition for this column. The 'name' format is applied
+     * to the primary identifier column to assist in clients identifying column is the resource name.
+     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string format = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFormatBytes() {
+      java.lang.Object ref = format_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        format_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DESCRIPTION_FIELD_NUMBER = 4;
+    private volatile java.lang.Object description_;
+    /**
+     * <pre>
+     * description is a human readable description of this column.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string description = 4;</code>
+     */
+    public boolean hasDescription() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     * description is a human readable description of this column.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string description = 4;</code>
+     */
+    public java.lang.String getDescription() {
+      java.lang.Object ref = description_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          description_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * description is a human readable description of this column.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string description = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDescriptionBytes() {
+      java.lang.Object ref = description_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        description_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PRIORITY_FIELD_NUMBER = 5;
+    private int priority_;
+    /**
+     * <pre>
+     * priority is an integer defining the relative importance of this column compared to others. Lower
+     * numbers are considered higher priority. Columns that may be omitted in limited space scenarios
+     * should be given a higher priority.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 priority = 5;</code>
+     */
+    public boolean hasPriority() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <pre>
+     * priority is an integer defining the relative importance of this column compared to others. Lower
+     * numbers are considered higher priority. Columns that may be omitted in limited space scenarios
+     * should be given a higher priority.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 priority = 5;</code>
+     */
+    public int getPriority() {
+      return priority_;
+    }
+
+    public static final int JSONPATH_FIELD_NUMBER = 6;
+    private volatile java.lang.Object jSONPath_;
+    /**
+     * <pre>
+     * JSONPath is a simple JSON path, i.e. with array notation.
+     * </pre>
+     *
+     * <code>optional string JSONPath = 6;</code>
+     */
+    public boolean hasJSONPath() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <pre>
+     * JSONPath is a simple JSON path, i.e. with array notation.
+     * </pre>
+     *
+     * <code>optional string JSONPath = 6;</code>
+     */
+    public java.lang.String getJSONPath() {
+      java.lang.Object ref = jSONPath_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          jSONPath_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * JSONPath is a simple JSON path, i.e. with array notation.
+     * </pre>
+     *
+     * <code>optional string JSONPath = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getJSONPathBytes() {
+      java.lang.Object ref = jSONPath_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        jSONPath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, type_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, format_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, description_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeInt32(5, priority_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, jSONPath_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, type_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, format_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, description_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, priority_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, jSONPath_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition other = (io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition) obj;
+
+      boolean result = true;
+      result = result && (hasName() == other.hasName());
+      if (hasName()) {
+        result = result && getName()
+            .equals(other.getName());
+      }
+      result = result && (hasType() == other.hasType());
+      if (hasType()) {
+        result = result && getType()
+            .equals(other.getType());
+      }
+      result = result && (hasFormat() == other.hasFormat());
+      if (hasFormat()) {
+        result = result && getFormat()
+            .equals(other.getFormat());
+      }
+      result = result && (hasDescription() == other.hasDescription());
+      if (hasDescription()) {
+        result = result && getDescription()
+            .equals(other.getDescription());
+      }
+      result = result && (hasPriority() == other.hasPriority());
+      if (hasPriority()) {
+        result = result && (getPriority()
+            == other.getPriority());
+      }
+      result = result && (hasJSONPath() == other.hasJSONPath());
+      if (hasJSONPath()) {
+        result = result && getJSONPath()
+            .equals(other.getJSONPath());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasName()) {
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getName().hashCode();
+      }
+      if (hasType()) {
+        hash = (37 * hash) + TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getType().hashCode();
+      }
+      if (hasFormat()) {
+        hash = (37 * hash) + FORMAT_FIELD_NUMBER;
+        hash = (53 * hash) + getFormat().hashCode();
+      }
+      if (hasDescription()) {
+        hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+        hash = (53 * hash) + getDescription().hashCode();
+      }
+      if (hasPriority()) {
+        hash = (37 * hash) + PRIORITY_FIELD_NUMBER;
+        hash = (53 * hash) + getPriority();
+      }
+      if (hasJSONPath()) {
+        hash = (37 * hash) + JSONPATH_FIELD_NUMBER;
+        hash = (53 * hash) + getJSONPath().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * CustomResourceColumnDefinition specifies a column for server side printing.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition)
+        io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinitionOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceColumnDefinition_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceColumnDefinition_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.class, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        type_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        format_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        description_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
+        priority_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        jSONPath_ = "";
+        bitField0_ = (bitField0_ & ~0x00000020);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceColumnDefinition_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition build() {
+        io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition buildPartial() {
+        io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition result = new io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.name_ = name_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.type_ = type_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.format_ = format_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.description_ = description_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.priority_ = priority_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.jSONPath_ = jSONPath_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition) {
+          return mergeFrom((io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition other) {
+        if (other == io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.getDefaultInstance()) return this;
+        if (other.hasName()) {
+          bitField0_ |= 0x00000001;
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.hasType()) {
+          bitField0_ |= 0x00000002;
+          type_ = other.type_;
+          onChanged();
+        }
+        if (other.hasFormat()) {
+          bitField0_ |= 0x00000004;
+          format_ = other.format_;
+          onChanged();
+        }
+        if (other.hasDescription()) {
+          bitField0_ |= 0x00000008;
+          description_ = other.description_;
+          onChanged();
+        }
+        if (other.hasPriority()) {
+          setPriority(other.getPriority());
+        }
+        if (other.hasJSONPath()) {
+          bitField0_ |= 0x00000020;
+          jSONPath_ = other.jSONPath_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       * <pre>
+       * name is a human readable name for the column.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * name is a human readable name for the column.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * name is a human readable name for the column.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * name is a human readable name for the column.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * name is a human readable name for the column.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * name is a human readable name for the column.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object type_ = "";
+      /**
+       * <pre>
+       * type is an OpenAPI type definition for this column.
+       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+       * </pre>
+       *
+       * <code>optional string type = 2;</code>
+       */
+      public boolean hasType() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * type is an OpenAPI type definition for this column.
+       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+       * </pre>
+       *
+       * <code>optional string type = 2;</code>
+       */
+      public java.lang.String getType() {
+        java.lang.Object ref = type_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            type_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * type is an OpenAPI type definition for this column.
+       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+       * </pre>
+       *
+       * <code>optional string type = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTypeBytes() {
+        java.lang.Object ref = type_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          type_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * type is an OpenAPI type definition for this column.
+       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+       * </pre>
+       *
+       * <code>optional string type = 2;</code>
+       */
+      public Builder setType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * type is an OpenAPI type definition for this column.
+       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+       * </pre>
+       *
+       * <code>optional string type = 2;</code>
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        type_ = getDefaultInstance().getType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * type is an OpenAPI type definition for this column.
+       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+       * </pre>
+       *
+       * <code>optional string type = 2;</code>
+       */
+      public Builder setTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        type_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object format_ = "";
+      /**
+       * <pre>
+       * format is an optional OpenAPI type definition for this column. The 'name' format is applied
+       * to the primary identifier column to assist in clients identifying column is the resource name.
+       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string format = 3;</code>
+       */
+      public boolean hasFormat() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * format is an optional OpenAPI type definition for this column. The 'name' format is applied
+       * to the primary identifier column to assist in clients identifying column is the resource name.
+       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string format = 3;</code>
+       */
+      public java.lang.String getFormat() {
+        java.lang.Object ref = format_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            format_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * format is an optional OpenAPI type definition for this column. The 'name' format is applied
+       * to the primary identifier column to assist in clients identifying column is the resource name.
+       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string format = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFormatBytes() {
+        java.lang.Object ref = format_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          format_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * format is an optional OpenAPI type definition for this column. The 'name' format is applied
+       * to the primary identifier column to assist in clients identifying column is the resource name.
+       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string format = 3;</code>
+       */
+      public Builder setFormat(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        format_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * format is an optional OpenAPI type definition for this column. The 'name' format is applied
+       * to the primary identifier column to assist in clients identifying column is the resource name.
+       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string format = 3;</code>
+       */
+      public Builder clearFormat() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        format_ = getDefaultInstance().getFormat();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * format is an optional OpenAPI type definition for this column. The 'name' format is applied
+       * to the primary identifier column to assist in clients identifying column is the resource name.
+       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string format = 3;</code>
+       */
+      public Builder setFormatBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        format_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object description_ = "";
+      /**
+       * <pre>
+       * description is a human readable description of this column.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string description = 4;</code>
+       */
+      public boolean hasDescription() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <pre>
+       * description is a human readable description of this column.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string description = 4;</code>
+       */
+      public java.lang.String getDescription() {
+        java.lang.Object ref = description_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            description_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * description is a human readable description of this column.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string description = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDescriptionBytes() {
+        java.lang.Object ref = description_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          description_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * description is a human readable description of this column.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string description = 4;</code>
+       */
+      public Builder setDescription(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        description_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * description is a human readable description of this column.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string description = 4;</code>
+       */
+      public Builder clearDescription() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        description_ = getDefaultInstance().getDescription();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * description is a human readable description of this column.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string description = 4;</code>
+       */
+      public Builder setDescriptionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        description_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int priority_ ;
+      /**
+       * <pre>
+       * priority is an integer defining the relative importance of this column compared to others. Lower
+       * numbers are considered higher priority. Columns that may be omitted in limited space scenarios
+       * should be given a higher priority.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 priority = 5;</code>
+       */
+      public boolean hasPriority() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <pre>
+       * priority is an integer defining the relative importance of this column compared to others. Lower
+       * numbers are considered higher priority. Columns that may be omitted in limited space scenarios
+       * should be given a higher priority.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 priority = 5;</code>
+       */
+      public int getPriority() {
+        return priority_;
+      }
+      /**
+       * <pre>
+       * priority is an integer defining the relative importance of this column compared to others. Lower
+       * numbers are considered higher priority. Columns that may be omitted in limited space scenarios
+       * should be given a higher priority.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 priority = 5;</code>
+       */
+      public Builder setPriority(int value) {
+        bitField0_ |= 0x00000010;
+        priority_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * priority is an integer defining the relative importance of this column compared to others. Lower
+       * numbers are considered higher priority. Columns that may be omitted in limited space scenarios
+       * should be given a higher priority.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 priority = 5;</code>
+       */
+      public Builder clearPriority() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        priority_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object jSONPath_ = "";
+      /**
+       * <pre>
+       * JSONPath is a simple JSON path, i.e. with array notation.
+       * </pre>
+       *
+       * <code>optional string JSONPath = 6;</code>
+       */
+      public boolean hasJSONPath() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <pre>
+       * JSONPath is a simple JSON path, i.e. with array notation.
+       * </pre>
+       *
+       * <code>optional string JSONPath = 6;</code>
+       */
+      public java.lang.String getJSONPath() {
+        java.lang.Object ref = jSONPath_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            jSONPath_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * JSONPath is a simple JSON path, i.e. with array notation.
+       * </pre>
+       *
+       * <code>optional string JSONPath = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getJSONPathBytes() {
+        java.lang.Object ref = jSONPath_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          jSONPath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * JSONPath is a simple JSON path, i.e. with array notation.
+       * </pre>
+       *
+       * <code>optional string JSONPath = 6;</code>
+       */
+      public Builder setJSONPath(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+        jSONPath_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * JSONPath is a simple JSON path, i.e. with array notation.
+       * </pre>
+       *
+       * <code>optional string JSONPath = 6;</code>
+       */
+      public Builder clearJSONPath() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        jSONPath_ = getDefaultInstance().getJSONPath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * JSONPath is a simple JSON path, i.e. with array notation.
+       * </pre>
+       *
+       * <code>optional string JSONPath = 6;</code>
+       */
+      public Builder setJSONPathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+        jSONPath_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition)
+    private static final io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition();
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<CustomResourceColumnDefinition>
+        PARSER = new com.google.protobuf.AbstractParser<CustomResourceColumnDefinition>() {
+      @java.lang.Override
+      public CustomResourceColumnDefinition parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CustomResourceColumnDefinition(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CustomResourceColumnDefinition> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CustomResourceColumnDefinition> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface CustomResourceConversionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * `strategy` specifies the conversion strategy. Allowed values are:
+     * - `None`: The converter only change the apiVersion and would not touch any other field in the CR.
+     * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information is needed for this option.
+     * </pre>
+     *
+     * <code>optional string strategy = 1;</code>
+     */
+    boolean hasStrategy();
+    /**
+     * <pre>
+     * `strategy` specifies the conversion strategy. Allowed values are:
+     * - `None`: The converter only change the apiVersion and would not touch any other field in the CR.
+     * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information is needed for this option.
+     * </pre>
+     *
+     * <code>optional string strategy = 1;</code>
+     */
+    java.lang.String getStrategy();
+    /**
+     * <pre>
+     * `strategy` specifies the conversion strategy. Allowed values are:
+     * - `None`: The converter only change the apiVersion and would not touch any other field in the CR.
+     * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information is needed for this option.
+     * </pre>
+     *
+     * <code>optional string strategy = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getStrategyBytes();
+
+    /**
+     * <pre>
+     * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
+     * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.WebhookClientConfig webhookClientConfig = 2;</code>
+     */
+    boolean hasWebhookClientConfig();
+    /**
+     * <pre>
+     * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
+     * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.WebhookClientConfig webhookClientConfig = 2;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig getWebhookClientConfig();
+    /**
+     * <pre>
+     * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
+     * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.WebhookClientConfig webhookClientConfig = 2;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfigOrBuilder getWebhookClientConfigOrBuilder();
+  }
+  /**
+   * <pre>
+   * CustomResourceConversion describes how to convert different versions of a CR.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion}
+   */
+  public  static final class CustomResourceConversion extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion)
+      CustomResourceConversionOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CustomResourceConversion.newBuilder() to construct.
+    private CustomResourceConversion(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CustomResourceConversion() {
+      strategy_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CustomResourceConversion(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              strategy_ = bs;
+              break;
+            }
+            case 18: {
+              io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = webhookClientConfig_.toBuilder();
+              }
+              webhookClientConfig_ = input.readMessage(io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(webhookClientConfig_);
+                webhookClientConfig_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceConversion_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceConversion_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion.class, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int STRATEGY_FIELD_NUMBER = 1;
+    private volatile java.lang.Object strategy_;
+    /**
+     * <pre>
+     * `strategy` specifies the conversion strategy. Allowed values are:
+     * - `None`: The converter only change the apiVersion and would not touch any other field in the CR.
+     * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information is needed for this option.
+     * </pre>
+     *
+     * <code>optional string strategy = 1;</code>
+     */
+    public boolean hasStrategy() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * `strategy` specifies the conversion strategy. Allowed values are:
+     * - `None`: The converter only change the apiVersion and would not touch any other field in the CR.
+     * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information is needed for this option.
+     * </pre>
+     *
+     * <code>optional string strategy = 1;</code>
+     */
+    public java.lang.String getStrategy() {
+      java.lang.Object ref = strategy_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          strategy_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * `strategy` specifies the conversion strategy. Allowed values are:
+     * - `None`: The converter only change the apiVersion and would not touch any other field in the CR.
+     * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information is needed for this option.
+     * </pre>
+     *
+     * <code>optional string strategy = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getStrategyBytes() {
+      java.lang.Object ref = strategy_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        strategy_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int WEBHOOKCLIENTCONFIG_FIELD_NUMBER = 2;
+    private io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig webhookClientConfig_;
+    /**
+     * <pre>
+     * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
+     * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.WebhookClientConfig webhookClientConfig = 2;</code>
+     */
+    public boolean hasWebhookClientConfig() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
+     * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.WebhookClientConfig webhookClientConfig = 2;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig getWebhookClientConfig() {
+      return webhookClientConfig_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig.getDefaultInstance() : webhookClientConfig_;
+    }
+    /**
+     * <pre>
+     * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
+     * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.WebhookClientConfig webhookClientConfig = 2;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfigOrBuilder getWebhookClientConfigOrBuilder() {
+      return webhookClientConfig_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig.getDefaultInstance() : webhookClientConfig_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, strategy_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, getWebhookClientConfig());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, strategy_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getWebhookClientConfig());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion other = (io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion) obj;
+
+      boolean result = true;
+      result = result && (hasStrategy() == other.hasStrategy());
+      if (hasStrategy()) {
+        result = result && getStrategy()
+            .equals(other.getStrategy());
+      }
+      result = result && (hasWebhookClientConfig() == other.hasWebhookClientConfig());
+      if (hasWebhookClientConfig()) {
+        result = result && getWebhookClientConfig()
+            .equals(other.getWebhookClientConfig());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasStrategy()) {
+        hash = (37 * hash) + STRATEGY_FIELD_NUMBER;
+        hash = (53 * hash) + getStrategy().hashCode();
+      }
+      if (hasWebhookClientConfig()) {
+        hash = (37 * hash) + WEBHOOKCLIENTCONFIG_FIELD_NUMBER;
+        hash = (53 * hash) + getWebhookClientConfig().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * CustomResourceConversion describes how to convert different versions of a CR.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion)
+        io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversionOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceConversion_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceConversion_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion.class, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getWebhookClientConfigFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        strategy_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (webhookClientConfigBuilder_ == null) {
+          webhookClientConfig_ = null;
+        } else {
+          webhookClientConfigBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceConversion_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion build() {
+        io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion buildPartial() {
+        io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion result = new io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.strategy_ = strategy_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (webhookClientConfigBuilder_ == null) {
+          result.webhookClientConfig_ = webhookClientConfig_;
+        } else {
+          result.webhookClientConfig_ = webhookClientConfigBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion) {
+          return mergeFrom((io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion other) {
+        if (other == io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion.getDefaultInstance()) return this;
+        if (other.hasStrategy()) {
+          bitField0_ |= 0x00000001;
+          strategy_ = other.strategy_;
+          onChanged();
+        }
+        if (other.hasWebhookClientConfig()) {
+          mergeWebhookClientConfig(other.getWebhookClientConfig());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object strategy_ = "";
+      /**
+       * <pre>
+       * `strategy` specifies the conversion strategy. Allowed values are:
+       * - `None`: The converter only change the apiVersion and would not touch any other field in the CR.
+       * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information is needed for this option.
+       * </pre>
+       *
+       * <code>optional string strategy = 1;</code>
+       */
+      public boolean hasStrategy() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * `strategy` specifies the conversion strategy. Allowed values are:
+       * - `None`: The converter only change the apiVersion and would not touch any other field in the CR.
+       * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information is needed for this option.
+       * </pre>
+       *
+       * <code>optional string strategy = 1;</code>
+       */
+      public java.lang.String getStrategy() {
+        java.lang.Object ref = strategy_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            strategy_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * `strategy` specifies the conversion strategy. Allowed values are:
+       * - `None`: The converter only change the apiVersion and would not touch any other field in the CR.
+       * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information is needed for this option.
+       * </pre>
+       *
+       * <code>optional string strategy = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getStrategyBytes() {
+        java.lang.Object ref = strategy_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          strategy_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * `strategy` specifies the conversion strategy. Allowed values are:
+       * - `None`: The converter only change the apiVersion and would not touch any other field in the CR.
+       * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information is needed for this option.
+       * </pre>
+       *
+       * <code>optional string strategy = 1;</code>
+       */
+      public Builder setStrategy(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        strategy_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * `strategy` specifies the conversion strategy. Allowed values are:
+       * - `None`: The converter only change the apiVersion and would not touch any other field in the CR.
+       * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information is needed for this option.
+       * </pre>
+       *
+       * <code>optional string strategy = 1;</code>
+       */
+      public Builder clearStrategy() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        strategy_ = getDefaultInstance().getStrategy();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * `strategy` specifies the conversion strategy. Allowed values are:
+       * - `None`: The converter only change the apiVersion and would not touch any other field in the CR.
+       * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information is needed for this option.
+       * </pre>
+       *
+       * <code>optional string strategy = 1;</code>
+       */
+      public Builder setStrategyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        strategy_ = value;
+        onChanged();
+        return this;
+      }
+
+      private io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig webhookClientConfig_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig, io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfigOrBuilder> webhookClientConfigBuilder_;
+      /**
+       * <pre>
+       * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
+       * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.WebhookClientConfig webhookClientConfig = 2;</code>
+       */
+      public boolean hasWebhookClientConfig() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
+       * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.WebhookClientConfig webhookClientConfig = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig getWebhookClientConfig() {
+        if (webhookClientConfigBuilder_ == null) {
+          return webhookClientConfig_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig.getDefaultInstance() : webhookClientConfig_;
+        } else {
+          return webhookClientConfigBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
+       * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.WebhookClientConfig webhookClientConfig = 2;</code>
+       */
+      public Builder setWebhookClientConfig(io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig value) {
+        if (webhookClientConfigBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          webhookClientConfig_ = value;
+          onChanged();
+        } else {
+          webhookClientConfigBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <pre>
+       * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
+       * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.WebhookClientConfig webhookClientConfig = 2;</code>
+       */
+      public Builder setWebhookClientConfig(
+          io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig.Builder builderForValue) {
+        if (webhookClientConfigBuilder_ == null) {
+          webhookClientConfig_ = builderForValue.build();
+          onChanged();
+        } else {
+          webhookClientConfigBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <pre>
+       * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
+       * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.WebhookClientConfig webhookClientConfig = 2;</code>
+       */
+      public Builder mergeWebhookClientConfig(io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig value) {
+        if (webhookClientConfigBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              webhookClientConfig_ != null &&
+              webhookClientConfig_ != io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig.getDefaultInstance()) {
+            webhookClientConfig_ =
+              io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig.newBuilder(webhookClientConfig_).mergeFrom(value).buildPartial();
+          } else {
+            webhookClientConfig_ = value;
+          }
+          onChanged();
+        } else {
+          webhookClientConfigBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <pre>
+       * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
+       * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.WebhookClientConfig webhookClientConfig = 2;</code>
+       */
+      public Builder clearWebhookClientConfig() {
+        if (webhookClientConfigBuilder_ == null) {
+          webhookClientConfig_ = null;
+          onChanged();
+        } else {
+          webhookClientConfigBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       * <pre>
+       * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
+       * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.WebhookClientConfig webhookClientConfig = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig.Builder getWebhookClientConfigBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getWebhookClientConfigFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
+       * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.WebhookClientConfig webhookClientConfig = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfigOrBuilder getWebhookClientConfigOrBuilder() {
+        if (webhookClientConfigBuilder_ != null) {
+          return webhookClientConfigBuilder_.getMessageOrBuilder();
+        } else {
+          return webhookClientConfig_ == null ?
+              io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig.getDefaultInstance() : webhookClientConfig_;
+        }
+      }
+      /**
+       * <pre>
+       * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
+       * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.WebhookClientConfig webhookClientConfig = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig, io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfigOrBuilder> 
+          getWebhookClientConfigFieldBuilder() {
+        if (webhookClientConfigBuilder_ == null) {
+          webhookClientConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig, io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfigOrBuilder>(
+                  getWebhookClientConfig(),
+                  getParentForChildren(),
+                  isClean());
+          webhookClientConfig_ = null;
+        }
+        return webhookClientConfigBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion)
+    private static final io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion();
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<CustomResourceConversion>
+        PARSER = new com.google.protobuf.AbstractParser<CustomResourceConversion>() {
+      @java.lang.Override
+      public CustomResourceConversion parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CustomResourceConversion(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CustomResourceConversion> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CustomResourceConversion> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface CustomResourceDefinitionOrBuilder extends
       // @@protoc_insertion_point(interface_extends:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinition)
       com.google.protobuf.MessageOrBuilder {
@@ -59,6 +6551,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * Status indicates the actual state of the CustomResourceDefinition
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionStatus status = 3;</code>
@@ -67,6 +6560,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * Status indicates the actual state of the CustomResourceDefinition
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionStatus status = 3;</code>
@@ -75,6 +6569,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * Status indicates the actual state of the CustomResourceDefinition
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionStatus status = 3;</code>
@@ -111,6 +6606,9 @@ public final class V1beta1Apiextensions {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -122,13 +6620,6 @@ public final class V1beta1Apiextensions {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -168,6 +6659,13 @@ public final class V1beta1Apiextensions {
               bitField0_ |= 0x00000004;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -185,6 +6683,7 @@ public final class V1beta1Apiextensions {
       return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinition_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinition_fieldAccessorTable
@@ -252,6 +6751,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * Status indicates the actual state of the CustomResourceDefinition
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionStatus status = 3;</code>
@@ -262,6 +6762,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * Status indicates the actual state of the CustomResourceDefinition
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionStatus status = 3;</code>
@@ -272,6 +6773,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * Status indicates the actual state of the CustomResourceDefinition
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionStatus status = 3;</code>
@@ -281,6 +6783,7 @@ public final class V1beta1Apiextensions {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -290,6 +6793,7 @@ public final class V1beta1Apiextensions {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -304,6 +6808,7 @@ public final class V1beta1Apiextensions {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -450,6 +6955,7 @@ public final class V1beta1Apiextensions {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -457,6 +6963,7 @@ public final class V1beta1Apiextensions {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinition prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -485,6 +6992,7 @@ public final class V1beta1Apiextensions {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinition_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinition_fieldAccessorTable
@@ -510,6 +7018,7 @@ public final class V1beta1Apiextensions {
           getStatusFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -533,15 +7042,18 @@ public final class V1beta1Apiextensions {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinition_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinition getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinition.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinition build() {
         io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinition result = buildPartial();
         if (!result.isInitialized()) {
@@ -550,6 +7062,7 @@ public final class V1beta1Apiextensions {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinition buildPartial() {
         io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinition result = new io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinition(this);
         int from_bitField0_ = bitField0_;
@@ -583,32 +7096,39 @@ public final class V1beta1Apiextensions {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinition) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinition)other);
@@ -634,10 +7154,12 @@ public final class V1beta1Apiextensions {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -935,6 +7457,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Status indicates the actual state of the CustomResourceDefinition
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionStatus status = 3;</code>
@@ -945,6 +7468,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Status indicates the actual state of the CustomResourceDefinition
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionStatus status = 3;</code>
@@ -959,6 +7483,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Status indicates the actual state of the CustomResourceDefinition
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionStatus status = 3;</code>
@@ -979,6 +7504,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Status indicates the actual state of the CustomResourceDefinition
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionStatus status = 3;</code>
@@ -997,6 +7523,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Status indicates the actual state of the CustomResourceDefinition
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionStatus status = 3;</code>
@@ -1021,6 +7548,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Status indicates the actual state of the CustomResourceDefinition
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionStatus status = 3;</code>
@@ -1038,6 +7566,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Status indicates the actual state of the CustomResourceDefinition
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionStatus status = 3;</code>
@@ -1050,6 +7579,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Status indicates the actual state of the CustomResourceDefinition
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionStatus status = 3;</code>
@@ -1065,6 +7595,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Status indicates the actual state of the CustomResourceDefinition
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionStatus status = 3;</code>
@@ -1082,11 +7613,13 @@ public final class V1beta1Apiextensions {
         }
         return statusBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1108,11 +7641,12 @@ public final class V1beta1Apiextensions {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<CustomResourceDefinition>
         PARSER = new com.google.protobuf.AbstractParser<CustomResourceDefinition>() {
+      @java.lang.Override
       public CustomResourceDefinition parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new CustomResourceDefinition(input, extensionRegistry);
+        return new CustomResourceDefinition(input, extensionRegistry);
       }
     };
 
@@ -1125,6 +7659,7 @@ public final class V1beta1Apiextensions {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinition getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -1309,6 +7844,9 @@ public final class V1beta1Apiextensions {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1320,13 +7858,6 @@ public final class V1beta1Apiextensions {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -1364,6 +7895,13 @@ public final class V1beta1Apiextensions {
               message_ = bs;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1381,6 +7919,7 @@ public final class V1beta1Apiextensions {
       return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionCondition_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionCondition_fieldAccessorTable
@@ -1651,6 +8190,7 @@ public final class V1beta1Apiextensions {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1660,6 +8200,7 @@ public final class V1beta1Apiextensions {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1680,6 +8221,7 @@ public final class V1beta1Apiextensions {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1848,6 +8390,7 @@ public final class V1beta1Apiextensions {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1855,6 +8398,7 @@ public final class V1beta1Apiextensions {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionCondition prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1882,6 +8426,7 @@ public final class V1beta1Apiextensions {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionCondition_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionCondition_fieldAccessorTable
@@ -1905,6 +8450,7 @@ public final class V1beta1Apiextensions {
           getLastTransitionTimeFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         type_ = "";
@@ -1924,15 +8470,18 @@ public final class V1beta1Apiextensions {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionCondition_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionCondition getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionCondition.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionCondition build() {
         io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionCondition result = buildPartial();
         if (!result.isInitialized()) {
@@ -1941,6 +8490,7 @@ public final class V1beta1Apiextensions {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionCondition buildPartial() {
         io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionCondition result = new io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionCondition(this);
         int from_bitField0_ = bitField0_;
@@ -1974,32 +8524,39 @@ public final class V1beta1Apiextensions {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionCondition) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionCondition)other);
@@ -2039,10 +8596,12 @@ public final class V1beta1Apiextensions {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2642,11 +9201,13 @@ public final class V1beta1Apiextensions {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -2668,11 +9229,12 @@ public final class V1beta1Apiextensions {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<CustomResourceDefinitionCondition>
         PARSER = new com.google.protobuf.AbstractParser<CustomResourceDefinitionCondition>() {
+      @java.lang.Override
       public CustomResourceDefinitionCondition parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new CustomResourceDefinitionCondition(input, extensionRegistry);
+        return new CustomResourceDefinitionCondition(input, extensionRegistry);
       }
     };
 
@@ -2685,6 +9247,7 @@ public final class V1beta1Apiextensions {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionCondition getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -2782,6 +9345,9 @@ public final class V1beta1Apiextensions {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -2793,13 +9359,6 @@ public final class V1beta1Apiextensions {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ListMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2822,6 +9381,13 @@ public final class V1beta1Apiextensions {
                   input.readMessage(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinition.PARSER, extensionRegistry));
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -2842,6 +9408,7 @@ public final class V1beta1Apiextensions {
       return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionList_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionList_fieldAccessorTable
@@ -2927,6 +9494,7 @@ public final class V1beta1Apiextensions {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2936,6 +9504,7 @@ public final class V1beta1Apiextensions {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2947,6 +9516,7 @@ public final class V1beta1Apiextensions {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -3077,6 +9647,7 @@ public final class V1beta1Apiextensions {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -3084,6 +9655,7 @@ public final class V1beta1Apiextensions {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionList prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -3111,6 +9683,7 @@ public final class V1beta1Apiextensions {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionList_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionList_fieldAccessorTable
@@ -3135,6 +9708,7 @@ public final class V1beta1Apiextensions {
           getItemsFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -3152,15 +9726,18 @@ public final class V1beta1Apiextensions {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionList_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionList getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionList.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionList build() {
         io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionList result = buildPartial();
         if (!result.isInitialized()) {
@@ -3169,6 +9746,7 @@ public final class V1beta1Apiextensions {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionList buildPartial() {
         io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionList result = new io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionList(this);
         int from_bitField0_ = bitField0_;
@@ -3195,32 +9773,39 @@ public final class V1beta1Apiextensions {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionList) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionList)other);
@@ -3266,10 +9851,12 @@ public final class V1beta1Apiextensions {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3718,11 +10305,13 @@ public final class V1beta1Apiextensions {
         }
         return itemsBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -3744,11 +10333,12 @@ public final class V1beta1Apiextensions {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<CustomResourceDefinitionList>
         PARSER = new com.google.protobuf.AbstractParser<CustomResourceDefinitionList>() {
+      @java.lang.Override
       public CustomResourceDefinitionList parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new CustomResourceDefinitionList(input, extensionRegistry);
+        return new CustomResourceDefinitionList(input, extensionRegistry);
       }
     };
 
@@ -3761,6 +10351,7 @@ public final class V1beta1Apiextensions {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionList getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -3803,6 +10394,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * Singular is the singular name of the resource.  It must be all lowercase  Defaults to lowercased &lt;kind&gt;
+     * +optional
      * </pre>
      *
      * <code>optional string singular = 2;</code>
@@ -3811,6 +10403,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * Singular is the singular name of the resource.  It must be all lowercase  Defaults to lowercased &lt;kind&gt;
+     * +optional
      * </pre>
      *
      * <code>optional string singular = 2;</code>
@@ -3819,6 +10412,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * Singular is the singular name of the resource.  It must be all lowercase  Defaults to lowercased &lt;kind&gt;
+     * +optional
      * </pre>
      *
      * <code>optional string singular = 2;</code>
@@ -3829,6 +10423,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * ShortNames are short names for the resource.  It must be all lowercase.
+     * +optional
      * </pre>
      *
      * <code>repeated string shortNames = 3;</code>
@@ -3838,6 +10433,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * ShortNames are short names for the resource.  It must be all lowercase.
+     * +optional
      * </pre>
      *
      * <code>repeated string shortNames = 3;</code>
@@ -3846,6 +10442,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * ShortNames are short names for the resource.  It must be all lowercase.
+     * +optional
      * </pre>
      *
      * <code>repeated string shortNames = 3;</code>
@@ -3854,6 +10451,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * ShortNames are short names for the resource.  It must be all lowercase.
+     * +optional
      * </pre>
      *
      * <code>repeated string shortNames = 3;</code>
@@ -3890,6 +10488,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * ListKind is the serialized kind of the list for this resource.  Defaults to &lt;kind&gt;List.
+     * +optional
      * </pre>
      *
      * <code>optional string listKind = 5;</code>
@@ -3898,6 +10497,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * ListKind is the serialized kind of the list for this resource.  Defaults to &lt;kind&gt;List.
+     * +optional
      * </pre>
      *
      * <code>optional string listKind = 5;</code>
@@ -3906,12 +10506,52 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * ListKind is the serialized kind of the list for this resource.  Defaults to &lt;kind&gt;List.
+     * +optional
      * </pre>
      *
      * <code>optional string listKind = 5;</code>
      */
     com.google.protobuf.ByteString
         getListKindBytes();
+
+    /**
+     * <pre>
+     * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string categories = 6;</code>
+     */
+    java.util.List<java.lang.String>
+        getCategoriesList();
+    /**
+     * <pre>
+     * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string categories = 6;</code>
+     */
+    int getCategoriesCount();
+    /**
+     * <pre>
+     * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string categories = 6;</code>
+     */
+    java.lang.String getCategories(int index);
+    /**
+     * <pre>
+     * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string categories = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getCategoriesBytes(int index);
   }
   /**
    * <pre>
@@ -3935,6 +10575,7 @@ public final class V1beta1Apiextensions {
       shortNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       kind_ = "";
       listKind_ = "";
+      categories_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -3947,6 +10588,9 @@ public final class V1beta1Apiextensions {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -3958,13 +10602,6 @@ public final class V1beta1Apiextensions {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -3998,6 +10635,22 @@ public final class V1beta1Apiextensions {
               listKind_ = bs;
               break;
             }
+            case 50: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+                categories_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000020;
+              }
+              categories_.add(bs);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -4009,6 +10662,9 @@ public final class V1beta1Apiextensions {
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           shortNames_ = shortNames_.getUnmodifiableView();
         }
+        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+          categories_ = categories_.getUnmodifiableView();
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -4018,6 +10674,7 @@ public final class V1beta1Apiextensions {
       return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionNames_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionNames_fieldAccessorTable
@@ -4088,6 +10745,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * Singular is the singular name of the resource.  It must be all lowercase  Defaults to lowercased &lt;kind&gt;
+     * +optional
      * </pre>
      *
      * <code>optional string singular = 2;</code>
@@ -4098,6 +10756,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * Singular is the singular name of the resource.  It must be all lowercase  Defaults to lowercased &lt;kind&gt;
+     * +optional
      * </pre>
      *
      * <code>optional string singular = 2;</code>
@@ -4119,6 +10778,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * Singular is the singular name of the resource.  It must be all lowercase  Defaults to lowercased &lt;kind&gt;
+     * +optional
      * </pre>
      *
      * <code>optional string singular = 2;</code>
@@ -4142,6 +10802,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * ShortNames are short names for the resource.  It must be all lowercase.
+     * +optional
      * </pre>
      *
      * <code>repeated string shortNames = 3;</code>
@@ -4153,6 +10814,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * ShortNames are short names for the resource.  It must be all lowercase.
+     * +optional
      * </pre>
      *
      * <code>repeated string shortNames = 3;</code>
@@ -4163,6 +10825,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * ShortNames are short names for the resource.  It must be all lowercase.
+     * +optional
      * </pre>
      *
      * <code>repeated string shortNames = 3;</code>
@@ -4173,6 +10836,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * ShortNames are short names for the resource.  It must be all lowercase.
+     * +optional
      * </pre>
      *
      * <code>repeated string shortNames = 3;</code>
@@ -4241,6 +10905,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * ListKind is the serialized kind of the list for this resource.  Defaults to &lt;kind&gt;List.
+     * +optional
      * </pre>
      *
      * <code>optional string listKind = 5;</code>
@@ -4251,6 +10916,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * ListKind is the serialized kind of the list for this resource.  Defaults to &lt;kind&gt;List.
+     * +optional
      * </pre>
      *
      * <code>optional string listKind = 5;</code>
@@ -4272,6 +10938,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * ListKind is the serialized kind of the list for this resource.  Defaults to &lt;kind&gt;List.
+     * +optional
      * </pre>
      *
      * <code>optional string listKind = 5;</code>
@@ -4290,7 +10957,57 @@ public final class V1beta1Apiextensions {
       }
     }
 
+    public static final int CATEGORIES_FIELD_NUMBER = 6;
+    private com.google.protobuf.LazyStringList categories_;
+    /**
+     * <pre>
+     * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string categories = 6;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getCategoriesList() {
+      return categories_;
+    }
+    /**
+     * <pre>
+     * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string categories = 6;</code>
+     */
+    public int getCategoriesCount() {
+      return categories_.size();
+    }
+    /**
+     * <pre>
+     * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string categories = 6;</code>
+     */
+    public java.lang.String getCategories(int index) {
+      return categories_.get(index);
+    }
+    /**
+     * <pre>
+     * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string categories = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCategoriesBytes(int index) {
+      return categories_.getByteString(index);
+    }
+
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -4300,6 +11017,7 @@ public final class V1beta1Apiextensions {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -4317,9 +11035,13 @@ public final class V1beta1Apiextensions {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, listKind_);
       }
+      for (int i = 0; i < categories_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, categories_.getRaw(i));
+      }
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -4344,6 +11066,14 @@ public final class V1beta1Apiextensions {
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, listKind_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < categories_.size(); i++) {
+          dataSize += computeStringSizeNoTag(categories_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getCategoriesList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4383,6 +11113,8 @@ public final class V1beta1Apiextensions {
         result = result && getListKind()
             .equals(other.getListKind());
       }
+      result = result && getCategoriesList()
+          .equals(other.getCategoriesList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -4413,6 +11145,10 @@ public final class V1beta1Apiextensions {
       if (hasListKind()) {
         hash = (37 * hash) + LISTKIND_FIELD_NUMBER;
         hash = (53 * hash) + getListKind().hashCode();
+      }
+      if (getCategoriesCount() > 0) {
+        hash = (37 * hash) + CATEGORIES_FIELD_NUMBER;
+        hash = (53 * hash) + getCategoriesList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -4489,6 +11225,7 @@ public final class V1beta1Apiextensions {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -4496,6 +11233,7 @@ public final class V1beta1Apiextensions {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionNames prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -4523,6 +11261,7 @@ public final class V1beta1Apiextensions {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionNames_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionNames_fieldAccessorTable
@@ -4545,6 +11284,7 @@ public final class V1beta1Apiextensions {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         plural_ = "";
@@ -4557,18 +11297,23 @@ public final class V1beta1Apiextensions {
         bitField0_ = (bitField0_ & ~0x00000008);
         listKind_ = "";
         bitField0_ = (bitField0_ & ~0x00000010);
+        categories_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionNames_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionNames getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionNames.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionNames build() {
         io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionNames result = buildPartial();
         if (!result.isInitialized()) {
@@ -4577,6 +11322,7 @@ public final class V1beta1Apiextensions {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionNames buildPartial() {
         io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionNames result = new io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionNames(this);
         int from_bitField0_ = bitField0_;
@@ -4602,37 +11348,49 @@ public final class V1beta1Apiextensions {
           to_bitField0_ |= 0x00000008;
         }
         result.listKind_ = listKind_;
+        if (((bitField0_ & 0x00000020) == 0x00000020)) {
+          categories_ = categories_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000020);
+        }
+        result.categories_ = categories_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionNames) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionNames)other);
@@ -4674,15 +11432,27 @@ public final class V1beta1Apiextensions {
           listKind_ = other.listKind_;
           onChanged();
         }
+        if (!other.categories_.isEmpty()) {
+          if (categories_.isEmpty()) {
+            categories_ = other.categories_;
+            bitField0_ = (bitField0_ & ~0x00000020);
+          } else {
+            ensureCategoriesIsMutable();
+            categories_.addAll(other.categories_);
+          }
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4812,6 +11582,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Singular is the singular name of the resource.  It must be all lowercase  Defaults to lowercased &lt;kind&gt;
+       * +optional
        * </pre>
        *
        * <code>optional string singular = 2;</code>
@@ -4822,6 +11593,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Singular is the singular name of the resource.  It must be all lowercase  Defaults to lowercased &lt;kind&gt;
+       * +optional
        * </pre>
        *
        * <code>optional string singular = 2;</code>
@@ -4843,6 +11615,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Singular is the singular name of the resource.  It must be all lowercase  Defaults to lowercased &lt;kind&gt;
+       * +optional
        * </pre>
        *
        * <code>optional string singular = 2;</code>
@@ -4863,6 +11636,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Singular is the singular name of the resource.  It must be all lowercase  Defaults to lowercased &lt;kind&gt;
+       * +optional
        * </pre>
        *
        * <code>optional string singular = 2;</code>
@@ -4880,6 +11654,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Singular is the singular name of the resource.  It must be all lowercase  Defaults to lowercased &lt;kind&gt;
+       * +optional
        * </pre>
        *
        * <code>optional string singular = 2;</code>
@@ -4893,6 +11668,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Singular is the singular name of the resource.  It must be all lowercase  Defaults to lowercased &lt;kind&gt;
+       * +optional
        * </pre>
        *
        * <code>optional string singular = 2;</code>
@@ -4918,6 +11694,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * ShortNames are short names for the resource.  It must be all lowercase.
+       * +optional
        * </pre>
        *
        * <code>repeated string shortNames = 3;</code>
@@ -4929,6 +11706,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * ShortNames are short names for the resource.  It must be all lowercase.
+       * +optional
        * </pre>
        *
        * <code>repeated string shortNames = 3;</code>
@@ -4939,6 +11717,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * ShortNames are short names for the resource.  It must be all lowercase.
+       * +optional
        * </pre>
        *
        * <code>repeated string shortNames = 3;</code>
@@ -4949,6 +11728,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * ShortNames are short names for the resource.  It must be all lowercase.
+       * +optional
        * </pre>
        *
        * <code>repeated string shortNames = 3;</code>
@@ -4960,6 +11740,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * ShortNames are short names for the resource.  It must be all lowercase.
+       * +optional
        * </pre>
        *
        * <code>repeated string shortNames = 3;</code>
@@ -4977,6 +11758,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * ShortNames are short names for the resource.  It must be all lowercase.
+       * +optional
        * </pre>
        *
        * <code>repeated string shortNames = 3;</code>
@@ -4994,6 +11776,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * ShortNames are short names for the resource.  It must be all lowercase.
+       * +optional
        * </pre>
        *
        * <code>repeated string shortNames = 3;</code>
@@ -5009,6 +11792,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * ShortNames are short names for the resource.  It must be all lowercase.
+       * +optional
        * </pre>
        *
        * <code>repeated string shortNames = 3;</code>
@@ -5022,6 +11806,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * ShortNames are short names for the resource.  It must be all lowercase.
+       * +optional
        * </pre>
        *
        * <code>repeated string shortNames = 3;</code>
@@ -5141,6 +11926,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * ListKind is the serialized kind of the list for this resource.  Defaults to &lt;kind&gt;List.
+       * +optional
        * </pre>
        *
        * <code>optional string listKind = 5;</code>
@@ -5151,6 +11937,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * ListKind is the serialized kind of the list for this resource.  Defaults to &lt;kind&gt;List.
+       * +optional
        * </pre>
        *
        * <code>optional string listKind = 5;</code>
@@ -5172,6 +11959,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * ListKind is the serialized kind of the list for this resource.  Defaults to &lt;kind&gt;List.
+       * +optional
        * </pre>
        *
        * <code>optional string listKind = 5;</code>
@@ -5192,6 +11980,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * ListKind is the serialized kind of the list for this resource.  Defaults to &lt;kind&gt;List.
+       * +optional
        * </pre>
        *
        * <code>optional string listKind = 5;</code>
@@ -5209,6 +11998,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * ListKind is the serialized kind of the list for this resource.  Defaults to &lt;kind&gt;List.
+       * +optional
        * </pre>
        *
        * <code>optional string listKind = 5;</code>
@@ -5222,6 +12012,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * ListKind is the serialized kind of the list for this resource.  Defaults to &lt;kind&gt;List.
+       * +optional
        * </pre>
        *
        * <code>optional string listKind = 5;</code>
@@ -5236,11 +12027,151 @@ public final class V1beta1Apiextensions {
         onChanged();
         return this;
       }
+
+      private com.google.protobuf.LazyStringList categories_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureCategoriesIsMutable() {
+        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+          categories_ = new com.google.protobuf.LazyStringArrayList(categories_);
+          bitField0_ |= 0x00000020;
+         }
+      }
+      /**
+       * <pre>
+       * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string categories = 6;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getCategoriesList() {
+        return categories_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string categories = 6;</code>
+       */
+      public int getCategoriesCount() {
+        return categories_.size();
+      }
+      /**
+       * <pre>
+       * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string categories = 6;</code>
+       */
+      public java.lang.String getCategories(int index) {
+        return categories_.get(index);
+      }
+      /**
+       * <pre>
+       * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string categories = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getCategoriesBytes(int index) {
+        return categories_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string categories = 6;</code>
+       */
+      public Builder setCategories(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureCategoriesIsMutable();
+        categories_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string categories = 6;</code>
+       */
+      public Builder addCategories(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureCategoriesIsMutable();
+        categories_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string categories = 6;</code>
+       */
+      public Builder addAllCategories(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureCategoriesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, categories_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string categories = 6;</code>
+       */
+      public Builder clearCategories() {
+        categories_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string categories = 6;</code>
+       */
+      public Builder addCategoriesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureCategoriesIsMutable();
+        categories_.add(value);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -5262,11 +12193,12 @@ public final class V1beta1Apiextensions {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<CustomResourceDefinitionNames>
         PARSER = new com.google.protobuf.AbstractParser<CustomResourceDefinitionNames>() {
+      @java.lang.Override
       public CustomResourceDefinitionNames parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new CustomResourceDefinitionNames(input, extensionRegistry);
+        return new CustomResourceDefinitionNames(input, extensionRegistry);
       }
     };
 
@@ -5279,6 +12211,7 @@ public final class V1beta1Apiextensions {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionNames getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -5318,6 +12251,10 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * Version is the version this resource belongs in
+     * Should be always first item in Versions field if provided.
+     * Optional, but at least one of Version or Versions must be set.
+     * Deprecated: Please use `Versions`.
+     * +optional
      * </pre>
      *
      * <code>optional string version = 2;</code>
@@ -5326,6 +12263,10 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * Version is the version this resource belongs in
+     * Should be always first item in Versions field if provided.
+     * Optional, but at least one of Version or Versions must be set.
+     * Deprecated: Please use `Versions`.
+     * +optional
      * </pre>
      *
      * <code>optional string version = 2;</code>
@@ -5334,6 +12275,10 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * Version is the version this resource belongs in
+     * Should be always first item in Versions field if provided.
+     * Optional, but at least one of Version or Versions must be set.
+     * Deprecated: Please use `Versions`.
+     * +optional
      * </pre>
      *
      * <code>optional string version = 2;</code>
@@ -5395,7 +12340,8 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * Validation describes the validation methods for CustomResources
-     * This field is alpha-level and should only be sent to servers that enable the CustomResourceValidation feature.
+     * Optional, the global validation schema for all versions.
+     * Top-level and per-version schemas are mutually exclusive.
      * +optional
      * </pre>
      *
@@ -5405,7 +12351,8 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * Validation describes the validation methods for CustomResources
-     * This field is alpha-level and should only be sent to servers that enable the CustomResourceValidation feature.
+     * Optional, the global validation schema for all versions.
+     * Top-level and per-version schemas are mutually exclusive.
      * +optional
      * </pre>
      *
@@ -5415,13 +12362,234 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * Validation describes the validation methods for CustomResources
-     * This field is alpha-level and should only be sent to servers that enable the CustomResourceValidation feature.
+     * Optional, the global validation schema for all versions.
+     * Top-level and per-version schemas are mutually exclusive.
      * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceValidation validation = 5;</code>
      */
     io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidationOrBuilder getValidationOrBuilder();
+
+    /**
+     * <pre>
+     * Subresources describes the subresources for CustomResource
+     * Optional, the global subresources for all versions.
+     * Top-level and per-version subresources are mutually exclusive.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 6;</code>
+     */
+    boolean hasSubresources();
+    /**
+     * <pre>
+     * Subresources describes the subresources for CustomResource
+     * Optional, the global subresources for all versions.
+     * Top-level and per-version subresources are mutually exclusive.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 6;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources getSubresources();
+    /**
+     * <pre>
+     * Subresources describes the subresources for CustomResource
+     * Optional, the global subresources for all versions.
+     * Top-level and per-version subresources are mutually exclusive.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 6;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourcesOrBuilder getSubresourcesOrBuilder();
+
+    /**
+     * <pre>
+     * Versions is the list of all supported versions for this resource.
+     * If Version field is provided, this field is optional.
+     * Validation: All versions must use the same validation schema for now. i.e., top
+     * level Validation field is applied to all of these versions.
+     * Order: The version name will be used to compute the order.
+     * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+     * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+     * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+     * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+     * major version, then minor version. An example sorted list of versions:
+     * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+     */
+    java.util.List<io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion> 
+        getVersionsList();
+    /**
+     * <pre>
+     * Versions is the list of all supported versions for this resource.
+     * If Version field is provided, this field is optional.
+     * Validation: All versions must use the same validation schema for now. i.e., top
+     * level Validation field is applied to all of these versions.
+     * Order: The version name will be used to compute the order.
+     * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+     * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+     * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+     * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+     * major version, then minor version. An example sorted list of versions:
+     * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion getVersions(int index);
+    /**
+     * <pre>
+     * Versions is the list of all supported versions for this resource.
+     * If Version field is provided, this field is optional.
+     * Validation: All versions must use the same validation schema for now. i.e., top
+     * level Validation field is applied to all of these versions.
+     * Order: The version name will be used to compute the order.
+     * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+     * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+     * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+     * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+     * major version, then minor version. An example sorted list of versions:
+     * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+     */
+    int getVersionsCount();
+    /**
+     * <pre>
+     * Versions is the list of all supported versions for this resource.
+     * If Version field is provided, this field is optional.
+     * Validation: All versions must use the same validation schema for now. i.e., top
+     * level Validation field is applied to all of these versions.
+     * Order: The version name will be used to compute the order.
+     * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+     * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+     * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+     * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+     * major version, then minor version. An example sorted list of versions:
+     * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+     */
+    java.util.List<? extends io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersionOrBuilder> 
+        getVersionsOrBuilderList();
+    /**
+     * <pre>
+     * Versions is the list of all supported versions for this resource.
+     * If Version field is provided, this field is optional.
+     * Validation: All versions must use the same validation schema for now. i.e., top
+     * level Validation field is applied to all of these versions.
+     * Order: The version name will be used to compute the order.
+     * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+     * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+     * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+     * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+     * major version, then minor version. An example sorted list of versions:
+     * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersionOrBuilder getVersionsOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * Optional, the global columns for all versions.
+     * Top-level and per-version columns are mutually exclusive.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+     */
+    java.util.List<io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition> 
+        getAdditionalPrinterColumnsList();
+    /**
+     * <pre>
+     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * Optional, the global columns for all versions.
+     * Top-level and per-version columns are mutually exclusive.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition getAdditionalPrinterColumns(int index);
+    /**
+     * <pre>
+     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * Optional, the global columns for all versions.
+     * Top-level and per-version columns are mutually exclusive.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+     */
+    int getAdditionalPrinterColumnsCount();
+    /**
+     * <pre>
+     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * Optional, the global columns for all versions.
+     * Top-level and per-version columns are mutually exclusive.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+     */
+    java.util.List<? extends io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinitionOrBuilder> 
+        getAdditionalPrinterColumnsOrBuilderList();
+    /**
+     * <pre>
+     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * Optional, the global columns for all versions.
+     * Top-level and per-version columns are mutually exclusive.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinitionOrBuilder getAdditionalPrinterColumnsOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * `conversion` defines conversion settings for the CRD.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion conversion = 9;</code>
+     */
+    boolean hasConversion();
+    /**
+     * <pre>
+     * `conversion` defines conversion settings for the CRD.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion conversion = 9;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion getConversion();
+    /**
+     * <pre>
+     * `conversion` defines conversion settings for the CRD.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion conversion = 9;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversionOrBuilder getConversionOrBuilder();
   }
   /**
    * <pre>
@@ -5443,6 +12611,8 @@ public final class V1beta1Apiextensions {
       group_ = "";
       version_ = "";
       scope_ = "";
+      versions_ = java.util.Collections.emptyList();
+      additionalPrinterColumns_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -5455,6 +12625,9 @@ public final class V1beta1Apiextensions {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -5466,13 +12639,6 @@ public final class V1beta1Apiextensions {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -5517,6 +12683,57 @@ public final class V1beta1Apiextensions {
               bitField0_ |= 0x00000010;
               break;
             }
+            case 50: {
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000020) == 0x00000020)) {
+                subBuilder = subresources_.toBuilder();
+              }
+              subresources_ = input.readMessage(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(subresources_);
+                subresources_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000020;
+              break;
+            }
+            case 58: {
+              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+                versions_ = new java.util.ArrayList<io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion>();
+                mutable_bitField0_ |= 0x00000040;
+              }
+              versions_.add(
+                  input.readMessage(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion.PARSER, extensionRegistry));
+              break;
+            }
+            case 66: {
+              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+                additionalPrinterColumns_ = new java.util.ArrayList<io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition>();
+                mutable_bitField0_ |= 0x00000080;
+              }
+              additionalPrinterColumns_.add(
+                  input.readMessage(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.PARSER, extensionRegistry));
+              break;
+            }
+            case 74: {
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000040) == 0x00000040)) {
+                subBuilder = conversion_.toBuilder();
+              }
+              conversion_ = input.readMessage(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(conversion_);
+                conversion_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000040;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -5525,6 +12742,12 @@ public final class V1beta1Apiextensions {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+          versions_ = java.util.Collections.unmodifiableList(versions_);
+        }
+        if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+          additionalPrinterColumns_ = java.util.Collections.unmodifiableList(additionalPrinterColumns_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -5534,6 +12757,7 @@ public final class V1beta1Apiextensions {
       return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionSpec_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionSpec_fieldAccessorTable
@@ -5601,6 +12825,10 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * Version is the version this resource belongs in
+     * Should be always first item in Versions field if provided.
+     * Optional, but at least one of Version or Versions must be set.
+     * Deprecated: Please use `Versions`.
+     * +optional
      * </pre>
      *
      * <code>optional string version = 2;</code>
@@ -5611,6 +12839,10 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * Version is the version this resource belongs in
+     * Should be always first item in Versions field if provided.
+     * Optional, but at least one of Version or Versions must be set.
+     * Deprecated: Please use `Versions`.
+     * +optional
      * </pre>
      *
      * <code>optional string version = 2;</code>
@@ -5632,6 +12864,10 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * Version is the version this resource belongs in
+     * Should be always first item in Versions field if provided.
+     * Optional, but at least one of Version or Versions must be set.
+     * Deprecated: Please use `Versions`.
+     * +optional
      * </pre>
      *
      * <code>optional string version = 2;</code>
@@ -5742,7 +12978,8 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * Validation describes the validation methods for CustomResources
-     * This field is alpha-level and should only be sent to servers that enable the CustomResourceValidation feature.
+     * Optional, the global validation schema for all versions.
+     * Top-level and per-version schemas are mutually exclusive.
      * +optional
      * </pre>
      *
@@ -5754,7 +12991,8 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * Validation describes the validation methods for CustomResources
-     * This field is alpha-level and should only be sent to servers that enable the CustomResourceValidation feature.
+     * Optional, the global validation schema for all versions.
+     * Top-level and per-version schemas are mutually exclusive.
      * +optional
      * </pre>
      *
@@ -5766,7 +13004,8 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * Validation describes the validation methods for CustomResources
-     * This field is alpha-level and should only be sent to servers that enable the CustomResourceValidation feature.
+     * Optional, the global validation schema for all versions.
+     * Top-level and per-version schemas are mutually exclusive.
      * +optional
      * </pre>
      *
@@ -5776,7 +13015,266 @@ public final class V1beta1Apiextensions {
       return validation_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation.getDefaultInstance() : validation_;
     }
 
+    public static final int SUBRESOURCES_FIELD_NUMBER = 6;
+    private io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources subresources_;
+    /**
+     * <pre>
+     * Subresources describes the subresources for CustomResource
+     * Optional, the global subresources for all versions.
+     * Top-level and per-version subresources are mutually exclusive.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 6;</code>
+     */
+    public boolean hasSubresources() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <pre>
+     * Subresources describes the subresources for CustomResource
+     * Optional, the global subresources for all versions.
+     * Top-level and per-version subresources are mutually exclusive.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 6;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources getSubresources() {
+      return subresources_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.getDefaultInstance() : subresources_;
+    }
+    /**
+     * <pre>
+     * Subresources describes the subresources for CustomResource
+     * Optional, the global subresources for all versions.
+     * Top-level and per-version subresources are mutually exclusive.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 6;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourcesOrBuilder getSubresourcesOrBuilder() {
+      return subresources_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.getDefaultInstance() : subresources_;
+    }
+
+    public static final int VERSIONS_FIELD_NUMBER = 7;
+    private java.util.List<io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion> versions_;
+    /**
+     * <pre>
+     * Versions is the list of all supported versions for this resource.
+     * If Version field is provided, this field is optional.
+     * Validation: All versions must use the same validation schema for now. i.e., top
+     * level Validation field is applied to all of these versions.
+     * Order: The version name will be used to compute the order.
+     * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+     * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+     * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+     * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+     * major version, then minor version. An example sorted list of versions:
+     * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+     */
+    public java.util.List<io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion> getVersionsList() {
+      return versions_;
+    }
+    /**
+     * <pre>
+     * Versions is the list of all supported versions for this resource.
+     * If Version field is provided, this field is optional.
+     * Validation: All versions must use the same validation schema for now. i.e., top
+     * level Validation field is applied to all of these versions.
+     * Order: The version name will be used to compute the order.
+     * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+     * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+     * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+     * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+     * major version, then minor version. An example sorted list of versions:
+     * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+     */
+    public java.util.List<? extends io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersionOrBuilder> 
+        getVersionsOrBuilderList() {
+      return versions_;
+    }
+    /**
+     * <pre>
+     * Versions is the list of all supported versions for this resource.
+     * If Version field is provided, this field is optional.
+     * Validation: All versions must use the same validation schema for now. i.e., top
+     * level Validation field is applied to all of these versions.
+     * Order: The version name will be used to compute the order.
+     * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+     * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+     * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+     * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+     * major version, then minor version. An example sorted list of versions:
+     * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+     */
+    public int getVersionsCount() {
+      return versions_.size();
+    }
+    /**
+     * <pre>
+     * Versions is the list of all supported versions for this resource.
+     * If Version field is provided, this field is optional.
+     * Validation: All versions must use the same validation schema for now. i.e., top
+     * level Validation field is applied to all of these versions.
+     * Order: The version name will be used to compute the order.
+     * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+     * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+     * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+     * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+     * major version, then minor version. An example sorted list of versions:
+     * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion getVersions(int index) {
+      return versions_.get(index);
+    }
+    /**
+     * <pre>
+     * Versions is the list of all supported versions for this resource.
+     * If Version field is provided, this field is optional.
+     * Validation: All versions must use the same validation schema for now. i.e., top
+     * level Validation field is applied to all of these versions.
+     * Order: The version name will be used to compute the order.
+     * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+     * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+     * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+     * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+     * major version, then minor version. An example sorted list of versions:
+     * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersionOrBuilder getVersionsOrBuilder(
+        int index) {
+      return versions_.get(index);
+    }
+
+    public static final int ADDITIONALPRINTERCOLUMNS_FIELD_NUMBER = 8;
+    private java.util.List<io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition> additionalPrinterColumns_;
+    /**
+     * <pre>
+     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * Optional, the global columns for all versions.
+     * Top-level and per-version columns are mutually exclusive.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+     */
+    public java.util.List<io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition> getAdditionalPrinterColumnsList() {
+      return additionalPrinterColumns_;
+    }
+    /**
+     * <pre>
+     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * Optional, the global columns for all versions.
+     * Top-level and per-version columns are mutually exclusive.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+     */
+    public java.util.List<? extends io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinitionOrBuilder> 
+        getAdditionalPrinterColumnsOrBuilderList() {
+      return additionalPrinterColumns_;
+    }
+    /**
+     * <pre>
+     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * Optional, the global columns for all versions.
+     * Top-level and per-version columns are mutually exclusive.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+     */
+    public int getAdditionalPrinterColumnsCount() {
+      return additionalPrinterColumns_.size();
+    }
+    /**
+     * <pre>
+     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * Optional, the global columns for all versions.
+     * Top-level and per-version columns are mutually exclusive.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition getAdditionalPrinterColumns(int index) {
+      return additionalPrinterColumns_.get(index);
+    }
+    /**
+     * <pre>
+     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * Optional, the global columns for all versions.
+     * Top-level and per-version columns are mutually exclusive.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinitionOrBuilder getAdditionalPrinterColumnsOrBuilder(
+        int index) {
+      return additionalPrinterColumns_.get(index);
+    }
+
+    public static final int CONVERSION_FIELD_NUMBER = 9;
+    private io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion conversion_;
+    /**
+     * <pre>
+     * `conversion` defines conversion settings for the CRD.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion conversion = 9;</code>
+     */
+    public boolean hasConversion() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <pre>
+     * `conversion` defines conversion settings for the CRD.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion conversion = 9;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion getConversion() {
+      return conversion_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion.getDefaultInstance() : conversion_;
+    }
+    /**
+     * <pre>
+     * `conversion` defines conversion settings for the CRD.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion conversion = 9;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversionOrBuilder getConversionOrBuilder() {
+      return conversion_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion.getDefaultInstance() : conversion_;
+    }
+
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -5786,6 +13284,7 @@ public final class V1beta1Apiextensions {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -5803,9 +13302,22 @@ public final class V1beta1Apiextensions {
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeMessage(5, getValidation());
       }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeMessage(6, getSubresources());
+      }
+      for (int i = 0; i < versions_.size(); i++) {
+        output.writeMessage(7, versions_.get(i));
+      }
+      for (int i = 0; i < additionalPrinterColumns_.size(); i++) {
+        output.writeMessage(8, additionalPrinterColumns_.get(i));
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeMessage(9, getConversion());
+      }
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -5827,6 +13339,22 @@ public final class V1beta1Apiextensions {
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getValidation());
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, getSubresources());
+      }
+      for (int i = 0; i < versions_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, versions_.get(i));
+      }
+      for (int i = 0; i < additionalPrinterColumns_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, additionalPrinterColumns_.get(i));
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, getConversion());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5869,6 +13397,20 @@ public final class V1beta1Apiextensions {
         result = result && getValidation()
             .equals(other.getValidation());
       }
+      result = result && (hasSubresources() == other.hasSubresources());
+      if (hasSubresources()) {
+        result = result && getSubresources()
+            .equals(other.getSubresources());
+      }
+      result = result && getVersionsList()
+          .equals(other.getVersionsList());
+      result = result && getAdditionalPrinterColumnsList()
+          .equals(other.getAdditionalPrinterColumnsList());
+      result = result && (hasConversion() == other.hasConversion());
+      if (hasConversion()) {
+        result = result && getConversion()
+            .equals(other.getConversion());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -5899,6 +13441,22 @@ public final class V1beta1Apiextensions {
       if (hasValidation()) {
         hash = (37 * hash) + VALIDATION_FIELD_NUMBER;
         hash = (53 * hash) + getValidation().hashCode();
+      }
+      if (hasSubresources()) {
+        hash = (37 * hash) + SUBRESOURCES_FIELD_NUMBER;
+        hash = (53 * hash) + getSubresources().hashCode();
+      }
+      if (getVersionsCount() > 0) {
+        hash = (37 * hash) + VERSIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getVersionsList().hashCode();
+      }
+      if (getAdditionalPrinterColumnsCount() > 0) {
+        hash = (37 * hash) + ADDITIONALPRINTERCOLUMNS_FIELD_NUMBER;
+        hash = (53 * hash) + getAdditionalPrinterColumnsList().hashCode();
+      }
+      if (hasConversion()) {
+        hash = (37 * hash) + CONVERSION_FIELD_NUMBER;
+        hash = (53 * hash) + getConversion().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -5975,6 +13533,7 @@ public final class V1beta1Apiextensions {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -5982,6 +13541,7 @@ public final class V1beta1Apiextensions {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionSpec prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -6009,6 +13569,7 @@ public final class V1beta1Apiextensions {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionSpec_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionSpec_fieldAccessorTable
@@ -6031,8 +13592,13 @@ public final class V1beta1Apiextensions {
                 .alwaysUseFieldBuilders) {
           getNamesFieldBuilder();
           getValidationFieldBuilder();
+          getSubresourcesFieldBuilder();
+          getVersionsFieldBuilder();
+          getAdditionalPrinterColumnsFieldBuilder();
+          getConversionFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         group_ = "";
@@ -6053,18 +13619,45 @@ public final class V1beta1Apiextensions {
           validationBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000010);
+        if (subresourcesBuilder_ == null) {
+          subresources_ = null;
+        } else {
+          subresourcesBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000020);
+        if (versionsBuilder_ == null) {
+          versions_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000040);
+        } else {
+          versionsBuilder_.clear();
+        }
+        if (additionalPrinterColumnsBuilder_ == null) {
+          additionalPrinterColumns_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000080);
+        } else {
+          additionalPrinterColumnsBuilder_.clear();
+        }
+        if (conversionBuilder_ == null) {
+          conversion_ = null;
+        } else {
+          conversionBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000100);
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionSpec_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionSpec getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionSpec.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionSpec build() {
         io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionSpec result = buildPartial();
         if (!result.isInitialized()) {
@@ -6073,6 +13666,7 @@ public final class V1beta1Apiextensions {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionSpec buildPartial() {
         io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionSpec result = new io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionSpec(this);
         int from_bitField0_ = bitField0_;
@@ -6105,37 +13699,78 @@ public final class V1beta1Apiextensions {
         } else {
           result.validation_ = validationBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        if (subresourcesBuilder_ == null) {
+          result.subresources_ = subresources_;
+        } else {
+          result.subresources_ = subresourcesBuilder_.build();
+        }
+        if (versionsBuilder_ == null) {
+          if (((bitField0_ & 0x00000040) == 0x00000040)) {
+            versions_ = java.util.Collections.unmodifiableList(versions_);
+            bitField0_ = (bitField0_ & ~0x00000040);
+          }
+          result.versions_ = versions_;
+        } else {
+          result.versions_ = versionsBuilder_.build();
+        }
+        if (additionalPrinterColumnsBuilder_ == null) {
+          if (((bitField0_ & 0x00000080) == 0x00000080)) {
+            additionalPrinterColumns_ = java.util.Collections.unmodifiableList(additionalPrinterColumns_);
+            bitField0_ = (bitField0_ & ~0x00000080);
+          }
+          result.additionalPrinterColumns_ = additionalPrinterColumns_;
+        } else {
+          result.additionalPrinterColumns_ = additionalPrinterColumnsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        if (conversionBuilder_ == null) {
+          result.conversion_ = conversion_;
+        } else {
+          result.conversion_ = conversionBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionSpec) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionSpec)other);
@@ -6168,15 +13803,75 @@ public final class V1beta1Apiextensions {
         if (other.hasValidation()) {
           mergeValidation(other.getValidation());
         }
+        if (other.hasSubresources()) {
+          mergeSubresources(other.getSubresources());
+        }
+        if (versionsBuilder_ == null) {
+          if (!other.versions_.isEmpty()) {
+            if (versions_.isEmpty()) {
+              versions_ = other.versions_;
+              bitField0_ = (bitField0_ & ~0x00000040);
+            } else {
+              ensureVersionsIsMutable();
+              versions_.addAll(other.versions_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.versions_.isEmpty()) {
+            if (versionsBuilder_.isEmpty()) {
+              versionsBuilder_.dispose();
+              versionsBuilder_ = null;
+              versions_ = other.versions_;
+              bitField0_ = (bitField0_ & ~0x00000040);
+              versionsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getVersionsFieldBuilder() : null;
+            } else {
+              versionsBuilder_.addAllMessages(other.versions_);
+            }
+          }
+        }
+        if (additionalPrinterColumnsBuilder_ == null) {
+          if (!other.additionalPrinterColumns_.isEmpty()) {
+            if (additionalPrinterColumns_.isEmpty()) {
+              additionalPrinterColumns_ = other.additionalPrinterColumns_;
+              bitField0_ = (bitField0_ & ~0x00000080);
+            } else {
+              ensureAdditionalPrinterColumnsIsMutable();
+              additionalPrinterColumns_.addAll(other.additionalPrinterColumns_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.additionalPrinterColumns_.isEmpty()) {
+            if (additionalPrinterColumnsBuilder_.isEmpty()) {
+              additionalPrinterColumnsBuilder_.dispose();
+              additionalPrinterColumnsBuilder_ = null;
+              additionalPrinterColumns_ = other.additionalPrinterColumns_;
+              bitField0_ = (bitField0_ & ~0x00000080);
+              additionalPrinterColumnsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getAdditionalPrinterColumnsFieldBuilder() : null;
+            } else {
+              additionalPrinterColumnsBuilder_.addAllMessages(other.additionalPrinterColumns_);
+            }
+          }
+        }
+        if (other.hasConversion()) {
+          mergeConversion(other.getConversion());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -6300,6 +13995,10 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Version is the version this resource belongs in
+       * Should be always first item in Versions field if provided.
+       * Optional, but at least one of Version or Versions must be set.
+       * Deprecated: Please use `Versions`.
+       * +optional
        * </pre>
        *
        * <code>optional string version = 2;</code>
@@ -6310,6 +14009,10 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Version is the version this resource belongs in
+       * Should be always first item in Versions field if provided.
+       * Optional, but at least one of Version or Versions must be set.
+       * Deprecated: Please use `Versions`.
+       * +optional
        * </pre>
        *
        * <code>optional string version = 2;</code>
@@ -6331,6 +14034,10 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Version is the version this resource belongs in
+       * Should be always first item in Versions field if provided.
+       * Optional, but at least one of Version or Versions must be set.
+       * Deprecated: Please use `Versions`.
+       * +optional
        * </pre>
        *
        * <code>optional string version = 2;</code>
@@ -6351,6 +14058,10 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Version is the version this resource belongs in
+       * Should be always first item in Versions field if provided.
+       * Optional, but at least one of Version or Versions must be set.
+       * Deprecated: Please use `Versions`.
+       * +optional
        * </pre>
        *
        * <code>optional string version = 2;</code>
@@ -6368,6 +14079,10 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Version is the version this resource belongs in
+       * Should be always first item in Versions field if provided.
+       * Optional, but at least one of Version or Versions must be set.
+       * Deprecated: Please use `Versions`.
+       * +optional
        * </pre>
        *
        * <code>optional string version = 2;</code>
@@ -6381,6 +14096,10 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Version is the version this resource belongs in
+       * Should be always first item in Versions field if provided.
+       * Optional, but at least one of Version or Versions must be set.
+       * Deprecated: Please use `Versions`.
+       * +optional
        * </pre>
        *
        * <code>optional string version = 2;</code>
@@ -6656,7 +14375,8 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Validation describes the validation methods for CustomResources
-       * This field is alpha-level and should only be sent to servers that enable the CustomResourceValidation feature.
+       * Optional, the global validation schema for all versions.
+       * Top-level and per-version schemas are mutually exclusive.
        * +optional
        * </pre>
        *
@@ -6668,7 +14388,8 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Validation describes the validation methods for CustomResources
-       * This field is alpha-level and should only be sent to servers that enable the CustomResourceValidation feature.
+       * Optional, the global validation schema for all versions.
+       * Top-level and per-version schemas are mutually exclusive.
        * +optional
        * </pre>
        *
@@ -6684,7 +14405,8 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Validation describes the validation methods for CustomResources
-       * This field is alpha-level and should only be sent to servers that enable the CustomResourceValidation feature.
+       * Optional, the global validation schema for all versions.
+       * Top-level and per-version schemas are mutually exclusive.
        * +optional
        * </pre>
        *
@@ -6706,7 +14428,8 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Validation describes the validation methods for CustomResources
-       * This field is alpha-level and should only be sent to servers that enable the CustomResourceValidation feature.
+       * Optional, the global validation schema for all versions.
+       * Top-level and per-version schemas are mutually exclusive.
        * +optional
        * </pre>
        *
@@ -6726,7 +14449,8 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Validation describes the validation methods for CustomResources
-       * This field is alpha-level and should only be sent to servers that enable the CustomResourceValidation feature.
+       * Optional, the global validation schema for all versions.
+       * Top-level and per-version schemas are mutually exclusive.
        * +optional
        * </pre>
        *
@@ -6752,7 +14476,8 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Validation describes the validation methods for CustomResources
-       * This field is alpha-level and should only be sent to servers that enable the CustomResourceValidation feature.
+       * Optional, the global validation schema for all versions.
+       * Top-level and per-version schemas are mutually exclusive.
        * +optional
        * </pre>
        *
@@ -6771,7 +14496,8 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Validation describes the validation methods for CustomResources
-       * This field is alpha-level and should only be sent to servers that enable the CustomResourceValidation feature.
+       * Optional, the global validation schema for all versions.
+       * Top-level and per-version schemas are mutually exclusive.
        * +optional
        * </pre>
        *
@@ -6785,7 +14511,8 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Validation describes the validation methods for CustomResources
-       * This field is alpha-level and should only be sent to servers that enable the CustomResourceValidation feature.
+       * Optional, the global validation schema for all versions.
+       * Top-level and per-version schemas are mutually exclusive.
        * +optional
        * </pre>
        *
@@ -6802,7 +14529,8 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * Validation describes the validation methods for CustomResources
-       * This field is alpha-level and should only be sent to servers that enable the CustomResourceValidation feature.
+       * Optional, the global validation schema for all versions.
+       * Top-level and per-version schemas are mutually exclusive.
        * +optional
        * </pre>
        *
@@ -6821,11 +14549,1233 @@ public final class V1beta1Apiextensions {
         }
         return validationBuilder_;
       }
+
+      private io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources subresources_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourcesOrBuilder> subresourcesBuilder_;
+      /**
+       * <pre>
+       * Subresources describes the subresources for CustomResource
+       * Optional, the global subresources for all versions.
+       * Top-level and per-version subresources are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 6;</code>
+       */
+      public boolean hasSubresources() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <pre>
+       * Subresources describes the subresources for CustomResource
+       * Optional, the global subresources for all versions.
+       * Top-level and per-version subresources are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 6;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources getSubresources() {
+        if (subresourcesBuilder_ == null) {
+          return subresources_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.getDefaultInstance() : subresources_;
+        } else {
+          return subresourcesBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Subresources describes the subresources for CustomResource
+       * Optional, the global subresources for all versions.
+       * Top-level and per-version subresources are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 6;</code>
+       */
+      public Builder setSubresources(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources value) {
+        if (subresourcesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          subresources_ = value;
+          onChanged();
+        } else {
+          subresourcesBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <pre>
+       * Subresources describes the subresources for CustomResource
+       * Optional, the global subresources for all versions.
+       * Top-level and per-version subresources are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 6;</code>
+       */
+      public Builder setSubresources(
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.Builder builderForValue) {
+        if (subresourcesBuilder_ == null) {
+          subresources_ = builderForValue.build();
+          onChanged();
+        } else {
+          subresourcesBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <pre>
+       * Subresources describes the subresources for CustomResource
+       * Optional, the global subresources for all versions.
+       * Top-level and per-version subresources are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 6;</code>
+       */
+      public Builder mergeSubresources(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources value) {
+        if (subresourcesBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) == 0x00000020) &&
+              subresources_ != null &&
+              subresources_ != io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.getDefaultInstance()) {
+            subresources_ =
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.newBuilder(subresources_).mergeFrom(value).buildPartial();
+          } else {
+            subresources_ = value;
+          }
+          onChanged();
+        } else {
+          subresourcesBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <pre>
+       * Subresources describes the subresources for CustomResource
+       * Optional, the global subresources for all versions.
+       * Top-level and per-version subresources are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 6;</code>
+       */
+      public Builder clearSubresources() {
+        if (subresourcesBuilder_ == null) {
+          subresources_ = null;
+          onChanged();
+        } else {
+          subresourcesBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000020);
+        return this;
+      }
+      /**
+       * <pre>
+       * Subresources describes the subresources for CustomResource
+       * Optional, the global subresources for all versions.
+       * Top-level and per-version subresources are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 6;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.Builder getSubresourcesBuilder() {
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return getSubresourcesFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Subresources describes the subresources for CustomResource
+       * Optional, the global subresources for all versions.
+       * Top-level and per-version subresources are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 6;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourcesOrBuilder getSubresourcesOrBuilder() {
+        if (subresourcesBuilder_ != null) {
+          return subresourcesBuilder_.getMessageOrBuilder();
+        } else {
+          return subresources_ == null ?
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.getDefaultInstance() : subresources_;
+        }
+      }
+      /**
+       * <pre>
+       * Subresources describes the subresources for CustomResource
+       * Optional, the global subresources for all versions.
+       * Top-level and per-version subresources are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourcesOrBuilder> 
+          getSubresourcesFieldBuilder() {
+        if (subresourcesBuilder_ == null) {
+          subresourcesBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourcesOrBuilder>(
+                  getSubresources(),
+                  getParentForChildren(),
+                  isClean());
+          subresources_ = null;
+        }
+        return subresourcesBuilder_;
+      }
+
+      private java.util.List<io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion> versions_ =
+        java.util.Collections.emptyList();
+      private void ensureVersionsIsMutable() {
+        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
+          versions_ = new java.util.ArrayList<io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion>(versions_);
+          bitField0_ |= 0x00000040;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersionOrBuilder> versionsBuilder_;
+
+      /**
+       * <pre>
+       * Versions is the list of all supported versions for this resource.
+       * If Version field is provided, this field is optional.
+       * Validation: All versions must use the same validation schema for now. i.e., top
+       * level Validation field is applied to all of these versions.
+       * Order: The version name will be used to compute the order.
+       * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+       * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+       * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+       * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+       * major version, then minor version. An example sorted list of versions:
+       * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion> getVersionsList() {
+        if (versionsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(versions_);
+        } else {
+          return versionsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * Versions is the list of all supported versions for this resource.
+       * If Version field is provided, this field is optional.
+       * Validation: All versions must use the same validation schema for now. i.e., top
+       * level Validation field is applied to all of these versions.
+       * Order: The version name will be used to compute the order.
+       * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+       * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+       * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+       * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+       * major version, then minor version. An example sorted list of versions:
+       * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+       */
+      public int getVersionsCount() {
+        if (versionsBuilder_ == null) {
+          return versions_.size();
+        } else {
+          return versionsBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * Versions is the list of all supported versions for this resource.
+       * If Version field is provided, this field is optional.
+       * Validation: All versions must use the same validation schema for now. i.e., top
+       * level Validation field is applied to all of these versions.
+       * Order: The version name will be used to compute the order.
+       * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+       * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+       * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+       * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+       * major version, then minor version. An example sorted list of versions:
+       * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion getVersions(int index) {
+        if (versionsBuilder_ == null) {
+          return versions_.get(index);
+        } else {
+          return versionsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * Versions is the list of all supported versions for this resource.
+       * If Version field is provided, this field is optional.
+       * Validation: All versions must use the same validation schema for now. i.e., top
+       * level Validation field is applied to all of these versions.
+       * Order: The version name will be used to compute the order.
+       * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+       * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+       * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+       * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+       * major version, then minor version. An example sorted list of versions:
+       * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+       */
+      public Builder setVersions(
+          int index, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion value) {
+        if (versionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureVersionsIsMutable();
+          versions_.set(index, value);
+          onChanged();
+        } else {
+          versionsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Versions is the list of all supported versions for this resource.
+       * If Version field is provided, this field is optional.
+       * Validation: All versions must use the same validation schema for now. i.e., top
+       * level Validation field is applied to all of these versions.
+       * Order: The version name will be used to compute the order.
+       * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+       * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+       * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+       * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+       * major version, then minor version. An example sorted list of versions:
+       * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+       */
+      public Builder setVersions(
+          int index, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion.Builder builderForValue) {
+        if (versionsBuilder_ == null) {
+          ensureVersionsIsMutable();
+          versions_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          versionsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Versions is the list of all supported versions for this resource.
+       * If Version field is provided, this field is optional.
+       * Validation: All versions must use the same validation schema for now. i.e., top
+       * level Validation field is applied to all of these versions.
+       * Order: The version name will be used to compute the order.
+       * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+       * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+       * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+       * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+       * major version, then minor version. An example sorted list of versions:
+       * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+       */
+      public Builder addVersions(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion value) {
+        if (versionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureVersionsIsMutable();
+          versions_.add(value);
+          onChanged();
+        } else {
+          versionsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Versions is the list of all supported versions for this resource.
+       * If Version field is provided, this field is optional.
+       * Validation: All versions must use the same validation schema for now. i.e., top
+       * level Validation field is applied to all of these versions.
+       * Order: The version name will be used to compute the order.
+       * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+       * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+       * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+       * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+       * major version, then minor version. An example sorted list of versions:
+       * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+       */
+      public Builder addVersions(
+          int index, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion value) {
+        if (versionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureVersionsIsMutable();
+          versions_.add(index, value);
+          onChanged();
+        } else {
+          versionsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Versions is the list of all supported versions for this resource.
+       * If Version field is provided, this field is optional.
+       * Validation: All versions must use the same validation schema for now. i.e., top
+       * level Validation field is applied to all of these versions.
+       * Order: The version name will be used to compute the order.
+       * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+       * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+       * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+       * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+       * major version, then minor version. An example sorted list of versions:
+       * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+       */
+      public Builder addVersions(
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion.Builder builderForValue) {
+        if (versionsBuilder_ == null) {
+          ensureVersionsIsMutable();
+          versions_.add(builderForValue.build());
+          onChanged();
+        } else {
+          versionsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Versions is the list of all supported versions for this resource.
+       * If Version field is provided, this field is optional.
+       * Validation: All versions must use the same validation schema for now. i.e., top
+       * level Validation field is applied to all of these versions.
+       * Order: The version name will be used to compute the order.
+       * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+       * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+       * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+       * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+       * major version, then minor version. An example sorted list of versions:
+       * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+       */
+      public Builder addVersions(
+          int index, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion.Builder builderForValue) {
+        if (versionsBuilder_ == null) {
+          ensureVersionsIsMutable();
+          versions_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          versionsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Versions is the list of all supported versions for this resource.
+       * If Version field is provided, this field is optional.
+       * Validation: All versions must use the same validation schema for now. i.e., top
+       * level Validation field is applied to all of these versions.
+       * Order: The version name will be used to compute the order.
+       * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+       * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+       * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+       * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+       * major version, then minor version. An example sorted list of versions:
+       * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+       */
+      public Builder addAllVersions(
+          java.lang.Iterable<? extends io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion> values) {
+        if (versionsBuilder_ == null) {
+          ensureVersionsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, versions_);
+          onChanged();
+        } else {
+          versionsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Versions is the list of all supported versions for this resource.
+       * If Version field is provided, this field is optional.
+       * Validation: All versions must use the same validation schema for now. i.e., top
+       * level Validation field is applied to all of these versions.
+       * Order: The version name will be used to compute the order.
+       * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+       * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+       * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+       * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+       * major version, then minor version. An example sorted list of versions:
+       * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+       */
+      public Builder clearVersions() {
+        if (versionsBuilder_ == null) {
+          versions_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000040);
+          onChanged();
+        } else {
+          versionsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Versions is the list of all supported versions for this resource.
+       * If Version field is provided, this field is optional.
+       * Validation: All versions must use the same validation schema for now. i.e., top
+       * level Validation field is applied to all of these versions.
+       * Order: The version name will be used to compute the order.
+       * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+       * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+       * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+       * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+       * major version, then minor version. An example sorted list of versions:
+       * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+       */
+      public Builder removeVersions(int index) {
+        if (versionsBuilder_ == null) {
+          ensureVersionsIsMutable();
+          versions_.remove(index);
+          onChanged();
+        } else {
+          versionsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Versions is the list of all supported versions for this resource.
+       * If Version field is provided, this field is optional.
+       * Validation: All versions must use the same validation schema for now. i.e., top
+       * level Validation field is applied to all of these versions.
+       * Order: The version name will be used to compute the order.
+       * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+       * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+       * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+       * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+       * major version, then minor version. An example sorted list of versions:
+       * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion.Builder getVersionsBuilder(
+          int index) {
+        return getVersionsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * Versions is the list of all supported versions for this resource.
+       * If Version field is provided, this field is optional.
+       * Validation: All versions must use the same validation schema for now. i.e., top
+       * level Validation field is applied to all of these versions.
+       * Order: The version name will be used to compute the order.
+       * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+       * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+       * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+       * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+       * major version, then minor version. An example sorted list of versions:
+       * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersionOrBuilder getVersionsOrBuilder(
+          int index) {
+        if (versionsBuilder_ == null) {
+          return versions_.get(index);  } else {
+          return versionsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * Versions is the list of all supported versions for this resource.
+       * If Version field is provided, this field is optional.
+       * Validation: All versions must use the same validation schema for now. i.e., top
+       * level Validation field is applied to all of these versions.
+       * Order: The version name will be used to compute the order.
+       * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+       * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+       * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+       * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+       * major version, then minor version. An example sorted list of versions:
+       * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+       */
+      public java.util.List<? extends io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersionOrBuilder> 
+           getVersionsOrBuilderList() {
+        if (versionsBuilder_ != null) {
+          return versionsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(versions_);
+        }
+      }
+      /**
+       * <pre>
+       * Versions is the list of all supported versions for this resource.
+       * If Version field is provided, this field is optional.
+       * Validation: All versions must use the same validation schema for now. i.e., top
+       * level Validation field is applied to all of these versions.
+       * Order: The version name will be used to compute the order.
+       * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+       * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+       * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+       * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+       * major version, then minor version. An example sorted list of versions:
+       * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion.Builder addVersionsBuilder() {
+        return getVersionsFieldBuilder().addBuilder(
+            io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Versions is the list of all supported versions for this resource.
+       * If Version field is provided, this field is optional.
+       * Validation: All versions must use the same validation schema for now. i.e., top
+       * level Validation field is applied to all of these versions.
+       * Order: The version name will be used to compute the order.
+       * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+       * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+       * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+       * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+       * major version, then minor version. An example sorted list of versions:
+       * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion.Builder addVersionsBuilder(
+          int index) {
+        return getVersionsFieldBuilder().addBuilder(
+            index, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Versions is the list of all supported versions for this resource.
+       * If Version field is provided, this field is optional.
+       * Validation: All versions must use the same validation schema for now. i.e., top
+       * level Validation field is applied to all of these versions.
+       * Order: The version name will be used to compute the order.
+       * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
+       * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
+       * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
+       * by GA &gt; beta &gt; alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing
+       * major version, then minor version. An example sorted list of versions:
+       * v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion versions = 7;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion.Builder> 
+           getVersionsBuilderList() {
+        return getVersionsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersionOrBuilder> 
+          getVersionsFieldBuilder() {
+        if (versionsBuilder_ == null) {
+          versionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersionOrBuilder>(
+                  versions_,
+                  ((bitField0_ & 0x00000040) == 0x00000040),
+                  getParentForChildren(),
+                  isClean());
+          versions_ = null;
+        }
+        return versionsBuilder_;
+      }
+
+      private java.util.List<io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition> additionalPrinterColumns_ =
+        java.util.Collections.emptyList();
+      private void ensureAdditionalPrinterColumnsIsMutable() {
+        if (!((bitField0_ & 0x00000080) == 0x00000080)) {
+          additionalPrinterColumns_ = new java.util.ArrayList<io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition>(additionalPrinterColumns_);
+          bitField0_ |= 0x00000080;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinitionOrBuilder> additionalPrinterColumnsBuilder_;
+
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Optional, the global columns for all versions.
+       * Top-level and per-version columns are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition> getAdditionalPrinterColumnsList() {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(additionalPrinterColumns_);
+        } else {
+          return additionalPrinterColumnsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Optional, the global columns for all versions.
+       * Top-level and per-version columns are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+       */
+      public int getAdditionalPrinterColumnsCount() {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          return additionalPrinterColumns_.size();
+        } else {
+          return additionalPrinterColumnsBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Optional, the global columns for all versions.
+       * Top-level and per-version columns are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition getAdditionalPrinterColumns(int index) {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          return additionalPrinterColumns_.get(index);
+        } else {
+          return additionalPrinterColumnsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Optional, the global columns for all versions.
+       * Top-level and per-version columns are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+       */
+      public Builder setAdditionalPrinterColumns(
+          int index, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition value) {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureAdditionalPrinterColumnsIsMutable();
+          additionalPrinterColumns_.set(index, value);
+          onChanged();
+        } else {
+          additionalPrinterColumnsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Optional, the global columns for all versions.
+       * Top-level and per-version columns are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+       */
+      public Builder setAdditionalPrinterColumns(
+          int index, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.Builder builderForValue) {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          ensureAdditionalPrinterColumnsIsMutable();
+          additionalPrinterColumns_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          additionalPrinterColumnsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Optional, the global columns for all versions.
+       * Top-level and per-version columns are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+       */
+      public Builder addAdditionalPrinterColumns(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition value) {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureAdditionalPrinterColumnsIsMutable();
+          additionalPrinterColumns_.add(value);
+          onChanged();
+        } else {
+          additionalPrinterColumnsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Optional, the global columns for all versions.
+       * Top-level and per-version columns are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+       */
+      public Builder addAdditionalPrinterColumns(
+          int index, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition value) {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureAdditionalPrinterColumnsIsMutable();
+          additionalPrinterColumns_.add(index, value);
+          onChanged();
+        } else {
+          additionalPrinterColumnsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Optional, the global columns for all versions.
+       * Top-level and per-version columns are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+       */
+      public Builder addAdditionalPrinterColumns(
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.Builder builderForValue) {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          ensureAdditionalPrinterColumnsIsMutable();
+          additionalPrinterColumns_.add(builderForValue.build());
+          onChanged();
+        } else {
+          additionalPrinterColumnsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Optional, the global columns for all versions.
+       * Top-level and per-version columns are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+       */
+      public Builder addAdditionalPrinterColumns(
+          int index, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.Builder builderForValue) {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          ensureAdditionalPrinterColumnsIsMutable();
+          additionalPrinterColumns_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          additionalPrinterColumnsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Optional, the global columns for all versions.
+       * Top-level and per-version columns are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+       */
+      public Builder addAllAdditionalPrinterColumns(
+          java.lang.Iterable<? extends io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition> values) {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          ensureAdditionalPrinterColumnsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, additionalPrinterColumns_);
+          onChanged();
+        } else {
+          additionalPrinterColumnsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Optional, the global columns for all versions.
+       * Top-level and per-version columns are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+       */
+      public Builder clearAdditionalPrinterColumns() {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          additionalPrinterColumns_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000080);
+          onChanged();
+        } else {
+          additionalPrinterColumnsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Optional, the global columns for all versions.
+       * Top-level and per-version columns are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+       */
+      public Builder removeAdditionalPrinterColumns(int index) {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          ensureAdditionalPrinterColumnsIsMutable();
+          additionalPrinterColumns_.remove(index);
+          onChanged();
+        } else {
+          additionalPrinterColumnsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Optional, the global columns for all versions.
+       * Top-level and per-version columns are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.Builder getAdditionalPrinterColumnsBuilder(
+          int index) {
+        return getAdditionalPrinterColumnsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Optional, the global columns for all versions.
+       * Top-level and per-version columns are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinitionOrBuilder getAdditionalPrinterColumnsOrBuilder(
+          int index) {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          return additionalPrinterColumns_.get(index);  } else {
+          return additionalPrinterColumnsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Optional, the global columns for all versions.
+       * Top-level and per-version columns are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+       */
+      public java.util.List<? extends io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinitionOrBuilder> 
+           getAdditionalPrinterColumnsOrBuilderList() {
+        if (additionalPrinterColumnsBuilder_ != null) {
+          return additionalPrinterColumnsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(additionalPrinterColumns_);
+        }
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Optional, the global columns for all versions.
+       * Top-level and per-version columns are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.Builder addAdditionalPrinterColumnsBuilder() {
+        return getAdditionalPrinterColumnsFieldBuilder().addBuilder(
+            io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Optional, the global columns for all versions.
+       * Top-level and per-version columns are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.Builder addAdditionalPrinterColumnsBuilder(
+          int index) {
+        return getAdditionalPrinterColumnsFieldBuilder().addBuilder(
+            index, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Optional, the global columns for all versions.
+       * Top-level and per-version columns are mutually exclusive.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 8;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.Builder> 
+           getAdditionalPrinterColumnsBuilderList() {
+        return getAdditionalPrinterColumnsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinitionOrBuilder> 
+          getAdditionalPrinterColumnsFieldBuilder() {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          additionalPrinterColumnsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinitionOrBuilder>(
+                  additionalPrinterColumns_,
+                  ((bitField0_ & 0x00000080) == 0x00000080),
+                  getParentForChildren(),
+                  isClean());
+          additionalPrinterColumns_ = null;
+        }
+        return additionalPrinterColumnsBuilder_;
+      }
+
+      private io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion conversion_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversionOrBuilder> conversionBuilder_;
+      /**
+       * <pre>
+       * `conversion` defines conversion settings for the CRD.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion conversion = 9;</code>
+       */
+      public boolean hasConversion() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      /**
+       * <pre>
+       * `conversion` defines conversion settings for the CRD.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion conversion = 9;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion getConversion() {
+        if (conversionBuilder_ == null) {
+          return conversion_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion.getDefaultInstance() : conversion_;
+        } else {
+          return conversionBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * `conversion` defines conversion settings for the CRD.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion conversion = 9;</code>
+       */
+      public Builder setConversion(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion value) {
+        if (conversionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          conversion_ = value;
+          onChanged();
+        } else {
+          conversionBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000100;
+        return this;
+      }
+      /**
+       * <pre>
+       * `conversion` defines conversion settings for the CRD.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion conversion = 9;</code>
+       */
+      public Builder setConversion(
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion.Builder builderForValue) {
+        if (conversionBuilder_ == null) {
+          conversion_ = builderForValue.build();
+          onChanged();
+        } else {
+          conversionBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000100;
+        return this;
+      }
+      /**
+       * <pre>
+       * `conversion` defines conversion settings for the CRD.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion conversion = 9;</code>
+       */
+      public Builder mergeConversion(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion value) {
+        if (conversionBuilder_ == null) {
+          if (((bitField0_ & 0x00000100) == 0x00000100) &&
+              conversion_ != null &&
+              conversion_ != io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion.getDefaultInstance()) {
+            conversion_ =
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion.newBuilder(conversion_).mergeFrom(value).buildPartial();
+          } else {
+            conversion_ = value;
+          }
+          onChanged();
+        } else {
+          conversionBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000100;
+        return this;
+      }
+      /**
+       * <pre>
+       * `conversion` defines conversion settings for the CRD.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion conversion = 9;</code>
+       */
+      public Builder clearConversion() {
+        if (conversionBuilder_ == null) {
+          conversion_ = null;
+          onChanged();
+        } else {
+          conversionBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000100);
+        return this;
+      }
+      /**
+       * <pre>
+       * `conversion` defines conversion settings for the CRD.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion conversion = 9;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion.Builder getConversionBuilder() {
+        bitField0_ |= 0x00000100;
+        onChanged();
+        return getConversionFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * `conversion` defines conversion settings for the CRD.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion conversion = 9;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversionOrBuilder getConversionOrBuilder() {
+        if (conversionBuilder_ != null) {
+          return conversionBuilder_.getMessageOrBuilder();
+        } else {
+          return conversion_ == null ?
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion.getDefaultInstance() : conversion_;
+        }
+      }
+      /**
+       * <pre>
+       * `conversion` defines conversion settings for the CRD.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceConversion conversion = 9;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversionOrBuilder> 
+          getConversionFieldBuilder() {
+        if (conversionBuilder_ == null) {
+          conversionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversionOrBuilder>(
+                  getConversion(),
+                  getParentForChildren(),
+                  isClean());
+          conversion_ = null;
+        }
+        return conversionBuilder_;
+      }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -6847,11 +15797,12 @@ public final class V1beta1Apiextensions {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<CustomResourceDefinitionSpec>
         PARSER = new com.google.protobuf.AbstractParser<CustomResourceDefinitionSpec>() {
+      @java.lang.Override
       public CustomResourceDefinitionSpec parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new CustomResourceDefinitionSpec(input, extensionRegistry);
+        return new CustomResourceDefinitionSpec(input, extensionRegistry);
       }
     };
 
@@ -6864,6 +15815,7 @@ public final class V1beta1Apiextensions {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionSpec getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -6945,6 +15897,61 @@ public final class V1beta1Apiextensions {
      * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionNames acceptedNames = 2;</code>
      */
     io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionNamesOrBuilder getAcceptedNamesOrBuilder();
+
+    /**
+     * <pre>
+     * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+     * versions allows a migration path for stored versions in etcd. The field is mutable
+     * so the migration controller can first finish a migration to another version (i.e.
+     * that no old objects are left in the storage), and then remove the rest of the
+     * versions from this list.
+     * None of the versions in this list can be removed from the spec.Versions field.
+     * </pre>
+     *
+     * <code>repeated string storedVersions = 3;</code>
+     */
+    java.util.List<java.lang.String>
+        getStoredVersionsList();
+    /**
+     * <pre>
+     * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+     * versions allows a migration path for stored versions in etcd. The field is mutable
+     * so the migration controller can first finish a migration to another version (i.e.
+     * that no old objects are left in the storage), and then remove the rest of the
+     * versions from this list.
+     * None of the versions in this list can be removed from the spec.Versions field.
+     * </pre>
+     *
+     * <code>repeated string storedVersions = 3;</code>
+     */
+    int getStoredVersionsCount();
+    /**
+     * <pre>
+     * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+     * versions allows a migration path for stored versions in etcd. The field is mutable
+     * so the migration controller can first finish a migration to another version (i.e.
+     * that no old objects are left in the storage), and then remove the rest of the
+     * versions from this list.
+     * None of the versions in this list can be removed from the spec.Versions field.
+     * </pre>
+     *
+     * <code>repeated string storedVersions = 3;</code>
+     */
+    java.lang.String getStoredVersions(int index);
+    /**
+     * <pre>
+     * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+     * versions allows a migration path for stored versions in etcd. The field is mutable
+     * so the migration controller can first finish a migration to another version (i.e.
+     * that no old objects are left in the storage), and then remove the rest of the
+     * versions from this list.
+     * None of the versions in this list can be removed from the spec.Versions field.
+     * </pre>
+     *
+     * <code>repeated string storedVersions = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getStoredVersionsBytes(int index);
   }
   /**
    * <pre>
@@ -6964,6 +15971,7 @@ public final class V1beta1Apiextensions {
     }
     private CustomResourceDefinitionStatus() {
       conditions_ = java.util.Collections.emptyList();
+      storedVersions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -6976,6 +15984,9 @@ public final class V1beta1Apiextensions {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -6987,13 +15998,6 @@ public final class V1beta1Apiextensions {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 conditions_ = new java.util.ArrayList<io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionCondition>();
@@ -7016,6 +16020,22 @@ public final class V1beta1Apiextensions {
               bitField0_ |= 0x00000001;
               break;
             }
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                storedVersions_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              storedVersions_.add(bs);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -7027,6 +16047,9 @@ public final class V1beta1Apiextensions {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           conditions_ = java.util.Collections.unmodifiableList(conditions_);
         }
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          storedVersions_ = storedVersions_.getUnmodifiableView();
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -7036,6 +16059,7 @@ public final class V1beta1Apiextensions {
       return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionStatus_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionStatus_fieldAccessorTable
@@ -7135,7 +16159,73 @@ public final class V1beta1Apiextensions {
       return acceptedNames_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionNames.getDefaultInstance() : acceptedNames_;
     }
 
+    public static final int STOREDVERSIONS_FIELD_NUMBER = 3;
+    private com.google.protobuf.LazyStringList storedVersions_;
+    /**
+     * <pre>
+     * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+     * versions allows a migration path for stored versions in etcd. The field is mutable
+     * so the migration controller can first finish a migration to another version (i.e.
+     * that no old objects are left in the storage), and then remove the rest of the
+     * versions from this list.
+     * None of the versions in this list can be removed from the spec.Versions field.
+     * </pre>
+     *
+     * <code>repeated string storedVersions = 3;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getStoredVersionsList() {
+      return storedVersions_;
+    }
+    /**
+     * <pre>
+     * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+     * versions allows a migration path for stored versions in etcd. The field is mutable
+     * so the migration controller can first finish a migration to another version (i.e.
+     * that no old objects are left in the storage), and then remove the rest of the
+     * versions from this list.
+     * None of the versions in this list can be removed from the spec.Versions field.
+     * </pre>
+     *
+     * <code>repeated string storedVersions = 3;</code>
+     */
+    public int getStoredVersionsCount() {
+      return storedVersions_.size();
+    }
+    /**
+     * <pre>
+     * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+     * versions allows a migration path for stored versions in etcd. The field is mutable
+     * so the migration controller can first finish a migration to another version (i.e.
+     * that no old objects are left in the storage), and then remove the rest of the
+     * versions from this list.
+     * None of the versions in this list can be removed from the spec.Versions field.
+     * </pre>
+     *
+     * <code>repeated string storedVersions = 3;</code>
+     */
+    public java.lang.String getStoredVersions(int index) {
+      return storedVersions_.get(index);
+    }
+    /**
+     * <pre>
+     * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+     * versions allows a migration path for stored versions in etcd. The field is mutable
+     * so the migration controller can first finish a migration to another version (i.e.
+     * that no old objects are left in the storage), and then remove the rest of the
+     * versions from this list.
+     * None of the versions in this list can be removed from the spec.Versions field.
+     * </pre>
+     *
+     * <code>repeated string storedVersions = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getStoredVersionsBytes(int index) {
+      return storedVersions_.getByteString(index);
+    }
+
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -7145,6 +16235,7 @@ public final class V1beta1Apiextensions {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < conditions_.size(); i++) {
@@ -7153,9 +16244,13 @@ public final class V1beta1Apiextensions {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeMessage(2, getAcceptedNames());
       }
+      for (int i = 0; i < storedVersions_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, storedVersions_.getRaw(i));
+      }
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -7168,6 +16263,14 @@ public final class V1beta1Apiextensions {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getAcceptedNames());
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < storedVersions_.size(); i++) {
+          dataSize += computeStringSizeNoTag(storedVersions_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getStoredVersionsList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7192,6 +16295,8 @@ public final class V1beta1Apiextensions {
         result = result && getAcceptedNames()
             .equals(other.getAcceptedNames());
       }
+      result = result && getStoredVersionsList()
+          .equals(other.getStoredVersionsList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -7210,6 +16315,10 @@ public final class V1beta1Apiextensions {
       if (hasAcceptedNames()) {
         hash = (37 * hash) + ACCEPTEDNAMES_FIELD_NUMBER;
         hash = (53 * hash) + getAcceptedNames().hashCode();
+      }
+      if (getStoredVersionsCount() > 0) {
+        hash = (37 * hash) + STOREDVERSIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getStoredVersionsList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -7286,6 +16395,7 @@ public final class V1beta1Apiextensions {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -7293,6 +16403,7 @@ public final class V1beta1Apiextensions {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionStatus prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -7320,6 +16431,7 @@ public final class V1beta1Apiextensions {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionStatus_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionStatus_fieldAccessorTable
@@ -7344,6 +16456,7 @@ public final class V1beta1Apiextensions {
           getAcceptedNamesFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (conditionsBuilder_ == null) {
@@ -7358,18 +16471,23 @@ public final class V1beta1Apiextensions {
           acceptedNamesBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
+        storedVersions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionStatus_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionStatus getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionStatus.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionStatus build() {
         io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionStatus result = buildPartial();
         if (!result.isInitialized()) {
@@ -7378,6 +16496,7 @@ public final class V1beta1Apiextensions {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionStatus buildPartial() {
         io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionStatus result = new io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionStatus(this);
         int from_bitField0_ = bitField0_;
@@ -7399,37 +16518,49 @@ public final class V1beta1Apiextensions {
         } else {
           result.acceptedNames_ = acceptedNamesBuilder_.build();
         }
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          storedVersions_ = storedVersions_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.storedVersions_ = storedVersions_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionStatus) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionStatus)other);
@@ -7470,15 +16601,27 @@ public final class V1beta1Apiextensions {
         if (other.hasAcceptedNames()) {
           mergeAcceptedNames(other.getAcceptedNames());
         }
+        if (!other.storedVersions_.isEmpty()) {
+          if (storedVersions_.isEmpty()) {
+            storedVersions_ = other.storedVersions_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureStoredVersionsIsMutable();
+            storedVersions_.addAll(other.storedVersions_);
+          }
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -7972,11 +17115,187 @@ public final class V1beta1Apiextensions {
         }
         return acceptedNamesBuilder_;
       }
+
+      private com.google.protobuf.LazyStringList storedVersions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureStoredVersionsIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          storedVersions_ = new com.google.protobuf.LazyStringArrayList(storedVersions_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+      /**
+       * <pre>
+       * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+       * versions allows a migration path for stored versions in etcd. The field is mutable
+       * so the migration controller can first finish a migration to another version (i.e.
+       * that no old objects are left in the storage), and then remove the rest of the
+       * versions from this list.
+       * None of the versions in this list can be removed from the spec.Versions field.
+       * </pre>
+       *
+       * <code>repeated string storedVersions = 3;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getStoredVersionsList() {
+        return storedVersions_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+       * versions allows a migration path for stored versions in etcd. The field is mutable
+       * so the migration controller can first finish a migration to another version (i.e.
+       * that no old objects are left in the storage), and then remove the rest of the
+       * versions from this list.
+       * None of the versions in this list can be removed from the spec.Versions field.
+       * </pre>
+       *
+       * <code>repeated string storedVersions = 3;</code>
+       */
+      public int getStoredVersionsCount() {
+        return storedVersions_.size();
+      }
+      /**
+       * <pre>
+       * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+       * versions allows a migration path for stored versions in etcd. The field is mutable
+       * so the migration controller can first finish a migration to another version (i.e.
+       * that no old objects are left in the storage), and then remove the rest of the
+       * versions from this list.
+       * None of the versions in this list can be removed from the spec.Versions field.
+       * </pre>
+       *
+       * <code>repeated string storedVersions = 3;</code>
+       */
+      public java.lang.String getStoredVersions(int index) {
+        return storedVersions_.get(index);
+      }
+      /**
+       * <pre>
+       * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+       * versions allows a migration path for stored versions in etcd. The field is mutable
+       * so the migration controller can first finish a migration to another version (i.e.
+       * that no old objects are left in the storage), and then remove the rest of the
+       * versions from this list.
+       * None of the versions in this list can be removed from the spec.Versions field.
+       * </pre>
+       *
+       * <code>repeated string storedVersions = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getStoredVersionsBytes(int index) {
+        return storedVersions_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+       * versions allows a migration path for stored versions in etcd. The field is mutable
+       * so the migration controller can first finish a migration to another version (i.e.
+       * that no old objects are left in the storage), and then remove the rest of the
+       * versions from this list.
+       * None of the versions in this list can be removed from the spec.Versions field.
+       * </pre>
+       *
+       * <code>repeated string storedVersions = 3;</code>
+       */
+      public Builder setStoredVersions(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureStoredVersionsIsMutable();
+        storedVersions_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+       * versions allows a migration path for stored versions in etcd. The field is mutable
+       * so the migration controller can first finish a migration to another version (i.e.
+       * that no old objects are left in the storage), and then remove the rest of the
+       * versions from this list.
+       * None of the versions in this list can be removed from the spec.Versions field.
+       * </pre>
+       *
+       * <code>repeated string storedVersions = 3;</code>
+       */
+      public Builder addStoredVersions(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureStoredVersionsIsMutable();
+        storedVersions_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+       * versions allows a migration path for stored versions in etcd. The field is mutable
+       * so the migration controller can first finish a migration to another version (i.e.
+       * that no old objects are left in the storage), and then remove the rest of the
+       * versions from this list.
+       * None of the versions in this list can be removed from the spec.Versions field.
+       * </pre>
+       *
+       * <code>repeated string storedVersions = 3;</code>
+       */
+      public Builder addAllStoredVersions(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureStoredVersionsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, storedVersions_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+       * versions allows a migration path for stored versions in etcd. The field is mutable
+       * so the migration controller can first finish a migration to another version (i.e.
+       * that no old objects are left in the storage), and then remove the rest of the
+       * versions from this list.
+       * None of the versions in this list can be removed from the spec.Versions field.
+       * </pre>
+       *
+       * <code>repeated string storedVersions = 3;</code>
+       */
+      public Builder clearStoredVersions() {
+        storedVersions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+       * versions allows a migration path for stored versions in etcd. The field is mutable
+       * so the migration controller can first finish a migration to another version (i.e.
+       * that no old objects are left in the storage), and then remove the rest of the
+       * versions from this list.
+       * None of the versions in this list can be removed from the spec.Versions field.
+       * </pre>
+       *
+       * <code>repeated string storedVersions = 3;</code>
+       */
+      public Builder addStoredVersionsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureStoredVersionsIsMutable();
+        storedVersions_.add(value);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -7998,11 +17317,12 @@ public final class V1beta1Apiextensions {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<CustomResourceDefinitionStatus>
         PARSER = new com.google.protobuf.AbstractParser<CustomResourceDefinitionStatus>() {
+      @java.lang.Override
       public CustomResourceDefinitionStatus parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new CustomResourceDefinitionStatus(input, extensionRegistry);
+        return new CustomResourceDefinitionStatus(input, extensionRegistry);
       }
     };
 
@@ -8015,7 +17335,4831 @@ public final class V1beta1Apiextensions {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionStatus getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface CustomResourceDefinitionVersionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Name is the version name, e.g. “v1”, “v2beta1”, etc.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    boolean hasName();
+    /**
+     * <pre>
+     * Name is the version name, e.g. “v1”, “v2beta1”, etc.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <pre>
+     * Name is the version name, e.g. “v1”, “v2beta1”, etc.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <pre>
+     * Served is a flag enabling/disabling this version from being served via REST APIs
+     * </pre>
+     *
+     * <code>optional bool served = 2;</code>
+     */
+    boolean hasServed();
+    /**
+     * <pre>
+     * Served is a flag enabling/disabling this version from being served via REST APIs
+     * </pre>
+     *
+     * <code>optional bool served = 2;</code>
+     */
+    boolean getServed();
+
+    /**
+     * <pre>
+     * Storage flags the version as storage version. There must be exactly one
+     * flagged as storage version.
+     * </pre>
+     *
+     * <code>optional bool storage = 3;</code>
+     */
+    boolean hasStorage();
+    /**
+     * <pre>
+     * Storage flags the version as storage version. There must be exactly one
+     * flagged as storage version.
+     * </pre>
+     *
+     * <code>optional bool storage = 3;</code>
+     */
+    boolean getStorage();
+
+    /**
+     * <pre>
+     * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+     * Top-level and per-version schemas are mutually exclusive.
+     * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
+     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceValidation schema = 4;</code>
+     */
+    boolean hasSchema();
+    /**
+     * <pre>
+     * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+     * Top-level and per-version schemas are mutually exclusive.
+     * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
+     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceValidation schema = 4;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation getSchema();
+    /**
+     * <pre>
+     * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+     * Top-level and per-version schemas are mutually exclusive.
+     * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
+     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceValidation schema = 4;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidationOrBuilder getSchemaOrBuilder();
+
+    /**
+     * <pre>
+     * Subresources describes the subresources for CustomResource
+     * Top-level and per-version subresources are mutually exclusive.
+     * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
+     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 5;</code>
+     */
+    boolean hasSubresources();
+    /**
+     * <pre>
+     * Subresources describes the subresources for CustomResource
+     * Top-level and per-version subresources are mutually exclusive.
+     * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
+     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 5;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources getSubresources();
+    /**
+     * <pre>
+     * Subresources describes the subresources for CustomResource
+     * Top-level and per-version subresources are mutually exclusive.
+     * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
+     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 5;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourcesOrBuilder getSubresourcesOrBuilder();
+
+    /**
+     * <pre>
+     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * Top-level and per-version columns are mutually exclusive.
+     * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+     * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+     * be explicitly set to null
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+     */
+    java.util.List<io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition> 
+        getAdditionalPrinterColumnsList();
+    /**
+     * <pre>
+     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * Top-level and per-version columns are mutually exclusive.
+     * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+     * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+     * be explicitly set to null
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition getAdditionalPrinterColumns(int index);
+    /**
+     * <pre>
+     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * Top-level and per-version columns are mutually exclusive.
+     * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+     * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+     * be explicitly set to null
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+     */
+    int getAdditionalPrinterColumnsCount();
+    /**
+     * <pre>
+     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * Top-level and per-version columns are mutually exclusive.
+     * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+     * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+     * be explicitly set to null
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+     */
+    java.util.List<? extends io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinitionOrBuilder> 
+        getAdditionalPrinterColumnsOrBuilderList();
+    /**
+     * <pre>
+     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * Top-level and per-version columns are mutually exclusive.
+     * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+     * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+     * be explicitly set to null
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinitionOrBuilder getAdditionalPrinterColumnsOrBuilder(
+        int index);
+  }
+  /**
+   * <pre>
+   * CustomResourceDefinitionVersion describes a version for CRD.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion}
+   */
+  public  static final class CustomResourceDefinitionVersion extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion)
+      CustomResourceDefinitionVersionOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CustomResourceDefinitionVersion.newBuilder() to construct.
+    private CustomResourceDefinitionVersion(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CustomResourceDefinitionVersion() {
+      name_ = "";
+      served_ = false;
+      storage_ = false;
+      additionalPrinterColumns_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CustomResourceDefinitionVersion(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              name_ = bs;
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              served_ = input.readBool();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              storage_ = input.readBool();
+              break;
+            }
+            case 34: {
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                subBuilder = schema_.toBuilder();
+              }
+              schema_ = input.readMessage(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(schema_);
+                schema_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000008;
+              break;
+            }
+            case 42: {
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000010) == 0x00000010)) {
+                subBuilder = subresources_.toBuilder();
+              }
+              subresources_ = input.readMessage(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(subresources_);
+                subresources_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000010;
+              break;
+            }
+            case 50: {
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+                additionalPrinterColumns_ = new java.util.ArrayList<io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition>();
+                mutable_bitField0_ |= 0x00000020;
+              }
+              additionalPrinterColumns_.add(
+                  input.readMessage(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.PARSER, extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+          additionalPrinterColumns_ = java.util.Collections.unmodifiableList(additionalPrinterColumns_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionVersion_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionVersion_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion.class, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     * <pre>
+     * Name is the version name, e.g. “v1”, “v2beta1”, etc.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * Name is the version name, e.g. “v1”, “v2beta1”, etc.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Name is the version name, e.g. “v1”, “v2beta1”, etc.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SERVED_FIELD_NUMBER = 2;
+    private boolean served_;
+    /**
+     * <pre>
+     * Served is a flag enabling/disabling this version from being served via REST APIs
+     * </pre>
+     *
+     * <code>optional bool served = 2;</code>
+     */
+    public boolean hasServed() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * Served is a flag enabling/disabling this version from being served via REST APIs
+     * </pre>
+     *
+     * <code>optional bool served = 2;</code>
+     */
+    public boolean getServed() {
+      return served_;
+    }
+
+    public static final int STORAGE_FIELD_NUMBER = 3;
+    private boolean storage_;
+    /**
+     * <pre>
+     * Storage flags the version as storage version. There must be exactly one
+     * flagged as storage version.
+     * </pre>
+     *
+     * <code>optional bool storage = 3;</code>
+     */
+    public boolean hasStorage() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     * Storage flags the version as storage version. There must be exactly one
+     * flagged as storage version.
+     * </pre>
+     *
+     * <code>optional bool storage = 3;</code>
+     */
+    public boolean getStorage() {
+      return storage_;
+    }
+
+    public static final int SCHEMA_FIELD_NUMBER = 4;
+    private io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation schema_;
+    /**
+     * <pre>
+     * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+     * Top-level and per-version schemas are mutually exclusive.
+     * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
+     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceValidation schema = 4;</code>
+     */
+    public boolean hasSchema() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+     * Top-level and per-version schemas are mutually exclusive.
+     * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
+     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceValidation schema = 4;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation getSchema() {
+      return schema_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation.getDefaultInstance() : schema_;
+    }
+    /**
+     * <pre>
+     * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+     * Top-level and per-version schemas are mutually exclusive.
+     * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
+     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceValidation schema = 4;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidationOrBuilder getSchemaOrBuilder() {
+      return schema_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation.getDefaultInstance() : schema_;
+    }
+
+    public static final int SUBRESOURCES_FIELD_NUMBER = 5;
+    private io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources subresources_;
+    /**
+     * <pre>
+     * Subresources describes the subresources for CustomResource
+     * Top-level and per-version subresources are mutually exclusive.
+     * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
+     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 5;</code>
+     */
+    public boolean hasSubresources() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <pre>
+     * Subresources describes the subresources for CustomResource
+     * Top-level and per-version subresources are mutually exclusive.
+     * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
+     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 5;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources getSubresources() {
+      return subresources_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.getDefaultInstance() : subresources_;
+    }
+    /**
+     * <pre>
+     * Subresources describes the subresources for CustomResource
+     * Top-level and per-version subresources are mutually exclusive.
+     * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
+     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 5;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourcesOrBuilder getSubresourcesOrBuilder() {
+      return subresources_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.getDefaultInstance() : subresources_;
+    }
+
+    public static final int ADDITIONALPRINTERCOLUMNS_FIELD_NUMBER = 6;
+    private java.util.List<io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition> additionalPrinterColumns_;
+    /**
+     * <pre>
+     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * Top-level and per-version columns are mutually exclusive.
+     * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+     * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+     * be explicitly set to null
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+     */
+    public java.util.List<io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition> getAdditionalPrinterColumnsList() {
+      return additionalPrinterColumns_;
+    }
+    /**
+     * <pre>
+     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * Top-level and per-version columns are mutually exclusive.
+     * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+     * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+     * be explicitly set to null
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+     */
+    public java.util.List<? extends io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinitionOrBuilder> 
+        getAdditionalPrinterColumnsOrBuilderList() {
+      return additionalPrinterColumns_;
+    }
+    /**
+     * <pre>
+     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * Top-level and per-version columns are mutually exclusive.
+     * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+     * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+     * be explicitly set to null
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+     */
+    public int getAdditionalPrinterColumnsCount() {
+      return additionalPrinterColumns_.size();
+    }
+    /**
+     * <pre>
+     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * Top-level and per-version columns are mutually exclusive.
+     * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+     * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+     * be explicitly set to null
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition getAdditionalPrinterColumns(int index) {
+      return additionalPrinterColumns_.get(index);
+    }
+    /**
+     * <pre>
+     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * Top-level and per-version columns are mutually exclusive.
+     * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+     * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+     * be explicitly set to null
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinitionOrBuilder getAdditionalPrinterColumnsOrBuilder(
+        int index) {
+      return additionalPrinterColumns_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBool(2, served_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBool(3, storage_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeMessage(4, getSchema());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeMessage(5, getSubresources());
+      }
+      for (int i = 0; i < additionalPrinterColumns_.size(); i++) {
+        output.writeMessage(6, additionalPrinterColumns_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, served_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, storage_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getSchema());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getSubresources());
+      }
+      for (int i = 0; i < additionalPrinterColumns_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, additionalPrinterColumns_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion other = (io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion) obj;
+
+      boolean result = true;
+      result = result && (hasName() == other.hasName());
+      if (hasName()) {
+        result = result && getName()
+            .equals(other.getName());
+      }
+      result = result && (hasServed() == other.hasServed());
+      if (hasServed()) {
+        result = result && (getServed()
+            == other.getServed());
+      }
+      result = result && (hasStorage() == other.hasStorage());
+      if (hasStorage()) {
+        result = result && (getStorage()
+            == other.getStorage());
+      }
+      result = result && (hasSchema() == other.hasSchema());
+      if (hasSchema()) {
+        result = result && getSchema()
+            .equals(other.getSchema());
+      }
+      result = result && (hasSubresources() == other.hasSubresources());
+      if (hasSubresources()) {
+        result = result && getSubresources()
+            .equals(other.getSubresources());
+      }
+      result = result && getAdditionalPrinterColumnsList()
+          .equals(other.getAdditionalPrinterColumnsList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasName()) {
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getName().hashCode();
+      }
+      if (hasServed()) {
+        hash = (37 * hash) + SERVED_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getServed());
+      }
+      if (hasStorage()) {
+        hash = (37 * hash) + STORAGE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getStorage());
+      }
+      if (hasSchema()) {
+        hash = (37 * hash) + SCHEMA_FIELD_NUMBER;
+        hash = (53 * hash) + getSchema().hashCode();
+      }
+      if (hasSubresources()) {
+        hash = (37 * hash) + SUBRESOURCES_FIELD_NUMBER;
+        hash = (53 * hash) + getSubresources().hashCode();
+      }
+      if (getAdditionalPrinterColumnsCount() > 0) {
+        hash = (37 * hash) + ADDITIONALPRINTERCOLUMNS_FIELD_NUMBER;
+        hash = (53 * hash) + getAdditionalPrinterColumnsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * CustomResourceDefinitionVersion describes a version for CRD.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion)
+        io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersionOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionVersion_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionVersion_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion.class, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getSchemaFieldBuilder();
+          getSubresourcesFieldBuilder();
+          getAdditionalPrinterColumnsFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        served_ = false;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        storage_ = false;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        if (schemaBuilder_ == null) {
+          schema_ = null;
+        } else {
+          schemaBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        if (subresourcesBuilder_ == null) {
+          subresources_ = null;
+        } else {
+          subresourcesBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        if (additionalPrinterColumnsBuilder_ == null) {
+          additionalPrinterColumns_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000020);
+        } else {
+          additionalPrinterColumnsBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionVersion_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion build() {
+        io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion buildPartial() {
+        io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion result = new io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.name_ = name_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.served_ = served_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.storage_ = storage_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        if (schemaBuilder_ == null) {
+          result.schema_ = schema_;
+        } else {
+          result.schema_ = schemaBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        if (subresourcesBuilder_ == null) {
+          result.subresources_ = subresources_;
+        } else {
+          result.subresources_ = subresourcesBuilder_.build();
+        }
+        if (additionalPrinterColumnsBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) == 0x00000020)) {
+            additionalPrinterColumns_ = java.util.Collections.unmodifiableList(additionalPrinterColumns_);
+            bitField0_ = (bitField0_ & ~0x00000020);
+          }
+          result.additionalPrinterColumns_ = additionalPrinterColumns_;
+        } else {
+          result.additionalPrinterColumns_ = additionalPrinterColumnsBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion) {
+          return mergeFrom((io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion other) {
+        if (other == io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion.getDefaultInstance()) return this;
+        if (other.hasName()) {
+          bitField0_ |= 0x00000001;
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.hasServed()) {
+          setServed(other.getServed());
+        }
+        if (other.hasStorage()) {
+          setStorage(other.getStorage());
+        }
+        if (other.hasSchema()) {
+          mergeSchema(other.getSchema());
+        }
+        if (other.hasSubresources()) {
+          mergeSubresources(other.getSubresources());
+        }
+        if (additionalPrinterColumnsBuilder_ == null) {
+          if (!other.additionalPrinterColumns_.isEmpty()) {
+            if (additionalPrinterColumns_.isEmpty()) {
+              additionalPrinterColumns_ = other.additionalPrinterColumns_;
+              bitField0_ = (bitField0_ & ~0x00000020);
+            } else {
+              ensureAdditionalPrinterColumnsIsMutable();
+              additionalPrinterColumns_.addAll(other.additionalPrinterColumns_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.additionalPrinterColumns_.isEmpty()) {
+            if (additionalPrinterColumnsBuilder_.isEmpty()) {
+              additionalPrinterColumnsBuilder_.dispose();
+              additionalPrinterColumnsBuilder_ = null;
+              additionalPrinterColumns_ = other.additionalPrinterColumns_;
+              bitField0_ = (bitField0_ & ~0x00000020);
+              additionalPrinterColumnsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getAdditionalPrinterColumnsFieldBuilder() : null;
+            } else {
+              additionalPrinterColumnsBuilder_.addAllMessages(other.additionalPrinterColumns_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       * <pre>
+       * Name is the version name, e.g. “v1”, “v2beta1”, etc.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * Name is the version name, e.g. “v1”, “v2beta1”, etc.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Name is the version name, e.g. “v1”, “v2beta1”, etc.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Name is the version name, e.g. “v1”, “v2beta1”, etc.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Name is the version name, e.g. “v1”, “v2beta1”, etc.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Name is the version name, e.g. “v1”, “v2beta1”, etc.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean served_ ;
+      /**
+       * <pre>
+       * Served is a flag enabling/disabling this version from being served via REST APIs
+       * </pre>
+       *
+       * <code>optional bool served = 2;</code>
+       */
+      public boolean hasServed() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * Served is a flag enabling/disabling this version from being served via REST APIs
+       * </pre>
+       *
+       * <code>optional bool served = 2;</code>
+       */
+      public boolean getServed() {
+        return served_;
+      }
+      /**
+       * <pre>
+       * Served is a flag enabling/disabling this version from being served via REST APIs
+       * </pre>
+       *
+       * <code>optional bool served = 2;</code>
+       */
+      public Builder setServed(boolean value) {
+        bitField0_ |= 0x00000002;
+        served_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Served is a flag enabling/disabling this version from being served via REST APIs
+       * </pre>
+       *
+       * <code>optional bool served = 2;</code>
+       */
+      public Builder clearServed() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        served_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean storage_ ;
+      /**
+       * <pre>
+       * Storage flags the version as storage version. There must be exactly one
+       * flagged as storage version.
+       * </pre>
+       *
+       * <code>optional bool storage = 3;</code>
+       */
+      public boolean hasStorage() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * Storage flags the version as storage version. There must be exactly one
+       * flagged as storage version.
+       * </pre>
+       *
+       * <code>optional bool storage = 3;</code>
+       */
+      public boolean getStorage() {
+        return storage_;
+      }
+      /**
+       * <pre>
+       * Storage flags the version as storage version. There must be exactly one
+       * flagged as storage version.
+       * </pre>
+       *
+       * <code>optional bool storage = 3;</code>
+       */
+      public Builder setStorage(boolean value) {
+        bitField0_ |= 0x00000004;
+        storage_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Storage flags the version as storage version. There must be exactly one
+       * flagged as storage version.
+       * </pre>
+       *
+       * <code>optional bool storage = 3;</code>
+       */
+      public Builder clearStorage() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        storage_ = false;
+        onChanged();
+        return this;
+      }
+
+      private io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation schema_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidationOrBuilder> schemaBuilder_;
+      /**
+       * <pre>
+       * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+       * Top-level and per-version schemas are mutually exclusive.
+       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceValidation schema = 4;</code>
+       */
+      public boolean hasSchema() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <pre>
+       * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+       * Top-level and per-version schemas are mutually exclusive.
+       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceValidation schema = 4;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation getSchema() {
+        if (schemaBuilder_ == null) {
+          return schema_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation.getDefaultInstance() : schema_;
+        } else {
+          return schemaBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+       * Top-level and per-version schemas are mutually exclusive.
+       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceValidation schema = 4;</code>
+       */
+      public Builder setSchema(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation value) {
+        if (schemaBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          schema_ = value;
+          onChanged();
+        } else {
+          schemaBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <pre>
+       * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+       * Top-level and per-version schemas are mutually exclusive.
+       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceValidation schema = 4;</code>
+       */
+      public Builder setSchema(
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation.Builder builderForValue) {
+        if (schemaBuilder_ == null) {
+          schema_ = builderForValue.build();
+          onChanged();
+        } else {
+          schemaBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <pre>
+       * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+       * Top-level and per-version schemas are mutually exclusive.
+       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceValidation schema = 4;</code>
+       */
+      public Builder mergeSchema(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation value) {
+        if (schemaBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008) &&
+              schema_ != null &&
+              schema_ != io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation.getDefaultInstance()) {
+            schema_ =
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation.newBuilder(schema_).mergeFrom(value).buildPartial();
+          } else {
+            schema_ = value;
+          }
+          onChanged();
+        } else {
+          schemaBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <pre>
+       * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+       * Top-level and per-version schemas are mutually exclusive.
+       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceValidation schema = 4;</code>
+       */
+      public Builder clearSchema() {
+        if (schemaBuilder_ == null) {
+          schema_ = null;
+          onChanged();
+        } else {
+          schemaBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+      /**
+       * <pre>
+       * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+       * Top-level and per-version schemas are mutually exclusive.
+       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceValidation schema = 4;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation.Builder getSchemaBuilder() {
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return getSchemaFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+       * Top-level and per-version schemas are mutually exclusive.
+       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceValidation schema = 4;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidationOrBuilder getSchemaOrBuilder() {
+        if (schemaBuilder_ != null) {
+          return schemaBuilder_.getMessageOrBuilder();
+        } else {
+          return schema_ == null ?
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation.getDefaultInstance() : schema_;
+        }
+      }
+      /**
+       * <pre>
+       * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+       * Top-level and per-version schemas are mutually exclusive.
+       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceValidation schema = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidationOrBuilder> 
+          getSchemaFieldBuilder() {
+        if (schemaBuilder_ == null) {
+          schemaBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidationOrBuilder>(
+                  getSchema(),
+                  getParentForChildren(),
+                  isClean());
+          schema_ = null;
+        }
+        return schemaBuilder_;
+      }
+
+      private io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources subresources_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourcesOrBuilder> subresourcesBuilder_;
+      /**
+       * <pre>
+       * Subresources describes the subresources for CustomResource
+       * Top-level and per-version subresources are mutually exclusive.
+       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 5;</code>
+       */
+      public boolean hasSubresources() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <pre>
+       * Subresources describes the subresources for CustomResource
+       * Top-level and per-version subresources are mutually exclusive.
+       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 5;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources getSubresources() {
+        if (subresourcesBuilder_ == null) {
+          return subresources_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.getDefaultInstance() : subresources_;
+        } else {
+          return subresourcesBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Subresources describes the subresources for CustomResource
+       * Top-level and per-version subresources are mutually exclusive.
+       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 5;</code>
+       */
+      public Builder setSubresources(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources value) {
+        if (subresourcesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          subresources_ = value;
+          onChanged();
+        } else {
+          subresourcesBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <pre>
+       * Subresources describes the subresources for CustomResource
+       * Top-level and per-version subresources are mutually exclusive.
+       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 5;</code>
+       */
+      public Builder setSubresources(
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.Builder builderForValue) {
+        if (subresourcesBuilder_ == null) {
+          subresources_ = builderForValue.build();
+          onChanged();
+        } else {
+          subresourcesBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <pre>
+       * Subresources describes the subresources for CustomResource
+       * Top-level and per-version subresources are mutually exclusive.
+       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 5;</code>
+       */
+      public Builder mergeSubresources(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources value) {
+        if (subresourcesBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010) &&
+              subresources_ != null &&
+              subresources_ != io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.getDefaultInstance()) {
+            subresources_ =
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.newBuilder(subresources_).mergeFrom(value).buildPartial();
+          } else {
+            subresources_ = value;
+          }
+          onChanged();
+        } else {
+          subresourcesBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <pre>
+       * Subresources describes the subresources for CustomResource
+       * Top-level and per-version subresources are mutually exclusive.
+       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 5;</code>
+       */
+      public Builder clearSubresources() {
+        if (subresourcesBuilder_ == null) {
+          subresources_ = null;
+          onChanged();
+        } else {
+          subresourcesBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+      /**
+       * <pre>
+       * Subresources describes the subresources for CustomResource
+       * Top-level and per-version subresources are mutually exclusive.
+       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 5;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.Builder getSubresourcesBuilder() {
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return getSubresourcesFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Subresources describes the subresources for CustomResource
+       * Top-level and per-version subresources are mutually exclusive.
+       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 5;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourcesOrBuilder getSubresourcesOrBuilder() {
+        if (subresourcesBuilder_ != null) {
+          return subresourcesBuilder_.getMessageOrBuilder();
+        } else {
+          return subresources_ == null ?
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.getDefaultInstance() : subresources_;
+        }
+      }
+      /**
+       * <pre>
+       * Subresources describes the subresources for CustomResource
+       * Top-level and per-version subresources are mutually exclusive.
+       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources subresources = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourcesOrBuilder> 
+          getSubresourcesFieldBuilder() {
+        if (subresourcesBuilder_ == null) {
+          subresourcesBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourcesOrBuilder>(
+                  getSubresources(),
+                  getParentForChildren(),
+                  isClean());
+          subresources_ = null;
+        }
+        return subresourcesBuilder_;
+      }
+
+      private java.util.List<io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition> additionalPrinterColumns_ =
+        java.util.Collections.emptyList();
+      private void ensureAdditionalPrinterColumnsIsMutable() {
+        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+          additionalPrinterColumns_ = new java.util.ArrayList<io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition>(additionalPrinterColumns_);
+          bitField0_ |= 0x00000020;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinitionOrBuilder> additionalPrinterColumnsBuilder_;
+
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Top-level and per-version columns are mutually exclusive.
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+       * be explicitly set to null
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition> getAdditionalPrinterColumnsList() {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(additionalPrinterColumns_);
+        } else {
+          return additionalPrinterColumnsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Top-level and per-version columns are mutually exclusive.
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+       * be explicitly set to null
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+       */
+      public int getAdditionalPrinterColumnsCount() {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          return additionalPrinterColumns_.size();
+        } else {
+          return additionalPrinterColumnsBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Top-level and per-version columns are mutually exclusive.
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+       * be explicitly set to null
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition getAdditionalPrinterColumns(int index) {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          return additionalPrinterColumns_.get(index);
+        } else {
+          return additionalPrinterColumnsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Top-level and per-version columns are mutually exclusive.
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+       * be explicitly set to null
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+       */
+      public Builder setAdditionalPrinterColumns(
+          int index, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition value) {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureAdditionalPrinterColumnsIsMutable();
+          additionalPrinterColumns_.set(index, value);
+          onChanged();
+        } else {
+          additionalPrinterColumnsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Top-level and per-version columns are mutually exclusive.
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+       * be explicitly set to null
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+       */
+      public Builder setAdditionalPrinterColumns(
+          int index, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.Builder builderForValue) {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          ensureAdditionalPrinterColumnsIsMutable();
+          additionalPrinterColumns_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          additionalPrinterColumnsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Top-level and per-version columns are mutually exclusive.
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+       * be explicitly set to null
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+       */
+      public Builder addAdditionalPrinterColumns(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition value) {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureAdditionalPrinterColumnsIsMutable();
+          additionalPrinterColumns_.add(value);
+          onChanged();
+        } else {
+          additionalPrinterColumnsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Top-level and per-version columns are mutually exclusive.
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+       * be explicitly set to null
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+       */
+      public Builder addAdditionalPrinterColumns(
+          int index, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition value) {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureAdditionalPrinterColumnsIsMutable();
+          additionalPrinterColumns_.add(index, value);
+          onChanged();
+        } else {
+          additionalPrinterColumnsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Top-level and per-version columns are mutually exclusive.
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+       * be explicitly set to null
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+       */
+      public Builder addAdditionalPrinterColumns(
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.Builder builderForValue) {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          ensureAdditionalPrinterColumnsIsMutable();
+          additionalPrinterColumns_.add(builderForValue.build());
+          onChanged();
+        } else {
+          additionalPrinterColumnsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Top-level and per-version columns are mutually exclusive.
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+       * be explicitly set to null
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+       */
+      public Builder addAdditionalPrinterColumns(
+          int index, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.Builder builderForValue) {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          ensureAdditionalPrinterColumnsIsMutable();
+          additionalPrinterColumns_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          additionalPrinterColumnsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Top-level and per-version columns are mutually exclusive.
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+       * be explicitly set to null
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+       */
+      public Builder addAllAdditionalPrinterColumns(
+          java.lang.Iterable<? extends io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition> values) {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          ensureAdditionalPrinterColumnsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, additionalPrinterColumns_);
+          onChanged();
+        } else {
+          additionalPrinterColumnsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Top-level and per-version columns are mutually exclusive.
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+       * be explicitly set to null
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+       */
+      public Builder clearAdditionalPrinterColumns() {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          additionalPrinterColumns_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000020);
+          onChanged();
+        } else {
+          additionalPrinterColumnsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Top-level and per-version columns are mutually exclusive.
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+       * be explicitly set to null
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+       */
+      public Builder removeAdditionalPrinterColumns(int index) {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          ensureAdditionalPrinterColumnsIsMutable();
+          additionalPrinterColumns_.remove(index);
+          onChanged();
+        } else {
+          additionalPrinterColumnsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Top-level and per-version columns are mutually exclusive.
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+       * be explicitly set to null
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.Builder getAdditionalPrinterColumnsBuilder(
+          int index) {
+        return getAdditionalPrinterColumnsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Top-level and per-version columns are mutually exclusive.
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+       * be explicitly set to null
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinitionOrBuilder getAdditionalPrinterColumnsOrBuilder(
+          int index) {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          return additionalPrinterColumns_.get(index);  } else {
+          return additionalPrinterColumnsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Top-level and per-version columns are mutually exclusive.
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+       * be explicitly set to null
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+       */
+      public java.util.List<? extends io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinitionOrBuilder> 
+           getAdditionalPrinterColumnsOrBuilderList() {
+        if (additionalPrinterColumnsBuilder_ != null) {
+          return additionalPrinterColumnsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(additionalPrinterColumns_);
+        }
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Top-level and per-version columns are mutually exclusive.
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+       * be explicitly set to null
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.Builder addAdditionalPrinterColumnsBuilder() {
+        return getAdditionalPrinterColumnsFieldBuilder().addBuilder(
+            io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Top-level and per-version columns are mutually exclusive.
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+       * be explicitly set to null
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.Builder addAdditionalPrinterColumnsBuilder(
+          int index) {
+        return getAdditionalPrinterColumnsFieldBuilder().addBuilder(
+            index, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * Top-level and per-version columns are mutually exclusive.
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
+       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
+       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
+       * be explicitly set to null
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition additionalPrinterColumns = 6;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.Builder> 
+           getAdditionalPrinterColumnsBuilderList() {
+        return getAdditionalPrinterColumnsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinitionOrBuilder> 
+          getAdditionalPrinterColumnsFieldBuilder() {
+        if (additionalPrinterColumnsBuilder_ == null) {
+          additionalPrinterColumnsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinitionOrBuilder>(
+                  additionalPrinterColumns_,
+                  ((bitField0_ & 0x00000020) == 0x00000020),
+                  getParentForChildren(),
+                  isClean());
+          additionalPrinterColumns_ = null;
+        }
+        return additionalPrinterColumnsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionVersion)
+    private static final io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion();
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<CustomResourceDefinitionVersion>
+        PARSER = new com.google.protobuf.AbstractParser<CustomResourceDefinitionVersion>() {
+      @java.lang.Override
+      public CustomResourceDefinitionVersion parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CustomResourceDefinitionVersion(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CustomResourceDefinitionVersion> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CustomResourceDefinitionVersion> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceDefinitionVersion getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface CustomResourceSubresourceScaleOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * SpecReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Spec.Replicas.
+     * Only JSON paths without the array notation are allowed.
+     * Must be a JSON Path under .spec.
+     * If there is no value under the given path in the CustomResource, the /scale subresource will return an error on GET.
+     * </pre>
+     *
+     * <code>optional string specReplicasPath = 1;</code>
+     */
+    boolean hasSpecReplicasPath();
+    /**
+     * <pre>
+     * SpecReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Spec.Replicas.
+     * Only JSON paths without the array notation are allowed.
+     * Must be a JSON Path under .spec.
+     * If there is no value under the given path in the CustomResource, the /scale subresource will return an error on GET.
+     * </pre>
+     *
+     * <code>optional string specReplicasPath = 1;</code>
+     */
+    java.lang.String getSpecReplicasPath();
+    /**
+     * <pre>
+     * SpecReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Spec.Replicas.
+     * Only JSON paths without the array notation are allowed.
+     * Must be a JSON Path under .spec.
+     * If there is no value under the given path in the CustomResource, the /scale subresource will return an error on GET.
+     * </pre>
+     *
+     * <code>optional string specReplicasPath = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getSpecReplicasPathBytes();
+
+    /**
+     * <pre>
+     * StatusReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Replicas.
+     * Only JSON paths without the array notation are allowed.
+     * Must be a JSON Path under .status.
+     * If there is no value under the given path in the CustomResource, the status replica value in the /scale subresource
+     * will default to 0.
+     * </pre>
+     *
+     * <code>optional string statusReplicasPath = 2;</code>
+     */
+    boolean hasStatusReplicasPath();
+    /**
+     * <pre>
+     * StatusReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Replicas.
+     * Only JSON paths without the array notation are allowed.
+     * Must be a JSON Path under .status.
+     * If there is no value under the given path in the CustomResource, the status replica value in the /scale subresource
+     * will default to 0.
+     * </pre>
+     *
+     * <code>optional string statusReplicasPath = 2;</code>
+     */
+    java.lang.String getStatusReplicasPath();
+    /**
+     * <pre>
+     * StatusReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Replicas.
+     * Only JSON paths without the array notation are allowed.
+     * Must be a JSON Path under .status.
+     * If there is no value under the given path in the CustomResource, the status replica value in the /scale subresource
+     * will default to 0.
+     * </pre>
+     *
+     * <code>optional string statusReplicasPath = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getStatusReplicasPathBytes();
+
+    /**
+     * <pre>
+     * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector.
+     * Only JSON paths without the array notation are allowed.
+     * Must be a JSON Path under .status.
+     * Must be set to work with HPA.
+     * If there is no value under the given path in the CustomResource, the status label selector value in the /scale
+     * subresource will default to the empty string.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string labelSelectorPath = 3;</code>
+     */
+    boolean hasLabelSelectorPath();
+    /**
+     * <pre>
+     * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector.
+     * Only JSON paths without the array notation are allowed.
+     * Must be a JSON Path under .status.
+     * Must be set to work with HPA.
+     * If there is no value under the given path in the CustomResource, the status label selector value in the /scale
+     * subresource will default to the empty string.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string labelSelectorPath = 3;</code>
+     */
+    java.lang.String getLabelSelectorPath();
+    /**
+     * <pre>
+     * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector.
+     * Only JSON paths without the array notation are allowed.
+     * Must be a JSON Path under .status.
+     * Must be set to work with HPA.
+     * If there is no value under the given path in the CustomResource, the status label selector value in the /scale
+     * subresource will default to the empty string.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string labelSelectorPath = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getLabelSelectorPathBytes();
+  }
+  /**
+   * <pre>
+   * CustomResourceSubresourceScale defines how to serve the scale subresource for CustomResources.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale}
+   */
+  public  static final class CustomResourceSubresourceScale extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale)
+      CustomResourceSubresourceScaleOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CustomResourceSubresourceScale.newBuilder() to construct.
+    private CustomResourceSubresourceScale(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CustomResourceSubresourceScale() {
+      specReplicasPath_ = "";
+      statusReplicasPath_ = "";
+      labelSelectorPath_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CustomResourceSubresourceScale(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              specReplicasPath_ = bs;
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              statusReplicasPath_ = bs;
+              break;
+            }
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000004;
+              labelSelectorPath_ = bs;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresourceScale_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresourceScale_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale.class, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int SPECREPLICASPATH_FIELD_NUMBER = 1;
+    private volatile java.lang.Object specReplicasPath_;
+    /**
+     * <pre>
+     * SpecReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Spec.Replicas.
+     * Only JSON paths without the array notation are allowed.
+     * Must be a JSON Path under .spec.
+     * If there is no value under the given path in the CustomResource, the /scale subresource will return an error on GET.
+     * </pre>
+     *
+     * <code>optional string specReplicasPath = 1;</code>
+     */
+    public boolean hasSpecReplicasPath() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * SpecReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Spec.Replicas.
+     * Only JSON paths without the array notation are allowed.
+     * Must be a JSON Path under .spec.
+     * If there is no value under the given path in the CustomResource, the /scale subresource will return an error on GET.
+     * </pre>
+     *
+     * <code>optional string specReplicasPath = 1;</code>
+     */
+    public java.lang.String getSpecReplicasPath() {
+      java.lang.Object ref = specReplicasPath_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          specReplicasPath_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * SpecReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Spec.Replicas.
+     * Only JSON paths without the array notation are allowed.
+     * Must be a JSON Path under .spec.
+     * If there is no value under the given path in the CustomResource, the /scale subresource will return an error on GET.
+     * </pre>
+     *
+     * <code>optional string specReplicasPath = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSpecReplicasPathBytes() {
+      java.lang.Object ref = specReplicasPath_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        specReplicasPath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int STATUSREPLICASPATH_FIELD_NUMBER = 2;
+    private volatile java.lang.Object statusReplicasPath_;
+    /**
+     * <pre>
+     * StatusReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Replicas.
+     * Only JSON paths without the array notation are allowed.
+     * Must be a JSON Path under .status.
+     * If there is no value under the given path in the CustomResource, the status replica value in the /scale subresource
+     * will default to 0.
+     * </pre>
+     *
+     * <code>optional string statusReplicasPath = 2;</code>
+     */
+    public boolean hasStatusReplicasPath() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * StatusReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Replicas.
+     * Only JSON paths without the array notation are allowed.
+     * Must be a JSON Path under .status.
+     * If there is no value under the given path in the CustomResource, the status replica value in the /scale subresource
+     * will default to 0.
+     * </pre>
+     *
+     * <code>optional string statusReplicasPath = 2;</code>
+     */
+    public java.lang.String getStatusReplicasPath() {
+      java.lang.Object ref = statusReplicasPath_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          statusReplicasPath_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * StatusReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Replicas.
+     * Only JSON paths without the array notation are allowed.
+     * Must be a JSON Path under .status.
+     * If there is no value under the given path in the CustomResource, the status replica value in the /scale subresource
+     * will default to 0.
+     * </pre>
+     *
+     * <code>optional string statusReplicasPath = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getStatusReplicasPathBytes() {
+      java.lang.Object ref = statusReplicasPath_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        statusReplicasPath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int LABELSELECTORPATH_FIELD_NUMBER = 3;
+    private volatile java.lang.Object labelSelectorPath_;
+    /**
+     * <pre>
+     * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector.
+     * Only JSON paths without the array notation are allowed.
+     * Must be a JSON Path under .status.
+     * Must be set to work with HPA.
+     * If there is no value under the given path in the CustomResource, the status label selector value in the /scale
+     * subresource will default to the empty string.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string labelSelectorPath = 3;</code>
+     */
+    public boolean hasLabelSelectorPath() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector.
+     * Only JSON paths without the array notation are allowed.
+     * Must be a JSON Path under .status.
+     * Must be set to work with HPA.
+     * If there is no value under the given path in the CustomResource, the status label selector value in the /scale
+     * subresource will default to the empty string.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string labelSelectorPath = 3;</code>
+     */
+    public java.lang.String getLabelSelectorPath() {
+      java.lang.Object ref = labelSelectorPath_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          labelSelectorPath_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector.
+     * Only JSON paths without the array notation are allowed.
+     * Must be a JSON Path under .status.
+     * Must be set to work with HPA.
+     * If there is no value under the given path in the CustomResource, the status label selector value in the /scale
+     * subresource will default to the empty string.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string labelSelectorPath = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getLabelSelectorPathBytes() {
+      java.lang.Object ref = labelSelectorPath_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        labelSelectorPath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, specReplicasPath_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, statusReplicasPath_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, labelSelectorPath_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, specReplicasPath_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, statusReplicasPath_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, labelSelectorPath_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale other = (io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale) obj;
+
+      boolean result = true;
+      result = result && (hasSpecReplicasPath() == other.hasSpecReplicasPath());
+      if (hasSpecReplicasPath()) {
+        result = result && getSpecReplicasPath()
+            .equals(other.getSpecReplicasPath());
+      }
+      result = result && (hasStatusReplicasPath() == other.hasStatusReplicasPath());
+      if (hasStatusReplicasPath()) {
+        result = result && getStatusReplicasPath()
+            .equals(other.getStatusReplicasPath());
+      }
+      result = result && (hasLabelSelectorPath() == other.hasLabelSelectorPath());
+      if (hasLabelSelectorPath()) {
+        result = result && getLabelSelectorPath()
+            .equals(other.getLabelSelectorPath());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasSpecReplicasPath()) {
+        hash = (37 * hash) + SPECREPLICASPATH_FIELD_NUMBER;
+        hash = (53 * hash) + getSpecReplicasPath().hashCode();
+      }
+      if (hasStatusReplicasPath()) {
+        hash = (37 * hash) + STATUSREPLICASPATH_FIELD_NUMBER;
+        hash = (53 * hash) + getStatusReplicasPath().hashCode();
+      }
+      if (hasLabelSelectorPath()) {
+        hash = (37 * hash) + LABELSELECTORPATH_FIELD_NUMBER;
+        hash = (53 * hash) + getLabelSelectorPath().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * CustomResourceSubresourceScale defines how to serve the scale subresource for CustomResources.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale)
+        io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScaleOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresourceScale_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresourceScale_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale.class, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        specReplicasPath_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        statusReplicasPath_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        labelSelectorPath_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresourceScale_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale build() {
+        io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale buildPartial() {
+        io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale result = new io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.specReplicasPath_ = specReplicasPath_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.statusReplicasPath_ = statusReplicasPath_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.labelSelectorPath_ = labelSelectorPath_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale) {
+          return mergeFrom((io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale other) {
+        if (other == io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale.getDefaultInstance()) return this;
+        if (other.hasSpecReplicasPath()) {
+          bitField0_ |= 0x00000001;
+          specReplicasPath_ = other.specReplicasPath_;
+          onChanged();
+        }
+        if (other.hasStatusReplicasPath()) {
+          bitField0_ |= 0x00000002;
+          statusReplicasPath_ = other.statusReplicasPath_;
+          onChanged();
+        }
+        if (other.hasLabelSelectorPath()) {
+          bitField0_ |= 0x00000004;
+          labelSelectorPath_ = other.labelSelectorPath_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object specReplicasPath_ = "";
+      /**
+       * <pre>
+       * SpecReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Spec.Replicas.
+       * Only JSON paths without the array notation are allowed.
+       * Must be a JSON Path under .spec.
+       * If there is no value under the given path in the CustomResource, the /scale subresource will return an error on GET.
+       * </pre>
+       *
+       * <code>optional string specReplicasPath = 1;</code>
+       */
+      public boolean hasSpecReplicasPath() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * SpecReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Spec.Replicas.
+       * Only JSON paths without the array notation are allowed.
+       * Must be a JSON Path under .spec.
+       * If there is no value under the given path in the CustomResource, the /scale subresource will return an error on GET.
+       * </pre>
+       *
+       * <code>optional string specReplicasPath = 1;</code>
+       */
+      public java.lang.String getSpecReplicasPath() {
+        java.lang.Object ref = specReplicasPath_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            specReplicasPath_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * SpecReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Spec.Replicas.
+       * Only JSON paths without the array notation are allowed.
+       * Must be a JSON Path under .spec.
+       * If there is no value under the given path in the CustomResource, the /scale subresource will return an error on GET.
+       * </pre>
+       *
+       * <code>optional string specReplicasPath = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSpecReplicasPathBytes() {
+        java.lang.Object ref = specReplicasPath_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          specReplicasPath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * SpecReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Spec.Replicas.
+       * Only JSON paths without the array notation are allowed.
+       * Must be a JSON Path under .spec.
+       * If there is no value under the given path in the CustomResource, the /scale subresource will return an error on GET.
+       * </pre>
+       *
+       * <code>optional string specReplicasPath = 1;</code>
+       */
+      public Builder setSpecReplicasPath(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        specReplicasPath_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * SpecReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Spec.Replicas.
+       * Only JSON paths without the array notation are allowed.
+       * Must be a JSON Path under .spec.
+       * If there is no value under the given path in the CustomResource, the /scale subresource will return an error on GET.
+       * </pre>
+       *
+       * <code>optional string specReplicasPath = 1;</code>
+       */
+      public Builder clearSpecReplicasPath() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        specReplicasPath_ = getDefaultInstance().getSpecReplicasPath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * SpecReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Spec.Replicas.
+       * Only JSON paths without the array notation are allowed.
+       * Must be a JSON Path under .spec.
+       * If there is no value under the given path in the CustomResource, the /scale subresource will return an error on GET.
+       * </pre>
+       *
+       * <code>optional string specReplicasPath = 1;</code>
+       */
+      public Builder setSpecReplicasPathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        specReplicasPath_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object statusReplicasPath_ = "";
+      /**
+       * <pre>
+       * StatusReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Replicas.
+       * Only JSON paths without the array notation are allowed.
+       * Must be a JSON Path under .status.
+       * If there is no value under the given path in the CustomResource, the status replica value in the /scale subresource
+       * will default to 0.
+       * </pre>
+       *
+       * <code>optional string statusReplicasPath = 2;</code>
+       */
+      public boolean hasStatusReplicasPath() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * StatusReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Replicas.
+       * Only JSON paths without the array notation are allowed.
+       * Must be a JSON Path under .status.
+       * If there is no value under the given path in the CustomResource, the status replica value in the /scale subresource
+       * will default to 0.
+       * </pre>
+       *
+       * <code>optional string statusReplicasPath = 2;</code>
+       */
+      public java.lang.String getStatusReplicasPath() {
+        java.lang.Object ref = statusReplicasPath_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            statusReplicasPath_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * StatusReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Replicas.
+       * Only JSON paths without the array notation are allowed.
+       * Must be a JSON Path under .status.
+       * If there is no value under the given path in the CustomResource, the status replica value in the /scale subresource
+       * will default to 0.
+       * </pre>
+       *
+       * <code>optional string statusReplicasPath = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getStatusReplicasPathBytes() {
+        java.lang.Object ref = statusReplicasPath_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          statusReplicasPath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * StatusReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Replicas.
+       * Only JSON paths without the array notation are allowed.
+       * Must be a JSON Path under .status.
+       * If there is no value under the given path in the CustomResource, the status replica value in the /scale subresource
+       * will default to 0.
+       * </pre>
+       *
+       * <code>optional string statusReplicasPath = 2;</code>
+       */
+      public Builder setStatusReplicasPath(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        statusReplicasPath_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * StatusReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Replicas.
+       * Only JSON paths without the array notation are allowed.
+       * Must be a JSON Path under .status.
+       * If there is no value under the given path in the CustomResource, the status replica value in the /scale subresource
+       * will default to 0.
+       * </pre>
+       *
+       * <code>optional string statusReplicasPath = 2;</code>
+       */
+      public Builder clearStatusReplicasPath() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        statusReplicasPath_ = getDefaultInstance().getStatusReplicasPath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * StatusReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Replicas.
+       * Only JSON paths without the array notation are allowed.
+       * Must be a JSON Path under .status.
+       * If there is no value under the given path in the CustomResource, the status replica value in the /scale subresource
+       * will default to 0.
+       * </pre>
+       *
+       * <code>optional string statusReplicasPath = 2;</code>
+       */
+      public Builder setStatusReplicasPathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        statusReplicasPath_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object labelSelectorPath_ = "";
+      /**
+       * <pre>
+       * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector.
+       * Only JSON paths without the array notation are allowed.
+       * Must be a JSON Path under .status.
+       * Must be set to work with HPA.
+       * If there is no value under the given path in the CustomResource, the status label selector value in the /scale
+       * subresource will default to the empty string.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string labelSelectorPath = 3;</code>
+       */
+      public boolean hasLabelSelectorPath() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector.
+       * Only JSON paths without the array notation are allowed.
+       * Must be a JSON Path under .status.
+       * Must be set to work with HPA.
+       * If there is no value under the given path in the CustomResource, the status label selector value in the /scale
+       * subresource will default to the empty string.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string labelSelectorPath = 3;</code>
+       */
+      public java.lang.String getLabelSelectorPath() {
+        java.lang.Object ref = labelSelectorPath_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            labelSelectorPath_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector.
+       * Only JSON paths without the array notation are allowed.
+       * Must be a JSON Path under .status.
+       * Must be set to work with HPA.
+       * If there is no value under the given path in the CustomResource, the status label selector value in the /scale
+       * subresource will default to the empty string.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string labelSelectorPath = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getLabelSelectorPathBytes() {
+        java.lang.Object ref = labelSelectorPath_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          labelSelectorPath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector.
+       * Only JSON paths without the array notation are allowed.
+       * Must be a JSON Path under .status.
+       * Must be set to work with HPA.
+       * If there is no value under the given path in the CustomResource, the status label selector value in the /scale
+       * subresource will default to the empty string.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string labelSelectorPath = 3;</code>
+       */
+      public Builder setLabelSelectorPath(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        labelSelectorPath_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector.
+       * Only JSON paths without the array notation are allowed.
+       * Must be a JSON Path under .status.
+       * Must be set to work with HPA.
+       * If there is no value under the given path in the CustomResource, the status label selector value in the /scale
+       * subresource will default to the empty string.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string labelSelectorPath = 3;</code>
+       */
+      public Builder clearLabelSelectorPath() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        labelSelectorPath_ = getDefaultInstance().getLabelSelectorPath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector.
+       * Only JSON paths without the array notation are allowed.
+       * Must be a JSON Path under .status.
+       * Must be set to work with HPA.
+       * If there is no value under the given path in the CustomResource, the status label selector value in the /scale
+       * subresource will default to the empty string.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string labelSelectorPath = 3;</code>
+       */
+      public Builder setLabelSelectorPathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        labelSelectorPath_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale)
+    private static final io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale();
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<CustomResourceSubresourceScale>
+        PARSER = new com.google.protobuf.AbstractParser<CustomResourceSubresourceScale>() {
+      @java.lang.Override
+      public CustomResourceSubresourceScale parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CustomResourceSubresourceScale(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CustomResourceSubresourceScale> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CustomResourceSubresourceScale> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface CustomResourceSubresourceStatusOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceStatus)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * <pre>
+   * CustomResourceSubresourceStatus defines how to serve the status subresource for CustomResources.
+   * Status is represented by the `.status` JSON path inside of a CustomResource. When set,
+   * * exposes a /status subresource for the custom resource
+   * * PUT requests to the /status subresource take a custom resource object, and ignore changes to anything except the status stanza
+   * * PUT/POST/PATCH requests to the custom resource ignore changes to the status stanza
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceStatus}
+   */
+  public  static final class CustomResourceSubresourceStatus extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceStatus)
+      CustomResourceSubresourceStatusOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CustomResourceSubresourceStatus.newBuilder() to construct.
+    private CustomResourceSubresourceStatus(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CustomResourceSubresourceStatus() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CustomResourceSubresourceStatus(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresourceStatus_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresourceStatus_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus.class, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus.Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus other = (io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus) obj;
+
+      boolean result = true;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * CustomResourceSubresourceStatus defines how to serve the status subresource for CustomResources.
+     * Status is represented by the `.status` JSON path inside of a CustomResource. When set,
+     * * exposes a /status subresource for the custom resource
+     * * PUT requests to the /status subresource take a custom resource object, and ignore changes to anything except the status stanza
+     * * PUT/POST/PATCH requests to the custom resource ignore changes to the status stanza
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceStatus}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceStatus)
+        io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatusOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresourceStatus_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresourceStatus_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus.class, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresourceStatus_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus build() {
+        io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus buildPartial() {
+        io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus result = new io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus(this);
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus) {
+          return mergeFrom((io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus other) {
+        if (other == io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceStatus)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceStatus)
+    private static final io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus();
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<CustomResourceSubresourceStatus>
+        PARSER = new com.google.protobuf.AbstractParser<CustomResourceSubresourceStatus>() {
+      @java.lang.Override
+      public CustomResourceSubresourceStatus parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CustomResourceSubresourceStatus(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CustomResourceSubresourceStatus> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CustomResourceSubresourceStatus> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface CustomResourceSubresourcesOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Status denotes the status subresource for CustomResources
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceStatus status = 1;</code>
+     */
+    boolean hasStatus();
+    /**
+     * <pre>
+     * Status denotes the status subresource for CustomResources
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceStatus status = 1;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus getStatus();
+    /**
+     * <pre>
+     * Status denotes the status subresource for CustomResources
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceStatus status = 1;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatusOrBuilder getStatusOrBuilder();
+
+    /**
+     * <pre>
+     * Scale denotes the scale subresource for CustomResources
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale scale = 2;</code>
+     */
+    boolean hasScale();
+    /**
+     * <pre>
+     * Scale denotes the scale subresource for CustomResources
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale scale = 2;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale getScale();
+    /**
+     * <pre>
+     * Scale denotes the scale subresource for CustomResources
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale scale = 2;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScaleOrBuilder getScaleOrBuilder();
+  }
+  /**
+   * <pre>
+   * CustomResourceSubresources defines the status and scale subresources for CustomResources.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources}
+   */
+  public  static final class CustomResourceSubresources extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources)
+      CustomResourceSubresourcesOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CustomResourceSubresources.newBuilder() to construct.
+    private CustomResourceSubresources(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CustomResourceSubresources() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CustomResourceSubresources(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = status_.toBuilder();
+              }
+              status_ = input.readMessage(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(status_);
+                status_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+            case 18: {
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = scale_.toBuilder();
+              }
+              scale_ = input.readMessage(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(scale_);
+                scale_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresources_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresources_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.class, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int STATUS_FIELD_NUMBER = 1;
+    private io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus status_;
+    /**
+     * <pre>
+     * Status denotes the status subresource for CustomResources
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceStatus status = 1;</code>
+     */
+    public boolean hasStatus() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * Status denotes the status subresource for CustomResources
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceStatus status = 1;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus getStatus() {
+      return status_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus.getDefaultInstance() : status_;
+    }
+    /**
+     * <pre>
+     * Status denotes the status subresource for CustomResources
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceStatus status = 1;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatusOrBuilder getStatusOrBuilder() {
+      return status_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus.getDefaultInstance() : status_;
+    }
+
+    public static final int SCALE_FIELD_NUMBER = 2;
+    private io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale scale_;
+    /**
+     * <pre>
+     * Scale denotes the scale subresource for CustomResources
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale scale = 2;</code>
+     */
+    public boolean hasScale() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * Scale denotes the scale subresource for CustomResources
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale scale = 2;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale getScale() {
+      return scale_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale.getDefaultInstance() : scale_;
+    }
+    /**
+     * <pre>
+     * Scale denotes the scale subresource for CustomResources
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale scale = 2;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScaleOrBuilder getScaleOrBuilder() {
+      return scale_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale.getDefaultInstance() : scale_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, getStatus());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, getScale());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getStatus());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getScale());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources other = (io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources) obj;
+
+      boolean result = true;
+      result = result && (hasStatus() == other.hasStatus());
+      if (hasStatus()) {
+        result = result && getStatus()
+            .equals(other.getStatus());
+      }
+      result = result && (hasScale() == other.hasScale());
+      if (hasScale()) {
+        result = result && getScale()
+            .equals(other.getScale());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasStatus()) {
+        hash = (37 * hash) + STATUS_FIELD_NUMBER;
+        hash = (53 * hash) + getStatus().hashCode();
+      }
+      if (hasScale()) {
+        hash = (37 * hash) + SCALE_FIELD_NUMBER;
+        hash = (53 * hash) + getScale().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * CustomResourceSubresources defines the status and scale subresources for CustomResources.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources)
+        io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourcesOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresources_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresources_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.class, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getStatusFieldBuilder();
+          getScaleFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (statusBuilder_ == null) {
+          status_ = null;
+        } else {
+          statusBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (scaleBuilder_ == null) {
+          scale_ = null;
+        } else {
+          scaleBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresources_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources build() {
+        io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources buildPartial() {
+        io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources result = new io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (statusBuilder_ == null) {
+          result.status_ = status_;
+        } else {
+          result.status_ = statusBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (scaleBuilder_ == null) {
+          result.scale_ = scale_;
+        } else {
+          result.scale_ = scaleBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources) {
+          return mergeFrom((io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources other) {
+        if (other == io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.getDefaultInstance()) return this;
+        if (other.hasStatus()) {
+          mergeStatus(other.getStatus());
+        }
+        if (other.hasScale()) {
+          mergeScale(other.getScale());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus status_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatusOrBuilder> statusBuilder_;
+      /**
+       * <pre>
+       * Status denotes the status subresource for CustomResources
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceStatus status = 1;</code>
+       */
+      public boolean hasStatus() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * Status denotes the status subresource for CustomResources
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceStatus status = 1;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus getStatus() {
+        if (statusBuilder_ == null) {
+          return status_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus.getDefaultInstance() : status_;
+        } else {
+          return statusBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Status denotes the status subresource for CustomResources
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceStatus status = 1;</code>
+       */
+      public Builder setStatus(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus value) {
+        if (statusBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          status_ = value;
+          onChanged();
+        } else {
+          statusBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <pre>
+       * Status denotes the status subresource for CustomResources
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceStatus status = 1;</code>
+       */
+      public Builder setStatus(
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus.Builder builderForValue) {
+        if (statusBuilder_ == null) {
+          status_ = builderForValue.build();
+          onChanged();
+        } else {
+          statusBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <pre>
+       * Status denotes the status subresource for CustomResources
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceStatus status = 1;</code>
+       */
+      public Builder mergeStatus(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus value) {
+        if (statusBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              status_ != null &&
+              status_ != io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus.getDefaultInstance()) {
+            status_ =
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus.newBuilder(status_).mergeFrom(value).buildPartial();
+          } else {
+            status_ = value;
+          }
+          onChanged();
+        } else {
+          statusBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <pre>
+       * Status denotes the status subresource for CustomResources
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceStatus status = 1;</code>
+       */
+      public Builder clearStatus() {
+        if (statusBuilder_ == null) {
+          status_ = null;
+          onChanged();
+        } else {
+          statusBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       * <pre>
+       * Status denotes the status subresource for CustomResources
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceStatus status = 1;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus.Builder getStatusBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getStatusFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Status denotes the status subresource for CustomResources
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceStatus status = 1;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatusOrBuilder getStatusOrBuilder() {
+        if (statusBuilder_ != null) {
+          return statusBuilder_.getMessageOrBuilder();
+        } else {
+          return status_ == null ?
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus.getDefaultInstance() : status_;
+        }
+      }
+      /**
+       * <pre>
+       * Status denotes the status subresource for CustomResources
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceStatus status = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatusOrBuilder> 
+          getStatusFieldBuilder() {
+        if (statusBuilder_ == null) {
+          statusBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatus.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceStatusOrBuilder>(
+                  getStatus(),
+                  getParentForChildren(),
+                  isClean());
+          status_ = null;
+        }
+        return statusBuilder_;
+      }
+
+      private io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale scale_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScaleOrBuilder> scaleBuilder_;
+      /**
+       * <pre>
+       * Scale denotes the scale subresource for CustomResources
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale scale = 2;</code>
+       */
+      public boolean hasScale() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * Scale denotes the scale subresource for CustomResources
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale scale = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale getScale() {
+        if (scaleBuilder_ == null) {
+          return scale_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale.getDefaultInstance() : scale_;
+        } else {
+          return scaleBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Scale denotes the scale subresource for CustomResources
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale scale = 2;</code>
+       */
+      public Builder setScale(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale value) {
+        if (scaleBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          scale_ = value;
+          onChanged();
+        } else {
+          scaleBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <pre>
+       * Scale denotes the scale subresource for CustomResources
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale scale = 2;</code>
+       */
+      public Builder setScale(
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale.Builder builderForValue) {
+        if (scaleBuilder_ == null) {
+          scale_ = builderForValue.build();
+          onChanged();
+        } else {
+          scaleBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <pre>
+       * Scale denotes the scale subresource for CustomResources
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale scale = 2;</code>
+       */
+      public Builder mergeScale(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale value) {
+        if (scaleBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              scale_ != null &&
+              scale_ != io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale.getDefaultInstance()) {
+            scale_ =
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale.newBuilder(scale_).mergeFrom(value).buildPartial();
+          } else {
+            scale_ = value;
+          }
+          onChanged();
+        } else {
+          scaleBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <pre>
+       * Scale denotes the scale subresource for CustomResources
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale scale = 2;</code>
+       */
+      public Builder clearScale() {
+        if (scaleBuilder_ == null) {
+          scale_ = null;
+          onChanged();
+        } else {
+          scaleBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       * <pre>
+       * Scale denotes the scale subresource for CustomResources
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale scale = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale.Builder getScaleBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getScaleFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Scale denotes the scale subresource for CustomResources
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale scale = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScaleOrBuilder getScaleOrBuilder() {
+        if (scaleBuilder_ != null) {
+          return scaleBuilder_.getMessageOrBuilder();
+        } else {
+          return scale_ == null ?
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale.getDefaultInstance() : scale_;
+        }
+      }
+      /**
+       * <pre>
+       * Scale denotes the scale subresource for CustomResources
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale scale = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScaleOrBuilder> 
+          getScaleFieldBuilder() {
+        if (scaleBuilder_ == null) {
+          scaleBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScale.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresourceScaleOrBuilder>(
+                  getScale(),
+                  getParentForChildren(),
+                  isClean());
+          scale_ = null;
+        }
+        return scaleBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresources)
+    private static final io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources();
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<CustomResourceSubresources>
+        PARSER = new com.google.protobuf.AbstractParser<CustomResourceSubresources>() {
+      @java.lang.Override
+      public CustomResourceSubresources parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CustomResourceSubresources(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CustomResourceSubresources> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CustomResourceSubresources> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -8028,6 +22172,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps openAPIV3Schema = 1;</code>
@@ -8036,6 +22181,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps openAPIV3Schema = 1;</code>
@@ -8044,6 +22190,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps openAPIV3Schema = 1;</code>
@@ -8079,6 +22226,9 @@ public final class V1beta1Apiextensions {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -8090,13 +22240,6 @@ public final class V1beta1Apiextensions {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaProps.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -8108,6 +22251,13 @@ public final class V1beta1Apiextensions {
                 openAPIV3Schema_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000001;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -8127,6 +22277,7 @@ public final class V1beta1Apiextensions {
       return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceValidation_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceValidation_fieldAccessorTable
@@ -8140,6 +22291,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps openAPIV3Schema = 1;</code>
@@ -8150,6 +22302,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps openAPIV3Schema = 1;</code>
@@ -8160,6 +22313,7 @@ public final class V1beta1Apiextensions {
     /**
      * <pre>
      * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps openAPIV3Schema = 1;</code>
@@ -8169,6 +22323,7 @@ public final class V1beta1Apiextensions {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -8178,6 +22333,7 @@ public final class V1beta1Apiextensions {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -8186,6 +22342,7 @@ public final class V1beta1Apiextensions {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -8306,6 +22463,7 @@ public final class V1beta1Apiextensions {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -8313,6 +22471,7 @@ public final class V1beta1Apiextensions {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -8340,6 +22499,7 @@ public final class V1beta1Apiextensions {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceValidation_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceValidation_fieldAccessorTable
@@ -8363,6 +22523,7 @@ public final class V1beta1Apiextensions {
           getOpenAPIV3SchemaFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (openAPIV3SchemaBuilder_ == null) {
@@ -8374,15 +22535,18 @@ public final class V1beta1Apiextensions {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceValidation_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation build() {
         io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation result = buildPartial();
         if (!result.isInitialized()) {
@@ -8391,6 +22555,7 @@ public final class V1beta1Apiextensions {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation buildPartial() {
         io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation result = new io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation(this);
         int from_bitField0_ = bitField0_;
@@ -8408,32 +22573,39 @@ public final class V1beta1Apiextensions {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation)other);
@@ -8453,10 +22625,12 @@ public final class V1beta1Apiextensions {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -8482,6 +22656,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps openAPIV3Schema = 1;</code>
@@ -8492,6 +22667,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps openAPIV3Schema = 1;</code>
@@ -8506,6 +22682,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps openAPIV3Schema = 1;</code>
@@ -8526,6 +22703,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps openAPIV3Schema = 1;</code>
@@ -8544,6 +22722,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps openAPIV3Schema = 1;</code>
@@ -8568,6 +22747,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps openAPIV3Schema = 1;</code>
@@ -8585,6 +22765,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps openAPIV3Schema = 1;</code>
@@ -8597,6 +22778,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps openAPIV3Schema = 1;</code>
@@ -8612,6 +22794,7 @@ public final class V1beta1Apiextensions {
       /**
        * <pre>
        * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps openAPIV3Schema = 1;</code>
@@ -8629,11 +22812,13 @@ public final class V1beta1Apiextensions {
         }
         return openAPIV3SchemaBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -8655,11 +22840,12 @@ public final class V1beta1Apiextensions {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<CustomResourceValidation>
         PARSER = new com.google.protobuf.AbstractParser<CustomResourceValidation>() {
+      @java.lang.Override
       public CustomResourceValidation parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new CustomResourceValidation(input, extensionRegistry);
+        return new CustomResourceValidation(input, extensionRegistry);
       }
     };
 
@@ -8672,6 +22858,7 @@ public final class V1beta1Apiextensions {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -8741,6 +22928,9 @@ public final class V1beta1Apiextensions {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -8752,13 +22942,6 @@ public final class V1beta1Apiextensions {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -8769,6 +22952,13 @@ public final class V1beta1Apiextensions {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
               url_ = bs;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -8788,6 +22978,7 @@ public final class V1beta1Apiextensions {
       return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ExternalDocumentation_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ExternalDocumentation_fieldAccessorTable
@@ -8881,6 +23072,7 @@ public final class V1beta1Apiextensions {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -8890,6 +23082,7 @@ public final class V1beta1Apiextensions {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -8901,6 +23094,7 @@ public final class V1beta1Apiextensions {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -9032,6 +23226,7 @@ public final class V1beta1Apiextensions {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -9039,6 +23234,7 @@ public final class V1beta1Apiextensions {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apiextensions.ExternalDocumentation prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -9066,6 +23262,7 @@ public final class V1beta1Apiextensions {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ExternalDocumentation_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ExternalDocumentation_fieldAccessorTable
@@ -9088,6 +23285,7 @@ public final class V1beta1Apiextensions {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         description_ = "";
@@ -9097,15 +23295,18 @@ public final class V1beta1Apiextensions {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ExternalDocumentation_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.ExternalDocumentation getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.ExternalDocumentation.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.ExternalDocumentation build() {
         io.kubernetes.client.proto.V1beta1Apiextensions.ExternalDocumentation result = buildPartial();
         if (!result.isInitialized()) {
@@ -9114,6 +23315,7 @@ public final class V1beta1Apiextensions {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.ExternalDocumentation buildPartial() {
         io.kubernetes.client.proto.V1beta1Apiextensions.ExternalDocumentation result = new io.kubernetes.client.proto.V1beta1Apiextensions.ExternalDocumentation(this);
         int from_bitField0_ = bitField0_;
@@ -9131,32 +23333,39 @@ public final class V1beta1Apiextensions {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apiextensions.ExternalDocumentation) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apiextensions.ExternalDocumentation)other);
@@ -9183,10 +23392,12 @@ public final class V1beta1Apiextensions {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -9357,11 +23568,13 @@ public final class V1beta1Apiextensions {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -9383,11 +23596,12 @@ public final class V1beta1Apiextensions {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<ExternalDocumentation>
         PARSER = new com.google.protobuf.AbstractParser<ExternalDocumentation>() {
+      @java.lang.Override
       public ExternalDocumentation parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ExternalDocumentation(input, extensionRegistry);
+        return new ExternalDocumentation(input, extensionRegistry);
       }
     };
 
@@ -9400,6 +23614,7 @@ public final class V1beta1Apiextensions {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apiextensions.ExternalDocumentation getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -9450,6 +23665,9 @@ public final class V1beta1Apiextensions {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -9461,16 +23679,16 @@ public final class V1beta1Apiextensions {
             case 0:
               done = true;
               break;
+            case 10: {
+              bitField0_ |= 0x00000001;
+              raw_ = input.readBytes();
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              raw_ = input.readBytes();
               break;
             }
           }
@@ -9490,6 +23708,7 @@ public final class V1beta1Apiextensions {
       return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSON_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSON_fieldAccessorTable
@@ -9514,6 +23733,7 @@ public final class V1beta1Apiextensions {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -9523,6 +23743,7 @@ public final class V1beta1Apiextensions {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -9531,6 +23752,7 @@ public final class V1beta1Apiextensions {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -9651,6 +23873,7 @@ public final class V1beta1Apiextensions {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -9658,6 +23881,7 @@ public final class V1beta1Apiextensions {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apiextensions.JSON prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -9686,6 +23910,7 @@ public final class V1beta1Apiextensions {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSON_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSON_fieldAccessorTable
@@ -9708,6 +23933,7 @@ public final class V1beta1Apiextensions {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         raw_ = com.google.protobuf.ByteString.EMPTY;
@@ -9715,15 +23941,18 @@ public final class V1beta1Apiextensions {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSON_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.JSON getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.JSON.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.JSON build() {
         io.kubernetes.client.proto.V1beta1Apiextensions.JSON result = buildPartial();
         if (!result.isInitialized()) {
@@ -9732,6 +23961,7 @@ public final class V1beta1Apiextensions {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.JSON buildPartial() {
         io.kubernetes.client.proto.V1beta1Apiextensions.JSON result = new io.kubernetes.client.proto.V1beta1Apiextensions.JSON(this);
         int from_bitField0_ = bitField0_;
@@ -9745,32 +23975,39 @@ public final class V1beta1Apiextensions {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apiextensions.JSON) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apiextensions.JSON)other);
@@ -9790,10 +24027,12 @@ public final class V1beta1Apiextensions {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -9847,11 +24086,13 @@ public final class V1beta1Apiextensions {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -9873,11 +24114,12 @@ public final class V1beta1Apiextensions {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<JSON>
         PARSER = new com.google.protobuf.AbstractParser<JSON>() {
+      @java.lang.Override
       public JSON parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new JSON(input, extensionRegistry);
+        return new JSON(input, extensionRegistry);
       }
     };
 
@@ -9890,6 +24132,7 @@ public final class V1beta1Apiextensions {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apiextensions.JSON getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -10516,6 +24759,9 @@ public final class V1beta1Apiextensions {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       int mutable_bitField1_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -10528,13 +24774,6 @@ public final class V1beta1Apiextensions {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -10831,6 +25070,13 @@ public final class V1beta1Apiextensions {
               bitField0_ |= 0x04000000;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -10864,6 +25110,7 @@ public final class V1beta1Apiextensions {
     }
 
     @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
@@ -10880,6 +25127,7 @@ public final class V1beta1Apiextensions {
               "Invalid map field number: " + number);
       }
     }
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaProps_fieldAccessorTable
@@ -12025,6 +26273,7 @@ public final class V1beta1Apiextensions {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -12034,6 +26283,7 @@ public final class V1beta1Apiextensions {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -12159,6 +26409,7 @@ public final class V1beta1Apiextensions {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -12745,6 +26996,7 @@ public final class V1beta1Apiextensions {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -12752,6 +27004,7 @@ public final class V1beta1Apiextensions {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaProps prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -12813,6 +27066,7 @@ public final class V1beta1Apiextensions {
                 "Invalid map field number: " + number);
         }
       }
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaProps_fieldAccessorTable
@@ -12846,6 +27100,7 @@ public final class V1beta1Apiextensions {
           getExampleFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         id_ = "";
@@ -12963,15 +27218,18 @@ public final class V1beta1Apiextensions {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaProps_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaProps getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaProps.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaProps build() {
         io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaProps result = buildPartial();
         if (!result.isInitialized()) {
@@ -12980,6 +27238,7 @@ public final class V1beta1Apiextensions {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaProps buildPartial() {
         io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaProps result = new io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaProps(this);
         int from_bitField0_ = bitField0_;
@@ -13175,32 +27434,39 @@ public final class V1beta1Apiextensions {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaProps) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaProps)other);
@@ -13436,10 +27702,12 @@ public final class V1beta1Apiextensions {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -16822,11 +31090,13 @@ public final class V1beta1Apiextensions {
         }
         return exampleBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -16848,11 +31118,12 @@ public final class V1beta1Apiextensions {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<JSONSchemaProps>
         PARSER = new com.google.protobuf.AbstractParser<JSONSchemaProps>() {
+      @java.lang.Override
       public JSONSchemaProps parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new JSONSchemaProps(input, extensionRegistry);
+        return new JSONSchemaProps(input, extensionRegistry);
       }
     };
 
@@ -16865,6 +31136,7 @@ public final class V1beta1Apiextensions {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaProps getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -16943,6 +31215,9 @@ public final class V1beta1Apiextensions {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -16954,13 +31229,6 @@ public final class V1beta1Apiextensions {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaProps.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -16983,6 +31251,13 @@ public final class V1beta1Apiextensions {
                   input.readMessage(io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaProps.PARSER, extensionRegistry));
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -17003,6 +31278,7 @@ public final class V1beta1Apiextensions {
       return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaPropsOrArray_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaPropsOrArray_fieldAccessorTable
@@ -17068,6 +31344,7 @@ public final class V1beta1Apiextensions {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -17077,6 +31354,7 @@ public final class V1beta1Apiextensions {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -17088,6 +31366,7 @@ public final class V1beta1Apiextensions {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -17218,6 +31497,7 @@ public final class V1beta1Apiextensions {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -17225,6 +31505,7 @@ public final class V1beta1Apiextensions {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrArray prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -17253,6 +31534,7 @@ public final class V1beta1Apiextensions {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaPropsOrArray_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaPropsOrArray_fieldAccessorTable
@@ -17277,6 +31559,7 @@ public final class V1beta1Apiextensions {
           getJSONSchemasFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (schemaBuilder_ == null) {
@@ -17294,15 +31577,18 @@ public final class V1beta1Apiextensions {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaPropsOrArray_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrArray getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrArray.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrArray build() {
         io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrArray result = buildPartial();
         if (!result.isInitialized()) {
@@ -17311,6 +31597,7 @@ public final class V1beta1Apiextensions {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrArray buildPartial() {
         io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrArray result = new io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrArray(this);
         int from_bitField0_ = bitField0_;
@@ -17337,32 +31624,39 @@ public final class V1beta1Apiextensions {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrArray) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrArray)other);
@@ -17408,10 +31702,12 @@ public final class V1beta1Apiextensions {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -17788,11 +32084,13 @@ public final class V1beta1Apiextensions {
         }
         return jSONSchemasBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -17814,11 +32112,12 @@ public final class V1beta1Apiextensions {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<JSONSchemaPropsOrArray>
         PARSER = new com.google.protobuf.AbstractParser<JSONSchemaPropsOrArray>() {
+      @java.lang.Override
       public JSONSchemaPropsOrArray parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new JSONSchemaPropsOrArray(input, extensionRegistry);
+        return new JSONSchemaPropsOrArray(input, extensionRegistry);
       }
     };
 
@@ -17831,6 +32130,7 @@ public final class V1beta1Apiextensions {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrArray getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -17894,6 +32194,9 @@ public final class V1beta1Apiextensions {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -17905,13 +32208,6 @@ public final class V1beta1Apiextensions {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               bitField0_ |= 0x00000001;
               allows_ = input.readBool();
@@ -17928,6 +32224,13 @@ public final class V1beta1Apiextensions {
                 schema_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000002;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -17947,6 +32250,7 @@ public final class V1beta1Apiextensions {
       return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaPropsOrBool_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaPropsOrBool_fieldAccessorTable
@@ -17992,6 +32296,7 @@ public final class V1beta1Apiextensions {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -18001,6 +32306,7 @@ public final class V1beta1Apiextensions {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -18012,6 +32318,7 @@ public final class V1beta1Apiextensions {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -18146,6 +32453,7 @@ public final class V1beta1Apiextensions {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -18153,6 +32461,7 @@ public final class V1beta1Apiextensions {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrBool prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -18181,6 +32490,7 @@ public final class V1beta1Apiextensions {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaPropsOrBool_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaPropsOrBool_fieldAccessorTable
@@ -18204,6 +32514,7 @@ public final class V1beta1Apiextensions {
           getSchemaFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         allows_ = false;
@@ -18217,15 +32528,18 @@ public final class V1beta1Apiextensions {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaPropsOrBool_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrBool getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrBool.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrBool build() {
         io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrBool result = buildPartial();
         if (!result.isInitialized()) {
@@ -18234,6 +32548,7 @@ public final class V1beta1Apiextensions {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrBool buildPartial() {
         io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrBool result = new io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrBool(this);
         int from_bitField0_ = bitField0_;
@@ -18255,32 +32570,39 @@ public final class V1beta1Apiextensions {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrBool) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrBool)other);
@@ -18303,10 +32625,12 @@ public final class V1beta1Apiextensions {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -18475,11 +32799,13 @@ public final class V1beta1Apiextensions {
         }
         return schemaBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -18501,11 +32827,12 @@ public final class V1beta1Apiextensions {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<JSONSchemaPropsOrBool>
         PARSER = new com.google.protobuf.AbstractParser<JSONSchemaPropsOrBool>() {
+      @java.lang.Override
       public JSONSchemaPropsOrBool parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new JSONSchemaPropsOrBool(input, extensionRegistry);
+        return new JSONSchemaPropsOrBool(input, extensionRegistry);
       }
     };
 
@@ -18518,6 +32845,7 @@ public final class V1beta1Apiextensions {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrBool getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -18590,6 +32918,9 @@ public final class V1beta1Apiextensions {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -18601,13 +32932,6 @@ public final class V1beta1Apiextensions {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaProps.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -18630,6 +32954,13 @@ public final class V1beta1Apiextensions {
               property_.add(bs);
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -18650,6 +32981,7 @@ public final class V1beta1Apiextensions {
       return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaPropsOrStringArray_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaPropsOrStringArray_fieldAccessorTable
@@ -18709,6 +33041,7 @@ public final class V1beta1Apiextensions {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -18718,6 +33051,7 @@ public final class V1beta1Apiextensions {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -18729,6 +33063,7 @@ public final class V1beta1Apiextensions {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -18863,6 +33198,7 @@ public final class V1beta1Apiextensions {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -18870,6 +33206,7 @@ public final class V1beta1Apiextensions {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrStringArray prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -18897,6 +33234,7 @@ public final class V1beta1Apiextensions {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaPropsOrStringArray_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaPropsOrStringArray_fieldAccessorTable
@@ -18920,6 +33258,7 @@ public final class V1beta1Apiextensions {
           getSchemaFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (schemaBuilder_ == null) {
@@ -18933,15 +33272,18 @@ public final class V1beta1Apiextensions {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaPropsOrStringArray_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrStringArray getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrStringArray.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrStringArray build() {
         io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrStringArray result = buildPartial();
         if (!result.isInitialized()) {
@@ -18950,6 +33292,7 @@ public final class V1beta1Apiextensions {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrStringArray buildPartial() {
         io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrStringArray result = new io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrStringArray(this);
         int from_bitField0_ = bitField0_;
@@ -18972,32 +33315,39 @@ public final class V1beta1Apiextensions {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrStringArray) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrStringArray)other);
@@ -19027,10 +33377,12 @@ public final class V1beta1Apiextensions {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -19260,11 +33612,13 @@ public final class V1beta1Apiextensions {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -19286,11 +33640,12 @@ public final class V1beta1Apiextensions {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<JSONSchemaPropsOrStringArray>
         PARSER = new com.google.protobuf.AbstractParser<JSONSchemaPropsOrStringArray>() {
+      @java.lang.Override
       public JSONSchemaPropsOrStringArray parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new JSONSchemaPropsOrStringArray(input, extensionRegistry);
+        return new JSONSchemaPropsOrStringArray(input, extensionRegistry);
       }
     };
 
@@ -19303,12 +33658,2489 @@ public final class V1beta1Apiextensions {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apiextensions.JSONSchemaPropsOrStringArray getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
+  public interface ServiceReferenceOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ServiceReference)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * `namespace` is the namespace of the service.
+     * Required
+     * </pre>
+     *
+     * <code>optional string namespace = 1;</code>
+     */
+    boolean hasNamespace();
+    /**
+     * <pre>
+     * `namespace` is the namespace of the service.
+     * Required
+     * </pre>
+     *
+     * <code>optional string namespace = 1;</code>
+     */
+    java.lang.String getNamespace();
+    /**
+     * <pre>
+     * `namespace` is the namespace of the service.
+     * Required
+     * </pre>
+     *
+     * <code>optional string namespace = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getNamespaceBytes();
+
+    /**
+     * <pre>
+     * `name` is the name of the service.
+     * Required
+     * </pre>
+     *
+     * <code>optional string name = 2;</code>
+     */
+    boolean hasName();
+    /**
+     * <pre>
+     * `name` is the name of the service.
+     * Required
+     * </pre>
+     *
+     * <code>optional string name = 2;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <pre>
+     * `name` is the name of the service.
+     * Required
+     * </pre>
+     *
+     * <code>optional string name = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <pre>
+     * `path` is an optional URL path which will be sent in any request to
+     * this service.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string path = 3;</code>
+     */
+    boolean hasPath();
+    /**
+     * <pre>
+     * `path` is an optional URL path which will be sent in any request to
+     * this service.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string path = 3;</code>
+     */
+    java.lang.String getPath();
+    /**
+     * <pre>
+     * `path` is an optional URL path which will be sent in any request to
+     * this service.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string path = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getPathBytes();
+  }
+  /**
+   * <pre>
+   * ServiceReference holds a reference to Service.legacy.k8s.io
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ServiceReference}
+   */
+  public  static final class ServiceReference extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ServiceReference)
+      ServiceReferenceOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ServiceReference.newBuilder() to construct.
+    private ServiceReference(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ServiceReference() {
+      namespace_ = "";
+      name_ = "";
+      path_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ServiceReference(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              namespace_ = bs;
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              name_ = bs;
+              break;
+            }
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000004;
+              path_ = bs;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ServiceReference_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ServiceReference_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference.class, io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int NAMESPACE_FIELD_NUMBER = 1;
+    private volatile java.lang.Object namespace_;
+    /**
+     * <pre>
+     * `namespace` is the namespace of the service.
+     * Required
+     * </pre>
+     *
+     * <code>optional string namespace = 1;</code>
+     */
+    public boolean hasNamespace() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * `namespace` is the namespace of the service.
+     * Required
+     * </pre>
+     *
+     * <code>optional string namespace = 1;</code>
+     */
+    public java.lang.String getNamespace() {
+      java.lang.Object ref = namespace_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          namespace_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * `namespace` is the namespace of the service.
+     * Required
+     * </pre>
+     *
+     * <code>optional string namespace = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNamespaceBytes() {
+      java.lang.Object ref = namespace_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        namespace_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object name_;
+    /**
+     * <pre>
+     * `name` is the name of the service.
+     * Required
+     * </pre>
+     *
+     * <code>optional string name = 2;</code>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * `name` is the name of the service.
+     * Required
+     * </pre>
+     *
+     * <code>optional string name = 2;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * `name` is the name of the service.
+     * Required
+     * </pre>
+     *
+     * <code>optional string name = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PATH_FIELD_NUMBER = 3;
+    private volatile java.lang.Object path_;
+    /**
+     * <pre>
+     * `path` is an optional URL path which will be sent in any request to
+     * this service.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string path = 3;</code>
+     */
+    public boolean hasPath() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     * `path` is an optional URL path which will be sent in any request to
+     * this service.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string path = 3;</code>
+     */
+    public java.lang.String getPath() {
+      java.lang.Object ref = path_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          path_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * `path` is an optional URL path which will be sent in any request to
+     * this service.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string path = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPathBytes() {
+      java.lang.Object ref = path_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        path_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, namespace_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, path_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, namespace_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, path_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference other = (io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference) obj;
+
+      boolean result = true;
+      result = result && (hasNamespace() == other.hasNamespace());
+      if (hasNamespace()) {
+        result = result && getNamespace()
+            .equals(other.getNamespace());
+      }
+      result = result && (hasName() == other.hasName());
+      if (hasName()) {
+        result = result && getName()
+            .equals(other.getName());
+      }
+      result = result && (hasPath() == other.hasPath());
+      if (hasPath()) {
+        result = result && getPath()
+            .equals(other.getPath());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasNamespace()) {
+        hash = (37 * hash) + NAMESPACE_FIELD_NUMBER;
+        hash = (53 * hash) + getNamespace().hashCode();
+      }
+      if (hasName()) {
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getName().hashCode();
+      }
+      if (hasPath()) {
+        hash = (37 * hash) + PATH_FIELD_NUMBER;
+        hash = (53 * hash) + getPath().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * ServiceReference holds a reference to Service.legacy.k8s.io
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ServiceReference}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ServiceReference)
+        io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReferenceOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ServiceReference_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ServiceReference_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference.class, io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        namespace_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        path_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ServiceReference_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference build() {
+        io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference buildPartial() {
+        io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference result = new io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.namespace_ = namespace_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.name_ = name_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.path_ = path_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference) {
+          return mergeFrom((io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference other) {
+        if (other == io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference.getDefaultInstance()) return this;
+        if (other.hasNamespace()) {
+          bitField0_ |= 0x00000001;
+          namespace_ = other.namespace_;
+          onChanged();
+        }
+        if (other.hasName()) {
+          bitField0_ |= 0x00000002;
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.hasPath()) {
+          bitField0_ |= 0x00000004;
+          path_ = other.path_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object namespace_ = "";
+      /**
+       * <pre>
+       * `namespace` is the namespace of the service.
+       * Required
+       * </pre>
+       *
+       * <code>optional string namespace = 1;</code>
+       */
+      public boolean hasNamespace() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * `namespace` is the namespace of the service.
+       * Required
+       * </pre>
+       *
+       * <code>optional string namespace = 1;</code>
+       */
+      public java.lang.String getNamespace() {
+        java.lang.Object ref = namespace_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            namespace_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * `namespace` is the namespace of the service.
+       * Required
+       * </pre>
+       *
+       * <code>optional string namespace = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNamespaceBytes() {
+        java.lang.Object ref = namespace_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          namespace_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * `namespace` is the namespace of the service.
+       * Required
+       * </pre>
+       *
+       * <code>optional string namespace = 1;</code>
+       */
+      public Builder setNamespace(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        namespace_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * `namespace` is the namespace of the service.
+       * Required
+       * </pre>
+       *
+       * <code>optional string namespace = 1;</code>
+       */
+      public Builder clearNamespace() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        namespace_ = getDefaultInstance().getNamespace();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * `namespace` is the namespace of the service.
+       * Required
+       * </pre>
+       *
+       * <code>optional string namespace = 1;</code>
+       */
+      public Builder setNamespaceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        namespace_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object name_ = "";
+      /**
+       * <pre>
+       * `name` is the name of the service.
+       * Required
+       * </pre>
+       *
+       * <code>optional string name = 2;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * `name` is the name of the service.
+       * Required
+       * </pre>
+       *
+       * <code>optional string name = 2;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * `name` is the name of the service.
+       * Required
+       * </pre>
+       *
+       * <code>optional string name = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * `name` is the name of the service.
+       * Required
+       * </pre>
+       *
+       * <code>optional string name = 2;</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * `name` is the name of the service.
+       * Required
+       * </pre>
+       *
+       * <code>optional string name = 2;</code>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * `name` is the name of the service.
+       * Required
+       * </pre>
+       *
+       * <code>optional string name = 2;</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object path_ = "";
+      /**
+       * <pre>
+       * `path` is an optional URL path which will be sent in any request to
+       * this service.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string path = 3;</code>
+       */
+      public boolean hasPath() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * `path` is an optional URL path which will be sent in any request to
+       * this service.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string path = 3;</code>
+       */
+      public java.lang.String getPath() {
+        java.lang.Object ref = path_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            path_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * `path` is an optional URL path which will be sent in any request to
+       * this service.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string path = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPathBytes() {
+        java.lang.Object ref = path_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          path_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * `path` is an optional URL path which will be sent in any request to
+       * this service.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string path = 3;</code>
+       */
+      public Builder setPath(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        path_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * `path` is an optional URL path which will be sent in any request to
+       * this service.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string path = 3;</code>
+       */
+      public Builder clearPath() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        path_ = getDefaultInstance().getPath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * `path` is an optional URL path which will be sent in any request to
+       * this service.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string path = 3;</code>
+       */
+      public Builder setPathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        path_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ServiceReference)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ServiceReference)
+    private static final io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference();
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ServiceReference>
+        PARSER = new com.google.protobuf.AbstractParser<ServiceReference>() {
+      @java.lang.Override
+      public ServiceReference parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ServiceReference(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ServiceReference> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ServiceReference> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface WebhookClientConfigOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.WebhookClientConfig)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * `url` gives the location of the webhook, in standard URL form
+     * (`scheme://host:port/path`). Exactly one of `url` or `service`
+     * must be specified.
+     * The `host` should not refer to a service running in the cluster; use
+     * the `service` field instead. The host might be resolved via external
+     * DNS in some apiservers (e.g., `kube-apiserver` cannot resolve
+     * in-cluster DNS as that would be a layering violation). `host` may
+     * also be an IP address.
+     * Please note that using `localhost` or `127.0.0.1` as a `host` is
+     * risky unless you take great care to run this webhook on all hosts
+     * which run an apiserver which might need to make calls to this
+     * webhook. Such installs are likely to be non-portable, i.e., not easy
+     * to turn up in a new cluster.
+     * The scheme must be "https"; the URL must begin with "https://".
+     * A path is optional, and if present may be any string permissible in
+     * a URL. You may use the path to pass an arbitrary string to the
+     * webhook, for example, a cluster identifier.
+     * Attempting to use a user or basic auth e.g. "user:password&#64;" is not
+     * allowed. Fragments ("#...") and query parameters ("?...") are not
+     * allowed, either.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string url = 3;</code>
+     */
+    boolean hasUrl();
+    /**
+     * <pre>
+     * `url` gives the location of the webhook, in standard URL form
+     * (`scheme://host:port/path`). Exactly one of `url` or `service`
+     * must be specified.
+     * The `host` should not refer to a service running in the cluster; use
+     * the `service` field instead. The host might be resolved via external
+     * DNS in some apiservers (e.g., `kube-apiserver` cannot resolve
+     * in-cluster DNS as that would be a layering violation). `host` may
+     * also be an IP address.
+     * Please note that using `localhost` or `127.0.0.1` as a `host` is
+     * risky unless you take great care to run this webhook on all hosts
+     * which run an apiserver which might need to make calls to this
+     * webhook. Such installs are likely to be non-portable, i.e., not easy
+     * to turn up in a new cluster.
+     * The scheme must be "https"; the URL must begin with "https://".
+     * A path is optional, and if present may be any string permissible in
+     * a URL. You may use the path to pass an arbitrary string to the
+     * webhook, for example, a cluster identifier.
+     * Attempting to use a user or basic auth e.g. "user:password&#64;" is not
+     * allowed. Fragments ("#...") and query parameters ("?...") are not
+     * allowed, either.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string url = 3;</code>
+     */
+    java.lang.String getUrl();
+    /**
+     * <pre>
+     * `url` gives the location of the webhook, in standard URL form
+     * (`scheme://host:port/path`). Exactly one of `url` or `service`
+     * must be specified.
+     * The `host` should not refer to a service running in the cluster; use
+     * the `service` field instead. The host might be resolved via external
+     * DNS in some apiservers (e.g., `kube-apiserver` cannot resolve
+     * in-cluster DNS as that would be a layering violation). `host` may
+     * also be an IP address.
+     * Please note that using `localhost` or `127.0.0.1` as a `host` is
+     * risky unless you take great care to run this webhook on all hosts
+     * which run an apiserver which might need to make calls to this
+     * webhook. Such installs are likely to be non-portable, i.e., not easy
+     * to turn up in a new cluster.
+     * The scheme must be "https"; the URL must begin with "https://".
+     * A path is optional, and if present may be any string permissible in
+     * a URL. You may use the path to pass an arbitrary string to the
+     * webhook, for example, a cluster identifier.
+     * Attempting to use a user or basic auth e.g. "user:password&#64;" is not
+     * allowed. Fragments ("#...") and query parameters ("?...") are not
+     * allowed, either.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string url = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getUrlBytes();
+
+    /**
+     * <pre>
+     * `service` is a reference to the service for this webhook. Either
+     * `service` or `url` must be specified.
+     * If the webhook is running within the cluster, then you should use `service`.
+     * Port 443 will be used if it is open, otherwise it is an error.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ServiceReference service = 1;</code>
+     */
+    boolean hasService();
+    /**
+     * <pre>
+     * `service` is a reference to the service for this webhook. Either
+     * `service` or `url` must be specified.
+     * If the webhook is running within the cluster, then you should use `service`.
+     * Port 443 will be used if it is open, otherwise it is an error.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ServiceReference service = 1;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference getService();
+    /**
+     * <pre>
+     * `service` is a reference to the service for this webhook. Either
+     * `service` or `url` must be specified.
+     * If the webhook is running within the cluster, then you should use `service`.
+     * Port 443 will be used if it is open, otherwise it is an error.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ServiceReference service = 1;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReferenceOrBuilder getServiceOrBuilder();
+
+    /**
+     * <pre>
+     * `caBundle` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
+     * If unspecified, system trust roots on the apiserver are used.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bytes caBundle = 2;</code>
+     */
+    boolean hasCaBundle();
+    /**
+     * <pre>
+     * `caBundle` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
+     * If unspecified, system trust roots on the apiserver are used.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bytes caBundle = 2;</code>
+     */
+    com.google.protobuf.ByteString getCaBundle();
+  }
+  /**
+   * <pre>
+   * WebhookClientConfig contains the information to make a TLS
+   * connection with the webhook. It has the same field as admissionregistration.v1beta1.WebhookClientConfig.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.WebhookClientConfig}
+   */
+  public  static final class WebhookClientConfig extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.WebhookClientConfig)
+      WebhookClientConfigOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use WebhookClientConfig.newBuilder() to construct.
+    private WebhookClientConfig(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private WebhookClientConfig() {
+      url_ = "";
+      caBundle_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private WebhookClientConfig(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = service_.toBuilder();
+              }
+              service_ = input.readMessage(io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(service_);
+                service_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000004;
+              caBundle_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              url_ = bs;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_WebhookClientConfig_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_WebhookClientConfig_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig.class, io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int URL_FIELD_NUMBER = 3;
+    private volatile java.lang.Object url_;
+    /**
+     * <pre>
+     * `url` gives the location of the webhook, in standard URL form
+     * (`scheme://host:port/path`). Exactly one of `url` or `service`
+     * must be specified.
+     * The `host` should not refer to a service running in the cluster; use
+     * the `service` field instead. The host might be resolved via external
+     * DNS in some apiservers (e.g., `kube-apiserver` cannot resolve
+     * in-cluster DNS as that would be a layering violation). `host` may
+     * also be an IP address.
+     * Please note that using `localhost` or `127.0.0.1` as a `host` is
+     * risky unless you take great care to run this webhook on all hosts
+     * which run an apiserver which might need to make calls to this
+     * webhook. Such installs are likely to be non-portable, i.e., not easy
+     * to turn up in a new cluster.
+     * The scheme must be "https"; the URL must begin with "https://".
+     * A path is optional, and if present may be any string permissible in
+     * a URL. You may use the path to pass an arbitrary string to the
+     * webhook, for example, a cluster identifier.
+     * Attempting to use a user or basic auth e.g. "user:password&#64;" is not
+     * allowed. Fragments ("#...") and query parameters ("?...") are not
+     * allowed, either.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string url = 3;</code>
+     */
+    public boolean hasUrl() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * `url` gives the location of the webhook, in standard URL form
+     * (`scheme://host:port/path`). Exactly one of `url` or `service`
+     * must be specified.
+     * The `host` should not refer to a service running in the cluster; use
+     * the `service` field instead. The host might be resolved via external
+     * DNS in some apiservers (e.g., `kube-apiserver` cannot resolve
+     * in-cluster DNS as that would be a layering violation). `host` may
+     * also be an IP address.
+     * Please note that using `localhost` or `127.0.0.1` as a `host` is
+     * risky unless you take great care to run this webhook on all hosts
+     * which run an apiserver which might need to make calls to this
+     * webhook. Such installs are likely to be non-portable, i.e., not easy
+     * to turn up in a new cluster.
+     * The scheme must be "https"; the URL must begin with "https://".
+     * A path is optional, and if present may be any string permissible in
+     * a URL. You may use the path to pass an arbitrary string to the
+     * webhook, for example, a cluster identifier.
+     * Attempting to use a user or basic auth e.g. "user:password&#64;" is not
+     * allowed. Fragments ("#...") and query parameters ("?...") are not
+     * allowed, either.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string url = 3;</code>
+     */
+    public java.lang.String getUrl() {
+      java.lang.Object ref = url_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          url_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * `url` gives the location of the webhook, in standard URL form
+     * (`scheme://host:port/path`). Exactly one of `url` or `service`
+     * must be specified.
+     * The `host` should not refer to a service running in the cluster; use
+     * the `service` field instead. The host might be resolved via external
+     * DNS in some apiservers (e.g., `kube-apiserver` cannot resolve
+     * in-cluster DNS as that would be a layering violation). `host` may
+     * also be an IP address.
+     * Please note that using `localhost` or `127.0.0.1` as a `host` is
+     * risky unless you take great care to run this webhook on all hosts
+     * which run an apiserver which might need to make calls to this
+     * webhook. Such installs are likely to be non-portable, i.e., not easy
+     * to turn up in a new cluster.
+     * The scheme must be "https"; the URL must begin with "https://".
+     * A path is optional, and if present may be any string permissible in
+     * a URL. You may use the path to pass an arbitrary string to the
+     * webhook, for example, a cluster identifier.
+     * Attempting to use a user or basic auth e.g. "user:password&#64;" is not
+     * allowed. Fragments ("#...") and query parameters ("?...") are not
+     * allowed, either.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string url = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUrlBytes() {
+      java.lang.Object ref = url_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        url_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SERVICE_FIELD_NUMBER = 1;
+    private io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference service_;
+    /**
+     * <pre>
+     * `service` is a reference to the service for this webhook. Either
+     * `service` or `url` must be specified.
+     * If the webhook is running within the cluster, then you should use `service`.
+     * Port 443 will be used if it is open, otherwise it is an error.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ServiceReference service = 1;</code>
+     */
+    public boolean hasService() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * `service` is a reference to the service for this webhook. Either
+     * `service` or `url` must be specified.
+     * If the webhook is running within the cluster, then you should use `service`.
+     * Port 443 will be used if it is open, otherwise it is an error.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ServiceReference service = 1;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference getService() {
+      return service_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference.getDefaultInstance() : service_;
+    }
+    /**
+     * <pre>
+     * `service` is a reference to the service for this webhook. Either
+     * `service` or `url` must be specified.
+     * If the webhook is running within the cluster, then you should use `service`.
+     * Port 443 will be used if it is open, otherwise it is an error.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ServiceReference service = 1;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReferenceOrBuilder getServiceOrBuilder() {
+      return service_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference.getDefaultInstance() : service_;
+    }
+
+    public static final int CABUNDLE_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString caBundle_;
+    /**
+     * <pre>
+     * `caBundle` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
+     * If unspecified, system trust roots on the apiserver are used.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bytes caBundle = 2;</code>
+     */
+    public boolean hasCaBundle() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     * `caBundle` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
+     * If unspecified, system trust roots on the apiserver are used.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bytes caBundle = 2;</code>
+     */
+    public com.google.protobuf.ByteString getCaBundle() {
+      return caBundle_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(1, getService());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(2, caBundle_);
+      }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, url_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getService());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, caBundle_);
+      }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, url_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig other = (io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig) obj;
+
+      boolean result = true;
+      result = result && (hasUrl() == other.hasUrl());
+      if (hasUrl()) {
+        result = result && getUrl()
+            .equals(other.getUrl());
+      }
+      result = result && (hasService() == other.hasService());
+      if (hasService()) {
+        result = result && getService()
+            .equals(other.getService());
+      }
+      result = result && (hasCaBundle() == other.hasCaBundle());
+      if (hasCaBundle()) {
+        result = result && getCaBundle()
+            .equals(other.getCaBundle());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasUrl()) {
+        hash = (37 * hash) + URL_FIELD_NUMBER;
+        hash = (53 * hash) + getUrl().hashCode();
+      }
+      if (hasService()) {
+        hash = (37 * hash) + SERVICE_FIELD_NUMBER;
+        hash = (53 * hash) + getService().hashCode();
+      }
+      if (hasCaBundle()) {
+        hash = (37 * hash) + CABUNDLE_FIELD_NUMBER;
+        hash = (53 * hash) + getCaBundle().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * WebhookClientConfig contains the information to make a TLS
+     * connection with the webhook. It has the same field as admissionregistration.v1beta1.WebhookClientConfig.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.WebhookClientConfig}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.WebhookClientConfig)
+        io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfigOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_WebhookClientConfig_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_WebhookClientConfig_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig.class, io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getServiceFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        url_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (serviceBuilder_ == null) {
+          service_ = null;
+        } else {
+          serviceBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        caBundle_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_WebhookClientConfig_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig build() {
+        io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig buildPartial() {
+        io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig result = new io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.url_ = url_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (serviceBuilder_ == null) {
+          result.service_ = service_;
+        } else {
+          result.service_ = serviceBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.caBundle_ = caBundle_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig) {
+          return mergeFrom((io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig other) {
+        if (other == io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig.getDefaultInstance()) return this;
+        if (other.hasUrl()) {
+          bitField0_ |= 0x00000001;
+          url_ = other.url_;
+          onChanged();
+        }
+        if (other.hasService()) {
+          mergeService(other.getService());
+        }
+        if (other.hasCaBundle()) {
+          setCaBundle(other.getCaBundle());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object url_ = "";
+      /**
+       * <pre>
+       * `url` gives the location of the webhook, in standard URL form
+       * (`scheme://host:port/path`). Exactly one of `url` or `service`
+       * must be specified.
+       * The `host` should not refer to a service running in the cluster; use
+       * the `service` field instead. The host might be resolved via external
+       * DNS in some apiservers (e.g., `kube-apiserver` cannot resolve
+       * in-cluster DNS as that would be a layering violation). `host` may
+       * also be an IP address.
+       * Please note that using `localhost` or `127.0.0.1` as a `host` is
+       * risky unless you take great care to run this webhook on all hosts
+       * which run an apiserver which might need to make calls to this
+       * webhook. Such installs are likely to be non-portable, i.e., not easy
+       * to turn up in a new cluster.
+       * The scheme must be "https"; the URL must begin with "https://".
+       * A path is optional, and if present may be any string permissible in
+       * a URL. You may use the path to pass an arbitrary string to the
+       * webhook, for example, a cluster identifier.
+       * Attempting to use a user or basic auth e.g. "user:password&#64;" is not
+       * allowed. Fragments ("#...") and query parameters ("?...") are not
+       * allowed, either.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string url = 3;</code>
+       */
+      public boolean hasUrl() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * `url` gives the location of the webhook, in standard URL form
+       * (`scheme://host:port/path`). Exactly one of `url` or `service`
+       * must be specified.
+       * The `host` should not refer to a service running in the cluster; use
+       * the `service` field instead. The host might be resolved via external
+       * DNS in some apiservers (e.g., `kube-apiserver` cannot resolve
+       * in-cluster DNS as that would be a layering violation). `host` may
+       * also be an IP address.
+       * Please note that using `localhost` or `127.0.0.1` as a `host` is
+       * risky unless you take great care to run this webhook on all hosts
+       * which run an apiserver which might need to make calls to this
+       * webhook. Such installs are likely to be non-portable, i.e., not easy
+       * to turn up in a new cluster.
+       * The scheme must be "https"; the URL must begin with "https://".
+       * A path is optional, and if present may be any string permissible in
+       * a URL. You may use the path to pass an arbitrary string to the
+       * webhook, for example, a cluster identifier.
+       * Attempting to use a user or basic auth e.g. "user:password&#64;" is not
+       * allowed. Fragments ("#...") and query parameters ("?...") are not
+       * allowed, either.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string url = 3;</code>
+       */
+      public java.lang.String getUrl() {
+        java.lang.Object ref = url_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            url_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * `url` gives the location of the webhook, in standard URL form
+       * (`scheme://host:port/path`). Exactly one of `url` or `service`
+       * must be specified.
+       * The `host` should not refer to a service running in the cluster; use
+       * the `service` field instead. The host might be resolved via external
+       * DNS in some apiservers (e.g., `kube-apiserver` cannot resolve
+       * in-cluster DNS as that would be a layering violation). `host` may
+       * also be an IP address.
+       * Please note that using `localhost` or `127.0.0.1` as a `host` is
+       * risky unless you take great care to run this webhook on all hosts
+       * which run an apiserver which might need to make calls to this
+       * webhook. Such installs are likely to be non-portable, i.e., not easy
+       * to turn up in a new cluster.
+       * The scheme must be "https"; the URL must begin with "https://".
+       * A path is optional, and if present may be any string permissible in
+       * a URL. You may use the path to pass an arbitrary string to the
+       * webhook, for example, a cluster identifier.
+       * Attempting to use a user or basic auth e.g. "user:password&#64;" is not
+       * allowed. Fragments ("#...") and query parameters ("?...") are not
+       * allowed, either.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string url = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUrlBytes() {
+        java.lang.Object ref = url_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          url_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * `url` gives the location of the webhook, in standard URL form
+       * (`scheme://host:port/path`). Exactly one of `url` or `service`
+       * must be specified.
+       * The `host` should not refer to a service running in the cluster; use
+       * the `service` field instead. The host might be resolved via external
+       * DNS in some apiservers (e.g., `kube-apiserver` cannot resolve
+       * in-cluster DNS as that would be a layering violation). `host` may
+       * also be an IP address.
+       * Please note that using `localhost` or `127.0.0.1` as a `host` is
+       * risky unless you take great care to run this webhook on all hosts
+       * which run an apiserver which might need to make calls to this
+       * webhook. Such installs are likely to be non-portable, i.e., not easy
+       * to turn up in a new cluster.
+       * The scheme must be "https"; the URL must begin with "https://".
+       * A path is optional, and if present may be any string permissible in
+       * a URL. You may use the path to pass an arbitrary string to the
+       * webhook, for example, a cluster identifier.
+       * Attempting to use a user or basic auth e.g. "user:password&#64;" is not
+       * allowed. Fragments ("#...") and query parameters ("?...") are not
+       * allowed, either.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string url = 3;</code>
+       */
+      public Builder setUrl(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        url_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * `url` gives the location of the webhook, in standard URL form
+       * (`scheme://host:port/path`). Exactly one of `url` or `service`
+       * must be specified.
+       * The `host` should not refer to a service running in the cluster; use
+       * the `service` field instead. The host might be resolved via external
+       * DNS in some apiservers (e.g., `kube-apiserver` cannot resolve
+       * in-cluster DNS as that would be a layering violation). `host` may
+       * also be an IP address.
+       * Please note that using `localhost` or `127.0.0.1` as a `host` is
+       * risky unless you take great care to run this webhook on all hosts
+       * which run an apiserver which might need to make calls to this
+       * webhook. Such installs are likely to be non-portable, i.e., not easy
+       * to turn up in a new cluster.
+       * The scheme must be "https"; the URL must begin with "https://".
+       * A path is optional, and if present may be any string permissible in
+       * a URL. You may use the path to pass an arbitrary string to the
+       * webhook, for example, a cluster identifier.
+       * Attempting to use a user or basic auth e.g. "user:password&#64;" is not
+       * allowed. Fragments ("#...") and query parameters ("?...") are not
+       * allowed, either.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string url = 3;</code>
+       */
+      public Builder clearUrl() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        url_ = getDefaultInstance().getUrl();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * `url` gives the location of the webhook, in standard URL form
+       * (`scheme://host:port/path`). Exactly one of `url` or `service`
+       * must be specified.
+       * The `host` should not refer to a service running in the cluster; use
+       * the `service` field instead. The host might be resolved via external
+       * DNS in some apiservers (e.g., `kube-apiserver` cannot resolve
+       * in-cluster DNS as that would be a layering violation). `host` may
+       * also be an IP address.
+       * Please note that using `localhost` or `127.0.0.1` as a `host` is
+       * risky unless you take great care to run this webhook on all hosts
+       * which run an apiserver which might need to make calls to this
+       * webhook. Such installs are likely to be non-portable, i.e., not easy
+       * to turn up in a new cluster.
+       * The scheme must be "https"; the URL must begin with "https://".
+       * A path is optional, and if present may be any string permissible in
+       * a URL. You may use the path to pass an arbitrary string to the
+       * webhook, for example, a cluster identifier.
+       * Attempting to use a user or basic auth e.g. "user:password&#64;" is not
+       * allowed. Fragments ("#...") and query parameters ("?...") are not
+       * allowed, either.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string url = 3;</code>
+       */
+      public Builder setUrlBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        url_ = value;
+        onChanged();
+        return this;
+      }
+
+      private io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference service_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference, io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReferenceOrBuilder> serviceBuilder_;
+      /**
+       * <pre>
+       * `service` is a reference to the service for this webhook. Either
+       * `service` or `url` must be specified.
+       * If the webhook is running within the cluster, then you should use `service`.
+       * Port 443 will be used if it is open, otherwise it is an error.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ServiceReference service = 1;</code>
+       */
+      public boolean hasService() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * `service` is a reference to the service for this webhook. Either
+       * `service` or `url` must be specified.
+       * If the webhook is running within the cluster, then you should use `service`.
+       * Port 443 will be used if it is open, otherwise it is an error.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ServiceReference service = 1;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference getService() {
+        if (serviceBuilder_ == null) {
+          return service_ == null ? io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference.getDefaultInstance() : service_;
+        } else {
+          return serviceBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * `service` is a reference to the service for this webhook. Either
+       * `service` or `url` must be specified.
+       * If the webhook is running within the cluster, then you should use `service`.
+       * Port 443 will be used if it is open, otherwise it is an error.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ServiceReference service = 1;</code>
+       */
+      public Builder setService(io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference value) {
+        if (serviceBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          service_ = value;
+          onChanged();
+        } else {
+          serviceBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <pre>
+       * `service` is a reference to the service for this webhook. Either
+       * `service` or `url` must be specified.
+       * If the webhook is running within the cluster, then you should use `service`.
+       * Port 443 will be used if it is open, otherwise it is an error.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ServiceReference service = 1;</code>
+       */
+      public Builder setService(
+          io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference.Builder builderForValue) {
+        if (serviceBuilder_ == null) {
+          service_ = builderForValue.build();
+          onChanged();
+        } else {
+          serviceBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <pre>
+       * `service` is a reference to the service for this webhook. Either
+       * `service` or `url` must be specified.
+       * If the webhook is running within the cluster, then you should use `service`.
+       * Port 443 will be used if it is open, otherwise it is an error.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ServiceReference service = 1;</code>
+       */
+      public Builder mergeService(io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference value) {
+        if (serviceBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              service_ != null &&
+              service_ != io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference.getDefaultInstance()) {
+            service_ =
+              io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference.newBuilder(service_).mergeFrom(value).buildPartial();
+          } else {
+            service_ = value;
+          }
+          onChanged();
+        } else {
+          serviceBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <pre>
+       * `service` is a reference to the service for this webhook. Either
+       * `service` or `url` must be specified.
+       * If the webhook is running within the cluster, then you should use `service`.
+       * Port 443 will be used if it is open, otherwise it is an error.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ServiceReference service = 1;</code>
+       */
+      public Builder clearService() {
+        if (serviceBuilder_ == null) {
+          service_ = null;
+          onChanged();
+        } else {
+          serviceBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       * <pre>
+       * `service` is a reference to the service for this webhook. Either
+       * `service` or `url` must be specified.
+       * If the webhook is running within the cluster, then you should use `service`.
+       * Port 443 will be used if it is open, otherwise it is an error.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ServiceReference service = 1;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference.Builder getServiceBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getServiceFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * `service` is a reference to the service for this webhook. Either
+       * `service` or `url` must be specified.
+       * If the webhook is running within the cluster, then you should use `service`.
+       * Port 443 will be used if it is open, otherwise it is an error.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ServiceReference service = 1;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReferenceOrBuilder getServiceOrBuilder() {
+        if (serviceBuilder_ != null) {
+          return serviceBuilder_.getMessageOrBuilder();
+        } else {
+          return service_ == null ?
+              io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference.getDefaultInstance() : service_;
+        }
+      }
+      /**
+       * <pre>
+       * `service` is a reference to the service for this webhook. Either
+       * `service` or `url` must be specified.
+       * If the webhook is running within the cluster, then you should use `service`.
+       * Port 443 will be used if it is open, otherwise it is an error.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.ServiceReference service = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference, io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReferenceOrBuilder> 
+          getServiceFieldBuilder() {
+        if (serviceBuilder_ == null) {
+          serviceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference, io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReference.Builder, io.kubernetes.client.proto.V1beta1Apiextensions.ServiceReferenceOrBuilder>(
+                  getService(),
+                  getParentForChildren(),
+                  isClean());
+          service_ = null;
+        }
+        return serviceBuilder_;
+      }
+
+      private com.google.protobuf.ByteString caBundle_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <pre>
+       * `caBundle` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
+       * If unspecified, system trust roots on the apiserver are used.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bytes caBundle = 2;</code>
+       */
+      public boolean hasCaBundle() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * `caBundle` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
+       * If unspecified, system trust roots on the apiserver are used.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bytes caBundle = 2;</code>
+       */
+      public com.google.protobuf.ByteString getCaBundle() {
+        return caBundle_;
+      }
+      /**
+       * <pre>
+       * `caBundle` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
+       * If unspecified, system trust roots on the apiserver are used.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bytes caBundle = 2;</code>
+       */
+      public Builder setCaBundle(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        caBundle_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * `caBundle` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
+       * If unspecified, system trust roots on the apiserver are used.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bytes caBundle = 2;</code>
+       */
+      public Builder clearCaBundle() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        caBundle_ = getDefaultInstance().getCaBundle();
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.WebhookClientConfig)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.WebhookClientConfig)
+    private static final io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig();
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<WebhookClientConfig>
+        PARSER = new com.google.protobuf.AbstractParser<WebhookClientConfig>() {
+      @java.lang.Override
+      public WebhookClientConfig parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new WebhookClientConfig(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<WebhookClientConfig> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<WebhookClientConfig> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionReview_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionReview_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceColumnDefinition_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceColumnDefinition_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceConversion_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceConversion_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinition_descriptor;
   private static final 
@@ -19339,6 +36171,26 @@ public final class V1beta1Apiextensions {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionStatus_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionVersion_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionVersion_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresourceScale_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresourceScale_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresourceStatus_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresourceStatus_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresources_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresources_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceValidation_descriptor;
   private static final 
@@ -19394,6 +36246,16 @@ public final class V1beta1Apiextensions {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaPropsOrStringArray_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ServiceReference_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ServiceReference_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_WebhookClientConfig_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_WebhookClientConfig_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -19410,9 +36272,28 @@ public final class V1beta1Apiextensions {
       "ery/pkg/apis/meta/v1/generated.proto\032/k8" +
       "s.io/apimachinery/pkg/runtime/generated." +
       "proto\0326k8s.io/apimachinery/pkg/runtime/s" +
-      "chema/generated.proto\0323k8s.io/apimachine" +
-      "ry/pkg/util/intstr/generated.proto\"\270\002\n\030C" +
-      "ustomResourceDefinition\022B\n\010metadata\030\001 \001(",
+      "chema/generated.proto\"{\n\021ConversionReque" +
+      "st\022\013\n\003uid\030\001 \001(\t\022\031\n\021desiredAPIVersion\030\002 \001" +
+      "(\t\022>\n\007objects\030\003 \003(\0132-.k8s.io.apimachiner" +
+      "y.pkg.runtime.RawExtension\"\250\001\n\022Conversio" +
+      "nResponse\022\013\n\003uid\030\001 \001(\t\022G\n\020convertedObjec" +
+      "ts\030\002 \003(\0132-.k8s.io.apimachinery.pkg.runti" +
+      "me.RawExtension\022<\n\006result\030\003 \001(\0132,.k8s.io" +
+      ".apimachinery.pkg.apis.meta.v1.Status\"\332\001" +
+      "\n\020ConversionReview\022a\n\007request\030\001 \001(\0132P.k8" +
+      "s.io.apiextensions_apiserver.pkg.apis.ap" +
+      "iextensions.v1beta1.ConversionRequest\022c\n" +
+      "\010response\030\002 \001(\0132Q.k8s.io.apiextensions_a" +
+      "piserver.pkg.apis.apiextensions.v1beta1." +
+      "ConversionResponse\"\205\001\n\036CustomResourceCol" +
+      "umnDefinition\022\014\n\004name\030\001 \001(\t\022\014\n\004type\030\002 \001(" +
+      "\t\022\016\n\006format\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\020" +
+      "\n\010priority\030\005 \001(\005\022\020\n\010JSONPath\030\006 \001(\t\"\235\001\n\030C" +
+      "ustomResourceConversion\022\020\n\010strategy\030\001 \001(" +
+      "\t\022o\n\023webhookClientConfig\030\002 \001(\0132R.k8s.io." +
+      "apiextensions_apiserver.pkg.apis.apiexte" +
+      "nsions.v1beta1.WebhookClientConfig\"\270\002\n\030C" +
+      "ustomResourceDefinition\022B\n\010metadata\030\001 \001(" +
       "\01320.k8s.io.apimachinery.pkg.apis.meta.v1" +
       ".ObjectMeta\022i\n\004spec\030\002 \001(\0132[.k8s.io.apiex" +
       "tensions_apiserver.pkg.apis.apiextension" +
@@ -19422,113 +36303,152 @@ public final class V1beta1Apiextensions {
       "ustomResourceDefinitionStatus\"\252\001\n!Custom" +
       "ResourceDefinitionCondition\022\014\n\004type\030\001 \001(" +
       "\t\022\016\n\006status\030\002 \001(\t\022F\n\022lastTransitionTime\030" +
-      "\003 \001(\0132*.k8s.io.apimachinery.pkg.apis.met",
+      "\003 \001(\0132*.k8s.io.apimachinery.pkg.apis.met" +
       "a.v1.Time\022\016\n\006reason\030\004 \001(\t\022\017\n\007message\030\005 \001" +
       "(\t\"\310\001\n\034CustomResourceDefinitionList\022@\n\010m" +
       "etadata\030\001 \001(\0132..k8s.io.apimachinery.pkg." +
       "apis.meta.v1.ListMeta\022f\n\005items\030\002 \003(\0132W.k" +
       "8s.io.apiextensions_apiserver.pkg.apis.a" +
       "piextensions.v1beta1.CustomResourceDefin" +
-      "ition\"u\n\035CustomResourceDefinitionNames\022\016" +
-      "\n\006plural\030\001 \001(\t\022\020\n\010singular\030\002 \001(\t\022\022\n\nshor" +
-      "tNames\030\003 \003(\t\022\014\n\004kind\030\004 \001(\t\022\020\n\010listKind\030\005" +
-      " \001(\t\"\247\002\n\034CustomResourceDefinitionSpec\022\r\n",
-      "\005group\030\001 \001(\t\022\017\n\007version\030\002 \001(\t\022k\n\005names\030\003" +
+      "ition\"\211\001\n\035CustomResourceDefinitionNames\022" +
+      "\016\n\006plural\030\001 \001(\t\022\020\n\010singular\030\002 \001(\t\022\022\n\nsho" +
+      "rtNames\030\003 \003(\t\022\014\n\004kind\030\004 \001(\t\022\020\n\010listKind\030" +
+      "\005 \001(\t\022\022\n\ncategories\030\006 \003(\t\"\370\005\n\034CustomReso" +
+      "urceDefinitionSpec\022\r\n\005group\030\001 \001(\t\022\017\n\007ver" +
+      "sion\030\002 \001(\t\022k\n\005names\030\003 \001(\0132\\.k8s.io.apiex" +
+      "tensions_apiserver.pkg.apis.apiextension" +
+      "s.v1beta1.CustomResourceDefinitionNames\022" +
+      "\r\n\005scope\030\004 \001(\t\022k\n\nvalidation\030\005 \001(\0132W.k8s" +
+      ".io.apiextensions_apiserver.pkg.apis.api" +
+      "extensions.v1beta1.CustomResourceValidat" +
+      "ion\022o\n\014subresources\030\006 \001(\0132Y.k8s.io.apiex" +
+      "tensions_apiserver.pkg.apis.apiextension" +
+      "s.v1beta1.CustomResourceSubresources\022p\n\010" +
+      "versions\030\007 \003(\0132^.k8s.io.apiextensions_ap" +
+      "iserver.pkg.apis.apiextensions.v1beta1.C" +
+      "ustomResourceDefinitionVersion\022\177\n\030additi" +
+      "onalPrinterColumns\030\010 \003(\0132].k8s.io.apiext" +
+      "ensions_apiserver.pkg.apis.apiextensions" +
+      ".v1beta1.CustomResourceColumnDefinition\022" +
+      "k\n\nconversion\030\t \001(\0132W.k8s.io.apiextensio" +
+      "ns_apiserver.pkg.apis.apiextensions.v1be" +
+      "ta1.CustomResourceConversion\"\243\002\n\036CustomR" +
+      "esourceDefinitionStatus\022t\n\nconditions\030\001 " +
+      "\003(\0132`.k8s.io.apiextensions_apiserver.pkg" +
+      ".apis.apiextensions.v1beta1.CustomResour" +
+      "ceDefinitionCondition\022s\n\racceptedNames\030\002" +
       " \001(\0132\\.k8s.io.apiextensions_apiserver.pk" +
       "g.apis.apiextensions.v1beta1.CustomResou" +
-      "rceDefinitionNames\022\r\n\005scope\030\004 \001(\t\022k\n\nval" +
-      "idation\030\005 \001(\0132W.k8s.io.apiextensions_api" +
-      "server.pkg.apis.apiextensions.v1beta1.Cu" +
-      "stomResourceValidation\"\213\002\n\036CustomResourc" +
-      "eDefinitionStatus\022t\n\nconditions\030\001 \003(\0132`." +
-      "k8s.io.apiextensions_apiserver.pkg.apis." +
-      "apiextensions.v1beta1.CustomResourceDefi",
-      "nitionCondition\022s\n\racceptedNames\030\002 \001(\0132\\" +
-      ".k8s.io.apiextensions_apiserver.pkg.apis" +
-      ".apiextensions.v1beta1.CustomResourceDef" +
-      "initionNames\"\203\001\n\030CustomResourceValidatio" +
-      "n\022g\n\017openAPIV3Schema\030\001 \001(\0132N.k8s.io.apie" +
-      "xtensions_apiserver.pkg.apis.apiextensio" +
-      "ns.v1beta1.JSONSchemaProps\"9\n\025ExternalDo" +
-      "cumentation\022\023\n\013description\030\001 \001(\t\022\013\n\003url\030" +
-      "\002 \001(\t\"\023\n\004JSON\022\013\n\003raw\030\001 \001(\014\"\320\023\n\017JSONSchem" +
-      "aProps\022\n\n\002id\030\001 \001(\t\022\016\n\006schema\030\002 \001(\t\022\013\n\003re",
-      "f\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\014\n\004type\030\005 \001" +
-      "(\t\022\016\n\006format\030\006 \001(\t\022\r\n\005title\030\007 \001(\t\022T\n\007def" +
-      "ault\030\010 \001(\0132C.k8s.io.apiextensions_apiser" +
-      "ver.pkg.apis.apiextensions.v1beta1.JSON\022" +
-      "\017\n\007maximum\030\t \001(\001\022\030\n\020exclusiveMaximum\030\n \001" +
-      "(\010\022\017\n\007minimum\030\013 \001(\001\022\030\n\020exclusiveMinimum\030" +
-      "\014 \001(\010\022\021\n\tmaxLength\030\r \001(\003\022\021\n\tminLength\030\016 " +
-      "\001(\003\022\017\n\007pattern\030\017 \001(\t\022\020\n\010maxItems\030\020 \001(\003\022\020" +
-      "\n\010minItems\030\021 \001(\003\022\023\n\013uniqueItems\030\022 \001(\010\022\022\n" +
-      "\nmultipleOf\030\023 \001(\001\022Q\n\004enum\030\024 \003(\0132C.k8s.io",
-      ".apiextensions_apiserver.pkg.apis.apiext" +
-      "ensions.v1beta1.JSON\022\025\n\rmaxProperties\030\025 " +
-      "\001(\003\022\025\n\rminProperties\030\026 \001(\003\022\020\n\010required\030\027" +
-      " \003(\t\022d\n\005items\030\030 \001(\0132U.k8s.io.apiextensio" +
-      "ns_apiserver.pkg.apis.apiextensions.v1be" +
-      "ta1.JSONSchemaPropsOrArray\022]\n\005allOf\030\031 \003(" +
-      "\0132N.k8s.io.apiextensions_apiserver.pkg.a" +
-      "pis.apiextensions.v1beta1.JSONSchemaProp" +
-      "s\022]\n\005oneOf\030\032 \003(\0132N.k8s.io.apiextensions_" +
-      "apiserver.pkg.apis.apiextensions.v1beta1",
-      ".JSONSchemaProps\022]\n\005anyOf\030\033 \003(\0132N.k8s.io" +
-      ".apiextensions_apiserver.pkg.apis.apiext" +
-      "ensions.v1beta1.JSONSchemaProps\022[\n\003not\030\034" +
-      " \001(\0132N.k8s.io.apiextensions_apiserver.pk" +
-      "g.apis.apiextensions.v1beta1.JSONSchemaP" +
-      "rops\022r\n\nproperties\030\035 \003(\0132^.k8s.io.apiext" +
-      "ensions_apiserver.pkg.apis.apiextensions" +
-      ".v1beta1.JSONSchemaProps.PropertiesEntry" +
-      "\022r\n\024additionalProperties\030\036 \001(\0132T.k8s.io." +
-      "apiextensions_apiserver.pkg.apis.apiexte",
-      "nsions.v1beta1.JSONSchemaPropsOrBool\022\200\001\n" +
-      "\021patternProperties\030\037 \003(\0132e.k8s.io.apiext" +
-      "ensions_apiserver.pkg.apis.apiextensions" +
-      ".v1beta1.JSONSchemaProps.PatternProperti" +
-      "esEntry\022v\n\014dependencies\030  \003(\0132`.k8s.io.a" +
+      "rceDefinitionNames\022\026\n\016storedVersions\030\003 \003" +
+      "(\t\"\253\003\n\037CustomResourceDefinitionVersion\022\014" +
+      "\n\004name\030\001 \001(\t\022\016\n\006served\030\002 \001(\010\022\017\n\007storage\030" +
+      "\003 \001(\010\022g\n\006schema\030\004 \001(\0132W.k8s.io.apiextens" +
+      "ions_apiserver.pkg.apis.apiextensions.v1" +
+      "beta1.CustomResourceValidation\022o\n\014subres" +
+      "ources\030\005 \001(\0132Y.k8s.io.apiextensions_apis" +
+      "erver.pkg.apis.apiextensions.v1beta1.Cus" +
+      "tomResourceSubresources\022\177\n\030additionalPri" +
+      "nterColumns\030\006 \003(\0132].k8s.io.apiextensions" +
+      "_apiserver.pkg.apis.apiextensions.v1beta" +
+      "1.CustomResourceColumnDefinition\"q\n\036Cust" +
+      "omResourceSubresourceScale\022\030\n\020specReplic" +
+      "asPath\030\001 \001(\t\022\032\n\022statusReplicasPath\030\002 \001(\t" +
+      "\022\031\n\021labelSelectorPath\030\003 \001(\t\"!\n\037CustomRes" +
+      "ourceSubresourceStatus\"\372\001\n\032CustomResourc" +
+      "eSubresources\022n\n\006status\030\001 \001(\0132^.k8s.io.a" +
       "piextensions_apiserver.pkg.apis.apiexten" +
-      "sions.v1beta1.JSONSchemaProps.Dependenci" +
-      "esEntry\022m\n\017additionalItems\030! \001(\0132T.k8s.i" +
-      "o.apiextensions_apiserver.pkg.apis.apiex" +
-      "tensions.v1beta1.JSONSchemaPropsOrBool\022t",
-      "\n\013definitions\030\" \003(\0132_.k8s.io.apiextensio" +
-      "ns_apiserver.pkg.apis.apiextensions.v1be" +
-      "ta1.JSONSchemaProps.DefinitionsEntry\022j\n\014" +
-      "externalDocs\030# \001(\0132T.k8s.io.apiextension" +
-      "s_apiserver.pkg.apis.apiextensions.v1bet" +
-      "a1.ExternalDocumentation\022T\n\007example\030$ \001(" +
-      "\0132C.k8s.io.apiextensions_apiserver.pkg.a" +
-      "pis.apiextensions.v1beta1.JSON\032\201\001\n\017Prope" +
-      "rtiesEntry\022\013\n\003key\030\001 \001(\t\022]\n\005value\030\002 \001(\0132N" +
-      ".k8s.io.apiextensions_apiserver.pkg.apis",
-      ".apiextensions.v1beta1.JSONSchemaProps:\002" +
-      "8\001\032\210\001\n\026PatternPropertiesEntry\022\013\n\003key\030\001 \001" +
-      "(\t\022]\n\005value\030\002 \001(\0132N.k8s.io.apiextensions" +
-      "_apiserver.pkg.apis.apiextensions.v1beta" +
-      "1.JSONSchemaProps:\0028\001\032\220\001\n\021DependenciesEn" +
-      "try\022\013\n\003key\030\001 \001(\t\022j\n\005value\030\002 \001(\0132[.k8s.io" +
-      ".apiextensions_apiserver.pkg.apis.apiext" +
-      "ensions.v1beta1.JSONSchemaPropsOrStringA" +
-      "rray:\0028\001\032\202\001\n\020DefinitionsEntry\022\013\n\003key\030\001 \001" +
-      "(\t\022]\n\005value\030\002 \001(\0132N.k8s.io.apiextensions",
-      "_apiserver.pkg.apis.apiextensions.v1beta" +
-      "1.JSONSchemaProps:\0028\001\"\335\001\n\026JSONSchemaProp" +
-      "sOrArray\022^\n\006schema\030\001 \001(\0132N.k8s.io.apiext" +
+      "sions.v1beta1.CustomResourceSubresourceS" +
+      "tatus\022l\n\005scale\030\002 \001(\0132].k8s.io.apiextensi" +
+      "ons_apiserver.pkg.apis.apiextensions.v1b" +
+      "eta1.CustomResourceSubresourceScale\"\203\001\n\030" +
+      "CustomResourceValidation\022g\n\017openAPIV3Sch" +
+      "ema\030\001 \001(\0132N.k8s.io.apiextensions_apiserv" +
+      "er.pkg.apis.apiextensions.v1beta1.JSONSc" +
+      "hemaProps\"9\n\025ExternalDocumentation\022\023\n\013de" +
+      "scription\030\001 \001(\t\022\013\n\003url\030\002 \001(\t\"\023\n\004JSON\022\013\n\003" +
+      "raw\030\001 \001(\014\"\320\023\n\017JSONSchemaProps\022\n\n\002id\030\001 \001(" +
+      "\t\022\016\n\006schema\030\002 \001(\t\022\013\n\003ref\030\003 \001(\t\022\023\n\013descri" +
+      "ption\030\004 \001(\t\022\014\n\004type\030\005 \001(\t\022\016\n\006format\030\006 \001(" +
+      "\t\022\r\n\005title\030\007 \001(\t\022T\n\007default\030\010 \001(\0132C.k8s." +
+      "io.apiextensions_apiserver.pkg.apis.apie" +
+      "xtensions.v1beta1.JSON\022\017\n\007maximum\030\t \001(\001\022" +
+      "\030\n\020exclusiveMaximum\030\n \001(\010\022\017\n\007minimum\030\013 \001" +
+      "(\001\022\030\n\020exclusiveMinimum\030\014 \001(\010\022\021\n\tmaxLengt" +
+      "h\030\r \001(\003\022\021\n\tminLength\030\016 \001(\003\022\017\n\007pattern\030\017 " +
+      "\001(\t\022\020\n\010maxItems\030\020 \001(\003\022\020\n\010minItems\030\021 \001(\003\022" +
+      "\023\n\013uniqueItems\030\022 \001(\010\022\022\n\nmultipleOf\030\023 \001(\001" +
+      "\022Q\n\004enum\030\024 \003(\0132C.k8s.io.apiextensions_ap" +
+      "iserver.pkg.apis.apiextensions.v1beta1.J" +
+      "SON\022\025\n\rmaxProperties\030\025 \001(\003\022\025\n\rminPropert" +
+      "ies\030\026 \001(\003\022\020\n\010required\030\027 \003(\t\022d\n\005items\030\030 \001" +
+      "(\0132U.k8s.io.apiextensions_apiserver.pkg." +
+      "apis.apiextensions.v1beta1.JSONSchemaPro" +
+      "psOrArray\022]\n\005allOf\030\031 \003(\0132N.k8s.io.apiext" +
       "ensions_apiserver.pkg.apis.apiextensions" +
-      ".v1beta1.JSONSchemaProps\022c\n\013jSONSchemas\030" +
-      "\002 \003(\0132N.k8s.io.apiextensions_apiserver.p" +
-      "kg.apis.apiextensions.v1beta1.JSONSchema" +
-      "Props\"\207\001\n\025JSONSchemaPropsOrBool\022\016\n\006allow" +
-      "s\030\001 \001(\010\022^\n\006schema\030\002 \001(\0132N.k8s.io.apiexte" +
-      "nsions_apiserver.pkg.apis.apiextensions.",
-      "v1beta1.JSONSchemaProps\"\220\001\n\034JSONSchemaPr" +
-      "opsOrStringArray\022^\n\006schema\030\001 \001(\0132N.k8s.i" +
-      "o.apiextensions_apiserver.pkg.apis.apiex" +
-      "tensions.v1beta1.JSONSchemaProps\022\020\n\010prop" +
-      "erty\030\002 \003(\tB;\n\032io.kubernetes.client.proto" +
-      "B\024V1beta1ApiextensionsZ\007v1beta1"
+      ".v1beta1.JSONSchemaProps\022]\n\005oneOf\030\032 \003(\0132" +
+      "N.k8s.io.apiextensions_apiserver.pkg.api" +
+      "s.apiextensions.v1beta1.JSONSchemaProps\022" +
+      "]\n\005anyOf\030\033 \003(\0132N.k8s.io.apiextensions_ap" +
+      "iserver.pkg.apis.apiextensions.v1beta1.J" +
+      "SONSchemaProps\022[\n\003not\030\034 \001(\0132N.k8s.io.api" +
+      "extensions_apiserver.pkg.apis.apiextensi" +
+      "ons.v1beta1.JSONSchemaProps\022r\n\npropertie" +
+      "s\030\035 \003(\0132^.k8s.io.apiextensions_apiserver" +
+      ".pkg.apis.apiextensions.v1beta1.JSONSche" +
+      "maProps.PropertiesEntry\022r\n\024additionalPro" +
+      "perties\030\036 \001(\0132T.k8s.io.apiextensions_api" +
+      "server.pkg.apis.apiextensions.v1beta1.JS" +
+      "ONSchemaPropsOrBool\022\200\001\n\021patternPropertie" +
+      "s\030\037 \003(\0132e.k8s.io.apiextensions_apiserver" +
+      ".pkg.apis.apiextensions.v1beta1.JSONSche" +
+      "maProps.PatternPropertiesEntry\022v\n\014depend" +
+      "encies\030  \003(\0132`.k8s.io.apiextensions_apis" +
+      "erver.pkg.apis.apiextensions.v1beta1.JSO" +
+      "NSchemaProps.DependenciesEntry\022m\n\017additi" +
+      "onalItems\030! \001(\0132T.k8s.io.apiextensions_a" +
+      "piserver.pkg.apis.apiextensions.v1beta1." +
+      "JSONSchemaPropsOrBool\022t\n\013definitions\030\" \003" +
+      "(\0132_.k8s.io.apiextensions_apiserver.pkg." +
+      "apis.apiextensions.v1beta1.JSONSchemaPro" +
+      "ps.DefinitionsEntry\022j\n\014externalDocs\030# \001(" +
+      "\0132T.k8s.io.apiextensions_apiserver.pkg.a" +
+      "pis.apiextensions.v1beta1.ExternalDocume" +
+      "ntation\022T\n\007example\030$ \001(\0132C.k8s.io.apiext" +
+      "ensions_apiserver.pkg.apis.apiextensions" +
+      ".v1beta1.JSON\032\201\001\n\017PropertiesEntry\022\013\n\003key" +
+      "\030\001 \001(\t\022]\n\005value\030\002 \001(\0132N.k8s.io.apiextens" +
+      "ions_apiserver.pkg.apis.apiextensions.v1" +
+      "beta1.JSONSchemaProps:\0028\001\032\210\001\n\026PatternPro" +
+      "pertiesEntry\022\013\n\003key\030\001 \001(\t\022]\n\005value\030\002 \001(\013" +
+      "2N.k8s.io.apiextensions_apiserver.pkg.ap" +
+      "is.apiextensions.v1beta1.JSONSchemaProps" +
+      ":\0028\001\032\220\001\n\021DependenciesEntry\022\013\n\003key\030\001 \001(\t\022" +
+      "j\n\005value\030\002 \001(\0132[.k8s.io.apiextensions_ap" +
+      "iserver.pkg.apis.apiextensions.v1beta1.J" +
+      "SONSchemaPropsOrStringArray:\0028\001\032\202\001\n\020Defi" +
+      "nitionsEntry\022\013\n\003key\030\001 \001(\t\022]\n\005value\030\002 \001(\013" +
+      "2N.k8s.io.apiextensions_apiserver.pkg.ap" +
+      "is.apiextensions.v1beta1.JSONSchemaProps" +
+      ":\0028\001\"\335\001\n\026JSONSchemaPropsOrArray\022^\n\006schem" +
+      "a\030\001 \001(\0132N.k8s.io.apiextensions_apiserver" +
+      ".pkg.apis.apiextensions.v1beta1.JSONSche" +
+      "maProps\022c\n\013jSONSchemas\030\002 \003(\0132N.k8s.io.ap" +
+      "iextensions_apiserver.pkg.apis.apiextens" +
+      "ions.v1beta1.JSONSchemaProps\"\207\001\n\025JSONSch" +
+      "emaPropsOrBool\022\016\n\006allows\030\001 \001(\010\022^\n\006schema" +
+      "\030\002 \001(\0132N.k8s.io.apiextensions_apiserver." +
+      "pkg.apis.apiextensions.v1beta1.JSONSchem" +
+      "aProps\"\220\001\n\034JSONSchemaPropsOrStringArray\022" +
+      "^\n\006schema\030\001 \001(\0132N.k8s.io.apiextensions_a" +
+      "piserver.pkg.apis.apiextensions.v1beta1." +
+      "JSONSchemaProps\022\020\n\010property\030\002 \003(\t\"A\n\020Ser" +
+      "viceReference\022\021\n\tnamespace\030\001 \001(\t\022\014\n\004name" +
+      "\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\"\226\001\n\023WebhookClientCo" +
+      "nfig\022\013\n\003url\030\003 \001(\t\022`\n\007service\030\001 \001(\0132O.k8s" +
+      ".io.apiextensions_apiserver.pkg.apis.api" +
+      "extensions.v1beta1.ServiceReference\022\020\n\010c" +
+      "aBundle\030\002 \001(\014B;\n\032io.kubernetes.client.pr" +
+      "otoB\024V1beta1ApiextensionsZ\007v1beta1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -19544,64 +36464,117 @@ public final class V1beta1Apiextensions {
           io.kubernetes.client.proto.Meta.getDescriptor(),
           io.kubernetes.client.proto.Runtime.getDescriptor(),
           io.kubernetes.client.proto.RuntimeSchema.getDescriptor(),
-          io.kubernetes.client.proto.IntStr.getDescriptor(),
         }, assigner);
-    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinition_descriptor =
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionRequest_descriptor,
+        new java.lang.String[] { "Uid", "DesiredAPIVersion", "Objects", });
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionResponse_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionResponse_descriptor,
+        new java.lang.String[] { "Uid", "ConvertedObjects", "Result", });
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionReview_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionReview_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ConversionReview_descriptor,
+        new java.lang.String[] { "Request", "Response", });
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceColumnDefinition_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceColumnDefinition_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceColumnDefinition_descriptor,
+        new java.lang.String[] { "Name", "Type", "Format", "Description", "Priority", "JSONPath", });
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceConversion_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceConversion_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceConversion_descriptor,
+        new java.lang.String[] { "Strategy", "WebhookClientConfig", });
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinition_descriptor =
+      getDescriptor().getMessageTypes().get(5);
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinition_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinition_descriptor,
         new java.lang.String[] { "Metadata", "Spec", "Status", });
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionCondition_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionCondition_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionCondition_descriptor,
         new java.lang.String[] { "Type", "Status", "LastTransitionTime", "Reason", "Message", });
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionList_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionList_descriptor,
         new java.lang.String[] { "Metadata", "Items", });
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionNames_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionNames_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionNames_descriptor,
-        new java.lang.String[] { "Plural", "Singular", "ShortNames", "Kind", "ListKind", });
+        new java.lang.String[] { "Plural", "Singular", "ShortNames", "Kind", "ListKind", "Categories", });
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionSpec_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionSpec_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionSpec_descriptor,
-        new java.lang.String[] { "Group", "Version", "Names", "Scope", "Validation", });
+        new java.lang.String[] { "Group", "Version", "Names", "Scope", "Validation", "Subresources", "Versions", "AdditionalPrinterColumns", "Conversion", });
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionStatus_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionStatus_descriptor,
-        new java.lang.String[] { "Conditions", "AcceptedNames", });
+        new java.lang.String[] { "Conditions", "AcceptedNames", "StoredVersions", });
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionVersion_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionVersion_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionVersion_descriptor,
+        new java.lang.String[] { "Name", "Served", "Storage", "Schema", "Subresources", "AdditionalPrinterColumns", });
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresourceScale_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresourceScale_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresourceScale_descriptor,
+        new java.lang.String[] { "SpecReplicasPath", "StatusReplicasPath", "LabelSelectorPath", });
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresourceStatus_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresourceStatus_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresourceStatus_descriptor,
+        new java.lang.String[] { });
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresources_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresources_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresources_descriptor,
+        new java.lang.String[] { "Status", "Scale", });
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceValidation_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceValidation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceValidation_descriptor,
         new java.lang.String[] { "OpenAPIV3Schema", });
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ExternalDocumentation_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ExternalDocumentation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ExternalDocumentation_descriptor,
         new java.lang.String[] { "Description", "Url", });
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSON_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSON_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSON_descriptor,
         new java.lang.String[] { "Raw", });
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaProps_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaProps_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaProps_descriptor,
@@ -19631,27 +36604,38 @@ public final class V1beta1Apiextensions {
         internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaProps_DefinitionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaPropsOrArray_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaPropsOrArray_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaPropsOrArray_descriptor,
         new java.lang.String[] { "Schema", "JSONSchemas", });
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaPropsOrBool_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaPropsOrBool_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaPropsOrBool_descriptor,
         new java.lang.String[] { "Allows", "Schema", });
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaPropsOrStringArray_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaPropsOrStringArray_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaPropsOrStringArray_descriptor,
         new java.lang.String[] { "Schema", "Property", });
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ServiceReference_descriptor =
+      getDescriptor().getMessageTypes().get(22);
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ServiceReference_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ServiceReference_descriptor,
+        new java.lang.String[] { "Namespace", "Name", "Path", });
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_WebhookClientConfig_descriptor =
+      getDescriptor().getMessageTypes().get(23);
+    internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_WebhookClientConfig_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_WebhookClientConfig_descriptor,
+        new java.lang.String[] { "Url", "Service", "CaBundle", });
     io.kubernetes.client.proto.Meta.getDescriptor();
     io.kubernetes.client.proto.Runtime.getDescriptor();
     io.kubernetes.client.proto.RuntimeSchema.getDescriptor();
-    io.kubernetes.client.proto.IntStr.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

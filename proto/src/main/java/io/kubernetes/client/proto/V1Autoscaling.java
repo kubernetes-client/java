@@ -131,6 +131,9 @@ public final class V1Autoscaling {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -142,13 +145,6 @@ public final class V1Autoscaling {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -165,6 +161,13 @@ public final class V1Autoscaling {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
               apiVersion_ = bs;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -184,6 +187,7 @@ public final class V1Autoscaling {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_CrossVersionObjectReference_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_CrossVersionObjectReference_fieldAccessorTable
@@ -358,6 +362,7 @@ public final class V1Autoscaling {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -367,6 +372,7 @@ public final class V1Autoscaling {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -381,6 +387,7 @@ public final class V1Autoscaling {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -524,6 +531,7 @@ public final class V1Autoscaling {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -531,6 +539,7 @@ public final class V1Autoscaling {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Autoscaling.CrossVersionObjectReference prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -558,6 +567,7 @@ public final class V1Autoscaling {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_CrossVersionObjectReference_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_CrossVersionObjectReference_fieldAccessorTable
@@ -580,6 +590,7 @@ public final class V1Autoscaling {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         kind_ = "";
@@ -591,15 +602,18 @@ public final class V1Autoscaling {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_CrossVersionObjectReference_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.CrossVersionObjectReference getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Autoscaling.CrossVersionObjectReference.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.CrossVersionObjectReference build() {
         io.kubernetes.client.proto.V1Autoscaling.CrossVersionObjectReference result = buildPartial();
         if (!result.isInitialized()) {
@@ -608,6 +622,7 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.CrossVersionObjectReference buildPartial() {
         io.kubernetes.client.proto.V1Autoscaling.CrossVersionObjectReference result = new io.kubernetes.client.proto.V1Autoscaling.CrossVersionObjectReference(this);
         int from_bitField0_ = bitField0_;
@@ -629,32 +644,39 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Autoscaling.CrossVersionObjectReference) {
           return mergeFrom((io.kubernetes.client.proto.V1Autoscaling.CrossVersionObjectReference)other);
@@ -686,10 +708,12 @@ public final class V1Autoscaling {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1014,11 +1038,13 @@ public final class V1Autoscaling {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1040,11 +1066,12 @@ public final class V1Autoscaling {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<CrossVersionObjectReference>
         PARSER = new com.google.protobuf.AbstractParser<CrossVersionObjectReference>() {
+      @java.lang.Override
       public CrossVersionObjectReference parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new CrossVersionObjectReference(input, extensionRegistry);
+        return new CrossVersionObjectReference(input, extensionRegistry);
       }
     };
 
@@ -1057,7 +1084,2993 @@ public final class V1Autoscaling {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Autoscaling.CrossVersionObjectReference getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ExternalMetricSourceOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.autoscaling.v1.ExternalMetricSource)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * metricName is the name of the metric in question.
+     * </pre>
+     *
+     * <code>optional string metricName = 1;</code>
+     */
+    boolean hasMetricName();
+    /**
+     * <pre>
+     * metricName is the name of the metric in question.
+     * </pre>
+     *
+     * <code>optional string metricName = 1;</code>
+     */
+    java.lang.String getMetricName();
+    /**
+     * <pre>
+     * metricName is the name of the metric in question.
+     * </pre>
+     *
+     * <code>optional string metricName = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getMetricNameBytes();
+
+    /**
+     * <pre>
+     * metricSelector is used to identify a specific time series
+     * within a given metric.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+     */
+    boolean hasMetricSelector();
+    /**
+     * <pre>
+     * metricSelector is used to identify a specific time series
+     * within a given metric.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+     */
+    io.kubernetes.client.proto.Meta.LabelSelector getMetricSelector();
+    /**
+     * <pre>
+     * metricSelector is used to identify a specific time series
+     * within a given metric.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+     */
+    io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getMetricSelectorOrBuilder();
+
+    /**
+     * <pre>
+     * targetValue is the target value of the metric (as a quantity).
+     * Mutually exclusive with TargetAverageValue.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetValue = 3;</code>
+     */
+    boolean hasTargetValue();
+    /**
+     * <pre>
+     * targetValue is the target value of the metric (as a quantity).
+     * Mutually exclusive with TargetAverageValue.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetValue = 3;</code>
+     */
+    io.kubernetes.client.proto.Resource.Quantity getTargetValue();
+    /**
+     * <pre>
+     * targetValue is the target value of the metric (as a quantity).
+     * Mutually exclusive with TargetAverageValue.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetValue = 3;</code>
+     */
+    io.kubernetes.client.proto.Resource.QuantityOrBuilder getTargetValueOrBuilder();
+
+    /**
+     * <pre>
+     * targetAverageValue is the target per-pod value of global metric (as a quantity).
+     * Mutually exclusive with TargetValue.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetAverageValue = 4;</code>
+     */
+    boolean hasTargetAverageValue();
+    /**
+     * <pre>
+     * targetAverageValue is the target per-pod value of global metric (as a quantity).
+     * Mutually exclusive with TargetValue.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetAverageValue = 4;</code>
+     */
+    io.kubernetes.client.proto.Resource.Quantity getTargetAverageValue();
+    /**
+     * <pre>
+     * targetAverageValue is the target per-pod value of global metric (as a quantity).
+     * Mutually exclusive with TargetValue.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetAverageValue = 4;</code>
+     */
+    io.kubernetes.client.proto.Resource.QuantityOrBuilder getTargetAverageValueOrBuilder();
+  }
+  /**
+   * <pre>
+   * ExternalMetricSource indicates how to scale on a metric not associated with
+   * any Kubernetes object (for example length of queue in cloud
+   * messaging service, or QPS from loadbalancer running outside of cluster).
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.autoscaling.v1.ExternalMetricSource}
+   */
+  public  static final class ExternalMetricSource extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.autoscaling.v1.ExternalMetricSource)
+      ExternalMetricSourceOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ExternalMetricSource.newBuilder() to construct.
+    private ExternalMetricSource(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ExternalMetricSource() {
+      metricName_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ExternalMetricSource(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              metricName_ = bs;
+              break;
+            }
+            case 18: {
+              io.kubernetes.client.proto.Meta.LabelSelector.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = metricSelector_.toBuilder();
+              }
+              metricSelector_ = input.readMessage(io.kubernetes.client.proto.Meta.LabelSelector.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(metricSelector_);
+                metricSelector_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+            case 26: {
+              io.kubernetes.client.proto.Resource.Quantity.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                subBuilder = targetValue_.toBuilder();
+              }
+              targetValue_ = input.readMessage(io.kubernetes.client.proto.Resource.Quantity.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(targetValue_);
+                targetValue_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
+              break;
+            }
+            case 34: {
+              io.kubernetes.client.proto.Resource.Quantity.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                subBuilder = targetAverageValue_.toBuilder();
+              }
+              targetAverageValue_ = input.readMessage(io.kubernetes.client.proto.Resource.Quantity.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(targetAverageValue_);
+                targetAverageValue_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000008;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ExternalMetricSource_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ExternalMetricSource_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource.class, io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int METRICNAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object metricName_;
+    /**
+     * <pre>
+     * metricName is the name of the metric in question.
+     * </pre>
+     *
+     * <code>optional string metricName = 1;</code>
+     */
+    public boolean hasMetricName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * metricName is the name of the metric in question.
+     * </pre>
+     *
+     * <code>optional string metricName = 1;</code>
+     */
+    public java.lang.String getMetricName() {
+      java.lang.Object ref = metricName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          metricName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * metricName is the name of the metric in question.
+     * </pre>
+     *
+     * <code>optional string metricName = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMetricNameBytes() {
+      java.lang.Object ref = metricName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        metricName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int METRICSELECTOR_FIELD_NUMBER = 2;
+    private io.kubernetes.client.proto.Meta.LabelSelector metricSelector_;
+    /**
+     * <pre>
+     * metricSelector is used to identify a specific time series
+     * within a given metric.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+     */
+    public boolean hasMetricSelector() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * metricSelector is used to identify a specific time series
+     * within a given metric.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+     */
+    public io.kubernetes.client.proto.Meta.LabelSelector getMetricSelector() {
+      return metricSelector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : metricSelector_;
+    }
+    /**
+     * <pre>
+     * metricSelector is used to identify a specific time series
+     * within a given metric.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+     */
+    public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getMetricSelectorOrBuilder() {
+      return metricSelector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : metricSelector_;
+    }
+
+    public static final int TARGETVALUE_FIELD_NUMBER = 3;
+    private io.kubernetes.client.proto.Resource.Quantity targetValue_;
+    /**
+     * <pre>
+     * targetValue is the target value of the metric (as a quantity).
+     * Mutually exclusive with TargetAverageValue.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetValue = 3;</code>
+     */
+    public boolean hasTargetValue() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     * targetValue is the target value of the metric (as a quantity).
+     * Mutually exclusive with TargetAverageValue.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetValue = 3;</code>
+     */
+    public io.kubernetes.client.proto.Resource.Quantity getTargetValue() {
+      return targetValue_ == null ? io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : targetValue_;
+    }
+    /**
+     * <pre>
+     * targetValue is the target value of the metric (as a quantity).
+     * Mutually exclusive with TargetAverageValue.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetValue = 3;</code>
+     */
+    public io.kubernetes.client.proto.Resource.QuantityOrBuilder getTargetValueOrBuilder() {
+      return targetValue_ == null ? io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : targetValue_;
+    }
+
+    public static final int TARGETAVERAGEVALUE_FIELD_NUMBER = 4;
+    private io.kubernetes.client.proto.Resource.Quantity targetAverageValue_;
+    /**
+     * <pre>
+     * targetAverageValue is the target per-pod value of global metric (as a quantity).
+     * Mutually exclusive with TargetValue.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetAverageValue = 4;</code>
+     */
+    public boolean hasTargetAverageValue() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     * targetAverageValue is the target per-pod value of global metric (as a quantity).
+     * Mutually exclusive with TargetValue.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetAverageValue = 4;</code>
+     */
+    public io.kubernetes.client.proto.Resource.Quantity getTargetAverageValue() {
+      return targetAverageValue_ == null ? io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : targetAverageValue_;
+    }
+    /**
+     * <pre>
+     * targetAverageValue is the target per-pod value of global metric (as a quantity).
+     * Mutually exclusive with TargetValue.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetAverageValue = 4;</code>
+     */
+    public io.kubernetes.client.proto.Resource.QuantityOrBuilder getTargetAverageValueOrBuilder() {
+      return targetAverageValue_ == null ? io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : targetAverageValue_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, metricName_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, getMetricSelector());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeMessage(3, getTargetValue());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeMessage(4, getTargetAverageValue());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, metricName_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getMetricSelector());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getTargetValue());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getTargetAverageValue());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource other = (io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource) obj;
+
+      boolean result = true;
+      result = result && (hasMetricName() == other.hasMetricName());
+      if (hasMetricName()) {
+        result = result && getMetricName()
+            .equals(other.getMetricName());
+      }
+      result = result && (hasMetricSelector() == other.hasMetricSelector());
+      if (hasMetricSelector()) {
+        result = result && getMetricSelector()
+            .equals(other.getMetricSelector());
+      }
+      result = result && (hasTargetValue() == other.hasTargetValue());
+      if (hasTargetValue()) {
+        result = result && getTargetValue()
+            .equals(other.getTargetValue());
+      }
+      result = result && (hasTargetAverageValue() == other.hasTargetAverageValue());
+      if (hasTargetAverageValue()) {
+        result = result && getTargetAverageValue()
+            .equals(other.getTargetAverageValue());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasMetricName()) {
+        hash = (37 * hash) + METRICNAME_FIELD_NUMBER;
+        hash = (53 * hash) + getMetricName().hashCode();
+      }
+      if (hasMetricSelector()) {
+        hash = (37 * hash) + METRICSELECTOR_FIELD_NUMBER;
+        hash = (53 * hash) + getMetricSelector().hashCode();
+      }
+      if (hasTargetValue()) {
+        hash = (37 * hash) + TARGETVALUE_FIELD_NUMBER;
+        hash = (53 * hash) + getTargetValue().hashCode();
+      }
+      if (hasTargetAverageValue()) {
+        hash = (37 * hash) + TARGETAVERAGEVALUE_FIELD_NUMBER;
+        hash = (53 * hash) + getTargetAverageValue().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * ExternalMetricSource indicates how to scale on a metric not associated with
+     * any Kubernetes object (for example length of queue in cloud
+     * messaging service, or QPS from loadbalancer running outside of cluster).
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.autoscaling.v1.ExternalMetricSource}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.autoscaling.v1.ExternalMetricSource)
+        io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSourceOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ExternalMetricSource_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ExternalMetricSource_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource.class, io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getMetricSelectorFieldBuilder();
+          getTargetValueFieldBuilder();
+          getTargetAverageValueFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        metricName_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (metricSelectorBuilder_ == null) {
+          metricSelector_ = null;
+        } else {
+          metricSelectorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (targetValueBuilder_ == null) {
+          targetValue_ = null;
+        } else {
+          targetValueBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        if (targetAverageValueBuilder_ == null) {
+          targetAverageValue_ = null;
+        } else {
+          targetAverageValueBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ExternalMetricSource_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource build() {
+        io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource buildPartial() {
+        io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource result = new io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.metricName_ = metricName_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (metricSelectorBuilder_ == null) {
+          result.metricSelector_ = metricSelector_;
+        } else {
+          result.metricSelector_ = metricSelectorBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        if (targetValueBuilder_ == null) {
+          result.targetValue_ = targetValue_;
+        } else {
+          result.targetValue_ = targetValueBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        if (targetAverageValueBuilder_ == null) {
+          result.targetAverageValue_ = targetAverageValue_;
+        } else {
+          result.targetAverageValue_ = targetAverageValueBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource) {
+          return mergeFrom((io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource other) {
+        if (other == io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource.getDefaultInstance()) return this;
+        if (other.hasMetricName()) {
+          bitField0_ |= 0x00000001;
+          metricName_ = other.metricName_;
+          onChanged();
+        }
+        if (other.hasMetricSelector()) {
+          mergeMetricSelector(other.getMetricSelector());
+        }
+        if (other.hasTargetValue()) {
+          mergeTargetValue(other.getTargetValue());
+        }
+        if (other.hasTargetAverageValue()) {
+          mergeTargetAverageValue(other.getTargetAverageValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object metricName_ = "";
+      /**
+       * <pre>
+       * metricName is the name of the metric in question.
+       * </pre>
+       *
+       * <code>optional string metricName = 1;</code>
+       */
+      public boolean hasMetricName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * metricName is the name of the metric in question.
+       * </pre>
+       *
+       * <code>optional string metricName = 1;</code>
+       */
+      public java.lang.String getMetricName() {
+        java.lang.Object ref = metricName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            metricName_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * metricName is the name of the metric in question.
+       * </pre>
+       *
+       * <code>optional string metricName = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMetricNameBytes() {
+        java.lang.Object ref = metricName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          metricName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * metricName is the name of the metric in question.
+       * </pre>
+       *
+       * <code>optional string metricName = 1;</code>
+       */
+      public Builder setMetricName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        metricName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * metricName is the name of the metric in question.
+       * </pre>
+       *
+       * <code>optional string metricName = 1;</code>
+       */
+      public Builder clearMetricName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        metricName_ = getDefaultInstance().getMetricName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * metricName is the name of the metric in question.
+       * </pre>
+       *
+       * <code>optional string metricName = 1;</code>
+       */
+      public Builder setMetricNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        metricName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private io.kubernetes.client.proto.Meta.LabelSelector metricSelector_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder> metricSelectorBuilder_;
+      /**
+       * <pre>
+       * metricSelector is used to identify a specific time series
+       * within a given metric.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+       */
+      public boolean hasMetricSelector() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * metricSelector is used to identify a specific time series
+       * within a given metric.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelector getMetricSelector() {
+        if (metricSelectorBuilder_ == null) {
+          return metricSelector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : metricSelector_;
+        } else {
+          return metricSelectorBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * metricSelector is used to identify a specific time series
+       * within a given metric.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+       */
+      public Builder setMetricSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
+        if (metricSelectorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          metricSelector_ = value;
+          onChanged();
+        } else {
+          metricSelectorBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <pre>
+       * metricSelector is used to identify a specific time series
+       * within a given metric.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+       */
+      public Builder setMetricSelector(
+          io.kubernetes.client.proto.Meta.LabelSelector.Builder builderForValue) {
+        if (metricSelectorBuilder_ == null) {
+          metricSelector_ = builderForValue.build();
+          onChanged();
+        } else {
+          metricSelectorBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <pre>
+       * metricSelector is used to identify a specific time series
+       * within a given metric.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+       */
+      public Builder mergeMetricSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
+        if (metricSelectorBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              metricSelector_ != null &&
+              metricSelector_ != io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()) {
+            metricSelector_ =
+              io.kubernetes.client.proto.Meta.LabelSelector.newBuilder(metricSelector_).mergeFrom(value).buildPartial();
+          } else {
+            metricSelector_ = value;
+          }
+          onChanged();
+        } else {
+          metricSelectorBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <pre>
+       * metricSelector is used to identify a specific time series
+       * within a given metric.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+       */
+      public Builder clearMetricSelector() {
+        if (metricSelectorBuilder_ == null) {
+          metricSelector_ = null;
+          onChanged();
+        } else {
+          metricSelectorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       * <pre>
+       * metricSelector is used to identify a specific time series
+       * within a given metric.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelector.Builder getMetricSelectorBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getMetricSelectorFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * metricSelector is used to identify a specific time series
+       * within a given metric.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getMetricSelectorOrBuilder() {
+        if (metricSelectorBuilder_ != null) {
+          return metricSelectorBuilder_.getMessageOrBuilder();
+        } else {
+          return metricSelector_ == null ?
+              io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : metricSelector_;
+        }
+      }
+      /**
+       * <pre>
+       * metricSelector is used to identify a specific time series
+       * within a given metric.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder> 
+          getMetricSelectorFieldBuilder() {
+        if (metricSelectorBuilder_ == null) {
+          metricSelectorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>(
+                  getMetricSelector(),
+                  getParentForChildren(),
+                  isClean());
+          metricSelector_ = null;
+        }
+        return metricSelectorBuilder_;
+      }
+
+      private io.kubernetes.client.proto.Resource.Quantity targetValue_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Resource.Quantity, io.kubernetes.client.proto.Resource.Quantity.Builder, io.kubernetes.client.proto.Resource.QuantityOrBuilder> targetValueBuilder_;
+      /**
+       * <pre>
+       * targetValue is the target value of the metric (as a quantity).
+       * Mutually exclusive with TargetAverageValue.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetValue = 3;</code>
+       */
+      public boolean hasTargetValue() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * targetValue is the target value of the metric (as a quantity).
+       * Mutually exclusive with TargetAverageValue.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetValue = 3;</code>
+       */
+      public io.kubernetes.client.proto.Resource.Quantity getTargetValue() {
+        if (targetValueBuilder_ == null) {
+          return targetValue_ == null ? io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : targetValue_;
+        } else {
+          return targetValueBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * targetValue is the target value of the metric (as a quantity).
+       * Mutually exclusive with TargetAverageValue.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetValue = 3;</code>
+       */
+      public Builder setTargetValue(io.kubernetes.client.proto.Resource.Quantity value) {
+        if (targetValueBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          targetValue_ = value;
+          onChanged();
+        } else {
+          targetValueBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * targetValue is the target value of the metric (as a quantity).
+       * Mutually exclusive with TargetAverageValue.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetValue = 3;</code>
+       */
+      public Builder setTargetValue(
+          io.kubernetes.client.proto.Resource.Quantity.Builder builderForValue) {
+        if (targetValueBuilder_ == null) {
+          targetValue_ = builderForValue.build();
+          onChanged();
+        } else {
+          targetValueBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * targetValue is the target value of the metric (as a quantity).
+       * Mutually exclusive with TargetAverageValue.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetValue = 3;</code>
+       */
+      public Builder mergeTargetValue(io.kubernetes.client.proto.Resource.Quantity value) {
+        if (targetValueBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+              targetValue_ != null &&
+              targetValue_ != io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance()) {
+            targetValue_ =
+              io.kubernetes.client.proto.Resource.Quantity.newBuilder(targetValue_).mergeFrom(value).buildPartial();
+          } else {
+            targetValue_ = value;
+          }
+          onChanged();
+        } else {
+          targetValueBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * targetValue is the target value of the metric (as a quantity).
+       * Mutually exclusive with TargetAverageValue.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetValue = 3;</code>
+       */
+      public Builder clearTargetValue() {
+        if (targetValueBuilder_ == null) {
+          targetValue_ = null;
+          onChanged();
+        } else {
+          targetValueBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       * <pre>
+       * targetValue is the target value of the metric (as a quantity).
+       * Mutually exclusive with TargetAverageValue.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetValue = 3;</code>
+       */
+      public io.kubernetes.client.proto.Resource.Quantity.Builder getTargetValueBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getTargetValueFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * targetValue is the target value of the metric (as a quantity).
+       * Mutually exclusive with TargetAverageValue.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetValue = 3;</code>
+       */
+      public io.kubernetes.client.proto.Resource.QuantityOrBuilder getTargetValueOrBuilder() {
+        if (targetValueBuilder_ != null) {
+          return targetValueBuilder_.getMessageOrBuilder();
+        } else {
+          return targetValue_ == null ?
+              io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : targetValue_;
+        }
+      }
+      /**
+       * <pre>
+       * targetValue is the target value of the metric (as a quantity).
+       * Mutually exclusive with TargetAverageValue.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetValue = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Resource.Quantity, io.kubernetes.client.proto.Resource.Quantity.Builder, io.kubernetes.client.proto.Resource.QuantityOrBuilder> 
+          getTargetValueFieldBuilder() {
+        if (targetValueBuilder_ == null) {
+          targetValueBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Resource.Quantity, io.kubernetes.client.proto.Resource.Quantity.Builder, io.kubernetes.client.proto.Resource.QuantityOrBuilder>(
+                  getTargetValue(),
+                  getParentForChildren(),
+                  isClean());
+          targetValue_ = null;
+        }
+        return targetValueBuilder_;
+      }
+
+      private io.kubernetes.client.proto.Resource.Quantity targetAverageValue_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Resource.Quantity, io.kubernetes.client.proto.Resource.Quantity.Builder, io.kubernetes.client.proto.Resource.QuantityOrBuilder> targetAverageValueBuilder_;
+      /**
+       * <pre>
+       * targetAverageValue is the target per-pod value of global metric (as a quantity).
+       * Mutually exclusive with TargetValue.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetAverageValue = 4;</code>
+       */
+      public boolean hasTargetAverageValue() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <pre>
+       * targetAverageValue is the target per-pod value of global metric (as a quantity).
+       * Mutually exclusive with TargetValue.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetAverageValue = 4;</code>
+       */
+      public io.kubernetes.client.proto.Resource.Quantity getTargetAverageValue() {
+        if (targetAverageValueBuilder_ == null) {
+          return targetAverageValue_ == null ? io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : targetAverageValue_;
+        } else {
+          return targetAverageValueBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * targetAverageValue is the target per-pod value of global metric (as a quantity).
+       * Mutually exclusive with TargetValue.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetAverageValue = 4;</code>
+       */
+      public Builder setTargetAverageValue(io.kubernetes.client.proto.Resource.Quantity value) {
+        if (targetAverageValueBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          targetAverageValue_ = value;
+          onChanged();
+        } else {
+          targetAverageValueBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <pre>
+       * targetAverageValue is the target per-pod value of global metric (as a quantity).
+       * Mutually exclusive with TargetValue.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetAverageValue = 4;</code>
+       */
+      public Builder setTargetAverageValue(
+          io.kubernetes.client.proto.Resource.Quantity.Builder builderForValue) {
+        if (targetAverageValueBuilder_ == null) {
+          targetAverageValue_ = builderForValue.build();
+          onChanged();
+        } else {
+          targetAverageValueBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <pre>
+       * targetAverageValue is the target per-pod value of global metric (as a quantity).
+       * Mutually exclusive with TargetValue.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetAverageValue = 4;</code>
+       */
+      public Builder mergeTargetAverageValue(io.kubernetes.client.proto.Resource.Quantity value) {
+        if (targetAverageValueBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008) &&
+              targetAverageValue_ != null &&
+              targetAverageValue_ != io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance()) {
+            targetAverageValue_ =
+              io.kubernetes.client.proto.Resource.Quantity.newBuilder(targetAverageValue_).mergeFrom(value).buildPartial();
+          } else {
+            targetAverageValue_ = value;
+          }
+          onChanged();
+        } else {
+          targetAverageValueBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <pre>
+       * targetAverageValue is the target per-pod value of global metric (as a quantity).
+       * Mutually exclusive with TargetValue.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetAverageValue = 4;</code>
+       */
+      public Builder clearTargetAverageValue() {
+        if (targetAverageValueBuilder_ == null) {
+          targetAverageValue_ = null;
+          onChanged();
+        } else {
+          targetAverageValueBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+      /**
+       * <pre>
+       * targetAverageValue is the target per-pod value of global metric (as a quantity).
+       * Mutually exclusive with TargetValue.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetAverageValue = 4;</code>
+       */
+      public io.kubernetes.client.proto.Resource.Quantity.Builder getTargetAverageValueBuilder() {
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return getTargetAverageValueFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * targetAverageValue is the target per-pod value of global metric (as a quantity).
+       * Mutually exclusive with TargetValue.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetAverageValue = 4;</code>
+       */
+      public io.kubernetes.client.proto.Resource.QuantityOrBuilder getTargetAverageValueOrBuilder() {
+        if (targetAverageValueBuilder_ != null) {
+          return targetAverageValueBuilder_.getMessageOrBuilder();
+        } else {
+          return targetAverageValue_ == null ?
+              io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : targetAverageValue_;
+        }
+      }
+      /**
+       * <pre>
+       * targetAverageValue is the target per-pod value of global metric (as a quantity).
+       * Mutually exclusive with TargetValue.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetAverageValue = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Resource.Quantity, io.kubernetes.client.proto.Resource.Quantity.Builder, io.kubernetes.client.proto.Resource.QuantityOrBuilder> 
+          getTargetAverageValueFieldBuilder() {
+        if (targetAverageValueBuilder_ == null) {
+          targetAverageValueBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Resource.Quantity, io.kubernetes.client.proto.Resource.Quantity.Builder, io.kubernetes.client.proto.Resource.QuantityOrBuilder>(
+                  getTargetAverageValue(),
+                  getParentForChildren(),
+                  isClean());
+          targetAverageValue_ = null;
+        }
+        return targetAverageValueBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.autoscaling.v1.ExternalMetricSource)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.autoscaling.v1.ExternalMetricSource)
+    private static final io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource();
+    }
+
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ExternalMetricSource>
+        PARSER = new com.google.protobuf.AbstractParser<ExternalMetricSource>() {
+      @java.lang.Override
+      public ExternalMetricSource parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ExternalMetricSource(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ExternalMetricSource> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ExternalMetricSource> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ExternalMetricStatusOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.autoscaling.v1.ExternalMetricStatus)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * metricName is the name of a metric used for autoscaling in
+     * metric system.
+     * </pre>
+     *
+     * <code>optional string metricName = 1;</code>
+     */
+    boolean hasMetricName();
+    /**
+     * <pre>
+     * metricName is the name of a metric used for autoscaling in
+     * metric system.
+     * </pre>
+     *
+     * <code>optional string metricName = 1;</code>
+     */
+    java.lang.String getMetricName();
+    /**
+     * <pre>
+     * metricName is the name of a metric used for autoscaling in
+     * metric system.
+     * </pre>
+     *
+     * <code>optional string metricName = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getMetricNameBytes();
+
+    /**
+     * <pre>
+     * metricSelector is used to identify a specific time series
+     * within a given metric.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+     */
+    boolean hasMetricSelector();
+    /**
+     * <pre>
+     * metricSelector is used to identify a specific time series
+     * within a given metric.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+     */
+    io.kubernetes.client.proto.Meta.LabelSelector getMetricSelector();
+    /**
+     * <pre>
+     * metricSelector is used to identify a specific time series
+     * within a given metric.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+     */
+    io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getMetricSelectorOrBuilder();
+
+    /**
+     * <pre>
+     * currentValue is the current value of the metric (as a quantity)
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentValue = 3;</code>
+     */
+    boolean hasCurrentValue();
+    /**
+     * <pre>
+     * currentValue is the current value of the metric (as a quantity)
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentValue = 3;</code>
+     */
+    io.kubernetes.client.proto.Resource.Quantity getCurrentValue();
+    /**
+     * <pre>
+     * currentValue is the current value of the metric (as a quantity)
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentValue = 3;</code>
+     */
+    io.kubernetes.client.proto.Resource.QuantityOrBuilder getCurrentValueOrBuilder();
+
+    /**
+     * <pre>
+     * currentAverageValue is the current value of metric averaged over autoscaled pods.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentAverageValue = 4;</code>
+     */
+    boolean hasCurrentAverageValue();
+    /**
+     * <pre>
+     * currentAverageValue is the current value of metric averaged over autoscaled pods.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentAverageValue = 4;</code>
+     */
+    io.kubernetes.client.proto.Resource.Quantity getCurrentAverageValue();
+    /**
+     * <pre>
+     * currentAverageValue is the current value of metric averaged over autoscaled pods.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentAverageValue = 4;</code>
+     */
+    io.kubernetes.client.proto.Resource.QuantityOrBuilder getCurrentAverageValueOrBuilder();
+  }
+  /**
+   * <pre>
+   * ExternalMetricStatus indicates the current value of a global metric
+   * not associated with any Kubernetes object.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.autoscaling.v1.ExternalMetricStatus}
+   */
+  public  static final class ExternalMetricStatus extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.autoscaling.v1.ExternalMetricStatus)
+      ExternalMetricStatusOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ExternalMetricStatus.newBuilder() to construct.
+    private ExternalMetricStatus(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ExternalMetricStatus() {
+      metricName_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ExternalMetricStatus(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              metricName_ = bs;
+              break;
+            }
+            case 18: {
+              io.kubernetes.client.proto.Meta.LabelSelector.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = metricSelector_.toBuilder();
+              }
+              metricSelector_ = input.readMessage(io.kubernetes.client.proto.Meta.LabelSelector.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(metricSelector_);
+                metricSelector_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+            case 26: {
+              io.kubernetes.client.proto.Resource.Quantity.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                subBuilder = currentValue_.toBuilder();
+              }
+              currentValue_ = input.readMessage(io.kubernetes.client.proto.Resource.Quantity.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(currentValue_);
+                currentValue_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
+              break;
+            }
+            case 34: {
+              io.kubernetes.client.proto.Resource.Quantity.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                subBuilder = currentAverageValue_.toBuilder();
+              }
+              currentAverageValue_ = input.readMessage(io.kubernetes.client.proto.Resource.Quantity.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(currentAverageValue_);
+                currentAverageValue_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000008;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ExternalMetricStatus_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ExternalMetricStatus_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus.class, io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int METRICNAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object metricName_;
+    /**
+     * <pre>
+     * metricName is the name of a metric used for autoscaling in
+     * metric system.
+     * </pre>
+     *
+     * <code>optional string metricName = 1;</code>
+     */
+    public boolean hasMetricName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * metricName is the name of a metric used for autoscaling in
+     * metric system.
+     * </pre>
+     *
+     * <code>optional string metricName = 1;</code>
+     */
+    public java.lang.String getMetricName() {
+      java.lang.Object ref = metricName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          metricName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * metricName is the name of a metric used for autoscaling in
+     * metric system.
+     * </pre>
+     *
+     * <code>optional string metricName = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMetricNameBytes() {
+      java.lang.Object ref = metricName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        metricName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int METRICSELECTOR_FIELD_NUMBER = 2;
+    private io.kubernetes.client.proto.Meta.LabelSelector metricSelector_;
+    /**
+     * <pre>
+     * metricSelector is used to identify a specific time series
+     * within a given metric.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+     */
+    public boolean hasMetricSelector() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * metricSelector is used to identify a specific time series
+     * within a given metric.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+     */
+    public io.kubernetes.client.proto.Meta.LabelSelector getMetricSelector() {
+      return metricSelector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : metricSelector_;
+    }
+    /**
+     * <pre>
+     * metricSelector is used to identify a specific time series
+     * within a given metric.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+     */
+    public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getMetricSelectorOrBuilder() {
+      return metricSelector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : metricSelector_;
+    }
+
+    public static final int CURRENTVALUE_FIELD_NUMBER = 3;
+    private io.kubernetes.client.proto.Resource.Quantity currentValue_;
+    /**
+     * <pre>
+     * currentValue is the current value of the metric (as a quantity)
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentValue = 3;</code>
+     */
+    public boolean hasCurrentValue() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     * currentValue is the current value of the metric (as a quantity)
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentValue = 3;</code>
+     */
+    public io.kubernetes.client.proto.Resource.Quantity getCurrentValue() {
+      return currentValue_ == null ? io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : currentValue_;
+    }
+    /**
+     * <pre>
+     * currentValue is the current value of the metric (as a quantity)
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentValue = 3;</code>
+     */
+    public io.kubernetes.client.proto.Resource.QuantityOrBuilder getCurrentValueOrBuilder() {
+      return currentValue_ == null ? io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : currentValue_;
+    }
+
+    public static final int CURRENTAVERAGEVALUE_FIELD_NUMBER = 4;
+    private io.kubernetes.client.proto.Resource.Quantity currentAverageValue_;
+    /**
+     * <pre>
+     * currentAverageValue is the current value of metric averaged over autoscaled pods.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentAverageValue = 4;</code>
+     */
+    public boolean hasCurrentAverageValue() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     * currentAverageValue is the current value of metric averaged over autoscaled pods.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentAverageValue = 4;</code>
+     */
+    public io.kubernetes.client.proto.Resource.Quantity getCurrentAverageValue() {
+      return currentAverageValue_ == null ? io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : currentAverageValue_;
+    }
+    /**
+     * <pre>
+     * currentAverageValue is the current value of metric averaged over autoscaled pods.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentAverageValue = 4;</code>
+     */
+    public io.kubernetes.client.proto.Resource.QuantityOrBuilder getCurrentAverageValueOrBuilder() {
+      return currentAverageValue_ == null ? io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : currentAverageValue_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, metricName_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, getMetricSelector());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeMessage(3, getCurrentValue());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeMessage(4, getCurrentAverageValue());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, metricName_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getMetricSelector());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getCurrentValue());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getCurrentAverageValue());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus other = (io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus) obj;
+
+      boolean result = true;
+      result = result && (hasMetricName() == other.hasMetricName());
+      if (hasMetricName()) {
+        result = result && getMetricName()
+            .equals(other.getMetricName());
+      }
+      result = result && (hasMetricSelector() == other.hasMetricSelector());
+      if (hasMetricSelector()) {
+        result = result && getMetricSelector()
+            .equals(other.getMetricSelector());
+      }
+      result = result && (hasCurrentValue() == other.hasCurrentValue());
+      if (hasCurrentValue()) {
+        result = result && getCurrentValue()
+            .equals(other.getCurrentValue());
+      }
+      result = result && (hasCurrentAverageValue() == other.hasCurrentAverageValue());
+      if (hasCurrentAverageValue()) {
+        result = result && getCurrentAverageValue()
+            .equals(other.getCurrentAverageValue());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasMetricName()) {
+        hash = (37 * hash) + METRICNAME_FIELD_NUMBER;
+        hash = (53 * hash) + getMetricName().hashCode();
+      }
+      if (hasMetricSelector()) {
+        hash = (37 * hash) + METRICSELECTOR_FIELD_NUMBER;
+        hash = (53 * hash) + getMetricSelector().hashCode();
+      }
+      if (hasCurrentValue()) {
+        hash = (37 * hash) + CURRENTVALUE_FIELD_NUMBER;
+        hash = (53 * hash) + getCurrentValue().hashCode();
+      }
+      if (hasCurrentAverageValue()) {
+        hash = (37 * hash) + CURRENTAVERAGEVALUE_FIELD_NUMBER;
+        hash = (53 * hash) + getCurrentAverageValue().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * ExternalMetricStatus indicates the current value of a global metric
+     * not associated with any Kubernetes object.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.autoscaling.v1.ExternalMetricStatus}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.autoscaling.v1.ExternalMetricStatus)
+        io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatusOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ExternalMetricStatus_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ExternalMetricStatus_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus.class, io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getMetricSelectorFieldBuilder();
+          getCurrentValueFieldBuilder();
+          getCurrentAverageValueFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        metricName_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (metricSelectorBuilder_ == null) {
+          metricSelector_ = null;
+        } else {
+          metricSelectorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (currentValueBuilder_ == null) {
+          currentValue_ = null;
+        } else {
+          currentValueBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        if (currentAverageValueBuilder_ == null) {
+          currentAverageValue_ = null;
+        } else {
+          currentAverageValueBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ExternalMetricStatus_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus build() {
+        io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus buildPartial() {
+        io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus result = new io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.metricName_ = metricName_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (metricSelectorBuilder_ == null) {
+          result.metricSelector_ = metricSelector_;
+        } else {
+          result.metricSelector_ = metricSelectorBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        if (currentValueBuilder_ == null) {
+          result.currentValue_ = currentValue_;
+        } else {
+          result.currentValue_ = currentValueBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        if (currentAverageValueBuilder_ == null) {
+          result.currentAverageValue_ = currentAverageValue_;
+        } else {
+          result.currentAverageValue_ = currentAverageValueBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus) {
+          return mergeFrom((io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus other) {
+        if (other == io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus.getDefaultInstance()) return this;
+        if (other.hasMetricName()) {
+          bitField0_ |= 0x00000001;
+          metricName_ = other.metricName_;
+          onChanged();
+        }
+        if (other.hasMetricSelector()) {
+          mergeMetricSelector(other.getMetricSelector());
+        }
+        if (other.hasCurrentValue()) {
+          mergeCurrentValue(other.getCurrentValue());
+        }
+        if (other.hasCurrentAverageValue()) {
+          mergeCurrentAverageValue(other.getCurrentAverageValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object metricName_ = "";
+      /**
+       * <pre>
+       * metricName is the name of a metric used for autoscaling in
+       * metric system.
+       * </pre>
+       *
+       * <code>optional string metricName = 1;</code>
+       */
+      public boolean hasMetricName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * metricName is the name of a metric used for autoscaling in
+       * metric system.
+       * </pre>
+       *
+       * <code>optional string metricName = 1;</code>
+       */
+      public java.lang.String getMetricName() {
+        java.lang.Object ref = metricName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            metricName_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * metricName is the name of a metric used for autoscaling in
+       * metric system.
+       * </pre>
+       *
+       * <code>optional string metricName = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMetricNameBytes() {
+        java.lang.Object ref = metricName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          metricName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * metricName is the name of a metric used for autoscaling in
+       * metric system.
+       * </pre>
+       *
+       * <code>optional string metricName = 1;</code>
+       */
+      public Builder setMetricName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        metricName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * metricName is the name of a metric used for autoscaling in
+       * metric system.
+       * </pre>
+       *
+       * <code>optional string metricName = 1;</code>
+       */
+      public Builder clearMetricName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        metricName_ = getDefaultInstance().getMetricName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * metricName is the name of a metric used for autoscaling in
+       * metric system.
+       * </pre>
+       *
+       * <code>optional string metricName = 1;</code>
+       */
+      public Builder setMetricNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        metricName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private io.kubernetes.client.proto.Meta.LabelSelector metricSelector_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder> metricSelectorBuilder_;
+      /**
+       * <pre>
+       * metricSelector is used to identify a specific time series
+       * within a given metric.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+       */
+      public boolean hasMetricSelector() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * metricSelector is used to identify a specific time series
+       * within a given metric.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelector getMetricSelector() {
+        if (metricSelectorBuilder_ == null) {
+          return metricSelector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : metricSelector_;
+        } else {
+          return metricSelectorBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * metricSelector is used to identify a specific time series
+       * within a given metric.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+       */
+      public Builder setMetricSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
+        if (metricSelectorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          metricSelector_ = value;
+          onChanged();
+        } else {
+          metricSelectorBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <pre>
+       * metricSelector is used to identify a specific time series
+       * within a given metric.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+       */
+      public Builder setMetricSelector(
+          io.kubernetes.client.proto.Meta.LabelSelector.Builder builderForValue) {
+        if (metricSelectorBuilder_ == null) {
+          metricSelector_ = builderForValue.build();
+          onChanged();
+        } else {
+          metricSelectorBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <pre>
+       * metricSelector is used to identify a specific time series
+       * within a given metric.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+       */
+      public Builder mergeMetricSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
+        if (metricSelectorBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              metricSelector_ != null &&
+              metricSelector_ != io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()) {
+            metricSelector_ =
+              io.kubernetes.client.proto.Meta.LabelSelector.newBuilder(metricSelector_).mergeFrom(value).buildPartial();
+          } else {
+            metricSelector_ = value;
+          }
+          onChanged();
+        } else {
+          metricSelectorBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <pre>
+       * metricSelector is used to identify a specific time series
+       * within a given metric.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+       */
+      public Builder clearMetricSelector() {
+        if (metricSelectorBuilder_ == null) {
+          metricSelector_ = null;
+          onChanged();
+        } else {
+          metricSelectorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       * <pre>
+       * metricSelector is used to identify a specific time series
+       * within a given metric.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelector.Builder getMetricSelectorBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getMetricSelectorFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * metricSelector is used to identify a specific time series
+       * within a given metric.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getMetricSelectorOrBuilder() {
+        if (metricSelectorBuilder_ != null) {
+          return metricSelectorBuilder_.getMessageOrBuilder();
+        } else {
+          return metricSelector_ == null ?
+              io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : metricSelector_;
+        }
+      }
+      /**
+       * <pre>
+       * metricSelector is used to identify a specific time series
+       * within a given metric.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector metricSelector = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder> 
+          getMetricSelectorFieldBuilder() {
+        if (metricSelectorBuilder_ == null) {
+          metricSelectorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>(
+                  getMetricSelector(),
+                  getParentForChildren(),
+                  isClean());
+          metricSelector_ = null;
+        }
+        return metricSelectorBuilder_;
+      }
+
+      private io.kubernetes.client.proto.Resource.Quantity currentValue_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Resource.Quantity, io.kubernetes.client.proto.Resource.Quantity.Builder, io.kubernetes.client.proto.Resource.QuantityOrBuilder> currentValueBuilder_;
+      /**
+       * <pre>
+       * currentValue is the current value of the metric (as a quantity)
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentValue = 3;</code>
+       */
+      public boolean hasCurrentValue() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * currentValue is the current value of the metric (as a quantity)
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentValue = 3;</code>
+       */
+      public io.kubernetes.client.proto.Resource.Quantity getCurrentValue() {
+        if (currentValueBuilder_ == null) {
+          return currentValue_ == null ? io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : currentValue_;
+        } else {
+          return currentValueBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * currentValue is the current value of the metric (as a quantity)
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentValue = 3;</code>
+       */
+      public Builder setCurrentValue(io.kubernetes.client.proto.Resource.Quantity value) {
+        if (currentValueBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          currentValue_ = value;
+          onChanged();
+        } else {
+          currentValueBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * currentValue is the current value of the metric (as a quantity)
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentValue = 3;</code>
+       */
+      public Builder setCurrentValue(
+          io.kubernetes.client.proto.Resource.Quantity.Builder builderForValue) {
+        if (currentValueBuilder_ == null) {
+          currentValue_ = builderForValue.build();
+          onChanged();
+        } else {
+          currentValueBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * currentValue is the current value of the metric (as a quantity)
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentValue = 3;</code>
+       */
+      public Builder mergeCurrentValue(io.kubernetes.client.proto.Resource.Quantity value) {
+        if (currentValueBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+              currentValue_ != null &&
+              currentValue_ != io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance()) {
+            currentValue_ =
+              io.kubernetes.client.proto.Resource.Quantity.newBuilder(currentValue_).mergeFrom(value).buildPartial();
+          } else {
+            currentValue_ = value;
+          }
+          onChanged();
+        } else {
+          currentValueBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * currentValue is the current value of the metric (as a quantity)
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentValue = 3;</code>
+       */
+      public Builder clearCurrentValue() {
+        if (currentValueBuilder_ == null) {
+          currentValue_ = null;
+          onChanged();
+        } else {
+          currentValueBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       * <pre>
+       * currentValue is the current value of the metric (as a quantity)
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentValue = 3;</code>
+       */
+      public io.kubernetes.client.proto.Resource.Quantity.Builder getCurrentValueBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getCurrentValueFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * currentValue is the current value of the metric (as a quantity)
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentValue = 3;</code>
+       */
+      public io.kubernetes.client.proto.Resource.QuantityOrBuilder getCurrentValueOrBuilder() {
+        if (currentValueBuilder_ != null) {
+          return currentValueBuilder_.getMessageOrBuilder();
+        } else {
+          return currentValue_ == null ?
+              io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : currentValue_;
+        }
+      }
+      /**
+       * <pre>
+       * currentValue is the current value of the metric (as a quantity)
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentValue = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Resource.Quantity, io.kubernetes.client.proto.Resource.Quantity.Builder, io.kubernetes.client.proto.Resource.QuantityOrBuilder> 
+          getCurrentValueFieldBuilder() {
+        if (currentValueBuilder_ == null) {
+          currentValueBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Resource.Quantity, io.kubernetes.client.proto.Resource.Quantity.Builder, io.kubernetes.client.proto.Resource.QuantityOrBuilder>(
+                  getCurrentValue(),
+                  getParentForChildren(),
+                  isClean());
+          currentValue_ = null;
+        }
+        return currentValueBuilder_;
+      }
+
+      private io.kubernetes.client.proto.Resource.Quantity currentAverageValue_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Resource.Quantity, io.kubernetes.client.proto.Resource.Quantity.Builder, io.kubernetes.client.proto.Resource.QuantityOrBuilder> currentAverageValueBuilder_;
+      /**
+       * <pre>
+       * currentAverageValue is the current value of metric averaged over autoscaled pods.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentAverageValue = 4;</code>
+       */
+      public boolean hasCurrentAverageValue() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <pre>
+       * currentAverageValue is the current value of metric averaged over autoscaled pods.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentAverageValue = 4;</code>
+       */
+      public io.kubernetes.client.proto.Resource.Quantity getCurrentAverageValue() {
+        if (currentAverageValueBuilder_ == null) {
+          return currentAverageValue_ == null ? io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : currentAverageValue_;
+        } else {
+          return currentAverageValueBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * currentAverageValue is the current value of metric averaged over autoscaled pods.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentAverageValue = 4;</code>
+       */
+      public Builder setCurrentAverageValue(io.kubernetes.client.proto.Resource.Quantity value) {
+        if (currentAverageValueBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          currentAverageValue_ = value;
+          onChanged();
+        } else {
+          currentAverageValueBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <pre>
+       * currentAverageValue is the current value of metric averaged over autoscaled pods.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentAverageValue = 4;</code>
+       */
+      public Builder setCurrentAverageValue(
+          io.kubernetes.client.proto.Resource.Quantity.Builder builderForValue) {
+        if (currentAverageValueBuilder_ == null) {
+          currentAverageValue_ = builderForValue.build();
+          onChanged();
+        } else {
+          currentAverageValueBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <pre>
+       * currentAverageValue is the current value of metric averaged over autoscaled pods.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentAverageValue = 4;</code>
+       */
+      public Builder mergeCurrentAverageValue(io.kubernetes.client.proto.Resource.Quantity value) {
+        if (currentAverageValueBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008) &&
+              currentAverageValue_ != null &&
+              currentAverageValue_ != io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance()) {
+            currentAverageValue_ =
+              io.kubernetes.client.proto.Resource.Quantity.newBuilder(currentAverageValue_).mergeFrom(value).buildPartial();
+          } else {
+            currentAverageValue_ = value;
+          }
+          onChanged();
+        } else {
+          currentAverageValueBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <pre>
+       * currentAverageValue is the current value of metric averaged over autoscaled pods.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentAverageValue = 4;</code>
+       */
+      public Builder clearCurrentAverageValue() {
+        if (currentAverageValueBuilder_ == null) {
+          currentAverageValue_ = null;
+          onChanged();
+        } else {
+          currentAverageValueBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+      /**
+       * <pre>
+       * currentAverageValue is the current value of metric averaged over autoscaled pods.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentAverageValue = 4;</code>
+       */
+      public io.kubernetes.client.proto.Resource.Quantity.Builder getCurrentAverageValueBuilder() {
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return getCurrentAverageValueFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * currentAverageValue is the current value of metric averaged over autoscaled pods.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentAverageValue = 4;</code>
+       */
+      public io.kubernetes.client.proto.Resource.QuantityOrBuilder getCurrentAverageValueOrBuilder() {
+        if (currentAverageValueBuilder_ != null) {
+          return currentAverageValueBuilder_.getMessageOrBuilder();
+        } else {
+          return currentAverageValue_ == null ?
+              io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : currentAverageValue_;
+        }
+      }
+      /**
+       * <pre>
+       * currentAverageValue is the current value of metric averaged over autoscaled pods.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentAverageValue = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Resource.Quantity, io.kubernetes.client.proto.Resource.Quantity.Builder, io.kubernetes.client.proto.Resource.QuantityOrBuilder> 
+          getCurrentAverageValueFieldBuilder() {
+        if (currentAverageValueBuilder_ == null) {
+          currentAverageValueBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Resource.Quantity, io.kubernetes.client.proto.Resource.Quantity.Builder, io.kubernetes.client.proto.Resource.QuantityOrBuilder>(
+                  getCurrentAverageValue(),
+                  getParentForChildren(),
+                  isClean());
+          currentAverageValue_ = null;
+        }
+        return currentAverageValueBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.autoscaling.v1.ExternalMetricStatus)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.autoscaling.v1.ExternalMetricStatus)
+    private static final io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus();
+    }
+
+    public static io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ExternalMetricStatus>
+        PARSER = new com.google.protobuf.AbstractParser<ExternalMetricStatus>() {
+      @java.lang.Override
+      public ExternalMetricStatus parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ExternalMetricStatus(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ExternalMetricStatus> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ExternalMetricStatus> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1180,6 +4193,9 @@ public final class V1Autoscaling {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1191,13 +4207,6 @@ public final class V1Autoscaling {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1237,6 +4246,13 @@ public final class V1Autoscaling {
               bitField0_ |= 0x00000004;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1254,6 +4270,7 @@ public final class V1Autoscaling {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscaler_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscaler_fieldAccessorTable
@@ -1371,6 +4388,7 @@ public final class V1Autoscaling {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1380,6 +4398,7 @@ public final class V1Autoscaling {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1394,6 +4413,7 @@ public final class V1Autoscaling {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1540,6 +4560,7 @@ public final class V1Autoscaling {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1547,6 +4568,7 @@ public final class V1Autoscaling {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscaler prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1574,6 +4596,7 @@ public final class V1Autoscaling {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscaler_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscaler_fieldAccessorTable
@@ -1599,6 +4622,7 @@ public final class V1Autoscaling {
           getStatusFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -1622,15 +4646,18 @@ public final class V1Autoscaling {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscaler_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscaler getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscaler.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscaler build() {
         io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscaler result = buildPartial();
         if (!result.isInitialized()) {
@@ -1639,6 +4666,7 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscaler buildPartial() {
         io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscaler result = new io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscaler(this);
         int from_bitField0_ = bitField0_;
@@ -1672,32 +4700,39 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscaler) {
           return mergeFrom((io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscaler)other);
@@ -1723,10 +4758,12 @@ public final class V1Autoscaling {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2234,11 +5271,13 @@ public final class V1Autoscaling {
         }
         return statusBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -2260,11 +5299,12 @@ public final class V1Autoscaling {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<HorizontalPodAutoscaler>
         PARSER = new com.google.protobuf.AbstractParser<HorizontalPodAutoscaler>() {
+      @java.lang.Override
       public HorizontalPodAutoscaler parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new HorizontalPodAutoscaler(input, extensionRegistry);
+        return new HorizontalPodAutoscaler(input, extensionRegistry);
       }
     };
 
@@ -2277,6 +5317,7 @@ public final class V1Autoscaling {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscaler getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -2465,6 +5506,9 @@ public final class V1Autoscaling {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -2476,13 +5520,6 @@ public final class V1Autoscaling {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -2520,6 +5557,13 @@ public final class V1Autoscaling {
               message_ = bs;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -2537,6 +5581,7 @@ public final class V1Autoscaling {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerCondition_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerCondition_fieldAccessorTable
@@ -2810,6 +5855,7 @@ public final class V1Autoscaling {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2819,6 +5865,7 @@ public final class V1Autoscaling {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2839,6 +5886,7 @@ public final class V1Autoscaling {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -3007,6 +6055,7 @@ public final class V1Autoscaling {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -3014,6 +6063,7 @@ public final class V1Autoscaling {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerCondition prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -3042,6 +6092,7 @@ public final class V1Autoscaling {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerCondition_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerCondition_fieldAccessorTable
@@ -3065,6 +6116,7 @@ public final class V1Autoscaling {
           getLastTransitionTimeFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         type_ = "";
@@ -3084,15 +6136,18 @@ public final class V1Autoscaling {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerCondition_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerCondition getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerCondition.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerCondition build() {
         io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerCondition result = buildPartial();
         if (!result.isInitialized()) {
@@ -3101,6 +6156,7 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerCondition buildPartial() {
         io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerCondition result = new io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerCondition(this);
         int from_bitField0_ = bitField0_;
@@ -3134,32 +6190,39 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerCondition) {
           return mergeFrom((io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerCondition)other);
@@ -3199,10 +6262,12 @@ public final class V1Autoscaling {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3811,11 +6876,13 @@ public final class V1Autoscaling {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -3837,11 +6904,12 @@ public final class V1Autoscaling {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<HorizontalPodAutoscalerCondition>
         PARSER = new com.google.protobuf.AbstractParser<HorizontalPodAutoscalerCondition>() {
+      @java.lang.Override
       public HorizontalPodAutoscalerCondition parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new HorizontalPodAutoscalerCondition(input, extensionRegistry);
+        return new HorizontalPodAutoscalerCondition(input, extensionRegistry);
       }
     };
 
@@ -3854,6 +6922,7 @@ public final class V1Autoscaling {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerCondition getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -3966,6 +7035,9 @@ public final class V1Autoscaling {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -3977,13 +7049,6 @@ public final class V1Autoscaling {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ListMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -4006,6 +7071,13 @@ public final class V1Autoscaling {
                   input.readMessage(io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscaler.PARSER, extensionRegistry));
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -4026,6 +7098,7 @@ public final class V1Autoscaling {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerList_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerList_fieldAccessorTable
@@ -4126,6 +7199,7 @@ public final class V1Autoscaling {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -4135,6 +7209,7 @@ public final class V1Autoscaling {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -4146,6 +7221,7 @@ public final class V1Autoscaling {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -4276,6 +7352,7 @@ public final class V1Autoscaling {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -4283,6 +7360,7 @@ public final class V1Autoscaling {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerList prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -4310,6 +7388,7 @@ public final class V1Autoscaling {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerList_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerList_fieldAccessorTable
@@ -4334,6 +7413,7 @@ public final class V1Autoscaling {
           getItemsFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -4351,15 +7431,18 @@ public final class V1Autoscaling {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerList_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerList getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerList.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerList build() {
         io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerList result = buildPartial();
         if (!result.isInitialized()) {
@@ -4368,6 +7451,7 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerList buildPartial() {
         io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerList result = new io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerList(this);
         int from_bitField0_ = bitField0_;
@@ -4394,32 +7478,39 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerList) {
           return mergeFrom((io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerList)other);
@@ -4465,10 +7556,12 @@ public final class V1Autoscaling {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4962,11 +8055,13 @@ public final class V1Autoscaling {
         }
         return itemsBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -4988,11 +8083,12 @@ public final class V1Autoscaling {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<HorizontalPodAutoscalerList>
         PARSER = new com.google.protobuf.AbstractParser<HorizontalPodAutoscalerList>() {
+      @java.lang.Override
       public HorizontalPodAutoscalerList parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new HorizontalPodAutoscalerList(input, extensionRegistry);
+        return new HorizontalPodAutoscalerList(input, extensionRegistry);
       }
     };
 
@@ -5005,6 +8101,7 @@ public final class V1Autoscaling {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerList getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -5132,6 +8229,9 @@ public final class V1Autoscaling {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -5143,13 +8243,6 @@ public final class V1Autoscaling {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.V1Autoscaling.CrossVersionObjectReference.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -5178,6 +8271,13 @@ public final class V1Autoscaling {
               targetCPUUtilizationPercentage_ = input.readInt32();
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -5195,6 +8295,7 @@ public final class V1Autoscaling {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerSpec_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerSpec_fieldAccessorTable
@@ -5315,6 +8416,7 @@ public final class V1Autoscaling {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -5324,6 +8426,7 @@ public final class V1Autoscaling {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -5341,6 +8444,7 @@ public final class V1Autoscaling {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -5500,6 +8604,7 @@ public final class V1Autoscaling {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -5507,6 +8612,7 @@ public final class V1Autoscaling {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerSpec prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -5534,6 +8640,7 @@ public final class V1Autoscaling {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerSpec_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerSpec_fieldAccessorTable
@@ -5557,6 +8664,7 @@ public final class V1Autoscaling {
           getScaleTargetRefFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (scaleTargetRefBuilder_ == null) {
@@ -5574,15 +8682,18 @@ public final class V1Autoscaling {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerSpec_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerSpec getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerSpec.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerSpec build() {
         io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerSpec result = buildPartial();
         if (!result.isInitialized()) {
@@ -5591,6 +8702,7 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerSpec buildPartial() {
         io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerSpec result = new io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerSpec(this);
         int from_bitField0_ = bitField0_;
@@ -5620,32 +8732,39 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerSpec) {
           return mergeFrom((io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerSpec)other);
@@ -5674,10 +8793,12 @@ public final class V1Autoscaling {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -6015,11 +9136,13 @@ public final class V1Autoscaling {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -6041,11 +9164,12 @@ public final class V1Autoscaling {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<HorizontalPodAutoscalerSpec>
         PARSER = new com.google.protobuf.AbstractParser<HorizontalPodAutoscalerSpec>() {
+      @java.lang.Override
       public HorizontalPodAutoscalerSpec parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new HorizontalPodAutoscalerSpec(input, extensionRegistry);
+        return new HorizontalPodAutoscalerSpec(input, extensionRegistry);
       }
     };
 
@@ -6058,6 +9182,7 @@ public final class V1Autoscaling {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerSpec getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -6206,6 +9331,9 @@ public final class V1Autoscaling {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -6217,13 +9345,6 @@ public final class V1Autoscaling {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               bitField0_ |= 0x00000001;
               observedGeneration_ = input.readInt64();
@@ -6257,6 +9378,13 @@ public final class V1Autoscaling {
               currentCPUUtilizationPercentage_ = input.readInt32();
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -6274,6 +9402,7 @@ public final class V1Autoscaling {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerStatus_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerStatus_fieldAccessorTable
@@ -6420,6 +9549,7 @@ public final class V1Autoscaling {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -6429,6 +9559,7 @@ public final class V1Autoscaling {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -6449,6 +9580,7 @@ public final class V1Autoscaling {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -6622,6 +9754,7 @@ public final class V1Autoscaling {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -6629,6 +9762,7 @@ public final class V1Autoscaling {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerStatus prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -6656,6 +9790,7 @@ public final class V1Autoscaling {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerStatus_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerStatus_fieldAccessorTable
@@ -6679,6 +9814,7 @@ public final class V1Autoscaling {
           getLastScaleTimeFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         observedGeneration_ = 0L;
@@ -6698,15 +9834,18 @@ public final class V1Autoscaling {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerStatus_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerStatus getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerStatus.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerStatus build() {
         io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerStatus result = buildPartial();
         if (!result.isInitialized()) {
@@ -6715,6 +9854,7 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerStatus buildPartial() {
         io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerStatus result = new io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerStatus(this);
         int from_bitField0_ = bitField0_;
@@ -6748,32 +9888,39 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerStatus) {
           return mergeFrom((io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerStatus)other);
@@ -6805,10 +9952,12 @@ public final class V1Autoscaling {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -7203,11 +10352,13 @@ public final class V1Autoscaling {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -7229,11 +10380,12 @@ public final class V1Autoscaling {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<HorizontalPodAutoscalerStatus>
         PARSER = new com.google.protobuf.AbstractParser<HorizontalPodAutoscalerStatus>() {
+      @java.lang.Override
       public HorizontalPodAutoscalerStatus parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new HorizontalPodAutoscalerStatus(input, extensionRegistry);
+        return new HorizontalPodAutoscalerStatus(input, extensionRegistry);
       }
     };
 
@@ -7246,6 +10398,7 @@ public final class V1Autoscaling {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Autoscaling.HorizontalPodAutoscalerStatus getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -7258,7 +10411,8 @@ public final class V1Autoscaling {
 
     /**
      * <pre>
-     * type is the type of metric source.  It should match one of the fields below.
+     * type is the type of metric source.  It should be one of "Object",
+     * "Pods" or "Resource", each mapping to a matching field in the object.
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -7266,7 +10420,8 @@ public final class V1Autoscaling {
     boolean hasType();
     /**
      * <pre>
-     * type is the type of metric source.  It should match one of the fields below.
+     * type is the type of metric source.  It should be one of "Object",
+     * "Pods" or "Resource", each mapping to a matching field in the object.
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -7274,7 +10429,8 @@ public final class V1Autoscaling {
     java.lang.String getType();
     /**
      * <pre>
-     * type is the type of metric source.  It should match one of the fields below.
+     * type is the type of metric source.  It should be one of "Object",
+     * "Pods" or "Resource", each mapping to a matching field in the object.
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -7386,6 +10542,46 @@ public final class V1Autoscaling {
      * <code>optional .k8s.io.api.autoscaling.v1.ResourceMetricSource resource = 4;</code>
      */
     io.kubernetes.client.proto.V1Autoscaling.ResourceMetricSourceOrBuilder getResourceOrBuilder();
+
+    /**
+     * <pre>
+     * external refers to a global metric that is not associated
+     * with any Kubernetes object. It allows autoscaling based on information
+     * coming from components running outside of cluster
+     * (for example length of queue in cloud messaging service, or
+     * QPS from loadbalancer running outside of cluster).
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricSource external = 5;</code>
+     */
+    boolean hasExternal();
+    /**
+     * <pre>
+     * external refers to a global metric that is not associated
+     * with any Kubernetes object. It allows autoscaling based on information
+     * coming from components running outside of cluster
+     * (for example length of queue in cloud messaging service, or
+     * QPS from loadbalancer running outside of cluster).
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricSource external = 5;</code>
+     */
+    io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource getExternal();
+    /**
+     * <pre>
+     * external refers to a global metric that is not associated
+     * with any Kubernetes object. It allows autoscaling based on information
+     * coming from components running outside of cluster
+     * (for example length of queue in cloud messaging service, or
+     * QPS from loadbalancer running outside of cluster).
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricSource external = 5;</code>
+     */
+    io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSourceOrBuilder getExternalOrBuilder();
   }
   /**
    * <pre>
@@ -7418,6 +10614,9 @@ public final class V1Autoscaling {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -7429,13 +10628,6 @@ public final class V1Autoscaling {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -7481,6 +10673,26 @@ public final class V1Autoscaling {
               bitField0_ |= 0x00000008;
               break;
             }
+            case 42: {
+              io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000010) == 0x00000010)) {
+                subBuilder = external_.toBuilder();
+              }
+              external_ = input.readMessage(io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(external_);
+                external_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000010;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -7498,6 +10710,7 @@ public final class V1Autoscaling {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_MetricSpec_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_MetricSpec_fieldAccessorTable
@@ -7510,7 +10723,8 @@ public final class V1Autoscaling {
     private volatile java.lang.Object type_;
     /**
      * <pre>
-     * type is the type of metric source.  It should match one of the fields below.
+     * type is the type of metric source.  It should be one of "Object",
+     * "Pods" or "Resource", each mapping to a matching field in the object.
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -7520,7 +10734,8 @@ public final class V1Autoscaling {
     }
     /**
      * <pre>
-     * type is the type of metric source.  It should match one of the fields below.
+     * type is the type of metric source.  It should be one of "Object",
+     * "Pods" or "Resource", each mapping to a matching field in the object.
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -7541,7 +10756,8 @@ public final class V1Autoscaling {
     }
     /**
      * <pre>
-     * type is the type of metric source.  It should match one of the fields below.
+     * type is the type of metric source.  It should be one of "Object",
+     * "Pods" or "Resource", each mapping to a matching field in the object.
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -7689,7 +10905,56 @@ public final class V1Autoscaling {
       return resource_ == null ? io.kubernetes.client.proto.V1Autoscaling.ResourceMetricSource.getDefaultInstance() : resource_;
     }
 
+    public static final int EXTERNAL_FIELD_NUMBER = 5;
+    private io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource external_;
+    /**
+     * <pre>
+     * external refers to a global metric that is not associated
+     * with any Kubernetes object. It allows autoscaling based on information
+     * coming from components running outside of cluster
+     * (for example length of queue in cloud messaging service, or
+     * QPS from loadbalancer running outside of cluster).
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricSource external = 5;</code>
+     */
+    public boolean hasExternal() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <pre>
+     * external refers to a global metric that is not associated
+     * with any Kubernetes object. It allows autoscaling based on information
+     * coming from components running outside of cluster
+     * (for example length of queue in cloud messaging service, or
+     * QPS from loadbalancer running outside of cluster).
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricSource external = 5;</code>
+     */
+    public io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource getExternal() {
+      return external_ == null ? io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource.getDefaultInstance() : external_;
+    }
+    /**
+     * <pre>
+     * external refers to a global metric that is not associated
+     * with any Kubernetes object. It allows autoscaling based on information
+     * coming from components running outside of cluster
+     * (for example length of queue in cloud messaging service, or
+     * QPS from loadbalancer running outside of cluster).
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricSource external = 5;</code>
+     */
+    public io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSourceOrBuilder getExternalOrBuilder() {
+      return external_ == null ? io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource.getDefaultInstance() : external_;
+    }
+
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -7699,6 +10964,7 @@ public final class V1Autoscaling {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -7713,9 +10979,13 @@ public final class V1Autoscaling {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeMessage(4, getResource());
       }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeMessage(5, getExternal());
+      }
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -7735,6 +11005,10 @@ public final class V1Autoscaling {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getResource());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getExternal());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7772,6 +11046,11 @@ public final class V1Autoscaling {
         result = result && getResource()
             .equals(other.getResource());
       }
+      result = result && (hasExternal() == other.hasExternal());
+      if (hasExternal()) {
+        result = result && getExternal()
+            .equals(other.getExternal());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -7798,6 +11077,10 @@ public final class V1Autoscaling {
       if (hasResource()) {
         hash = (37 * hash) + RESOURCE_FIELD_NUMBER;
         hash = (53 * hash) + getResource().hashCode();
+      }
+      if (hasExternal()) {
+        hash = (37 * hash) + EXTERNAL_FIELD_NUMBER;
+        hash = (53 * hash) + getExternal().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -7874,6 +11157,7 @@ public final class V1Autoscaling {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -7881,6 +11165,7 @@ public final class V1Autoscaling {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Autoscaling.MetricSpec prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -7909,6 +11194,7 @@ public final class V1Autoscaling {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_MetricSpec_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_MetricSpec_fieldAccessorTable
@@ -7932,8 +11218,10 @@ public final class V1Autoscaling {
           getObjectFieldBuilder();
           getPodsFieldBuilder();
           getResourceFieldBuilder();
+          getExternalFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         type_ = "";
@@ -7956,18 +11244,27 @@ public final class V1Autoscaling {
           resourceBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000008);
+        if (externalBuilder_ == null) {
+          external_ = null;
+        } else {
+          externalBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_MetricSpec_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.MetricSpec getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Autoscaling.MetricSpec.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.MetricSpec build() {
         io.kubernetes.client.proto.V1Autoscaling.MetricSpec result = buildPartial();
         if (!result.isInitialized()) {
@@ -7976,6 +11273,7 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.MetricSpec buildPartial() {
         io.kubernetes.client.proto.V1Autoscaling.MetricSpec result = new io.kubernetes.client.proto.V1Autoscaling.MetricSpec(this);
         int from_bitField0_ = bitField0_;
@@ -8008,37 +11306,52 @@ public final class V1Autoscaling {
         } else {
           result.resource_ = resourceBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        if (externalBuilder_ == null) {
+          result.external_ = external_;
+        } else {
+          result.external_ = externalBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Autoscaling.MetricSpec) {
           return mergeFrom((io.kubernetes.client.proto.V1Autoscaling.MetricSpec)other);
@@ -8064,15 +11377,20 @@ public final class V1Autoscaling {
         if (other.hasResource()) {
           mergeResource(other.getResource());
         }
+        if (other.hasExternal()) {
+          mergeExternal(other.getExternal());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -8095,7 +11413,8 @@ public final class V1Autoscaling {
       private java.lang.Object type_ = "";
       /**
        * <pre>
-       * type is the type of metric source.  It should match one of the fields below.
+       * type is the type of metric source.  It should be one of "Object",
+       * "Pods" or "Resource", each mapping to a matching field in the object.
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -8105,7 +11424,8 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * type is the type of metric source.  It should match one of the fields below.
+       * type is the type of metric source.  It should be one of "Object",
+       * "Pods" or "Resource", each mapping to a matching field in the object.
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -8126,7 +11446,8 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * type is the type of metric source.  It should match one of the fields below.
+       * type is the type of metric source.  It should be one of "Object",
+       * "Pods" or "Resource", each mapping to a matching field in the object.
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -8146,7 +11467,8 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * type is the type of metric source.  It should match one of the fields below.
+       * type is the type of metric source.  It should be one of "Object",
+       * "Pods" or "Resource", each mapping to a matching field in the object.
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -8163,7 +11485,8 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * type is the type of metric source.  It should match one of the fields below.
+       * type is the type of metric source.  It should be one of "Object",
+       * "Pods" or "Resource", each mapping to a matching field in the object.
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -8176,7 +11499,8 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * type is the type of metric source.  It should match one of the fields below.
+       * type is the type of metric source.  It should be one of "Object",
+       * "Pods" or "Resource", each mapping to a matching field in the object.
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -8743,11 +12067,212 @@ public final class V1Autoscaling {
         }
         return resourceBuilder_;
       }
+
+      private io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource external_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource, io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource.Builder, io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSourceOrBuilder> externalBuilder_;
+      /**
+       * <pre>
+       * external refers to a global metric that is not associated
+       * with any Kubernetes object. It allows autoscaling based on information
+       * coming from components running outside of cluster
+       * (for example length of queue in cloud messaging service, or
+       * QPS from loadbalancer running outside of cluster).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricSource external = 5;</code>
+       */
+      public boolean hasExternal() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <pre>
+       * external refers to a global metric that is not associated
+       * with any Kubernetes object. It allows autoscaling based on information
+       * coming from components running outside of cluster
+       * (for example length of queue in cloud messaging service, or
+       * QPS from loadbalancer running outside of cluster).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricSource external = 5;</code>
+       */
+      public io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource getExternal() {
+        if (externalBuilder_ == null) {
+          return external_ == null ? io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource.getDefaultInstance() : external_;
+        } else {
+          return externalBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * external refers to a global metric that is not associated
+       * with any Kubernetes object. It allows autoscaling based on information
+       * coming from components running outside of cluster
+       * (for example length of queue in cloud messaging service, or
+       * QPS from loadbalancer running outside of cluster).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricSource external = 5;</code>
+       */
+      public Builder setExternal(io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource value) {
+        if (externalBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          external_ = value;
+          onChanged();
+        } else {
+          externalBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <pre>
+       * external refers to a global metric that is not associated
+       * with any Kubernetes object. It allows autoscaling based on information
+       * coming from components running outside of cluster
+       * (for example length of queue in cloud messaging service, or
+       * QPS from loadbalancer running outside of cluster).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricSource external = 5;</code>
+       */
+      public Builder setExternal(
+          io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource.Builder builderForValue) {
+        if (externalBuilder_ == null) {
+          external_ = builderForValue.build();
+          onChanged();
+        } else {
+          externalBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <pre>
+       * external refers to a global metric that is not associated
+       * with any Kubernetes object. It allows autoscaling based on information
+       * coming from components running outside of cluster
+       * (for example length of queue in cloud messaging service, or
+       * QPS from loadbalancer running outside of cluster).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricSource external = 5;</code>
+       */
+      public Builder mergeExternal(io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource value) {
+        if (externalBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010) &&
+              external_ != null &&
+              external_ != io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource.getDefaultInstance()) {
+            external_ =
+              io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource.newBuilder(external_).mergeFrom(value).buildPartial();
+          } else {
+            external_ = value;
+          }
+          onChanged();
+        } else {
+          externalBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <pre>
+       * external refers to a global metric that is not associated
+       * with any Kubernetes object. It allows autoscaling based on information
+       * coming from components running outside of cluster
+       * (for example length of queue in cloud messaging service, or
+       * QPS from loadbalancer running outside of cluster).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricSource external = 5;</code>
+       */
+      public Builder clearExternal() {
+        if (externalBuilder_ == null) {
+          external_ = null;
+          onChanged();
+        } else {
+          externalBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+      /**
+       * <pre>
+       * external refers to a global metric that is not associated
+       * with any Kubernetes object. It allows autoscaling based on information
+       * coming from components running outside of cluster
+       * (for example length of queue in cloud messaging service, or
+       * QPS from loadbalancer running outside of cluster).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricSource external = 5;</code>
+       */
+      public io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource.Builder getExternalBuilder() {
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return getExternalFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * external refers to a global metric that is not associated
+       * with any Kubernetes object. It allows autoscaling based on information
+       * coming from components running outside of cluster
+       * (for example length of queue in cloud messaging service, or
+       * QPS from loadbalancer running outside of cluster).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricSource external = 5;</code>
+       */
+      public io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSourceOrBuilder getExternalOrBuilder() {
+        if (externalBuilder_ != null) {
+          return externalBuilder_.getMessageOrBuilder();
+        } else {
+          return external_ == null ?
+              io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource.getDefaultInstance() : external_;
+        }
+      }
+      /**
+       * <pre>
+       * external refers to a global metric that is not associated
+       * with any Kubernetes object. It allows autoscaling based on information
+       * coming from components running outside of cluster
+       * (for example length of queue in cloud messaging service, or
+       * QPS from loadbalancer running outside of cluster).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricSource external = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource, io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource.Builder, io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSourceOrBuilder> 
+          getExternalFieldBuilder() {
+        if (externalBuilder_ == null) {
+          externalBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource, io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSource.Builder, io.kubernetes.client.proto.V1Autoscaling.ExternalMetricSourceOrBuilder>(
+                  getExternal(),
+                  getParentForChildren(),
+                  isClean());
+          external_ = null;
+        }
+        return externalBuilder_;
+      }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -8769,11 +12294,12 @@ public final class V1Autoscaling {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<MetricSpec>
         PARSER = new com.google.protobuf.AbstractParser<MetricSpec>() {
+      @java.lang.Override
       public MetricSpec parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new MetricSpec(input, extensionRegistry);
+        return new MetricSpec(input, extensionRegistry);
       }
     };
 
@@ -8786,6 +12312,7 @@ public final class V1Autoscaling {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Autoscaling.MetricSpec getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -8798,7 +12325,8 @@ public final class V1Autoscaling {
 
     /**
      * <pre>
-     * type is the type of metric source.  It will match one of the fields below.
+     * type is the type of metric source.  It will be one of "Object",
+     * "Pods" or "Resource", each corresponds to a matching field in the object.
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -8806,7 +12334,8 @@ public final class V1Autoscaling {
     boolean hasType();
     /**
      * <pre>
-     * type is the type of metric source.  It will match one of the fields below.
+     * type is the type of metric source.  It will be one of "Object",
+     * "Pods" or "Resource", each corresponds to a matching field in the object.
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -8814,7 +12343,8 @@ public final class V1Autoscaling {
     java.lang.String getType();
     /**
      * <pre>
-     * type is the type of metric source.  It will match one of the fields below.
+     * type is the type of metric source.  It will be one of "Object",
+     * "Pods" or "Resource", each corresponds to a matching field in the object.
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -8926,6 +12456,46 @@ public final class V1Autoscaling {
      * <code>optional .k8s.io.api.autoscaling.v1.ResourceMetricStatus resource = 4;</code>
      */
     io.kubernetes.client.proto.V1Autoscaling.ResourceMetricStatusOrBuilder getResourceOrBuilder();
+
+    /**
+     * <pre>
+     * external refers to a global metric that is not associated
+     * with any Kubernetes object. It allows autoscaling based on information
+     * coming from components running outside of cluster
+     * (for example length of queue in cloud messaging service, or
+     * QPS from loadbalancer running outside of cluster).
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricStatus external = 5;</code>
+     */
+    boolean hasExternal();
+    /**
+     * <pre>
+     * external refers to a global metric that is not associated
+     * with any Kubernetes object. It allows autoscaling based on information
+     * coming from components running outside of cluster
+     * (for example length of queue in cloud messaging service, or
+     * QPS from loadbalancer running outside of cluster).
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricStatus external = 5;</code>
+     */
+    io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus getExternal();
+    /**
+     * <pre>
+     * external refers to a global metric that is not associated
+     * with any Kubernetes object. It allows autoscaling based on information
+     * coming from components running outside of cluster
+     * (for example length of queue in cloud messaging service, or
+     * QPS from loadbalancer running outside of cluster).
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricStatus external = 5;</code>
+     */
+    io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatusOrBuilder getExternalOrBuilder();
   }
   /**
    * <pre>
@@ -8957,6 +12527,9 @@ public final class V1Autoscaling {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -8968,13 +12541,6 @@ public final class V1Autoscaling {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -9020,6 +12586,26 @@ public final class V1Autoscaling {
               bitField0_ |= 0x00000008;
               break;
             }
+            case 42: {
+              io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000010) == 0x00000010)) {
+                subBuilder = external_.toBuilder();
+              }
+              external_ = input.readMessage(io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(external_);
+                external_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000010;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -9037,6 +12623,7 @@ public final class V1Autoscaling {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_MetricStatus_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_MetricStatus_fieldAccessorTable
@@ -9049,7 +12636,8 @@ public final class V1Autoscaling {
     private volatile java.lang.Object type_;
     /**
      * <pre>
-     * type is the type of metric source.  It will match one of the fields below.
+     * type is the type of metric source.  It will be one of "Object",
+     * "Pods" or "Resource", each corresponds to a matching field in the object.
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -9059,7 +12647,8 @@ public final class V1Autoscaling {
     }
     /**
      * <pre>
-     * type is the type of metric source.  It will match one of the fields below.
+     * type is the type of metric source.  It will be one of "Object",
+     * "Pods" or "Resource", each corresponds to a matching field in the object.
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -9080,7 +12669,8 @@ public final class V1Autoscaling {
     }
     /**
      * <pre>
-     * type is the type of metric source.  It will match one of the fields below.
+     * type is the type of metric source.  It will be one of "Object",
+     * "Pods" or "Resource", each corresponds to a matching field in the object.
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -9228,7 +12818,56 @@ public final class V1Autoscaling {
       return resource_ == null ? io.kubernetes.client.proto.V1Autoscaling.ResourceMetricStatus.getDefaultInstance() : resource_;
     }
 
+    public static final int EXTERNAL_FIELD_NUMBER = 5;
+    private io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus external_;
+    /**
+     * <pre>
+     * external refers to a global metric that is not associated
+     * with any Kubernetes object. It allows autoscaling based on information
+     * coming from components running outside of cluster
+     * (for example length of queue in cloud messaging service, or
+     * QPS from loadbalancer running outside of cluster).
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricStatus external = 5;</code>
+     */
+    public boolean hasExternal() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <pre>
+     * external refers to a global metric that is not associated
+     * with any Kubernetes object. It allows autoscaling based on information
+     * coming from components running outside of cluster
+     * (for example length of queue in cloud messaging service, or
+     * QPS from loadbalancer running outside of cluster).
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricStatus external = 5;</code>
+     */
+    public io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus getExternal() {
+      return external_ == null ? io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus.getDefaultInstance() : external_;
+    }
+    /**
+     * <pre>
+     * external refers to a global metric that is not associated
+     * with any Kubernetes object. It allows autoscaling based on information
+     * coming from components running outside of cluster
+     * (for example length of queue in cloud messaging service, or
+     * QPS from loadbalancer running outside of cluster).
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricStatus external = 5;</code>
+     */
+    public io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatusOrBuilder getExternalOrBuilder() {
+      return external_ == null ? io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus.getDefaultInstance() : external_;
+    }
+
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -9238,6 +12877,7 @@ public final class V1Autoscaling {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -9252,9 +12892,13 @@ public final class V1Autoscaling {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeMessage(4, getResource());
       }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeMessage(5, getExternal());
+      }
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -9274,6 +12918,10 @@ public final class V1Autoscaling {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getResource());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getExternal());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -9311,6 +12959,11 @@ public final class V1Autoscaling {
         result = result && getResource()
             .equals(other.getResource());
       }
+      result = result && (hasExternal() == other.hasExternal());
+      if (hasExternal()) {
+        result = result && getExternal()
+            .equals(other.getExternal());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -9337,6 +12990,10 @@ public final class V1Autoscaling {
       if (hasResource()) {
         hash = (37 * hash) + RESOURCE_FIELD_NUMBER;
         hash = (53 * hash) + getResource().hashCode();
+      }
+      if (hasExternal()) {
+        hash = (37 * hash) + EXTERNAL_FIELD_NUMBER;
+        hash = (53 * hash) + getExternal().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -9413,6 +13070,7 @@ public final class V1Autoscaling {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -9420,6 +13078,7 @@ public final class V1Autoscaling {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Autoscaling.MetricStatus prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -9447,6 +13106,7 @@ public final class V1Autoscaling {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_MetricStatus_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_MetricStatus_fieldAccessorTable
@@ -9470,8 +13130,10 @@ public final class V1Autoscaling {
           getObjectFieldBuilder();
           getPodsFieldBuilder();
           getResourceFieldBuilder();
+          getExternalFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         type_ = "";
@@ -9494,18 +13156,27 @@ public final class V1Autoscaling {
           resourceBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000008);
+        if (externalBuilder_ == null) {
+          external_ = null;
+        } else {
+          externalBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_MetricStatus_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.MetricStatus getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Autoscaling.MetricStatus.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.MetricStatus build() {
         io.kubernetes.client.proto.V1Autoscaling.MetricStatus result = buildPartial();
         if (!result.isInitialized()) {
@@ -9514,6 +13185,7 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.MetricStatus buildPartial() {
         io.kubernetes.client.proto.V1Autoscaling.MetricStatus result = new io.kubernetes.client.proto.V1Autoscaling.MetricStatus(this);
         int from_bitField0_ = bitField0_;
@@ -9546,37 +13218,52 @@ public final class V1Autoscaling {
         } else {
           result.resource_ = resourceBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        if (externalBuilder_ == null) {
+          result.external_ = external_;
+        } else {
+          result.external_ = externalBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Autoscaling.MetricStatus) {
           return mergeFrom((io.kubernetes.client.proto.V1Autoscaling.MetricStatus)other);
@@ -9602,15 +13289,20 @@ public final class V1Autoscaling {
         if (other.hasResource()) {
           mergeResource(other.getResource());
         }
+        if (other.hasExternal()) {
+          mergeExternal(other.getExternal());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -9633,7 +13325,8 @@ public final class V1Autoscaling {
       private java.lang.Object type_ = "";
       /**
        * <pre>
-       * type is the type of metric source.  It will match one of the fields below.
+       * type is the type of metric source.  It will be one of "Object",
+       * "Pods" or "Resource", each corresponds to a matching field in the object.
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -9643,7 +13336,8 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * type is the type of metric source.  It will match one of the fields below.
+       * type is the type of metric source.  It will be one of "Object",
+       * "Pods" or "Resource", each corresponds to a matching field in the object.
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -9664,7 +13358,8 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * type is the type of metric source.  It will match one of the fields below.
+       * type is the type of metric source.  It will be one of "Object",
+       * "Pods" or "Resource", each corresponds to a matching field in the object.
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -9684,7 +13379,8 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * type is the type of metric source.  It will match one of the fields below.
+       * type is the type of metric source.  It will be one of "Object",
+       * "Pods" or "Resource", each corresponds to a matching field in the object.
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -9701,7 +13397,8 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * type is the type of metric source.  It will match one of the fields below.
+       * type is the type of metric source.  It will be one of "Object",
+       * "Pods" or "Resource", each corresponds to a matching field in the object.
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -9714,7 +13411,8 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * type is the type of metric source.  It will match one of the fields below.
+       * type is the type of metric source.  It will be one of "Object",
+       * "Pods" or "Resource", each corresponds to a matching field in the object.
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -10281,11 +13979,212 @@ public final class V1Autoscaling {
         }
         return resourceBuilder_;
       }
+
+      private io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus external_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus, io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus.Builder, io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatusOrBuilder> externalBuilder_;
+      /**
+       * <pre>
+       * external refers to a global metric that is not associated
+       * with any Kubernetes object. It allows autoscaling based on information
+       * coming from components running outside of cluster
+       * (for example length of queue in cloud messaging service, or
+       * QPS from loadbalancer running outside of cluster).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricStatus external = 5;</code>
+       */
+      public boolean hasExternal() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <pre>
+       * external refers to a global metric that is not associated
+       * with any Kubernetes object. It allows autoscaling based on information
+       * coming from components running outside of cluster
+       * (for example length of queue in cloud messaging service, or
+       * QPS from loadbalancer running outside of cluster).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricStatus external = 5;</code>
+       */
+      public io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus getExternal() {
+        if (externalBuilder_ == null) {
+          return external_ == null ? io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus.getDefaultInstance() : external_;
+        } else {
+          return externalBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * external refers to a global metric that is not associated
+       * with any Kubernetes object. It allows autoscaling based on information
+       * coming from components running outside of cluster
+       * (for example length of queue in cloud messaging service, or
+       * QPS from loadbalancer running outside of cluster).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricStatus external = 5;</code>
+       */
+      public Builder setExternal(io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus value) {
+        if (externalBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          external_ = value;
+          onChanged();
+        } else {
+          externalBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <pre>
+       * external refers to a global metric that is not associated
+       * with any Kubernetes object. It allows autoscaling based on information
+       * coming from components running outside of cluster
+       * (for example length of queue in cloud messaging service, or
+       * QPS from loadbalancer running outside of cluster).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricStatus external = 5;</code>
+       */
+      public Builder setExternal(
+          io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus.Builder builderForValue) {
+        if (externalBuilder_ == null) {
+          external_ = builderForValue.build();
+          onChanged();
+        } else {
+          externalBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <pre>
+       * external refers to a global metric that is not associated
+       * with any Kubernetes object. It allows autoscaling based on information
+       * coming from components running outside of cluster
+       * (for example length of queue in cloud messaging service, or
+       * QPS from loadbalancer running outside of cluster).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricStatus external = 5;</code>
+       */
+      public Builder mergeExternal(io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus value) {
+        if (externalBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010) &&
+              external_ != null &&
+              external_ != io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus.getDefaultInstance()) {
+            external_ =
+              io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus.newBuilder(external_).mergeFrom(value).buildPartial();
+          } else {
+            external_ = value;
+          }
+          onChanged();
+        } else {
+          externalBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <pre>
+       * external refers to a global metric that is not associated
+       * with any Kubernetes object. It allows autoscaling based on information
+       * coming from components running outside of cluster
+       * (for example length of queue in cloud messaging service, or
+       * QPS from loadbalancer running outside of cluster).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricStatus external = 5;</code>
+       */
+      public Builder clearExternal() {
+        if (externalBuilder_ == null) {
+          external_ = null;
+          onChanged();
+        } else {
+          externalBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+      /**
+       * <pre>
+       * external refers to a global metric that is not associated
+       * with any Kubernetes object. It allows autoscaling based on information
+       * coming from components running outside of cluster
+       * (for example length of queue in cloud messaging service, or
+       * QPS from loadbalancer running outside of cluster).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricStatus external = 5;</code>
+       */
+      public io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus.Builder getExternalBuilder() {
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return getExternalFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * external refers to a global metric that is not associated
+       * with any Kubernetes object. It allows autoscaling based on information
+       * coming from components running outside of cluster
+       * (for example length of queue in cloud messaging service, or
+       * QPS from loadbalancer running outside of cluster).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricStatus external = 5;</code>
+       */
+      public io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatusOrBuilder getExternalOrBuilder() {
+        if (externalBuilder_ != null) {
+          return externalBuilder_.getMessageOrBuilder();
+        } else {
+          return external_ == null ?
+              io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus.getDefaultInstance() : external_;
+        }
+      }
+      /**
+       * <pre>
+       * external refers to a global metric that is not associated
+       * with any Kubernetes object. It allows autoscaling based on information
+       * coming from components running outside of cluster
+       * (for example length of queue in cloud messaging service, or
+       * QPS from loadbalancer running outside of cluster).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v1.ExternalMetricStatus external = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus, io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus.Builder, io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatusOrBuilder> 
+          getExternalFieldBuilder() {
+        if (externalBuilder_ == null) {
+          externalBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus, io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatus.Builder, io.kubernetes.client.proto.V1Autoscaling.ExternalMetricStatusOrBuilder>(
+                  getExternal(),
+                  getParentForChildren(),
+                  isClean());
+          external_ = null;
+        }
+        return externalBuilder_;
+      }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -10307,11 +14206,12 @@ public final class V1Autoscaling {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<MetricStatus>
         PARSER = new com.google.protobuf.AbstractParser<MetricStatus>() {
+      @java.lang.Override
       public MetricStatus parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new MetricStatus(input, extensionRegistry);
+        return new MetricStatus(input, extensionRegistry);
       }
     };
 
@@ -10324,6 +14224,7 @@ public final class V1Autoscaling {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Autoscaling.MetricStatus getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -10409,6 +14310,71 @@ public final class V1Autoscaling {
      * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetValue = 3;</code>
      */
     io.kubernetes.client.proto.Resource.QuantityOrBuilder getTargetValueOrBuilder();
+
+    /**
+     * <pre>
+     * selector is the string-encoded form of a standard kubernetes label selector for the given metric.
+     * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+     * When unset, just the metricName will be used to gather metrics.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+     */
+    boolean hasSelector();
+    /**
+     * <pre>
+     * selector is the string-encoded form of a standard kubernetes label selector for the given metric.
+     * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+     * When unset, just the metricName will be used to gather metrics.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+     */
+    io.kubernetes.client.proto.Meta.LabelSelector getSelector();
+    /**
+     * <pre>
+     * selector is the string-encoded form of a standard kubernetes label selector for the given metric.
+     * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+     * When unset, just the metricName will be used to gather metrics.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+     */
+    io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder();
+
+    /**
+     * <pre>
+     * averageValue is the target value of the average of the
+     * metric across all relevant pods (as a quantity)
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+     */
+    boolean hasAverageValue();
+    /**
+     * <pre>
+     * averageValue is the target value of the average of the
+     * metric across all relevant pods (as a quantity)
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+     */
+    io.kubernetes.client.proto.Resource.Quantity getAverageValue();
+    /**
+     * <pre>
+     * averageValue is the target value of the average of the
+     * metric across all relevant pods (as a quantity)
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+     */
+    io.kubernetes.client.proto.Resource.QuantityOrBuilder getAverageValueOrBuilder();
   }
   /**
    * <pre>
@@ -10441,6 +14407,9 @@ public final class V1Autoscaling {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -10452,13 +14421,6 @@ public final class V1Autoscaling {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.V1Autoscaling.CrossVersionObjectReference.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -10491,6 +14453,39 @@ public final class V1Autoscaling {
               bitField0_ |= 0x00000004;
               break;
             }
+            case 34: {
+              io.kubernetes.client.proto.Meta.LabelSelector.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                subBuilder = selector_.toBuilder();
+              }
+              selector_ = input.readMessage(io.kubernetes.client.proto.Meta.LabelSelector.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(selector_);
+                selector_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000008;
+              break;
+            }
+            case 42: {
+              io.kubernetes.client.proto.Resource.Quantity.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000010) == 0x00000010)) {
+                subBuilder = averageValue_.toBuilder();
+              }
+              averageValue_ = input.readMessage(io.kubernetes.client.proto.Resource.Quantity.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(averageValue_);
+                averageValue_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000010;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -10508,6 +14503,7 @@ public final class V1Autoscaling {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ObjectMetricSource_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ObjectMetricSource_fieldAccessorTable
@@ -10636,7 +14632,89 @@ public final class V1Autoscaling {
       return targetValue_ == null ? io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : targetValue_;
     }
 
+    public static final int SELECTOR_FIELD_NUMBER = 4;
+    private io.kubernetes.client.proto.Meta.LabelSelector selector_;
+    /**
+     * <pre>
+     * selector is the string-encoded form of a standard kubernetes label selector for the given metric.
+     * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+     * When unset, just the metricName will be used to gather metrics.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+     */
+    public boolean hasSelector() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     * selector is the string-encoded form of a standard kubernetes label selector for the given metric.
+     * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+     * When unset, just the metricName will be used to gather metrics.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+     */
+    public io.kubernetes.client.proto.Meta.LabelSelector getSelector() {
+      return selector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+    }
+    /**
+     * <pre>
+     * selector is the string-encoded form of a standard kubernetes label selector for the given metric.
+     * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+     * When unset, just the metricName will be used to gather metrics.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+     */
+    public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder() {
+      return selector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+    }
+
+    public static final int AVERAGEVALUE_FIELD_NUMBER = 5;
+    private io.kubernetes.client.proto.Resource.Quantity averageValue_;
+    /**
+     * <pre>
+     * averageValue is the target value of the average of the
+     * metric across all relevant pods (as a quantity)
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+     */
+    public boolean hasAverageValue() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <pre>
+     * averageValue is the target value of the average of the
+     * metric across all relevant pods (as a quantity)
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+     */
+    public io.kubernetes.client.proto.Resource.Quantity getAverageValue() {
+      return averageValue_ == null ? io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : averageValue_;
+    }
+    /**
+     * <pre>
+     * averageValue is the target value of the average of the
+     * metric across all relevant pods (as a quantity)
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+     */
+    public io.kubernetes.client.proto.Resource.QuantityOrBuilder getAverageValueOrBuilder() {
+      return averageValue_ == null ? io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : averageValue_;
+    }
+
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -10646,6 +14724,7 @@ public final class V1Autoscaling {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -10657,9 +14736,16 @@ public final class V1Autoscaling {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeMessage(3, getTargetValue());
       }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeMessage(4, getSelector());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeMessage(5, getAverageValue());
+      }
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -10675,6 +14761,14 @@ public final class V1Autoscaling {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getTargetValue());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getSelector());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getAverageValue());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -10707,6 +14801,16 @@ public final class V1Autoscaling {
         result = result && getTargetValue()
             .equals(other.getTargetValue());
       }
+      result = result && (hasSelector() == other.hasSelector());
+      if (hasSelector()) {
+        result = result && getSelector()
+            .equals(other.getSelector());
+      }
+      result = result && (hasAverageValue() == other.hasAverageValue());
+      if (hasAverageValue()) {
+        result = result && getAverageValue()
+            .equals(other.getAverageValue());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -10729,6 +14833,14 @@ public final class V1Autoscaling {
       if (hasTargetValue()) {
         hash = (37 * hash) + TARGETVALUE_FIELD_NUMBER;
         hash = (53 * hash) + getTargetValue().hashCode();
+      }
+      if (hasSelector()) {
+        hash = (37 * hash) + SELECTOR_FIELD_NUMBER;
+        hash = (53 * hash) + getSelector().hashCode();
+      }
+      if (hasAverageValue()) {
+        hash = (37 * hash) + AVERAGEVALUE_FIELD_NUMBER;
+        hash = (53 * hash) + getAverageValue().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -10805,6 +14917,7 @@ public final class V1Autoscaling {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -10812,6 +14925,7 @@ public final class V1Autoscaling {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Autoscaling.ObjectMetricSource prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -10840,6 +14954,7 @@ public final class V1Autoscaling {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ObjectMetricSource_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ObjectMetricSource_fieldAccessorTable
@@ -10862,8 +14977,11 @@ public final class V1Autoscaling {
                 .alwaysUseFieldBuilders) {
           getTargetFieldBuilder();
           getTargetValueFieldBuilder();
+          getSelectorFieldBuilder();
+          getAverageValueFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (targetBuilder_ == null) {
@@ -10880,18 +14998,33 @@ public final class V1Autoscaling {
           targetValueBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000004);
+        if (selectorBuilder_ == null) {
+          selector_ = null;
+        } else {
+          selectorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        if (averageValueBuilder_ == null) {
+          averageValue_ = null;
+        } else {
+          averageValueBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ObjectMetricSource_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.ObjectMetricSource getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Autoscaling.ObjectMetricSource.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.ObjectMetricSource build() {
         io.kubernetes.client.proto.V1Autoscaling.ObjectMetricSource result = buildPartial();
         if (!result.isInitialized()) {
@@ -10900,6 +15033,7 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.ObjectMetricSource buildPartial() {
         io.kubernetes.client.proto.V1Autoscaling.ObjectMetricSource result = new io.kubernetes.client.proto.V1Autoscaling.ObjectMetricSource(this);
         int from_bitField0_ = bitField0_;
@@ -10924,37 +15058,60 @@ public final class V1Autoscaling {
         } else {
           result.targetValue_ = targetValueBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        if (selectorBuilder_ == null) {
+          result.selector_ = selector_;
+        } else {
+          result.selector_ = selectorBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        if (averageValueBuilder_ == null) {
+          result.averageValue_ = averageValue_;
+        } else {
+          result.averageValue_ = averageValueBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Autoscaling.ObjectMetricSource) {
           return mergeFrom((io.kubernetes.client.proto.V1Autoscaling.ObjectMetricSource)other);
@@ -10977,15 +15134,23 @@ public final class V1Autoscaling {
         if (other.hasTargetValue()) {
           mergeTargetValue(other.getTargetValue());
         }
+        if (other.hasSelector()) {
+          mergeSelector(other.getSelector());
+        }
+        if (other.hasAverageValue()) {
+          mergeAverageValue(other.getAverageValue());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -11412,11 +15577,366 @@ public final class V1Autoscaling {
         }
         return targetValueBuilder_;
       }
+
+      private io.kubernetes.client.proto.Meta.LabelSelector selector_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder> selectorBuilder_;
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric.
+       * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+       */
+      public boolean hasSelector() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric.
+       * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelector getSelector() {
+        if (selectorBuilder_ == null) {
+          return selector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+        } else {
+          return selectorBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric.
+       * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+       */
+      public Builder setSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
+        if (selectorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          selector_ = value;
+          onChanged();
+        } else {
+          selectorBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric.
+       * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+       */
+      public Builder setSelector(
+          io.kubernetes.client.proto.Meta.LabelSelector.Builder builderForValue) {
+        if (selectorBuilder_ == null) {
+          selector_ = builderForValue.build();
+          onChanged();
+        } else {
+          selectorBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric.
+       * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+       */
+      public Builder mergeSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
+        if (selectorBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008) &&
+              selector_ != null &&
+              selector_ != io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()) {
+            selector_ =
+              io.kubernetes.client.proto.Meta.LabelSelector.newBuilder(selector_).mergeFrom(value).buildPartial();
+          } else {
+            selector_ = value;
+          }
+          onChanged();
+        } else {
+          selectorBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric.
+       * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+       */
+      public Builder clearSelector() {
+        if (selectorBuilder_ == null) {
+          selector_ = null;
+          onChanged();
+        } else {
+          selectorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric.
+       * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelector.Builder getSelectorBuilder() {
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return getSelectorFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric.
+       * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder() {
+        if (selectorBuilder_ != null) {
+          return selectorBuilder_.getMessageOrBuilder();
+        } else {
+          return selector_ == null ?
+              io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+        }
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric.
+       * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder> 
+          getSelectorFieldBuilder() {
+        if (selectorBuilder_ == null) {
+          selectorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>(
+                  getSelector(),
+                  getParentForChildren(),
+                  isClean());
+          selector_ = null;
+        }
+        return selectorBuilder_;
+      }
+
+      private io.kubernetes.client.proto.Resource.Quantity averageValue_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Resource.Quantity, io.kubernetes.client.proto.Resource.Quantity.Builder, io.kubernetes.client.proto.Resource.QuantityOrBuilder> averageValueBuilder_;
+      /**
+       * <pre>
+       * averageValue is the target value of the average of the
+       * metric across all relevant pods (as a quantity)
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+       */
+      public boolean hasAverageValue() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <pre>
+       * averageValue is the target value of the average of the
+       * metric across all relevant pods (as a quantity)
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+       */
+      public io.kubernetes.client.proto.Resource.Quantity getAverageValue() {
+        if (averageValueBuilder_ == null) {
+          return averageValue_ == null ? io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : averageValue_;
+        } else {
+          return averageValueBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * averageValue is the target value of the average of the
+       * metric across all relevant pods (as a quantity)
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+       */
+      public Builder setAverageValue(io.kubernetes.client.proto.Resource.Quantity value) {
+        if (averageValueBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          averageValue_ = value;
+          onChanged();
+        } else {
+          averageValueBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <pre>
+       * averageValue is the target value of the average of the
+       * metric across all relevant pods (as a quantity)
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+       */
+      public Builder setAverageValue(
+          io.kubernetes.client.proto.Resource.Quantity.Builder builderForValue) {
+        if (averageValueBuilder_ == null) {
+          averageValue_ = builderForValue.build();
+          onChanged();
+        } else {
+          averageValueBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <pre>
+       * averageValue is the target value of the average of the
+       * metric across all relevant pods (as a quantity)
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+       */
+      public Builder mergeAverageValue(io.kubernetes.client.proto.Resource.Quantity value) {
+        if (averageValueBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010) &&
+              averageValue_ != null &&
+              averageValue_ != io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance()) {
+            averageValue_ =
+              io.kubernetes.client.proto.Resource.Quantity.newBuilder(averageValue_).mergeFrom(value).buildPartial();
+          } else {
+            averageValue_ = value;
+          }
+          onChanged();
+        } else {
+          averageValueBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <pre>
+       * averageValue is the target value of the average of the
+       * metric across all relevant pods (as a quantity)
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+       */
+      public Builder clearAverageValue() {
+        if (averageValueBuilder_ == null) {
+          averageValue_ = null;
+          onChanged();
+        } else {
+          averageValueBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+      /**
+       * <pre>
+       * averageValue is the target value of the average of the
+       * metric across all relevant pods (as a quantity)
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+       */
+      public io.kubernetes.client.proto.Resource.Quantity.Builder getAverageValueBuilder() {
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return getAverageValueFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * averageValue is the target value of the average of the
+       * metric across all relevant pods (as a quantity)
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+       */
+      public io.kubernetes.client.proto.Resource.QuantityOrBuilder getAverageValueOrBuilder() {
+        if (averageValueBuilder_ != null) {
+          return averageValueBuilder_.getMessageOrBuilder();
+        } else {
+          return averageValue_ == null ?
+              io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : averageValue_;
+        }
+      }
+      /**
+       * <pre>
+       * averageValue is the target value of the average of the
+       * metric across all relevant pods (as a quantity)
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Resource.Quantity, io.kubernetes.client.proto.Resource.Quantity.Builder, io.kubernetes.client.proto.Resource.QuantityOrBuilder> 
+          getAverageValueFieldBuilder() {
+        if (averageValueBuilder_ == null) {
+          averageValueBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Resource.Quantity, io.kubernetes.client.proto.Resource.Quantity.Builder, io.kubernetes.client.proto.Resource.QuantityOrBuilder>(
+                  getAverageValue(),
+                  getParentForChildren(),
+                  isClean());
+          averageValue_ = null;
+        }
+        return averageValueBuilder_;
+      }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -11438,11 +15958,12 @@ public final class V1Autoscaling {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<ObjectMetricSource>
         PARSER = new com.google.protobuf.AbstractParser<ObjectMetricSource>() {
+      @java.lang.Override
       public ObjectMetricSource parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ObjectMetricSource(input, extensionRegistry);
+        return new ObjectMetricSource(input, extensionRegistry);
       }
     };
 
@@ -11455,6 +15976,7 @@ public final class V1Autoscaling {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Autoscaling.ObjectMetricSource getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -11540,6 +16062,71 @@ public final class V1Autoscaling {
      * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentValue = 3;</code>
      */
     io.kubernetes.client.proto.Resource.QuantityOrBuilder getCurrentValueOrBuilder();
+
+    /**
+     * <pre>
+     * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+     * When set in the ObjectMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+     * When unset, just the metricName will be used to gather metrics.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+     */
+    boolean hasSelector();
+    /**
+     * <pre>
+     * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+     * When set in the ObjectMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+     * When unset, just the metricName will be used to gather metrics.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+     */
+    io.kubernetes.client.proto.Meta.LabelSelector getSelector();
+    /**
+     * <pre>
+     * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+     * When set in the ObjectMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+     * When unset, just the metricName will be used to gather metrics.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+     */
+    io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder();
+
+    /**
+     * <pre>
+     * averageValue is the current value of the average of the
+     * metric across all relevant pods (as a quantity)
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+     */
+    boolean hasAverageValue();
+    /**
+     * <pre>
+     * averageValue is the current value of the average of the
+     * metric across all relevant pods (as a quantity)
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+     */
+    io.kubernetes.client.proto.Resource.Quantity getAverageValue();
+    /**
+     * <pre>
+     * averageValue is the current value of the average of the
+     * metric across all relevant pods (as a quantity)
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+     */
+    io.kubernetes.client.proto.Resource.QuantityOrBuilder getAverageValueOrBuilder();
   }
   /**
    * <pre>
@@ -11572,6 +16159,9 @@ public final class V1Autoscaling {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -11583,13 +16173,6 @@ public final class V1Autoscaling {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.V1Autoscaling.CrossVersionObjectReference.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -11622,6 +16205,39 @@ public final class V1Autoscaling {
               bitField0_ |= 0x00000004;
               break;
             }
+            case 34: {
+              io.kubernetes.client.proto.Meta.LabelSelector.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                subBuilder = selector_.toBuilder();
+              }
+              selector_ = input.readMessage(io.kubernetes.client.proto.Meta.LabelSelector.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(selector_);
+                selector_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000008;
+              break;
+            }
+            case 42: {
+              io.kubernetes.client.proto.Resource.Quantity.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000010) == 0x00000010)) {
+                subBuilder = averageValue_.toBuilder();
+              }
+              averageValue_ = input.readMessage(io.kubernetes.client.proto.Resource.Quantity.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(averageValue_);
+                averageValue_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000010;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -11639,6 +16255,7 @@ public final class V1Autoscaling {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ObjectMetricStatus_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ObjectMetricStatus_fieldAccessorTable
@@ -11767,7 +16384,89 @@ public final class V1Autoscaling {
       return currentValue_ == null ? io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : currentValue_;
     }
 
+    public static final int SELECTOR_FIELD_NUMBER = 4;
+    private io.kubernetes.client.proto.Meta.LabelSelector selector_;
+    /**
+     * <pre>
+     * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+     * When set in the ObjectMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+     * When unset, just the metricName will be used to gather metrics.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+     */
+    public boolean hasSelector() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+     * When set in the ObjectMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+     * When unset, just the metricName will be used to gather metrics.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+     */
+    public io.kubernetes.client.proto.Meta.LabelSelector getSelector() {
+      return selector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+    }
+    /**
+     * <pre>
+     * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+     * When set in the ObjectMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+     * When unset, just the metricName will be used to gather metrics.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+     */
+    public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder() {
+      return selector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+    }
+
+    public static final int AVERAGEVALUE_FIELD_NUMBER = 5;
+    private io.kubernetes.client.proto.Resource.Quantity averageValue_;
+    /**
+     * <pre>
+     * averageValue is the current value of the average of the
+     * metric across all relevant pods (as a quantity)
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+     */
+    public boolean hasAverageValue() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <pre>
+     * averageValue is the current value of the average of the
+     * metric across all relevant pods (as a quantity)
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+     */
+    public io.kubernetes.client.proto.Resource.Quantity getAverageValue() {
+      return averageValue_ == null ? io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : averageValue_;
+    }
+    /**
+     * <pre>
+     * averageValue is the current value of the average of the
+     * metric across all relevant pods (as a quantity)
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+     */
+    public io.kubernetes.client.proto.Resource.QuantityOrBuilder getAverageValueOrBuilder() {
+      return averageValue_ == null ? io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : averageValue_;
+    }
+
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -11777,6 +16476,7 @@ public final class V1Autoscaling {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -11788,9 +16488,16 @@ public final class V1Autoscaling {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeMessage(3, getCurrentValue());
       }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeMessage(4, getSelector());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeMessage(5, getAverageValue());
+      }
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -11806,6 +16513,14 @@ public final class V1Autoscaling {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getCurrentValue());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getSelector());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getAverageValue());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -11838,6 +16553,16 @@ public final class V1Autoscaling {
         result = result && getCurrentValue()
             .equals(other.getCurrentValue());
       }
+      result = result && (hasSelector() == other.hasSelector());
+      if (hasSelector()) {
+        result = result && getSelector()
+            .equals(other.getSelector());
+      }
+      result = result && (hasAverageValue() == other.hasAverageValue());
+      if (hasAverageValue()) {
+        result = result && getAverageValue()
+            .equals(other.getAverageValue());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -11860,6 +16585,14 @@ public final class V1Autoscaling {
       if (hasCurrentValue()) {
         hash = (37 * hash) + CURRENTVALUE_FIELD_NUMBER;
         hash = (53 * hash) + getCurrentValue().hashCode();
+      }
+      if (hasSelector()) {
+        hash = (37 * hash) + SELECTOR_FIELD_NUMBER;
+        hash = (53 * hash) + getSelector().hashCode();
+      }
+      if (hasAverageValue()) {
+        hash = (37 * hash) + AVERAGEVALUE_FIELD_NUMBER;
+        hash = (53 * hash) + getAverageValue().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -11936,6 +16669,7 @@ public final class V1Autoscaling {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -11943,6 +16677,7 @@ public final class V1Autoscaling {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Autoscaling.ObjectMetricStatus prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -11971,6 +16706,7 @@ public final class V1Autoscaling {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ObjectMetricStatus_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ObjectMetricStatus_fieldAccessorTable
@@ -11993,8 +16729,11 @@ public final class V1Autoscaling {
                 .alwaysUseFieldBuilders) {
           getTargetFieldBuilder();
           getCurrentValueFieldBuilder();
+          getSelectorFieldBuilder();
+          getAverageValueFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (targetBuilder_ == null) {
@@ -12011,18 +16750,33 @@ public final class V1Autoscaling {
           currentValueBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000004);
+        if (selectorBuilder_ == null) {
+          selector_ = null;
+        } else {
+          selectorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        if (averageValueBuilder_ == null) {
+          averageValue_ = null;
+        } else {
+          averageValueBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ObjectMetricStatus_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.ObjectMetricStatus getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Autoscaling.ObjectMetricStatus.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.ObjectMetricStatus build() {
         io.kubernetes.client.proto.V1Autoscaling.ObjectMetricStatus result = buildPartial();
         if (!result.isInitialized()) {
@@ -12031,6 +16785,7 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.ObjectMetricStatus buildPartial() {
         io.kubernetes.client.proto.V1Autoscaling.ObjectMetricStatus result = new io.kubernetes.client.proto.V1Autoscaling.ObjectMetricStatus(this);
         int from_bitField0_ = bitField0_;
@@ -12055,37 +16810,60 @@ public final class V1Autoscaling {
         } else {
           result.currentValue_ = currentValueBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        if (selectorBuilder_ == null) {
+          result.selector_ = selector_;
+        } else {
+          result.selector_ = selectorBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        if (averageValueBuilder_ == null) {
+          result.averageValue_ = averageValue_;
+        } else {
+          result.averageValue_ = averageValueBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Autoscaling.ObjectMetricStatus) {
           return mergeFrom((io.kubernetes.client.proto.V1Autoscaling.ObjectMetricStatus)other);
@@ -12108,15 +16886,23 @@ public final class V1Autoscaling {
         if (other.hasCurrentValue()) {
           mergeCurrentValue(other.getCurrentValue());
         }
+        if (other.hasSelector()) {
+          mergeSelector(other.getSelector());
+        }
+        if (other.hasAverageValue()) {
+          mergeAverageValue(other.getAverageValue());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -12543,11 +17329,366 @@ public final class V1Autoscaling {
         }
         return currentValueBuilder_;
       }
+
+      private io.kubernetes.client.proto.Meta.LabelSelector selector_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder> selectorBuilder_;
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set in the ObjectMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+       */
+      public boolean hasSelector() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set in the ObjectMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelector getSelector() {
+        if (selectorBuilder_ == null) {
+          return selector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+        } else {
+          return selectorBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set in the ObjectMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+       */
+      public Builder setSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
+        if (selectorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          selector_ = value;
+          onChanged();
+        } else {
+          selectorBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set in the ObjectMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+       */
+      public Builder setSelector(
+          io.kubernetes.client.proto.Meta.LabelSelector.Builder builderForValue) {
+        if (selectorBuilder_ == null) {
+          selector_ = builderForValue.build();
+          onChanged();
+        } else {
+          selectorBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set in the ObjectMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+       */
+      public Builder mergeSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
+        if (selectorBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008) &&
+              selector_ != null &&
+              selector_ != io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()) {
+            selector_ =
+              io.kubernetes.client.proto.Meta.LabelSelector.newBuilder(selector_).mergeFrom(value).buildPartial();
+          } else {
+            selector_ = value;
+          }
+          onChanged();
+        } else {
+          selectorBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set in the ObjectMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+       */
+      public Builder clearSelector() {
+        if (selectorBuilder_ == null) {
+          selector_ = null;
+          onChanged();
+        } else {
+          selectorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set in the ObjectMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelector.Builder getSelectorBuilder() {
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return getSelectorFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set in the ObjectMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder() {
+        if (selectorBuilder_ != null) {
+          return selectorBuilder_.getMessageOrBuilder();
+        } else {
+          return selector_ == null ?
+              io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+        }
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set in the ObjectMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder> 
+          getSelectorFieldBuilder() {
+        if (selectorBuilder_ == null) {
+          selectorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>(
+                  getSelector(),
+                  getParentForChildren(),
+                  isClean());
+          selector_ = null;
+        }
+        return selectorBuilder_;
+      }
+
+      private io.kubernetes.client.proto.Resource.Quantity averageValue_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Resource.Quantity, io.kubernetes.client.proto.Resource.Quantity.Builder, io.kubernetes.client.proto.Resource.QuantityOrBuilder> averageValueBuilder_;
+      /**
+       * <pre>
+       * averageValue is the current value of the average of the
+       * metric across all relevant pods (as a quantity)
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+       */
+      public boolean hasAverageValue() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <pre>
+       * averageValue is the current value of the average of the
+       * metric across all relevant pods (as a quantity)
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+       */
+      public io.kubernetes.client.proto.Resource.Quantity getAverageValue() {
+        if (averageValueBuilder_ == null) {
+          return averageValue_ == null ? io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : averageValue_;
+        } else {
+          return averageValueBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * averageValue is the current value of the average of the
+       * metric across all relevant pods (as a quantity)
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+       */
+      public Builder setAverageValue(io.kubernetes.client.proto.Resource.Quantity value) {
+        if (averageValueBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          averageValue_ = value;
+          onChanged();
+        } else {
+          averageValueBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <pre>
+       * averageValue is the current value of the average of the
+       * metric across all relevant pods (as a quantity)
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+       */
+      public Builder setAverageValue(
+          io.kubernetes.client.proto.Resource.Quantity.Builder builderForValue) {
+        if (averageValueBuilder_ == null) {
+          averageValue_ = builderForValue.build();
+          onChanged();
+        } else {
+          averageValueBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <pre>
+       * averageValue is the current value of the average of the
+       * metric across all relevant pods (as a quantity)
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+       */
+      public Builder mergeAverageValue(io.kubernetes.client.proto.Resource.Quantity value) {
+        if (averageValueBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010) &&
+              averageValue_ != null &&
+              averageValue_ != io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance()) {
+            averageValue_ =
+              io.kubernetes.client.proto.Resource.Quantity.newBuilder(averageValue_).mergeFrom(value).buildPartial();
+          } else {
+            averageValue_ = value;
+          }
+          onChanged();
+        } else {
+          averageValueBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <pre>
+       * averageValue is the current value of the average of the
+       * metric across all relevant pods (as a quantity)
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+       */
+      public Builder clearAverageValue() {
+        if (averageValueBuilder_ == null) {
+          averageValue_ = null;
+          onChanged();
+        } else {
+          averageValueBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+      /**
+       * <pre>
+       * averageValue is the current value of the average of the
+       * metric across all relevant pods (as a quantity)
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+       */
+      public io.kubernetes.client.proto.Resource.Quantity.Builder getAverageValueBuilder() {
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return getAverageValueFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * averageValue is the current value of the average of the
+       * metric across all relevant pods (as a quantity)
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+       */
+      public io.kubernetes.client.proto.Resource.QuantityOrBuilder getAverageValueOrBuilder() {
+        if (averageValueBuilder_ != null) {
+          return averageValueBuilder_.getMessageOrBuilder();
+        } else {
+          return averageValue_ == null ?
+              io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : averageValue_;
+        }
+      }
+      /**
+       * <pre>
+       * averageValue is the current value of the average of the
+       * metric across all relevant pods (as a quantity)
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Resource.Quantity, io.kubernetes.client.proto.Resource.Quantity.Builder, io.kubernetes.client.proto.Resource.QuantityOrBuilder> 
+          getAverageValueFieldBuilder() {
+        if (averageValueBuilder_ == null) {
+          averageValueBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Resource.Quantity, io.kubernetes.client.proto.Resource.Quantity.Builder, io.kubernetes.client.proto.Resource.QuantityOrBuilder>(
+                  getAverageValue(),
+                  getParentForChildren(),
+                  isClean());
+          averageValue_ = null;
+        }
+        return averageValueBuilder_;
+      }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -12569,11 +17710,12 @@ public final class V1Autoscaling {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<ObjectMetricStatus>
         PARSER = new com.google.protobuf.AbstractParser<ObjectMetricStatus>() {
+      @java.lang.Override
       public ObjectMetricStatus parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ObjectMetricStatus(input, extensionRegistry);
+        return new ObjectMetricStatus(input, extensionRegistry);
       }
     };
 
@@ -12586,6 +17728,7 @@ public final class V1Autoscaling {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Autoscaling.ObjectMetricStatus getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -12649,6 +17792,40 @@ public final class V1Autoscaling {
      * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity targetAverageValue = 2;</code>
      */
     io.kubernetes.client.proto.Resource.QuantityOrBuilder getTargetAverageValueOrBuilder();
+
+    /**
+     * <pre>
+     * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+     * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+     * When unset, just the metricName will be used to gather metrics.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+     */
+    boolean hasSelector();
+    /**
+     * <pre>
+     * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+     * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+     * When unset, just the metricName will be used to gather metrics.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+     */
+    io.kubernetes.client.proto.Meta.LabelSelector getSelector();
+    /**
+     * <pre>
+     * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+     * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+     * When unset, just the metricName will be used to gather metrics.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+     */
+    io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder();
   }
   /**
    * <pre>
@@ -12683,6 +17860,9 @@ public final class V1Autoscaling {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -12694,13 +17874,6 @@ public final class V1Autoscaling {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -12720,6 +17893,26 @@ public final class V1Autoscaling {
               bitField0_ |= 0x00000002;
               break;
             }
+            case 26: {
+              io.kubernetes.client.proto.Meta.LabelSelector.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                subBuilder = selector_.toBuilder();
+              }
+              selector_ = input.readMessage(io.kubernetes.client.proto.Meta.LabelSelector.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(selector_);
+                selector_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -12737,6 +17930,7 @@ public final class V1Autoscaling {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_PodsMetricSource_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_PodsMetricSource_fieldAccessorTable
@@ -12835,7 +18029,50 @@ public final class V1Autoscaling {
       return targetAverageValue_ == null ? io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : targetAverageValue_;
     }
 
+    public static final int SELECTOR_FIELD_NUMBER = 3;
+    private io.kubernetes.client.proto.Meta.LabelSelector selector_;
+    /**
+     * <pre>
+     * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+     * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+     * When unset, just the metricName will be used to gather metrics.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+     */
+    public boolean hasSelector() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+     * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+     * When unset, just the metricName will be used to gather metrics.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+     */
+    public io.kubernetes.client.proto.Meta.LabelSelector getSelector() {
+      return selector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+    }
+    /**
+     * <pre>
+     * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+     * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+     * When unset, just the metricName will be used to gather metrics.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+     */
+    public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder() {
+      return selector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+    }
+
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -12845,6 +18082,7 @@ public final class V1Autoscaling {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -12853,9 +18091,13 @@ public final class V1Autoscaling {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeMessage(2, getTargetAverageValue());
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeMessage(3, getSelector());
+      }
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -12867,6 +18109,10 @@ public final class V1Autoscaling {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getTargetAverageValue());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getSelector());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -12894,6 +18140,11 @@ public final class V1Autoscaling {
         result = result && getTargetAverageValue()
             .equals(other.getTargetAverageValue());
       }
+      result = result && (hasSelector() == other.hasSelector());
+      if (hasSelector()) {
+        result = result && getSelector()
+            .equals(other.getSelector());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -12912,6 +18163,10 @@ public final class V1Autoscaling {
       if (hasTargetAverageValue()) {
         hash = (37 * hash) + TARGETAVERAGEVALUE_FIELD_NUMBER;
         hash = (53 * hash) + getTargetAverageValue().hashCode();
+      }
+      if (hasSelector()) {
+        hash = (37 * hash) + SELECTOR_FIELD_NUMBER;
+        hash = (53 * hash) + getSelector().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -12988,6 +18243,7 @@ public final class V1Autoscaling {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -12995,6 +18251,7 @@ public final class V1Autoscaling {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Autoscaling.PodsMetricSource prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -13025,6 +18282,7 @@ public final class V1Autoscaling {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_PodsMetricSource_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_PodsMetricSource_fieldAccessorTable
@@ -13046,8 +18304,10 @@ public final class V1Autoscaling {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
           getTargetAverageValueFieldBuilder();
+          getSelectorFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         metricName_ = "";
@@ -13058,18 +18318,27 @@ public final class V1Autoscaling {
           targetAverageValueBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
+        if (selectorBuilder_ == null) {
+          selector_ = null;
+        } else {
+          selectorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_PodsMetricSource_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.PodsMetricSource getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Autoscaling.PodsMetricSource.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.PodsMetricSource build() {
         io.kubernetes.client.proto.V1Autoscaling.PodsMetricSource result = buildPartial();
         if (!result.isInitialized()) {
@@ -13078,6 +18347,7 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.PodsMetricSource buildPartial() {
         io.kubernetes.client.proto.V1Autoscaling.PodsMetricSource result = new io.kubernetes.client.proto.V1Autoscaling.PodsMetricSource(this);
         int from_bitField0_ = bitField0_;
@@ -13094,37 +18364,52 @@ public final class V1Autoscaling {
         } else {
           result.targetAverageValue_ = targetAverageValueBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        if (selectorBuilder_ == null) {
+          result.selector_ = selector_;
+        } else {
+          result.selector_ = selectorBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Autoscaling.PodsMetricSource) {
           return mergeFrom((io.kubernetes.client.proto.V1Autoscaling.PodsMetricSource)other);
@@ -13144,15 +18429,20 @@ public final class V1Autoscaling {
         if (other.hasTargetAverageValue()) {
           mergeTargetAverageValue(other.getTargetAverageValue());
         }
+        if (other.hasSelector()) {
+          mergeSelector(other.getSelector());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -13434,11 +18724,194 @@ public final class V1Autoscaling {
         }
         return targetAverageValueBuilder_;
       }
+
+      private io.kubernetes.client.proto.Meta.LabelSelector selector_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder> selectorBuilder_;
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+       */
+      public boolean hasSelector() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelector getSelector() {
+        if (selectorBuilder_ == null) {
+          return selector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+        } else {
+          return selectorBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+       */
+      public Builder setSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
+        if (selectorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          selector_ = value;
+          onChanged();
+        } else {
+          selectorBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+       */
+      public Builder setSelector(
+          io.kubernetes.client.proto.Meta.LabelSelector.Builder builderForValue) {
+        if (selectorBuilder_ == null) {
+          selector_ = builderForValue.build();
+          onChanged();
+        } else {
+          selectorBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+       */
+      public Builder mergeSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
+        if (selectorBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+              selector_ != null &&
+              selector_ != io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()) {
+            selector_ =
+              io.kubernetes.client.proto.Meta.LabelSelector.newBuilder(selector_).mergeFrom(value).buildPartial();
+          } else {
+            selector_ = value;
+          }
+          onChanged();
+        } else {
+          selectorBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+       */
+      public Builder clearSelector() {
+        if (selectorBuilder_ == null) {
+          selector_ = null;
+          onChanged();
+        } else {
+          selectorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelector.Builder getSelectorBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getSelectorFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder() {
+        if (selectorBuilder_ != null) {
+          return selectorBuilder_.getMessageOrBuilder();
+        } else {
+          return selector_ == null ?
+              io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+        }
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder> 
+          getSelectorFieldBuilder() {
+        if (selectorBuilder_ == null) {
+          selectorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>(
+                  getSelector(),
+                  getParentForChildren(),
+                  isClean());
+          selector_ = null;
+        }
+        return selectorBuilder_;
+      }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -13460,11 +18933,12 @@ public final class V1Autoscaling {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<PodsMetricSource>
         PARSER = new com.google.protobuf.AbstractParser<PodsMetricSource>() {
+      @java.lang.Override
       public PodsMetricSource parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new PodsMetricSource(input, extensionRegistry);
+        return new PodsMetricSource(input, extensionRegistry);
       }
     };
 
@@ -13477,6 +18951,7 @@ public final class V1Autoscaling {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Autoscaling.PodsMetricSource getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -13540,6 +19015,40 @@ public final class V1Autoscaling {
      * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity currentAverageValue = 2;</code>
      */
     io.kubernetes.client.proto.Resource.QuantityOrBuilder getCurrentAverageValueOrBuilder();
+
+    /**
+     * <pre>
+     * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+     * When set in the PodsMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+     * When unset, just the metricName will be used to gather metrics.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+     */
+    boolean hasSelector();
+    /**
+     * <pre>
+     * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+     * When set in the PodsMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+     * When unset, just the metricName will be used to gather metrics.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+     */
+    io.kubernetes.client.proto.Meta.LabelSelector getSelector();
+    /**
+     * <pre>
+     * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+     * When set in the PodsMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+     * When unset, just the metricName will be used to gather metrics.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+     */
+    io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder();
   }
   /**
    * <pre>
@@ -13572,6 +19081,9 @@ public final class V1Autoscaling {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -13583,13 +19095,6 @@ public final class V1Autoscaling {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -13609,6 +19114,26 @@ public final class V1Autoscaling {
               bitField0_ |= 0x00000002;
               break;
             }
+            case 26: {
+              io.kubernetes.client.proto.Meta.LabelSelector.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                subBuilder = selector_.toBuilder();
+              }
+              selector_ = input.readMessage(io.kubernetes.client.proto.Meta.LabelSelector.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(selector_);
+                selector_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -13626,6 +19151,7 @@ public final class V1Autoscaling {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_PodsMetricStatus_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_PodsMetricStatus_fieldAccessorTable
@@ -13724,7 +19250,50 @@ public final class V1Autoscaling {
       return currentAverageValue_ == null ? io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance() : currentAverageValue_;
     }
 
+    public static final int SELECTOR_FIELD_NUMBER = 3;
+    private io.kubernetes.client.proto.Meta.LabelSelector selector_;
+    /**
+     * <pre>
+     * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+     * When set in the PodsMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+     * When unset, just the metricName will be used to gather metrics.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+     */
+    public boolean hasSelector() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+     * When set in the PodsMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+     * When unset, just the metricName will be used to gather metrics.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+     */
+    public io.kubernetes.client.proto.Meta.LabelSelector getSelector() {
+      return selector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+    }
+    /**
+     * <pre>
+     * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+     * When set in the PodsMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+     * When unset, just the metricName will be used to gather metrics.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+     */
+    public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder() {
+      return selector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+    }
+
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -13734,6 +19303,7 @@ public final class V1Autoscaling {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -13742,9 +19312,13 @@ public final class V1Autoscaling {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeMessage(2, getCurrentAverageValue());
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeMessage(3, getSelector());
+      }
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -13756,6 +19330,10 @@ public final class V1Autoscaling {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getCurrentAverageValue());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getSelector());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -13783,6 +19361,11 @@ public final class V1Autoscaling {
         result = result && getCurrentAverageValue()
             .equals(other.getCurrentAverageValue());
       }
+      result = result && (hasSelector() == other.hasSelector());
+      if (hasSelector()) {
+        result = result && getSelector()
+            .equals(other.getSelector());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -13801,6 +19384,10 @@ public final class V1Autoscaling {
       if (hasCurrentAverageValue()) {
         hash = (37 * hash) + CURRENTAVERAGEVALUE_FIELD_NUMBER;
         hash = (53 * hash) + getCurrentAverageValue().hashCode();
+      }
+      if (hasSelector()) {
+        hash = (37 * hash) + SELECTOR_FIELD_NUMBER;
+        hash = (53 * hash) + getSelector().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -13877,6 +19464,7 @@ public final class V1Autoscaling {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -13884,6 +19472,7 @@ public final class V1Autoscaling {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Autoscaling.PodsMetricStatus prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -13912,6 +19501,7 @@ public final class V1Autoscaling {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_PodsMetricStatus_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_PodsMetricStatus_fieldAccessorTable
@@ -13933,8 +19523,10 @@ public final class V1Autoscaling {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
           getCurrentAverageValueFieldBuilder();
+          getSelectorFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         metricName_ = "";
@@ -13945,18 +19537,27 @@ public final class V1Autoscaling {
           currentAverageValueBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
+        if (selectorBuilder_ == null) {
+          selector_ = null;
+        } else {
+          selectorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_PodsMetricStatus_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.PodsMetricStatus getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Autoscaling.PodsMetricStatus.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.PodsMetricStatus build() {
         io.kubernetes.client.proto.V1Autoscaling.PodsMetricStatus result = buildPartial();
         if (!result.isInitialized()) {
@@ -13965,6 +19566,7 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.PodsMetricStatus buildPartial() {
         io.kubernetes.client.proto.V1Autoscaling.PodsMetricStatus result = new io.kubernetes.client.proto.V1Autoscaling.PodsMetricStatus(this);
         int from_bitField0_ = bitField0_;
@@ -13981,37 +19583,52 @@ public final class V1Autoscaling {
         } else {
           result.currentAverageValue_ = currentAverageValueBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        if (selectorBuilder_ == null) {
+          result.selector_ = selector_;
+        } else {
+          result.selector_ = selectorBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Autoscaling.PodsMetricStatus) {
           return mergeFrom((io.kubernetes.client.proto.V1Autoscaling.PodsMetricStatus)other);
@@ -14031,15 +19648,20 @@ public final class V1Autoscaling {
         if (other.hasCurrentAverageValue()) {
           mergeCurrentAverageValue(other.getCurrentAverageValue());
         }
+        if (other.hasSelector()) {
+          mergeSelector(other.getSelector());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -14321,11 +19943,194 @@ public final class V1Autoscaling {
         }
         return currentAverageValueBuilder_;
       }
+
+      private io.kubernetes.client.proto.Meta.LabelSelector selector_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder> selectorBuilder_;
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set in the PodsMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+       */
+      public boolean hasSelector() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set in the PodsMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelector getSelector() {
+        if (selectorBuilder_ == null) {
+          return selector_ == null ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+        } else {
+          return selectorBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set in the PodsMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+       */
+      public Builder setSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
+        if (selectorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          selector_ = value;
+          onChanged();
+        } else {
+          selectorBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set in the PodsMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+       */
+      public Builder setSelector(
+          io.kubernetes.client.proto.Meta.LabelSelector.Builder builderForValue) {
+        if (selectorBuilder_ == null) {
+          selector_ = builderForValue.build();
+          onChanged();
+        } else {
+          selectorBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set in the PodsMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+       */
+      public Builder mergeSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
+        if (selectorBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+              selector_ != null &&
+              selector_ != io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()) {
+            selector_ =
+              io.kubernetes.client.proto.Meta.LabelSelector.newBuilder(selector_).mergeFrom(value).buildPartial();
+          } else {
+            selector_ = value;
+          }
+          onChanged();
+        } else {
+          selectorBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set in the PodsMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+       */
+      public Builder clearSelector() {
+        if (selectorBuilder_ == null) {
+          selector_ = null;
+          onChanged();
+        } else {
+          selectorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set in the PodsMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelector.Builder getSelectorBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getSelectorFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set in the PodsMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder() {
+        if (selectorBuilder_ != null) {
+          return selectorBuilder_.getMessageOrBuilder();
+        } else {
+          return selector_ == null ?
+              io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance() : selector_;
+        }
+      }
+      /**
+       * <pre>
+       * selector is the string-encoded form of a standard kubernetes label selector for the given metric
+       * When set in the PodsMetricSource, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
+       * When unset, just the metricName will be used to gather metrics.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder> 
+          getSelectorFieldBuilder() {
+        if (selectorBuilder_ == null) {
+          selectorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>(
+                  getSelector(),
+                  getParentForChildren(),
+                  isClean());
+          selector_ = null;
+        }
+        return selectorBuilder_;
+      }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -14347,11 +20152,12 @@ public final class V1Autoscaling {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<PodsMetricStatus>
         PARSER = new com.google.protobuf.AbstractParser<PodsMetricStatus>() {
+      @java.lang.Override
       public PodsMetricStatus parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new PodsMetricStatus(input, extensionRegistry);
+        return new PodsMetricStatus(input, extensionRegistry);
       }
     };
 
@@ -14364,6 +20170,7 @@ public final class V1Autoscaling {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Autoscaling.PodsMetricStatus getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -14494,6 +20301,9 @@ public final class V1Autoscaling {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -14505,13 +20315,6 @@ public final class V1Autoscaling {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -14536,6 +20339,13 @@ public final class V1Autoscaling {
               bitField0_ |= 0x00000004;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -14553,6 +20363,7 @@ public final class V1Autoscaling {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ResourceMetricSource_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ResourceMetricSource_fieldAccessorTable
@@ -14687,6 +20498,7 @@ public final class V1Autoscaling {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -14696,6 +20508,7 @@ public final class V1Autoscaling {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -14710,6 +20523,7 @@ public final class V1Autoscaling {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -14855,6 +20669,7 @@ public final class V1Autoscaling {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -14862,6 +20677,7 @@ public final class V1Autoscaling {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Autoscaling.ResourceMetricSource prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -14895,6 +20711,7 @@ public final class V1Autoscaling {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ResourceMetricSource_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ResourceMetricSource_fieldAccessorTable
@@ -14918,6 +20735,7 @@ public final class V1Autoscaling {
           getTargetAverageValueFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         name_ = "";
@@ -14933,15 +20751,18 @@ public final class V1Autoscaling {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ResourceMetricSource_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.ResourceMetricSource getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Autoscaling.ResourceMetricSource.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.ResourceMetricSource build() {
         io.kubernetes.client.proto.V1Autoscaling.ResourceMetricSource result = buildPartial();
         if (!result.isInitialized()) {
@@ -14950,6 +20771,7 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.ResourceMetricSource buildPartial() {
         io.kubernetes.client.proto.V1Autoscaling.ResourceMetricSource result = new io.kubernetes.client.proto.V1Autoscaling.ResourceMetricSource(this);
         int from_bitField0_ = bitField0_;
@@ -14975,32 +20797,39 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Autoscaling.ResourceMetricSource) {
           return mergeFrom((io.kubernetes.client.proto.V1Autoscaling.ResourceMetricSource)other);
@@ -15028,10 +20857,12 @@ public final class V1Autoscaling {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -15391,11 +21222,13 @@ public final class V1Autoscaling {
         }
         return targetAverageValueBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -15417,11 +21250,12 @@ public final class V1Autoscaling {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<ResourceMetricSource>
         PARSER = new com.google.protobuf.AbstractParser<ResourceMetricSource>() {
+      @java.lang.Override
       public ResourceMetricSource parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ResourceMetricSource(input, extensionRegistry);
+        return new ResourceMetricSource(input, extensionRegistry);
       }
     };
 
@@ -15434,6 +21268,7 @@ public final class V1Autoscaling {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Autoscaling.ResourceMetricSource getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -15566,6 +21401,9 @@ public final class V1Autoscaling {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -15577,13 +21415,6 @@ public final class V1Autoscaling {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -15608,6 +21439,13 @@ public final class V1Autoscaling {
               bitField0_ |= 0x00000004;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -15625,6 +21463,7 @@ public final class V1Autoscaling {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ResourceMetricStatus_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ResourceMetricStatus_fieldAccessorTable
@@ -15763,6 +21602,7 @@ public final class V1Autoscaling {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -15772,6 +21612,7 @@ public final class V1Autoscaling {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -15786,6 +21627,7 @@ public final class V1Autoscaling {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -15931,6 +21773,7 @@ public final class V1Autoscaling {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -15938,6 +21781,7 @@ public final class V1Autoscaling {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Autoscaling.ResourceMetricStatus prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -15969,6 +21813,7 @@ public final class V1Autoscaling {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ResourceMetricStatus_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ResourceMetricStatus_fieldAccessorTable
@@ -15992,6 +21837,7 @@ public final class V1Autoscaling {
           getCurrentAverageValueFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         name_ = "";
@@ -16007,15 +21853,18 @@ public final class V1Autoscaling {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ResourceMetricStatus_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.ResourceMetricStatus getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Autoscaling.ResourceMetricStatus.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.ResourceMetricStatus build() {
         io.kubernetes.client.proto.V1Autoscaling.ResourceMetricStatus result = buildPartial();
         if (!result.isInitialized()) {
@@ -16024,6 +21873,7 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.ResourceMetricStatus buildPartial() {
         io.kubernetes.client.proto.V1Autoscaling.ResourceMetricStatus result = new io.kubernetes.client.proto.V1Autoscaling.ResourceMetricStatus(this);
         int from_bitField0_ = bitField0_;
@@ -16049,32 +21899,39 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Autoscaling.ResourceMetricStatus) {
           return mergeFrom((io.kubernetes.client.proto.V1Autoscaling.ResourceMetricStatus)other);
@@ -16102,10 +21959,12 @@ public final class V1Autoscaling {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -16473,11 +22332,13 @@ public final class V1Autoscaling {
         }
         return currentAverageValueBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -16499,11 +22360,12 @@ public final class V1Autoscaling {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<ResourceMetricStatus>
         PARSER = new com.google.protobuf.AbstractParser<ResourceMetricStatus>() {
+      @java.lang.Override
       public ResourceMetricStatus parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ResourceMetricStatus(input, extensionRegistry);
+        return new ResourceMetricStatus(input, extensionRegistry);
       }
     };
 
@@ -16516,6 +22378,7 @@ public final class V1Autoscaling {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Autoscaling.ResourceMetricStatus getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -16639,6 +22502,9 @@ public final class V1Autoscaling {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -16650,13 +22516,6 @@ public final class V1Autoscaling {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -16696,6 +22555,13 @@ public final class V1Autoscaling {
               bitField0_ |= 0x00000004;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -16713,6 +22579,7 @@ public final class V1Autoscaling {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_Scale_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_Scale_fieldAccessorTable
@@ -16830,6 +22697,7 @@ public final class V1Autoscaling {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -16839,6 +22707,7 @@ public final class V1Autoscaling {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -16853,6 +22722,7 @@ public final class V1Autoscaling {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -16999,6 +22869,7 @@ public final class V1Autoscaling {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -17006,6 +22877,7 @@ public final class V1Autoscaling {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Autoscaling.Scale prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -17033,6 +22905,7 @@ public final class V1Autoscaling {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_Scale_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_Scale_fieldAccessorTable
@@ -17058,6 +22931,7 @@ public final class V1Autoscaling {
           getStatusFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -17081,15 +22955,18 @@ public final class V1Autoscaling {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_Scale_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.Scale getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Autoscaling.Scale.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.Scale build() {
         io.kubernetes.client.proto.V1Autoscaling.Scale result = buildPartial();
         if (!result.isInitialized()) {
@@ -17098,6 +22975,7 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.Scale buildPartial() {
         io.kubernetes.client.proto.V1Autoscaling.Scale result = new io.kubernetes.client.proto.V1Autoscaling.Scale(this);
         int from_bitField0_ = bitField0_;
@@ -17131,32 +23009,39 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Autoscaling.Scale) {
           return mergeFrom((io.kubernetes.client.proto.V1Autoscaling.Scale)other);
@@ -17182,10 +23067,12 @@ public final class V1Autoscaling {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -17693,11 +23580,13 @@ public final class V1Autoscaling {
         }
         return statusBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -17719,11 +23608,12 @@ public final class V1Autoscaling {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<Scale>
         PARSER = new com.google.protobuf.AbstractParser<Scale>() {
+      @java.lang.Override
       public Scale parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Scale(input, extensionRegistry);
+        return new Scale(input, extensionRegistry);
       }
     };
 
@@ -17736,6 +23626,7 @@ public final class V1Autoscaling {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Autoscaling.Scale getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -17795,6 +23686,9 @@ public final class V1Autoscaling {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -17806,16 +23700,16 @@ public final class V1Autoscaling {
             case 0:
               done = true;
               break;
+            case 8: {
+              bitField0_ |= 0x00000001;
+              replicas_ = input.readInt32();
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              replicas_ = input.readInt32();
               break;
             }
           }
@@ -17835,6 +23729,7 @@ public final class V1Autoscaling {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ScaleSpec_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ScaleSpec_fieldAccessorTable
@@ -17869,6 +23764,7 @@ public final class V1Autoscaling {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -17878,6 +23774,7 @@ public final class V1Autoscaling {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -17886,6 +23783,7 @@ public final class V1Autoscaling {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -18006,6 +23904,7 @@ public final class V1Autoscaling {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -18013,6 +23912,7 @@ public final class V1Autoscaling {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Autoscaling.ScaleSpec prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -18040,6 +23940,7 @@ public final class V1Autoscaling {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ScaleSpec_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ScaleSpec_fieldAccessorTable
@@ -18062,6 +23963,7 @@ public final class V1Autoscaling {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         replicas_ = 0;
@@ -18069,15 +23971,18 @@ public final class V1Autoscaling {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ScaleSpec_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.ScaleSpec getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Autoscaling.ScaleSpec.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.ScaleSpec build() {
         io.kubernetes.client.proto.V1Autoscaling.ScaleSpec result = buildPartial();
         if (!result.isInitialized()) {
@@ -18086,6 +23991,7 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.ScaleSpec buildPartial() {
         io.kubernetes.client.proto.V1Autoscaling.ScaleSpec result = new io.kubernetes.client.proto.V1Autoscaling.ScaleSpec(this);
         int from_bitField0_ = bitField0_;
@@ -18099,32 +24005,39 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Autoscaling.ScaleSpec) {
           return mergeFrom((io.kubernetes.client.proto.V1Autoscaling.ScaleSpec)other);
@@ -18144,10 +24057,12 @@ public final class V1Autoscaling {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -18218,11 +24133,13 @@ public final class V1Autoscaling {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -18244,11 +24161,12 @@ public final class V1Autoscaling {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<ScaleSpec>
         PARSER = new com.google.protobuf.AbstractParser<ScaleSpec>() {
+      @java.lang.Override
       public ScaleSpec parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ScaleSpec(input, extensionRegistry);
+        return new ScaleSpec(input, extensionRegistry);
       }
     };
 
@@ -18261,6 +24179,7 @@ public final class V1Autoscaling {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Autoscaling.ScaleSpec getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -18357,6 +24276,9 @@ public final class V1Autoscaling {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -18368,13 +24290,6 @@ public final class V1Autoscaling {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               bitField0_ |= 0x00000001;
               replicas_ = input.readInt32();
@@ -18384,6 +24299,13 @@ public final class V1Autoscaling {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
               selector_ = bs;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -18403,6 +24325,7 @@ public final class V1Autoscaling {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ScaleStatus_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ScaleStatus_fieldAccessorTable
@@ -18501,6 +24424,7 @@ public final class V1Autoscaling {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -18510,6 +24434,7 @@ public final class V1Autoscaling {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -18521,6 +24446,7 @@ public final class V1Autoscaling {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -18653,6 +24579,7 @@ public final class V1Autoscaling {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -18660,6 +24587,7 @@ public final class V1Autoscaling {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Autoscaling.ScaleStatus prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -18687,6 +24615,7 @@ public final class V1Autoscaling {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ScaleStatus_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ScaleStatus_fieldAccessorTable
@@ -18709,6 +24638,7 @@ public final class V1Autoscaling {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         replicas_ = 0;
@@ -18718,15 +24648,18 @@ public final class V1Autoscaling {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Autoscaling.internal_static_k8s_io_api_autoscaling_v1_ScaleStatus_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.ScaleStatus getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Autoscaling.ScaleStatus.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.ScaleStatus build() {
         io.kubernetes.client.proto.V1Autoscaling.ScaleStatus result = buildPartial();
         if (!result.isInitialized()) {
@@ -18735,6 +24668,7 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Autoscaling.ScaleStatus buildPartial() {
         io.kubernetes.client.proto.V1Autoscaling.ScaleStatus result = new io.kubernetes.client.proto.V1Autoscaling.ScaleStatus(this);
         int from_bitField0_ = bitField0_;
@@ -18752,32 +24686,39 @@ public final class V1Autoscaling {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Autoscaling.ScaleStatus) {
           return mergeFrom((io.kubernetes.client.proto.V1Autoscaling.ScaleStatus)other);
@@ -18802,10 +24743,12 @@ public final class V1Autoscaling {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -18996,11 +24939,13 @@ public final class V1Autoscaling {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -19022,11 +24967,12 @@ public final class V1Autoscaling {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<ScaleStatus>
         PARSER = new com.google.protobuf.AbstractParser<ScaleStatus>() {
+      @java.lang.Override
       public ScaleStatus parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ScaleStatus(input, extensionRegistry);
+        return new ScaleStatus(input, extensionRegistry);
       }
     };
 
@@ -19039,6 +24985,7 @@ public final class V1Autoscaling {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Autoscaling.ScaleStatus getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -19050,6 +24997,16 @@ public final class V1Autoscaling {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_autoscaling_v1_CrossVersionObjectReference_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_k8s_io_api_autoscaling_v1_ExternalMetricSource_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_autoscaling_v1_ExternalMetricSource_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_k8s_io_api_autoscaling_v1_ExternalMetricStatus_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_autoscaling_v1_ExternalMetricStatus_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscaler_descriptor;
   private static final 
@@ -19146,77 +25103,103 @@ public final class V1Autoscaling {
       "\0324k8s.io/apimachinery/pkg/apis/meta/v1/g" +
       "enerated.proto\032/k8s.io/apimachinery/pkg/" +
       "runtime/generated.proto\0326k8s.io/apimachi" +
-      "nery/pkg/runtime/schema/generated.proto\032" +
-      "3k8s.io/apimachinery/pkg/util/intstr/gen" +
-      "erated.proto\"M\n\033CrossVersionObjectRefere",
-      "nce\022\014\n\004kind\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\022\n\napiVe" +
-      "rsion\030\003 \001(\t\"\355\001\n\027HorizontalPodAutoscaler\022" +
-      "B\n\010metadata\030\001 \001(\01320.k8s.io.apimachinery." +
-      "pkg.apis.meta.v1.ObjectMeta\022D\n\004spec\030\002 \001(" +
-      "\01326.k8s.io.api.autoscaling.v1.Horizontal" +
-      "PodAutoscalerSpec\022H\n\006status\030\003 \001(\01328.k8s." +
-      "io.api.autoscaling.v1.HorizontalPodAutos" +
-      "calerStatus\"\251\001\n HorizontalPodAutoscalerC" +
-      "ondition\022\014\n\004type\030\001 \001(\t\022\016\n\006status\030\002 \001(\t\022F" +
-      "\n\022lastTransitionTime\030\003 \001(\0132*.k8s.io.apim",
-      "achinery.pkg.apis.meta.v1.Time\022\016\n\006reason" +
-      "\030\004 \001(\t\022\017\n\007message\030\005 \001(\t\"\242\001\n\033HorizontalPo" +
-      "dAutoscalerList\022@\n\010metadata\030\001 \001(\0132..k8s." +
-      "io.apimachinery.pkg.apis.meta.v1.ListMet" +
-      "a\022A\n\005items\030\002 \003(\01322.k8s.io.api.autoscalin" +
-      "g.v1.HorizontalPodAutoscaler\"\277\001\n\033Horizon" +
-      "talPodAutoscalerSpec\022N\n\016scaleTargetRef\030\001" +
-      " \001(\01326.k8s.io.api.autoscaling.v1.CrossVe" +
-      "rsionObjectReference\022\023\n\013minReplicas\030\002 \001(" +
-      "\005\022\023\n\013maxReplicas\030\003 \001(\005\022&\n\036targetCPUUtili",
-      "zationPercentage\030\004 \001(\005\"\331\001\n\035HorizontalPod" +
-      "AutoscalerStatus\022\032\n\022observedGeneration\030\001" +
-      " \001(\003\022A\n\rlastScaleTime\030\002 \001(\0132*.k8s.io.api" +
-      "machinery.pkg.apis.meta.v1.Time\022\027\n\017curre" +
-      "ntReplicas\030\003 \001(\005\022\027\n\017desiredReplicas\030\004 \001(" +
-      "\005\022\'\n\037currentCPUUtilizationPercentage\030\005 \001" +
-      "(\005\"\327\001\n\nMetricSpec\022\014\n\004type\030\001 \001(\t\022=\n\006objec" +
-      "t\030\002 \001(\0132-.k8s.io.api.autoscaling.v1.Obje" +
-      "ctMetricSource\0229\n\004pods\030\003 \001(\0132+.k8s.io.ap" +
-      "i.autoscaling.v1.PodsMetricSource\022A\n\010res",
-      "ource\030\004 \001(\0132/.k8s.io.api.autoscaling.v1." +
-      "ResourceMetricSource\"\331\001\n\014MetricStatus\022\014\n" +
-      "\004type\030\001 \001(\t\022=\n\006object\030\002 \001(\0132-.k8s.io.api" +
-      ".autoscaling.v1.ObjectMetricStatus\0229\n\004po" +
-      "ds\030\003 \001(\0132+.k8s.io.api.autoscaling.v1.Pod" +
-      "sMetricStatus\022A\n\010resource\030\004 \001(\0132/.k8s.io" +
-      ".api.autoscaling.v1.ResourceMetricStatus" +
-      "\"\265\001\n\022ObjectMetricSource\022F\n\006target\030\001 \001(\0132" +
-      "6.k8s.io.api.autoscaling.v1.CrossVersion" +
-      "ObjectReference\022\022\n\nmetricName\030\002 \001(\t\022C\n\013t",
-      "argetValue\030\003 \001(\0132..k8s.io.apimachinery.p" +
-      "kg.api.resource.Quantity\"\266\001\n\022ObjectMetri" +
-      "cStatus\022F\n\006target\030\001 \001(\01326.k8s.io.api.aut" +
-      "oscaling.v1.CrossVersionObjectReference\022" +
-      "\022\n\nmetricName\030\002 \001(\t\022D\n\014currentValue\030\003 \001(" +
-      "\0132..k8s.io.apimachinery.pkg.api.resource" +
-      ".Quantity\"r\n\020PodsMetricSource\022\022\n\nmetricN" +
-      "ame\030\001 \001(\t\022J\n\022targetAverageValue\030\002 \001(\0132.." +
-      "k8s.io.apimachinery.pkg.api.resource.Qua" +
-      "ntity\"s\n\020PodsMetricStatus\022\022\n\nmetricName\030",
-      "\001 \001(\t\022K\n\023currentAverageValue\030\002 \001(\0132..k8s" +
-      ".io.apimachinery.pkg.api.resource.Quanti" +
-      "ty\"\222\001\n\024ResourceMetricSource\022\014\n\004name\030\001 \001(" +
-      "\t\022 \n\030targetAverageUtilization\030\002 \001(\005\022J\n\022t" +
-      "argetAverageValue\030\003 \001(\0132..k8s.io.apimach" +
-      "inery.pkg.api.resource.Quantity\"\224\001\n\024Reso" +
-      "urceMetricStatus\022\014\n\004name\030\001 \001(\t\022!\n\031curren" +
-      "tAverageUtilization\030\002 \001(\005\022K\n\023currentAver" +
-      "ageValue\030\003 \001(\0132..k8s.io.apimachinery.pkg" +
-      ".api.resource.Quantity\"\267\001\n\005Scale\022B\n\010meta",
-      "data\030\001 \001(\01320.k8s.io.apimachinery.pkg.api" +
-      "s.meta.v1.ObjectMeta\0222\n\004spec\030\002 \001(\0132$.k8s" +
-      ".io.api.autoscaling.v1.ScaleSpec\0226\n\006stat" +
-      "us\030\003 \001(\0132&.k8s.io.api.autoscaling.v1.Sca" +
-      "leStatus\"\035\n\tScaleSpec\022\020\n\010replicas\030\001 \001(\005\"" +
-      "1\n\013ScaleStatus\022\020\n\010replicas\030\001 \001(\005\022\020\n\010sele" +
-      "ctor\030\002 \001(\tB/\n\032io.kubernetes.client.proto" +
-      "B\rV1AutoscalingZ\002v1"
+      "nery/pkg/runtime/schema/generated.proto\"" +
+      "M\n\033CrossVersionObjectReference\022\014\n\004kind\030\001" +
+      " \001(\t\022\014\n\004name\030\002 \001(\t\022\022\n\napiVersion\030\003 \001(\t\"\210" +
+      "\002\n\024ExternalMetricSource\022\022\n\nmetricName\030\001 " +
+      "\001(\t\022K\n\016metricSelector\030\002 \001(\01323.k8s.io.api" +
+      "machinery.pkg.apis.meta.v1.LabelSelector" +
+      "\022C\n\013targetValue\030\003 \001(\0132..k8s.io.apimachin" +
+      "ery.pkg.api.resource.Quantity\022J\n\022targetA" +
+      "verageValue\030\004 \001(\0132..k8s.io.apimachinery." +
+      "pkg.api.resource.Quantity\"\212\002\n\024ExternalMe" +
+      "tricStatus\022\022\n\nmetricName\030\001 \001(\t\022K\n\016metric" +
+      "Selector\030\002 \001(\01323.k8s.io.apimachinery.pkg" +
+      ".apis.meta.v1.LabelSelector\022D\n\014currentVa" +
+      "lue\030\003 \001(\0132..k8s.io.apimachinery.pkg.api." +
+      "resource.Quantity\022K\n\023currentAverageValue" +
+      "\030\004 \001(\0132..k8s.io.apimachinery.pkg.api.res" +
+      "ource.Quantity\"\355\001\n\027HorizontalPodAutoscal" +
+      "er\022B\n\010metadata\030\001 \001(\01320.k8s.io.apimachine" +
+      "ry.pkg.apis.meta.v1.ObjectMeta\022D\n\004spec\030\002" +
+      " \001(\01326.k8s.io.api.autoscaling.v1.Horizon" +
+      "talPodAutoscalerSpec\022H\n\006status\030\003 \001(\01328.k" +
+      "8s.io.api.autoscaling.v1.HorizontalPodAu" +
+      "toscalerStatus\"\251\001\n HorizontalPodAutoscal" +
+      "erCondition\022\014\n\004type\030\001 \001(\t\022\016\n\006status\030\002 \001(" +
+      "\t\022F\n\022lastTransitionTime\030\003 \001(\0132*.k8s.io.a" +
+      "pimachinery.pkg.apis.meta.v1.Time\022\016\n\006rea" +
+      "son\030\004 \001(\t\022\017\n\007message\030\005 \001(\t\"\242\001\n\033Horizonta" +
+      "lPodAutoscalerList\022@\n\010metadata\030\001 \001(\0132..k" +
+      "8s.io.apimachinery.pkg.apis.meta.v1.List" +
+      "Meta\022A\n\005items\030\002 \003(\01322.k8s.io.api.autosca" +
+      "ling.v1.HorizontalPodAutoscaler\"\277\001\n\033Hori" +
+      "zontalPodAutoscalerSpec\022N\n\016scaleTargetRe" +
+      "f\030\001 \001(\01326.k8s.io.api.autoscaling.v1.Cros" +
+      "sVersionObjectReference\022\023\n\013minReplicas\030\002" +
+      " \001(\005\022\023\n\013maxReplicas\030\003 \001(\005\022&\n\036targetCPUUt" +
+      "ilizationPercentage\030\004 \001(\005\"\331\001\n\035Horizontal" +
+      "PodAutoscalerStatus\022\032\n\022observedGeneratio" +
+      "n\030\001 \001(\003\022A\n\rlastScaleTime\030\002 \001(\0132*.k8s.io." +
+      "apimachinery.pkg.apis.meta.v1.Time\022\027\n\017cu" +
+      "rrentReplicas\030\003 \001(\005\022\027\n\017desiredReplicas\030\004" +
+      " \001(\005\022\'\n\037currentCPUUtilizationPercentage\030" +
+      "\005 \001(\005\"\232\002\n\nMetricSpec\022\014\n\004type\030\001 \001(\t\022=\n\006ob" +
+      "ject\030\002 \001(\0132-.k8s.io.api.autoscaling.v1.O" +
+      "bjectMetricSource\0229\n\004pods\030\003 \001(\0132+.k8s.io" +
+      ".api.autoscaling.v1.PodsMetricSource\022A\n\010" +
+      "resource\030\004 \001(\0132/.k8s.io.api.autoscaling." +
+      "v1.ResourceMetricSource\022A\n\010external\030\005 \001(" +
+      "\0132/.k8s.io.api.autoscaling.v1.ExternalMe" +
+      "tricSource\"\234\002\n\014MetricStatus\022\014\n\004type\030\001 \001(" +
+      "\t\022=\n\006object\030\002 \001(\0132-.k8s.io.api.autoscali" +
+      "ng.v1.ObjectMetricStatus\0229\n\004pods\030\003 \001(\0132+" +
+      ".k8s.io.api.autoscaling.v1.PodsMetricSta" +
+      "tus\022A\n\010resource\030\004 \001(\0132/.k8s.io.api.autos" +
+      "caling.v1.ResourceMetricStatus\022A\n\010extern" +
+      "al\030\005 \001(\0132/.k8s.io.api.autoscaling.v1.Ext" +
+      "ernalMetricStatus\"\302\002\n\022ObjectMetricSource" +
+      "\022F\n\006target\030\001 \001(\01326.k8s.io.api.autoscalin" +
+      "g.v1.CrossVersionObjectReference\022\022\n\nmetr" +
+      "icName\030\002 \001(\t\022C\n\013targetValue\030\003 \001(\0132..k8s." +
+      "io.apimachinery.pkg.api.resource.Quantit" +
+      "y\022E\n\010selector\030\004 \001(\01323.k8s.io.apimachiner" +
+      "y.pkg.apis.meta.v1.LabelSelector\022D\n\014aver" +
+      "ageValue\030\005 \001(\0132..k8s.io.apimachinery.pkg" +
+      ".api.resource.Quantity\"\303\002\n\022ObjectMetricS" +
+      "tatus\022F\n\006target\030\001 \001(\01326.k8s.io.api.autos" +
+      "caling.v1.CrossVersionObjectReference\022\022\n" +
+      "\nmetricName\030\002 \001(\t\022D\n\014currentValue\030\003 \001(\0132" +
+      "..k8s.io.apimachinery.pkg.api.resource.Q" +
+      "uantity\022E\n\010selector\030\004 \001(\01323.k8s.io.apima" +
+      "chinery.pkg.apis.meta.v1.LabelSelector\022D" +
+      "\n\014averageValue\030\005 \001(\0132..k8s.io.apimachine" +
+      "ry.pkg.api.resource.Quantity\"\271\001\n\020PodsMet" +
+      "ricSource\022\022\n\nmetricName\030\001 \001(\t\022J\n\022targetA" +
+      "verageValue\030\002 \001(\0132..k8s.io.apimachinery." +
+      "pkg.api.resource.Quantity\022E\n\010selector\030\003 " +
+      "\001(\01323.k8s.io.apimachinery.pkg.apis.meta." +
+      "v1.LabelSelector\"\272\001\n\020PodsMetricStatus\022\022\n" +
+      "\nmetricName\030\001 \001(\t\022K\n\023currentAverageValue" +
+      "\030\002 \001(\0132..k8s.io.apimachinery.pkg.api.res" +
+      "ource.Quantity\022E\n\010selector\030\003 \001(\01323.k8s.i" +
+      "o.apimachinery.pkg.apis.meta.v1.LabelSel" +
+      "ector\"\222\001\n\024ResourceMetricSource\022\014\n\004name\030\001" +
+      " \001(\t\022 \n\030targetAverageUtilization\030\002 \001(\005\022J" +
+      "\n\022targetAverageValue\030\003 \001(\0132..k8s.io.apim" +
+      "achinery.pkg.api.resource.Quantity\"\224\001\n\024R" +
+      "esourceMetricStatus\022\014\n\004name\030\001 \001(\t\022!\n\031cur" +
+      "rentAverageUtilization\030\002 \001(\005\022K\n\023currentA" +
+      "verageValue\030\003 \001(\0132..k8s.io.apimachinery." +
+      "pkg.api.resource.Quantity\"\267\001\n\005Scale\022B\n\010m" +
+      "etadata\030\001 \001(\01320.k8s.io.apimachinery.pkg." +
+      "apis.meta.v1.ObjectMeta\0222\n\004spec\030\002 \001(\0132$." +
+      "k8s.io.api.autoscaling.v1.ScaleSpec\0226\n\006s" +
+      "tatus\030\003 \001(\0132&.k8s.io.api.autoscaling.v1." +
+      "ScaleStatus\"\035\n\tScaleSpec\022\020\n\010replicas\030\001 \001" +
+      "(\005\"1\n\013ScaleStatus\022\020\n\010replicas\030\001 \001(\005\022\020\n\010s" +
+      "elector\030\002 \001(\tB/\n\032io.kubernetes.client.pr" +
+      "otoB\rV1AutoscalingZ\002v1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -19234,7 +25217,6 @@ public final class V1Autoscaling {
           io.kubernetes.client.proto.Meta.getDescriptor(),
           io.kubernetes.client.proto.Runtime.getDescriptor(),
           io.kubernetes.client.proto.RuntimeSchema.getDescriptor(),
-          io.kubernetes.client.proto.IntStr.getDescriptor(),
         }, assigner);
     internal_static_k8s_io_api_autoscaling_v1_CrossVersionObjectReference_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -19242,98 +25224,110 @@ public final class V1Autoscaling {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_autoscaling_v1_CrossVersionObjectReference_descriptor,
         new java.lang.String[] { "Kind", "Name", "ApiVersion", });
-    internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscaler_descriptor =
+    internal_static_k8s_io_api_autoscaling_v1_ExternalMetricSource_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_k8s_io_api_autoscaling_v1_ExternalMetricSource_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_k8s_io_api_autoscaling_v1_ExternalMetricSource_descriptor,
+        new java.lang.String[] { "MetricName", "MetricSelector", "TargetValue", "TargetAverageValue", });
+    internal_static_k8s_io_api_autoscaling_v1_ExternalMetricStatus_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_k8s_io_api_autoscaling_v1_ExternalMetricStatus_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_k8s_io_api_autoscaling_v1_ExternalMetricStatus_descriptor,
+        new java.lang.String[] { "MetricName", "MetricSelector", "CurrentValue", "CurrentAverageValue", });
+    internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscaler_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscaler_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscaler_descriptor,
         new java.lang.String[] { "Metadata", "Spec", "Status", });
     internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerCondition_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerCondition_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerCondition_descriptor,
         new java.lang.String[] { "Type", "Status", "LastTransitionTime", "Reason", "Message", });
     internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerList_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerList_descriptor,
         new java.lang.String[] { "Metadata", "Items", });
     internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerSpec_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerSpec_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerSpec_descriptor,
         new java.lang.String[] { "ScaleTargetRef", "MinReplicas", "MaxReplicas", "TargetCPUUtilizationPercentage", });
     internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerStatus_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerStatus_descriptor,
         new java.lang.String[] { "ObservedGeneration", "LastScaleTime", "CurrentReplicas", "DesiredReplicas", "CurrentCPUUtilizationPercentage", });
     internal_static_k8s_io_api_autoscaling_v1_MetricSpec_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_k8s_io_api_autoscaling_v1_MetricSpec_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_autoscaling_v1_MetricSpec_descriptor,
-        new java.lang.String[] { "Type", "Object", "Pods", "Resource", });
+        new java.lang.String[] { "Type", "Object", "Pods", "Resource", "External", });
     internal_static_k8s_io_api_autoscaling_v1_MetricStatus_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_k8s_io_api_autoscaling_v1_MetricStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_autoscaling_v1_MetricStatus_descriptor,
-        new java.lang.String[] { "Type", "Object", "Pods", "Resource", });
+        new java.lang.String[] { "Type", "Object", "Pods", "Resource", "External", });
     internal_static_k8s_io_api_autoscaling_v1_ObjectMetricSource_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_k8s_io_api_autoscaling_v1_ObjectMetricSource_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_autoscaling_v1_ObjectMetricSource_descriptor,
-        new java.lang.String[] { "Target", "MetricName", "TargetValue", });
+        new java.lang.String[] { "Target", "MetricName", "TargetValue", "Selector", "AverageValue", });
     internal_static_k8s_io_api_autoscaling_v1_ObjectMetricStatus_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_k8s_io_api_autoscaling_v1_ObjectMetricStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_autoscaling_v1_ObjectMetricStatus_descriptor,
-        new java.lang.String[] { "Target", "MetricName", "CurrentValue", });
+        new java.lang.String[] { "Target", "MetricName", "CurrentValue", "Selector", "AverageValue", });
     internal_static_k8s_io_api_autoscaling_v1_PodsMetricSource_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_k8s_io_api_autoscaling_v1_PodsMetricSource_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_autoscaling_v1_PodsMetricSource_descriptor,
-        new java.lang.String[] { "MetricName", "TargetAverageValue", });
+        new java.lang.String[] { "MetricName", "TargetAverageValue", "Selector", });
     internal_static_k8s_io_api_autoscaling_v1_PodsMetricStatus_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_k8s_io_api_autoscaling_v1_PodsMetricStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_autoscaling_v1_PodsMetricStatus_descriptor,
-        new java.lang.String[] { "MetricName", "CurrentAverageValue", });
+        new java.lang.String[] { "MetricName", "CurrentAverageValue", "Selector", });
     internal_static_k8s_io_api_autoscaling_v1_ResourceMetricSource_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_k8s_io_api_autoscaling_v1_ResourceMetricSource_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_autoscaling_v1_ResourceMetricSource_descriptor,
         new java.lang.String[] { "Name", "TargetAverageUtilization", "TargetAverageValue", });
     internal_static_k8s_io_api_autoscaling_v1_ResourceMetricStatus_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_k8s_io_api_autoscaling_v1_ResourceMetricStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_autoscaling_v1_ResourceMetricStatus_descriptor,
         new java.lang.String[] { "Name", "CurrentAverageUtilization", "CurrentAverageValue", });
     internal_static_k8s_io_api_autoscaling_v1_Scale_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_k8s_io_api_autoscaling_v1_Scale_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_autoscaling_v1_Scale_descriptor,
         new java.lang.String[] { "Metadata", "Spec", "Status", });
     internal_static_k8s_io_api_autoscaling_v1_ScaleSpec_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_k8s_io_api_autoscaling_v1_ScaleSpec_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_autoscaling_v1_ScaleSpec_descriptor,
         new java.lang.String[] { "Replicas", });
     internal_static_k8s_io_api_autoscaling_v1_ScaleStatus_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_k8s_io_api_autoscaling_v1_ScaleStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_autoscaling_v1_ScaleStatus_descriptor,
@@ -19343,7 +25337,6 @@ public final class V1Autoscaling {
     io.kubernetes.client.proto.Meta.getDescriptor();
     io.kubernetes.client.proto.Runtime.getDescriptor();
     io.kubernetes.client.proto.RuntimeSchema.getDescriptor();
-    io.kubernetes.client.proto.IntStr.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

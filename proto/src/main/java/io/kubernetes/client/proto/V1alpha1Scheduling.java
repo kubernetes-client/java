@@ -21,7 +21,7 @@ public final class V1alpha1Scheduling {
     /**
      * <pre>
      * Standard object's metadata.
-     * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -31,7 +31,7 @@ public final class V1alpha1Scheduling {
     /**
      * <pre>
      * Standard object's metadata.
-     * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -41,7 +41,7 @@ public final class V1alpha1Scheduling {
     /**
      * <pre>
      * Standard object's metadata.
-     * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -72,6 +72,9 @@ public final class V1alpha1Scheduling {
      * <pre>
      * globalDefault specifies whether this PriorityClass should be considered as
      * the default priority for pods that do not have any priority class.
+     * Only one PriorityClass can be marked as `globalDefault`. However, if more than
+     * one PriorityClasses exists with their `globalDefault` field set to true,
+     * the smallest value of such global default PriorityClasses will be used as the default priority.
      * +optional
      * </pre>
      *
@@ -82,6 +85,9 @@ public final class V1alpha1Scheduling {
      * <pre>
      * globalDefault specifies whether this PriorityClass should be considered as
      * the default priority for pods that do not have any priority class.
+     * Only one PriorityClass can be marked as `globalDefault`. However, if more than
+     * one PriorityClasses exists with their `globalDefault` field set to true,
+     * the smallest value of such global default PriorityClasses will be used as the default priority.
      * +optional
      * </pre>
      *
@@ -154,6 +160,9 @@ public final class V1alpha1Scheduling {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -165,13 +174,6 @@ public final class V1alpha1Scheduling {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -201,6 +203,13 @@ public final class V1alpha1Scheduling {
               description_ = bs;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -218,6 +227,7 @@ public final class V1alpha1Scheduling {
       return io.kubernetes.client.proto.V1alpha1Scheduling.internal_static_k8s_io_api_scheduling_v1alpha1_PriorityClass_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1alpha1Scheduling.internal_static_k8s_io_api_scheduling_v1alpha1_PriorityClass_fieldAccessorTable
@@ -231,7 +241,7 @@ public final class V1alpha1Scheduling {
     /**
      * <pre>
      * Standard object's metadata.
-     * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -243,7 +253,7 @@ public final class V1alpha1Scheduling {
     /**
      * <pre>
      * Standard object's metadata.
-     * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -255,7 +265,7 @@ public final class V1alpha1Scheduling {
     /**
      * <pre>
      * Standard object's metadata.
-     * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -296,6 +306,9 @@ public final class V1alpha1Scheduling {
      * <pre>
      * globalDefault specifies whether this PriorityClass should be considered as
      * the default priority for pods that do not have any priority class.
+     * Only one PriorityClass can be marked as `globalDefault`. However, if more than
+     * one PriorityClasses exists with their `globalDefault` field set to true,
+     * the smallest value of such global default PriorityClasses will be used as the default priority.
      * +optional
      * </pre>
      *
@@ -308,6 +321,9 @@ public final class V1alpha1Scheduling {
      * <pre>
      * globalDefault specifies whether this PriorityClass should be considered as
      * the default priority for pods that do not have any priority class.
+     * Only one PriorityClass can be marked as `globalDefault`. However, if more than
+     * one PriorityClasses exists with their `globalDefault` field set to true,
+     * the smallest value of such global default PriorityClasses will be used as the default priority.
      * +optional
      * </pre>
      *
@@ -378,6 +394,7 @@ public final class V1alpha1Scheduling {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -387,6 +404,7 @@ public final class V1alpha1Scheduling {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -404,6 +422,7 @@ public final class V1alpha1Scheduling {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -563,6 +582,7 @@ public final class V1alpha1Scheduling {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -570,6 +590,7 @@ public final class V1alpha1Scheduling {
     public static Builder newBuilder(io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClass prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -598,6 +619,7 @@ public final class V1alpha1Scheduling {
         return io.kubernetes.client.proto.V1alpha1Scheduling.internal_static_k8s_io_api_scheduling_v1alpha1_PriorityClass_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1alpha1Scheduling.internal_static_k8s_io_api_scheduling_v1alpha1_PriorityClass_fieldAccessorTable
@@ -621,6 +643,7 @@ public final class V1alpha1Scheduling {
           getMetadataFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -638,15 +661,18 @@ public final class V1alpha1Scheduling {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1alpha1Scheduling.internal_static_k8s_io_api_scheduling_v1alpha1_PriorityClass_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClass getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClass.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClass build() {
         io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClass result = buildPartial();
         if (!result.isInitialized()) {
@@ -655,6 +681,7 @@ public final class V1alpha1Scheduling {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClass buildPartial() {
         io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClass result = new io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClass(this);
         int from_bitField0_ = bitField0_;
@@ -684,32 +711,39 @@ public final class V1alpha1Scheduling {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClass) {
           return mergeFrom((io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClass)other);
@@ -740,10 +774,12 @@ public final class V1alpha1Scheduling {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -769,7 +805,7 @@ public final class V1alpha1Scheduling {
       /**
        * <pre>
        * Standard object's metadata.
-       * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -781,7 +817,7 @@ public final class V1alpha1Scheduling {
       /**
        * <pre>
        * Standard object's metadata.
-       * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -797,7 +833,7 @@ public final class V1alpha1Scheduling {
       /**
        * <pre>
        * Standard object's metadata.
-       * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -819,7 +855,7 @@ public final class V1alpha1Scheduling {
       /**
        * <pre>
        * Standard object's metadata.
-       * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -839,7 +875,7 @@ public final class V1alpha1Scheduling {
       /**
        * <pre>
        * Standard object's metadata.
-       * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -865,7 +901,7 @@ public final class V1alpha1Scheduling {
       /**
        * <pre>
        * Standard object's metadata.
-       * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -884,7 +920,7 @@ public final class V1alpha1Scheduling {
       /**
        * <pre>
        * Standard object's metadata.
-       * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -898,7 +934,7 @@ public final class V1alpha1Scheduling {
       /**
        * <pre>
        * Standard object's metadata.
-       * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -915,7 +951,7 @@ public final class V1alpha1Scheduling {
       /**
        * <pre>
        * Standard object's metadata.
-       * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -992,6 +1028,9 @@ public final class V1alpha1Scheduling {
        * <pre>
        * globalDefault specifies whether this PriorityClass should be considered as
        * the default priority for pods that do not have any priority class.
+       * Only one PriorityClass can be marked as `globalDefault`. However, if more than
+       * one PriorityClasses exists with their `globalDefault` field set to true,
+       * the smallest value of such global default PriorityClasses will be used as the default priority.
        * +optional
        * </pre>
        *
@@ -1004,6 +1043,9 @@ public final class V1alpha1Scheduling {
        * <pre>
        * globalDefault specifies whether this PriorityClass should be considered as
        * the default priority for pods that do not have any priority class.
+       * Only one PriorityClass can be marked as `globalDefault`. However, if more than
+       * one PriorityClasses exists with their `globalDefault` field set to true,
+       * the smallest value of such global default PriorityClasses will be used as the default priority.
        * +optional
        * </pre>
        *
@@ -1016,6 +1058,9 @@ public final class V1alpha1Scheduling {
        * <pre>
        * globalDefault specifies whether this PriorityClass should be considered as
        * the default priority for pods that do not have any priority class.
+       * Only one PriorityClass can be marked as `globalDefault`. However, if more than
+       * one PriorityClasses exists with their `globalDefault` field set to true,
+       * the smallest value of such global default PriorityClasses will be used as the default priority.
        * +optional
        * </pre>
        *
@@ -1031,6 +1076,9 @@ public final class V1alpha1Scheduling {
        * <pre>
        * globalDefault specifies whether this PriorityClass should be considered as
        * the default priority for pods that do not have any priority class.
+       * Only one PriorityClass can be marked as `globalDefault`. However, if more than
+       * one PriorityClasses exists with their `globalDefault` field set to true,
+       * the smallest value of such global default PriorityClasses will be used as the default priority.
        * +optional
        * </pre>
        *
@@ -1154,11 +1202,13 @@ public final class V1alpha1Scheduling {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1180,11 +1230,12 @@ public final class V1alpha1Scheduling {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<PriorityClass>
         PARSER = new com.google.protobuf.AbstractParser<PriorityClass>() {
+      @java.lang.Override
       public PriorityClass parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new PriorityClass(input, extensionRegistry);
+        return new PriorityClass(input, extensionRegistry);
       }
     };
 
@@ -1197,6 +1248,7 @@ public final class V1alpha1Scheduling {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClass getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -1210,7 +1262,7 @@ public final class V1alpha1Scheduling {
     /**
      * <pre>
      * Standard list metadata
-     * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1220,7 +1272,7 @@ public final class V1alpha1Scheduling {
     /**
      * <pre>
      * Standard list metadata
-     * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1230,7 +1282,7 @@ public final class V1alpha1Scheduling {
     /**
      * <pre>
      * Standard list metadata
-     * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1312,6 +1364,9 @@ public final class V1alpha1Scheduling {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1323,13 +1378,6 @@ public final class V1alpha1Scheduling {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ListMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1352,6 +1400,13 @@ public final class V1alpha1Scheduling {
                   input.readMessage(io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClass.PARSER, extensionRegistry));
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1372,6 +1427,7 @@ public final class V1alpha1Scheduling {
       return io.kubernetes.client.proto.V1alpha1Scheduling.internal_static_k8s_io_api_scheduling_v1alpha1_PriorityClassList_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1alpha1Scheduling.internal_static_k8s_io_api_scheduling_v1alpha1_PriorityClassList_fieldAccessorTable
@@ -1385,7 +1441,7 @@ public final class V1alpha1Scheduling {
     /**
      * <pre>
      * Standard list metadata
-     * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1397,7 +1453,7 @@ public final class V1alpha1Scheduling {
     /**
      * <pre>
      * Standard list metadata
-     * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1409,7 +1465,7 @@ public final class V1alpha1Scheduling {
     /**
      * <pre>
      * Standard list metadata
-     * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1475,6 +1531,7 @@ public final class V1alpha1Scheduling {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1484,6 +1541,7 @@ public final class V1alpha1Scheduling {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1495,6 +1553,7 @@ public final class V1alpha1Scheduling {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1625,6 +1684,7 @@ public final class V1alpha1Scheduling {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1632,6 +1692,7 @@ public final class V1alpha1Scheduling {
     public static Builder newBuilder(io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClassList prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1659,6 +1720,7 @@ public final class V1alpha1Scheduling {
         return io.kubernetes.client.proto.V1alpha1Scheduling.internal_static_k8s_io_api_scheduling_v1alpha1_PriorityClassList_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1alpha1Scheduling.internal_static_k8s_io_api_scheduling_v1alpha1_PriorityClassList_fieldAccessorTable
@@ -1683,6 +1745,7 @@ public final class V1alpha1Scheduling {
           getItemsFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -1700,15 +1763,18 @@ public final class V1alpha1Scheduling {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1alpha1Scheduling.internal_static_k8s_io_api_scheduling_v1alpha1_PriorityClassList_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClassList getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClassList.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClassList build() {
         io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClassList result = buildPartial();
         if (!result.isInitialized()) {
@@ -1717,6 +1783,7 @@ public final class V1alpha1Scheduling {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClassList buildPartial() {
         io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClassList result = new io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClassList(this);
         int from_bitField0_ = bitField0_;
@@ -1743,32 +1810,39 @@ public final class V1alpha1Scheduling {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClassList) {
           return mergeFrom((io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClassList)other);
@@ -1814,10 +1888,12 @@ public final class V1alpha1Scheduling {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1843,7 +1919,7 @@ public final class V1alpha1Scheduling {
       /**
        * <pre>
        * Standard list metadata
-       * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1855,7 +1931,7 @@ public final class V1alpha1Scheduling {
       /**
        * <pre>
        * Standard list metadata
-       * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1871,7 +1947,7 @@ public final class V1alpha1Scheduling {
       /**
        * <pre>
        * Standard list metadata
-       * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1893,7 +1969,7 @@ public final class V1alpha1Scheduling {
       /**
        * <pre>
        * Standard list metadata
-       * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1913,7 +1989,7 @@ public final class V1alpha1Scheduling {
       /**
        * <pre>
        * Standard list metadata
-       * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1939,7 +2015,7 @@ public final class V1alpha1Scheduling {
       /**
        * <pre>
        * Standard list metadata
-       * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1958,7 +2034,7 @@ public final class V1alpha1Scheduling {
       /**
        * <pre>
        * Standard list metadata
-       * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1972,7 +2048,7 @@ public final class V1alpha1Scheduling {
       /**
        * <pre>
        * Standard list metadata
-       * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1989,7 +2065,7 @@ public final class V1alpha1Scheduling {
       /**
        * <pre>
        * Standard list metadata
-       * More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2320,11 +2396,13 @@ public final class V1alpha1Scheduling {
         }
         return itemsBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -2346,11 +2424,12 @@ public final class V1alpha1Scheduling {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<PriorityClassList>
         PARSER = new com.google.protobuf.AbstractParser<PriorityClassList>() {
+      @java.lang.Override
       public PriorityClassList parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new PriorityClassList(input, extensionRegistry);
+        return new PriorityClassList(input, extensionRegistry);
       }
     };
 
@@ -2363,6 +2442,7 @@ public final class V1alpha1Scheduling {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClassList getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -2393,18 +2473,16 @@ public final class V1alpha1Scheduling {
       "\0324k8s.io/apimachinery/pkg/apis/meta/v1/g" +
       "enerated.proto\032/k8s.io/apimachinery/pkg/" +
       "runtime/generated.proto\0326k8s.io/apimachi" +
-      "nery/pkg/runtime/schema/generated.proto\032" +
-      "3k8s.io/apimachinery/pkg/util/intstr/gen" +
-      "erated.proto\"\216\001\n\rPriorityClass\022B\n\010metada" +
-      "ta\030\001 \001(\01320.k8s.io.apimachinery.pkg.apis." +
-      "meta.v1.ObjectMeta\022\r\n\005value\030\002 \001(\005\022\025\n\rglo",
-      "balDefault\030\003 \001(\010\022\023\n\013description\030\004 \001(\t\"\223\001" +
-      "\n\021PriorityClassList\022@\n\010metadata\030\001 \001(\0132.." +
-      "k8s.io.apimachinery.pkg.apis.meta.v1.Lis" +
-      "tMeta\022<\n\005items\030\002 \003(\0132-.k8s.io.api.schedu" +
-      "ling.v1alpha1.PriorityClassB:\n\032io.kubern" +
-      "etes.client.protoB\022V1alpha1SchedulingZ\010v" +
-      "1alpha1"
+      "nery/pkg/runtime/schema/generated.proto\"" +
+      "\216\001\n\rPriorityClass\022B\n\010metadata\030\001 \001(\01320.k8" +
+      "s.io.apimachinery.pkg.apis.meta.v1.Objec" +
+      "tMeta\022\r\n\005value\030\002 \001(\005\022\025\n\rglobalDefault\030\003 " +
+      "\001(\010\022\023\n\013description\030\004 \001(\t\"\223\001\n\021PriorityCla" +
+      "ssList\022@\n\010metadata\030\001 \001(\0132..k8s.io.apimac" +
+      "hinery.pkg.apis.meta.v1.ListMeta\022<\n\005item" +
+      "s\030\002 \003(\0132-.k8s.io.api.scheduling.v1alpha1" +
+      ".PriorityClassB:\n\032io.kubernetes.client.p" +
+      "rotoB\022V1alpha1SchedulingZ\010v1alpha1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2420,7 +2498,6 @@ public final class V1alpha1Scheduling {
           io.kubernetes.client.proto.Meta.getDescriptor(),
           io.kubernetes.client.proto.Runtime.getDescriptor(),
           io.kubernetes.client.proto.RuntimeSchema.getDescriptor(),
-          io.kubernetes.client.proto.IntStr.getDescriptor(),
         }, assigner);
     internal_static_k8s_io_api_scheduling_v1alpha1_PriorityClass_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -2437,7 +2514,6 @@ public final class V1alpha1Scheduling {
     io.kubernetes.client.proto.Meta.getDescriptor();
     io.kubernetes.client.proto.Runtime.getDescriptor();
     io.kubernetes.client.proto.RuntimeSchema.getDescriptor();
-    io.kubernetes.client.proto.IntStr.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

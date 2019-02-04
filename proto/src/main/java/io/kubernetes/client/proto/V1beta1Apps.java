@@ -131,6 +131,9 @@ public final class V1beta1Apps {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -142,13 +145,6 @@ public final class V1beta1Apps {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -180,6 +176,13 @@ public final class V1beta1Apps {
               revision_ = input.readInt64();
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -197,6 +200,7 @@ public final class V1beta1Apps {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_ControllerRevision_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_ControllerRevision_fieldAccessorTable
@@ -301,6 +305,7 @@ public final class V1beta1Apps {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -310,6 +315,7 @@ public final class V1beta1Apps {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -324,6 +330,7 @@ public final class V1beta1Apps {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -471,6 +478,7 @@ public final class V1beta1Apps {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -478,6 +486,7 @@ public final class V1beta1Apps {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apps.ControllerRevision prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -515,6 +524,7 @@ public final class V1beta1Apps {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_ControllerRevision_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_ControllerRevision_fieldAccessorTable
@@ -539,6 +549,7 @@ public final class V1beta1Apps {
           getDataFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -558,15 +569,18 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_ControllerRevision_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.ControllerRevision getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apps.ControllerRevision.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.ControllerRevision build() {
         io.kubernetes.client.proto.V1beta1Apps.ControllerRevision result = buildPartial();
         if (!result.isInitialized()) {
@@ -575,6 +589,7 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.ControllerRevision buildPartial() {
         io.kubernetes.client.proto.V1beta1Apps.ControllerRevision result = new io.kubernetes.client.proto.V1beta1Apps.ControllerRevision(this);
         int from_bitField0_ = bitField0_;
@@ -604,32 +619,39 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apps.ControllerRevision) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apps.ControllerRevision)other);
@@ -655,10 +677,12 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1051,11 +1075,13 @@ public final class V1beta1Apps {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1077,11 +1103,12 @@ public final class V1beta1Apps {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<ControllerRevision>
         PARSER = new com.google.protobuf.AbstractParser<ControllerRevision>() {
+      @java.lang.Override
       public ControllerRevision parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ControllerRevision(input, extensionRegistry);
+        return new ControllerRevision(input, extensionRegistry);
       }
     };
 
@@ -1094,6 +1121,7 @@ public final class V1beta1Apps {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apps.ControllerRevision getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -1206,6 +1234,9 @@ public final class V1beta1Apps {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1217,13 +1248,6 @@ public final class V1beta1Apps {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ListMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1246,6 +1270,13 @@ public final class V1beta1Apps {
                   input.readMessage(io.kubernetes.client.proto.V1beta1Apps.ControllerRevision.PARSER, extensionRegistry));
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1266,6 +1297,7 @@ public final class V1beta1Apps {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_ControllerRevisionList_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_ControllerRevisionList_fieldAccessorTable
@@ -1366,6 +1398,7 @@ public final class V1beta1Apps {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1375,6 +1408,7 @@ public final class V1beta1Apps {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1386,6 +1420,7 @@ public final class V1beta1Apps {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1516,6 +1551,7 @@ public final class V1beta1Apps {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1523,6 +1559,7 @@ public final class V1beta1Apps {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apps.ControllerRevisionList prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1550,6 +1587,7 @@ public final class V1beta1Apps {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_ControllerRevisionList_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_ControllerRevisionList_fieldAccessorTable
@@ -1574,6 +1612,7 @@ public final class V1beta1Apps {
           getItemsFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -1591,15 +1630,18 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_ControllerRevisionList_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.ControllerRevisionList getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apps.ControllerRevisionList.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.ControllerRevisionList build() {
         io.kubernetes.client.proto.V1beta1Apps.ControllerRevisionList result = buildPartial();
         if (!result.isInitialized()) {
@@ -1608,6 +1650,7 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.ControllerRevisionList buildPartial() {
         io.kubernetes.client.proto.V1beta1Apps.ControllerRevisionList result = new io.kubernetes.client.proto.V1beta1Apps.ControllerRevisionList(this);
         int from_bitField0_ = bitField0_;
@@ -1634,32 +1677,39 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apps.ControllerRevisionList) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apps.ControllerRevisionList)other);
@@ -1705,10 +1755,12 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2202,11 +2254,13 @@ public final class V1beta1Apps {
         }
         return itemsBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -2228,11 +2282,12 @@ public final class V1beta1Apps {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<ControllerRevisionList>
         PARSER = new com.google.protobuf.AbstractParser<ControllerRevisionList>() {
+      @java.lang.Override
       public ControllerRevisionList parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ControllerRevisionList(input, extensionRegistry);
+        return new ControllerRevisionList(input, extensionRegistry);
       }
     };
 
@@ -2245,6 +2300,7 @@ public final class V1beta1Apps {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apps.ControllerRevisionList getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -2370,6 +2426,9 @@ public final class V1beta1Apps {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -2381,13 +2440,6 @@ public final class V1beta1Apps {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2427,6 +2479,13 @@ public final class V1beta1Apps {
               bitField0_ |= 0x00000004;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -2444,6 +2503,7 @@ public final class V1beta1Apps {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_Deployment_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_Deployment_fieldAccessorTable
@@ -2561,6 +2621,7 @@ public final class V1beta1Apps {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2570,6 +2631,7 @@ public final class V1beta1Apps {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2584,6 +2646,7 @@ public final class V1beta1Apps {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -2730,6 +2793,7 @@ public final class V1beta1Apps {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -2737,6 +2801,7 @@ public final class V1beta1Apps {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apps.Deployment prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -2766,6 +2831,7 @@ public final class V1beta1Apps {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_Deployment_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_Deployment_fieldAccessorTable
@@ -2791,6 +2857,7 @@ public final class V1beta1Apps {
           getStatusFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -2814,15 +2881,18 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_Deployment_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.Deployment getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apps.Deployment.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.Deployment build() {
         io.kubernetes.client.proto.V1beta1Apps.Deployment result = buildPartial();
         if (!result.isInitialized()) {
@@ -2831,6 +2901,7 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.Deployment buildPartial() {
         io.kubernetes.client.proto.V1beta1Apps.Deployment result = new io.kubernetes.client.proto.V1beta1Apps.Deployment(this);
         int from_bitField0_ = bitField0_;
@@ -2864,32 +2935,39 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apps.Deployment) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apps.Deployment)other);
@@ -2915,10 +2993,12 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3426,11 +3506,13 @@ public final class V1beta1Apps {
         }
         return statusBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -3452,11 +3534,12 @@ public final class V1beta1Apps {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<Deployment>
         PARSER = new com.google.protobuf.AbstractParser<Deployment>() {
+      @java.lang.Override
       public Deployment parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Deployment(input, extensionRegistry);
+        return new Deployment(input, extensionRegistry);
       }
     };
 
@@ -3469,6 +3552,7 @@ public final class V1beta1Apps {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apps.Deployment getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -3666,6 +3750,9 @@ public final class V1beta1Apps {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -3677,13 +3764,6 @@ public final class V1beta1Apps {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -3734,6 +3814,13 @@ public final class V1beta1Apps {
               bitField0_ |= 0x00000008;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -3751,6 +3838,7 @@ public final class V1beta1Apps {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentCondition_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentCondition_fieldAccessorTable
@@ -4042,6 +4130,7 @@ public final class V1beta1Apps {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -4051,6 +4140,7 @@ public final class V1beta1Apps {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -4074,6 +4164,7 @@ public final class V1beta1Apps {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -4255,6 +4346,7 @@ public final class V1beta1Apps {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -4262,6 +4354,7 @@ public final class V1beta1Apps {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apps.DeploymentCondition prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -4289,6 +4382,7 @@ public final class V1beta1Apps {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentCondition_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentCondition_fieldAccessorTable
@@ -4313,6 +4407,7 @@ public final class V1beta1Apps {
           getLastTransitionTimeFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         type_ = "";
@@ -4338,15 +4433,18 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentCondition_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.DeploymentCondition getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apps.DeploymentCondition.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.DeploymentCondition build() {
         io.kubernetes.client.proto.V1beta1Apps.DeploymentCondition result = buildPartial();
         if (!result.isInitialized()) {
@@ -4355,6 +4453,7 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.DeploymentCondition buildPartial() {
         io.kubernetes.client.proto.V1beta1Apps.DeploymentCondition result = new io.kubernetes.client.proto.V1beta1Apps.DeploymentCondition(this);
         int from_bitField0_ = bitField0_;
@@ -4396,32 +4495,39 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apps.DeploymentCondition) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apps.DeploymentCondition)other);
@@ -4464,10 +4570,12 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -5194,11 +5302,13 @@ public final class V1beta1Apps {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -5220,11 +5330,12 @@ public final class V1beta1Apps {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<DeploymentCondition>
         PARSER = new com.google.protobuf.AbstractParser<DeploymentCondition>() {
+      @java.lang.Override
       public DeploymentCondition parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new DeploymentCondition(input, extensionRegistry);
+        return new DeploymentCondition(input, extensionRegistry);
       }
     };
 
@@ -5237,6 +5348,7 @@ public final class V1beta1Apps {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apps.DeploymentCondition getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -5349,6 +5461,9 @@ public final class V1beta1Apps {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -5360,13 +5475,6 @@ public final class V1beta1Apps {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ListMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -5389,6 +5497,13 @@ public final class V1beta1Apps {
                   input.readMessage(io.kubernetes.client.proto.V1beta1Apps.Deployment.PARSER, extensionRegistry));
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -5409,6 +5524,7 @@ public final class V1beta1Apps {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentList_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentList_fieldAccessorTable
@@ -5509,6 +5625,7 @@ public final class V1beta1Apps {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -5518,6 +5635,7 @@ public final class V1beta1Apps {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -5529,6 +5647,7 @@ public final class V1beta1Apps {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -5659,6 +5778,7 @@ public final class V1beta1Apps {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -5666,6 +5786,7 @@ public final class V1beta1Apps {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apps.DeploymentList prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -5693,6 +5814,7 @@ public final class V1beta1Apps {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentList_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentList_fieldAccessorTable
@@ -5717,6 +5839,7 @@ public final class V1beta1Apps {
           getItemsFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -5734,15 +5857,18 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentList_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.DeploymentList getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apps.DeploymentList.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.DeploymentList build() {
         io.kubernetes.client.proto.V1beta1Apps.DeploymentList result = buildPartial();
         if (!result.isInitialized()) {
@@ -5751,6 +5877,7 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.DeploymentList buildPartial() {
         io.kubernetes.client.proto.V1beta1Apps.DeploymentList result = new io.kubernetes.client.proto.V1beta1Apps.DeploymentList(this);
         int from_bitField0_ = bitField0_;
@@ -5777,32 +5904,39 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apps.DeploymentList) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apps.DeploymentList)other);
@@ -5848,10 +5982,12 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -6345,11 +6481,13 @@ public final class V1beta1Apps {
         }
         return itemsBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -6371,11 +6509,12 @@ public final class V1beta1Apps {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<DeploymentList>
         PARSER = new com.google.protobuf.AbstractParser<DeploymentList>() {
+      @java.lang.Override
       public DeploymentList parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new DeploymentList(input, extensionRegistry);
+        return new DeploymentList(input, extensionRegistry);
       }
     };
 
@@ -6388,6 +6527,7 @@ public final class V1beta1Apps {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apps.DeploymentList getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -6539,6 +6679,9 @@ public final class V1beta1Apps {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -6550,13 +6693,6 @@ public final class V1beta1Apps {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -6589,6 +6725,13 @@ public final class V1beta1Apps {
               bitField0_ |= 0x00000002;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -6607,6 +6750,7 @@ public final class V1beta1Apps {
     }
 
     @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
@@ -6617,6 +6761,7 @@ public final class V1beta1Apps {
               "Invalid map field number: " + number);
       }
     }
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentRollback_fieldAccessorTable
@@ -6809,6 +6954,7 @@ public final class V1beta1Apps {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -6818,6 +6964,7 @@ public final class V1beta1Apps {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -6835,6 +6982,7 @@ public final class V1beta1Apps {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -6983,6 +7131,7 @@ public final class V1beta1Apps {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -6990,6 +7139,7 @@ public final class V1beta1Apps {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apps.DeploymentRollback prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -7040,6 +7190,7 @@ public final class V1beta1Apps {
                 "Invalid map field number: " + number);
         }
       }
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentRollback_fieldAccessorTable
@@ -7063,6 +7214,7 @@ public final class V1beta1Apps {
           getRollbackToFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         name_ = "";
@@ -7077,15 +7229,18 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentRollback_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.DeploymentRollback getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apps.DeploymentRollback.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.DeploymentRollback build() {
         io.kubernetes.client.proto.V1beta1Apps.DeploymentRollback result = buildPartial();
         if (!result.isInitialized()) {
@@ -7094,6 +7249,7 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.DeploymentRollback buildPartial() {
         io.kubernetes.client.proto.V1beta1Apps.DeploymentRollback result = new io.kubernetes.client.proto.V1beta1Apps.DeploymentRollback(this);
         int from_bitField0_ = bitField0_;
@@ -7117,32 +7273,39 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apps.DeploymentRollback) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apps.DeploymentRollback)other);
@@ -7169,10 +7332,12 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -7603,11 +7768,13 @@ public final class V1beta1Apps {
         }
         return rollbackToBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -7629,11 +7796,12 @@ public final class V1beta1Apps {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<DeploymentRollback>
         PARSER = new com.google.protobuf.AbstractParser<DeploymentRollback>() {
+      @java.lang.Override
       public DeploymentRollback parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new DeploymentRollback(input, extensionRegistry);
+        return new DeploymentRollback(input, extensionRegistry);
       }
     };
 
@@ -7646,6 +7814,7 @@ public final class V1beta1Apps {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apps.DeploymentRollback getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -7737,6 +7906,7 @@ public final class V1beta1Apps {
      * <pre>
      * The deployment strategy to use to replace existing pods with new ones.
      * +optional
+     * +patchStrategy=retainKeys
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1beta1.DeploymentStrategy strategy = 4;</code>
@@ -7746,6 +7916,7 @@ public final class V1beta1Apps {
      * <pre>
      * The deployment strategy to use to replace existing pods with new ones.
      * +optional
+     * +patchStrategy=retainKeys
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1beta1.DeploymentStrategy strategy = 4;</code>
@@ -7755,6 +7926,7 @@ public final class V1beta1Apps {
      * <pre>
      * The deployment strategy to use to replace existing pods with new ones.
      * +optional
+     * +patchStrategy=retainKeys
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1beta1.DeploymentStrategy strategy = 4;</code>
@@ -7918,6 +8090,9 @@ public final class V1beta1Apps {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -7929,13 +8104,6 @@ public final class V1beta1Apps {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               bitField0_ |= 0x00000001;
               replicas_ = input.readInt32();
@@ -8013,6 +8181,13 @@ public final class V1beta1Apps {
               progressDeadlineSeconds_ = input.readInt32();
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -8030,6 +8205,7 @@ public final class V1beta1Apps {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentSpec_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentSpec_fieldAccessorTable
@@ -8143,6 +8319,7 @@ public final class V1beta1Apps {
      * <pre>
      * The deployment strategy to use to replace existing pods with new ones.
      * +optional
+     * +patchStrategy=retainKeys
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1beta1.DeploymentStrategy strategy = 4;</code>
@@ -8154,6 +8331,7 @@ public final class V1beta1Apps {
      * <pre>
      * The deployment strategy to use to replace existing pods with new ones.
      * +optional
+     * +patchStrategy=retainKeys
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1beta1.DeploymentStrategy strategy = 4;</code>
@@ -8165,6 +8343,7 @@ public final class V1beta1Apps {
      * <pre>
      * The deployment strategy to use to replace existing pods with new ones.
      * +optional
+     * +patchStrategy=retainKeys
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1beta1.DeploymentStrategy strategy = 4;</code>
@@ -8329,6 +8508,7 @@ public final class V1beta1Apps {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -8338,6 +8518,7 @@ public final class V1beta1Apps {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -8370,6 +8551,7 @@ public final class V1beta1Apps {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -8595,6 +8777,7 @@ public final class V1beta1Apps {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -8602,6 +8785,7 @@ public final class V1beta1Apps {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apps.DeploymentSpec prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -8629,6 +8813,7 @@ public final class V1beta1Apps {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentSpec_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentSpec_fieldAccessorTable
@@ -8655,6 +8840,7 @@ public final class V1beta1Apps {
           getRollbackToFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         replicas_ = 0;
@@ -8694,15 +8880,18 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentSpec_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.DeploymentSpec getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apps.DeploymentSpec.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.DeploymentSpec build() {
         io.kubernetes.client.proto.V1beta1Apps.DeploymentSpec result = buildPartial();
         if (!result.isInitialized()) {
@@ -8711,6 +8900,7 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.DeploymentSpec buildPartial() {
         io.kubernetes.client.proto.V1beta1Apps.DeploymentSpec result = new io.kubernetes.client.proto.V1beta1Apps.DeploymentSpec(this);
         int from_bitField0_ = bitField0_;
@@ -8772,32 +8962,39 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apps.DeploymentSpec) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apps.DeploymentSpec)other);
@@ -8841,10 +9038,12 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -9253,6 +9452,7 @@ public final class V1beta1Apps {
        * <pre>
        * The deployment strategy to use to replace existing pods with new ones.
        * +optional
+       * +patchStrategy=retainKeys
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1beta1.DeploymentStrategy strategy = 4;</code>
@@ -9264,6 +9464,7 @@ public final class V1beta1Apps {
        * <pre>
        * The deployment strategy to use to replace existing pods with new ones.
        * +optional
+       * +patchStrategy=retainKeys
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1beta1.DeploymentStrategy strategy = 4;</code>
@@ -9279,6 +9480,7 @@ public final class V1beta1Apps {
        * <pre>
        * The deployment strategy to use to replace existing pods with new ones.
        * +optional
+       * +patchStrategy=retainKeys
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1beta1.DeploymentStrategy strategy = 4;</code>
@@ -9300,6 +9502,7 @@ public final class V1beta1Apps {
        * <pre>
        * The deployment strategy to use to replace existing pods with new ones.
        * +optional
+       * +patchStrategy=retainKeys
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1beta1.DeploymentStrategy strategy = 4;</code>
@@ -9319,6 +9522,7 @@ public final class V1beta1Apps {
        * <pre>
        * The deployment strategy to use to replace existing pods with new ones.
        * +optional
+       * +patchStrategy=retainKeys
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1beta1.DeploymentStrategy strategy = 4;</code>
@@ -9344,6 +9548,7 @@ public final class V1beta1Apps {
        * <pre>
        * The deployment strategy to use to replace existing pods with new ones.
        * +optional
+       * +patchStrategy=retainKeys
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1beta1.DeploymentStrategy strategy = 4;</code>
@@ -9362,6 +9567,7 @@ public final class V1beta1Apps {
        * <pre>
        * The deployment strategy to use to replace existing pods with new ones.
        * +optional
+       * +patchStrategy=retainKeys
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1beta1.DeploymentStrategy strategy = 4;</code>
@@ -9375,6 +9581,7 @@ public final class V1beta1Apps {
        * <pre>
        * The deployment strategy to use to replace existing pods with new ones.
        * +optional
+       * +patchStrategy=retainKeys
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1beta1.DeploymentStrategy strategy = 4;</code>
@@ -9391,6 +9598,7 @@ public final class V1beta1Apps {
        * <pre>
        * The deployment strategy to use to replace existing pods with new ones.
        * +optional
+       * +patchStrategy=retainKeys
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1beta1.DeploymentStrategy strategy = 4;</code>
@@ -9820,11 +10028,13 @@ public final class V1beta1Apps {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -9846,11 +10056,12 @@ public final class V1beta1Apps {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<DeploymentSpec>
         PARSER = new com.google.protobuf.AbstractParser<DeploymentSpec>() {
+      @java.lang.Override
       public DeploymentSpec parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new DeploymentSpec(input, extensionRegistry);
+        return new DeploymentSpec(input, extensionRegistry);
       }
     };
 
@@ -9863,6 +10074,7 @@ public final class V1beta1Apps {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apps.DeploymentSpec getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -10105,6 +10317,9 @@ public final class V1beta1Apps {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -10116,13 +10331,6 @@ public final class V1beta1Apps {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               bitField0_ |= 0x00000001;
               observedGeneration_ = input.readInt64();
@@ -10167,6 +10375,13 @@ public final class V1beta1Apps {
               collisionCount_ = input.readInt32();
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -10187,6 +10402,7 @@ public final class V1beta1Apps {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentStatus_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentStatus_fieldAccessorTable
@@ -10444,6 +10660,7 @@ public final class V1beta1Apps {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -10453,6 +10670,7 @@ public final class V1beta1Apps {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -10482,6 +10700,7 @@ public final class V1beta1Apps {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -10691,6 +10910,7 @@ public final class V1beta1Apps {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -10698,6 +10918,7 @@ public final class V1beta1Apps {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apps.DeploymentStatus prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -10725,6 +10946,7 @@ public final class V1beta1Apps {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentStatus_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentStatus_fieldAccessorTable
@@ -10748,6 +10970,7 @@ public final class V1beta1Apps {
           getConditionsFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         observedGeneration_ = 0L;
@@ -10773,15 +10996,18 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentStatus_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.DeploymentStatus getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apps.DeploymentStatus.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.DeploymentStatus build() {
         io.kubernetes.client.proto.V1beta1Apps.DeploymentStatus result = buildPartial();
         if (!result.isInitialized()) {
@@ -10790,6 +11016,7 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.DeploymentStatus buildPartial() {
         io.kubernetes.client.proto.V1beta1Apps.DeploymentStatus result = new io.kubernetes.client.proto.V1beta1Apps.DeploymentStatus(this);
         int from_bitField0_ = bitField0_;
@@ -10836,32 +11063,39 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apps.DeploymentStatus) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apps.DeploymentStatus)other);
@@ -10925,10 +11159,12 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -11675,11 +11911,13 @@ public final class V1beta1Apps {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -11701,11 +11939,12 @@ public final class V1beta1Apps {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<DeploymentStatus>
         PARSER = new com.google.protobuf.AbstractParser<DeploymentStatus>() {
+      @java.lang.Override
       public DeploymentStatus parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new DeploymentStatus(input, extensionRegistry);
+        return new DeploymentStatus(input, extensionRegistry);
       }
     };
 
@@ -11718,6 +11957,7 @@ public final class V1beta1Apps {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apps.DeploymentStatus getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -11827,6 +12067,9 @@ public final class V1beta1Apps {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -11838,13 +12081,6 @@ public final class V1beta1Apps {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -11864,6 +12100,13 @@ public final class V1beta1Apps {
               bitField0_ |= 0x00000002;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -11881,6 +12124,7 @@ public final class V1beta1Apps {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentStrategy_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentStrategy_fieldAccessorTable
@@ -11995,6 +12239,7 @@ public final class V1beta1Apps {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -12004,6 +12249,7 @@ public final class V1beta1Apps {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -12015,6 +12261,7 @@ public final class V1beta1Apps {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -12147,6 +12394,7 @@ public final class V1beta1Apps {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -12154,6 +12402,7 @@ public final class V1beta1Apps {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apps.DeploymentStrategy prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -12181,6 +12430,7 @@ public final class V1beta1Apps {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentStrategy_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentStrategy_fieldAccessorTable
@@ -12204,6 +12454,7 @@ public final class V1beta1Apps {
           getRollingUpdateFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         type_ = "";
@@ -12217,15 +12468,18 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_DeploymentStrategy_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.DeploymentStrategy getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apps.DeploymentStrategy.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.DeploymentStrategy build() {
         io.kubernetes.client.proto.V1beta1Apps.DeploymentStrategy result = buildPartial();
         if (!result.isInitialized()) {
@@ -12234,6 +12488,7 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.DeploymentStrategy buildPartial() {
         io.kubernetes.client.proto.V1beta1Apps.DeploymentStrategy result = new io.kubernetes.client.proto.V1beta1Apps.DeploymentStrategy(this);
         int from_bitField0_ = bitField0_;
@@ -12255,32 +12510,39 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apps.DeploymentStrategy) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apps.DeploymentStrategy)other);
@@ -12305,10 +12567,12 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -12632,11 +12896,13 @@ public final class V1beta1Apps {
         }
         return rollingUpdateBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -12658,11 +12924,12 @@ public final class V1beta1Apps {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<DeploymentStrategy>
         PARSER = new com.google.protobuf.AbstractParser<DeploymentStrategy>() {
+      @java.lang.Override
       public DeploymentStrategy parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new DeploymentStrategy(input, extensionRegistry);
+        return new DeploymentStrategy(input, extensionRegistry);
       }
     };
 
@@ -12675,6 +12942,7 @@ public final class V1beta1Apps {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apps.DeploymentStrategy getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -12734,6 +13002,9 @@ public final class V1beta1Apps {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -12745,16 +13016,16 @@ public final class V1beta1Apps {
             case 0:
               done = true;
               break;
+            case 8: {
+              bitField0_ |= 0x00000001;
+              revision_ = input.readInt64();
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              revision_ = input.readInt64();
               break;
             }
           }
@@ -12774,6 +13045,7 @@ public final class V1beta1Apps {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_RollbackConfig_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_RollbackConfig_fieldAccessorTable
@@ -12808,6 +13080,7 @@ public final class V1beta1Apps {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -12817,6 +13090,7 @@ public final class V1beta1Apps {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -12825,6 +13099,7 @@ public final class V1beta1Apps {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -12946,6 +13221,7 @@ public final class V1beta1Apps {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -12953,6 +13229,7 @@ public final class V1beta1Apps {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apps.RollbackConfig prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -12980,6 +13257,7 @@ public final class V1beta1Apps {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_RollbackConfig_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_RollbackConfig_fieldAccessorTable
@@ -13002,6 +13280,7 @@ public final class V1beta1Apps {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         revision_ = 0L;
@@ -13009,15 +13288,18 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_RollbackConfig_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.RollbackConfig getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apps.RollbackConfig.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.RollbackConfig build() {
         io.kubernetes.client.proto.V1beta1Apps.RollbackConfig result = buildPartial();
         if (!result.isInitialized()) {
@@ -13026,6 +13308,7 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.RollbackConfig buildPartial() {
         io.kubernetes.client.proto.V1beta1Apps.RollbackConfig result = new io.kubernetes.client.proto.V1beta1Apps.RollbackConfig(this);
         int from_bitField0_ = bitField0_;
@@ -13039,32 +13322,39 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apps.RollbackConfig) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apps.RollbackConfig)other);
@@ -13084,10 +13374,12 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -13158,11 +13450,13 @@ public final class V1beta1Apps {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -13184,11 +13478,12 @@ public final class V1beta1Apps {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<RollbackConfig>
         PARSER = new com.google.protobuf.AbstractParser<RollbackConfig>() {
+      @java.lang.Override
       public RollbackConfig parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new RollbackConfig(input, extensionRegistry);
+        return new RollbackConfig(input, extensionRegistry);
       }
     };
 
@@ -13201,6 +13496,7 @@ public final class V1beta1Apps {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apps.RollbackConfig getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -13218,9 +13514,9 @@ public final class V1beta1Apps {
      * Absolute number is calculated from percentage by rounding down.
      * This can not be 0 if MaxSurge is 0.
      * Defaults to 25%.
-     * Example: when this is set to 30%, the old RC can be scaled down to 70% of desired pods
-     * immediately when the rolling update starts. Once new pods are ready, old RC
-     * can be scaled down further, followed by scaling up the new RC, ensuring
+     * Example: when this is set to 30%, the old ReplicaSet can be scaled down to 70% of desired pods
+     * immediately when the rolling update starts. Once new pods are ready, old ReplicaSet
+     * can be scaled down further, followed by scaling up the new ReplicaSet, ensuring
      * that the total number of pods available at all times during the update is at
      * least 70% of desired pods.
      * +optional
@@ -13236,9 +13532,9 @@ public final class V1beta1Apps {
      * Absolute number is calculated from percentage by rounding down.
      * This can not be 0 if MaxSurge is 0.
      * Defaults to 25%.
-     * Example: when this is set to 30%, the old RC can be scaled down to 70% of desired pods
-     * immediately when the rolling update starts. Once new pods are ready, old RC
-     * can be scaled down further, followed by scaling up the new RC, ensuring
+     * Example: when this is set to 30%, the old ReplicaSet can be scaled down to 70% of desired pods
+     * immediately when the rolling update starts. Once new pods are ready, old ReplicaSet
+     * can be scaled down further, followed by scaling up the new ReplicaSet, ensuring
      * that the total number of pods available at all times during the update is at
      * least 70% of desired pods.
      * +optional
@@ -13254,9 +13550,9 @@ public final class V1beta1Apps {
      * Absolute number is calculated from percentage by rounding down.
      * This can not be 0 if MaxSurge is 0.
      * Defaults to 25%.
-     * Example: when this is set to 30%, the old RC can be scaled down to 70% of desired pods
-     * immediately when the rolling update starts. Once new pods are ready, old RC
-     * can be scaled down further, followed by scaling up the new RC, ensuring
+     * Example: when this is set to 30%, the old ReplicaSet can be scaled down to 70% of desired pods
+     * immediately when the rolling update starts. Once new pods are ready, old ReplicaSet
+     * can be scaled down further, followed by scaling up the new ReplicaSet, ensuring
      * that the total number of pods available at all times during the update is at
      * least 70% of desired pods.
      * +optional
@@ -13274,10 +13570,10 @@ public final class V1beta1Apps {
      * This can not be 0 if MaxUnavailable is 0.
      * Absolute number is calculated from percentage by rounding up.
      * Defaults to 25%.
-     * Example: when this is set to 30%, the new RC can be scaled up immediately when
+     * Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when
      * the rolling update starts, such that the total number of old and new pods do not exceed
      * 130% of desired pods. Once old pods have been killed,
-     * new RC can be scaled up further, ensuring that total number of pods running
+     * new ReplicaSet can be scaled up further, ensuring that total number of pods running
      * at any time during the update is atmost 130% of desired pods.
      * +optional
      * </pre>
@@ -13293,10 +13589,10 @@ public final class V1beta1Apps {
      * This can not be 0 if MaxUnavailable is 0.
      * Absolute number is calculated from percentage by rounding up.
      * Defaults to 25%.
-     * Example: when this is set to 30%, the new RC can be scaled up immediately when
+     * Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when
      * the rolling update starts, such that the total number of old and new pods do not exceed
      * 130% of desired pods. Once old pods have been killed,
-     * new RC can be scaled up further, ensuring that total number of pods running
+     * new ReplicaSet can be scaled up further, ensuring that total number of pods running
      * at any time during the update is atmost 130% of desired pods.
      * +optional
      * </pre>
@@ -13312,10 +13608,10 @@ public final class V1beta1Apps {
      * This can not be 0 if MaxUnavailable is 0.
      * Absolute number is calculated from percentage by rounding up.
      * Defaults to 25%.
-     * Example: when this is set to 30%, the new RC can be scaled up immediately when
+     * Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when
      * the rolling update starts, such that the total number of old and new pods do not exceed
      * 130% of desired pods. Once old pods have been killed,
-     * new RC can be scaled up further, ensuring that total number of pods running
+     * new ReplicaSet can be scaled up further, ensuring that total number of pods running
      * at any time during the update is atmost 130% of desired pods.
      * +optional
      * </pre>
@@ -13353,6 +13649,9 @@ public final class V1beta1Apps {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -13364,13 +13663,6 @@ public final class V1beta1Apps {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.IntStr.IntOrString.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -13397,6 +13689,13 @@ public final class V1beta1Apps {
               bitField0_ |= 0x00000002;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -13414,6 +13713,7 @@ public final class V1beta1Apps {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_RollingUpdateDeployment_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_RollingUpdateDeployment_fieldAccessorTable
@@ -13431,9 +13731,9 @@ public final class V1beta1Apps {
      * Absolute number is calculated from percentage by rounding down.
      * This can not be 0 if MaxSurge is 0.
      * Defaults to 25%.
-     * Example: when this is set to 30%, the old RC can be scaled down to 70% of desired pods
-     * immediately when the rolling update starts. Once new pods are ready, old RC
-     * can be scaled down further, followed by scaling up the new RC, ensuring
+     * Example: when this is set to 30%, the old ReplicaSet can be scaled down to 70% of desired pods
+     * immediately when the rolling update starts. Once new pods are ready, old ReplicaSet
+     * can be scaled down further, followed by scaling up the new ReplicaSet, ensuring
      * that the total number of pods available at all times during the update is at
      * least 70% of desired pods.
      * +optional
@@ -13451,9 +13751,9 @@ public final class V1beta1Apps {
      * Absolute number is calculated from percentage by rounding down.
      * This can not be 0 if MaxSurge is 0.
      * Defaults to 25%.
-     * Example: when this is set to 30%, the old RC can be scaled down to 70% of desired pods
-     * immediately when the rolling update starts. Once new pods are ready, old RC
-     * can be scaled down further, followed by scaling up the new RC, ensuring
+     * Example: when this is set to 30%, the old ReplicaSet can be scaled down to 70% of desired pods
+     * immediately when the rolling update starts. Once new pods are ready, old ReplicaSet
+     * can be scaled down further, followed by scaling up the new ReplicaSet, ensuring
      * that the total number of pods available at all times during the update is at
      * least 70% of desired pods.
      * +optional
@@ -13471,9 +13771,9 @@ public final class V1beta1Apps {
      * Absolute number is calculated from percentage by rounding down.
      * This can not be 0 if MaxSurge is 0.
      * Defaults to 25%.
-     * Example: when this is set to 30%, the old RC can be scaled down to 70% of desired pods
-     * immediately when the rolling update starts. Once new pods are ready, old RC
-     * can be scaled down further, followed by scaling up the new RC, ensuring
+     * Example: when this is set to 30%, the old ReplicaSet can be scaled down to 70% of desired pods
+     * immediately when the rolling update starts. Once new pods are ready, old ReplicaSet
+     * can be scaled down further, followed by scaling up the new ReplicaSet, ensuring
      * that the total number of pods available at all times during the update is at
      * least 70% of desired pods.
      * +optional
@@ -13495,10 +13795,10 @@ public final class V1beta1Apps {
      * This can not be 0 if MaxUnavailable is 0.
      * Absolute number is calculated from percentage by rounding up.
      * Defaults to 25%.
-     * Example: when this is set to 30%, the new RC can be scaled up immediately when
+     * Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when
      * the rolling update starts, such that the total number of old and new pods do not exceed
      * 130% of desired pods. Once old pods have been killed,
-     * new RC can be scaled up further, ensuring that total number of pods running
+     * new ReplicaSet can be scaled up further, ensuring that total number of pods running
      * at any time during the update is atmost 130% of desired pods.
      * +optional
      * </pre>
@@ -13516,10 +13816,10 @@ public final class V1beta1Apps {
      * This can not be 0 if MaxUnavailable is 0.
      * Absolute number is calculated from percentage by rounding up.
      * Defaults to 25%.
-     * Example: when this is set to 30%, the new RC can be scaled up immediately when
+     * Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when
      * the rolling update starts, such that the total number of old and new pods do not exceed
      * 130% of desired pods. Once old pods have been killed,
-     * new RC can be scaled up further, ensuring that total number of pods running
+     * new ReplicaSet can be scaled up further, ensuring that total number of pods running
      * at any time during the update is atmost 130% of desired pods.
      * +optional
      * </pre>
@@ -13537,10 +13837,10 @@ public final class V1beta1Apps {
      * This can not be 0 if MaxUnavailable is 0.
      * Absolute number is calculated from percentage by rounding up.
      * Defaults to 25%.
-     * Example: when this is set to 30%, the new RC can be scaled up immediately when
+     * Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when
      * the rolling update starts, such that the total number of old and new pods do not exceed
      * 130% of desired pods. Once old pods have been killed,
-     * new RC can be scaled up further, ensuring that total number of pods running
+     * new ReplicaSet can be scaled up further, ensuring that total number of pods running
      * at any time during the update is atmost 130% of desired pods.
      * +optional
      * </pre>
@@ -13552,6 +13852,7 @@ public final class V1beta1Apps {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -13561,6 +13862,7 @@ public final class V1beta1Apps {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -13572,6 +13874,7 @@ public final class V1beta1Apps {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -13705,6 +14008,7 @@ public final class V1beta1Apps {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -13712,6 +14016,7 @@ public final class V1beta1Apps {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apps.RollingUpdateDeployment prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -13739,6 +14044,7 @@ public final class V1beta1Apps {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_RollingUpdateDeployment_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_RollingUpdateDeployment_fieldAccessorTable
@@ -13763,6 +14069,7 @@ public final class V1beta1Apps {
           getMaxSurgeFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (maxUnavailableBuilder_ == null) {
@@ -13780,15 +14087,18 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_RollingUpdateDeployment_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.RollingUpdateDeployment getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apps.RollingUpdateDeployment.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.RollingUpdateDeployment build() {
         io.kubernetes.client.proto.V1beta1Apps.RollingUpdateDeployment result = buildPartial();
         if (!result.isInitialized()) {
@@ -13797,6 +14107,7 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.RollingUpdateDeployment buildPartial() {
         io.kubernetes.client.proto.V1beta1Apps.RollingUpdateDeployment result = new io.kubernetes.client.proto.V1beta1Apps.RollingUpdateDeployment(this);
         int from_bitField0_ = bitField0_;
@@ -13822,32 +14133,39 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apps.RollingUpdateDeployment) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apps.RollingUpdateDeployment)other);
@@ -13870,10 +14188,12 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -13903,9 +14223,9 @@ public final class V1beta1Apps {
        * Absolute number is calculated from percentage by rounding down.
        * This can not be 0 if MaxSurge is 0.
        * Defaults to 25%.
-       * Example: when this is set to 30%, the old RC can be scaled down to 70% of desired pods
-       * immediately when the rolling update starts. Once new pods are ready, old RC
-       * can be scaled down further, followed by scaling up the new RC, ensuring
+       * Example: when this is set to 30%, the old ReplicaSet can be scaled down to 70% of desired pods
+       * immediately when the rolling update starts. Once new pods are ready, old ReplicaSet
+       * can be scaled down further, followed by scaling up the new ReplicaSet, ensuring
        * that the total number of pods available at all times during the update is at
        * least 70% of desired pods.
        * +optional
@@ -13923,9 +14243,9 @@ public final class V1beta1Apps {
        * Absolute number is calculated from percentage by rounding down.
        * This can not be 0 if MaxSurge is 0.
        * Defaults to 25%.
-       * Example: when this is set to 30%, the old RC can be scaled down to 70% of desired pods
-       * immediately when the rolling update starts. Once new pods are ready, old RC
-       * can be scaled down further, followed by scaling up the new RC, ensuring
+       * Example: when this is set to 30%, the old ReplicaSet can be scaled down to 70% of desired pods
+       * immediately when the rolling update starts. Once new pods are ready, old ReplicaSet
+       * can be scaled down further, followed by scaling up the new ReplicaSet, ensuring
        * that the total number of pods available at all times during the update is at
        * least 70% of desired pods.
        * +optional
@@ -13947,9 +14267,9 @@ public final class V1beta1Apps {
        * Absolute number is calculated from percentage by rounding down.
        * This can not be 0 if MaxSurge is 0.
        * Defaults to 25%.
-       * Example: when this is set to 30%, the old RC can be scaled down to 70% of desired pods
-       * immediately when the rolling update starts. Once new pods are ready, old RC
-       * can be scaled down further, followed by scaling up the new RC, ensuring
+       * Example: when this is set to 30%, the old ReplicaSet can be scaled down to 70% of desired pods
+       * immediately when the rolling update starts. Once new pods are ready, old ReplicaSet
+       * can be scaled down further, followed by scaling up the new ReplicaSet, ensuring
        * that the total number of pods available at all times during the update is at
        * least 70% of desired pods.
        * +optional
@@ -13977,9 +14297,9 @@ public final class V1beta1Apps {
        * Absolute number is calculated from percentage by rounding down.
        * This can not be 0 if MaxSurge is 0.
        * Defaults to 25%.
-       * Example: when this is set to 30%, the old RC can be scaled down to 70% of desired pods
-       * immediately when the rolling update starts. Once new pods are ready, old RC
-       * can be scaled down further, followed by scaling up the new RC, ensuring
+       * Example: when this is set to 30%, the old ReplicaSet can be scaled down to 70% of desired pods
+       * immediately when the rolling update starts. Once new pods are ready, old ReplicaSet
+       * can be scaled down further, followed by scaling up the new ReplicaSet, ensuring
        * that the total number of pods available at all times during the update is at
        * least 70% of desired pods.
        * +optional
@@ -14005,9 +14325,9 @@ public final class V1beta1Apps {
        * Absolute number is calculated from percentage by rounding down.
        * This can not be 0 if MaxSurge is 0.
        * Defaults to 25%.
-       * Example: when this is set to 30%, the old RC can be scaled down to 70% of desired pods
-       * immediately when the rolling update starts. Once new pods are ready, old RC
-       * can be scaled down further, followed by scaling up the new RC, ensuring
+       * Example: when this is set to 30%, the old ReplicaSet can be scaled down to 70% of desired pods
+       * immediately when the rolling update starts. Once new pods are ready, old ReplicaSet
+       * can be scaled down further, followed by scaling up the new ReplicaSet, ensuring
        * that the total number of pods available at all times during the update is at
        * least 70% of desired pods.
        * +optional
@@ -14039,9 +14359,9 @@ public final class V1beta1Apps {
        * Absolute number is calculated from percentage by rounding down.
        * This can not be 0 if MaxSurge is 0.
        * Defaults to 25%.
-       * Example: when this is set to 30%, the old RC can be scaled down to 70% of desired pods
-       * immediately when the rolling update starts. Once new pods are ready, old RC
-       * can be scaled down further, followed by scaling up the new RC, ensuring
+       * Example: when this is set to 30%, the old ReplicaSet can be scaled down to 70% of desired pods
+       * immediately when the rolling update starts. Once new pods are ready, old ReplicaSet
+       * can be scaled down further, followed by scaling up the new ReplicaSet, ensuring
        * that the total number of pods available at all times during the update is at
        * least 70% of desired pods.
        * +optional
@@ -14066,9 +14386,9 @@ public final class V1beta1Apps {
        * Absolute number is calculated from percentage by rounding down.
        * This can not be 0 if MaxSurge is 0.
        * Defaults to 25%.
-       * Example: when this is set to 30%, the old RC can be scaled down to 70% of desired pods
-       * immediately when the rolling update starts. Once new pods are ready, old RC
-       * can be scaled down further, followed by scaling up the new RC, ensuring
+       * Example: when this is set to 30%, the old ReplicaSet can be scaled down to 70% of desired pods
+       * immediately when the rolling update starts. Once new pods are ready, old ReplicaSet
+       * can be scaled down further, followed by scaling up the new ReplicaSet, ensuring
        * that the total number of pods available at all times during the update is at
        * least 70% of desired pods.
        * +optional
@@ -14088,9 +14408,9 @@ public final class V1beta1Apps {
        * Absolute number is calculated from percentage by rounding down.
        * This can not be 0 if MaxSurge is 0.
        * Defaults to 25%.
-       * Example: when this is set to 30%, the old RC can be scaled down to 70% of desired pods
-       * immediately when the rolling update starts. Once new pods are ready, old RC
-       * can be scaled down further, followed by scaling up the new RC, ensuring
+       * Example: when this is set to 30%, the old ReplicaSet can be scaled down to 70% of desired pods
+       * immediately when the rolling update starts. Once new pods are ready, old ReplicaSet
+       * can be scaled down further, followed by scaling up the new ReplicaSet, ensuring
        * that the total number of pods available at all times during the update is at
        * least 70% of desired pods.
        * +optional
@@ -14113,9 +14433,9 @@ public final class V1beta1Apps {
        * Absolute number is calculated from percentage by rounding down.
        * This can not be 0 if MaxSurge is 0.
        * Defaults to 25%.
-       * Example: when this is set to 30%, the old RC can be scaled down to 70% of desired pods
-       * immediately when the rolling update starts. Once new pods are ready, old RC
-       * can be scaled down further, followed by scaling up the new RC, ensuring
+       * Example: when this is set to 30%, the old ReplicaSet can be scaled down to 70% of desired pods
+       * immediately when the rolling update starts. Once new pods are ready, old ReplicaSet
+       * can be scaled down further, followed by scaling up the new ReplicaSet, ensuring
        * that the total number of pods available at all times during the update is at
        * least 70% of desired pods.
        * +optional
@@ -14148,10 +14468,10 @@ public final class V1beta1Apps {
        * This can not be 0 if MaxUnavailable is 0.
        * Absolute number is calculated from percentage by rounding up.
        * Defaults to 25%.
-       * Example: when this is set to 30%, the new RC can be scaled up immediately when
+       * Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
-       * new RC can be scaled up further, ensuring that total number of pods running
+       * new ReplicaSet can be scaled up further, ensuring that total number of pods running
        * at any time during the update is atmost 130% of desired pods.
        * +optional
        * </pre>
@@ -14169,10 +14489,10 @@ public final class V1beta1Apps {
        * This can not be 0 if MaxUnavailable is 0.
        * Absolute number is calculated from percentage by rounding up.
        * Defaults to 25%.
-       * Example: when this is set to 30%, the new RC can be scaled up immediately when
+       * Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
-       * new RC can be scaled up further, ensuring that total number of pods running
+       * new ReplicaSet can be scaled up further, ensuring that total number of pods running
        * at any time during the update is atmost 130% of desired pods.
        * +optional
        * </pre>
@@ -14194,10 +14514,10 @@ public final class V1beta1Apps {
        * This can not be 0 if MaxUnavailable is 0.
        * Absolute number is calculated from percentage by rounding up.
        * Defaults to 25%.
-       * Example: when this is set to 30%, the new RC can be scaled up immediately when
+       * Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
-       * new RC can be scaled up further, ensuring that total number of pods running
+       * new ReplicaSet can be scaled up further, ensuring that total number of pods running
        * at any time during the update is atmost 130% of desired pods.
        * +optional
        * </pre>
@@ -14225,10 +14545,10 @@ public final class V1beta1Apps {
        * This can not be 0 if MaxUnavailable is 0.
        * Absolute number is calculated from percentage by rounding up.
        * Defaults to 25%.
-       * Example: when this is set to 30%, the new RC can be scaled up immediately when
+       * Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
-       * new RC can be scaled up further, ensuring that total number of pods running
+       * new ReplicaSet can be scaled up further, ensuring that total number of pods running
        * at any time during the update is atmost 130% of desired pods.
        * +optional
        * </pre>
@@ -14254,10 +14574,10 @@ public final class V1beta1Apps {
        * This can not be 0 if MaxUnavailable is 0.
        * Absolute number is calculated from percentage by rounding up.
        * Defaults to 25%.
-       * Example: when this is set to 30%, the new RC can be scaled up immediately when
+       * Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
-       * new RC can be scaled up further, ensuring that total number of pods running
+       * new ReplicaSet can be scaled up further, ensuring that total number of pods running
        * at any time during the update is atmost 130% of desired pods.
        * +optional
        * </pre>
@@ -14289,10 +14609,10 @@ public final class V1beta1Apps {
        * This can not be 0 if MaxUnavailable is 0.
        * Absolute number is calculated from percentage by rounding up.
        * Defaults to 25%.
-       * Example: when this is set to 30%, the new RC can be scaled up immediately when
+       * Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
-       * new RC can be scaled up further, ensuring that total number of pods running
+       * new ReplicaSet can be scaled up further, ensuring that total number of pods running
        * at any time during the update is atmost 130% of desired pods.
        * +optional
        * </pre>
@@ -14317,10 +14637,10 @@ public final class V1beta1Apps {
        * This can not be 0 if MaxUnavailable is 0.
        * Absolute number is calculated from percentage by rounding up.
        * Defaults to 25%.
-       * Example: when this is set to 30%, the new RC can be scaled up immediately when
+       * Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
-       * new RC can be scaled up further, ensuring that total number of pods running
+       * new ReplicaSet can be scaled up further, ensuring that total number of pods running
        * at any time during the update is atmost 130% of desired pods.
        * +optional
        * </pre>
@@ -14340,10 +14660,10 @@ public final class V1beta1Apps {
        * This can not be 0 if MaxUnavailable is 0.
        * Absolute number is calculated from percentage by rounding up.
        * Defaults to 25%.
-       * Example: when this is set to 30%, the new RC can be scaled up immediately when
+       * Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
-       * new RC can be scaled up further, ensuring that total number of pods running
+       * new ReplicaSet can be scaled up further, ensuring that total number of pods running
        * at any time during the update is atmost 130% of desired pods.
        * +optional
        * </pre>
@@ -14366,10 +14686,10 @@ public final class V1beta1Apps {
        * This can not be 0 if MaxUnavailable is 0.
        * Absolute number is calculated from percentage by rounding up.
        * Defaults to 25%.
-       * Example: when this is set to 30%, the new RC can be scaled up immediately when
+       * Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
-       * new RC can be scaled up further, ensuring that total number of pods running
+       * new ReplicaSet can be scaled up further, ensuring that total number of pods running
        * at any time during the update is atmost 130% of desired pods.
        * +optional
        * </pre>
@@ -14389,11 +14709,13 @@ public final class V1beta1Apps {
         }
         return maxSurgeBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -14415,11 +14737,12 @@ public final class V1beta1Apps {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<RollingUpdateDeployment>
         PARSER = new com.google.protobuf.AbstractParser<RollingUpdateDeployment>() {
+      @java.lang.Override
       public RollingUpdateDeployment parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new RollingUpdateDeployment(input, extensionRegistry);
+        return new RollingUpdateDeployment(input, extensionRegistry);
       }
     };
 
@@ -14432,6 +14755,7 @@ public final class V1beta1Apps {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apps.RollingUpdateDeployment getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -14491,6 +14815,9 @@ public final class V1beta1Apps {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -14502,16 +14829,16 @@ public final class V1beta1Apps {
             case 0:
               done = true;
               break;
+            case 8: {
+              bitField0_ |= 0x00000001;
+              partition_ = input.readInt32();
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              partition_ = input.readInt32();
               break;
             }
           }
@@ -14531,6 +14858,7 @@ public final class V1beta1Apps {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_RollingUpdateStatefulSetStrategy_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_RollingUpdateStatefulSetStrategy_fieldAccessorTable
@@ -14565,6 +14893,7 @@ public final class V1beta1Apps {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -14574,6 +14903,7 @@ public final class V1beta1Apps {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -14582,6 +14912,7 @@ public final class V1beta1Apps {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -14702,6 +15033,7 @@ public final class V1beta1Apps {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -14709,6 +15041,7 @@ public final class V1beta1Apps {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apps.RollingUpdateStatefulSetStrategy prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -14736,6 +15069,7 @@ public final class V1beta1Apps {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_RollingUpdateStatefulSetStrategy_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_RollingUpdateStatefulSetStrategy_fieldAccessorTable
@@ -14758,6 +15092,7 @@ public final class V1beta1Apps {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         partition_ = 0;
@@ -14765,15 +15100,18 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_RollingUpdateStatefulSetStrategy_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.RollingUpdateStatefulSetStrategy getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apps.RollingUpdateStatefulSetStrategy.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.RollingUpdateStatefulSetStrategy build() {
         io.kubernetes.client.proto.V1beta1Apps.RollingUpdateStatefulSetStrategy result = buildPartial();
         if (!result.isInitialized()) {
@@ -14782,6 +15120,7 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.RollingUpdateStatefulSetStrategy buildPartial() {
         io.kubernetes.client.proto.V1beta1Apps.RollingUpdateStatefulSetStrategy result = new io.kubernetes.client.proto.V1beta1Apps.RollingUpdateStatefulSetStrategy(this);
         int from_bitField0_ = bitField0_;
@@ -14795,32 +15134,39 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apps.RollingUpdateStatefulSetStrategy) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apps.RollingUpdateStatefulSetStrategy)other);
@@ -14840,10 +15186,12 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -14914,11 +15262,13 @@ public final class V1beta1Apps {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -14940,11 +15290,12 @@ public final class V1beta1Apps {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<RollingUpdateStatefulSetStrategy>
         PARSER = new com.google.protobuf.AbstractParser<RollingUpdateStatefulSetStrategy>() {
+      @java.lang.Override
       public RollingUpdateStatefulSetStrategy parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new RollingUpdateStatefulSetStrategy(input, extensionRegistry);
+        return new RollingUpdateStatefulSetStrategy(input, extensionRegistry);
       }
     };
 
@@ -14957,6 +15308,7 @@ public final class V1beta1Apps {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apps.RollingUpdateStatefulSetStrategy getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -15080,6 +15432,9 @@ public final class V1beta1Apps {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -15091,13 +15446,6 @@ public final class V1beta1Apps {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -15137,6 +15485,13 @@ public final class V1beta1Apps {
               bitField0_ |= 0x00000004;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -15154,6 +15509,7 @@ public final class V1beta1Apps {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_Scale_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_Scale_fieldAccessorTable
@@ -15271,6 +15627,7 @@ public final class V1beta1Apps {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -15280,6 +15637,7 @@ public final class V1beta1Apps {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -15294,6 +15652,7 @@ public final class V1beta1Apps {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -15440,6 +15799,7 @@ public final class V1beta1Apps {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -15447,6 +15807,7 @@ public final class V1beta1Apps {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apps.Scale prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -15474,6 +15835,7 @@ public final class V1beta1Apps {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_Scale_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_Scale_fieldAccessorTable
@@ -15499,6 +15861,7 @@ public final class V1beta1Apps {
           getStatusFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -15522,15 +15885,18 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_Scale_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.Scale getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apps.Scale.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.Scale build() {
         io.kubernetes.client.proto.V1beta1Apps.Scale result = buildPartial();
         if (!result.isInitialized()) {
@@ -15539,6 +15905,7 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.Scale buildPartial() {
         io.kubernetes.client.proto.V1beta1Apps.Scale result = new io.kubernetes.client.proto.V1beta1Apps.Scale(this);
         int from_bitField0_ = bitField0_;
@@ -15572,32 +15939,39 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apps.Scale) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apps.Scale)other);
@@ -15623,10 +15997,12 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -16134,11 +16510,13 @@ public final class V1beta1Apps {
         }
         return statusBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -16160,11 +16538,12 @@ public final class V1beta1Apps {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<Scale>
         PARSER = new com.google.protobuf.AbstractParser<Scale>() {
+      @java.lang.Override
       public Scale parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Scale(input, extensionRegistry);
+        return new Scale(input, extensionRegistry);
       }
     };
 
@@ -16177,6 +16556,7 @@ public final class V1beta1Apps {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apps.Scale getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -16236,6 +16616,9 @@ public final class V1beta1Apps {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -16247,16 +16630,16 @@ public final class V1beta1Apps {
             case 0:
               done = true;
               break;
+            case 8: {
+              bitField0_ |= 0x00000001;
+              replicas_ = input.readInt32();
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              replicas_ = input.readInt32();
               break;
             }
           }
@@ -16276,6 +16659,7 @@ public final class V1beta1Apps {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_ScaleSpec_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_ScaleSpec_fieldAccessorTable
@@ -16310,6 +16694,7 @@ public final class V1beta1Apps {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -16319,6 +16704,7 @@ public final class V1beta1Apps {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -16327,6 +16713,7 @@ public final class V1beta1Apps {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -16447,6 +16834,7 @@ public final class V1beta1Apps {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -16454,6 +16842,7 @@ public final class V1beta1Apps {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apps.ScaleSpec prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -16481,6 +16870,7 @@ public final class V1beta1Apps {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_ScaleSpec_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_ScaleSpec_fieldAccessorTable
@@ -16503,6 +16893,7 @@ public final class V1beta1Apps {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         replicas_ = 0;
@@ -16510,15 +16901,18 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_ScaleSpec_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.ScaleSpec getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apps.ScaleSpec.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.ScaleSpec build() {
         io.kubernetes.client.proto.V1beta1Apps.ScaleSpec result = buildPartial();
         if (!result.isInitialized()) {
@@ -16527,6 +16921,7 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.ScaleSpec buildPartial() {
         io.kubernetes.client.proto.V1beta1Apps.ScaleSpec result = new io.kubernetes.client.proto.V1beta1Apps.ScaleSpec(this);
         int from_bitField0_ = bitField0_;
@@ -16540,32 +16935,39 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apps.ScaleSpec) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apps.ScaleSpec)other);
@@ -16585,10 +16987,12 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -16659,11 +17063,13 @@ public final class V1beta1Apps {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -16685,11 +17091,12 @@ public final class V1beta1Apps {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<ScaleSpec>
         PARSER = new com.google.protobuf.AbstractParser<ScaleSpec>() {
+      @java.lang.Override
       public ScaleSpec parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ScaleSpec(input, extensionRegistry);
+        return new ScaleSpec(input, extensionRegistry);
       }
     };
 
@@ -16702,6 +17109,7 @@ public final class V1beta1Apps {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apps.ScaleSpec getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -16863,6 +17271,9 @@ public final class V1beta1Apps {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -16874,13 +17285,6 @@ public final class V1beta1Apps {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               bitField0_ |= 0x00000001;
               replicas_ = input.readInt32();
@@ -16905,6 +17309,13 @@ public final class V1beta1Apps {
               targetSelector_ = bs;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -16923,6 +17334,7 @@ public final class V1beta1Apps {
     }
 
     @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
@@ -16933,6 +17345,7 @@ public final class V1beta1Apps {
               "Invalid map field number: " + number);
       }
     }
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_ScaleStatus_fieldAccessorTable
@@ -17133,6 +17546,7 @@ public final class V1beta1Apps {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -17142,6 +17556,7 @@ public final class V1beta1Apps {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -17159,6 +17574,7 @@ public final class V1beta1Apps {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -17307,6 +17723,7 @@ public final class V1beta1Apps {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -17314,6 +17731,7 @@ public final class V1beta1Apps {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apps.ScaleStatus prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -17363,6 +17781,7 @@ public final class V1beta1Apps {
                 "Invalid map field number: " + number);
         }
       }
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_ScaleStatus_fieldAccessorTable
@@ -17385,6 +17804,7 @@ public final class V1beta1Apps {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         replicas_ = 0;
@@ -17395,15 +17815,18 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_ScaleStatus_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.ScaleStatus getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apps.ScaleStatus.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.ScaleStatus build() {
         io.kubernetes.client.proto.V1beta1Apps.ScaleStatus result = buildPartial();
         if (!result.isInitialized()) {
@@ -17412,6 +17835,7 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.ScaleStatus buildPartial() {
         io.kubernetes.client.proto.V1beta1Apps.ScaleStatus result = new io.kubernetes.client.proto.V1beta1Apps.ScaleStatus(this);
         int from_bitField0_ = bitField0_;
@@ -17431,32 +17855,39 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apps.ScaleStatus) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apps.ScaleStatus)other);
@@ -17483,10 +17914,12 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -17847,11 +18280,13 @@ public final class V1beta1Apps {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -17873,11 +18308,12 @@ public final class V1beta1Apps {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<ScaleStatus>
         PARSER = new com.google.protobuf.AbstractParser<ScaleStatus>() {
+      @java.lang.Override
       public ScaleStatus parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ScaleStatus(input, extensionRegistry);
+        return new ScaleStatus(input, extensionRegistry);
       }
     };
 
@@ -17890,6 +18326,7 @@ public final class V1beta1Apps {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apps.ScaleStatus getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -18020,6 +18457,9 @@ public final class V1beta1Apps {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -18031,13 +18471,6 @@ public final class V1beta1Apps {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -18077,6 +18510,13 @@ public final class V1beta1Apps {
               bitField0_ |= 0x00000004;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -18094,6 +18534,7 @@ public final class V1beta1Apps {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSet_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSet_fieldAccessorTable
@@ -18211,6 +18652,7 @@ public final class V1beta1Apps {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -18220,6 +18662,7 @@ public final class V1beta1Apps {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -18234,6 +18677,7 @@ public final class V1beta1Apps {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -18380,6 +18824,7 @@ public final class V1beta1Apps {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -18387,6 +18832,7 @@ public final class V1beta1Apps {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apps.StatefulSet prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -18421,6 +18867,7 @@ public final class V1beta1Apps {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSet_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSet_fieldAccessorTable
@@ -18446,6 +18893,7 @@ public final class V1beta1Apps {
           getStatusFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -18469,15 +18917,18 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSet_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.StatefulSet getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apps.StatefulSet.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.StatefulSet build() {
         io.kubernetes.client.proto.V1beta1Apps.StatefulSet result = buildPartial();
         if (!result.isInitialized()) {
@@ -18486,6 +18937,7 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.StatefulSet buildPartial() {
         io.kubernetes.client.proto.V1beta1Apps.StatefulSet result = new io.kubernetes.client.proto.V1beta1Apps.StatefulSet(this);
         int from_bitField0_ = bitField0_;
@@ -18519,32 +18971,39 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apps.StatefulSet) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apps.StatefulSet)other);
@@ -18570,10 +19029,12 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -19081,11 +19542,13 @@ public final class V1beta1Apps {
         }
         return statusBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -19107,11 +19570,12 @@ public final class V1beta1Apps {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<StatefulSet>
         PARSER = new com.google.protobuf.AbstractParser<StatefulSet>() {
+      @java.lang.Override
       public StatefulSet parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new StatefulSet(input, extensionRegistry);
+        return new StatefulSet(input, extensionRegistry);
       }
     };
 
@@ -19124,7 +19588,1584 @@ public final class V1beta1Apps {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apps.StatefulSet getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface StatefulSetConditionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.apps.v1beta1.StatefulSetCondition)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Type of statefulset condition.
+     * </pre>
+     *
+     * <code>optional string type = 1;</code>
+     */
+    boolean hasType();
+    /**
+     * <pre>
+     * Type of statefulset condition.
+     * </pre>
+     *
+     * <code>optional string type = 1;</code>
+     */
+    java.lang.String getType();
+    /**
+     * <pre>
+     * Type of statefulset condition.
+     * </pre>
+     *
+     * <code>optional string type = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getTypeBytes();
+
+    /**
+     * <pre>
+     * Status of the condition, one of True, False, Unknown.
+     * </pre>
+     *
+     * <code>optional string status = 2;</code>
+     */
+    boolean hasStatus();
+    /**
+     * <pre>
+     * Status of the condition, one of True, False, Unknown.
+     * </pre>
+     *
+     * <code>optional string status = 2;</code>
+     */
+    java.lang.String getStatus();
+    /**
+     * <pre>
+     * Status of the condition, one of True, False, Unknown.
+     * </pre>
+     *
+     * <code>optional string status = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getStatusBytes();
+
+    /**
+     * <pre>
+     * Last time the condition transitioned from one status to another.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
+     */
+    boolean hasLastTransitionTime();
+    /**
+     * <pre>
+     * Last time the condition transitioned from one status to another.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
+     */
+    io.kubernetes.client.proto.Meta.Time getLastTransitionTime();
+    /**
+     * <pre>
+     * Last time the condition transitioned from one status to another.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
+     */
+    io.kubernetes.client.proto.Meta.TimeOrBuilder getLastTransitionTimeOrBuilder();
+
+    /**
+     * <pre>
+     * The reason for the condition's last transition.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string reason = 4;</code>
+     */
+    boolean hasReason();
+    /**
+     * <pre>
+     * The reason for the condition's last transition.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string reason = 4;</code>
+     */
+    java.lang.String getReason();
+    /**
+     * <pre>
+     * The reason for the condition's last transition.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string reason = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getReasonBytes();
+
+    /**
+     * <pre>
+     * A human readable message indicating details about the transition.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string message = 5;</code>
+     */
+    boolean hasMessage();
+    /**
+     * <pre>
+     * A human readable message indicating details about the transition.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string message = 5;</code>
+     */
+    java.lang.String getMessage();
+    /**
+     * <pre>
+     * A human readable message indicating details about the transition.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string message = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getMessageBytes();
+  }
+  /**
+   * <pre>
+   * StatefulSetCondition describes the state of a statefulset at a certain point.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.apps.v1beta1.StatefulSetCondition}
+   */
+  public  static final class StatefulSetCondition extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.apps.v1beta1.StatefulSetCondition)
+      StatefulSetConditionOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use StatefulSetCondition.newBuilder() to construct.
+    private StatefulSetCondition(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private StatefulSetCondition() {
+      type_ = "";
+      status_ = "";
+      reason_ = "";
+      message_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private StatefulSetCondition(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              type_ = bs;
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              status_ = bs;
+              break;
+            }
+            case 26: {
+              io.kubernetes.client.proto.Meta.Time.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                subBuilder = lastTransitionTime_.toBuilder();
+              }
+              lastTransitionTime_ = input.readMessage(io.kubernetes.client.proto.Meta.Time.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(lastTransitionTime_);
+                lastTransitionTime_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
+              break;
+            }
+            case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000008;
+              reason_ = bs;
+              break;
+            }
+            case 42: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000010;
+              message_ = bs;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSetCondition_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSetCondition_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition.class, io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int TYPE_FIELD_NUMBER = 1;
+    private volatile java.lang.Object type_;
+    /**
+     * <pre>
+     * Type of statefulset condition.
+     * </pre>
+     *
+     * <code>optional string type = 1;</code>
+     */
+    public boolean hasType() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * Type of statefulset condition.
+     * </pre>
+     *
+     * <code>optional string type = 1;</code>
+     */
+    public java.lang.String getType() {
+      java.lang.Object ref = type_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          type_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Type of statefulset condition.
+     * </pre>
+     *
+     * <code>optional string type = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTypeBytes() {
+      java.lang.Object ref = type_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        type_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int STATUS_FIELD_NUMBER = 2;
+    private volatile java.lang.Object status_;
+    /**
+     * <pre>
+     * Status of the condition, one of True, False, Unknown.
+     * </pre>
+     *
+     * <code>optional string status = 2;</code>
+     */
+    public boolean hasStatus() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * Status of the condition, one of True, False, Unknown.
+     * </pre>
+     *
+     * <code>optional string status = 2;</code>
+     */
+    public java.lang.String getStatus() {
+      java.lang.Object ref = status_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          status_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Status of the condition, one of True, False, Unknown.
+     * </pre>
+     *
+     * <code>optional string status = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getStatusBytes() {
+      java.lang.Object ref = status_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        status_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int LASTTRANSITIONTIME_FIELD_NUMBER = 3;
+    private io.kubernetes.client.proto.Meta.Time lastTransitionTime_;
+    /**
+     * <pre>
+     * Last time the condition transitioned from one status to another.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
+     */
+    public boolean hasLastTransitionTime() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     * Last time the condition transitioned from one status to another.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
+     */
+    public io.kubernetes.client.proto.Meta.Time getLastTransitionTime() {
+      return lastTransitionTime_ == null ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance() : lastTransitionTime_;
+    }
+    /**
+     * <pre>
+     * Last time the condition transitioned from one status to another.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
+     */
+    public io.kubernetes.client.proto.Meta.TimeOrBuilder getLastTransitionTimeOrBuilder() {
+      return lastTransitionTime_ == null ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance() : lastTransitionTime_;
+    }
+
+    public static final int REASON_FIELD_NUMBER = 4;
+    private volatile java.lang.Object reason_;
+    /**
+     * <pre>
+     * The reason for the condition's last transition.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string reason = 4;</code>
+     */
+    public boolean hasReason() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     * The reason for the condition's last transition.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string reason = 4;</code>
+     */
+    public java.lang.String getReason() {
+      java.lang.Object ref = reason_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          reason_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The reason for the condition's last transition.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string reason = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getReasonBytes() {
+      java.lang.Object ref = reason_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        reason_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int MESSAGE_FIELD_NUMBER = 5;
+    private volatile java.lang.Object message_;
+    /**
+     * <pre>
+     * A human readable message indicating details about the transition.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string message = 5;</code>
+     */
+    public boolean hasMessage() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <pre>
+     * A human readable message indicating details about the transition.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string message = 5;</code>
+     */
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          message_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * A human readable message indicating details about the transition.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string message = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMessageBytes() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        message_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, type_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, status_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeMessage(3, getLastTransitionTime());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, reason_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, message_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, type_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, status_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getLastTransitionTime());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, reason_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, message_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition other = (io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition) obj;
+
+      boolean result = true;
+      result = result && (hasType() == other.hasType());
+      if (hasType()) {
+        result = result && getType()
+            .equals(other.getType());
+      }
+      result = result && (hasStatus() == other.hasStatus());
+      if (hasStatus()) {
+        result = result && getStatus()
+            .equals(other.getStatus());
+      }
+      result = result && (hasLastTransitionTime() == other.hasLastTransitionTime());
+      if (hasLastTransitionTime()) {
+        result = result && getLastTransitionTime()
+            .equals(other.getLastTransitionTime());
+      }
+      result = result && (hasReason() == other.hasReason());
+      if (hasReason()) {
+        result = result && getReason()
+            .equals(other.getReason());
+      }
+      result = result && (hasMessage() == other.hasMessage());
+      if (hasMessage()) {
+        result = result && getMessage()
+            .equals(other.getMessage());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasType()) {
+        hash = (37 * hash) + TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getType().hashCode();
+      }
+      if (hasStatus()) {
+        hash = (37 * hash) + STATUS_FIELD_NUMBER;
+        hash = (53 * hash) + getStatus().hashCode();
+      }
+      if (hasLastTransitionTime()) {
+        hash = (37 * hash) + LASTTRANSITIONTIME_FIELD_NUMBER;
+        hash = (53 * hash) + getLastTransitionTime().hashCode();
+      }
+      if (hasReason()) {
+        hash = (37 * hash) + REASON_FIELD_NUMBER;
+        hash = (53 * hash) + getReason().hashCode();
+      }
+      if (hasMessage()) {
+        hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+        hash = (53 * hash) + getMessage().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * StatefulSetCondition describes the state of a statefulset at a certain point.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.apps.v1beta1.StatefulSetCondition}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.apps.v1beta1.StatefulSetCondition)
+        io.kubernetes.client.proto.V1beta1Apps.StatefulSetConditionOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSetCondition_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSetCondition_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition.class, io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getLastTransitionTimeFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        type_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        status_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (lastTransitionTimeBuilder_ == null) {
+          lastTransitionTime_ = null;
+        } else {
+          lastTransitionTimeBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        reason_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
+        message_ = "";
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSetCondition_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition build() {
+        io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition buildPartial() {
+        io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition result = new io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.type_ = type_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.status_ = status_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        if (lastTransitionTimeBuilder_ == null) {
+          result.lastTransitionTime_ = lastTransitionTime_;
+        } else {
+          result.lastTransitionTime_ = lastTransitionTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.reason_ = reason_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.message_ = message_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition) {
+          return mergeFrom((io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition other) {
+        if (other == io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition.getDefaultInstance()) return this;
+        if (other.hasType()) {
+          bitField0_ |= 0x00000001;
+          type_ = other.type_;
+          onChanged();
+        }
+        if (other.hasStatus()) {
+          bitField0_ |= 0x00000002;
+          status_ = other.status_;
+          onChanged();
+        }
+        if (other.hasLastTransitionTime()) {
+          mergeLastTransitionTime(other.getLastTransitionTime());
+        }
+        if (other.hasReason()) {
+          bitField0_ |= 0x00000008;
+          reason_ = other.reason_;
+          onChanged();
+        }
+        if (other.hasMessage()) {
+          bitField0_ |= 0x00000010;
+          message_ = other.message_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object type_ = "";
+      /**
+       * <pre>
+       * Type of statefulset condition.
+       * </pre>
+       *
+       * <code>optional string type = 1;</code>
+       */
+      public boolean hasType() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * Type of statefulset condition.
+       * </pre>
+       *
+       * <code>optional string type = 1;</code>
+       */
+      public java.lang.String getType() {
+        java.lang.Object ref = type_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            type_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Type of statefulset condition.
+       * </pre>
+       *
+       * <code>optional string type = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTypeBytes() {
+        java.lang.Object ref = type_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          type_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Type of statefulset condition.
+       * </pre>
+       *
+       * <code>optional string type = 1;</code>
+       */
+      public Builder setType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Type of statefulset condition.
+       * </pre>
+       *
+       * <code>optional string type = 1;</code>
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        type_ = getDefaultInstance().getType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Type of statefulset condition.
+       * </pre>
+       *
+       * <code>optional string type = 1;</code>
+       */
+      public Builder setTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        type_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object status_ = "";
+      /**
+       * <pre>
+       * Status of the condition, one of True, False, Unknown.
+       * </pre>
+       *
+       * <code>optional string status = 2;</code>
+       */
+      public boolean hasStatus() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * Status of the condition, one of True, False, Unknown.
+       * </pre>
+       *
+       * <code>optional string status = 2;</code>
+       */
+      public java.lang.String getStatus() {
+        java.lang.Object ref = status_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            status_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Status of the condition, one of True, False, Unknown.
+       * </pre>
+       *
+       * <code>optional string status = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getStatusBytes() {
+        java.lang.Object ref = status_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          status_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Status of the condition, one of True, False, Unknown.
+       * </pre>
+       *
+       * <code>optional string status = 2;</code>
+       */
+      public Builder setStatus(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        status_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Status of the condition, one of True, False, Unknown.
+       * </pre>
+       *
+       * <code>optional string status = 2;</code>
+       */
+      public Builder clearStatus() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        status_ = getDefaultInstance().getStatus();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Status of the condition, one of True, False, Unknown.
+       * </pre>
+       *
+       * <code>optional string status = 2;</code>
+       */
+      public Builder setStatusBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        status_ = value;
+        onChanged();
+        return this;
+      }
+
+      private io.kubernetes.client.proto.Meta.Time lastTransitionTime_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Meta.Time, io.kubernetes.client.proto.Meta.Time.Builder, io.kubernetes.client.proto.Meta.TimeOrBuilder> lastTransitionTimeBuilder_;
+      /**
+       * <pre>
+       * Last time the condition transitioned from one status to another.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
+       */
+      public boolean hasLastTransitionTime() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * Last time the condition transitioned from one status to another.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
+       */
+      public io.kubernetes.client.proto.Meta.Time getLastTransitionTime() {
+        if (lastTransitionTimeBuilder_ == null) {
+          return lastTransitionTime_ == null ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance() : lastTransitionTime_;
+        } else {
+          return lastTransitionTimeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Last time the condition transitioned from one status to another.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
+       */
+      public Builder setLastTransitionTime(io.kubernetes.client.proto.Meta.Time value) {
+        if (lastTransitionTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          lastTransitionTime_ = value;
+          onChanged();
+        } else {
+          lastTransitionTimeBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * Last time the condition transitioned from one status to another.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
+       */
+      public Builder setLastTransitionTime(
+          io.kubernetes.client.proto.Meta.Time.Builder builderForValue) {
+        if (lastTransitionTimeBuilder_ == null) {
+          lastTransitionTime_ = builderForValue.build();
+          onChanged();
+        } else {
+          lastTransitionTimeBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * Last time the condition transitioned from one status to another.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
+       */
+      public Builder mergeLastTransitionTime(io.kubernetes.client.proto.Meta.Time value) {
+        if (lastTransitionTimeBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+              lastTransitionTime_ != null &&
+              lastTransitionTime_ != io.kubernetes.client.proto.Meta.Time.getDefaultInstance()) {
+            lastTransitionTime_ =
+              io.kubernetes.client.proto.Meta.Time.newBuilder(lastTransitionTime_).mergeFrom(value).buildPartial();
+          } else {
+            lastTransitionTime_ = value;
+          }
+          onChanged();
+        } else {
+          lastTransitionTimeBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * Last time the condition transitioned from one status to another.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
+       */
+      public Builder clearLastTransitionTime() {
+        if (lastTransitionTimeBuilder_ == null) {
+          lastTransitionTime_ = null;
+          onChanged();
+        } else {
+          lastTransitionTimeBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       * <pre>
+       * Last time the condition transitioned from one status to another.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
+       */
+      public io.kubernetes.client.proto.Meta.Time.Builder getLastTransitionTimeBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getLastTransitionTimeFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Last time the condition transitioned from one status to another.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
+       */
+      public io.kubernetes.client.proto.Meta.TimeOrBuilder getLastTransitionTimeOrBuilder() {
+        if (lastTransitionTimeBuilder_ != null) {
+          return lastTransitionTimeBuilder_.getMessageOrBuilder();
+        } else {
+          return lastTransitionTime_ == null ?
+              io.kubernetes.client.proto.Meta.Time.getDefaultInstance() : lastTransitionTime_;
+        }
+      }
+      /**
+       * <pre>
+       * Last time the condition transitioned from one status to another.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Meta.Time, io.kubernetes.client.proto.Meta.Time.Builder, io.kubernetes.client.proto.Meta.TimeOrBuilder> 
+          getLastTransitionTimeFieldBuilder() {
+        if (lastTransitionTimeBuilder_ == null) {
+          lastTransitionTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.Time, io.kubernetes.client.proto.Meta.Time.Builder, io.kubernetes.client.proto.Meta.TimeOrBuilder>(
+                  getLastTransitionTime(),
+                  getParentForChildren(),
+                  isClean());
+          lastTransitionTime_ = null;
+        }
+        return lastTransitionTimeBuilder_;
+      }
+
+      private java.lang.Object reason_ = "";
+      /**
+       * <pre>
+       * The reason for the condition's last transition.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string reason = 4;</code>
+       */
+      public boolean hasReason() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <pre>
+       * The reason for the condition's last transition.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string reason = 4;</code>
+       */
+      public java.lang.String getReason() {
+        java.lang.Object ref = reason_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            reason_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The reason for the condition's last transition.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string reason = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getReasonBytes() {
+        java.lang.Object ref = reason_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          reason_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The reason for the condition's last transition.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string reason = 4;</code>
+       */
+      public Builder setReason(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        reason_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The reason for the condition's last transition.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string reason = 4;</code>
+       */
+      public Builder clearReason() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        reason_ = getDefaultInstance().getReason();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The reason for the condition's last transition.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string reason = 4;</code>
+       */
+      public Builder setReasonBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        reason_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object message_ = "";
+      /**
+       * <pre>
+       * A human readable message indicating details about the transition.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string message = 5;</code>
+       */
+      public boolean hasMessage() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <pre>
+       * A human readable message indicating details about the transition.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string message = 5;</code>
+       */
+      public java.lang.String getMessage() {
+        java.lang.Object ref = message_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            message_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * A human readable message indicating details about the transition.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string message = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMessageBytes() {
+        java.lang.Object ref = message_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          message_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * A human readable message indicating details about the transition.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string message = 5;</code>
+       */
+      public Builder setMessage(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        message_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * A human readable message indicating details about the transition.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string message = 5;</code>
+       */
+      public Builder clearMessage() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        message_ = getDefaultInstance().getMessage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * A human readable message indicating details about the transition.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string message = 5;</code>
+       */
+      public Builder setMessageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        message_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.apps.v1beta1.StatefulSetCondition)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.apps.v1beta1.StatefulSetCondition)
+    private static final io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition();
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<StatefulSetCondition>
+        PARSER = new com.google.protobuf.AbstractParser<StatefulSetCondition>() {
+      @java.lang.Override
+      public StatefulSetCondition parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new StatefulSetCondition(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<StatefulSetCondition> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<StatefulSetCondition> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -19213,6 +21254,9 @@ public final class V1beta1Apps {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -19224,13 +21268,6 @@ public final class V1beta1Apps {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ListMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -19253,6 +21290,13 @@ public final class V1beta1Apps {
                   input.readMessage(io.kubernetes.client.proto.V1beta1Apps.StatefulSet.PARSER, extensionRegistry));
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -19273,6 +21317,7 @@ public final class V1beta1Apps {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSetList_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSetList_fieldAccessorTable
@@ -19350,6 +21395,7 @@ public final class V1beta1Apps {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -19359,6 +21405,7 @@ public final class V1beta1Apps {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -19370,6 +21417,7 @@ public final class V1beta1Apps {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -19500,6 +21548,7 @@ public final class V1beta1Apps {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -19507,6 +21556,7 @@ public final class V1beta1Apps {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apps.StatefulSetList prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -19534,6 +21584,7 @@ public final class V1beta1Apps {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSetList_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSetList_fieldAccessorTable
@@ -19558,6 +21609,7 @@ public final class V1beta1Apps {
           getItemsFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -19575,15 +21627,18 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSetList_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.StatefulSetList getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apps.StatefulSetList.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.StatefulSetList build() {
         io.kubernetes.client.proto.V1beta1Apps.StatefulSetList result = buildPartial();
         if (!result.isInitialized()) {
@@ -19592,6 +21647,7 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.StatefulSetList buildPartial() {
         io.kubernetes.client.proto.V1beta1Apps.StatefulSetList result = new io.kubernetes.client.proto.V1beta1Apps.StatefulSetList(this);
         int from_bitField0_ = bitField0_;
@@ -19618,32 +21674,39 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apps.StatefulSetList) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apps.StatefulSetList)other);
@@ -19689,10 +21752,12 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -20105,11 +22170,13 @@ public final class V1beta1Apps {
         }
         return itemsBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -20131,11 +22198,12 @@ public final class V1beta1Apps {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<StatefulSetList>
         PARSER = new com.google.protobuf.AbstractParser<StatefulSetList>() {
+      @java.lang.Override
       public StatefulSetList parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new StatefulSetList(input, extensionRegistry);
+        return new StatefulSetList(input, extensionRegistry);
       }
     };
 
@@ -20148,6 +22216,7 @@ public final class V1beta1Apps {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apps.StatefulSetList getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -20508,6 +22577,9 @@ public final class V1beta1Apps {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -20519,13 +22591,6 @@ public final class V1beta1Apps {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               bitField0_ |= 0x00000001;
               replicas_ = input.readInt32();
@@ -20596,6 +22661,13 @@ public final class V1beta1Apps {
               revisionHistoryLimit_ = input.readInt32();
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -20616,6 +22688,7 @@ public final class V1beta1Apps {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSetSpec_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSetSpec_fieldAccessorTable
@@ -21044,6 +23117,7 @@ public final class V1beta1Apps {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -21053,6 +23127,7 @@ public final class V1beta1Apps {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -21082,6 +23157,7 @@ public final class V1beta1Apps {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -21288,6 +23364,7 @@ public final class V1beta1Apps {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -21295,6 +23372,7 @@ public final class V1beta1Apps {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apps.StatefulSetSpec prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -21322,6 +23400,7 @@ public final class V1beta1Apps {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSetSpec_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSetSpec_fieldAccessorTable
@@ -21348,6 +23427,7 @@ public final class V1beta1Apps {
           getUpdateStrategyFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         replicas_ = 0;
@@ -21385,15 +23465,18 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSetSpec_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.StatefulSetSpec getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apps.StatefulSetSpec.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.StatefulSetSpec build() {
         io.kubernetes.client.proto.V1beta1Apps.StatefulSetSpec result = buildPartial();
         if (!result.isInitialized()) {
@@ -21402,6 +23485,7 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.StatefulSetSpec buildPartial() {
         io.kubernetes.client.proto.V1beta1Apps.StatefulSetSpec result = new io.kubernetes.client.proto.V1beta1Apps.StatefulSetSpec(this);
         int from_bitField0_ = bitField0_;
@@ -21460,32 +23544,39 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apps.StatefulSetSpec) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apps.StatefulSetSpec)other);
@@ -21553,10 +23644,12 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -22947,11 +25040,13 @@ public final class V1beta1Apps {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -22973,11 +25068,12 @@ public final class V1beta1Apps {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<StatefulSetSpec>
         PARSER = new com.google.protobuf.AbstractParser<StatefulSetSpec>() {
+      @java.lang.Override
       public StatefulSetSpec parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new StatefulSetSpec(input, extensionRegistry);
+        return new StatefulSetSpec(input, extensionRegistry);
       }
     };
 
@@ -22990,6 +25086,7 @@ public final class V1beta1Apps {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apps.StatefulSetSpec getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -23173,6 +25270,65 @@ public final class V1beta1Apps {
      * <code>optional int32 collisionCount = 9;</code>
      */
     int getCollisionCount();
+
+    /**
+     * <pre>
+     * Represents the latest available observations of a statefulset's current state.
+     * +optional
+     * +patchMergeKey=type
+     * +patchStrategy=merge
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+     */
+    java.util.List<io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition> 
+        getConditionsList();
+    /**
+     * <pre>
+     * Represents the latest available observations of a statefulset's current state.
+     * +optional
+     * +patchMergeKey=type
+     * +patchStrategy=merge
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition getConditions(int index);
+    /**
+     * <pre>
+     * Represents the latest available observations of a statefulset's current state.
+     * +optional
+     * +patchMergeKey=type
+     * +patchStrategy=merge
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+     */
+    int getConditionsCount();
+    /**
+     * <pre>
+     * Represents the latest available observations of a statefulset's current state.
+     * +optional
+     * +patchMergeKey=type
+     * +patchStrategy=merge
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+     */
+    java.util.List<? extends io.kubernetes.client.proto.V1beta1Apps.StatefulSetConditionOrBuilder> 
+        getConditionsOrBuilderList();
+    /**
+     * <pre>
+     * Represents the latest available observations of a statefulset's current state.
+     * +optional
+     * +patchMergeKey=type
+     * +patchStrategy=merge
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Apps.StatefulSetConditionOrBuilder getConditionsOrBuilder(
+        int index);
   }
   /**
    * <pre>
@@ -23199,6 +25355,7 @@ public final class V1beta1Apps {
       currentRevision_ = "";
       updateRevision_ = "";
       collisionCount_ = 0;
+      conditions_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -23211,6 +25368,9 @@ public final class V1beta1Apps {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -23222,13 +25382,6 @@ public final class V1beta1Apps {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               bitField0_ |= 0x00000001;
               observedGeneration_ = input.readInt64();
@@ -23271,6 +25424,22 @@ public final class V1beta1Apps {
               collisionCount_ = input.readInt32();
               break;
             }
+            case 82: {
+              if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+                conditions_ = new java.util.ArrayList<io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition>();
+                mutable_bitField0_ |= 0x00000100;
+              }
+              conditions_.add(
+                  input.readMessage(io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition.PARSER, extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -23279,6 +25448,9 @@ public final class V1beta1Apps {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+          conditions_ = java.util.Collections.unmodifiableList(conditions_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -23288,6 +25460,7 @@ public final class V1beta1Apps {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSetStatus_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSetStatus_fieldAccessorTable
@@ -23562,7 +25735,78 @@ public final class V1beta1Apps {
       return collisionCount_;
     }
 
+    public static final int CONDITIONS_FIELD_NUMBER = 10;
+    private java.util.List<io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition> conditions_;
+    /**
+     * <pre>
+     * Represents the latest available observations of a statefulset's current state.
+     * +optional
+     * +patchMergeKey=type
+     * +patchStrategy=merge
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+     */
+    public java.util.List<io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition> getConditionsList() {
+      return conditions_;
+    }
+    /**
+     * <pre>
+     * Represents the latest available observations of a statefulset's current state.
+     * +optional
+     * +patchMergeKey=type
+     * +patchStrategy=merge
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+     */
+    public java.util.List<? extends io.kubernetes.client.proto.V1beta1Apps.StatefulSetConditionOrBuilder> 
+        getConditionsOrBuilderList() {
+      return conditions_;
+    }
+    /**
+     * <pre>
+     * Represents the latest available observations of a statefulset's current state.
+     * +optional
+     * +patchMergeKey=type
+     * +patchStrategy=merge
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+     */
+    public int getConditionsCount() {
+      return conditions_.size();
+    }
+    /**
+     * <pre>
+     * Represents the latest available observations of a statefulset's current state.
+     * +optional
+     * +patchMergeKey=type
+     * +patchStrategy=merge
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition getConditions(int index) {
+      return conditions_.get(index);
+    }
+    /**
+     * <pre>
+     * Represents the latest available observations of a statefulset's current state.
+     * +optional
+     * +patchMergeKey=type
+     * +patchStrategy=merge
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Apps.StatefulSetConditionOrBuilder getConditionsOrBuilder(
+        int index) {
+      return conditions_.get(index);
+    }
+
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -23572,6 +25816,7 @@ public final class V1beta1Apps {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -23598,9 +25843,13 @@ public final class V1beta1Apps {
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         output.writeInt32(9, collisionCount_);
       }
+      for (int i = 0; i < conditions_.size(); i++) {
+        output.writeMessage(10, conditions_.get(i));
+      }
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -23635,6 +25884,10 @@ public final class V1beta1Apps {
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(9, collisionCount_);
+      }
+      for (int i = 0; i < conditions_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(10, conditions_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -23692,6 +25945,8 @@ public final class V1beta1Apps {
         result = result && (getCollisionCount()
             == other.getCollisionCount());
       }
+      result = result && getConditionsList()
+          .equals(other.getConditionsList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -23735,6 +25990,10 @@ public final class V1beta1Apps {
       if (hasCollisionCount()) {
         hash = (37 * hash) + COLLISIONCOUNT_FIELD_NUMBER;
         hash = (53 * hash) + getCollisionCount();
+      }
+      if (getConditionsCount() > 0) {
+        hash = (37 * hash) + CONDITIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getConditionsList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -23811,6 +26070,7 @@ public final class V1beta1Apps {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -23818,6 +26078,7 @@ public final class V1beta1Apps {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apps.StatefulSetStatus prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -23845,6 +26106,7 @@ public final class V1beta1Apps {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSetStatus_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSetStatus_fieldAccessorTable
@@ -23865,8 +26127,10 @@ public final class V1beta1Apps {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getConditionsFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         observedGeneration_ = 0L;
@@ -23885,18 +26149,27 @@ public final class V1beta1Apps {
         bitField0_ = (bitField0_ & ~0x00000040);
         collisionCount_ = 0;
         bitField0_ = (bitField0_ & ~0x00000080);
+        if (conditionsBuilder_ == null) {
+          conditions_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000100);
+        } else {
+          conditionsBuilder_.clear();
+        }
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSetStatus_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.StatefulSetStatus getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apps.StatefulSetStatus.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.StatefulSetStatus build() {
         io.kubernetes.client.proto.V1beta1Apps.StatefulSetStatus result = buildPartial();
         if (!result.isInitialized()) {
@@ -23905,6 +26178,7 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.StatefulSetStatus buildPartial() {
         io.kubernetes.client.proto.V1beta1Apps.StatefulSetStatus result = new io.kubernetes.client.proto.V1beta1Apps.StatefulSetStatus(this);
         int from_bitField0_ = bitField0_;
@@ -23941,37 +26215,53 @@ public final class V1beta1Apps {
           to_bitField0_ |= 0x00000080;
         }
         result.collisionCount_ = collisionCount_;
+        if (conditionsBuilder_ == null) {
+          if (((bitField0_ & 0x00000100) == 0x00000100)) {
+            conditions_ = java.util.Collections.unmodifiableList(conditions_);
+            bitField0_ = (bitField0_ & ~0x00000100);
+          }
+          result.conditions_ = conditions_;
+        } else {
+          result.conditions_ = conditionsBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apps.StatefulSetStatus) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apps.StatefulSetStatus)other);
@@ -24011,15 +26301,43 @@ public final class V1beta1Apps {
         if (other.hasCollisionCount()) {
           setCollisionCount(other.getCollisionCount());
         }
+        if (conditionsBuilder_ == null) {
+          if (!other.conditions_.isEmpty()) {
+            if (conditions_.isEmpty()) {
+              conditions_ = other.conditions_;
+              bitField0_ = (bitField0_ & ~0x00000100);
+            } else {
+              ensureConditionsIsMutable();
+              conditions_.addAll(other.conditions_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.conditions_.isEmpty()) {
+            if (conditionsBuilder_.isEmpty()) {
+              conditionsBuilder_.dispose();
+              conditionsBuilder_ = null;
+              conditions_ = other.conditions_;
+              bitField0_ = (bitField0_ & ~0x00000100);
+              conditionsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getConditionsFieldBuilder() : null;
+            } else {
+              conditionsBuilder_.addAllMessages(other.conditions_);
+            }
+          }
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -24566,11 +26884,379 @@ public final class V1beta1Apps {
         onChanged();
         return this;
       }
+
+      private java.util.List<io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition> conditions_ =
+        java.util.Collections.emptyList();
+      private void ensureConditionsIsMutable() {
+        if (!((bitField0_ & 0x00000100) == 0x00000100)) {
+          conditions_ = new java.util.ArrayList<io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition>(conditions_);
+          bitField0_ |= 0x00000100;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition, io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition.Builder, io.kubernetes.client.proto.V1beta1Apps.StatefulSetConditionOrBuilder> conditionsBuilder_;
+
+      /**
+       * <pre>
+       * Represents the latest available observations of a statefulset's current state.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition> getConditionsList() {
+        if (conditionsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(conditions_);
+        } else {
+          return conditionsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * Represents the latest available observations of a statefulset's current state.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+       */
+      public int getConditionsCount() {
+        if (conditionsBuilder_ == null) {
+          return conditions_.size();
+        } else {
+          return conditionsBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * Represents the latest available observations of a statefulset's current state.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition getConditions(int index) {
+        if (conditionsBuilder_ == null) {
+          return conditions_.get(index);
+        } else {
+          return conditionsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * Represents the latest available observations of a statefulset's current state.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+       */
+      public Builder setConditions(
+          int index, io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition value) {
+        if (conditionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureConditionsIsMutable();
+          conditions_.set(index, value);
+          onChanged();
+        } else {
+          conditionsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Represents the latest available observations of a statefulset's current state.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+       */
+      public Builder setConditions(
+          int index, io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition.Builder builderForValue) {
+        if (conditionsBuilder_ == null) {
+          ensureConditionsIsMutable();
+          conditions_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          conditionsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Represents the latest available observations of a statefulset's current state.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+       */
+      public Builder addConditions(io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition value) {
+        if (conditionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureConditionsIsMutable();
+          conditions_.add(value);
+          onChanged();
+        } else {
+          conditionsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Represents the latest available observations of a statefulset's current state.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+       */
+      public Builder addConditions(
+          int index, io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition value) {
+        if (conditionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureConditionsIsMutable();
+          conditions_.add(index, value);
+          onChanged();
+        } else {
+          conditionsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Represents the latest available observations of a statefulset's current state.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+       */
+      public Builder addConditions(
+          io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition.Builder builderForValue) {
+        if (conditionsBuilder_ == null) {
+          ensureConditionsIsMutable();
+          conditions_.add(builderForValue.build());
+          onChanged();
+        } else {
+          conditionsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Represents the latest available observations of a statefulset's current state.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+       */
+      public Builder addConditions(
+          int index, io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition.Builder builderForValue) {
+        if (conditionsBuilder_ == null) {
+          ensureConditionsIsMutable();
+          conditions_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          conditionsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Represents the latest available observations of a statefulset's current state.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+       */
+      public Builder addAllConditions(
+          java.lang.Iterable<? extends io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition> values) {
+        if (conditionsBuilder_ == null) {
+          ensureConditionsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, conditions_);
+          onChanged();
+        } else {
+          conditionsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Represents the latest available observations of a statefulset's current state.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+       */
+      public Builder clearConditions() {
+        if (conditionsBuilder_ == null) {
+          conditions_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000100);
+          onChanged();
+        } else {
+          conditionsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Represents the latest available observations of a statefulset's current state.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+       */
+      public Builder removeConditions(int index) {
+        if (conditionsBuilder_ == null) {
+          ensureConditionsIsMutable();
+          conditions_.remove(index);
+          onChanged();
+        } else {
+          conditionsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Represents the latest available observations of a statefulset's current state.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition.Builder getConditionsBuilder(
+          int index) {
+        return getConditionsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * Represents the latest available observations of a statefulset's current state.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apps.StatefulSetConditionOrBuilder getConditionsOrBuilder(
+          int index) {
+        if (conditionsBuilder_ == null) {
+          return conditions_.get(index);  } else {
+          return conditionsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * Represents the latest available observations of a statefulset's current state.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+       */
+      public java.util.List<? extends io.kubernetes.client.proto.V1beta1Apps.StatefulSetConditionOrBuilder> 
+           getConditionsOrBuilderList() {
+        if (conditionsBuilder_ != null) {
+          return conditionsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(conditions_);
+        }
+      }
+      /**
+       * <pre>
+       * Represents the latest available observations of a statefulset's current state.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition.Builder addConditionsBuilder() {
+        return getConditionsFieldBuilder().addBuilder(
+            io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Represents the latest available observations of a statefulset's current state.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition.Builder addConditionsBuilder(
+          int index) {
+        return getConditionsFieldBuilder().addBuilder(
+            index, io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Represents the latest available observations of a statefulset's current state.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.apps.v1beta1.StatefulSetCondition conditions = 10;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition.Builder> 
+           getConditionsBuilderList() {
+        return getConditionsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition, io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition.Builder, io.kubernetes.client.proto.V1beta1Apps.StatefulSetConditionOrBuilder> 
+          getConditionsFieldBuilder() {
+        if (conditionsBuilder_ == null) {
+          conditionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition, io.kubernetes.client.proto.V1beta1Apps.StatefulSetCondition.Builder, io.kubernetes.client.proto.V1beta1Apps.StatefulSetConditionOrBuilder>(
+                  conditions_,
+                  ((bitField0_ & 0x00000100) == 0x00000100),
+                  getParentForChildren(),
+                  isClean());
+          conditions_ = null;
+        }
+        return conditionsBuilder_;
+      }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -24592,11 +27278,12 @@ public final class V1beta1Apps {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<StatefulSetStatus>
         PARSER = new com.google.protobuf.AbstractParser<StatefulSetStatus>() {
+      @java.lang.Override
       public StatefulSetStatus parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new StatefulSetStatus(input, extensionRegistry);
+        return new StatefulSetStatus(input, extensionRegistry);
       }
     };
 
@@ -24609,6 +27296,7 @@ public final class V1beta1Apps {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apps.StatefulSetStatus getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -24702,6 +27390,9 @@ public final class V1beta1Apps {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -24713,13 +27404,6 @@ public final class V1beta1Apps {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -24739,6 +27423,13 @@ public final class V1beta1Apps {
               bitField0_ |= 0x00000002;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -24756,6 +27447,7 @@ public final class V1beta1Apps {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSetUpdateStrategy_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSetUpdateStrategy_fieldAccessorTable
@@ -24852,6 +27544,7 @@ public final class V1beta1Apps {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -24861,6 +27554,7 @@ public final class V1beta1Apps {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -24872,6 +27566,7 @@ public final class V1beta1Apps {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -25004,6 +27699,7 @@ public final class V1beta1Apps {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -25011,6 +27707,7 @@ public final class V1beta1Apps {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Apps.StatefulSetUpdateStrategy prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -25040,6 +27737,7 @@ public final class V1beta1Apps {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSetUpdateStrategy_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSetUpdateStrategy_fieldAccessorTable
@@ -25063,6 +27761,7 @@ public final class V1beta1Apps {
           getRollingUpdateFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         type_ = "";
@@ -25076,15 +27775,18 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Apps.internal_static_k8s_io_api_apps_v1beta1_StatefulSetUpdateStrategy_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.StatefulSetUpdateStrategy getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Apps.StatefulSetUpdateStrategy.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.StatefulSetUpdateStrategy build() {
         io.kubernetes.client.proto.V1beta1Apps.StatefulSetUpdateStrategy result = buildPartial();
         if (!result.isInitialized()) {
@@ -25093,6 +27795,7 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Apps.StatefulSetUpdateStrategy buildPartial() {
         io.kubernetes.client.proto.V1beta1Apps.StatefulSetUpdateStrategy result = new io.kubernetes.client.proto.V1beta1Apps.StatefulSetUpdateStrategy(this);
         int from_bitField0_ = bitField0_;
@@ -25114,32 +27817,39 @@ public final class V1beta1Apps {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Apps.StatefulSetUpdateStrategy) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Apps.StatefulSetUpdateStrategy)other);
@@ -25164,10 +27874,12 @@ public final class V1beta1Apps {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -25440,11 +28152,13 @@ public final class V1beta1Apps {
         }
         return rollingUpdateBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -25466,11 +28180,12 @@ public final class V1beta1Apps {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<StatefulSetUpdateStrategy>
         PARSER = new com.google.protobuf.AbstractParser<StatefulSetUpdateStrategy>() {
+      @java.lang.Override
       public StatefulSetUpdateStrategy parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new StatefulSetUpdateStrategy(input, extensionRegistry);
+        return new StatefulSetUpdateStrategy(input, extensionRegistry);
       }
     };
 
@@ -25483,6 +28198,7 @@ public final class V1beta1Apps {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Apps.StatefulSetUpdateStrategy getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -25580,6 +28296,11 @@ public final class V1beta1Apps {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_apps_v1beta1_StatefulSet_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_k8s_io_api_apps_v1beta1_StatefulSetCondition_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_apps_v1beta1_StatefulSetCondition_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_k8s_io_api_apps_v1beta1_StatefulSetList_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -25610,105 +28331,110 @@ public final class V1beta1Apps {
     java.lang.String[] descriptorData = {
       "\n\'k8s.io/api/apps/v1beta1/generated.prot" +
       "o\022\027k8s.io.api.apps.v1beta1\032\"k8s.io/api/c" +
-      "ore/v1/generated.proto\032)k8s.io/api/polic" +
-      "y/v1beta1/generated.proto\0324k8s.io/apimac" +
-      "hinery/pkg/apis/meta/v1/generated.proto\032" +
-      "/k8s.io/apimachinery/pkg/runtime/generat" +
-      "ed.proto\0326k8s.io/apimachinery/pkg/runtim" +
-      "e/schema/generated.proto\0323k8s.io/apimach" +
-      "inery/pkg/util/intstr/generated.proto\"\247\001" +
-      "\n\022ControllerRevision\022B\n\010metadata\030\001 \001(\01320",
-      ".k8s.io.apimachinery.pkg.apis.meta.v1.Ob" +
-      "jectMeta\022;\n\004data\030\002 \001(\0132-.k8s.io.apimachi" +
-      "nery.pkg.runtime.RawExtension\022\020\n\010revisio" +
-      "n\030\003 \001(\003\"\226\001\n\026ControllerRevisionList\022@\n\010me" +
-      "tadata\030\001 \001(\0132..k8s.io.apimachinery.pkg.a" +
-      "pis.meta.v1.ListMeta\022:\n\005items\030\002 \003(\0132+.k8" +
-      "s.io.api.apps.v1beta1.ControllerRevision" +
-      "\"\302\001\n\nDeployment\022B\n\010metadata\030\001 \001(\01320.k8s." +
-      "io.apimachinery.pkg.apis.meta.v1.ObjectM" +
-      "eta\0225\n\004spec\030\002 \001(\0132\'.k8s.io.api.apps.v1be",
-      "ta1.DeploymentSpec\0229\n\006status\030\003 \001(\0132).k8s" +
-      ".io.api.apps.v1beta1.DeploymentStatus\"\340\001" +
-      "\n\023DeploymentCondition\022\014\n\004type\030\001 \001(\t\022\016\n\006s" +
-      "tatus\030\002 \001(\t\022B\n\016lastUpdateTime\030\006 \001(\0132*.k8" +
-      "s.io.apimachinery.pkg.apis.meta.v1.Time\022" +
-      "F\n\022lastTransitionTime\030\007 \001(\0132*.k8s.io.api" +
+      "ore/v1/generated.proto\0324k8s.io/apimachin" +
+      "ery/pkg/apis/meta/v1/generated.proto\032/k8" +
+      "s.io/apimachinery/pkg/runtime/generated." +
+      "proto\0326k8s.io/apimachinery/pkg/runtime/s" +
+      "chema/generated.proto\0323k8s.io/apimachine" +
+      "ry/pkg/util/intstr/generated.proto\"\247\001\n\022C" +
+      "ontrollerRevision\022B\n\010metadata\030\001 \001(\01320.k8" +
+      "s.io.apimachinery.pkg.apis.meta.v1.Objec" +
+      "tMeta\022;\n\004data\030\002 \001(\0132-.k8s.io.apimachiner" +
+      "y.pkg.runtime.RawExtension\022\020\n\010revision\030\003" +
+      " \001(\003\"\226\001\n\026ControllerRevisionList\022@\n\010metad" +
+      "ata\030\001 \001(\0132..k8s.io.apimachinery.pkg.apis" +
+      ".meta.v1.ListMeta\022:\n\005items\030\002 \003(\0132+.k8s.i" +
+      "o.api.apps.v1beta1.ControllerRevision\"\302\001" +
+      "\n\nDeployment\022B\n\010metadata\030\001 \001(\01320.k8s.io." +
+      "apimachinery.pkg.apis.meta.v1.ObjectMeta" +
+      "\0225\n\004spec\030\002 \001(\0132\'.k8s.io.api.apps.v1beta1" +
+      ".DeploymentSpec\0229\n\006status\030\003 \001(\0132).k8s.io" +
+      ".api.apps.v1beta1.DeploymentStatus\"\340\001\n\023D" +
+      "eploymentCondition\022\014\n\004type\030\001 \001(\t\022\016\n\006stat" +
+      "us\030\002 \001(\t\022B\n\016lastUpdateTime\030\006 \001(\0132*.k8s.i" +
+      "o.apimachinery.pkg.apis.meta.v1.Time\022F\n\022" +
+      "lastTransitionTime\030\007 \001(\0132*.k8s.io.apimac" +
+      "hinery.pkg.apis.meta.v1.Time\022\016\n\006reason\030\004" +
+      " \001(\t\022\017\n\007message\030\005 \001(\t\"\206\001\n\016DeploymentList" +
+      "\022@\n\010metadata\030\001 \001(\0132..k8s.io.apimachinery" +
+      ".pkg.apis.meta.v1.ListMeta\0222\n\005items\030\002 \003(" +
+      "\0132#.k8s.io.api.apps.v1beta1.Deployment\"\373" +
+      "\001\n\022DeploymentRollback\022\014\n\004name\030\001 \001(\t\022_\n\022u" +
+      "pdatedAnnotations\030\002 \003(\0132C.k8s.io.api.app" +
+      "s.v1beta1.DeploymentRollback.UpdatedAnno" +
+      "tationsEntry\022;\n\nrollbackTo\030\003 \001(\0132\'.k8s.i" +
+      "o.api.apps.v1beta1.RollbackConfig\0329\n\027Upd" +
+      "atedAnnotationsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
+      "ue\030\002 \001(\t:\0028\001\"\204\003\n\016DeploymentSpec\022\020\n\010repli" +
+      "cas\030\001 \001(\005\022E\n\010selector\030\002 \001(\01323.k8s.io.api" +
+      "machinery.pkg.apis.meta.v1.LabelSelector" +
+      "\0225\n\010template\030\003 \001(\0132#.k8s.io.api.core.v1." +
+      "PodTemplateSpec\022=\n\010strategy\030\004 \001(\0132+.k8s." +
+      "io.api.apps.v1beta1.DeploymentStrategy\022\027" +
+      "\n\017minReadySeconds\030\005 \001(\005\022\034\n\024revisionHisto" +
+      "ryLimit\030\006 \001(\005\022\016\n\006paused\030\007 \001(\010\022;\n\nrollbac" +
+      "kTo\030\010 \001(\0132\'.k8s.io.api.apps.v1beta1.Roll" +
+      "backConfig\022\037\n\027progressDeadlineSeconds\030\t " +
+      "\001(\005\"\202\002\n\020DeploymentStatus\022\032\n\022observedGene" +
+      "ration\030\001 \001(\003\022\020\n\010replicas\030\002 \001(\005\022\027\n\017update" +
+      "dReplicas\030\003 \001(\005\022\025\n\rreadyReplicas\030\007 \001(\005\022\031" +
+      "\n\021availableReplicas\030\004 \001(\005\022\033\n\023unavailable" +
+      "Replicas\030\005 \001(\005\022@\n\nconditions\030\006 \003(\0132,.k8s" +
+      ".io.api.apps.v1beta1.DeploymentCondition" +
+      "\022\026\n\016collisionCount\030\010 \001(\005\"k\n\022DeploymentSt" +
+      "rategy\022\014\n\004type\030\001 \001(\t\022G\n\rrollingUpdate\030\002 " +
+      "\001(\01320.k8s.io.api.apps.v1beta1.RollingUpd" +
+      "ateDeployment\"\"\n\016RollbackConfig\022\020\n\010revis" +
+      "ion\030\001 \001(\003\"\247\001\n\027RollingUpdateDeployment\022H\n" +
+      "\016maxUnavailable\030\001 \001(\01320.k8s.io.apimachin" +
+      "ery.pkg.util.intstr.IntOrString\022B\n\010maxSu" +
+      "rge\030\002 \001(\01320.k8s.io.apimachinery.pkg.util" +
+      ".intstr.IntOrString\"5\n RollingUpdateStat" +
+      "efulSetStrategy\022\021\n\tpartition\030\001 \001(\005\"\263\001\n\005S" +
+      "cale\022B\n\010metadata\030\001 \001(\01320.k8s.io.apimachi" +
+      "nery.pkg.apis.meta.v1.ObjectMeta\0220\n\004spec" +
+      "\030\002 \001(\0132\".k8s.io.api.apps.v1beta1.ScaleSp" +
+      "ec\0224\n\006status\030\003 \001(\0132$.k8s.io.api.apps.v1b" +
+      "eta1.ScaleStatus\"\035\n\tScaleSpec\022\020\n\010replica" +
+      "s\030\001 \001(\005\"\256\001\n\013ScaleStatus\022\020\n\010replicas\030\001 \001(" +
+      "\005\022D\n\010selector\030\002 \003(\01322.k8s.io.api.apps.v1" +
+      "beta1.ScaleStatus.SelectorEntry\022\026\n\016targe" +
+      "tSelector\030\003 \001(\t\032/\n\rSelectorEntry\022\013\n\003key\030" +
+      "\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\305\001\n\013StatefulSet" +
+      "\022B\n\010metadata\030\001 \001(\01320.k8s.io.apimachinery" +
+      ".pkg.apis.meta.v1.ObjectMeta\0226\n\004spec\030\002 \001" +
+      "(\0132(.k8s.io.api.apps.v1beta1.StatefulSet" +
+      "Spec\022:\n\006status\030\003 \001(\0132*.k8s.io.api.apps.v" +
+      "1beta1.StatefulSetStatus\"\235\001\n\024StatefulSet" +
+      "Condition\022\014\n\004type\030\001 \001(\t\022\016\n\006status\030\002 \001(\t\022" +
+      "F\n\022lastTransitionTime\030\003 \001(\0132*.k8s.io.api" +
       "machinery.pkg.apis.meta.v1.Time\022\016\n\006reaso" +
-      "n\030\004 \001(\t\022\017\n\007message\030\005 \001(\t\"\206\001\n\016DeploymentL" +
-      "ist\022@\n\010metadata\030\001 \001(\0132..k8s.io.apimachin" +
-      "ery.pkg.apis.meta.v1.ListMeta\0222\n\005items\030\002",
-      " \003(\0132#.k8s.io.api.apps.v1beta1.Deploymen" +
-      "t\"\373\001\n\022DeploymentRollback\022\014\n\004name\030\001 \001(\t\022_" +
-      "\n\022updatedAnnotations\030\002 \003(\0132C.k8s.io.api." +
-      "apps.v1beta1.DeploymentRollback.UpdatedA" +
-      "nnotationsEntry\022;\n\nrollbackTo\030\003 \001(\0132\'.k8" +
-      "s.io.api.apps.v1beta1.RollbackConfig\0329\n\027" +
-      "UpdatedAnnotationsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005" +
-      "value\030\002 \001(\t:\0028\001\"\204\003\n\016DeploymentSpec\022\020\n\010re" +
-      "plicas\030\001 \001(\005\022E\n\010selector\030\002 \001(\01323.k8s.io." +
-      "apimachinery.pkg.apis.meta.v1.LabelSelec",
-      "tor\0225\n\010template\030\003 \001(\0132#.k8s.io.api.core." +
-      "v1.PodTemplateSpec\022=\n\010strategy\030\004 \001(\0132+.k" +
-      "8s.io.api.apps.v1beta1.DeploymentStrateg" +
-      "y\022\027\n\017minReadySeconds\030\005 \001(\005\022\034\n\024revisionHi" +
-      "storyLimit\030\006 \001(\005\022\016\n\006paused\030\007 \001(\010\022;\n\nroll" +
-      "backTo\030\010 \001(\0132\'.k8s.io.api.apps.v1beta1.R" +
-      "ollbackConfig\022\037\n\027progressDeadlineSeconds" +
-      "\030\t \001(\005\"\202\002\n\020DeploymentStatus\022\032\n\022observedG" +
-      "eneration\030\001 \001(\003\022\020\n\010replicas\030\002 \001(\005\022\027\n\017upd" +
-      "atedReplicas\030\003 \001(\005\022\025\n\rreadyReplicas\030\007 \001(",
-      "\005\022\031\n\021availableReplicas\030\004 \001(\005\022\033\n\023unavaila" +
-      "bleReplicas\030\005 \001(\005\022@\n\nconditions\030\006 \003(\0132,." +
-      "k8s.io.api.apps.v1beta1.DeploymentCondit" +
-      "ion\022\026\n\016collisionCount\030\010 \001(\005\"k\n\022Deploymen" +
-      "tStrategy\022\014\n\004type\030\001 \001(\t\022G\n\rrollingUpdate" +
-      "\030\002 \001(\01320.k8s.io.api.apps.v1beta1.Rolling" +
-      "UpdateDeployment\"\"\n\016RollbackConfig\022\020\n\010re" +
-      "vision\030\001 \001(\003\"\247\001\n\027RollingUpdateDeployment" +
-      "\022H\n\016maxUnavailable\030\001 \001(\01320.k8s.io.apimac" +
-      "hinery.pkg.util.intstr.IntOrString\022B\n\010ma",
-      "xSurge\030\002 \001(\01320.k8s.io.apimachinery.pkg.u" +
-      "til.intstr.IntOrString\"5\n RollingUpdateS" +
-      "tatefulSetStrategy\022\021\n\tpartition\030\001 \001(\005\"\263\001" +
-      "\n\005Scale\022B\n\010metadata\030\001 \001(\01320.k8s.io.apima" +
-      "chinery.pkg.apis.meta.v1.ObjectMeta\0220\n\004s" +
-      "pec\030\002 \001(\0132\".k8s.io.api.apps.v1beta1.Scal" +
-      "eSpec\0224\n\006status\030\003 \001(\0132$.k8s.io.api.apps." +
-      "v1beta1.ScaleStatus\"\035\n\tScaleSpec\022\020\n\010repl" +
-      "icas\030\001 \001(\005\"\256\001\n\013ScaleStatus\022\020\n\010replicas\030\001" +
-      " \001(\005\022D\n\010selector\030\002 \003(\01322.k8s.io.api.apps",
-      ".v1beta1.ScaleStatus.SelectorEntry\022\026\n\016ta" +
-      "rgetSelector\030\003 \001(\t\032/\n\rSelectorEntry\022\013\n\003k" +
-      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\305\001\n\013Stateful" +
-      "Set\022B\n\010metadata\030\001 \001(\01320.k8s.io.apimachin" +
-      "ery.pkg.apis.meta.v1.ObjectMeta\0226\n\004spec\030" +
-      "\002 \001(\0132(.k8s.io.api.apps.v1beta1.Stateful" +
-      "SetSpec\022:\n\006status\030\003 \001(\0132*.k8s.io.api.app" +
-      "s.v1beta1.StatefulSetStatus\"\210\001\n\017Stateful" +
-      "SetList\022@\n\010metadata\030\001 \001(\0132..k8s.io.apima" +
-      "chinery.pkg.apis.meta.v1.ListMeta\0223\n\005ite",
-      "ms\030\002 \003(\0132$.k8s.io.api.apps.v1beta1.State" +
-      "fulSet\"\206\003\n\017StatefulSetSpec\022\020\n\010replicas\030\001" +
-      " \001(\005\022E\n\010selector\030\002 \001(\01323.k8s.io.apimachi" +
-      "nery.pkg.apis.meta.v1.LabelSelector\0225\n\010t" +
-      "emplate\030\003 \001(\0132#.k8s.io.api.core.v1.PodTe" +
-      "mplateSpec\022G\n\024volumeClaimTemplates\030\004 \003(\013" +
-      "2).k8s.io.api.core.v1.PersistentVolumeCl" +
-      "aim\022\023\n\013serviceName\030\005 \001(\t\022\033\n\023podManagemen" +
-      "tPolicy\030\006 \001(\t\022J\n\016updateStrategy\030\007 \001(\01322." +
-      "k8s.io.api.apps.v1beta1.StatefulSetUpdat",
-      "eStrategy\022\034\n\024revisionHistoryLimit\030\010 \001(\005\"" +
-      "\323\001\n\021StatefulSetStatus\022\032\n\022observedGenerat" +
-      "ion\030\001 \001(\003\022\020\n\010replicas\030\002 \001(\005\022\025\n\rreadyRepl" +
-      "icas\030\003 \001(\005\022\027\n\017currentReplicas\030\004 \001(\005\022\027\n\017u" +
-      "pdatedReplicas\030\005 \001(\005\022\027\n\017currentRevision\030" +
-      "\006 \001(\t\022\026\n\016updateRevision\030\007 \001(\t\022\026\n\016collisi" +
-      "onCount\030\t \001(\005\"{\n\031StatefulSetUpdateStrate" +
-      "gy\022\014\n\004type\030\001 \001(\t\022P\n\rrollingUpdate\030\002 \001(\0132" +
-      "9.k8s.io.api.apps.v1beta1.RollingUpdateS" +
-      "tatefulSetStrategyB2\n\032io.kubernetes.clie",
-      "nt.protoB\013V1beta1AppsZ\007v1beta1"
+      "n\030\004 \001(\t\022\017\n\007message\030\005 \001(\t\"\210\001\n\017StatefulSet" +
+      "List\022@\n\010metadata\030\001 \001(\0132..k8s.io.apimachi" +
+      "nery.pkg.apis.meta.v1.ListMeta\0223\n\005items\030" +
+      "\002 \003(\0132$.k8s.io.api.apps.v1beta1.Stateful" +
+      "Set\"\206\003\n\017StatefulSetSpec\022\020\n\010replicas\030\001 \001(" +
+      "\005\022E\n\010selector\030\002 \001(\01323.k8s.io.apimachiner" +
+      "y.pkg.apis.meta.v1.LabelSelector\0225\n\010temp" +
+      "late\030\003 \001(\0132#.k8s.io.api.core.v1.PodTempl" +
+      "ateSpec\022G\n\024volumeClaimTemplates\030\004 \003(\0132)." +
+      "k8s.io.api.core.v1.PersistentVolumeClaim" +
+      "\022\023\n\013serviceName\030\005 \001(\t\022\033\n\023podManagementPo" +
+      "licy\030\006 \001(\t\022J\n\016updateStrategy\030\007 \001(\01322.k8s" +
+      ".io.api.apps.v1beta1.StatefulSetUpdateSt" +
+      "rategy\022\034\n\024revisionHistoryLimit\030\010 \001(\005\"\226\002\n" +
+      "\021StatefulSetStatus\022\032\n\022observedGeneration" +
+      "\030\001 \001(\003\022\020\n\010replicas\030\002 \001(\005\022\025\n\rreadyReplica" +
+      "s\030\003 \001(\005\022\027\n\017currentReplicas\030\004 \001(\005\022\027\n\017upda" +
+      "tedReplicas\030\005 \001(\005\022\027\n\017currentRevision\030\006 \001" +
+      "(\t\022\026\n\016updateRevision\030\007 \001(\t\022\026\n\016collisionC" +
+      "ount\030\t \001(\005\022A\n\nconditions\030\n \003(\0132-.k8s.io." +
+      "api.apps.v1beta1.StatefulSetCondition\"{\n" +
+      "\031StatefulSetUpdateStrategy\022\014\n\004type\030\001 \001(\t" +
+      "\022P\n\rrollingUpdate\030\002 \001(\01329.k8s.io.api.app" +
+      "s.v1beta1.RollingUpdateStatefulSetStrate" +
+      "gyB2\n\032io.kubernetes.client.protoB\013V1beta" +
+      "1AppsZ\007v1beta1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -25722,7 +28448,6 @@ public final class V1beta1Apps {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           io.kubernetes.client.proto.V1.getDescriptor(),
-          io.kubernetes.client.proto.V1beta1Policy.getDescriptor(),
           io.kubernetes.client.proto.Meta.getDescriptor(),
           io.kubernetes.client.proto.Runtime.getDescriptor(),
           io.kubernetes.client.proto.RuntimeSchema.getDescriptor(),
@@ -25836,32 +28561,37 @@ public final class V1beta1Apps {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_apps_v1beta1_StatefulSet_descriptor,
         new java.lang.String[] { "Metadata", "Spec", "Status", });
-    internal_static_k8s_io_api_apps_v1beta1_StatefulSetList_descriptor =
+    internal_static_k8s_io_api_apps_v1beta1_StatefulSetCondition_descriptor =
       getDescriptor().getMessageTypes().get(16);
+    internal_static_k8s_io_api_apps_v1beta1_StatefulSetCondition_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_k8s_io_api_apps_v1beta1_StatefulSetCondition_descriptor,
+        new java.lang.String[] { "Type", "Status", "LastTransitionTime", "Reason", "Message", });
+    internal_static_k8s_io_api_apps_v1beta1_StatefulSetList_descriptor =
+      getDescriptor().getMessageTypes().get(17);
     internal_static_k8s_io_api_apps_v1beta1_StatefulSetList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_apps_v1beta1_StatefulSetList_descriptor,
         new java.lang.String[] { "Metadata", "Items", });
     internal_static_k8s_io_api_apps_v1beta1_StatefulSetSpec_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_k8s_io_api_apps_v1beta1_StatefulSetSpec_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_apps_v1beta1_StatefulSetSpec_descriptor,
         new java.lang.String[] { "Replicas", "Selector", "Template", "VolumeClaimTemplates", "ServiceName", "PodManagementPolicy", "UpdateStrategy", "RevisionHistoryLimit", });
     internal_static_k8s_io_api_apps_v1beta1_StatefulSetStatus_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_k8s_io_api_apps_v1beta1_StatefulSetStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_apps_v1beta1_StatefulSetStatus_descriptor,
-        new java.lang.String[] { "ObservedGeneration", "Replicas", "ReadyReplicas", "CurrentReplicas", "UpdatedReplicas", "CurrentRevision", "UpdateRevision", "CollisionCount", });
+        new java.lang.String[] { "ObservedGeneration", "Replicas", "ReadyReplicas", "CurrentReplicas", "UpdatedReplicas", "CurrentRevision", "UpdateRevision", "CollisionCount", "Conditions", });
     internal_static_k8s_io_api_apps_v1beta1_StatefulSetUpdateStrategy_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_k8s_io_api_apps_v1beta1_StatefulSetUpdateStrategy_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_apps_v1beta1_StatefulSetUpdateStrategy_descriptor,
         new java.lang.String[] { "Type", "RollingUpdate", });
     io.kubernetes.client.proto.V1.getDescriptor();
-    io.kubernetes.client.proto.V1beta1Policy.getDescriptor();
     io.kubernetes.client.proto.Meta.getDescriptor();
     io.kubernetes.client.proto.Runtime.getDescriptor();
     io.kubernetes.client.proto.RuntimeSchema.getDescriptor();

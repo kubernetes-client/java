@@ -14,6 +14,964 @@ public final class V1beta1Rbac {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  public interface AggregationRuleOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.rbac.v1beta1.AggregationRule)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+     * If any of the selectors match, then the ClusterRole's permissions will be added
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+     */
+    java.util.List<io.kubernetes.client.proto.Meta.LabelSelector> 
+        getClusterRoleSelectorsList();
+    /**
+     * <pre>
+     * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+     * If any of the selectors match, then the ClusterRole's permissions will be added
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+     */
+    io.kubernetes.client.proto.Meta.LabelSelector getClusterRoleSelectors(int index);
+    /**
+     * <pre>
+     * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+     * If any of the selectors match, then the ClusterRole's permissions will be added
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+     */
+    int getClusterRoleSelectorsCount();
+    /**
+     * <pre>
+     * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+     * If any of the selectors match, then the ClusterRole's permissions will be added
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+     */
+    java.util.List<? extends io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder> 
+        getClusterRoleSelectorsOrBuilderList();
+    /**
+     * <pre>
+     * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+     * If any of the selectors match, then the ClusterRole's permissions will be added
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+     */
+    io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getClusterRoleSelectorsOrBuilder(
+        int index);
+  }
+  /**
+   * <pre>
+   * AggregationRule describes how to locate ClusterRoles to aggregate into the ClusterRole
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.rbac.v1beta1.AggregationRule}
+   */
+  public  static final class AggregationRule extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.rbac.v1beta1.AggregationRule)
+      AggregationRuleOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AggregationRule.newBuilder() to construct.
+    private AggregationRule(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AggregationRule() {
+      clusterRoleSelectors_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AggregationRule(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                clusterRoleSelectors_ = new java.util.ArrayList<io.kubernetes.client.proto.Meta.LabelSelector>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              clusterRoleSelectors_.add(
+                  input.readMessage(io.kubernetes.client.proto.Meta.LabelSelector.PARSER, extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          clusterRoleSelectors_ = java.util.Collections.unmodifiableList(clusterRoleSelectors_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_AggregationRule_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_AggregationRule_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1beta1Rbac.AggregationRule.class, io.kubernetes.client.proto.V1beta1Rbac.AggregationRule.Builder.class);
+    }
+
+    public static final int CLUSTERROLESELECTORS_FIELD_NUMBER = 1;
+    private java.util.List<io.kubernetes.client.proto.Meta.LabelSelector> clusterRoleSelectors_;
+    /**
+     * <pre>
+     * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+     * If any of the selectors match, then the ClusterRole's permissions will be added
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+     */
+    public java.util.List<io.kubernetes.client.proto.Meta.LabelSelector> getClusterRoleSelectorsList() {
+      return clusterRoleSelectors_;
+    }
+    /**
+     * <pre>
+     * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+     * If any of the selectors match, then the ClusterRole's permissions will be added
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+     */
+    public java.util.List<? extends io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder> 
+        getClusterRoleSelectorsOrBuilderList() {
+      return clusterRoleSelectors_;
+    }
+    /**
+     * <pre>
+     * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+     * If any of the selectors match, then the ClusterRole's permissions will be added
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+     */
+    public int getClusterRoleSelectorsCount() {
+      return clusterRoleSelectors_.size();
+    }
+    /**
+     * <pre>
+     * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+     * If any of the selectors match, then the ClusterRole's permissions will be added
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+     */
+    public io.kubernetes.client.proto.Meta.LabelSelector getClusterRoleSelectors(int index) {
+      return clusterRoleSelectors_.get(index);
+    }
+    /**
+     * <pre>
+     * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+     * If any of the selectors match, then the ClusterRole's permissions will be added
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+     */
+    public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getClusterRoleSelectorsOrBuilder(
+        int index) {
+      return clusterRoleSelectors_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < clusterRoleSelectors_.size(); i++) {
+        output.writeMessage(1, clusterRoleSelectors_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < clusterRoleSelectors_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, clusterRoleSelectors_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1beta1Rbac.AggregationRule)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1beta1Rbac.AggregationRule other = (io.kubernetes.client.proto.V1beta1Rbac.AggregationRule) obj;
+
+      boolean result = true;
+      result = result && getClusterRoleSelectorsList()
+          .equals(other.getClusterRoleSelectorsList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getClusterRoleSelectorsCount() > 0) {
+        hash = (37 * hash) + CLUSTERROLESELECTORS_FIELD_NUMBER;
+        hash = (53 * hash) + getClusterRoleSelectorsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Rbac.AggregationRule parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Rbac.AggregationRule parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Rbac.AggregationRule parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Rbac.AggregationRule parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Rbac.AggregationRule parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1beta1Rbac.AggregationRule parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Rbac.AggregationRule parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Rbac.AggregationRule parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Rbac.AggregationRule parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Rbac.AggregationRule parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1beta1Rbac.AggregationRule parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1beta1Rbac.AggregationRule parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Rbac.AggregationRule prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * AggregationRule describes how to locate ClusterRoles to aggregate into the ClusterRole
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.rbac.v1beta1.AggregationRule}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.rbac.v1beta1.AggregationRule)
+        io.kubernetes.client.proto.V1beta1Rbac.AggregationRuleOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_AggregationRule_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_AggregationRule_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1beta1Rbac.AggregationRule.class, io.kubernetes.client.proto.V1beta1Rbac.AggregationRule.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1beta1Rbac.AggregationRule.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getClusterRoleSelectorsFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (clusterRoleSelectorsBuilder_ == null) {
+          clusterRoleSelectors_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          clusterRoleSelectorsBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_AggregationRule_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Rbac.AggregationRule getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1beta1Rbac.AggregationRule.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Rbac.AggregationRule build() {
+        io.kubernetes.client.proto.V1beta1Rbac.AggregationRule result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Rbac.AggregationRule buildPartial() {
+        io.kubernetes.client.proto.V1beta1Rbac.AggregationRule result = new io.kubernetes.client.proto.V1beta1Rbac.AggregationRule(this);
+        int from_bitField0_ = bitField0_;
+        if (clusterRoleSelectorsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            clusterRoleSelectors_ = java.util.Collections.unmodifiableList(clusterRoleSelectors_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.clusterRoleSelectors_ = clusterRoleSelectors_;
+        } else {
+          result.clusterRoleSelectors_ = clusterRoleSelectorsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1beta1Rbac.AggregationRule) {
+          return mergeFrom((io.kubernetes.client.proto.V1beta1Rbac.AggregationRule)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1beta1Rbac.AggregationRule other) {
+        if (other == io.kubernetes.client.proto.V1beta1Rbac.AggregationRule.getDefaultInstance()) return this;
+        if (clusterRoleSelectorsBuilder_ == null) {
+          if (!other.clusterRoleSelectors_.isEmpty()) {
+            if (clusterRoleSelectors_.isEmpty()) {
+              clusterRoleSelectors_ = other.clusterRoleSelectors_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureClusterRoleSelectorsIsMutable();
+              clusterRoleSelectors_.addAll(other.clusterRoleSelectors_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.clusterRoleSelectors_.isEmpty()) {
+            if (clusterRoleSelectorsBuilder_.isEmpty()) {
+              clusterRoleSelectorsBuilder_.dispose();
+              clusterRoleSelectorsBuilder_ = null;
+              clusterRoleSelectors_ = other.clusterRoleSelectors_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              clusterRoleSelectorsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getClusterRoleSelectorsFieldBuilder() : null;
+            } else {
+              clusterRoleSelectorsBuilder_.addAllMessages(other.clusterRoleSelectors_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1beta1Rbac.AggregationRule parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.kubernetes.client.proto.V1beta1Rbac.AggregationRule) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<io.kubernetes.client.proto.Meta.LabelSelector> clusterRoleSelectors_ =
+        java.util.Collections.emptyList();
+      private void ensureClusterRoleSelectorsIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          clusterRoleSelectors_ = new java.util.ArrayList<io.kubernetes.client.proto.Meta.LabelSelector>(clusterRoleSelectors_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder> clusterRoleSelectorsBuilder_;
+
+      /**
+       * <pre>
+       * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+       * If any of the selectors match, then the ClusterRole's permissions will be added
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.Meta.LabelSelector> getClusterRoleSelectorsList() {
+        if (clusterRoleSelectorsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(clusterRoleSelectors_);
+        } else {
+          return clusterRoleSelectorsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+       * If any of the selectors match, then the ClusterRole's permissions will be added
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+       */
+      public int getClusterRoleSelectorsCount() {
+        if (clusterRoleSelectorsBuilder_ == null) {
+          return clusterRoleSelectors_.size();
+        } else {
+          return clusterRoleSelectorsBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+       * If any of the selectors match, then the ClusterRole's permissions will be added
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelector getClusterRoleSelectors(int index) {
+        if (clusterRoleSelectorsBuilder_ == null) {
+          return clusterRoleSelectors_.get(index);
+        } else {
+          return clusterRoleSelectorsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+       * If any of the selectors match, then the ClusterRole's permissions will be added
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+       */
+      public Builder setClusterRoleSelectors(
+          int index, io.kubernetes.client.proto.Meta.LabelSelector value) {
+        if (clusterRoleSelectorsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureClusterRoleSelectorsIsMutable();
+          clusterRoleSelectors_.set(index, value);
+          onChanged();
+        } else {
+          clusterRoleSelectorsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+       * If any of the selectors match, then the ClusterRole's permissions will be added
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+       */
+      public Builder setClusterRoleSelectors(
+          int index, io.kubernetes.client.proto.Meta.LabelSelector.Builder builderForValue) {
+        if (clusterRoleSelectorsBuilder_ == null) {
+          ensureClusterRoleSelectorsIsMutable();
+          clusterRoleSelectors_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          clusterRoleSelectorsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+       * If any of the selectors match, then the ClusterRole's permissions will be added
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+       */
+      public Builder addClusterRoleSelectors(io.kubernetes.client.proto.Meta.LabelSelector value) {
+        if (clusterRoleSelectorsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureClusterRoleSelectorsIsMutable();
+          clusterRoleSelectors_.add(value);
+          onChanged();
+        } else {
+          clusterRoleSelectorsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+       * If any of the selectors match, then the ClusterRole's permissions will be added
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+       */
+      public Builder addClusterRoleSelectors(
+          int index, io.kubernetes.client.proto.Meta.LabelSelector value) {
+        if (clusterRoleSelectorsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureClusterRoleSelectorsIsMutable();
+          clusterRoleSelectors_.add(index, value);
+          onChanged();
+        } else {
+          clusterRoleSelectorsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+       * If any of the selectors match, then the ClusterRole's permissions will be added
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+       */
+      public Builder addClusterRoleSelectors(
+          io.kubernetes.client.proto.Meta.LabelSelector.Builder builderForValue) {
+        if (clusterRoleSelectorsBuilder_ == null) {
+          ensureClusterRoleSelectorsIsMutable();
+          clusterRoleSelectors_.add(builderForValue.build());
+          onChanged();
+        } else {
+          clusterRoleSelectorsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+       * If any of the selectors match, then the ClusterRole's permissions will be added
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+       */
+      public Builder addClusterRoleSelectors(
+          int index, io.kubernetes.client.proto.Meta.LabelSelector.Builder builderForValue) {
+        if (clusterRoleSelectorsBuilder_ == null) {
+          ensureClusterRoleSelectorsIsMutable();
+          clusterRoleSelectors_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          clusterRoleSelectorsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+       * If any of the selectors match, then the ClusterRole's permissions will be added
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+       */
+      public Builder addAllClusterRoleSelectors(
+          java.lang.Iterable<? extends io.kubernetes.client.proto.Meta.LabelSelector> values) {
+        if (clusterRoleSelectorsBuilder_ == null) {
+          ensureClusterRoleSelectorsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, clusterRoleSelectors_);
+          onChanged();
+        } else {
+          clusterRoleSelectorsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+       * If any of the selectors match, then the ClusterRole's permissions will be added
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+       */
+      public Builder clearClusterRoleSelectors() {
+        if (clusterRoleSelectorsBuilder_ == null) {
+          clusterRoleSelectors_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          clusterRoleSelectorsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+       * If any of the selectors match, then the ClusterRole's permissions will be added
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+       */
+      public Builder removeClusterRoleSelectors(int index) {
+        if (clusterRoleSelectorsBuilder_ == null) {
+          ensureClusterRoleSelectorsIsMutable();
+          clusterRoleSelectors_.remove(index);
+          onChanged();
+        } else {
+          clusterRoleSelectorsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+       * If any of the selectors match, then the ClusterRole's permissions will be added
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelector.Builder getClusterRoleSelectorsBuilder(
+          int index) {
+        return getClusterRoleSelectorsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+       * If any of the selectors match, then the ClusterRole's permissions will be added
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getClusterRoleSelectorsOrBuilder(
+          int index) {
+        if (clusterRoleSelectorsBuilder_ == null) {
+          return clusterRoleSelectors_.get(index);  } else {
+          return clusterRoleSelectorsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+       * If any of the selectors match, then the ClusterRole's permissions will be added
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+       */
+      public java.util.List<? extends io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder> 
+           getClusterRoleSelectorsOrBuilderList() {
+        if (clusterRoleSelectorsBuilder_ != null) {
+          return clusterRoleSelectorsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(clusterRoleSelectors_);
+        }
+      }
+      /**
+       * <pre>
+       * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+       * If any of the selectors match, then the ClusterRole's permissions will be added
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelector.Builder addClusterRoleSelectorsBuilder() {
+        return getClusterRoleSelectorsFieldBuilder().addBuilder(
+            io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+       * If any of the selectors match, then the ClusterRole's permissions will be added
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelector.Builder addClusterRoleSelectorsBuilder(
+          int index) {
+        return getClusterRoleSelectorsFieldBuilder().addBuilder(
+            index, io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
+       * If any of the selectors match, then the ClusterRole's permissions will be added
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.Meta.LabelSelector.Builder> 
+           getClusterRoleSelectorsBuilderList() {
+        return getClusterRoleSelectorsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder> 
+          getClusterRoleSelectorsFieldBuilder() {
+        if (clusterRoleSelectorsBuilder_ == null) {
+          clusterRoleSelectorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>(
+                  clusterRoleSelectors_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          clusterRoleSelectors_ = null;
+        }
+        return clusterRoleSelectorsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.rbac.v1beta1.AggregationRule)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.rbac.v1beta1.AggregationRule)
+    private static final io.kubernetes.client.proto.V1beta1Rbac.AggregationRule DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1beta1Rbac.AggregationRule();
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Rbac.AggregationRule getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<AggregationRule>
+        PARSER = new com.google.protobuf.AbstractParser<AggregationRule>() {
+      @java.lang.Override
+      public AggregationRule parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AggregationRule(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AggregationRule> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AggregationRule> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1beta1Rbac.AggregationRule getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface ClusterRoleOrBuilder extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.rbac.v1beta1.ClusterRole)
       com.google.protobuf.MessageOrBuilder {
@@ -49,6 +1007,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Rules holds all the PolicyRules for this ClusterRole
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -58,6 +1017,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Rules holds all the PolicyRules for this ClusterRole
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -66,6 +1026,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Rules holds all the PolicyRules for this ClusterRole
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -74,6 +1035,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Rules holds all the PolicyRules for this ClusterRole
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -83,12 +1045,47 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Rules holds all the PolicyRules for this ClusterRole
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
      */
     io.kubernetes.client.proto.V1beta1Rbac.PolicyRuleOrBuilder getRulesOrBuilder(
         int index);
+
+    /**
+     * <pre>
+     * AggregationRule is an optional field that describes how to build the Rules for this ClusterRole.
+     * If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be
+     * stomped by the controller.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.rbac.v1beta1.AggregationRule aggregationRule = 3;</code>
+     */
+    boolean hasAggregationRule();
+    /**
+     * <pre>
+     * AggregationRule is an optional field that describes how to build the Rules for this ClusterRole.
+     * If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be
+     * stomped by the controller.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.rbac.v1beta1.AggregationRule aggregationRule = 3;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Rbac.AggregationRule getAggregationRule();
+    /**
+     * <pre>
+     * AggregationRule is an optional field that describes how to build the Rules for this ClusterRole.
+     * If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be
+     * stomped by the controller.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.rbac.v1beta1.AggregationRule aggregationRule = 3;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Rbac.AggregationRuleOrBuilder getAggregationRuleOrBuilder();
   }
   /**
    * <pre>
@@ -120,6 +1117,9 @@ public final class V1beta1Rbac {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -131,13 +1131,6 @@ public final class V1beta1Rbac {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -160,6 +1153,26 @@ public final class V1beta1Rbac {
                   input.readMessage(io.kubernetes.client.proto.V1beta1Rbac.PolicyRule.PARSER, extensionRegistry));
               break;
             }
+            case 26: {
+              io.kubernetes.client.proto.V1beta1Rbac.AggregationRule.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = aggregationRule_.toBuilder();
+              }
+              aggregationRule_ = input.readMessage(io.kubernetes.client.proto.V1beta1Rbac.AggregationRule.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(aggregationRule_);
+                aggregationRule_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -180,6 +1193,7 @@ public final class V1beta1Rbac {
       return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_ClusterRole_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_ClusterRole_fieldAccessorTable
@@ -229,6 +1243,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Rules holds all the PolicyRules for this ClusterRole
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -239,6 +1254,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Rules holds all the PolicyRules for this ClusterRole
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -250,6 +1266,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Rules holds all the PolicyRules for this ClusterRole
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -260,6 +1277,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Rules holds all the PolicyRules for this ClusterRole
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -270,6 +1288,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Rules holds all the PolicyRules for this ClusterRole
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -279,7 +1298,50 @@ public final class V1beta1Rbac {
       return rules_.get(index);
     }
 
+    public static final int AGGREGATIONRULE_FIELD_NUMBER = 3;
+    private io.kubernetes.client.proto.V1beta1Rbac.AggregationRule aggregationRule_;
+    /**
+     * <pre>
+     * AggregationRule is an optional field that describes how to build the Rules for this ClusterRole.
+     * If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be
+     * stomped by the controller.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.rbac.v1beta1.AggregationRule aggregationRule = 3;</code>
+     */
+    public boolean hasAggregationRule() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * AggregationRule is an optional field that describes how to build the Rules for this ClusterRole.
+     * If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be
+     * stomped by the controller.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.rbac.v1beta1.AggregationRule aggregationRule = 3;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Rbac.AggregationRule getAggregationRule() {
+      return aggregationRule_ == null ? io.kubernetes.client.proto.V1beta1Rbac.AggregationRule.getDefaultInstance() : aggregationRule_;
+    }
+    /**
+     * <pre>
+     * AggregationRule is an optional field that describes how to build the Rules for this ClusterRole.
+     * If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be
+     * stomped by the controller.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.rbac.v1beta1.AggregationRule aggregationRule = 3;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Rbac.AggregationRuleOrBuilder getAggregationRuleOrBuilder() {
+      return aggregationRule_ == null ? io.kubernetes.client.proto.V1beta1Rbac.AggregationRule.getDefaultInstance() : aggregationRule_;
+    }
+
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -289,6 +1351,7 @@ public final class V1beta1Rbac {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -297,9 +1360,13 @@ public final class V1beta1Rbac {
       for (int i = 0; i < rules_.size(); i++) {
         output.writeMessage(2, rules_.get(i));
       }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(3, getAggregationRule());
+      }
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -312,6 +1379,10 @@ public final class V1beta1Rbac {
       for (int i = 0; i < rules_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, rules_.get(i));
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getAggregationRule());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -336,6 +1407,11 @@ public final class V1beta1Rbac {
       }
       result = result && getRulesList()
           .equals(other.getRulesList());
+      result = result && (hasAggregationRule() == other.hasAggregationRule());
+      if (hasAggregationRule()) {
+        result = result && getAggregationRule()
+            .equals(other.getAggregationRule());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -354,6 +1430,10 @@ public final class V1beta1Rbac {
       if (getRulesCount() > 0) {
         hash = (37 * hash) + RULES_FIELD_NUMBER;
         hash = (53 * hash) + getRulesList().hashCode();
+      }
+      if (hasAggregationRule()) {
+        hash = (37 * hash) + AGGREGATIONRULE_FIELD_NUMBER;
+        hash = (53 * hash) + getAggregationRule().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -430,6 +1510,7 @@ public final class V1beta1Rbac {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -437,6 +1518,7 @@ public final class V1beta1Rbac {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Rbac.ClusterRole prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -464,6 +1546,7 @@ public final class V1beta1Rbac {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_ClusterRole_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_ClusterRole_fieldAccessorTable
@@ -486,8 +1569,10 @@ public final class V1beta1Rbac {
                 .alwaysUseFieldBuilders) {
           getMetadataFieldBuilder();
           getRulesFieldBuilder();
+          getAggregationRuleFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -502,18 +1587,27 @@ public final class V1beta1Rbac {
         } else {
           rulesBuilder_.clear();
         }
+        if (aggregationRuleBuilder_ == null) {
+          aggregationRule_ = null;
+        } else {
+          aggregationRuleBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_ClusterRole_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.ClusterRole getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Rbac.ClusterRole.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.ClusterRole build() {
         io.kubernetes.client.proto.V1beta1Rbac.ClusterRole result = buildPartial();
         if (!result.isInitialized()) {
@@ -522,6 +1616,7 @@ public final class V1beta1Rbac {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.ClusterRole buildPartial() {
         io.kubernetes.client.proto.V1beta1Rbac.ClusterRole result = new io.kubernetes.client.proto.V1beta1Rbac.ClusterRole(this);
         int from_bitField0_ = bitField0_;
@@ -543,37 +1638,52 @@ public final class V1beta1Rbac {
         } else {
           result.rules_ = rulesBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (aggregationRuleBuilder_ == null) {
+          result.aggregationRule_ = aggregationRule_;
+        } else {
+          result.aggregationRule_ = aggregationRuleBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Rbac.ClusterRole) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Rbac.ClusterRole)other);
@@ -614,15 +1724,20 @@ public final class V1beta1Rbac {
             }
           }
         }
+        if (other.hasAggregationRule()) {
+          mergeAggregationRule(other.getAggregationRule());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -820,6 +1935,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this ClusterRole
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -834,6 +1950,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this ClusterRole
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -848,6 +1965,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this ClusterRole
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -862,6 +1980,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this ClusterRole
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -883,6 +2002,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this ClusterRole
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -901,6 +2021,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this ClusterRole
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -921,6 +2042,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this ClusterRole
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -942,6 +2064,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this ClusterRole
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -960,6 +2083,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this ClusterRole
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -978,6 +2102,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this ClusterRole
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -997,6 +2122,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this ClusterRole
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -1014,6 +2140,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this ClusterRole
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -1031,6 +2158,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this ClusterRole
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -1042,6 +2170,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this ClusterRole
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -1056,6 +2185,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this ClusterRole
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -1071,6 +2201,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this ClusterRole
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -1082,6 +2213,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this ClusterRole
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -1094,6 +2226,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this ClusterRole
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -1116,11 +2249,194 @@ public final class V1beta1Rbac {
         }
         return rulesBuilder_;
       }
+
+      private io.kubernetes.client.proto.V1beta1Rbac.AggregationRule aggregationRule_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Rbac.AggregationRule, io.kubernetes.client.proto.V1beta1Rbac.AggregationRule.Builder, io.kubernetes.client.proto.V1beta1Rbac.AggregationRuleOrBuilder> aggregationRuleBuilder_;
+      /**
+       * <pre>
+       * AggregationRule is an optional field that describes how to build the Rules for this ClusterRole.
+       * If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be
+       * stomped by the controller.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.rbac.v1beta1.AggregationRule aggregationRule = 3;</code>
+       */
+      public boolean hasAggregationRule() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * AggregationRule is an optional field that describes how to build the Rules for this ClusterRole.
+       * If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be
+       * stomped by the controller.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.rbac.v1beta1.AggregationRule aggregationRule = 3;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Rbac.AggregationRule getAggregationRule() {
+        if (aggregationRuleBuilder_ == null) {
+          return aggregationRule_ == null ? io.kubernetes.client.proto.V1beta1Rbac.AggregationRule.getDefaultInstance() : aggregationRule_;
+        } else {
+          return aggregationRuleBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * AggregationRule is an optional field that describes how to build the Rules for this ClusterRole.
+       * If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be
+       * stomped by the controller.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.rbac.v1beta1.AggregationRule aggregationRule = 3;</code>
+       */
+      public Builder setAggregationRule(io.kubernetes.client.proto.V1beta1Rbac.AggregationRule value) {
+        if (aggregationRuleBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          aggregationRule_ = value;
+          onChanged();
+        } else {
+          aggregationRuleBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * AggregationRule is an optional field that describes how to build the Rules for this ClusterRole.
+       * If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be
+       * stomped by the controller.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.rbac.v1beta1.AggregationRule aggregationRule = 3;</code>
+       */
+      public Builder setAggregationRule(
+          io.kubernetes.client.proto.V1beta1Rbac.AggregationRule.Builder builderForValue) {
+        if (aggregationRuleBuilder_ == null) {
+          aggregationRule_ = builderForValue.build();
+          onChanged();
+        } else {
+          aggregationRuleBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * AggregationRule is an optional field that describes how to build the Rules for this ClusterRole.
+       * If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be
+       * stomped by the controller.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.rbac.v1beta1.AggregationRule aggregationRule = 3;</code>
+       */
+      public Builder mergeAggregationRule(io.kubernetes.client.proto.V1beta1Rbac.AggregationRule value) {
+        if (aggregationRuleBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+              aggregationRule_ != null &&
+              aggregationRule_ != io.kubernetes.client.proto.V1beta1Rbac.AggregationRule.getDefaultInstance()) {
+            aggregationRule_ =
+              io.kubernetes.client.proto.V1beta1Rbac.AggregationRule.newBuilder(aggregationRule_).mergeFrom(value).buildPartial();
+          } else {
+            aggregationRule_ = value;
+          }
+          onChanged();
+        } else {
+          aggregationRuleBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * AggregationRule is an optional field that describes how to build the Rules for this ClusterRole.
+       * If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be
+       * stomped by the controller.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.rbac.v1beta1.AggregationRule aggregationRule = 3;</code>
+       */
+      public Builder clearAggregationRule() {
+        if (aggregationRuleBuilder_ == null) {
+          aggregationRule_ = null;
+          onChanged();
+        } else {
+          aggregationRuleBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       * <pre>
+       * AggregationRule is an optional field that describes how to build the Rules for this ClusterRole.
+       * If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be
+       * stomped by the controller.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.rbac.v1beta1.AggregationRule aggregationRule = 3;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Rbac.AggregationRule.Builder getAggregationRuleBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getAggregationRuleFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * AggregationRule is an optional field that describes how to build the Rules for this ClusterRole.
+       * If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be
+       * stomped by the controller.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.rbac.v1beta1.AggregationRule aggregationRule = 3;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Rbac.AggregationRuleOrBuilder getAggregationRuleOrBuilder() {
+        if (aggregationRuleBuilder_ != null) {
+          return aggregationRuleBuilder_.getMessageOrBuilder();
+        } else {
+          return aggregationRule_ == null ?
+              io.kubernetes.client.proto.V1beta1Rbac.AggregationRule.getDefaultInstance() : aggregationRule_;
+        }
+      }
+      /**
+       * <pre>
+       * AggregationRule is an optional field that describes how to build the Rules for this ClusterRole.
+       * If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be
+       * stomped by the controller.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.rbac.v1beta1.AggregationRule aggregationRule = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1beta1Rbac.AggregationRule, io.kubernetes.client.proto.V1beta1Rbac.AggregationRule.Builder, io.kubernetes.client.proto.V1beta1Rbac.AggregationRuleOrBuilder> 
+          getAggregationRuleFieldBuilder() {
+        if (aggregationRuleBuilder_ == null) {
+          aggregationRuleBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Rbac.AggregationRule, io.kubernetes.client.proto.V1beta1Rbac.AggregationRule.Builder, io.kubernetes.client.proto.V1beta1Rbac.AggregationRuleOrBuilder>(
+                  getAggregationRule(),
+                  getParentForChildren(),
+                  isClean());
+          aggregationRule_ = null;
+        }
+        return aggregationRuleBuilder_;
+      }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1142,11 +2458,12 @@ public final class V1beta1Rbac {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<ClusterRole>
         PARSER = new com.google.protobuf.AbstractParser<ClusterRole>() {
+      @java.lang.Override
       public ClusterRole parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ClusterRole(input, extensionRegistry);
+        return new ClusterRole(input, extensionRegistry);
       }
     };
 
@@ -1159,6 +2476,7 @@ public final class V1beta1Rbac {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Rbac.ClusterRole getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -1200,6 +2518,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Subjects holds references to the objects the role applies to.
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -1209,6 +2528,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Subjects holds references to the objects the role applies to.
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -1217,6 +2537,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Subjects holds references to the objects the role applies to.
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -1225,6 +2546,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Subjects holds references to the objects the role applies to.
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -1234,6 +2556,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Subjects holds references to the objects the role applies to.
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -1300,6 +2623,9 @@ public final class V1beta1Rbac {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1311,13 +2637,6 @@ public final class V1beta1Rbac {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1353,6 +2672,13 @@ public final class V1beta1Rbac {
               bitField0_ |= 0x00000002;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1373,6 +2699,7 @@ public final class V1beta1Rbac {
       return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_ClusterRoleBinding_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_ClusterRoleBinding_fieldAccessorTable
@@ -1422,6 +2749,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Subjects holds references to the objects the role applies to.
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -1432,6 +2760,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Subjects holds references to the objects the role applies to.
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -1443,6 +2772,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Subjects holds references to the objects the role applies to.
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -1453,6 +2783,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Subjects holds references to the objects the role applies to.
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -1463,6 +2794,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Subjects holds references to the objects the role applies to.
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -1509,6 +2841,7 @@ public final class V1beta1Rbac {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1518,6 +2851,7 @@ public final class V1beta1Rbac {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1532,6 +2866,7 @@ public final class V1beta1Rbac {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1675,6 +3010,7 @@ public final class V1beta1Rbac {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1682,6 +3018,7 @@ public final class V1beta1Rbac {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBinding prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1710,6 +3047,7 @@ public final class V1beta1Rbac {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_ClusterRoleBinding_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_ClusterRoleBinding_fieldAccessorTable
@@ -1735,6 +3073,7 @@ public final class V1beta1Rbac {
           getRoleRefFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -1758,15 +3097,18 @@ public final class V1beta1Rbac {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_ClusterRoleBinding_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBinding getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBinding.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBinding build() {
         io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBinding result = buildPartial();
         if (!result.isInitialized()) {
@@ -1775,6 +3117,7 @@ public final class V1beta1Rbac {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBinding buildPartial() {
         io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBinding result = new io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBinding(this);
         int from_bitField0_ = bitField0_;
@@ -1809,32 +3152,39 @@ public final class V1beta1Rbac {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBinding) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBinding)other);
@@ -1883,10 +3233,12 @@ public final class V1beta1Rbac {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2084,6 +3436,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -2098,6 +3451,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -2112,6 +3466,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -2126,6 +3481,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -2147,6 +3503,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -2165,6 +3522,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -2185,6 +3543,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -2206,6 +3565,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -2224,6 +3584,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -2242,6 +3603,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -2261,6 +3623,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -2278,6 +3641,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -2295,6 +3659,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -2306,6 +3671,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -2320,6 +3686,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -2335,6 +3702,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -2346,6 +3714,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -2358,6 +3727,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -2543,11 +3913,13 @@ public final class V1beta1Rbac {
         }
         return roleRefBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -2569,11 +3941,12 @@ public final class V1beta1Rbac {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<ClusterRoleBinding>
         PARSER = new com.google.protobuf.AbstractParser<ClusterRoleBinding>() {
+      @java.lang.Override
       public ClusterRoleBinding parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ClusterRoleBinding(input, extensionRegistry);
+        return new ClusterRoleBinding(input, extensionRegistry);
       }
     };
 
@@ -2586,6 +3959,7 @@ public final class V1beta1Rbac {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBinding getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -2698,6 +4072,9 @@ public final class V1beta1Rbac {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -2709,13 +4086,6 @@ public final class V1beta1Rbac {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ListMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2738,6 +4108,13 @@ public final class V1beta1Rbac {
                   input.readMessage(io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBinding.PARSER, extensionRegistry));
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -2758,6 +4135,7 @@ public final class V1beta1Rbac {
       return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_ClusterRoleBindingList_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_ClusterRoleBindingList_fieldAccessorTable
@@ -2858,6 +4236,7 @@ public final class V1beta1Rbac {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2867,6 +4246,7 @@ public final class V1beta1Rbac {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2878,6 +4258,7 @@ public final class V1beta1Rbac {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -3008,6 +4389,7 @@ public final class V1beta1Rbac {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -3015,6 +4397,7 @@ public final class V1beta1Rbac {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBindingList prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -3042,6 +4425,7 @@ public final class V1beta1Rbac {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_ClusterRoleBindingList_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_ClusterRoleBindingList_fieldAccessorTable
@@ -3066,6 +4450,7 @@ public final class V1beta1Rbac {
           getItemsFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -3083,15 +4468,18 @@ public final class V1beta1Rbac {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_ClusterRoleBindingList_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBindingList getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBindingList.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBindingList build() {
         io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBindingList result = buildPartial();
         if (!result.isInitialized()) {
@@ -3100,6 +4488,7 @@ public final class V1beta1Rbac {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBindingList buildPartial() {
         io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBindingList result = new io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBindingList(this);
         int from_bitField0_ = bitField0_;
@@ -3126,32 +4515,39 @@ public final class V1beta1Rbac {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBindingList) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBindingList)other);
@@ -3197,10 +4593,12 @@ public final class V1beta1Rbac {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3694,11 +5092,13 @@ public final class V1beta1Rbac {
         }
         return itemsBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -3720,11 +5120,12 @@ public final class V1beta1Rbac {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<ClusterRoleBindingList>
         PARSER = new com.google.protobuf.AbstractParser<ClusterRoleBindingList>() {
+      @java.lang.Override
       public ClusterRoleBindingList parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ClusterRoleBindingList(input, extensionRegistry);
+        return new ClusterRoleBindingList(input, extensionRegistry);
       }
     };
 
@@ -3737,6 +5138,7 @@ public final class V1beta1Rbac {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBindingList getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -3849,6 +5251,9 @@ public final class V1beta1Rbac {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -3860,13 +5265,6 @@ public final class V1beta1Rbac {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ListMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -3889,6 +5287,13 @@ public final class V1beta1Rbac {
                   input.readMessage(io.kubernetes.client.proto.V1beta1Rbac.ClusterRole.PARSER, extensionRegistry));
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -3909,6 +5314,7 @@ public final class V1beta1Rbac {
       return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_ClusterRoleList_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_ClusterRoleList_fieldAccessorTable
@@ -4009,6 +5415,7 @@ public final class V1beta1Rbac {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -4018,6 +5425,7 @@ public final class V1beta1Rbac {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -4029,6 +5437,7 @@ public final class V1beta1Rbac {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -4159,6 +5568,7 @@ public final class V1beta1Rbac {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -4166,6 +5576,7 @@ public final class V1beta1Rbac {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleList prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -4193,6 +5604,7 @@ public final class V1beta1Rbac {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_ClusterRoleList_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_ClusterRoleList_fieldAccessorTable
@@ -4217,6 +5629,7 @@ public final class V1beta1Rbac {
           getItemsFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -4234,15 +5647,18 @@ public final class V1beta1Rbac {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_ClusterRoleList_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleList getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleList.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleList build() {
         io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleList result = buildPartial();
         if (!result.isInitialized()) {
@@ -4251,6 +5667,7 @@ public final class V1beta1Rbac {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleList buildPartial() {
         io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleList result = new io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleList(this);
         int from_bitField0_ = bitField0_;
@@ -4277,32 +5694,39 @@ public final class V1beta1Rbac {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleList) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleList)other);
@@ -4348,10 +5772,12 @@ public final class V1beta1Rbac {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4845,11 +6271,13 @@ public final class V1beta1Rbac {
         }
         return itemsBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -4871,11 +6299,12 @@ public final class V1beta1Rbac {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<ClusterRoleList>
         PARSER = new com.google.protobuf.AbstractParser<ClusterRoleList>() {
+      @java.lang.Override
       public ClusterRoleList parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ClusterRoleList(input, extensionRegistry);
+        return new ClusterRoleList(input, extensionRegistry);
       }
     };
 
@@ -4888,6 +6317,7 @@ public final class V1beta1Rbac {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleList getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -5140,6 +6570,9 @@ public final class V1beta1Rbac {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -5151,13 +6584,6 @@ public final class V1beta1Rbac {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -5203,6 +6629,13 @@ public final class V1beta1Rbac {
               nonResourceURLs_.add(bs);
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -5235,6 +6668,7 @@ public final class V1beta1Rbac {
       return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_PolicyRule_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_PolicyRule_fieldAccessorTable
@@ -5500,6 +6934,7 @@ public final class V1beta1Rbac {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -5509,6 +6944,7 @@ public final class V1beta1Rbac {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < verbs_.size(); i++) {
@@ -5529,6 +6965,7 @@ public final class V1beta1Rbac {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -5706,6 +7143,7 @@ public final class V1beta1Rbac {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -5713,6 +7151,7 @@ public final class V1beta1Rbac {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Rbac.PolicyRule prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -5741,6 +7180,7 @@ public final class V1beta1Rbac {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_PolicyRule_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_PolicyRule_fieldAccessorTable
@@ -5763,6 +7203,7 @@ public final class V1beta1Rbac {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         verbs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -5778,15 +7219,18 @@ public final class V1beta1Rbac {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_PolicyRule_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.PolicyRule getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Rbac.PolicyRule.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.PolicyRule build() {
         io.kubernetes.client.proto.V1beta1Rbac.PolicyRule result = buildPartial();
         if (!result.isInitialized()) {
@@ -5795,6 +7239,7 @@ public final class V1beta1Rbac {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.PolicyRule buildPartial() {
         io.kubernetes.client.proto.V1beta1Rbac.PolicyRule result = new io.kubernetes.client.proto.V1beta1Rbac.PolicyRule(this);
         int from_bitField0_ = bitField0_;
@@ -5827,32 +7272,39 @@ public final class V1beta1Rbac {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Rbac.PolicyRule) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Rbac.PolicyRule)other);
@@ -5919,10 +7371,12 @@ public final class V1beta1Rbac {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -6658,11 +8112,13 @@ public final class V1beta1Rbac {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -6684,11 +8140,12 @@ public final class V1beta1Rbac {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<PolicyRule>
         PARSER = new com.google.protobuf.AbstractParser<PolicyRule>() {
+      @java.lang.Override
       public PolicyRule parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new PolicyRule(input, extensionRegistry);
+        return new PolicyRule(input, extensionRegistry);
       }
     };
 
@@ -6701,6 +8158,7 @@ public final class V1beta1Rbac {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Rbac.PolicyRule getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -6742,6 +8200,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Rules holds all the PolicyRules for this Role
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -6751,6 +8210,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Rules holds all the PolicyRules for this Role
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -6759,6 +8219,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Rules holds all the PolicyRules for this Role
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -6767,6 +8228,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Rules holds all the PolicyRules for this Role
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -6776,6 +8238,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Rules holds all the PolicyRules for this Role
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -6813,6 +8276,9 @@ public final class V1beta1Rbac {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -6824,13 +8290,6 @@ public final class V1beta1Rbac {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -6853,6 +8312,13 @@ public final class V1beta1Rbac {
                   input.readMessage(io.kubernetes.client.proto.V1beta1Rbac.PolicyRule.PARSER, extensionRegistry));
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -6873,6 +8339,7 @@ public final class V1beta1Rbac {
       return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_Role_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_Role_fieldAccessorTable
@@ -6922,6 +8389,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Rules holds all the PolicyRules for this Role
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -6932,6 +8400,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Rules holds all the PolicyRules for this Role
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -6943,6 +8412,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Rules holds all the PolicyRules for this Role
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -6953,6 +8423,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Rules holds all the PolicyRules for this Role
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -6963,6 +8434,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Rules holds all the PolicyRules for this Role
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -6973,6 +8445,7 @@ public final class V1beta1Rbac {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -6982,6 +8455,7 @@ public final class V1beta1Rbac {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -6993,6 +8467,7 @@ public final class V1beta1Rbac {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -7123,6 +8598,7 @@ public final class V1beta1Rbac {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -7130,6 +8606,7 @@ public final class V1beta1Rbac {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Rbac.Role prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -7157,6 +8634,7 @@ public final class V1beta1Rbac {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_Role_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_Role_fieldAccessorTable
@@ -7181,6 +8659,7 @@ public final class V1beta1Rbac {
           getRulesFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -7198,15 +8677,18 @@ public final class V1beta1Rbac {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_Role_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.Role getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Rbac.Role.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.Role build() {
         io.kubernetes.client.proto.V1beta1Rbac.Role result = buildPartial();
         if (!result.isInitialized()) {
@@ -7215,6 +8697,7 @@ public final class V1beta1Rbac {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.Role buildPartial() {
         io.kubernetes.client.proto.V1beta1Rbac.Role result = new io.kubernetes.client.proto.V1beta1Rbac.Role(this);
         int from_bitField0_ = bitField0_;
@@ -7241,32 +8724,39 @@ public final class V1beta1Rbac {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Rbac.Role) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Rbac.Role)other);
@@ -7312,10 +8802,12 @@ public final class V1beta1Rbac {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -7513,6 +9005,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this Role
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -7527,6 +9020,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this Role
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -7541,6 +9035,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this Role
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -7555,6 +9050,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this Role
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -7576,6 +9072,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this Role
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -7594,6 +9091,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this Role
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -7614,6 +9112,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this Role
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -7635,6 +9134,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this Role
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -7653,6 +9153,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this Role
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -7671,6 +9172,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this Role
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -7690,6 +9192,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this Role
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -7707,6 +9210,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this Role
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -7724,6 +9228,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this Role
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -7735,6 +9240,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this Role
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -7749,6 +9255,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this Role
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -7764,6 +9271,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this Role
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -7775,6 +9283,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this Role
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -7787,6 +9296,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Rules holds all the PolicyRules for this Role
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.PolicyRule rules = 2;</code>
@@ -7809,11 +9319,13 @@ public final class V1beta1Rbac {
         }
         return rulesBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -7835,11 +9347,12 @@ public final class V1beta1Rbac {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<Role>
         PARSER = new com.google.protobuf.AbstractParser<Role>() {
+      @java.lang.Override
       public Role parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Role(input, extensionRegistry);
+        return new Role(input, extensionRegistry);
       }
     };
 
@@ -7852,6 +9365,7 @@ public final class V1beta1Rbac {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Rbac.Role getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -7893,6 +9407,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Subjects holds references to the objects the role applies to.
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -7902,6 +9417,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Subjects holds references to the objects the role applies to.
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -7910,6 +9426,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Subjects holds references to the objects the role applies to.
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -7918,6 +9435,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Subjects holds references to the objects the role applies to.
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -7927,6 +9445,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Subjects holds references to the objects the role applies to.
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -7994,6 +9513,9 @@ public final class V1beta1Rbac {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -8005,13 +9527,6 @@ public final class V1beta1Rbac {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -8047,6 +9562,13 @@ public final class V1beta1Rbac {
               bitField0_ |= 0x00000002;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -8067,6 +9589,7 @@ public final class V1beta1Rbac {
       return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_RoleBinding_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_RoleBinding_fieldAccessorTable
@@ -8116,6 +9639,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Subjects holds references to the objects the role applies to.
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -8126,6 +9650,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Subjects holds references to the objects the role applies to.
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -8137,6 +9662,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Subjects holds references to the objects the role applies to.
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -8147,6 +9673,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Subjects holds references to the objects the role applies to.
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -8157,6 +9684,7 @@ public final class V1beta1Rbac {
     /**
      * <pre>
      * Subjects holds references to the objects the role applies to.
+     * +optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -8203,6 +9731,7 @@ public final class V1beta1Rbac {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -8212,6 +9741,7 @@ public final class V1beta1Rbac {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -8226,6 +9756,7 @@ public final class V1beta1Rbac {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -8369,6 +9900,7 @@ public final class V1beta1Rbac {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -8376,6 +9908,7 @@ public final class V1beta1Rbac {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Rbac.RoleBinding prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -8405,6 +9938,7 @@ public final class V1beta1Rbac {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_RoleBinding_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_RoleBinding_fieldAccessorTable
@@ -8430,6 +9964,7 @@ public final class V1beta1Rbac {
           getRoleRefFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -8453,15 +9988,18 @@ public final class V1beta1Rbac {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_RoleBinding_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.RoleBinding getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Rbac.RoleBinding.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.RoleBinding build() {
         io.kubernetes.client.proto.V1beta1Rbac.RoleBinding result = buildPartial();
         if (!result.isInitialized()) {
@@ -8470,6 +10008,7 @@ public final class V1beta1Rbac {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.RoleBinding buildPartial() {
         io.kubernetes.client.proto.V1beta1Rbac.RoleBinding result = new io.kubernetes.client.proto.V1beta1Rbac.RoleBinding(this);
         int from_bitField0_ = bitField0_;
@@ -8504,32 +10043,39 @@ public final class V1beta1Rbac {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Rbac.RoleBinding) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Rbac.RoleBinding)other);
@@ -8578,10 +10124,12 @@ public final class V1beta1Rbac {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -8779,6 +10327,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -8793,6 +10342,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -8807,6 +10357,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -8821,6 +10372,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -8842,6 +10394,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -8860,6 +10413,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -8880,6 +10434,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -8901,6 +10456,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -8919,6 +10475,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -8937,6 +10494,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -8956,6 +10514,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -8973,6 +10532,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -8990,6 +10550,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -9001,6 +10562,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -9015,6 +10577,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -9030,6 +10593,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -9041,6 +10605,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -9053,6 +10618,7 @@ public final class V1beta1Rbac {
       /**
        * <pre>
        * Subjects holds references to the objects the role applies to.
+       * +optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.rbac.v1beta1.Subject subjects = 2;</code>
@@ -9238,11 +10804,13 @@ public final class V1beta1Rbac {
         }
         return roleRefBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -9264,11 +10832,12 @@ public final class V1beta1Rbac {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<RoleBinding>
         PARSER = new com.google.protobuf.AbstractParser<RoleBinding>() {
+      @java.lang.Override
       public RoleBinding parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new RoleBinding(input, extensionRegistry);
+        return new RoleBinding(input, extensionRegistry);
       }
     };
 
@@ -9281,6 +10850,7 @@ public final class V1beta1Rbac {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Rbac.RoleBinding getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -9393,6 +10963,9 @@ public final class V1beta1Rbac {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -9404,13 +10977,6 @@ public final class V1beta1Rbac {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ListMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -9433,6 +10999,13 @@ public final class V1beta1Rbac {
                   input.readMessage(io.kubernetes.client.proto.V1beta1Rbac.RoleBinding.PARSER, extensionRegistry));
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -9453,6 +11026,7 @@ public final class V1beta1Rbac {
       return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_RoleBindingList_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_RoleBindingList_fieldAccessorTable
@@ -9553,6 +11127,7 @@ public final class V1beta1Rbac {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -9562,6 +11137,7 @@ public final class V1beta1Rbac {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -9573,6 +11149,7 @@ public final class V1beta1Rbac {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -9703,6 +11280,7 @@ public final class V1beta1Rbac {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -9710,6 +11288,7 @@ public final class V1beta1Rbac {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Rbac.RoleBindingList prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -9737,6 +11316,7 @@ public final class V1beta1Rbac {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_RoleBindingList_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_RoleBindingList_fieldAccessorTable
@@ -9761,6 +11341,7 @@ public final class V1beta1Rbac {
           getItemsFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -9778,15 +11359,18 @@ public final class V1beta1Rbac {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_RoleBindingList_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.RoleBindingList getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Rbac.RoleBindingList.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.RoleBindingList build() {
         io.kubernetes.client.proto.V1beta1Rbac.RoleBindingList result = buildPartial();
         if (!result.isInitialized()) {
@@ -9795,6 +11379,7 @@ public final class V1beta1Rbac {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.RoleBindingList buildPartial() {
         io.kubernetes.client.proto.V1beta1Rbac.RoleBindingList result = new io.kubernetes.client.proto.V1beta1Rbac.RoleBindingList(this);
         int from_bitField0_ = bitField0_;
@@ -9821,32 +11406,39 @@ public final class V1beta1Rbac {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Rbac.RoleBindingList) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Rbac.RoleBindingList)other);
@@ -9892,10 +11484,12 @@ public final class V1beta1Rbac {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -10389,11 +11983,13 @@ public final class V1beta1Rbac {
         }
         return itemsBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -10415,11 +12011,12 @@ public final class V1beta1Rbac {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<RoleBindingList>
         PARSER = new com.google.protobuf.AbstractParser<RoleBindingList>() {
+      @java.lang.Override
       public RoleBindingList parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new RoleBindingList(input, extensionRegistry);
+        return new RoleBindingList(input, extensionRegistry);
       }
     };
 
@@ -10432,6 +12029,7 @@ public final class V1beta1Rbac {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Rbac.RoleBindingList getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -10544,6 +12142,9 @@ public final class V1beta1Rbac {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -10555,13 +12156,6 @@ public final class V1beta1Rbac {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ListMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -10584,6 +12178,13 @@ public final class V1beta1Rbac {
                   input.readMessage(io.kubernetes.client.proto.V1beta1Rbac.Role.PARSER, extensionRegistry));
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -10604,6 +12205,7 @@ public final class V1beta1Rbac {
       return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_RoleList_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_RoleList_fieldAccessorTable
@@ -10704,6 +12306,7 @@ public final class V1beta1Rbac {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -10713,6 +12316,7 @@ public final class V1beta1Rbac {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -10724,6 +12328,7 @@ public final class V1beta1Rbac {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -10854,6 +12459,7 @@ public final class V1beta1Rbac {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -10861,6 +12467,7 @@ public final class V1beta1Rbac {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Rbac.RoleList prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -10888,6 +12495,7 @@ public final class V1beta1Rbac {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_RoleList_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_RoleList_fieldAccessorTable
@@ -10912,6 +12520,7 @@ public final class V1beta1Rbac {
           getItemsFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -10929,15 +12538,18 @@ public final class V1beta1Rbac {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_RoleList_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.RoleList getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Rbac.RoleList.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.RoleList build() {
         io.kubernetes.client.proto.V1beta1Rbac.RoleList result = buildPartial();
         if (!result.isInitialized()) {
@@ -10946,6 +12558,7 @@ public final class V1beta1Rbac {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.RoleList buildPartial() {
         io.kubernetes.client.proto.V1beta1Rbac.RoleList result = new io.kubernetes.client.proto.V1beta1Rbac.RoleList(this);
         int from_bitField0_ = bitField0_;
@@ -10972,32 +12585,39 @@ public final class V1beta1Rbac {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Rbac.RoleList) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Rbac.RoleList)other);
@@ -11043,10 +12663,12 @@ public final class V1beta1Rbac {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -11540,11 +13162,13 @@ public final class V1beta1Rbac {
         }
         return itemsBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -11566,11 +13190,12 @@ public final class V1beta1Rbac {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<RoleList>
         PARSER = new com.google.protobuf.AbstractParser<RoleList>() {
+      @java.lang.Override
       public RoleList parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new RoleList(input, extensionRegistry);
+        return new RoleList(input, extensionRegistry);
       }
     };
 
@@ -11583,6 +13208,7 @@ public final class V1beta1Rbac {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Rbac.RoleList getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -11703,6 +13329,9 @@ public final class V1beta1Rbac {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -11714,13 +13343,6 @@ public final class V1beta1Rbac {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -11737,6 +13359,13 @@ public final class V1beta1Rbac {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
               name_ = bs;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -11756,6 +13385,7 @@ public final class V1beta1Rbac {
       return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_RoleRef_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_RoleRef_fieldAccessorTable
@@ -11927,6 +13557,7 @@ public final class V1beta1Rbac {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -11936,6 +13567,7 @@ public final class V1beta1Rbac {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -11950,6 +13582,7 @@ public final class V1beta1Rbac {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -12093,6 +13726,7 @@ public final class V1beta1Rbac {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -12100,6 +13734,7 @@ public final class V1beta1Rbac {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Rbac.RoleRef prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -12127,6 +13762,7 @@ public final class V1beta1Rbac {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_RoleRef_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_RoleRef_fieldAccessorTable
@@ -12149,6 +13785,7 @@ public final class V1beta1Rbac {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         apiGroup_ = "";
@@ -12160,15 +13797,18 @@ public final class V1beta1Rbac {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_RoleRef_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.RoleRef getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Rbac.RoleRef.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.RoleRef build() {
         io.kubernetes.client.proto.V1beta1Rbac.RoleRef result = buildPartial();
         if (!result.isInitialized()) {
@@ -12177,6 +13817,7 @@ public final class V1beta1Rbac {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.RoleRef buildPartial() {
         io.kubernetes.client.proto.V1beta1Rbac.RoleRef result = new io.kubernetes.client.proto.V1beta1Rbac.RoleRef(this);
         int from_bitField0_ = bitField0_;
@@ -12198,32 +13839,39 @@ public final class V1beta1Rbac {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Rbac.RoleRef) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Rbac.RoleRef)other);
@@ -12255,10 +13903,12 @@ public final class V1beta1Rbac {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -12577,11 +14227,13 @@ public final class V1beta1Rbac {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -12603,11 +14255,12 @@ public final class V1beta1Rbac {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<RoleRef>
         PARSER = new com.google.protobuf.AbstractParser<RoleRef>() {
+      @java.lang.Override
       public RoleRef parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new RoleRef(input, extensionRegistry);
+        return new RoleRef(input, extensionRegistry);
       }
     };
 
@@ -12620,6 +14273,7 @@ public final class V1beta1Rbac {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Rbac.RoleRef getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -12786,6 +14440,9 @@ public final class V1beta1Rbac {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -12797,13 +14454,6 @@ public final class V1beta1Rbac {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -12828,6 +14478,13 @@ public final class V1beta1Rbac {
               namespace_ = bs;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -12845,6 +14502,7 @@ public final class V1beta1Rbac {
       return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_Subject_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_Subject_fieldAccessorTable
@@ -13088,6 +14746,7 @@ public final class V1beta1Rbac {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -13097,6 +14756,7 @@ public final class V1beta1Rbac {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -13114,6 +14774,7 @@ public final class V1beta1Rbac {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -13269,6 +14930,7 @@ public final class V1beta1Rbac {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -13276,6 +14938,7 @@ public final class V1beta1Rbac {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Rbac.Subject prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -13304,6 +14967,7 @@ public final class V1beta1Rbac {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_Subject_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_Subject_fieldAccessorTable
@@ -13326,6 +14990,7 @@ public final class V1beta1Rbac {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         kind_ = "";
@@ -13339,15 +15004,18 @@ public final class V1beta1Rbac {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Rbac.internal_static_k8s_io_api_rbac_v1beta1_Subject_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.Subject getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Rbac.Subject.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.Subject build() {
         io.kubernetes.client.proto.V1beta1Rbac.Subject result = buildPartial();
         if (!result.isInitialized()) {
@@ -13356,6 +15024,7 @@ public final class V1beta1Rbac {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Rbac.Subject buildPartial() {
         io.kubernetes.client.proto.V1beta1Rbac.Subject result = new io.kubernetes.client.proto.V1beta1Rbac.Subject(this);
         int from_bitField0_ = bitField0_;
@@ -13381,32 +15050,39 @@ public final class V1beta1Rbac {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Rbac.Subject) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Rbac.Subject)other);
@@ -13443,10 +15119,12 @@ public final class V1beta1Rbac {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -13901,11 +15579,13 @@ public final class V1beta1Rbac {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -13927,11 +15607,12 @@ public final class V1beta1Rbac {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<Subject>
         PARSER = new com.google.protobuf.AbstractParser<Subject>() {
+      @java.lang.Override
       public Subject parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Subject(input, extensionRegistry);
+        return new Subject(input, extensionRegistry);
       }
     };
 
@@ -13944,12 +15625,18 @@ public final class V1beta1Rbac {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Rbac.Subject getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_k8s_io_api_rbac_v1beta1_AggregationRule_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_rbac_v1beta1_AggregationRule_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_k8s_io_api_rbac_v1beta1_ClusterRole_descriptor;
   private static final 
@@ -14019,46 +15706,49 @@ public final class V1beta1Rbac {
       "chinery/pkg/apis/meta/v1/generated.proto" +
       "\032/k8s.io/apimachinery/pkg/runtime/genera" +
       "ted.proto\0326k8s.io/apimachinery/pkg/runti" +
-      "me/schema/generated.proto\0323k8s.io/apimac" +
-      "hinery/pkg/util/intstr/generated.proto\"\205" +
-      "\001\n\013ClusterRole\022B\n\010metadata\030\001 \001(\01320.k8s.i" +
-      "o.apimachinery.pkg.apis.meta.v1.ObjectMe" +
-      "ta\0222\n\005rules\030\002 \003(\0132#.k8s.io.api.rbac.v1be",
-      "ta1.PolicyRule\"\277\001\n\022ClusterRoleBinding\022B\n" +
-      "\010metadata\030\001 \001(\01320.k8s.io.apimachinery.pk" +
-      "g.apis.meta.v1.ObjectMeta\0222\n\010subjects\030\002 " +
-      "\003(\0132 .k8s.io.api.rbac.v1beta1.Subject\0221\n" +
-      "\007roleRef\030\003 \001(\0132 .k8s.io.api.rbac.v1beta1" +
-      ".RoleRef\"\226\001\n\026ClusterRoleBindingList\022@\n\010m" +
-      "etadata\030\001 \001(\0132..k8s.io.apimachinery.pkg." +
-      "apis.meta.v1.ListMeta\022:\n\005items\030\002 \003(\0132+.k" +
-      "8s.io.api.rbac.v1beta1.ClusterRoleBindin" +
-      "g\"\210\001\n\017ClusterRoleList\022@\n\010metadata\030\001 \001(\0132",
-      "..k8s.io.apimachinery.pkg.apis.meta.v1.L" +
-      "istMeta\0223\n\005items\030\002 \003(\0132$.k8s.io.api.rbac" +
-      ".v1beta1.ClusterRole\"q\n\nPolicyRule\022\r\n\005ve" +
-      "rbs\030\001 \003(\t\022\021\n\tapiGroups\030\002 \003(\t\022\021\n\tresource" +
-      "s\030\003 \003(\t\022\025\n\rresourceNames\030\004 \003(\t\022\027\n\017nonRes" +
-      "ourceURLs\030\005 \003(\t\"~\n\004Role\022B\n\010metadata\030\001 \001(" +
+      "me/schema/generated.proto\"d\n\017Aggregation" +
+      "Rule\022Q\n\024clusterRoleSelectors\030\001 \003(\01323.k8s" +
+      ".io.apimachinery.pkg.apis.meta.v1.LabelS" +
+      "elector\"\310\001\n\013ClusterRole\022B\n\010metadata\030\001 \001(" +
       "\01320.k8s.io.apimachinery.pkg.apis.meta.v1" +
       ".ObjectMeta\0222\n\005rules\030\002 \003(\0132#.k8s.io.api." +
-      "rbac.v1beta1.PolicyRule\"\270\001\n\013RoleBinding\022" +
-      "B\n\010metadata\030\001 \001(\01320.k8s.io.apimachinery.",
-      "pkg.apis.meta.v1.ObjectMeta\0222\n\010subjects\030" +
-      "\002 \003(\0132 .k8s.io.api.rbac.v1beta1.Subject\022" +
-      "1\n\007roleRef\030\003 \001(\0132 .k8s.io.api.rbac.v1bet" +
-      "a1.RoleRef\"\210\001\n\017RoleBindingList\022@\n\010metada" +
-      "ta\030\001 \001(\0132..k8s.io.apimachinery.pkg.apis." +
-      "meta.v1.ListMeta\0223\n\005items\030\002 \003(\0132$.k8s.io" +
-      ".api.rbac.v1beta1.RoleBinding\"z\n\010RoleLis" +
-      "t\022@\n\010metadata\030\001 \001(\0132..k8s.io.apimachiner" +
-      "y.pkg.apis.meta.v1.ListMeta\022,\n\005items\030\002 \003" +
-      "(\0132\035.k8s.io.api.rbac.v1beta1.Role\"7\n\007Rol",
-      "eRef\022\020\n\010apiGroup\030\001 \001(\t\022\014\n\004kind\030\002 \001(\t\022\014\n\004" +
-      "name\030\003 \001(\t\"J\n\007Subject\022\014\n\004kind\030\001 \001(\t\022\020\n\010a" +
-      "piGroup\030\002 \001(\t\022\014\n\004name\030\003 \001(\t\022\021\n\tnamespace" +
-      "\030\004 \001(\tB2\n\032io.kubernetes.client.protoB\013V1" +
-      "beta1RbacZ\007v1beta1"
+      "rbac.v1beta1.PolicyRule\022A\n\017aggregationRu" +
+      "le\030\003 \001(\0132(.k8s.io.api.rbac.v1beta1.Aggre" +
+      "gationRule\"\277\001\n\022ClusterRoleBinding\022B\n\010met" +
+      "adata\030\001 \001(\01320.k8s.io.apimachinery.pkg.ap" +
+      "is.meta.v1.ObjectMeta\0222\n\010subjects\030\002 \003(\0132" +
+      " .k8s.io.api.rbac.v1beta1.Subject\0221\n\007rol" +
+      "eRef\030\003 \001(\0132 .k8s.io.api.rbac.v1beta1.Rol" +
+      "eRef\"\226\001\n\026ClusterRoleBindingList\022@\n\010metad" +
+      "ata\030\001 \001(\0132..k8s.io.apimachinery.pkg.apis" +
+      ".meta.v1.ListMeta\022:\n\005items\030\002 \003(\0132+.k8s.i" +
+      "o.api.rbac.v1beta1.ClusterRoleBinding\"\210\001" +
+      "\n\017ClusterRoleList\022@\n\010metadata\030\001 \001(\0132..k8" +
+      "s.io.apimachinery.pkg.apis.meta.v1.ListM" +
+      "eta\0223\n\005items\030\002 \003(\0132$.k8s.io.api.rbac.v1b" +
+      "eta1.ClusterRole\"q\n\nPolicyRule\022\r\n\005verbs\030" +
+      "\001 \003(\t\022\021\n\tapiGroups\030\002 \003(\t\022\021\n\tresources\030\003 " +
+      "\003(\t\022\025\n\rresourceNames\030\004 \003(\t\022\027\n\017nonResourc" +
+      "eURLs\030\005 \003(\t\"~\n\004Role\022B\n\010metadata\030\001 \001(\01320." +
+      "k8s.io.apimachinery.pkg.apis.meta.v1.Obj" +
+      "ectMeta\0222\n\005rules\030\002 \003(\0132#.k8s.io.api.rbac" +
+      ".v1beta1.PolicyRule\"\270\001\n\013RoleBinding\022B\n\010m" +
+      "etadata\030\001 \001(\01320.k8s.io.apimachinery.pkg." +
+      "apis.meta.v1.ObjectMeta\0222\n\010subjects\030\002 \003(" +
+      "\0132 .k8s.io.api.rbac.v1beta1.Subject\0221\n\007r" +
+      "oleRef\030\003 \001(\0132 .k8s.io.api.rbac.v1beta1.R" +
+      "oleRef\"\210\001\n\017RoleBindingList\022@\n\010metadata\030\001" +
+      " \001(\0132..k8s.io.apimachinery.pkg.apis.meta" +
+      ".v1.ListMeta\0223\n\005items\030\002 \003(\0132$.k8s.io.api" +
+      ".rbac.v1beta1.RoleBinding\"z\n\010RoleList\022@\n" +
+      "\010metadata\030\001 \001(\0132..k8s.io.apimachinery.pk" +
+      "g.apis.meta.v1.ListMeta\022,\n\005items\030\002 \003(\0132\035" +
+      ".k8s.io.api.rbac.v1beta1.Role\"7\n\007RoleRef" +
+      "\022\020\n\010apiGroup\030\001 \001(\t\022\014\n\004kind\030\002 \001(\t\022\014\n\004name" +
+      "\030\003 \001(\t\"J\n\007Subject\022\014\n\004kind\030\001 \001(\t\022\020\n\010apiGr" +
+      "oup\030\002 \001(\t\022\014\n\004name\030\003 \001(\t\022\021\n\tnamespace\030\004 \001" +
+      "(\tB2\n\032io.kubernetes.client.protoB\013V1beta" +
+      "1RbacZ\007v1beta1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -14074,70 +15764,75 @@ public final class V1beta1Rbac {
           io.kubernetes.client.proto.Meta.getDescriptor(),
           io.kubernetes.client.proto.Runtime.getDescriptor(),
           io.kubernetes.client.proto.RuntimeSchema.getDescriptor(),
-          io.kubernetes.client.proto.IntStr.getDescriptor(),
         }, assigner);
-    internal_static_k8s_io_api_rbac_v1beta1_ClusterRole_descriptor =
+    internal_static_k8s_io_api_rbac_v1beta1_AggregationRule_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_k8s_io_api_rbac_v1beta1_AggregationRule_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_k8s_io_api_rbac_v1beta1_AggregationRule_descriptor,
+        new java.lang.String[] { "ClusterRoleSelectors", });
+    internal_static_k8s_io_api_rbac_v1beta1_ClusterRole_descriptor =
+      getDescriptor().getMessageTypes().get(1);
     internal_static_k8s_io_api_rbac_v1beta1_ClusterRole_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_rbac_v1beta1_ClusterRole_descriptor,
-        new java.lang.String[] { "Metadata", "Rules", });
+        new java.lang.String[] { "Metadata", "Rules", "AggregationRule", });
     internal_static_k8s_io_api_rbac_v1beta1_ClusterRoleBinding_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_k8s_io_api_rbac_v1beta1_ClusterRoleBinding_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_rbac_v1beta1_ClusterRoleBinding_descriptor,
         new java.lang.String[] { "Metadata", "Subjects", "RoleRef", });
     internal_static_k8s_io_api_rbac_v1beta1_ClusterRoleBindingList_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_k8s_io_api_rbac_v1beta1_ClusterRoleBindingList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_rbac_v1beta1_ClusterRoleBindingList_descriptor,
         new java.lang.String[] { "Metadata", "Items", });
     internal_static_k8s_io_api_rbac_v1beta1_ClusterRoleList_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_k8s_io_api_rbac_v1beta1_ClusterRoleList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_rbac_v1beta1_ClusterRoleList_descriptor,
         new java.lang.String[] { "Metadata", "Items", });
     internal_static_k8s_io_api_rbac_v1beta1_PolicyRule_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_k8s_io_api_rbac_v1beta1_PolicyRule_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_rbac_v1beta1_PolicyRule_descriptor,
         new java.lang.String[] { "Verbs", "ApiGroups", "Resources", "ResourceNames", "NonResourceURLs", });
     internal_static_k8s_io_api_rbac_v1beta1_Role_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_k8s_io_api_rbac_v1beta1_Role_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_rbac_v1beta1_Role_descriptor,
         new java.lang.String[] { "Metadata", "Rules", });
     internal_static_k8s_io_api_rbac_v1beta1_RoleBinding_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_k8s_io_api_rbac_v1beta1_RoleBinding_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_rbac_v1beta1_RoleBinding_descriptor,
         new java.lang.String[] { "Metadata", "Subjects", "RoleRef", });
     internal_static_k8s_io_api_rbac_v1beta1_RoleBindingList_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_k8s_io_api_rbac_v1beta1_RoleBindingList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_rbac_v1beta1_RoleBindingList_descriptor,
         new java.lang.String[] { "Metadata", "Items", });
     internal_static_k8s_io_api_rbac_v1beta1_RoleList_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_k8s_io_api_rbac_v1beta1_RoleList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_rbac_v1beta1_RoleList_descriptor,
         new java.lang.String[] { "Metadata", "Items", });
     internal_static_k8s_io_api_rbac_v1beta1_RoleRef_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_k8s_io_api_rbac_v1beta1_RoleRef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_rbac_v1beta1_RoleRef_descriptor,
         new java.lang.String[] { "ApiGroup", "Kind", "Name", });
     internal_static_k8s_io_api_rbac_v1beta1_Subject_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_k8s_io_api_rbac_v1beta1_Subject_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_rbac_v1beta1_Subject_descriptor,
@@ -14145,7 +15840,6 @@ public final class V1beta1Rbac {
     io.kubernetes.client.proto.Meta.getDescriptor();
     io.kubernetes.client.proto.Runtime.getDescriptor();
     io.kubernetes.client.proto.RuntimeSchema.getDescriptor();
-    io.kubernetes.client.proto.IntStr.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

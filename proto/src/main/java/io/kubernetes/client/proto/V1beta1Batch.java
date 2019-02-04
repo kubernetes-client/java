@@ -140,6 +140,9 @@ public final class V1beta1Batch {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -151,13 +154,6 @@ public final class V1beta1Batch {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -197,6 +193,13 @@ public final class V1beta1Batch {
               bitField0_ |= 0x00000004;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -214,6 +217,7 @@ public final class V1beta1Batch {
       return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_CronJob_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_CronJob_fieldAccessorTable
@@ -340,6 +344,7 @@ public final class V1beta1Batch {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -349,6 +354,7 @@ public final class V1beta1Batch {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -363,6 +369,7 @@ public final class V1beta1Batch {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -509,6 +516,7 @@ public final class V1beta1Batch {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -516,6 +524,7 @@ public final class V1beta1Batch {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Batch.CronJob prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -543,6 +552,7 @@ public final class V1beta1Batch {
         return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_CronJob_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_CronJob_fieldAccessorTable
@@ -568,6 +578,7 @@ public final class V1beta1Batch {
           getStatusFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -591,15 +602,18 @@ public final class V1beta1Batch {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_CronJob_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Batch.CronJob getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Batch.CronJob.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Batch.CronJob build() {
         io.kubernetes.client.proto.V1beta1Batch.CronJob result = buildPartial();
         if (!result.isInitialized()) {
@@ -608,6 +622,7 @@ public final class V1beta1Batch {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Batch.CronJob buildPartial() {
         io.kubernetes.client.proto.V1beta1Batch.CronJob result = new io.kubernetes.client.proto.V1beta1Batch.CronJob(this);
         int from_bitField0_ = bitField0_;
@@ -641,32 +656,39 @@ public final class V1beta1Batch {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Batch.CronJob) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Batch.CronJob)other);
@@ -692,10 +714,12 @@ public final class V1beta1Batch {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1230,11 +1254,13 @@ public final class V1beta1Batch {
         }
         return statusBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1256,11 +1282,12 @@ public final class V1beta1Batch {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<CronJob>
         PARSER = new com.google.protobuf.AbstractParser<CronJob>() {
+      @java.lang.Override
       public CronJob parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new CronJob(input, extensionRegistry);
+        return new CronJob(input, extensionRegistry);
       }
     };
 
@@ -1273,6 +1300,7 @@ public final class V1beta1Batch {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Batch.CronJob getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -1388,6 +1416,9 @@ public final class V1beta1Batch {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1399,13 +1430,6 @@ public final class V1beta1Batch {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ListMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1428,6 +1452,13 @@ public final class V1beta1Batch {
                   input.readMessage(io.kubernetes.client.proto.V1beta1Batch.CronJob.PARSER, extensionRegistry));
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1448,6 +1479,7 @@ public final class V1beta1Batch {
       return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_CronJobList_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_CronJobList_fieldAccessorTable
@@ -1551,6 +1583,7 @@ public final class V1beta1Batch {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1560,6 +1593,7 @@ public final class V1beta1Batch {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1571,6 +1605,7 @@ public final class V1beta1Batch {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1701,6 +1736,7 @@ public final class V1beta1Batch {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1708,6 +1744,7 @@ public final class V1beta1Batch {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Batch.CronJobList prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1735,6 +1772,7 @@ public final class V1beta1Batch {
         return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_CronJobList_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_CronJobList_fieldAccessorTable
@@ -1759,6 +1797,7 @@ public final class V1beta1Batch {
           getItemsFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -1776,15 +1815,18 @@ public final class V1beta1Batch {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_CronJobList_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Batch.CronJobList getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Batch.CronJobList.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Batch.CronJobList build() {
         io.kubernetes.client.proto.V1beta1Batch.CronJobList result = buildPartial();
         if (!result.isInitialized()) {
@@ -1793,6 +1835,7 @@ public final class V1beta1Batch {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Batch.CronJobList buildPartial() {
         io.kubernetes.client.proto.V1beta1Batch.CronJobList result = new io.kubernetes.client.proto.V1beta1Batch.CronJobList(this);
         int from_bitField0_ = bitField0_;
@@ -1819,32 +1862,39 @@ public final class V1beta1Batch {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Batch.CronJobList) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Batch.CronJobList)other);
@@ -1890,10 +1940,12 @@ public final class V1beta1Batch {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2396,11 +2448,13 @@ public final class V1beta1Batch {
         }
         return itemsBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -2422,11 +2476,12 @@ public final class V1beta1Batch {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<CronJobList>
         PARSER = new com.google.protobuf.AbstractParser<CronJobList>() {
+      @java.lang.Override
       public CronJobList parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new CronJobList(input, extensionRegistry);
+        return new CronJobList(input, extensionRegistry);
       }
     };
 
@@ -2439,6 +2494,7 @@ public final class V1beta1Batch {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Batch.CronJobList getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -2499,7 +2555,10 @@ public final class V1beta1Batch {
     /**
      * <pre>
      * Specifies how to treat concurrent executions of a Job.
-     * Defaults to Allow.
+     * Valid values are:
+     * - "Allow" (default): allows CronJobs to run concurrently;
+     * - "Forbid": forbids concurrent runs, skipping next run if previous run hasn't finished yet;
+     * - "Replace": cancels currently running job and replaces it with a new one
      * +optional
      * </pre>
      *
@@ -2509,7 +2568,10 @@ public final class V1beta1Batch {
     /**
      * <pre>
      * Specifies how to treat concurrent executions of a Job.
-     * Defaults to Allow.
+     * Valid values are:
+     * - "Allow" (default): allows CronJobs to run concurrently;
+     * - "Forbid": forbids concurrent runs, skipping next run if previous run hasn't finished yet;
+     * - "Replace": cancels currently running job and replaces it with a new one
      * +optional
      * </pre>
      *
@@ -2519,7 +2581,10 @@ public final class V1beta1Batch {
     /**
      * <pre>
      * Specifies how to treat concurrent executions of a Job.
-     * Defaults to Allow.
+     * Valid values are:
+     * - "Allow" (default): allows CronJobs to run concurrently;
+     * - "Forbid": forbids concurrent runs, skipping next run if previous run hasn't finished yet;
+     * - "Replace": cancels currently running job and replaces it with a new one
      * +optional
      * </pre>
      *
@@ -2655,6 +2720,9 @@ public final class V1beta1Batch {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -2666,13 +2734,6 @@ public final class V1beta1Batch {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -2718,6 +2779,13 @@ public final class V1beta1Batch {
               failedJobsHistoryLimit_ = input.readInt32();
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -2735,6 +2803,7 @@ public final class V1beta1Batch {
       return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_CronJobSpec_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_CronJobSpec_fieldAccessorTable
@@ -2829,7 +2898,10 @@ public final class V1beta1Batch {
     /**
      * <pre>
      * Specifies how to treat concurrent executions of a Job.
-     * Defaults to Allow.
+     * Valid values are:
+     * - "Allow" (default): allows CronJobs to run concurrently;
+     * - "Forbid": forbids concurrent runs, skipping next run if previous run hasn't finished yet;
+     * - "Replace": cancels currently running job and replaces it with a new one
      * +optional
      * </pre>
      *
@@ -2841,7 +2913,10 @@ public final class V1beta1Batch {
     /**
      * <pre>
      * Specifies how to treat concurrent executions of a Job.
-     * Defaults to Allow.
+     * Valid values are:
+     * - "Allow" (default): allows CronJobs to run concurrently;
+     * - "Forbid": forbids concurrent runs, skipping next run if previous run hasn't finished yet;
+     * - "Replace": cancels currently running job and replaces it with a new one
      * +optional
      * </pre>
      *
@@ -2864,7 +2939,10 @@ public final class V1beta1Batch {
     /**
      * <pre>
      * Specifies how to treat concurrent executions of a Job.
-     * Defaults to Allow.
+     * Valid values are:
+     * - "Allow" (default): allows CronJobs to run concurrently;
+     * - "Forbid": forbids concurrent runs, skipping next run if previous run hasn't finished yet;
+     * - "Replace": cancels currently running job and replaces it with a new one
      * +optional
      * </pre>
      *
@@ -3003,6 +3081,7 @@ public final class V1beta1Batch {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -3012,6 +3091,7 @@ public final class V1beta1Batch {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -3038,6 +3118,7 @@ public final class V1beta1Batch {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -3236,6 +3317,7 @@ public final class V1beta1Batch {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -3243,6 +3325,7 @@ public final class V1beta1Batch {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Batch.CronJobSpec prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -3270,6 +3353,7 @@ public final class V1beta1Batch {
         return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_CronJobSpec_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_CronJobSpec_fieldAccessorTable
@@ -3293,6 +3377,7 @@ public final class V1beta1Batch {
           getJobTemplateFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         schedule_ = "";
@@ -3316,15 +3401,18 @@ public final class V1beta1Batch {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_CronJobSpec_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Batch.CronJobSpec getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Batch.CronJobSpec.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Batch.CronJobSpec build() {
         io.kubernetes.client.proto.V1beta1Batch.CronJobSpec result = buildPartial();
         if (!result.isInitialized()) {
@@ -3333,6 +3421,7 @@ public final class V1beta1Batch {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Batch.CronJobSpec buildPartial() {
         io.kubernetes.client.proto.V1beta1Batch.CronJobSpec result = new io.kubernetes.client.proto.V1beta1Batch.CronJobSpec(this);
         int from_bitField0_ = bitField0_;
@@ -3374,32 +3463,39 @@ public final class V1beta1Batch {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Batch.CronJobSpec) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Batch.CronJobSpec)other);
@@ -3441,10 +3537,12 @@ public final class V1beta1Batch {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3624,7 +3722,10 @@ public final class V1beta1Batch {
       /**
        * <pre>
        * Specifies how to treat concurrent executions of a Job.
-       * Defaults to Allow.
+       * Valid values are:
+       * - "Allow" (default): allows CronJobs to run concurrently;
+       * - "Forbid": forbids concurrent runs, skipping next run if previous run hasn't finished yet;
+       * - "Replace": cancels currently running job and replaces it with a new one
        * +optional
        * </pre>
        *
@@ -3636,7 +3737,10 @@ public final class V1beta1Batch {
       /**
        * <pre>
        * Specifies how to treat concurrent executions of a Job.
-       * Defaults to Allow.
+       * Valid values are:
+       * - "Allow" (default): allows CronJobs to run concurrently;
+       * - "Forbid": forbids concurrent runs, skipping next run if previous run hasn't finished yet;
+       * - "Replace": cancels currently running job and replaces it with a new one
        * +optional
        * </pre>
        *
@@ -3659,7 +3763,10 @@ public final class V1beta1Batch {
       /**
        * <pre>
        * Specifies how to treat concurrent executions of a Job.
-       * Defaults to Allow.
+       * Valid values are:
+       * - "Allow" (default): allows CronJobs to run concurrently;
+       * - "Forbid": forbids concurrent runs, skipping next run if previous run hasn't finished yet;
+       * - "Replace": cancels currently running job and replaces it with a new one
        * +optional
        * </pre>
        *
@@ -3681,7 +3788,10 @@ public final class V1beta1Batch {
       /**
        * <pre>
        * Specifies how to treat concurrent executions of a Job.
-       * Defaults to Allow.
+       * Valid values are:
+       * - "Allow" (default): allows CronJobs to run concurrently;
+       * - "Forbid": forbids concurrent runs, skipping next run if previous run hasn't finished yet;
+       * - "Replace": cancels currently running job and replaces it with a new one
        * +optional
        * </pre>
        *
@@ -3700,7 +3810,10 @@ public final class V1beta1Batch {
       /**
        * <pre>
        * Specifies how to treat concurrent executions of a Job.
-       * Defaults to Allow.
+       * Valid values are:
+       * - "Allow" (default): allows CronJobs to run concurrently;
+       * - "Forbid": forbids concurrent runs, skipping next run if previous run hasn't finished yet;
+       * - "Replace": cancels currently running job and replaces it with a new one
        * +optional
        * </pre>
        *
@@ -3715,7 +3828,10 @@ public final class V1beta1Batch {
       /**
        * <pre>
        * Specifies how to treat concurrent executions of a Job.
-       * Defaults to Allow.
+       * Valid values are:
+       * - "Allow" (default): allows CronJobs to run concurrently;
+       * - "Forbid": forbids concurrent runs, skipping next run if previous run hasn't finished yet;
+       * - "Replace": cancels currently running job and replaces it with a new one
        * +optional
        * </pre>
        *
@@ -4061,11 +4177,13 @@ public final class V1beta1Batch {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -4087,11 +4205,12 @@ public final class V1beta1Batch {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<CronJobSpec>
         PARSER = new com.google.protobuf.AbstractParser<CronJobSpec>() {
+      @java.lang.Override
       public CronJobSpec parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new CronJobSpec(input, extensionRegistry);
+        return new CronJobSpec(input, extensionRegistry);
       }
     };
 
@@ -4104,6 +4223,7 @@ public final class V1beta1Batch {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Batch.CronJobSpec getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -4221,6 +4341,9 @@ public final class V1beta1Batch {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -4232,13 +4355,6 @@ public final class V1beta1Batch {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 active_ = new java.util.ArrayList<io.kubernetes.client.proto.V1.ObjectReference>();
@@ -4261,6 +4377,13 @@ public final class V1beta1Batch {
               bitField0_ |= 0x00000001;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -4281,6 +4404,7 @@ public final class V1beta1Batch {
       return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_CronJobStatus_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_CronJobStatus_fieldAccessorTable
@@ -4386,6 +4510,7 @@ public final class V1beta1Batch {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -4395,6 +4520,7 @@ public final class V1beta1Batch {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < active_.size(); i++) {
@@ -4406,6 +4532,7 @@ public final class V1beta1Batch {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -4536,6 +4663,7 @@ public final class V1beta1Batch {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -4543,6 +4671,7 @@ public final class V1beta1Batch {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Batch.CronJobStatus prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -4570,6 +4699,7 @@ public final class V1beta1Batch {
         return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_CronJobStatus_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_CronJobStatus_fieldAccessorTable
@@ -4594,6 +4724,7 @@ public final class V1beta1Batch {
           getLastScheduleTimeFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (activeBuilder_ == null) {
@@ -4611,15 +4742,18 @@ public final class V1beta1Batch {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_CronJobStatus_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Batch.CronJobStatus getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Batch.CronJobStatus.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Batch.CronJobStatus build() {
         io.kubernetes.client.proto.V1beta1Batch.CronJobStatus result = buildPartial();
         if (!result.isInitialized()) {
@@ -4628,6 +4762,7 @@ public final class V1beta1Batch {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Batch.CronJobStatus buildPartial() {
         io.kubernetes.client.proto.V1beta1Batch.CronJobStatus result = new io.kubernetes.client.proto.V1beta1Batch.CronJobStatus(this);
         int from_bitField0_ = bitField0_;
@@ -4654,32 +4789,39 @@ public final class V1beta1Batch {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Batch.CronJobStatus) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Batch.CronJobStatus)other);
@@ -4725,10 +4867,12 @@ public final class V1beta1Batch {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -5240,11 +5384,13 @@ public final class V1beta1Batch {
         }
         return lastScheduleTimeBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -5266,11 +5412,12 @@ public final class V1beta1Batch {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<CronJobStatus>
         PARSER = new com.google.protobuf.AbstractParser<CronJobStatus>() {
+      @java.lang.Override
       public CronJobStatus parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new CronJobStatus(input, extensionRegistry);
+        return new CronJobStatus(input, extensionRegistry);
       }
     };
 
@@ -5283,6 +5430,7 @@ public final class V1beta1Batch {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Batch.CronJobStatus getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -5384,6 +5532,9 @@ public final class V1beta1Batch {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -5395,13 +5546,6 @@ public final class V1beta1Batch {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -5428,6 +5572,13 @@ public final class V1beta1Batch {
               bitField0_ |= 0x00000002;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -5445,6 +5596,7 @@ public final class V1beta1Batch {
       return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_JobTemplate_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_JobTemplate_fieldAccessorTable
@@ -5532,6 +5684,7 @@ public final class V1beta1Batch {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -5541,6 +5694,7 @@ public final class V1beta1Batch {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -5552,6 +5706,7 @@ public final class V1beta1Batch {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -5685,6 +5840,7 @@ public final class V1beta1Batch {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -5692,6 +5848,7 @@ public final class V1beta1Batch {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Batch.JobTemplate prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -5719,6 +5876,7 @@ public final class V1beta1Batch {
         return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_JobTemplate_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_JobTemplate_fieldAccessorTable
@@ -5743,6 +5901,7 @@ public final class V1beta1Batch {
           getTemplateFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -5760,15 +5919,18 @@ public final class V1beta1Batch {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_JobTemplate_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Batch.JobTemplate getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Batch.JobTemplate.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Batch.JobTemplate build() {
         io.kubernetes.client.proto.V1beta1Batch.JobTemplate result = buildPartial();
         if (!result.isInitialized()) {
@@ -5777,6 +5939,7 @@ public final class V1beta1Batch {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Batch.JobTemplate buildPartial() {
         io.kubernetes.client.proto.V1beta1Batch.JobTemplate result = new io.kubernetes.client.proto.V1beta1Batch.JobTemplate(this);
         int from_bitField0_ = bitField0_;
@@ -5802,32 +5965,39 @@ public final class V1beta1Batch {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Batch.JobTemplate) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Batch.JobTemplate)other);
@@ -5850,10 +6020,12 @@ public final class V1beta1Batch {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -6216,11 +6388,13 @@ public final class V1beta1Batch {
         }
         return templateBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -6242,11 +6416,12 @@ public final class V1beta1Batch {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<JobTemplate>
         PARSER = new com.google.protobuf.AbstractParser<JobTemplate>() {
+      @java.lang.Override
       public JobTemplate parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new JobTemplate(input, extensionRegistry);
+        return new JobTemplate(input, extensionRegistry);
       }
     };
 
@@ -6259,6 +6434,7 @@ public final class V1beta1Batch {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Batch.JobTemplate getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -6360,6 +6536,9 @@ public final class V1beta1Batch {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -6371,13 +6550,6 @@ public final class V1beta1Batch {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -6404,6 +6576,13 @@ public final class V1beta1Batch {
               bitField0_ |= 0x00000002;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -6421,6 +6600,7 @@ public final class V1beta1Batch {
       return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_JobTemplateSpec_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_JobTemplateSpec_fieldAccessorTable
@@ -6508,6 +6688,7 @@ public final class V1beta1Batch {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -6517,6 +6698,7 @@ public final class V1beta1Batch {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -6528,6 +6710,7 @@ public final class V1beta1Batch {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -6661,6 +6844,7 @@ public final class V1beta1Batch {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -6668,6 +6852,7 @@ public final class V1beta1Batch {
     public static Builder newBuilder(io.kubernetes.client.proto.V1beta1Batch.JobTemplateSpec prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -6695,6 +6880,7 @@ public final class V1beta1Batch {
         return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_JobTemplateSpec_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_JobTemplateSpec_fieldAccessorTable
@@ -6719,6 +6905,7 @@ public final class V1beta1Batch {
           getSpecFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -6736,15 +6923,18 @@ public final class V1beta1Batch {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1beta1Batch.internal_static_k8s_io_api_batch_v1beta1_JobTemplateSpec_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Batch.JobTemplateSpec getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1beta1Batch.JobTemplateSpec.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Batch.JobTemplateSpec build() {
         io.kubernetes.client.proto.V1beta1Batch.JobTemplateSpec result = buildPartial();
         if (!result.isInitialized()) {
@@ -6753,6 +6943,7 @@ public final class V1beta1Batch {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1beta1Batch.JobTemplateSpec buildPartial() {
         io.kubernetes.client.proto.V1beta1Batch.JobTemplateSpec result = new io.kubernetes.client.proto.V1beta1Batch.JobTemplateSpec(this);
         int from_bitField0_ = bitField0_;
@@ -6778,32 +6969,39 @@ public final class V1beta1Batch {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1beta1Batch.JobTemplateSpec) {
           return mergeFrom((io.kubernetes.client.proto.V1beta1Batch.JobTemplateSpec)other);
@@ -6826,10 +7024,12 @@ public final class V1beta1Batch {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -7192,11 +7392,13 @@ public final class V1beta1Batch {
         }
         return specBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -7218,11 +7420,12 @@ public final class V1beta1Batch {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<JobTemplateSpec>
         PARSER = new com.google.protobuf.AbstractParser<JobTemplateSpec>() {
+      @java.lang.Override
       public JobTemplateSpec parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new JobTemplateSpec(input, extensionRegistry);
+        return new JobTemplateSpec(input, extensionRegistry);
       }
     };
 
@@ -7235,6 +7438,7 @@ public final class V1beta1Batch {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Batch.JobTemplateSpec getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -7287,34 +7491,33 @@ public final class V1beta1Batch {
       "ry/pkg/apis/meta/v1/generated.proto\032/k8s" +
       ".io/apimachinery/pkg/runtime/generated.p" +
       "roto\0326k8s.io/apimachinery/pkg/runtime/sc" +
-      "hema/generated.proto\0323k8s.io/apimachiner" +
-      "y/pkg/util/intstr/generated.proto\"\273\001\n\007Cr" +
-      "onJob\022B\n\010metadata\030\001 \001(\01320.k8s.io.apimach",
-      "inery.pkg.apis.meta.v1.ObjectMeta\0223\n\004spe" +
-      "c\030\002 \001(\0132%.k8s.io.api.batch.v1beta1.CronJ" +
-      "obSpec\0227\n\006status\030\003 \001(\0132\'.k8s.io.api.batc" +
-      "h.v1beta1.CronJobStatus\"\201\001\n\013CronJobList\022" +
-      "@\n\010metadata\030\001 \001(\0132..k8s.io.apimachinery." +
-      "pkg.apis.meta.v1.ListMeta\0220\n\005items\030\002 \003(\013" +
-      "2!.k8s.io.api.batch.v1beta1.CronJob\"\360\001\n\013" +
-      "CronJobSpec\022\020\n\010schedule\030\001 \001(\t\022\037\n\027startin" +
-      "gDeadlineSeconds\030\002 \001(\003\022\031\n\021concurrencyPol" +
-      "icy\030\003 \001(\t\022\017\n\007suspend\030\004 \001(\010\022>\n\013jobTemplat",
-      "e\030\005 \001(\0132).k8s.io.api.batch.v1beta1.JobTe" +
-      "mplateSpec\022\"\n\032successfulJobsHistoryLimit" +
-      "\030\006 \001(\005\022\036\n\026failedJobsHistoryLimit\030\007 \001(\005\"\212" +
-      "\001\n\rCronJobStatus\0223\n\006active\030\001 \003(\0132#.k8s.i" +
-      "o.api.core.v1.ObjectReference\022D\n\020lastSch" +
-      "eduleTime\030\004 \001(\0132*.k8s.io.apimachinery.pk" +
-      "g.apis.meta.v1.Time\"\216\001\n\013JobTemplate\022B\n\010m" +
-      "etadata\030\001 \001(\01320.k8s.io.apimachinery.pkg." +
-      "apis.meta.v1.ObjectMeta\022;\n\010template\030\002 \001(" +
-      "\0132).k8s.io.api.batch.v1beta1.JobTemplate",
-      "Spec\"\201\001\n\017JobTemplateSpec\022B\n\010metadata\030\001 \001" +
-      "(\01320.k8s.io.apimachinery.pkg.apis.meta.v" +
-      "1.ObjectMeta\022*\n\004spec\030\002 \001(\0132\034.k8s.io.api." +
-      "batch.v1.JobSpecB3\n\032io.kubernetes.client" +
-      ".protoB\014V1beta1BatchZ\007v1beta1"
+      "hema/generated.proto\"\273\001\n\007CronJob\022B\n\010meta" +
+      "data\030\001 \001(\01320.k8s.io.apimachinery.pkg.api" +
+      "s.meta.v1.ObjectMeta\0223\n\004spec\030\002 \001(\0132%.k8s" +
+      ".io.api.batch.v1beta1.CronJobSpec\0227\n\006sta" +
+      "tus\030\003 \001(\0132\'.k8s.io.api.batch.v1beta1.Cro" +
+      "nJobStatus\"\201\001\n\013CronJobList\022@\n\010metadata\030\001" +
+      " \001(\0132..k8s.io.apimachinery.pkg.apis.meta" +
+      ".v1.ListMeta\0220\n\005items\030\002 \003(\0132!.k8s.io.api" +
+      ".batch.v1beta1.CronJob\"\360\001\n\013CronJobSpec\022\020" +
+      "\n\010schedule\030\001 \001(\t\022\037\n\027startingDeadlineSeco" +
+      "nds\030\002 \001(\003\022\031\n\021concurrencyPolicy\030\003 \001(\t\022\017\n\007" +
+      "suspend\030\004 \001(\010\022>\n\013jobTemplate\030\005 \001(\0132).k8s" +
+      ".io.api.batch.v1beta1.JobTemplateSpec\022\"\n" +
+      "\032successfulJobsHistoryLimit\030\006 \001(\005\022\036\n\026fai" +
+      "ledJobsHistoryLimit\030\007 \001(\005\"\212\001\n\rCronJobSta" +
+      "tus\0223\n\006active\030\001 \003(\0132#.k8s.io.api.core.v1" +
+      ".ObjectReference\022D\n\020lastScheduleTime\030\004 \001" +
+      "(\0132*.k8s.io.apimachinery.pkg.apis.meta.v" +
+      "1.Time\"\216\001\n\013JobTemplate\022B\n\010metadata\030\001 \001(\013" +
+      "20.k8s.io.apimachinery.pkg.apis.meta.v1." +
+      "ObjectMeta\022;\n\010template\030\002 \001(\0132).k8s.io.ap" +
+      "i.batch.v1beta1.JobTemplateSpec\"\201\001\n\017JobT" +
+      "emplateSpec\022B\n\010metadata\030\001 \001(\01320.k8s.io.a" +
+      "pimachinery.pkg.apis.meta.v1.ObjectMeta\022" +
+      "*\n\004spec\030\002 \001(\0132\034.k8s.io.api.batch.v1.JobS" +
+      "pecB3\n\032io.kubernetes.client.protoB\014V1bet" +
+      "a1BatchZ\007v1beta1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -7332,7 +7535,6 @@ public final class V1beta1Batch {
           io.kubernetes.client.proto.Meta.getDescriptor(),
           io.kubernetes.client.proto.Runtime.getDescriptor(),
           io.kubernetes.client.proto.RuntimeSchema.getDescriptor(),
-          io.kubernetes.client.proto.IntStr.getDescriptor(),
         }, assigner);
     internal_static_k8s_io_api_batch_v1beta1_CronJob_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -7375,7 +7577,6 @@ public final class V1beta1Batch {
     io.kubernetes.client.proto.Meta.getDescriptor();
     io.kubernetes.client.proto.Runtime.getDescriptor();
     io.kubernetes.client.proto.RuntimeSchema.getDescriptor();
-    io.kubernetes.client.proto.IntStr.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

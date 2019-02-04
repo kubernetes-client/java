@@ -127,6 +127,9 @@ public final class V1Networking {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -138,13 +141,6 @@ public final class V1Networking {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -158,6 +154,13 @@ public final class V1Networking {
                 mutable_bitField0_ |= 0x00000002;
               }
               except_.add(bs);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -180,6 +183,7 @@ public final class V1Networking {
       return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_IPBlock_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_IPBlock_fieldAccessorTable
@@ -303,6 +307,7 @@ public final class V1Networking {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -312,6 +317,7 @@ public final class V1Networking {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -323,6 +329,7 @@ public final class V1Networking {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -456,6 +463,7 @@ public final class V1Networking {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -463,6 +471,7 @@ public final class V1Networking {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Networking.IPBlock prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -492,6 +501,7 @@ public final class V1Networking {
         return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_IPBlock_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_IPBlock_fieldAccessorTable
@@ -514,6 +524,7 @@ public final class V1Networking {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         cidr_ = "";
@@ -523,15 +534,18 @@ public final class V1Networking {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_IPBlock_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Networking.IPBlock getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Networking.IPBlock.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Networking.IPBlock build() {
         io.kubernetes.client.proto.V1Networking.IPBlock result = buildPartial();
         if (!result.isInitialized()) {
@@ -540,6 +554,7 @@ public final class V1Networking {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Networking.IPBlock buildPartial() {
         io.kubernetes.client.proto.V1Networking.IPBlock result = new io.kubernetes.client.proto.V1Networking.IPBlock(this);
         int from_bitField0_ = bitField0_;
@@ -558,32 +573,39 @@ public final class V1Networking {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Networking.IPBlock) {
           return mergeFrom((io.kubernetes.client.proto.V1Networking.IPBlock)other);
@@ -615,10 +637,12 @@ public final class V1Networking {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -899,11 +923,13 @@ public final class V1Networking {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -925,11 +951,12 @@ public final class V1Networking {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<IPBlock>
         PARSER = new com.google.protobuf.AbstractParser<IPBlock>() {
+      @java.lang.Override
       public IPBlock parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new IPBlock(input, extensionRegistry);
+        return new IPBlock(input, extensionRegistry);
       }
     };
 
@@ -942,6 +969,7 @@ public final class V1Networking {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Networking.IPBlock getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -1040,6 +1068,9 @@ public final class V1Networking {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1051,13 +1082,6 @@ public final class V1Networking {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1084,6 +1108,13 @@ public final class V1Networking {
               bitField0_ |= 0x00000002;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1101,6 +1132,7 @@ public final class V1Networking {
       return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicy_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicy_fieldAccessorTable
@@ -1185,6 +1217,7 @@ public final class V1Networking {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1194,6 +1227,7 @@ public final class V1Networking {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1205,6 +1239,7 @@ public final class V1Networking {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1338,6 +1373,7 @@ public final class V1Networking {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1345,6 +1381,7 @@ public final class V1Networking {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Networking.NetworkPolicy prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1372,6 +1409,7 @@ public final class V1Networking {
         return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicy_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicy_fieldAccessorTable
@@ -1396,6 +1434,7 @@ public final class V1Networking {
           getSpecFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -1413,15 +1452,18 @@ public final class V1Networking {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicy_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Networking.NetworkPolicy getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Networking.NetworkPolicy.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Networking.NetworkPolicy build() {
         io.kubernetes.client.proto.V1Networking.NetworkPolicy result = buildPartial();
         if (!result.isInitialized()) {
@@ -1430,6 +1472,7 @@ public final class V1Networking {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Networking.NetworkPolicy buildPartial() {
         io.kubernetes.client.proto.V1Networking.NetworkPolicy result = new io.kubernetes.client.proto.V1Networking.NetworkPolicy(this);
         int from_bitField0_ = bitField0_;
@@ -1455,32 +1498,39 @@ public final class V1Networking {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Networking.NetworkPolicy) {
           return mergeFrom((io.kubernetes.client.proto.V1Networking.NetworkPolicy)other);
@@ -1503,10 +1553,12 @@ public final class V1Networking {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1860,11 +1912,13 @@ public final class V1Networking {
         }
         return specBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1886,11 +1940,12 @@ public final class V1Networking {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<NetworkPolicy>
         PARSER = new com.google.protobuf.AbstractParser<NetworkPolicy>() {
+      @java.lang.Override
       public NetworkPolicy parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new NetworkPolicy(input, extensionRegistry);
+        return new NetworkPolicy(input, extensionRegistry);
       }
     };
 
@@ -1903,6 +1958,7 @@ public final class V1Networking {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Networking.NetworkPolicy getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -2084,6 +2140,9 @@ public final class V1Networking {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -2095,13 +2154,6 @@ public final class V1Networking {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 ports_ = new java.util.ArrayList<io.kubernetes.client.proto.V1Networking.NetworkPolicyPort>();
@@ -2118,6 +2170,13 @@ public final class V1Networking {
               }
               to_.add(
                   input.readMessage(io.kubernetes.client.proto.V1Networking.NetworkPolicyPeer.PARSER, extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -2143,6 +2202,7 @@ public final class V1Networking {
       return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicyEgressRule_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicyEgressRule_fieldAccessorTable
@@ -2311,6 +2371,7 @@ public final class V1Networking {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2320,6 +2381,7 @@ public final class V1Networking {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < ports_.size(); i++) {
@@ -2331,6 +2393,7 @@ public final class V1Networking {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -2458,6 +2521,7 @@ public final class V1Networking {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -2465,6 +2529,7 @@ public final class V1Networking {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Networking.NetworkPolicyEgressRule prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -2494,6 +2559,7 @@ public final class V1Networking {
         return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicyEgressRule_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicyEgressRule_fieldAccessorTable
@@ -2518,6 +2584,7 @@ public final class V1Networking {
           getToFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (portsBuilder_ == null) {
@@ -2535,15 +2602,18 @@ public final class V1Networking {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicyEgressRule_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Networking.NetworkPolicyEgressRule getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Networking.NetworkPolicyEgressRule.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Networking.NetworkPolicyEgressRule build() {
         io.kubernetes.client.proto.V1Networking.NetworkPolicyEgressRule result = buildPartial();
         if (!result.isInitialized()) {
@@ -2552,6 +2622,7 @@ public final class V1Networking {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Networking.NetworkPolicyEgressRule buildPartial() {
         io.kubernetes.client.proto.V1Networking.NetworkPolicyEgressRule result = new io.kubernetes.client.proto.V1Networking.NetworkPolicyEgressRule(this);
         int from_bitField0_ = bitField0_;
@@ -2577,32 +2648,39 @@ public final class V1Networking {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Networking.NetworkPolicyEgressRule) {
           return mergeFrom((io.kubernetes.client.proto.V1Networking.NetworkPolicyEgressRule)other);
@@ -2671,10 +2749,12 @@ public final class V1Networking {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3497,11 +3577,13 @@ public final class V1Networking {
         }
         return toBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -3523,11 +3605,12 @@ public final class V1Networking {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<NetworkPolicyEgressRule>
         PARSER = new com.google.protobuf.AbstractParser<NetworkPolicyEgressRule>() {
+      @java.lang.Override
       public NetworkPolicyEgressRule parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new NetworkPolicyEgressRule(input, extensionRegistry);
+        return new NetworkPolicyEgressRule(input, extensionRegistry);
       }
     };
 
@@ -3540,6 +3623,7 @@ public final class V1Networking {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Networking.NetworkPolicyEgressRule getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -3720,6 +3804,9 @@ public final class V1Networking {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -3731,13 +3818,6 @@ public final class V1Networking {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 ports_ = new java.util.ArrayList<io.kubernetes.client.proto.V1Networking.NetworkPolicyPort>();
@@ -3754,6 +3834,13 @@ public final class V1Networking {
               }
               from_.add(
                   input.readMessage(io.kubernetes.client.proto.V1Networking.NetworkPolicyPeer.PARSER, extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -3779,6 +3866,7 @@ public final class V1Networking {
       return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicyIngressRule_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicyIngressRule_fieldAccessorTable
@@ -3947,6 +4035,7 @@ public final class V1Networking {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -3956,6 +4045,7 @@ public final class V1Networking {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < ports_.size(); i++) {
@@ -3967,6 +4057,7 @@ public final class V1Networking {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -4094,6 +4185,7 @@ public final class V1Networking {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -4101,6 +4193,7 @@ public final class V1Networking {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Networking.NetworkPolicyIngressRule prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -4129,6 +4222,7 @@ public final class V1Networking {
         return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicyIngressRule_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicyIngressRule_fieldAccessorTable
@@ -4153,6 +4247,7 @@ public final class V1Networking {
           getFromFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (portsBuilder_ == null) {
@@ -4170,15 +4265,18 @@ public final class V1Networking {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicyIngressRule_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Networking.NetworkPolicyIngressRule getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Networking.NetworkPolicyIngressRule.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Networking.NetworkPolicyIngressRule build() {
         io.kubernetes.client.proto.V1Networking.NetworkPolicyIngressRule result = buildPartial();
         if (!result.isInitialized()) {
@@ -4187,6 +4285,7 @@ public final class V1Networking {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Networking.NetworkPolicyIngressRule buildPartial() {
         io.kubernetes.client.proto.V1Networking.NetworkPolicyIngressRule result = new io.kubernetes.client.proto.V1Networking.NetworkPolicyIngressRule(this);
         int from_bitField0_ = bitField0_;
@@ -4212,32 +4311,39 @@ public final class V1Networking {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Networking.NetworkPolicyIngressRule) {
           return mergeFrom((io.kubernetes.client.proto.V1Networking.NetworkPolicyIngressRule)other);
@@ -4306,10 +4412,12 @@ public final class V1Networking {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -5132,11 +5240,13 @@ public final class V1Networking {
         }
         return fromBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -5158,11 +5268,12 @@ public final class V1Networking {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<NetworkPolicyIngressRule>
         PARSER = new com.google.protobuf.AbstractParser<NetworkPolicyIngressRule>() {
+      @java.lang.Override
       public NetworkPolicyIngressRule parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new NetworkPolicyIngressRule(input, extensionRegistry);
+        return new NetworkPolicyIngressRule(input, extensionRegistry);
       }
     };
 
@@ -5175,6 +5286,7 @@ public final class V1Networking {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Networking.NetworkPolicyIngressRule getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -5290,6 +5402,9 @@ public final class V1Networking {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -5301,13 +5416,6 @@ public final class V1Networking {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ListMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -5330,6 +5438,13 @@ public final class V1Networking {
                   input.readMessage(io.kubernetes.client.proto.V1Networking.NetworkPolicy.PARSER, extensionRegistry));
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -5350,6 +5465,7 @@ public final class V1Networking {
       return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicyList_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicyList_fieldAccessorTable
@@ -5453,6 +5569,7 @@ public final class V1Networking {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -5462,6 +5579,7 @@ public final class V1Networking {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -5473,6 +5591,7 @@ public final class V1Networking {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -5603,6 +5722,7 @@ public final class V1Networking {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -5610,6 +5730,7 @@ public final class V1Networking {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Networking.NetworkPolicyList prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -5637,6 +5758,7 @@ public final class V1Networking {
         return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicyList_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicyList_fieldAccessorTable
@@ -5661,6 +5783,7 @@ public final class V1Networking {
           getItemsFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -5678,15 +5801,18 @@ public final class V1Networking {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicyList_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Networking.NetworkPolicyList getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Networking.NetworkPolicyList.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Networking.NetworkPolicyList build() {
         io.kubernetes.client.proto.V1Networking.NetworkPolicyList result = buildPartial();
         if (!result.isInitialized()) {
@@ -5695,6 +5821,7 @@ public final class V1Networking {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Networking.NetworkPolicyList buildPartial() {
         io.kubernetes.client.proto.V1Networking.NetworkPolicyList result = new io.kubernetes.client.proto.V1Networking.NetworkPolicyList(this);
         int from_bitField0_ = bitField0_;
@@ -5721,32 +5848,39 @@ public final class V1Networking {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Networking.NetworkPolicyList) {
           return mergeFrom((io.kubernetes.client.proto.V1Networking.NetworkPolicyList)other);
@@ -5792,10 +5926,12 @@ public final class V1Networking {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -6298,11 +6434,13 @@ public final class V1Networking {
         }
         return itemsBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -6324,11 +6462,12 @@ public final class V1Networking {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<NetworkPolicyList>
         PARSER = new com.google.protobuf.AbstractParser<NetworkPolicyList>() {
+      @java.lang.Override
       public NetworkPolicyList parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new NetworkPolicyList(input, extensionRegistry);
+        return new NetworkPolicyList(input, extensionRegistry);
       }
     };
 
@@ -6341,6 +6480,7 @@ public final class V1Networking {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Networking.NetworkPolicyList getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -6353,9 +6493,11 @@ public final class V1Networking {
 
     /**
      * <pre>
-     * This is a label selector which selects Pods in this namespace. This field
-     * follows standard label selector semantics. If present but empty, this selector
-     * selects all pods in this namespace.
+     * This is a label selector which selects Pods. This field follows standard label
+     * selector semantics; if present but empty, it selects all pods.
+     * If NamespaceSelector is also set, then the NetworkPolicyPeer as a whole selects
+     * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+     * Otherwise it selects the Pods matching PodSelector in the policy's own Namespace.
      * +optional
      * </pre>
      *
@@ -6364,9 +6506,11 @@ public final class V1Networking {
     boolean hasPodSelector();
     /**
      * <pre>
-     * This is a label selector which selects Pods in this namespace. This field
-     * follows standard label selector semantics. If present but empty, this selector
-     * selects all pods in this namespace.
+     * This is a label selector which selects Pods. This field follows standard label
+     * selector semantics; if present but empty, it selects all pods.
+     * If NamespaceSelector is also set, then the NetworkPolicyPeer as a whole selects
+     * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+     * Otherwise it selects the Pods matching PodSelector in the policy's own Namespace.
      * +optional
      * </pre>
      *
@@ -6375,9 +6519,11 @@ public final class V1Networking {
     io.kubernetes.client.proto.Meta.LabelSelector getPodSelector();
     /**
      * <pre>
-     * This is a label selector which selects Pods in this namespace. This field
-     * follows standard label selector semantics. If present but empty, this selector
-     * selects all pods in this namespace.
+     * This is a label selector which selects Pods. This field follows standard label
+     * selector semantics; if present but empty, it selects all pods.
+     * If NamespaceSelector is also set, then the NetworkPolicyPeer as a whole selects
+     * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+     * Otherwise it selects the Pods matching PodSelector in the policy's own Namespace.
      * +optional
      * </pre>
      *
@@ -6387,9 +6533,11 @@ public final class V1Networking {
 
     /**
      * <pre>
-     * Selects Namespaces using cluster scoped-labels. This matches all pods in all
-     * namespaces selected by this label selector. This field follows standard label
-     * selector semantics. If present but empty, this selector selects all namespaces.
+     * Selects Namespaces using cluster-scoped labels. This field follows standard label
+     * selector semantics; if present but empty, it selects all namespaces.
+     * If PodSelector is also set, then the NetworkPolicyPeer as a whole selects
+     * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+     * Otherwise it selects all Pods in the Namespaces selected by NamespaceSelector.
      * +optional
      * </pre>
      *
@@ -6398,9 +6546,11 @@ public final class V1Networking {
     boolean hasNamespaceSelector();
     /**
      * <pre>
-     * Selects Namespaces using cluster scoped-labels. This matches all pods in all
-     * namespaces selected by this label selector. This field follows standard label
-     * selector semantics. If present but empty, this selector selects all namespaces.
+     * Selects Namespaces using cluster-scoped labels. This field follows standard label
+     * selector semantics; if present but empty, it selects all namespaces.
+     * If PodSelector is also set, then the NetworkPolicyPeer as a whole selects
+     * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+     * Otherwise it selects all Pods in the Namespaces selected by NamespaceSelector.
      * +optional
      * </pre>
      *
@@ -6409,9 +6559,11 @@ public final class V1Networking {
     io.kubernetes.client.proto.Meta.LabelSelector getNamespaceSelector();
     /**
      * <pre>
-     * Selects Namespaces using cluster scoped-labels. This matches all pods in all
-     * namespaces selected by this label selector. This field follows standard label
-     * selector semantics. If present but empty, this selector selects all namespaces.
+     * Selects Namespaces using cluster-scoped labels. This field follows standard label
+     * selector semantics; if present but empty, it selects all namespaces.
+     * If PodSelector is also set, then the NetworkPolicyPeer as a whole selects
+     * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+     * Otherwise it selects all Pods in the Namespaces selected by NamespaceSelector.
      * +optional
      * </pre>
      *
@@ -6421,7 +6573,8 @@ public final class V1Networking {
 
     /**
      * <pre>
-     * IPBlock defines policy on a particular IPBlock
+     * IPBlock defines policy on a particular IPBlock. If this field is set then
+     * neither of the other fields can be.
      * +optional
      * </pre>
      *
@@ -6430,7 +6583,8 @@ public final class V1Networking {
     boolean hasIpBlock();
     /**
      * <pre>
-     * IPBlock defines policy on a particular IPBlock
+     * IPBlock defines policy on a particular IPBlock. If this field is set then
+     * neither of the other fields can be.
      * +optional
      * </pre>
      *
@@ -6439,7 +6593,8 @@ public final class V1Networking {
     io.kubernetes.client.proto.V1Networking.IPBlock getIpBlock();
     /**
      * <pre>
-     * IPBlock defines policy on a particular IPBlock
+     * IPBlock defines policy on a particular IPBlock. If this field is set then
+     * neither of the other fields can be.
      * +optional
      * </pre>
      *
@@ -6449,8 +6604,8 @@ public final class V1Networking {
   }
   /**
    * <pre>
-   * NetworkPolicyPeer describes a peer to allow traffic from. Exactly one of its fields
-   * must be specified.
+   * NetworkPolicyPeer describes a peer to allow traffic from. Only certain combinations of
+   * fields are allowed
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.networking.v1.NetworkPolicyPeer}
@@ -6477,6 +6632,9 @@ public final class V1Networking {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -6488,13 +6646,6 @@ public final class V1Networking {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.LabelSelector.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -6534,6 +6685,13 @@ public final class V1Networking {
               bitField0_ |= 0x00000004;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -6551,6 +6709,7 @@ public final class V1Networking {
       return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicyPeer_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicyPeer_fieldAccessorTable
@@ -6563,9 +6722,11 @@ public final class V1Networking {
     private io.kubernetes.client.proto.Meta.LabelSelector podSelector_;
     /**
      * <pre>
-     * This is a label selector which selects Pods in this namespace. This field
-     * follows standard label selector semantics. If present but empty, this selector
-     * selects all pods in this namespace.
+     * This is a label selector which selects Pods. This field follows standard label
+     * selector semantics; if present but empty, it selects all pods.
+     * If NamespaceSelector is also set, then the NetworkPolicyPeer as a whole selects
+     * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+     * Otherwise it selects the Pods matching PodSelector in the policy's own Namespace.
      * +optional
      * </pre>
      *
@@ -6576,9 +6737,11 @@ public final class V1Networking {
     }
     /**
      * <pre>
-     * This is a label selector which selects Pods in this namespace. This field
-     * follows standard label selector semantics. If present but empty, this selector
-     * selects all pods in this namespace.
+     * This is a label selector which selects Pods. This field follows standard label
+     * selector semantics; if present but empty, it selects all pods.
+     * If NamespaceSelector is also set, then the NetworkPolicyPeer as a whole selects
+     * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+     * Otherwise it selects the Pods matching PodSelector in the policy's own Namespace.
      * +optional
      * </pre>
      *
@@ -6589,9 +6752,11 @@ public final class V1Networking {
     }
     /**
      * <pre>
-     * This is a label selector which selects Pods in this namespace. This field
-     * follows standard label selector semantics. If present but empty, this selector
-     * selects all pods in this namespace.
+     * This is a label selector which selects Pods. This field follows standard label
+     * selector semantics; if present but empty, it selects all pods.
+     * If NamespaceSelector is also set, then the NetworkPolicyPeer as a whole selects
+     * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+     * Otherwise it selects the Pods matching PodSelector in the policy's own Namespace.
      * +optional
      * </pre>
      *
@@ -6605,9 +6770,11 @@ public final class V1Networking {
     private io.kubernetes.client.proto.Meta.LabelSelector namespaceSelector_;
     /**
      * <pre>
-     * Selects Namespaces using cluster scoped-labels. This matches all pods in all
-     * namespaces selected by this label selector. This field follows standard label
-     * selector semantics. If present but empty, this selector selects all namespaces.
+     * Selects Namespaces using cluster-scoped labels. This field follows standard label
+     * selector semantics; if present but empty, it selects all namespaces.
+     * If PodSelector is also set, then the NetworkPolicyPeer as a whole selects
+     * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+     * Otherwise it selects all Pods in the Namespaces selected by NamespaceSelector.
      * +optional
      * </pre>
      *
@@ -6618,9 +6785,11 @@ public final class V1Networking {
     }
     /**
      * <pre>
-     * Selects Namespaces using cluster scoped-labels. This matches all pods in all
-     * namespaces selected by this label selector. This field follows standard label
-     * selector semantics. If present but empty, this selector selects all namespaces.
+     * Selects Namespaces using cluster-scoped labels. This field follows standard label
+     * selector semantics; if present but empty, it selects all namespaces.
+     * If PodSelector is also set, then the NetworkPolicyPeer as a whole selects
+     * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+     * Otherwise it selects all Pods in the Namespaces selected by NamespaceSelector.
      * +optional
      * </pre>
      *
@@ -6631,9 +6800,11 @@ public final class V1Networking {
     }
     /**
      * <pre>
-     * Selects Namespaces using cluster scoped-labels. This matches all pods in all
-     * namespaces selected by this label selector. This field follows standard label
-     * selector semantics. If present but empty, this selector selects all namespaces.
+     * Selects Namespaces using cluster-scoped labels. This field follows standard label
+     * selector semantics; if present but empty, it selects all namespaces.
+     * If PodSelector is also set, then the NetworkPolicyPeer as a whole selects
+     * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+     * Otherwise it selects all Pods in the Namespaces selected by NamespaceSelector.
      * +optional
      * </pre>
      *
@@ -6647,7 +6818,8 @@ public final class V1Networking {
     private io.kubernetes.client.proto.V1Networking.IPBlock ipBlock_;
     /**
      * <pre>
-     * IPBlock defines policy on a particular IPBlock
+     * IPBlock defines policy on a particular IPBlock. If this field is set then
+     * neither of the other fields can be.
      * +optional
      * </pre>
      *
@@ -6658,7 +6830,8 @@ public final class V1Networking {
     }
     /**
      * <pre>
-     * IPBlock defines policy on a particular IPBlock
+     * IPBlock defines policy on a particular IPBlock. If this field is set then
+     * neither of the other fields can be.
      * +optional
      * </pre>
      *
@@ -6669,7 +6842,8 @@ public final class V1Networking {
     }
     /**
      * <pre>
-     * IPBlock defines policy on a particular IPBlock
+     * IPBlock defines policy on a particular IPBlock. If this field is set then
+     * neither of the other fields can be.
      * +optional
      * </pre>
      *
@@ -6680,6 +6854,7 @@ public final class V1Networking {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -6689,6 +6864,7 @@ public final class V1Networking {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -6703,6 +6879,7 @@ public final class V1Networking {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -6849,6 +7026,7 @@ public final class V1Networking {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -6856,6 +7034,7 @@ public final class V1Networking {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Networking.NetworkPolicyPeer prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -6869,8 +7048,8 @@ public final class V1Networking {
     }
     /**
      * <pre>
-     * NetworkPolicyPeer describes a peer to allow traffic from. Exactly one of its fields
-     * must be specified.
+     * NetworkPolicyPeer describes a peer to allow traffic from. Only certain combinations of
+     * fields are allowed
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.networking.v1.NetworkPolicyPeer}
@@ -6884,6 +7063,7 @@ public final class V1Networking {
         return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicyPeer_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicyPeer_fieldAccessorTable
@@ -6909,6 +7089,7 @@ public final class V1Networking {
           getIpBlockFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (podSelectorBuilder_ == null) {
@@ -6932,15 +7113,18 @@ public final class V1Networking {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicyPeer_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Networking.NetworkPolicyPeer getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Networking.NetworkPolicyPeer.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Networking.NetworkPolicyPeer build() {
         io.kubernetes.client.proto.V1Networking.NetworkPolicyPeer result = buildPartial();
         if (!result.isInitialized()) {
@@ -6949,6 +7133,7 @@ public final class V1Networking {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Networking.NetworkPolicyPeer buildPartial() {
         io.kubernetes.client.proto.V1Networking.NetworkPolicyPeer result = new io.kubernetes.client.proto.V1Networking.NetworkPolicyPeer(this);
         int from_bitField0_ = bitField0_;
@@ -6982,32 +7167,39 @@ public final class V1Networking {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Networking.NetworkPolicyPeer) {
           return mergeFrom((io.kubernetes.client.proto.V1Networking.NetworkPolicyPeer)other);
@@ -7033,10 +7225,12 @@ public final class V1Networking {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -7061,9 +7255,11 @@ public final class V1Networking {
           io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder> podSelectorBuilder_;
       /**
        * <pre>
-       * This is a label selector which selects Pods in this namespace. This field
-       * follows standard label selector semantics. If present but empty, this selector
-       * selects all pods in this namespace.
+       * This is a label selector which selects Pods. This field follows standard label
+       * selector semantics; if present but empty, it selects all pods.
+       * If NamespaceSelector is also set, then the NetworkPolicyPeer as a whole selects
+       * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+       * Otherwise it selects the Pods matching PodSelector in the policy's own Namespace.
        * +optional
        * </pre>
        *
@@ -7074,9 +7270,11 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * This is a label selector which selects Pods in this namespace. This field
-       * follows standard label selector semantics. If present but empty, this selector
-       * selects all pods in this namespace.
+       * This is a label selector which selects Pods. This field follows standard label
+       * selector semantics; if present but empty, it selects all pods.
+       * If NamespaceSelector is also set, then the NetworkPolicyPeer as a whole selects
+       * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+       * Otherwise it selects the Pods matching PodSelector in the policy's own Namespace.
        * +optional
        * </pre>
        *
@@ -7091,9 +7289,11 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * This is a label selector which selects Pods in this namespace. This field
-       * follows standard label selector semantics. If present but empty, this selector
-       * selects all pods in this namespace.
+       * This is a label selector which selects Pods. This field follows standard label
+       * selector semantics; if present but empty, it selects all pods.
+       * If NamespaceSelector is also set, then the NetworkPolicyPeer as a whole selects
+       * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+       * Otherwise it selects the Pods matching PodSelector in the policy's own Namespace.
        * +optional
        * </pre>
        *
@@ -7114,9 +7314,11 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * This is a label selector which selects Pods in this namespace. This field
-       * follows standard label selector semantics. If present but empty, this selector
-       * selects all pods in this namespace.
+       * This is a label selector which selects Pods. This field follows standard label
+       * selector semantics; if present but empty, it selects all pods.
+       * If NamespaceSelector is also set, then the NetworkPolicyPeer as a whole selects
+       * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+       * Otherwise it selects the Pods matching PodSelector in the policy's own Namespace.
        * +optional
        * </pre>
        *
@@ -7135,9 +7337,11 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * This is a label selector which selects Pods in this namespace. This field
-       * follows standard label selector semantics. If present but empty, this selector
-       * selects all pods in this namespace.
+       * This is a label selector which selects Pods. This field follows standard label
+       * selector semantics; if present but empty, it selects all pods.
+       * If NamespaceSelector is also set, then the NetworkPolicyPeer as a whole selects
+       * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+       * Otherwise it selects the Pods matching PodSelector in the policy's own Namespace.
        * +optional
        * </pre>
        *
@@ -7162,9 +7366,11 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * This is a label selector which selects Pods in this namespace. This field
-       * follows standard label selector semantics. If present but empty, this selector
-       * selects all pods in this namespace.
+       * This is a label selector which selects Pods. This field follows standard label
+       * selector semantics; if present but empty, it selects all pods.
+       * If NamespaceSelector is also set, then the NetworkPolicyPeer as a whole selects
+       * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+       * Otherwise it selects the Pods matching PodSelector in the policy's own Namespace.
        * +optional
        * </pre>
        *
@@ -7182,9 +7388,11 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * This is a label selector which selects Pods in this namespace. This field
-       * follows standard label selector semantics. If present but empty, this selector
-       * selects all pods in this namespace.
+       * This is a label selector which selects Pods. This field follows standard label
+       * selector semantics; if present but empty, it selects all pods.
+       * If NamespaceSelector is also set, then the NetworkPolicyPeer as a whole selects
+       * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+       * Otherwise it selects the Pods matching PodSelector in the policy's own Namespace.
        * +optional
        * </pre>
        *
@@ -7197,9 +7405,11 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * This is a label selector which selects Pods in this namespace. This field
-       * follows standard label selector semantics. If present but empty, this selector
-       * selects all pods in this namespace.
+       * This is a label selector which selects Pods. This field follows standard label
+       * selector semantics; if present but empty, it selects all pods.
+       * If NamespaceSelector is also set, then the NetworkPolicyPeer as a whole selects
+       * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+       * Otherwise it selects the Pods matching PodSelector in the policy's own Namespace.
        * +optional
        * </pre>
        *
@@ -7215,9 +7425,11 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * This is a label selector which selects Pods in this namespace. This field
-       * follows standard label selector semantics. If present but empty, this selector
-       * selects all pods in this namespace.
+       * This is a label selector which selects Pods. This field follows standard label
+       * selector semantics; if present but empty, it selects all pods.
+       * If NamespaceSelector is also set, then the NetworkPolicyPeer as a whole selects
+       * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+       * Otherwise it selects the Pods matching PodSelector in the policy's own Namespace.
        * +optional
        * </pre>
        *
@@ -7242,9 +7454,11 @@ public final class V1Networking {
           io.kubernetes.client.proto.Meta.LabelSelector, io.kubernetes.client.proto.Meta.LabelSelector.Builder, io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder> namespaceSelectorBuilder_;
       /**
        * <pre>
-       * Selects Namespaces using cluster scoped-labels. This matches all pods in all
-       * namespaces selected by this label selector. This field follows standard label
-       * selector semantics. If present but empty, this selector selects all namespaces.
+       * Selects Namespaces using cluster-scoped labels. This field follows standard label
+       * selector semantics; if present but empty, it selects all namespaces.
+       * If PodSelector is also set, then the NetworkPolicyPeer as a whole selects
+       * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+       * Otherwise it selects all Pods in the Namespaces selected by NamespaceSelector.
        * +optional
        * </pre>
        *
@@ -7255,9 +7469,11 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * Selects Namespaces using cluster scoped-labels. This matches all pods in all
-       * namespaces selected by this label selector. This field follows standard label
-       * selector semantics. If present but empty, this selector selects all namespaces.
+       * Selects Namespaces using cluster-scoped labels. This field follows standard label
+       * selector semantics; if present but empty, it selects all namespaces.
+       * If PodSelector is also set, then the NetworkPolicyPeer as a whole selects
+       * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+       * Otherwise it selects all Pods in the Namespaces selected by NamespaceSelector.
        * +optional
        * </pre>
        *
@@ -7272,9 +7488,11 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * Selects Namespaces using cluster scoped-labels. This matches all pods in all
-       * namespaces selected by this label selector. This field follows standard label
-       * selector semantics. If present but empty, this selector selects all namespaces.
+       * Selects Namespaces using cluster-scoped labels. This field follows standard label
+       * selector semantics; if present but empty, it selects all namespaces.
+       * If PodSelector is also set, then the NetworkPolicyPeer as a whole selects
+       * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+       * Otherwise it selects all Pods in the Namespaces selected by NamespaceSelector.
        * +optional
        * </pre>
        *
@@ -7295,9 +7513,11 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * Selects Namespaces using cluster scoped-labels. This matches all pods in all
-       * namespaces selected by this label selector. This field follows standard label
-       * selector semantics. If present but empty, this selector selects all namespaces.
+       * Selects Namespaces using cluster-scoped labels. This field follows standard label
+       * selector semantics; if present but empty, it selects all namespaces.
+       * If PodSelector is also set, then the NetworkPolicyPeer as a whole selects
+       * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+       * Otherwise it selects all Pods in the Namespaces selected by NamespaceSelector.
        * +optional
        * </pre>
        *
@@ -7316,9 +7536,11 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * Selects Namespaces using cluster scoped-labels. This matches all pods in all
-       * namespaces selected by this label selector. This field follows standard label
-       * selector semantics. If present but empty, this selector selects all namespaces.
+       * Selects Namespaces using cluster-scoped labels. This field follows standard label
+       * selector semantics; if present but empty, it selects all namespaces.
+       * If PodSelector is also set, then the NetworkPolicyPeer as a whole selects
+       * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+       * Otherwise it selects all Pods in the Namespaces selected by NamespaceSelector.
        * +optional
        * </pre>
        *
@@ -7343,9 +7565,11 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * Selects Namespaces using cluster scoped-labels. This matches all pods in all
-       * namespaces selected by this label selector. This field follows standard label
-       * selector semantics. If present but empty, this selector selects all namespaces.
+       * Selects Namespaces using cluster-scoped labels. This field follows standard label
+       * selector semantics; if present but empty, it selects all namespaces.
+       * If PodSelector is also set, then the NetworkPolicyPeer as a whole selects
+       * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+       * Otherwise it selects all Pods in the Namespaces selected by NamespaceSelector.
        * +optional
        * </pre>
        *
@@ -7363,9 +7587,11 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * Selects Namespaces using cluster scoped-labels. This matches all pods in all
-       * namespaces selected by this label selector. This field follows standard label
-       * selector semantics. If present but empty, this selector selects all namespaces.
+       * Selects Namespaces using cluster-scoped labels. This field follows standard label
+       * selector semantics; if present but empty, it selects all namespaces.
+       * If PodSelector is also set, then the NetworkPolicyPeer as a whole selects
+       * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+       * Otherwise it selects all Pods in the Namespaces selected by NamespaceSelector.
        * +optional
        * </pre>
        *
@@ -7378,9 +7604,11 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * Selects Namespaces using cluster scoped-labels. This matches all pods in all
-       * namespaces selected by this label selector. This field follows standard label
-       * selector semantics. If present but empty, this selector selects all namespaces.
+       * Selects Namespaces using cluster-scoped labels. This field follows standard label
+       * selector semantics; if present but empty, it selects all namespaces.
+       * If PodSelector is also set, then the NetworkPolicyPeer as a whole selects
+       * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+       * Otherwise it selects all Pods in the Namespaces selected by NamespaceSelector.
        * +optional
        * </pre>
        *
@@ -7396,9 +7624,11 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * Selects Namespaces using cluster scoped-labels. This matches all pods in all
-       * namespaces selected by this label selector. This field follows standard label
-       * selector semantics. If present but empty, this selector selects all namespaces.
+       * Selects Namespaces using cluster-scoped labels. This field follows standard label
+       * selector semantics; if present but empty, it selects all namespaces.
+       * If PodSelector is also set, then the NetworkPolicyPeer as a whole selects
+       * the Pods matching PodSelector in the Namespaces selected by NamespaceSelector.
+       * Otherwise it selects all Pods in the Namespaces selected by NamespaceSelector.
        * +optional
        * </pre>
        *
@@ -7423,7 +7653,8 @@ public final class V1Networking {
           io.kubernetes.client.proto.V1Networking.IPBlock, io.kubernetes.client.proto.V1Networking.IPBlock.Builder, io.kubernetes.client.proto.V1Networking.IPBlockOrBuilder> ipBlockBuilder_;
       /**
        * <pre>
-       * IPBlock defines policy on a particular IPBlock
+       * IPBlock defines policy on a particular IPBlock. If this field is set then
+       * neither of the other fields can be.
        * +optional
        * </pre>
        *
@@ -7434,7 +7665,8 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * IPBlock defines policy on a particular IPBlock
+       * IPBlock defines policy on a particular IPBlock. If this field is set then
+       * neither of the other fields can be.
        * +optional
        * </pre>
        *
@@ -7449,7 +7681,8 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * IPBlock defines policy on a particular IPBlock
+       * IPBlock defines policy on a particular IPBlock. If this field is set then
+       * neither of the other fields can be.
        * +optional
        * </pre>
        *
@@ -7470,7 +7703,8 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * IPBlock defines policy on a particular IPBlock
+       * IPBlock defines policy on a particular IPBlock. If this field is set then
+       * neither of the other fields can be.
        * +optional
        * </pre>
        *
@@ -7489,7 +7723,8 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * IPBlock defines policy on a particular IPBlock
+       * IPBlock defines policy on a particular IPBlock. If this field is set then
+       * neither of the other fields can be.
        * +optional
        * </pre>
        *
@@ -7514,7 +7749,8 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * IPBlock defines policy on a particular IPBlock
+       * IPBlock defines policy on a particular IPBlock. If this field is set then
+       * neither of the other fields can be.
        * +optional
        * </pre>
        *
@@ -7532,7 +7768,8 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * IPBlock defines policy on a particular IPBlock
+       * IPBlock defines policy on a particular IPBlock. If this field is set then
+       * neither of the other fields can be.
        * +optional
        * </pre>
        *
@@ -7545,7 +7782,8 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * IPBlock defines policy on a particular IPBlock
+       * IPBlock defines policy on a particular IPBlock. If this field is set then
+       * neither of the other fields can be.
        * +optional
        * </pre>
        *
@@ -7561,7 +7799,8 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * IPBlock defines policy on a particular IPBlock
+       * IPBlock defines policy on a particular IPBlock. If this field is set then
+       * neither of the other fields can be.
        * +optional
        * </pre>
        *
@@ -7580,11 +7819,13 @@ public final class V1Networking {
         }
         return ipBlockBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -7606,11 +7847,12 @@ public final class V1Networking {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<NetworkPolicyPeer>
         PARSER = new com.google.protobuf.AbstractParser<NetworkPolicyPeer>() {
+      @java.lang.Override
       public NetworkPolicyPeer parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new NetworkPolicyPeer(input, extensionRegistry);
+        return new NetworkPolicyPeer(input, extensionRegistry);
       }
     };
 
@@ -7623,6 +7865,7 @@ public final class V1Networking {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Networking.NetworkPolicyPeer getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -7635,7 +7878,7 @@ public final class V1Networking {
 
     /**
      * <pre>
-     * The protocol (TCP or UDP) which traffic must match. If not specified, this
+     * The protocol (TCP, UDP, or SCTP) which traffic must match. If not specified, this
      * field defaults to TCP.
      * +optional
      * </pre>
@@ -7645,7 +7888,7 @@ public final class V1Networking {
     boolean hasProtocol();
     /**
      * <pre>
-     * The protocol (TCP or UDP) which traffic must match. If not specified, this
+     * The protocol (TCP, UDP, or SCTP) which traffic must match. If not specified, this
      * field defaults to TCP.
      * +optional
      * </pre>
@@ -7655,7 +7898,7 @@ public final class V1Networking {
     java.lang.String getProtocol();
     /**
      * <pre>
-     * The protocol (TCP or UDP) which traffic must match. If not specified, this
+     * The protocol (TCP, UDP, or SCTP) which traffic must match. If not specified, this
      * field defaults to TCP.
      * +optional
      * </pre>
@@ -7726,6 +7969,9 @@ public final class V1Networking {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -7737,13 +7983,6 @@ public final class V1Networking {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -7763,6 +8002,13 @@ public final class V1Networking {
               bitField0_ |= 0x00000002;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -7780,6 +8026,7 @@ public final class V1Networking {
       return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicyPort_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicyPort_fieldAccessorTable
@@ -7792,7 +8039,7 @@ public final class V1Networking {
     private volatile java.lang.Object protocol_;
     /**
      * <pre>
-     * The protocol (TCP or UDP) which traffic must match. If not specified, this
+     * The protocol (TCP, UDP, or SCTP) which traffic must match. If not specified, this
      * field defaults to TCP.
      * +optional
      * </pre>
@@ -7804,7 +8051,7 @@ public final class V1Networking {
     }
     /**
      * <pre>
-     * The protocol (TCP or UDP) which traffic must match. If not specified, this
+     * The protocol (TCP, UDP, or SCTP) which traffic must match. If not specified, this
      * field defaults to TCP.
      * +optional
      * </pre>
@@ -7827,7 +8074,7 @@ public final class V1Networking {
     }
     /**
      * <pre>
-     * The protocol (TCP or UDP) which traffic must match. If not specified, this
+     * The protocol (TCP, UDP, or SCTP) which traffic must match. If not specified, this
      * field defaults to TCP.
      * +optional
      * </pre>
@@ -7888,6 +8135,7 @@ public final class V1Networking {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -7897,6 +8145,7 @@ public final class V1Networking {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -7908,6 +8157,7 @@ public final class V1Networking {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -8040,6 +8290,7 @@ public final class V1Networking {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -8047,6 +8298,7 @@ public final class V1Networking {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Networking.NetworkPolicyPort prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -8074,6 +8326,7 @@ public final class V1Networking {
         return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicyPort_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicyPort_fieldAccessorTable
@@ -8097,6 +8350,7 @@ public final class V1Networking {
           getPortFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         protocol_ = "";
@@ -8110,15 +8364,18 @@ public final class V1Networking {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicyPort_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Networking.NetworkPolicyPort getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Networking.NetworkPolicyPort.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Networking.NetworkPolicyPort build() {
         io.kubernetes.client.proto.V1Networking.NetworkPolicyPort result = buildPartial();
         if (!result.isInitialized()) {
@@ -8127,6 +8384,7 @@ public final class V1Networking {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Networking.NetworkPolicyPort buildPartial() {
         io.kubernetes.client.proto.V1Networking.NetworkPolicyPort result = new io.kubernetes.client.proto.V1Networking.NetworkPolicyPort(this);
         int from_bitField0_ = bitField0_;
@@ -8148,32 +8406,39 @@ public final class V1Networking {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Networking.NetworkPolicyPort) {
           return mergeFrom((io.kubernetes.client.proto.V1Networking.NetworkPolicyPort)other);
@@ -8198,10 +8463,12 @@ public final class V1Networking {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -8224,7 +8491,7 @@ public final class V1Networking {
       private java.lang.Object protocol_ = "";
       /**
        * <pre>
-       * The protocol (TCP or UDP) which traffic must match. If not specified, this
+       * The protocol (TCP, UDP, or SCTP) which traffic must match. If not specified, this
        * field defaults to TCP.
        * +optional
        * </pre>
@@ -8236,7 +8503,7 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * The protocol (TCP or UDP) which traffic must match. If not specified, this
+       * The protocol (TCP, UDP, or SCTP) which traffic must match. If not specified, this
        * field defaults to TCP.
        * +optional
        * </pre>
@@ -8259,7 +8526,7 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * The protocol (TCP or UDP) which traffic must match. If not specified, this
+       * The protocol (TCP, UDP, or SCTP) which traffic must match. If not specified, this
        * field defaults to TCP.
        * +optional
        * </pre>
@@ -8281,7 +8548,7 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * The protocol (TCP or UDP) which traffic must match. If not specified, this
+       * The protocol (TCP, UDP, or SCTP) which traffic must match. If not specified, this
        * field defaults to TCP.
        * +optional
        * </pre>
@@ -8300,7 +8567,7 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * The protocol (TCP or UDP) which traffic must match. If not specified, this
+       * The protocol (TCP, UDP, or SCTP) which traffic must match. If not specified, this
        * field defaults to TCP.
        * +optional
        * </pre>
@@ -8315,7 +8582,7 @@ public final class V1Networking {
       }
       /**
        * <pre>
-       * The protocol (TCP or UDP) which traffic must match. If not specified, this
+       * The protocol (TCP, UDP, or SCTP) which traffic must match. If not specified, this
        * field defaults to TCP.
        * +optional
        * </pre>
@@ -8504,11 +8771,13 @@ public final class V1Networking {
         }
         return portBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -8530,11 +8799,12 @@ public final class V1Networking {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<NetworkPolicyPort>
         PARSER = new com.google.protobuf.AbstractParser<NetworkPolicyPort>() {
+      @java.lang.Override
       public NetworkPolicyPort parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new NetworkPolicyPort(input, extensionRegistry);
+        return new NetworkPolicyPort(input, extensionRegistry);
       }
     };
 
@@ -8547,6 +8817,7 @@ public final class V1Networking {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Networking.NetworkPolicyPort getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -8862,6 +9133,9 @@ public final class V1Networking {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -8873,13 +9147,6 @@ public final class V1Networking {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.LabelSelector.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -8920,6 +9187,13 @@ public final class V1Networking {
               policyTypes_.add(bs);
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -8946,6 +9220,7 @@ public final class V1Networking {
       return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicySpec_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicySpec_fieldAccessorTable
@@ -9268,6 +9543,7 @@ public final class V1Networking {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -9277,6 +9553,7 @@ public final class V1Networking {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -9294,6 +9571,7 @@ public final class V1Networking {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -9448,6 +9726,7 @@ public final class V1Networking {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -9455,6 +9734,7 @@ public final class V1Networking {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Networking.NetworkPolicySpec prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -9482,6 +9762,7 @@ public final class V1Networking {
         return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicySpec_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicySpec_fieldAccessorTable
@@ -9507,6 +9788,7 @@ public final class V1Networking {
           getEgressFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (podSelectorBuilder_ == null) {
@@ -9532,15 +9814,18 @@ public final class V1Networking {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Networking.internal_static_k8s_io_api_networking_v1_NetworkPolicySpec_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Networking.NetworkPolicySpec getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Networking.NetworkPolicySpec.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Networking.NetworkPolicySpec build() {
         io.kubernetes.client.proto.V1Networking.NetworkPolicySpec result = buildPartial();
         if (!result.isInitialized()) {
@@ -9549,6 +9834,7 @@ public final class V1Networking {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Networking.NetworkPolicySpec buildPartial() {
         io.kubernetes.client.proto.V1Networking.NetworkPolicySpec result = new io.kubernetes.client.proto.V1Networking.NetworkPolicySpec(this);
         int from_bitField0_ = bitField0_;
@@ -9589,32 +9875,39 @@ public final class V1Networking {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Networking.NetworkPolicySpec) {
           return mergeFrom((io.kubernetes.client.proto.V1Networking.NetworkPolicySpec)other);
@@ -9696,10 +9989,12 @@ public final class V1Networking {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -11012,11 +11307,13 @@ public final class V1Networking {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -11038,11 +11335,12 @@ public final class V1Networking {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<NetworkPolicySpec>
         PARSER = new com.google.protobuf.AbstractParser<NetworkPolicySpec>() {
+      @java.lang.Override
       public NetworkPolicySpec parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new NetworkPolicySpec(input, extensionRegistry);
+        return new NetworkPolicySpec(input, extensionRegistry);
       }
     };
 
@@ -11055,6 +11353,7 @@ public final class V1Networking {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Networking.NetworkPolicySpec getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -11112,46 +11411,44 @@ public final class V1Networking {
     java.lang.String[] descriptorData = {
       "\n(k8s.io/api/networking/v1/generated.pro" +
       "to\022\030k8s.io.api.networking.v1\032\"k8s.io/api" +
-      "/core/v1/generated.proto\032-k8s.io/api/ext" +
-      "ensions/v1beta1/generated.proto\032)k8s.io/" +
-      "api/policy/v1beta1/generated.proto\0324k8s." +
-      "io/apimachinery/pkg/apis/meta/v1/generat" +
-      "ed.proto\032/k8s.io/apimachinery/pkg/runtim" +
-      "e/generated.proto\0326k8s.io/apimachinery/p" +
-      "kg/runtime/schema/generated.proto\0323k8s.i" +
-      "o/apimachinery/pkg/util/intstr/generated",
-      ".proto\"\'\n\007IPBlock\022\014\n\004cidr\030\001 \001(\t\022\016\n\006excep" +
-      "t\030\002 \003(\t\"\216\001\n\rNetworkPolicy\022B\n\010metadata\030\001 " +
-      "\001(\01320.k8s.io.apimachinery.pkg.apis.meta." +
-      "v1.ObjectMeta\0229\n\004spec\030\002 \001(\0132+.k8s.io.api" +
-      ".networking.v1.NetworkPolicySpec\"\216\001\n\027Net" +
-      "workPolicyEgressRule\022:\n\005ports\030\001 \003(\0132+.k8" +
-      "s.io.api.networking.v1.NetworkPolicyPort" +
-      "\0227\n\002to\030\002 \003(\0132+.k8s.io.api.networking.v1." +
-      "NetworkPolicyPeer\"\221\001\n\030NetworkPolicyIngre" +
-      "ssRule\022:\n\005ports\030\001 \003(\0132+.k8s.io.api.netwo",
-      "rking.v1.NetworkPolicyPort\0229\n\004from\030\002 \003(\013" +
-      "2+.k8s.io.api.networking.v1.NetworkPolic" +
-      "yPeer\"\215\001\n\021NetworkPolicyList\022@\n\010metadata\030" +
-      "\001 \001(\0132..k8s.io.apimachinery.pkg.apis.met" +
-      "a.v1.ListMeta\0226\n\005items\030\002 \003(\0132\'.k8s.io.ap" +
-      "i.networking.v1.NetworkPolicy\"\341\001\n\021Networ" +
-      "kPolicyPeer\022H\n\013podSelector\030\001 \001(\01323.k8s.i" +
-      "o.apimachinery.pkg.apis.meta.v1.LabelSel" +
-      "ector\022N\n\021namespaceSelector\030\002 \001(\01323.k8s.i" +
-      "o.apimachinery.pkg.apis.meta.v1.LabelSel",
-      "ector\0222\n\007ipBlock\030\003 \001(\0132!.k8s.io.api.netw" +
-      "orking.v1.IPBlock\"e\n\021NetworkPolicyPort\022\020" +
-      "\n\010protocol\030\001 \001(\t\022>\n\004port\030\002 \001(\01320.k8s.io." +
-      "apimachinery.pkg.util.intstr.IntOrString" +
-      "\"\372\001\n\021NetworkPolicySpec\022H\n\013podSelector\030\001 " +
-      "\001(\01323.k8s.io.apimachinery.pkg.apis.meta." +
-      "v1.LabelSelector\022C\n\007ingress\030\002 \003(\01322.k8s." +
-      "io.api.networking.v1.NetworkPolicyIngres" +
-      "sRule\022A\n\006egress\030\003 \003(\01321.k8s.io.api.netwo" +
-      "rking.v1.NetworkPolicyEgressRule\022\023\n\013poli",
-      "cyTypes\030\004 \003(\tB.\n\032io.kubernetes.client.pr" +
-      "otoB\014V1NetworkingZ\002v1"
+      "/core/v1/generated.proto\0324k8s.io/apimach" +
+      "inery/pkg/apis/meta/v1/generated.proto\032/" +
+      "k8s.io/apimachinery/pkg/runtime/generate" +
+      "d.proto\0326k8s.io/apimachinery/pkg/runtime" +
+      "/schema/generated.proto\0323k8s.io/apimachi" +
+      "nery/pkg/util/intstr/generated.proto\"\'\n\007" +
+      "IPBlock\022\014\n\004cidr\030\001 \001(\t\022\016\n\006except\030\002 \003(\t\"\216\001" +
+      "\n\rNetworkPolicy\022B\n\010metadata\030\001 \001(\01320.k8s." +
+      "io.apimachinery.pkg.apis.meta.v1.ObjectM" +
+      "eta\0229\n\004spec\030\002 \001(\0132+.k8s.io.api.networkin" +
+      "g.v1.NetworkPolicySpec\"\216\001\n\027NetworkPolicy" +
+      "EgressRule\022:\n\005ports\030\001 \003(\0132+.k8s.io.api.n" +
+      "etworking.v1.NetworkPolicyPort\0227\n\002to\030\002 \003" +
+      "(\0132+.k8s.io.api.networking.v1.NetworkPol" +
+      "icyPeer\"\221\001\n\030NetworkPolicyIngressRule\022:\n\005" +
+      "ports\030\001 \003(\0132+.k8s.io.api.networking.v1.N" +
+      "etworkPolicyPort\0229\n\004from\030\002 \003(\0132+.k8s.io." +
+      "api.networking.v1.NetworkPolicyPeer\"\215\001\n\021" +
+      "NetworkPolicyList\022@\n\010metadata\030\001 \001(\0132..k8" +
+      "s.io.apimachinery.pkg.apis.meta.v1.ListM" +
+      "eta\0226\n\005items\030\002 \003(\0132\'.k8s.io.api.networki" +
+      "ng.v1.NetworkPolicy\"\341\001\n\021NetworkPolicyPee" +
+      "r\022H\n\013podSelector\030\001 \001(\01323.k8s.io.apimachi" +
+      "nery.pkg.apis.meta.v1.LabelSelector\022N\n\021n" +
+      "amespaceSelector\030\002 \001(\01323.k8s.io.apimachi" +
+      "nery.pkg.apis.meta.v1.LabelSelector\0222\n\007i" +
+      "pBlock\030\003 \001(\0132!.k8s.io.api.networking.v1." +
+      "IPBlock\"e\n\021NetworkPolicyPort\022\020\n\010protocol" +
+      "\030\001 \001(\t\022>\n\004port\030\002 \001(\01320.k8s.io.apimachine" +
+      "ry.pkg.util.intstr.IntOrString\"\372\001\n\021Netwo" +
+      "rkPolicySpec\022H\n\013podSelector\030\001 \001(\01323.k8s." +
+      "io.apimachinery.pkg.apis.meta.v1.LabelSe" +
+      "lector\022C\n\007ingress\030\002 \003(\01322.k8s.io.api.net" +
+      "working.v1.NetworkPolicyIngressRule\022A\n\006e" +
+      "gress\030\003 \003(\01321.k8s.io.api.networking.v1.N" +
+      "etworkPolicyEgressRule\022\023\n\013policyTypes\030\004 " +
+      "\003(\tB.\n\032io.kubernetes.client.protoB\014V1Net" +
+      "workingZ\002v1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -11165,8 +11462,6 @@ public final class V1Networking {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           io.kubernetes.client.proto.V1.getDescriptor(),
-          io.kubernetes.client.proto.V1beta1Extensions.getDescriptor(),
-          io.kubernetes.client.proto.V1beta1Policy.getDescriptor(),
           io.kubernetes.client.proto.Meta.getDescriptor(),
           io.kubernetes.client.proto.Runtime.getDescriptor(),
           io.kubernetes.client.proto.RuntimeSchema.getDescriptor(),
@@ -11221,8 +11516,6 @@ public final class V1Networking {
         internal_static_k8s_io_api_networking_v1_NetworkPolicySpec_descriptor,
         new java.lang.String[] { "PodSelector", "Ingress", "Egress", "PolicyTypes", });
     io.kubernetes.client.proto.V1.getDescriptor();
-    io.kubernetes.client.proto.V1beta1Extensions.getDescriptor();
-    io.kubernetes.client.proto.V1beta1Policy.getDescriptor();
     io.kubernetes.client.proto.Meta.getDescriptor();
     io.kubernetes.client.proto.Runtime.getDescriptor();
     io.kubernetes.client.proto.RuntimeSchema.getDescriptor();

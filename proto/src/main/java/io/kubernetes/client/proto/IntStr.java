@@ -57,7 +57,6 @@ public final class IntStr {
    * inner type.  This allows you to have, for example, a JSON field that can
    * accept a name or number.
    * TODO: Rename to Int32OrString
-   * 
    * +protobuf=true
    * +protobuf.options.(gogoproto.goproto_stringer)=false
    * +k8s:openapi-gen=true
@@ -90,6 +89,9 @@ public final class IntStr {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -101,13 +103,6 @@ public final class IntStr {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               bitField0_ |= 0x00000001;
               type_ = input.readInt64();
@@ -122,6 +117,13 @@ public final class IntStr {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
               strVal_ = bs;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -141,6 +143,7 @@ public final class IntStr {
       return io.kubernetes.client.proto.IntStr.internal_static_k8s_io_apimachinery_pkg_util_intstr_IntOrString_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.IntStr.internal_static_k8s_io_apimachinery_pkg_util_intstr_IntOrString_fieldAccessorTable
@@ -222,6 +225,7 @@ public final class IntStr {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -231,6 +235,7 @@ public final class IntStr {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -245,6 +250,7 @@ public final class IntStr {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -391,6 +397,7 @@ public final class IntStr {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -398,6 +405,7 @@ public final class IntStr {
     public static Builder newBuilder(io.kubernetes.client.proto.IntStr.IntOrString prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -416,7 +424,6 @@ public final class IntStr {
      * inner type.  This allows you to have, for example, a JSON field that can
      * accept a name or number.
      * TODO: Rename to Int32OrString
-     * 
      * +protobuf=true
      * +protobuf.options.(gogoproto.goproto_stringer)=false
      * +k8s:openapi-gen=true
@@ -433,6 +440,7 @@ public final class IntStr {
         return io.kubernetes.client.proto.IntStr.internal_static_k8s_io_apimachinery_pkg_util_intstr_IntOrString_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.IntStr.internal_static_k8s_io_apimachinery_pkg_util_intstr_IntOrString_fieldAccessorTable
@@ -455,6 +463,7 @@ public final class IntStr {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         type_ = 0L;
@@ -466,15 +475,18 @@ public final class IntStr {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.IntStr.internal_static_k8s_io_apimachinery_pkg_util_intstr_IntOrString_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.IntStr.IntOrString getDefaultInstanceForType() {
         return io.kubernetes.client.proto.IntStr.IntOrString.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.IntStr.IntOrString build() {
         io.kubernetes.client.proto.IntStr.IntOrString result = buildPartial();
         if (!result.isInitialized()) {
@@ -483,6 +495,7 @@ public final class IntStr {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.IntStr.IntOrString buildPartial() {
         io.kubernetes.client.proto.IntStr.IntOrString result = new io.kubernetes.client.proto.IntStr.IntOrString(this);
         int from_bitField0_ = bitField0_;
@@ -504,32 +517,39 @@ public final class IntStr {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.IntStr.IntOrString) {
           return mergeFrom((io.kubernetes.client.proto.IntStr.IntOrString)other);
@@ -557,10 +577,12 @@ public final class IntStr {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -719,11 +741,13 @@ public final class IntStr {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -745,11 +769,12 @@ public final class IntStr {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<IntOrString>
         PARSER = new com.google.protobuf.AbstractParser<IntOrString>() {
+      @java.lang.Override
       public IntOrString parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new IntOrString(input, extensionRegistry);
+        return new IntOrString(input, extensionRegistry);
       }
     };
 
@@ -762,6 +787,7 @@ public final class IntStr {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.IntStr.IntOrString getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }

@@ -14,6 +14,1332 @@ public final class V1Authentication {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  public interface BoundObjectReferenceOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.authentication.v1.BoundObjectReference)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Kind of the referent. Valid kinds are 'Pod' and 'Secret'.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string kind = 1;</code>
+     */
+    boolean hasKind();
+    /**
+     * <pre>
+     * Kind of the referent. Valid kinds are 'Pod' and 'Secret'.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string kind = 1;</code>
+     */
+    java.lang.String getKind();
+    /**
+     * <pre>
+     * Kind of the referent. Valid kinds are 'Pod' and 'Secret'.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string kind = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getKindBytes();
+
+    /**
+     * <pre>
+     * API version of the referent.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string aPIVersion = 2;</code>
+     */
+    boolean hasAPIVersion();
+    /**
+     * <pre>
+     * API version of the referent.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string aPIVersion = 2;</code>
+     */
+    java.lang.String getAPIVersion();
+    /**
+     * <pre>
+     * API version of the referent.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string aPIVersion = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getAPIVersionBytes();
+
+    /**
+     * <pre>
+     * Name of the referent.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string name = 3;</code>
+     */
+    boolean hasName();
+    /**
+     * <pre>
+     * Name of the referent.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string name = 3;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <pre>
+     * Name of the referent.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string name = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <pre>
+     * UID of the referent.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string uID = 4;</code>
+     */
+    boolean hasUID();
+    /**
+     * <pre>
+     * UID of the referent.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string uID = 4;</code>
+     */
+    java.lang.String getUID();
+    /**
+     * <pre>
+     * UID of the referent.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string uID = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getUIDBytes();
+  }
+  /**
+   * <pre>
+   * BoundObjectReference is a reference to an object that a token is bound to.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.authentication.v1.BoundObjectReference}
+   */
+  public  static final class BoundObjectReference extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.authentication.v1.BoundObjectReference)
+      BoundObjectReferenceOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use BoundObjectReference.newBuilder() to construct.
+    private BoundObjectReference(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private BoundObjectReference() {
+      kind_ = "";
+      aPIVersion_ = "";
+      name_ = "";
+      uID_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private BoundObjectReference(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              kind_ = bs;
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              aPIVersion_ = bs;
+              break;
+            }
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000004;
+              name_ = bs;
+              break;
+            }
+            case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000008;
+              uID_ = bs;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_BoundObjectReference_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_BoundObjectReference_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1Authentication.BoundObjectReference.class, io.kubernetes.client.proto.V1Authentication.BoundObjectReference.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int KIND_FIELD_NUMBER = 1;
+    private volatile java.lang.Object kind_;
+    /**
+     * <pre>
+     * Kind of the referent. Valid kinds are 'Pod' and 'Secret'.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string kind = 1;</code>
+     */
+    public boolean hasKind() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * Kind of the referent. Valid kinds are 'Pod' and 'Secret'.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string kind = 1;</code>
+     */
+    public java.lang.String getKind() {
+      java.lang.Object ref = kind_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          kind_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Kind of the referent. Valid kinds are 'Pod' and 'Secret'.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string kind = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getKindBytes() {
+      java.lang.Object ref = kind_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        kind_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int APIVERSION_FIELD_NUMBER = 2;
+    private volatile java.lang.Object aPIVersion_;
+    /**
+     * <pre>
+     * API version of the referent.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string aPIVersion = 2;</code>
+     */
+    public boolean hasAPIVersion() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * API version of the referent.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string aPIVersion = 2;</code>
+     */
+    public java.lang.String getAPIVersion() {
+      java.lang.Object ref = aPIVersion_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          aPIVersion_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * API version of the referent.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string aPIVersion = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAPIVersionBytes() {
+      java.lang.Object ref = aPIVersion_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        aPIVersion_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NAME_FIELD_NUMBER = 3;
+    private volatile java.lang.Object name_;
+    /**
+     * <pre>
+     * Name of the referent.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string name = 3;</code>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     * Name of the referent.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string name = 3;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Name of the referent.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string name = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int UID_FIELD_NUMBER = 4;
+    private volatile java.lang.Object uID_;
+    /**
+     * <pre>
+     * UID of the referent.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string uID = 4;</code>
+     */
+    public boolean hasUID() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     * UID of the referent.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string uID = 4;</code>
+     */
+    public java.lang.String getUID() {
+      java.lang.Object ref = uID_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          uID_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * UID of the referent.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string uID = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUIDBytes() {
+      java.lang.Object ref = uID_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        uID_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, kind_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, aPIVersion_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, name_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, uID_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, kind_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, aPIVersion_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, name_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, uID_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1Authentication.BoundObjectReference)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1Authentication.BoundObjectReference other = (io.kubernetes.client.proto.V1Authentication.BoundObjectReference) obj;
+
+      boolean result = true;
+      result = result && (hasKind() == other.hasKind());
+      if (hasKind()) {
+        result = result && getKind()
+            .equals(other.getKind());
+      }
+      result = result && (hasAPIVersion() == other.hasAPIVersion());
+      if (hasAPIVersion()) {
+        result = result && getAPIVersion()
+            .equals(other.getAPIVersion());
+      }
+      result = result && (hasName() == other.hasName());
+      if (hasName()) {
+        result = result && getName()
+            .equals(other.getName());
+      }
+      result = result && (hasUID() == other.hasUID());
+      if (hasUID()) {
+        result = result && getUID()
+            .equals(other.getUID());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasKind()) {
+        hash = (37 * hash) + KIND_FIELD_NUMBER;
+        hash = (53 * hash) + getKind().hashCode();
+      }
+      if (hasAPIVersion()) {
+        hash = (37 * hash) + APIVERSION_FIELD_NUMBER;
+        hash = (53 * hash) + getAPIVersion().hashCode();
+      }
+      if (hasName()) {
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getName().hashCode();
+      }
+      if (hasUID()) {
+        hash = (37 * hash) + UID_FIELD_NUMBER;
+        hash = (53 * hash) + getUID().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1Authentication.BoundObjectReference parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.BoundObjectReference parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.BoundObjectReference parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.BoundObjectReference parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.BoundObjectReference parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.BoundObjectReference parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.BoundObjectReference parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.BoundObjectReference parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.BoundObjectReference parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.BoundObjectReference parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.BoundObjectReference parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.BoundObjectReference parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.kubernetes.client.proto.V1Authentication.BoundObjectReference prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * BoundObjectReference is a reference to an object that a token is bound to.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.authentication.v1.BoundObjectReference}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.authentication.v1.BoundObjectReference)
+        io.kubernetes.client.proto.V1Authentication.BoundObjectReferenceOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_BoundObjectReference_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_BoundObjectReference_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1Authentication.BoundObjectReference.class, io.kubernetes.client.proto.V1Authentication.BoundObjectReference.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1Authentication.BoundObjectReference.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        kind_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        aPIVersion_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        uID_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_BoundObjectReference_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Authentication.BoundObjectReference getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1Authentication.BoundObjectReference.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Authentication.BoundObjectReference build() {
+        io.kubernetes.client.proto.V1Authentication.BoundObjectReference result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Authentication.BoundObjectReference buildPartial() {
+        io.kubernetes.client.proto.V1Authentication.BoundObjectReference result = new io.kubernetes.client.proto.V1Authentication.BoundObjectReference(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.kind_ = kind_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.aPIVersion_ = aPIVersion_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.name_ = name_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.uID_ = uID_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1Authentication.BoundObjectReference) {
+          return mergeFrom((io.kubernetes.client.proto.V1Authentication.BoundObjectReference)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1Authentication.BoundObjectReference other) {
+        if (other == io.kubernetes.client.proto.V1Authentication.BoundObjectReference.getDefaultInstance()) return this;
+        if (other.hasKind()) {
+          bitField0_ |= 0x00000001;
+          kind_ = other.kind_;
+          onChanged();
+        }
+        if (other.hasAPIVersion()) {
+          bitField0_ |= 0x00000002;
+          aPIVersion_ = other.aPIVersion_;
+          onChanged();
+        }
+        if (other.hasName()) {
+          bitField0_ |= 0x00000004;
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.hasUID()) {
+          bitField0_ |= 0x00000008;
+          uID_ = other.uID_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1Authentication.BoundObjectReference parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.kubernetes.client.proto.V1Authentication.BoundObjectReference) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object kind_ = "";
+      /**
+       * <pre>
+       * Kind of the referent. Valid kinds are 'Pod' and 'Secret'.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string kind = 1;</code>
+       */
+      public boolean hasKind() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * Kind of the referent. Valid kinds are 'Pod' and 'Secret'.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string kind = 1;</code>
+       */
+      public java.lang.String getKind() {
+        java.lang.Object ref = kind_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            kind_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Kind of the referent. Valid kinds are 'Pod' and 'Secret'.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string kind = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getKindBytes() {
+        java.lang.Object ref = kind_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          kind_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Kind of the referent. Valid kinds are 'Pod' and 'Secret'.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string kind = 1;</code>
+       */
+      public Builder setKind(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        kind_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Kind of the referent. Valid kinds are 'Pod' and 'Secret'.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string kind = 1;</code>
+       */
+      public Builder clearKind() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        kind_ = getDefaultInstance().getKind();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Kind of the referent. Valid kinds are 'Pod' and 'Secret'.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string kind = 1;</code>
+       */
+      public Builder setKindBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        kind_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object aPIVersion_ = "";
+      /**
+       * <pre>
+       * API version of the referent.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string aPIVersion = 2;</code>
+       */
+      public boolean hasAPIVersion() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * API version of the referent.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string aPIVersion = 2;</code>
+       */
+      public java.lang.String getAPIVersion() {
+        java.lang.Object ref = aPIVersion_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            aPIVersion_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * API version of the referent.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string aPIVersion = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAPIVersionBytes() {
+        java.lang.Object ref = aPIVersion_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          aPIVersion_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * API version of the referent.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string aPIVersion = 2;</code>
+       */
+      public Builder setAPIVersion(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        aPIVersion_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * API version of the referent.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string aPIVersion = 2;</code>
+       */
+      public Builder clearAPIVersion() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        aPIVersion_ = getDefaultInstance().getAPIVersion();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * API version of the referent.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string aPIVersion = 2;</code>
+       */
+      public Builder setAPIVersionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        aPIVersion_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object name_ = "";
+      /**
+       * <pre>
+       * Name of the referent.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string name = 3;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * Name of the referent.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string name = 3;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Name of the referent.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string name = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Name of the referent.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string name = 3;</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Name of the referent.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string name = 3;</code>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Name of the referent.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string name = 3;</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object uID_ = "";
+      /**
+       * <pre>
+       * UID of the referent.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string uID = 4;</code>
+       */
+      public boolean hasUID() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <pre>
+       * UID of the referent.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string uID = 4;</code>
+       */
+      public java.lang.String getUID() {
+        java.lang.Object ref = uID_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            uID_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * UID of the referent.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string uID = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUIDBytes() {
+        java.lang.Object ref = uID_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          uID_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * UID of the referent.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string uID = 4;</code>
+       */
+      public Builder setUID(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        uID_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * UID of the referent.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string uID = 4;</code>
+       */
+      public Builder clearUID() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        uID_ = getDefaultInstance().getUID();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * UID of the referent.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string uID = 4;</code>
+       */
+      public Builder setUIDBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        uID_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.authentication.v1.BoundObjectReference)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.authentication.v1.BoundObjectReference)
+    private static final io.kubernetes.client.proto.V1Authentication.BoundObjectReference DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Authentication.BoundObjectReference();
+    }
+
+    public static io.kubernetes.client.proto.V1Authentication.BoundObjectReference getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<BoundObjectReference>
+        PARSER = new com.google.protobuf.AbstractParser<BoundObjectReference>() {
+      @java.lang.Override
+      public BoundObjectReference parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new BoundObjectReference(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BoundObjectReference> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BoundObjectReference> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1Authentication.BoundObjectReference getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface ExtraValueOrBuilder extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.authentication.v1.ExtraValue)
       com.google.protobuf.MessageOrBuilder {
@@ -69,6 +1395,9 @@ public final class V1Authentication {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -80,13 +1409,6 @@ public final class V1Authentication {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -94,6 +1416,13 @@ public final class V1Authentication {
                 mutable_bitField0_ |= 0x00000001;
               }
               items_.add(bs);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -116,6 +1445,7 @@ public final class V1Authentication {
       return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_ExtraValue_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_ExtraValue_fieldAccessorTable
@@ -153,6 +1483,7 @@ public final class V1Authentication {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -162,6 +1493,7 @@ public final class V1Authentication {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < items_.size(); i++) {
@@ -170,6 +1502,7 @@ public final class V1Authentication {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -291,6 +1624,7 @@ public final class V1Authentication {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -298,6 +1632,7 @@ public final class V1Authentication {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Authentication.ExtraValue prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -327,6 +1662,7 @@ public final class V1Authentication {
         return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_ExtraValue_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_ExtraValue_fieldAccessorTable
@@ -349,6 +1685,7 @@ public final class V1Authentication {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         items_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -356,15 +1693,18 @@ public final class V1Authentication {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_ExtraValue_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authentication.ExtraValue getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Authentication.ExtraValue.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authentication.ExtraValue build() {
         io.kubernetes.client.proto.V1Authentication.ExtraValue result = buildPartial();
         if (!result.isInitialized()) {
@@ -373,6 +1713,7 @@ public final class V1Authentication {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authentication.ExtraValue buildPartial() {
         io.kubernetes.client.proto.V1Authentication.ExtraValue result = new io.kubernetes.client.proto.V1Authentication.ExtraValue(this);
         int from_bitField0_ = bitField0_;
@@ -385,32 +1726,39 @@ public final class V1Authentication {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Authentication.ExtraValue) {
           return mergeFrom((io.kubernetes.client.proto.V1Authentication.ExtraValue)other);
@@ -437,10 +1785,12 @@ public final class V1Authentication {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -552,11 +1902,13 @@ public final class V1Authentication {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -578,11 +1930,12 @@ public final class V1Authentication {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<ExtraValue>
         PARSER = new com.google.protobuf.AbstractParser<ExtraValue>() {
+      @java.lang.Override
       public ExtraValue parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ExtraValue(input, extensionRegistry);
+        return new ExtraValue(input, extensionRegistry);
       }
     };
 
@@ -595,7 +1948,3249 @@ public final class V1Authentication {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Authentication.ExtraValue getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface TokenRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.authentication.v1.TokenRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+     */
+    boolean hasMetadata();
+    /**
+     * <pre>
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+     */
+    io.kubernetes.client.proto.Meta.ObjectMeta getMetadata();
+    /**
+     * <pre>
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+     */
+    io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder getMetadataOrBuilder();
+
+    /**
+     * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+     */
+    boolean hasSpec();
+    /**
+     * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+     */
+    io.kubernetes.client.proto.V1Authentication.TokenRequestSpec getSpec();
+    /**
+     * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+     */
+    io.kubernetes.client.proto.V1Authentication.TokenRequestSpecOrBuilder getSpecOrBuilder();
+
+    /**
+     * <pre>
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.authentication.v1.TokenRequestStatus status = 3;</code>
+     */
+    boolean hasStatus();
+    /**
+     * <pre>
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.authentication.v1.TokenRequestStatus status = 3;</code>
+     */
+    io.kubernetes.client.proto.V1Authentication.TokenRequestStatus getStatus();
+    /**
+     * <pre>
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.authentication.v1.TokenRequestStatus status = 3;</code>
+     */
+    io.kubernetes.client.proto.V1Authentication.TokenRequestStatusOrBuilder getStatusOrBuilder();
+  }
+  /**
+   * <pre>
+   * TokenRequest requests a token for a given service account.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.authentication.v1.TokenRequest}
+   */
+  public  static final class TokenRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.authentication.v1.TokenRequest)
+      TokenRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use TokenRequest.newBuilder() to construct.
+    private TokenRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TokenRequest() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TokenRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = metadata_.toBuilder();
+              }
+              metadata_ = input.readMessage(io.kubernetes.client.proto.Meta.ObjectMeta.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(metadata_);
+                metadata_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+            case 18: {
+              io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = spec_.toBuilder();
+              }
+              spec_ = input.readMessage(io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(spec_);
+                spec_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+            case 26: {
+              io.kubernetes.client.proto.V1Authentication.TokenRequestStatus.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                subBuilder = status_.toBuilder();
+              }
+              status_ = input.readMessage(io.kubernetes.client.proto.V1Authentication.TokenRequestStatus.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(status_);
+                status_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1Authentication.TokenRequest.class, io.kubernetes.client.proto.V1Authentication.TokenRequest.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int METADATA_FIELD_NUMBER = 1;
+    private io.kubernetes.client.proto.Meta.ObjectMeta metadata_;
+    /**
+     * <pre>
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+     */
+    public boolean hasMetadata() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+     */
+    public io.kubernetes.client.proto.Meta.ObjectMeta getMetadata() {
+      return metadata_ == null ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance() : metadata_;
+    }
+    /**
+     * <pre>
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+     */
+    public io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder getMetadataOrBuilder() {
+      return metadata_ == null ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance() : metadata_;
+    }
+
+    public static final int SPEC_FIELD_NUMBER = 2;
+    private io.kubernetes.client.proto.V1Authentication.TokenRequestSpec spec_;
+    /**
+     * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+     */
+    public boolean hasSpec() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+     */
+    public io.kubernetes.client.proto.V1Authentication.TokenRequestSpec getSpec() {
+      return spec_ == null ? io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.getDefaultInstance() : spec_;
+    }
+    /**
+     * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+     */
+    public io.kubernetes.client.proto.V1Authentication.TokenRequestSpecOrBuilder getSpecOrBuilder() {
+      return spec_ == null ? io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.getDefaultInstance() : spec_;
+    }
+
+    public static final int STATUS_FIELD_NUMBER = 3;
+    private io.kubernetes.client.proto.V1Authentication.TokenRequestStatus status_;
+    /**
+     * <pre>
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.authentication.v1.TokenRequestStatus status = 3;</code>
+     */
+    public boolean hasStatus() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.authentication.v1.TokenRequestStatus status = 3;</code>
+     */
+    public io.kubernetes.client.proto.V1Authentication.TokenRequestStatus getStatus() {
+      return status_ == null ? io.kubernetes.client.proto.V1Authentication.TokenRequestStatus.getDefaultInstance() : status_;
+    }
+    /**
+     * <pre>
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.authentication.v1.TokenRequestStatus status = 3;</code>
+     */
+    public io.kubernetes.client.proto.V1Authentication.TokenRequestStatusOrBuilder getStatusOrBuilder() {
+      return status_ == null ? io.kubernetes.client.proto.V1Authentication.TokenRequestStatus.getDefaultInstance() : status_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, getMetadata());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, getSpec());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeMessage(3, getStatus());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getMetadata());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getSpec());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getStatus());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1Authentication.TokenRequest)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1Authentication.TokenRequest other = (io.kubernetes.client.proto.V1Authentication.TokenRequest) obj;
+
+      boolean result = true;
+      result = result && (hasMetadata() == other.hasMetadata());
+      if (hasMetadata()) {
+        result = result && getMetadata()
+            .equals(other.getMetadata());
+      }
+      result = result && (hasSpec() == other.hasSpec());
+      if (hasSpec()) {
+        result = result && getSpec()
+            .equals(other.getSpec());
+      }
+      result = result && (hasStatus() == other.hasStatus());
+      if (hasStatus()) {
+        result = result && getStatus()
+            .equals(other.getStatus());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasMetadata()) {
+        hash = (37 * hash) + METADATA_FIELD_NUMBER;
+        hash = (53 * hash) + getMetadata().hashCode();
+      }
+      if (hasSpec()) {
+        hash = (37 * hash) + SPEC_FIELD_NUMBER;
+        hash = (53 * hash) + getSpec().hashCode();
+      }
+      if (hasStatus()) {
+        hash = (37 * hash) + STATUS_FIELD_NUMBER;
+        hash = (53 * hash) + getStatus().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.kubernetes.client.proto.V1Authentication.TokenRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * TokenRequest requests a token for a given service account.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.authentication.v1.TokenRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.authentication.v1.TokenRequest)
+        io.kubernetes.client.proto.V1Authentication.TokenRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1Authentication.TokenRequest.class, io.kubernetes.client.proto.V1Authentication.TokenRequest.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1Authentication.TokenRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getMetadataFieldBuilder();
+          getSpecFieldBuilder();
+          getStatusFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (metadataBuilder_ == null) {
+          metadata_ = null;
+        } else {
+          metadataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (specBuilder_ == null) {
+          spec_ = null;
+        } else {
+          specBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (statusBuilder_ == null) {
+          status_ = null;
+        } else {
+          statusBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Authentication.TokenRequest getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1Authentication.TokenRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Authentication.TokenRequest build() {
+        io.kubernetes.client.proto.V1Authentication.TokenRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Authentication.TokenRequest buildPartial() {
+        io.kubernetes.client.proto.V1Authentication.TokenRequest result = new io.kubernetes.client.proto.V1Authentication.TokenRequest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (metadataBuilder_ == null) {
+          result.metadata_ = metadata_;
+        } else {
+          result.metadata_ = metadataBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (specBuilder_ == null) {
+          result.spec_ = spec_;
+        } else {
+          result.spec_ = specBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        if (statusBuilder_ == null) {
+          result.status_ = status_;
+        } else {
+          result.status_ = statusBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1Authentication.TokenRequest) {
+          return mergeFrom((io.kubernetes.client.proto.V1Authentication.TokenRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1Authentication.TokenRequest other) {
+        if (other == io.kubernetes.client.proto.V1Authentication.TokenRequest.getDefaultInstance()) return this;
+        if (other.hasMetadata()) {
+          mergeMetadata(other.getMetadata());
+        }
+        if (other.hasSpec()) {
+          mergeSpec(other.getSpec());
+        }
+        if (other.hasStatus()) {
+          mergeStatus(other.getStatus());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1Authentication.TokenRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.kubernetes.client.proto.V1Authentication.TokenRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private io.kubernetes.client.proto.Meta.ObjectMeta metadata_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Meta.ObjectMeta, io.kubernetes.client.proto.Meta.ObjectMeta.Builder, io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder> metadataBuilder_;
+      /**
+       * <pre>
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      public boolean hasMetadata() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      public io.kubernetes.client.proto.Meta.ObjectMeta getMetadata() {
+        if (metadataBuilder_ == null) {
+          return metadata_ == null ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance() : metadata_;
+        } else {
+          return metadataBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      public Builder setMetadata(io.kubernetes.client.proto.Meta.ObjectMeta value) {
+        if (metadataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          metadata_ = value;
+          onChanged();
+        } else {
+          metadataBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <pre>
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      public Builder setMetadata(
+          io.kubernetes.client.proto.Meta.ObjectMeta.Builder builderForValue) {
+        if (metadataBuilder_ == null) {
+          metadata_ = builderForValue.build();
+          onChanged();
+        } else {
+          metadataBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <pre>
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      public Builder mergeMetadata(io.kubernetes.client.proto.Meta.ObjectMeta value) {
+        if (metadataBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              metadata_ != null &&
+              metadata_ != io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()) {
+            metadata_ =
+              io.kubernetes.client.proto.Meta.ObjectMeta.newBuilder(metadata_).mergeFrom(value).buildPartial();
+          } else {
+            metadata_ = value;
+          }
+          onChanged();
+        } else {
+          metadataBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <pre>
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      public Builder clearMetadata() {
+        if (metadataBuilder_ == null) {
+          metadata_ = null;
+          onChanged();
+        } else {
+          metadataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       * <pre>
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      public io.kubernetes.client.proto.Meta.ObjectMeta.Builder getMetadataBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getMetadataFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      public io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder getMetadataOrBuilder() {
+        if (metadataBuilder_ != null) {
+          return metadataBuilder_.getMessageOrBuilder();
+        } else {
+          return metadata_ == null ?
+              io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance() : metadata_;
+        }
+      }
+      /**
+       * <pre>
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Meta.ObjectMeta, io.kubernetes.client.proto.Meta.ObjectMeta.Builder, io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder> 
+          getMetadataFieldBuilder() {
+        if (metadataBuilder_ == null) {
+          metadataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.ObjectMeta, io.kubernetes.client.proto.Meta.ObjectMeta.Builder, io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder>(
+                  getMetadata(),
+                  getParentForChildren(),
+                  isClean());
+          metadata_ = null;
+        }
+        return metadataBuilder_;
+      }
+
+      private io.kubernetes.client.proto.V1Authentication.TokenRequestSpec spec_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1Authentication.TokenRequestSpec, io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.Builder, io.kubernetes.client.proto.V1Authentication.TokenRequestSpecOrBuilder> specBuilder_;
+      /**
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+       */
+      public boolean hasSpec() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1Authentication.TokenRequestSpec getSpec() {
+        if (specBuilder_ == null) {
+          return spec_ == null ? io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.getDefaultInstance() : spec_;
+        } else {
+          return specBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+       */
+      public Builder setSpec(io.kubernetes.client.proto.V1Authentication.TokenRequestSpec value) {
+        if (specBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          spec_ = value;
+          onChanged();
+        } else {
+          specBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+       */
+      public Builder setSpec(
+          io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.Builder builderForValue) {
+        if (specBuilder_ == null) {
+          spec_ = builderForValue.build();
+          onChanged();
+        } else {
+          specBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+       */
+      public Builder mergeSpec(io.kubernetes.client.proto.V1Authentication.TokenRequestSpec value) {
+        if (specBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              spec_ != null &&
+              spec_ != io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.getDefaultInstance()) {
+            spec_ =
+              io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.newBuilder(spec_).mergeFrom(value).buildPartial();
+          } else {
+            spec_ = value;
+          }
+          onChanged();
+        } else {
+          specBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+       */
+      public Builder clearSpec() {
+        if (specBuilder_ == null) {
+          spec_ = null;
+          onChanged();
+        } else {
+          specBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.Builder getSpecBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getSpecFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1Authentication.TokenRequestSpecOrBuilder getSpecOrBuilder() {
+        if (specBuilder_ != null) {
+          return specBuilder_.getMessageOrBuilder();
+        } else {
+          return spec_ == null ?
+              io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.getDefaultInstance() : spec_;
+        }
+      }
+      /**
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1Authentication.TokenRequestSpec, io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.Builder, io.kubernetes.client.proto.V1Authentication.TokenRequestSpecOrBuilder> 
+          getSpecFieldBuilder() {
+        if (specBuilder_ == null) {
+          specBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1Authentication.TokenRequestSpec, io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.Builder, io.kubernetes.client.proto.V1Authentication.TokenRequestSpecOrBuilder>(
+                  getSpec(),
+                  getParentForChildren(),
+                  isClean());
+          spec_ = null;
+        }
+        return specBuilder_;
+      }
+
+      private io.kubernetes.client.proto.V1Authentication.TokenRequestStatus status_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1Authentication.TokenRequestStatus, io.kubernetes.client.proto.V1Authentication.TokenRequestStatus.Builder, io.kubernetes.client.proto.V1Authentication.TokenRequestStatusOrBuilder> statusBuilder_;
+      /**
+       * <pre>
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestStatus status = 3;</code>
+       */
+      public boolean hasStatus() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestStatus status = 3;</code>
+       */
+      public io.kubernetes.client.proto.V1Authentication.TokenRequestStatus getStatus() {
+        if (statusBuilder_ == null) {
+          return status_ == null ? io.kubernetes.client.proto.V1Authentication.TokenRequestStatus.getDefaultInstance() : status_;
+        } else {
+          return statusBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestStatus status = 3;</code>
+       */
+      public Builder setStatus(io.kubernetes.client.proto.V1Authentication.TokenRequestStatus value) {
+        if (statusBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          status_ = value;
+          onChanged();
+        } else {
+          statusBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestStatus status = 3;</code>
+       */
+      public Builder setStatus(
+          io.kubernetes.client.proto.V1Authentication.TokenRequestStatus.Builder builderForValue) {
+        if (statusBuilder_ == null) {
+          status_ = builderForValue.build();
+          onChanged();
+        } else {
+          statusBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestStatus status = 3;</code>
+       */
+      public Builder mergeStatus(io.kubernetes.client.proto.V1Authentication.TokenRequestStatus value) {
+        if (statusBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+              status_ != null &&
+              status_ != io.kubernetes.client.proto.V1Authentication.TokenRequestStatus.getDefaultInstance()) {
+            status_ =
+              io.kubernetes.client.proto.V1Authentication.TokenRequestStatus.newBuilder(status_).mergeFrom(value).buildPartial();
+          } else {
+            status_ = value;
+          }
+          onChanged();
+        } else {
+          statusBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestStatus status = 3;</code>
+       */
+      public Builder clearStatus() {
+        if (statusBuilder_ == null) {
+          status_ = null;
+          onChanged();
+        } else {
+          statusBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       * <pre>
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestStatus status = 3;</code>
+       */
+      public io.kubernetes.client.proto.V1Authentication.TokenRequestStatus.Builder getStatusBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getStatusFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestStatus status = 3;</code>
+       */
+      public io.kubernetes.client.proto.V1Authentication.TokenRequestStatusOrBuilder getStatusOrBuilder() {
+        if (statusBuilder_ != null) {
+          return statusBuilder_.getMessageOrBuilder();
+        } else {
+          return status_ == null ?
+              io.kubernetes.client.proto.V1Authentication.TokenRequestStatus.getDefaultInstance() : status_;
+        }
+      }
+      /**
+       * <pre>
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestStatus status = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1Authentication.TokenRequestStatus, io.kubernetes.client.proto.V1Authentication.TokenRequestStatus.Builder, io.kubernetes.client.proto.V1Authentication.TokenRequestStatusOrBuilder> 
+          getStatusFieldBuilder() {
+        if (statusBuilder_ == null) {
+          statusBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1Authentication.TokenRequestStatus, io.kubernetes.client.proto.V1Authentication.TokenRequestStatus.Builder, io.kubernetes.client.proto.V1Authentication.TokenRequestStatusOrBuilder>(
+                  getStatus(),
+                  getParentForChildren(),
+                  isClean());
+          status_ = null;
+        }
+        return statusBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.authentication.v1.TokenRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.authentication.v1.TokenRequest)
+    private static final io.kubernetes.client.proto.V1Authentication.TokenRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Authentication.TokenRequest();
+    }
+
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<TokenRequest>
+        PARSER = new com.google.protobuf.AbstractParser<TokenRequest>() {
+      @java.lang.Override
+      public TokenRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TokenRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<TokenRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TokenRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1Authentication.TokenRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface TokenRequestSpecOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.authentication.v1.TokenRequestSpec)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Audiences are the intendend audiences of the token. A recipient of a
+     * token must identitfy themself with an identifier in the list of
+     * audiences of the token, and otherwise should reject the token. A
+     * token issued for multiple audiences may be used to authenticate
+     * against any of the audiences listed but implies a high degree of
+     * trust between the target audiences.
+     * </pre>
+     *
+     * <code>repeated string audiences = 1;</code>
+     */
+    java.util.List<java.lang.String>
+        getAudiencesList();
+    /**
+     * <pre>
+     * Audiences are the intendend audiences of the token. A recipient of a
+     * token must identitfy themself with an identifier in the list of
+     * audiences of the token, and otherwise should reject the token. A
+     * token issued for multiple audiences may be used to authenticate
+     * against any of the audiences listed but implies a high degree of
+     * trust between the target audiences.
+     * </pre>
+     *
+     * <code>repeated string audiences = 1;</code>
+     */
+    int getAudiencesCount();
+    /**
+     * <pre>
+     * Audiences are the intendend audiences of the token. A recipient of a
+     * token must identitfy themself with an identifier in the list of
+     * audiences of the token, and otherwise should reject the token. A
+     * token issued for multiple audiences may be used to authenticate
+     * against any of the audiences listed but implies a high degree of
+     * trust between the target audiences.
+     * </pre>
+     *
+     * <code>repeated string audiences = 1;</code>
+     */
+    java.lang.String getAudiences(int index);
+    /**
+     * <pre>
+     * Audiences are the intendend audiences of the token. A recipient of a
+     * token must identitfy themself with an identifier in the list of
+     * audiences of the token, and otherwise should reject the token. A
+     * token issued for multiple audiences may be used to authenticate
+     * against any of the audiences listed but implies a high degree of
+     * trust between the target audiences.
+     * </pre>
+     *
+     * <code>repeated string audiences = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getAudiencesBytes(int index);
+
+    /**
+     * <pre>
+     * ExpirationSeconds is the requested duration of validity of the request. The
+     * token issuer may return a token with a different validity duration so a
+     * client needs to check the 'expiration' field in a response.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int64 expirationSeconds = 4;</code>
+     */
+    boolean hasExpirationSeconds();
+    /**
+     * <pre>
+     * ExpirationSeconds is the requested duration of validity of the request. The
+     * token issuer may return a token with a different validity duration so a
+     * client needs to check the 'expiration' field in a response.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int64 expirationSeconds = 4;</code>
+     */
+    long getExpirationSeconds();
+
+    /**
+     * <pre>
+     * BoundObjectRef is a reference to an object that the token will be bound to.
+     * The token will only be valid for as long as the bound objet exists.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;</code>
+     */
+    boolean hasBoundObjectRef();
+    /**
+     * <pre>
+     * BoundObjectRef is a reference to an object that the token will be bound to.
+     * The token will only be valid for as long as the bound objet exists.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;</code>
+     */
+    io.kubernetes.client.proto.V1Authentication.BoundObjectReference getBoundObjectRef();
+    /**
+     * <pre>
+     * BoundObjectRef is a reference to an object that the token will be bound to.
+     * The token will only be valid for as long as the bound objet exists.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;</code>
+     */
+    io.kubernetes.client.proto.V1Authentication.BoundObjectReferenceOrBuilder getBoundObjectRefOrBuilder();
+  }
+  /**
+   * <pre>
+   * TokenRequestSpec contains client provided parameters of a token request.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.authentication.v1.TokenRequestSpec}
+   */
+  public  static final class TokenRequestSpec extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.authentication.v1.TokenRequestSpec)
+      TokenRequestSpecOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use TokenRequestSpec.newBuilder() to construct.
+    private TokenRequestSpec(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TokenRequestSpec() {
+      audiences_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      expirationSeconds_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TokenRequestSpec(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                audiences_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              audiences_.add(bs);
+              break;
+            }
+            case 26: {
+              io.kubernetes.client.proto.V1Authentication.BoundObjectReference.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = boundObjectRef_.toBuilder();
+              }
+              boundObjectRef_ = input.readMessage(io.kubernetes.client.proto.V1Authentication.BoundObjectReference.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(boundObjectRef_);
+                boundObjectRef_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000001;
+              expirationSeconds_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          audiences_ = audiences_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenRequestSpec_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenRequestSpec_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.class, io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int AUDIENCES_FIELD_NUMBER = 1;
+    private com.google.protobuf.LazyStringList audiences_;
+    /**
+     * <pre>
+     * Audiences are the intendend audiences of the token. A recipient of a
+     * token must identitfy themself with an identifier in the list of
+     * audiences of the token, and otherwise should reject the token. A
+     * token issued for multiple audiences may be used to authenticate
+     * against any of the audiences listed but implies a high degree of
+     * trust between the target audiences.
+     * </pre>
+     *
+     * <code>repeated string audiences = 1;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getAudiencesList() {
+      return audiences_;
+    }
+    /**
+     * <pre>
+     * Audiences are the intendend audiences of the token. A recipient of a
+     * token must identitfy themself with an identifier in the list of
+     * audiences of the token, and otherwise should reject the token. A
+     * token issued for multiple audiences may be used to authenticate
+     * against any of the audiences listed but implies a high degree of
+     * trust between the target audiences.
+     * </pre>
+     *
+     * <code>repeated string audiences = 1;</code>
+     */
+    public int getAudiencesCount() {
+      return audiences_.size();
+    }
+    /**
+     * <pre>
+     * Audiences are the intendend audiences of the token. A recipient of a
+     * token must identitfy themself with an identifier in the list of
+     * audiences of the token, and otherwise should reject the token. A
+     * token issued for multiple audiences may be used to authenticate
+     * against any of the audiences listed but implies a high degree of
+     * trust between the target audiences.
+     * </pre>
+     *
+     * <code>repeated string audiences = 1;</code>
+     */
+    public java.lang.String getAudiences(int index) {
+      return audiences_.get(index);
+    }
+    /**
+     * <pre>
+     * Audiences are the intendend audiences of the token. A recipient of a
+     * token must identitfy themself with an identifier in the list of
+     * audiences of the token, and otherwise should reject the token. A
+     * token issued for multiple audiences may be used to authenticate
+     * against any of the audiences listed but implies a high degree of
+     * trust between the target audiences.
+     * </pre>
+     *
+     * <code>repeated string audiences = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAudiencesBytes(int index) {
+      return audiences_.getByteString(index);
+    }
+
+    public static final int EXPIRATIONSECONDS_FIELD_NUMBER = 4;
+    private long expirationSeconds_;
+    /**
+     * <pre>
+     * ExpirationSeconds is the requested duration of validity of the request. The
+     * token issuer may return a token with a different validity duration so a
+     * client needs to check the 'expiration' field in a response.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int64 expirationSeconds = 4;</code>
+     */
+    public boolean hasExpirationSeconds() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * ExpirationSeconds is the requested duration of validity of the request. The
+     * token issuer may return a token with a different validity duration so a
+     * client needs to check the 'expiration' field in a response.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int64 expirationSeconds = 4;</code>
+     */
+    public long getExpirationSeconds() {
+      return expirationSeconds_;
+    }
+
+    public static final int BOUNDOBJECTREF_FIELD_NUMBER = 3;
+    private io.kubernetes.client.proto.V1Authentication.BoundObjectReference boundObjectRef_;
+    /**
+     * <pre>
+     * BoundObjectRef is a reference to an object that the token will be bound to.
+     * The token will only be valid for as long as the bound objet exists.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;</code>
+     */
+    public boolean hasBoundObjectRef() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * BoundObjectRef is a reference to an object that the token will be bound to.
+     * The token will only be valid for as long as the bound objet exists.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;</code>
+     */
+    public io.kubernetes.client.proto.V1Authentication.BoundObjectReference getBoundObjectRef() {
+      return boundObjectRef_ == null ? io.kubernetes.client.proto.V1Authentication.BoundObjectReference.getDefaultInstance() : boundObjectRef_;
+    }
+    /**
+     * <pre>
+     * BoundObjectRef is a reference to an object that the token will be bound to.
+     * The token will only be valid for as long as the bound objet exists.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;</code>
+     */
+    public io.kubernetes.client.proto.V1Authentication.BoundObjectReferenceOrBuilder getBoundObjectRefOrBuilder() {
+      return boundObjectRef_ == null ? io.kubernetes.client.proto.V1Authentication.BoundObjectReference.getDefaultInstance() : boundObjectRef_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < audiences_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, audiences_.getRaw(i));
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(3, getBoundObjectRef());
+      }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(4, expirationSeconds_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < audiences_.size(); i++) {
+          dataSize += computeStringSizeNoTag(audiences_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getAudiencesList().size();
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getBoundObjectRef());
+      }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, expirationSeconds_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1Authentication.TokenRequestSpec)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1Authentication.TokenRequestSpec other = (io.kubernetes.client.proto.V1Authentication.TokenRequestSpec) obj;
+
+      boolean result = true;
+      result = result && getAudiencesList()
+          .equals(other.getAudiencesList());
+      result = result && (hasExpirationSeconds() == other.hasExpirationSeconds());
+      if (hasExpirationSeconds()) {
+        result = result && (getExpirationSeconds()
+            == other.getExpirationSeconds());
+      }
+      result = result && (hasBoundObjectRef() == other.hasBoundObjectRef());
+      if (hasBoundObjectRef()) {
+        result = result && getBoundObjectRef()
+            .equals(other.getBoundObjectRef());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getAudiencesCount() > 0) {
+        hash = (37 * hash) + AUDIENCES_FIELD_NUMBER;
+        hash = (53 * hash) + getAudiencesList().hashCode();
+      }
+      if (hasExpirationSeconds()) {
+        hash = (37 * hash) + EXPIRATIONSECONDS_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getExpirationSeconds());
+      }
+      if (hasBoundObjectRef()) {
+        hash = (37 * hash) + BOUNDOBJECTREF_FIELD_NUMBER;
+        hash = (53 * hash) + getBoundObjectRef().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestSpec parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestSpec parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestSpec parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestSpec parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestSpec parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestSpec parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestSpec parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestSpec parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestSpec parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestSpec parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestSpec parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestSpec parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.kubernetes.client.proto.V1Authentication.TokenRequestSpec prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * TokenRequestSpec contains client provided parameters of a token request.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.authentication.v1.TokenRequestSpec}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.authentication.v1.TokenRequestSpec)
+        io.kubernetes.client.proto.V1Authentication.TokenRequestSpecOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenRequestSpec_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenRequestSpec_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.class, io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getBoundObjectRefFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        audiences_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        expirationSeconds_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (boundObjectRefBuilder_ == null) {
+          boundObjectRef_ = null;
+        } else {
+          boundObjectRefBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenRequestSpec_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Authentication.TokenRequestSpec getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Authentication.TokenRequestSpec build() {
+        io.kubernetes.client.proto.V1Authentication.TokenRequestSpec result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Authentication.TokenRequestSpec buildPartial() {
+        io.kubernetes.client.proto.V1Authentication.TokenRequestSpec result = new io.kubernetes.client.proto.V1Authentication.TokenRequestSpec(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          audiences_ = audiences_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.audiences_ = audiences_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.expirationSeconds_ = expirationSeconds_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (boundObjectRefBuilder_ == null) {
+          result.boundObjectRef_ = boundObjectRef_;
+        } else {
+          result.boundObjectRef_ = boundObjectRefBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1Authentication.TokenRequestSpec) {
+          return mergeFrom((io.kubernetes.client.proto.V1Authentication.TokenRequestSpec)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1Authentication.TokenRequestSpec other) {
+        if (other == io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.getDefaultInstance()) return this;
+        if (!other.audiences_.isEmpty()) {
+          if (audiences_.isEmpty()) {
+            audiences_ = other.audiences_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureAudiencesIsMutable();
+            audiences_.addAll(other.audiences_);
+          }
+          onChanged();
+        }
+        if (other.hasExpirationSeconds()) {
+          setExpirationSeconds(other.getExpirationSeconds());
+        }
+        if (other.hasBoundObjectRef()) {
+          mergeBoundObjectRef(other.getBoundObjectRef());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1Authentication.TokenRequestSpec parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.kubernetes.client.proto.V1Authentication.TokenRequestSpec) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.LazyStringList audiences_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureAudiencesIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          audiences_ = new com.google.protobuf.LazyStringArrayList(audiences_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <pre>
+       * Audiences are the intendend audiences of the token. A recipient of a
+       * token must identitfy themself with an identifier in the list of
+       * audiences of the token, and otherwise should reject the token. A
+       * token issued for multiple audiences may be used to authenticate
+       * against any of the audiences listed but implies a high degree of
+       * trust between the target audiences.
+       * </pre>
+       *
+       * <code>repeated string audiences = 1;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getAudiencesList() {
+        return audiences_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * Audiences are the intendend audiences of the token. A recipient of a
+       * token must identitfy themself with an identifier in the list of
+       * audiences of the token, and otherwise should reject the token. A
+       * token issued for multiple audiences may be used to authenticate
+       * against any of the audiences listed but implies a high degree of
+       * trust between the target audiences.
+       * </pre>
+       *
+       * <code>repeated string audiences = 1;</code>
+       */
+      public int getAudiencesCount() {
+        return audiences_.size();
+      }
+      /**
+       * <pre>
+       * Audiences are the intendend audiences of the token. A recipient of a
+       * token must identitfy themself with an identifier in the list of
+       * audiences of the token, and otherwise should reject the token. A
+       * token issued for multiple audiences may be used to authenticate
+       * against any of the audiences listed but implies a high degree of
+       * trust between the target audiences.
+       * </pre>
+       *
+       * <code>repeated string audiences = 1;</code>
+       */
+      public java.lang.String getAudiences(int index) {
+        return audiences_.get(index);
+      }
+      /**
+       * <pre>
+       * Audiences are the intendend audiences of the token. A recipient of a
+       * token must identitfy themself with an identifier in the list of
+       * audiences of the token, and otherwise should reject the token. A
+       * token issued for multiple audiences may be used to authenticate
+       * against any of the audiences listed but implies a high degree of
+       * trust between the target audiences.
+       * </pre>
+       *
+       * <code>repeated string audiences = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAudiencesBytes(int index) {
+        return audiences_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * Audiences are the intendend audiences of the token. A recipient of a
+       * token must identitfy themself with an identifier in the list of
+       * audiences of the token, and otherwise should reject the token. A
+       * token issued for multiple audiences may be used to authenticate
+       * against any of the audiences listed but implies a high degree of
+       * trust between the target audiences.
+       * </pre>
+       *
+       * <code>repeated string audiences = 1;</code>
+       */
+      public Builder setAudiences(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAudiencesIsMutable();
+        audiences_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Audiences are the intendend audiences of the token. A recipient of a
+       * token must identitfy themself with an identifier in the list of
+       * audiences of the token, and otherwise should reject the token. A
+       * token issued for multiple audiences may be used to authenticate
+       * against any of the audiences listed but implies a high degree of
+       * trust between the target audiences.
+       * </pre>
+       *
+       * <code>repeated string audiences = 1;</code>
+       */
+      public Builder addAudiences(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAudiencesIsMutable();
+        audiences_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Audiences are the intendend audiences of the token. A recipient of a
+       * token must identitfy themself with an identifier in the list of
+       * audiences of the token, and otherwise should reject the token. A
+       * token issued for multiple audiences may be used to authenticate
+       * against any of the audiences listed but implies a high degree of
+       * trust between the target audiences.
+       * </pre>
+       *
+       * <code>repeated string audiences = 1;</code>
+       */
+      public Builder addAllAudiences(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureAudiencesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, audiences_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Audiences are the intendend audiences of the token. A recipient of a
+       * token must identitfy themself with an identifier in the list of
+       * audiences of the token, and otherwise should reject the token. A
+       * token issued for multiple audiences may be used to authenticate
+       * against any of the audiences listed but implies a high degree of
+       * trust between the target audiences.
+       * </pre>
+       *
+       * <code>repeated string audiences = 1;</code>
+       */
+      public Builder clearAudiences() {
+        audiences_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Audiences are the intendend audiences of the token. A recipient of a
+       * token must identitfy themself with an identifier in the list of
+       * audiences of the token, and otherwise should reject the token. A
+       * token issued for multiple audiences may be used to authenticate
+       * against any of the audiences listed but implies a high degree of
+       * trust between the target audiences.
+       * </pre>
+       *
+       * <code>repeated string audiences = 1;</code>
+       */
+      public Builder addAudiencesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAudiencesIsMutable();
+        audiences_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private long expirationSeconds_ ;
+      /**
+       * <pre>
+       * ExpirationSeconds is the requested duration of validity of the request. The
+       * token issuer may return a token with a different validity duration so a
+       * client needs to check the 'expiration' field in a response.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int64 expirationSeconds = 4;</code>
+       */
+      public boolean hasExpirationSeconds() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * ExpirationSeconds is the requested duration of validity of the request. The
+       * token issuer may return a token with a different validity duration so a
+       * client needs to check the 'expiration' field in a response.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int64 expirationSeconds = 4;</code>
+       */
+      public long getExpirationSeconds() {
+        return expirationSeconds_;
+      }
+      /**
+       * <pre>
+       * ExpirationSeconds is the requested duration of validity of the request. The
+       * token issuer may return a token with a different validity duration so a
+       * client needs to check the 'expiration' field in a response.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int64 expirationSeconds = 4;</code>
+       */
+      public Builder setExpirationSeconds(long value) {
+        bitField0_ |= 0x00000002;
+        expirationSeconds_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * ExpirationSeconds is the requested duration of validity of the request. The
+       * token issuer may return a token with a different validity duration so a
+       * client needs to check the 'expiration' field in a response.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int64 expirationSeconds = 4;</code>
+       */
+      public Builder clearExpirationSeconds() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        expirationSeconds_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private io.kubernetes.client.proto.V1Authentication.BoundObjectReference boundObjectRef_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1Authentication.BoundObjectReference, io.kubernetes.client.proto.V1Authentication.BoundObjectReference.Builder, io.kubernetes.client.proto.V1Authentication.BoundObjectReferenceOrBuilder> boundObjectRefBuilder_;
+      /**
+       * <pre>
+       * BoundObjectRef is a reference to an object that the token will be bound to.
+       * The token will only be valid for as long as the bound objet exists.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;</code>
+       */
+      public boolean hasBoundObjectRef() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * BoundObjectRef is a reference to an object that the token will be bound to.
+       * The token will only be valid for as long as the bound objet exists.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;</code>
+       */
+      public io.kubernetes.client.proto.V1Authentication.BoundObjectReference getBoundObjectRef() {
+        if (boundObjectRefBuilder_ == null) {
+          return boundObjectRef_ == null ? io.kubernetes.client.proto.V1Authentication.BoundObjectReference.getDefaultInstance() : boundObjectRef_;
+        } else {
+          return boundObjectRefBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * BoundObjectRef is a reference to an object that the token will be bound to.
+       * The token will only be valid for as long as the bound objet exists.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;</code>
+       */
+      public Builder setBoundObjectRef(io.kubernetes.client.proto.V1Authentication.BoundObjectReference value) {
+        if (boundObjectRefBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          boundObjectRef_ = value;
+          onChanged();
+        } else {
+          boundObjectRefBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * BoundObjectRef is a reference to an object that the token will be bound to.
+       * The token will only be valid for as long as the bound objet exists.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;</code>
+       */
+      public Builder setBoundObjectRef(
+          io.kubernetes.client.proto.V1Authentication.BoundObjectReference.Builder builderForValue) {
+        if (boundObjectRefBuilder_ == null) {
+          boundObjectRef_ = builderForValue.build();
+          onChanged();
+        } else {
+          boundObjectRefBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * BoundObjectRef is a reference to an object that the token will be bound to.
+       * The token will only be valid for as long as the bound objet exists.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;</code>
+       */
+      public Builder mergeBoundObjectRef(io.kubernetes.client.proto.V1Authentication.BoundObjectReference value) {
+        if (boundObjectRefBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+              boundObjectRef_ != null &&
+              boundObjectRef_ != io.kubernetes.client.proto.V1Authentication.BoundObjectReference.getDefaultInstance()) {
+            boundObjectRef_ =
+              io.kubernetes.client.proto.V1Authentication.BoundObjectReference.newBuilder(boundObjectRef_).mergeFrom(value).buildPartial();
+          } else {
+            boundObjectRef_ = value;
+          }
+          onChanged();
+        } else {
+          boundObjectRefBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * BoundObjectRef is a reference to an object that the token will be bound to.
+       * The token will only be valid for as long as the bound objet exists.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;</code>
+       */
+      public Builder clearBoundObjectRef() {
+        if (boundObjectRefBuilder_ == null) {
+          boundObjectRef_ = null;
+          onChanged();
+        } else {
+          boundObjectRefBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       * <pre>
+       * BoundObjectRef is a reference to an object that the token will be bound to.
+       * The token will only be valid for as long as the bound objet exists.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;</code>
+       */
+      public io.kubernetes.client.proto.V1Authentication.BoundObjectReference.Builder getBoundObjectRefBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getBoundObjectRefFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * BoundObjectRef is a reference to an object that the token will be bound to.
+       * The token will only be valid for as long as the bound objet exists.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;</code>
+       */
+      public io.kubernetes.client.proto.V1Authentication.BoundObjectReferenceOrBuilder getBoundObjectRefOrBuilder() {
+        if (boundObjectRefBuilder_ != null) {
+          return boundObjectRefBuilder_.getMessageOrBuilder();
+        } else {
+          return boundObjectRef_ == null ?
+              io.kubernetes.client.proto.V1Authentication.BoundObjectReference.getDefaultInstance() : boundObjectRef_;
+        }
+      }
+      /**
+       * <pre>
+       * BoundObjectRef is a reference to an object that the token will be bound to.
+       * The token will only be valid for as long as the bound objet exists.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.V1Authentication.BoundObjectReference, io.kubernetes.client.proto.V1Authentication.BoundObjectReference.Builder, io.kubernetes.client.proto.V1Authentication.BoundObjectReferenceOrBuilder> 
+          getBoundObjectRefFieldBuilder() {
+        if (boundObjectRefBuilder_ == null) {
+          boundObjectRefBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1Authentication.BoundObjectReference, io.kubernetes.client.proto.V1Authentication.BoundObjectReference.Builder, io.kubernetes.client.proto.V1Authentication.BoundObjectReferenceOrBuilder>(
+                  getBoundObjectRef(),
+                  getParentForChildren(),
+                  isClean());
+          boundObjectRef_ = null;
+        }
+        return boundObjectRefBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.authentication.v1.TokenRequestSpec)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.authentication.v1.TokenRequestSpec)
+    private static final io.kubernetes.client.proto.V1Authentication.TokenRequestSpec DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Authentication.TokenRequestSpec();
+    }
+
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestSpec getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<TokenRequestSpec>
+        PARSER = new com.google.protobuf.AbstractParser<TokenRequestSpec>() {
+      @java.lang.Override
+      public TokenRequestSpec parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TokenRequestSpec(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<TokenRequestSpec> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TokenRequestSpec> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1Authentication.TokenRequestSpec getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface TokenRequestStatusOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.authentication.v1.TokenRequestStatus)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Token is the opaque bearer token.
+     * </pre>
+     *
+     * <code>optional string token = 1;</code>
+     */
+    boolean hasToken();
+    /**
+     * <pre>
+     * Token is the opaque bearer token.
+     * </pre>
+     *
+     * <code>optional string token = 1;</code>
+     */
+    java.lang.String getToken();
+    /**
+     * <pre>
+     * Token is the opaque bearer token.
+     * </pre>
+     *
+     * <code>optional string token = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getTokenBytes();
+
+    /**
+     * <pre>
+     * ExpirationTimestamp is the time of expiration of the returned token.
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
+     */
+    boolean hasExpirationTimestamp();
+    /**
+     * <pre>
+     * ExpirationTimestamp is the time of expiration of the returned token.
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
+     */
+    io.kubernetes.client.proto.Meta.Time getExpirationTimestamp();
+    /**
+     * <pre>
+     * ExpirationTimestamp is the time of expiration of the returned token.
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
+     */
+    io.kubernetes.client.proto.Meta.TimeOrBuilder getExpirationTimestampOrBuilder();
+  }
+  /**
+   * <pre>
+   * TokenRequestStatus is the result of a token request.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.authentication.v1.TokenRequestStatus}
+   */
+  public  static final class TokenRequestStatus extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.authentication.v1.TokenRequestStatus)
+      TokenRequestStatusOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use TokenRequestStatus.newBuilder() to construct.
+    private TokenRequestStatus(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TokenRequestStatus() {
+      token_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TokenRequestStatus(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              token_ = bs;
+              break;
+            }
+            case 18: {
+              io.kubernetes.client.proto.Meta.Time.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = expirationTimestamp_.toBuilder();
+              }
+              expirationTimestamp_ = input.readMessage(io.kubernetes.client.proto.Meta.Time.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(expirationTimestamp_);
+                expirationTimestamp_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenRequestStatus_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenRequestStatus_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1Authentication.TokenRequestStatus.class, io.kubernetes.client.proto.V1Authentication.TokenRequestStatus.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int TOKEN_FIELD_NUMBER = 1;
+    private volatile java.lang.Object token_;
+    /**
+     * <pre>
+     * Token is the opaque bearer token.
+     * </pre>
+     *
+     * <code>optional string token = 1;</code>
+     */
+    public boolean hasToken() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * Token is the opaque bearer token.
+     * </pre>
+     *
+     * <code>optional string token = 1;</code>
+     */
+    public java.lang.String getToken() {
+      java.lang.Object ref = token_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          token_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Token is the opaque bearer token.
+     * </pre>
+     *
+     * <code>optional string token = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTokenBytes() {
+      java.lang.Object ref = token_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        token_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int EXPIRATIONTIMESTAMP_FIELD_NUMBER = 2;
+    private io.kubernetes.client.proto.Meta.Time expirationTimestamp_;
+    /**
+     * <pre>
+     * ExpirationTimestamp is the time of expiration of the returned token.
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
+     */
+    public boolean hasExpirationTimestamp() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * ExpirationTimestamp is the time of expiration of the returned token.
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
+     */
+    public io.kubernetes.client.proto.Meta.Time getExpirationTimestamp() {
+      return expirationTimestamp_ == null ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance() : expirationTimestamp_;
+    }
+    /**
+     * <pre>
+     * ExpirationTimestamp is the time of expiration of the returned token.
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
+     */
+    public io.kubernetes.client.proto.Meta.TimeOrBuilder getExpirationTimestampOrBuilder() {
+      return expirationTimestamp_ == null ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance() : expirationTimestamp_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, token_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, getExpirationTimestamp());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, token_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getExpirationTimestamp());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1Authentication.TokenRequestStatus)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1Authentication.TokenRequestStatus other = (io.kubernetes.client.proto.V1Authentication.TokenRequestStatus) obj;
+
+      boolean result = true;
+      result = result && (hasToken() == other.hasToken());
+      if (hasToken()) {
+        result = result && getToken()
+            .equals(other.getToken());
+      }
+      result = result && (hasExpirationTimestamp() == other.hasExpirationTimestamp());
+      if (hasExpirationTimestamp()) {
+        result = result && getExpirationTimestamp()
+            .equals(other.getExpirationTimestamp());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasToken()) {
+        hash = (37 * hash) + TOKEN_FIELD_NUMBER;
+        hash = (53 * hash) + getToken().hashCode();
+      }
+      if (hasExpirationTimestamp()) {
+        hash = (37 * hash) + EXPIRATIONTIMESTAMP_FIELD_NUMBER;
+        hash = (53 * hash) + getExpirationTimestamp().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestStatus parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestStatus parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestStatus parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestStatus parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestStatus parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestStatus parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestStatus parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestStatus parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestStatus parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestStatus parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestStatus parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestStatus parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.kubernetes.client.proto.V1Authentication.TokenRequestStatus prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * TokenRequestStatus is the result of a token request.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.authentication.v1.TokenRequestStatus}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.authentication.v1.TokenRequestStatus)
+        io.kubernetes.client.proto.V1Authentication.TokenRequestStatusOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenRequestStatus_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenRequestStatus_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1Authentication.TokenRequestStatus.class, io.kubernetes.client.proto.V1Authentication.TokenRequestStatus.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1Authentication.TokenRequestStatus.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getExpirationTimestampFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        token_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (expirationTimestampBuilder_ == null) {
+          expirationTimestamp_ = null;
+        } else {
+          expirationTimestampBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenRequestStatus_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Authentication.TokenRequestStatus getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1Authentication.TokenRequestStatus.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Authentication.TokenRequestStatus build() {
+        io.kubernetes.client.proto.V1Authentication.TokenRequestStatus result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Authentication.TokenRequestStatus buildPartial() {
+        io.kubernetes.client.proto.V1Authentication.TokenRequestStatus result = new io.kubernetes.client.proto.V1Authentication.TokenRequestStatus(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.token_ = token_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (expirationTimestampBuilder_ == null) {
+          result.expirationTimestamp_ = expirationTimestamp_;
+        } else {
+          result.expirationTimestamp_ = expirationTimestampBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1Authentication.TokenRequestStatus) {
+          return mergeFrom((io.kubernetes.client.proto.V1Authentication.TokenRequestStatus)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1Authentication.TokenRequestStatus other) {
+        if (other == io.kubernetes.client.proto.V1Authentication.TokenRequestStatus.getDefaultInstance()) return this;
+        if (other.hasToken()) {
+          bitField0_ |= 0x00000001;
+          token_ = other.token_;
+          onChanged();
+        }
+        if (other.hasExpirationTimestamp()) {
+          mergeExpirationTimestamp(other.getExpirationTimestamp());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1Authentication.TokenRequestStatus parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.kubernetes.client.proto.V1Authentication.TokenRequestStatus) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object token_ = "";
+      /**
+       * <pre>
+       * Token is the opaque bearer token.
+       * </pre>
+       *
+       * <code>optional string token = 1;</code>
+       */
+      public boolean hasToken() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * Token is the opaque bearer token.
+       * </pre>
+       *
+       * <code>optional string token = 1;</code>
+       */
+      public java.lang.String getToken() {
+        java.lang.Object ref = token_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            token_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Token is the opaque bearer token.
+       * </pre>
+       *
+       * <code>optional string token = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTokenBytes() {
+        java.lang.Object ref = token_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          token_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Token is the opaque bearer token.
+       * </pre>
+       *
+       * <code>optional string token = 1;</code>
+       */
+      public Builder setToken(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        token_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Token is the opaque bearer token.
+       * </pre>
+       *
+       * <code>optional string token = 1;</code>
+       */
+      public Builder clearToken() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        token_ = getDefaultInstance().getToken();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Token is the opaque bearer token.
+       * </pre>
+       *
+       * <code>optional string token = 1;</code>
+       */
+      public Builder setTokenBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        token_ = value;
+        onChanged();
+        return this;
+      }
+
+      private io.kubernetes.client.proto.Meta.Time expirationTimestamp_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Meta.Time, io.kubernetes.client.proto.Meta.Time.Builder, io.kubernetes.client.proto.Meta.TimeOrBuilder> expirationTimestampBuilder_;
+      /**
+       * <pre>
+       * ExpirationTimestamp is the time of expiration of the returned token.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
+       */
+      public boolean hasExpirationTimestamp() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * ExpirationTimestamp is the time of expiration of the returned token.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
+       */
+      public io.kubernetes.client.proto.Meta.Time getExpirationTimestamp() {
+        if (expirationTimestampBuilder_ == null) {
+          return expirationTimestamp_ == null ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance() : expirationTimestamp_;
+        } else {
+          return expirationTimestampBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * ExpirationTimestamp is the time of expiration of the returned token.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
+       */
+      public Builder setExpirationTimestamp(io.kubernetes.client.proto.Meta.Time value) {
+        if (expirationTimestampBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          expirationTimestamp_ = value;
+          onChanged();
+        } else {
+          expirationTimestampBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <pre>
+       * ExpirationTimestamp is the time of expiration of the returned token.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
+       */
+      public Builder setExpirationTimestamp(
+          io.kubernetes.client.proto.Meta.Time.Builder builderForValue) {
+        if (expirationTimestampBuilder_ == null) {
+          expirationTimestamp_ = builderForValue.build();
+          onChanged();
+        } else {
+          expirationTimestampBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <pre>
+       * ExpirationTimestamp is the time of expiration of the returned token.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
+       */
+      public Builder mergeExpirationTimestamp(io.kubernetes.client.proto.Meta.Time value) {
+        if (expirationTimestampBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              expirationTimestamp_ != null &&
+              expirationTimestamp_ != io.kubernetes.client.proto.Meta.Time.getDefaultInstance()) {
+            expirationTimestamp_ =
+              io.kubernetes.client.proto.Meta.Time.newBuilder(expirationTimestamp_).mergeFrom(value).buildPartial();
+          } else {
+            expirationTimestamp_ = value;
+          }
+          onChanged();
+        } else {
+          expirationTimestampBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <pre>
+       * ExpirationTimestamp is the time of expiration of the returned token.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
+       */
+      public Builder clearExpirationTimestamp() {
+        if (expirationTimestampBuilder_ == null) {
+          expirationTimestamp_ = null;
+          onChanged();
+        } else {
+          expirationTimestampBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       * <pre>
+       * ExpirationTimestamp is the time of expiration of the returned token.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
+       */
+      public io.kubernetes.client.proto.Meta.Time.Builder getExpirationTimestampBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getExpirationTimestampFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * ExpirationTimestamp is the time of expiration of the returned token.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
+       */
+      public io.kubernetes.client.proto.Meta.TimeOrBuilder getExpirationTimestampOrBuilder() {
+        if (expirationTimestampBuilder_ != null) {
+          return expirationTimestampBuilder_.getMessageOrBuilder();
+        } else {
+          return expirationTimestamp_ == null ?
+              io.kubernetes.client.proto.Meta.Time.getDefaultInstance() : expirationTimestamp_;
+        }
+      }
+      /**
+       * <pre>
+       * ExpirationTimestamp is the time of expiration of the returned token.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Meta.Time, io.kubernetes.client.proto.Meta.Time.Builder, io.kubernetes.client.proto.Meta.TimeOrBuilder> 
+          getExpirationTimestampFieldBuilder() {
+        if (expirationTimestampBuilder_ == null) {
+          expirationTimestampBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.Time, io.kubernetes.client.proto.Meta.Time.Builder, io.kubernetes.client.proto.Meta.TimeOrBuilder>(
+                  getExpirationTimestamp(),
+                  getParentForChildren(),
+                  isClean());
+          expirationTimestamp_ = null;
+        }
+        return expirationTimestampBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.authentication.v1.TokenRequestStatus)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.authentication.v1.TokenRequestStatus)
+    private static final io.kubernetes.client.proto.V1Authentication.TokenRequestStatus DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Authentication.TokenRequestStatus();
+    }
+
+    public static io.kubernetes.client.proto.V1Authentication.TokenRequestStatus getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<TokenRequestStatus>
+        PARSER = new com.google.protobuf.AbstractParser<TokenRequestStatus>() {
+      @java.lang.Override
+      public TokenRequestStatus parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TokenRequestStatus(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<TokenRequestStatus> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TokenRequestStatus> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1Authentication.TokenRequestStatus getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -714,6 +5309,9 @@ public final class V1Authentication {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -725,13 +5323,6 @@ public final class V1Authentication {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -771,6 +5362,13 @@ public final class V1Authentication {
               bitField0_ |= 0x00000004;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -788,6 +5386,7 @@ public final class V1Authentication {
       return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenReview_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenReview_fieldAccessorTable
@@ -899,6 +5498,7 @@ public final class V1Authentication {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -908,6 +5508,7 @@ public final class V1Authentication {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -922,6 +5523,7 @@ public final class V1Authentication {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1068,6 +5670,7 @@ public final class V1Authentication {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1075,6 +5678,7 @@ public final class V1Authentication {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Authentication.TokenReview prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1104,6 +5708,7 @@ public final class V1Authentication {
         return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenReview_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenReview_fieldAccessorTable
@@ -1129,6 +5734,7 @@ public final class V1Authentication {
           getStatusFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -1152,15 +5758,18 @@ public final class V1Authentication {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenReview_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authentication.TokenReview getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Authentication.TokenReview.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authentication.TokenReview build() {
         io.kubernetes.client.proto.V1Authentication.TokenReview result = buildPartial();
         if (!result.isInitialized()) {
@@ -1169,6 +5778,7 @@ public final class V1Authentication {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authentication.TokenReview buildPartial() {
         io.kubernetes.client.proto.V1Authentication.TokenReview result = new io.kubernetes.client.proto.V1Authentication.TokenReview(this);
         int from_bitField0_ = bitField0_;
@@ -1202,32 +5812,39 @@ public final class V1Authentication {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Authentication.TokenReview) {
           return mergeFrom((io.kubernetes.client.proto.V1Authentication.TokenReview)other);
@@ -1253,10 +5870,12 @@ public final class V1Authentication {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1746,11 +6365,13 @@ public final class V1Authentication {
         }
         return statusBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1772,11 +6393,12 @@ public final class V1Authentication {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<TokenReview>
         PARSER = new com.google.protobuf.AbstractParser<TokenReview>() {
+      @java.lang.Override
       public TokenReview parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new TokenReview(input, extensionRegistry);
+        return new TokenReview(input, extensionRegistry);
       }
     };
 
@@ -1789,6 +6411,7 @@ public final class V1Authentication {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Authentication.TokenReview getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -1827,6 +6450,61 @@ public final class V1Authentication {
      */
     com.google.protobuf.ByteString
         getTokenBytes();
+
+    /**
+     * <pre>
+     * Audiences is a list of the identifiers that the resource server presented
+     * with the token identifies as. Audience-aware token authenticators will
+     * verify that the token was intended for at least one of the audiences in
+     * this list. If no audiences are provided, the audience will default to the
+     * audience of the Kubernetes apiserver.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 2;</code>
+     */
+    java.util.List<java.lang.String>
+        getAudiencesList();
+    /**
+     * <pre>
+     * Audiences is a list of the identifiers that the resource server presented
+     * with the token identifies as. Audience-aware token authenticators will
+     * verify that the token was intended for at least one of the audiences in
+     * this list. If no audiences are provided, the audience will default to the
+     * audience of the Kubernetes apiserver.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 2;</code>
+     */
+    int getAudiencesCount();
+    /**
+     * <pre>
+     * Audiences is a list of the identifiers that the resource server presented
+     * with the token identifies as. Audience-aware token authenticators will
+     * verify that the token was intended for at least one of the audiences in
+     * this list. If no audiences are provided, the audience will default to the
+     * audience of the Kubernetes apiserver.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 2;</code>
+     */
+    java.lang.String getAudiences(int index);
+    /**
+     * <pre>
+     * Audiences is a list of the identifiers that the resource server presented
+     * with the token identifies as. Audience-aware token authenticators will
+     * verify that the token was intended for at least one of the audiences in
+     * this list. If no audiences are provided, the audience will default to the
+     * audience of the Kubernetes apiserver.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getAudiencesBytes(int index);
   }
   /**
    * <pre>
@@ -1846,6 +6524,7 @@ public final class V1Authentication {
     }
     private TokenReviewSpec() {
       token_ = "";
+      audiences_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -1858,6 +6537,9 @@ public final class V1Authentication {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1869,17 +6551,26 @@ public final class V1Authentication {
             case 0:
               done = true;
               break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              token_ = bs;
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                audiences_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              audiences_.add(bs);
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
-              break;
-            }
-            case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000001;
-              token_ = bs;
               break;
             }
           }
@@ -1890,6 +6581,9 @@ public final class V1Authentication {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          audiences_ = audiences_.getUnmodifiableView();
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -1899,6 +6593,7 @@ public final class V1Authentication {
       return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenReviewSpec_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenReviewSpec_fieldAccessorTable
@@ -1964,7 +6659,73 @@ public final class V1Authentication {
       }
     }
 
+    public static final int AUDIENCES_FIELD_NUMBER = 2;
+    private com.google.protobuf.LazyStringList audiences_;
+    /**
+     * <pre>
+     * Audiences is a list of the identifiers that the resource server presented
+     * with the token identifies as. Audience-aware token authenticators will
+     * verify that the token was intended for at least one of the audiences in
+     * this list. If no audiences are provided, the audience will default to the
+     * audience of the Kubernetes apiserver.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 2;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getAudiencesList() {
+      return audiences_;
+    }
+    /**
+     * <pre>
+     * Audiences is a list of the identifiers that the resource server presented
+     * with the token identifies as. Audience-aware token authenticators will
+     * verify that the token was intended for at least one of the audiences in
+     * this list. If no audiences are provided, the audience will default to the
+     * audience of the Kubernetes apiserver.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 2;</code>
+     */
+    public int getAudiencesCount() {
+      return audiences_.size();
+    }
+    /**
+     * <pre>
+     * Audiences is a list of the identifiers that the resource server presented
+     * with the token identifies as. Audience-aware token authenticators will
+     * verify that the token was intended for at least one of the audiences in
+     * this list. If no audiences are provided, the audience will default to the
+     * audience of the Kubernetes apiserver.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 2;</code>
+     */
+    public java.lang.String getAudiences(int index) {
+      return audiences_.get(index);
+    }
+    /**
+     * <pre>
+     * Audiences is a list of the identifiers that the resource server presented
+     * with the token identifies as. Audience-aware token authenticators will
+     * verify that the token was intended for at least one of the audiences in
+     * this list. If no audiences are provided, the audience will default to the
+     * audience of the Kubernetes apiserver.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAudiencesBytes(int index) {
+      return audiences_.getByteString(index);
+    }
+
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1974,14 +6735,19 @@ public final class V1Authentication {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, token_);
       }
+      for (int i = 0; i < audiences_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, audiences_.getRaw(i));
+      }
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1989,6 +6755,14 @@ public final class V1Authentication {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, token_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < audiences_.size(); i++) {
+          dataSize += computeStringSizeNoTag(audiences_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getAudiencesList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2011,6 +6785,8 @@ public final class V1Authentication {
         result = result && getToken()
             .equals(other.getToken());
       }
+      result = result && getAudiencesList()
+          .equals(other.getAudiencesList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -2025,6 +6801,10 @@ public final class V1Authentication {
       if (hasToken()) {
         hash = (37 * hash) + TOKEN_FIELD_NUMBER;
         hash = (53 * hash) + getToken().hashCode();
+      }
+      if (getAudiencesCount() > 0) {
+        hash = (37 * hash) + AUDIENCES_FIELD_NUMBER;
+        hash = (53 * hash) + getAudiencesList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -2101,6 +6881,7 @@ public final class V1Authentication {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -2108,6 +6889,7 @@ public final class V1Authentication {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Authentication.TokenReviewSpec prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -2135,6 +6917,7 @@ public final class V1Authentication {
         return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenReviewSpec_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenReviewSpec_fieldAccessorTable
@@ -2157,22 +6940,28 @@ public final class V1Authentication {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         token_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
+        audiences_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenReviewSpec_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authentication.TokenReviewSpec getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Authentication.TokenReviewSpec.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authentication.TokenReviewSpec build() {
         io.kubernetes.client.proto.V1Authentication.TokenReviewSpec result = buildPartial();
         if (!result.isInitialized()) {
@@ -2181,6 +6970,7 @@ public final class V1Authentication {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authentication.TokenReviewSpec buildPartial() {
         io.kubernetes.client.proto.V1Authentication.TokenReviewSpec result = new io.kubernetes.client.proto.V1Authentication.TokenReviewSpec(this);
         int from_bitField0_ = bitField0_;
@@ -2189,37 +6979,49 @@ public final class V1Authentication {
           to_bitField0_ |= 0x00000001;
         }
         result.token_ = token_;
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          audiences_ = audiences_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.audiences_ = audiences_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Authentication.TokenReviewSpec) {
           return mergeFrom((io.kubernetes.client.proto.V1Authentication.TokenReviewSpec)other);
@@ -2236,15 +7038,27 @@ public final class V1Authentication {
           token_ = other.token_;
           onChanged();
         }
+        if (!other.audiences_.isEmpty()) {
+          if (audiences_.isEmpty()) {
+            audiences_ = other.audiences_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureAudiencesIsMutable();
+            audiences_.addAll(other.audiences_);
+          }
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2369,11 +7183,187 @@ public final class V1Authentication {
         onChanged();
         return this;
       }
+
+      private com.google.protobuf.LazyStringList audiences_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureAudiencesIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          audiences_ = new com.google.protobuf.LazyStringArrayList(audiences_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <pre>
+       * Audiences is a list of the identifiers that the resource server presented
+       * with the token identifies as. Audience-aware token authenticators will
+       * verify that the token was intended for at least one of the audiences in
+       * this list. If no audiences are provided, the audience will default to the
+       * audience of the Kubernetes apiserver.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 2;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getAudiencesList() {
+        return audiences_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * Audiences is a list of the identifiers that the resource server presented
+       * with the token identifies as. Audience-aware token authenticators will
+       * verify that the token was intended for at least one of the audiences in
+       * this list. If no audiences are provided, the audience will default to the
+       * audience of the Kubernetes apiserver.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 2;</code>
+       */
+      public int getAudiencesCount() {
+        return audiences_.size();
+      }
+      /**
+       * <pre>
+       * Audiences is a list of the identifiers that the resource server presented
+       * with the token identifies as. Audience-aware token authenticators will
+       * verify that the token was intended for at least one of the audiences in
+       * this list. If no audiences are provided, the audience will default to the
+       * audience of the Kubernetes apiserver.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 2;</code>
+       */
+      public java.lang.String getAudiences(int index) {
+        return audiences_.get(index);
+      }
+      /**
+       * <pre>
+       * Audiences is a list of the identifiers that the resource server presented
+       * with the token identifies as. Audience-aware token authenticators will
+       * verify that the token was intended for at least one of the audiences in
+       * this list. If no audiences are provided, the audience will default to the
+       * audience of the Kubernetes apiserver.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAudiencesBytes(int index) {
+        return audiences_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * Audiences is a list of the identifiers that the resource server presented
+       * with the token identifies as. Audience-aware token authenticators will
+       * verify that the token was intended for at least one of the audiences in
+       * this list. If no audiences are provided, the audience will default to the
+       * audience of the Kubernetes apiserver.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 2;</code>
+       */
+      public Builder setAudiences(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAudiencesIsMutable();
+        audiences_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Audiences is a list of the identifiers that the resource server presented
+       * with the token identifies as. Audience-aware token authenticators will
+       * verify that the token was intended for at least one of the audiences in
+       * this list. If no audiences are provided, the audience will default to the
+       * audience of the Kubernetes apiserver.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 2;</code>
+       */
+      public Builder addAudiences(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAudiencesIsMutable();
+        audiences_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Audiences is a list of the identifiers that the resource server presented
+       * with the token identifies as. Audience-aware token authenticators will
+       * verify that the token was intended for at least one of the audiences in
+       * this list. If no audiences are provided, the audience will default to the
+       * audience of the Kubernetes apiserver.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 2;</code>
+       */
+      public Builder addAllAudiences(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureAudiencesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, audiences_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Audiences is a list of the identifiers that the resource server presented
+       * with the token identifies as. Audience-aware token authenticators will
+       * verify that the token was intended for at least one of the audiences in
+       * this list. If no audiences are provided, the audience will default to the
+       * audience of the Kubernetes apiserver.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 2;</code>
+       */
+      public Builder clearAudiences() {
+        audiences_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Audiences is a list of the identifiers that the resource server presented
+       * with the token identifies as. Audience-aware token authenticators will
+       * verify that the token was intended for at least one of the audiences in
+       * this list. If no audiences are provided, the audience will default to the
+       * audience of the Kubernetes apiserver.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 2;</code>
+       */
+      public Builder addAudiencesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAudiencesIsMutable();
+        audiences_.add(value);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -2395,11 +7385,12 @@ public final class V1Authentication {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<TokenReviewSpec>
         PARSER = new com.google.protobuf.AbstractParser<TokenReviewSpec>() {
+      @java.lang.Override
       public TokenReviewSpec parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new TokenReviewSpec(input, extensionRegistry);
+        return new TokenReviewSpec(input, extensionRegistry);
       }
     };
 
@@ -2412,6 +7403,7 @@ public final class V1Authentication {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Authentication.TokenReviewSpec getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -2471,6 +7463,77 @@ public final class V1Authentication {
 
     /**
      * <pre>
+     * Audiences are audience identifiers chosen by the authenticator that are
+     * compatible with both the TokenReview and token. An identifier is any
+     * identifier in the intersection of the TokenReviewSpec audiences and the
+     * token's audiences. A client of the TokenReview API that sets the
+     * spec.audiences field should validate that a compatible audience identifier
+     * is returned in the status.audiences field to ensure that the TokenReview
+     * server is audience aware. If a TokenReview returns an empty
+     * status.audience field where status.authenticated is "true", the token is
+     * valid against the audience of the Kubernetes API server.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 4;</code>
+     */
+    java.util.List<java.lang.String>
+        getAudiencesList();
+    /**
+     * <pre>
+     * Audiences are audience identifiers chosen by the authenticator that are
+     * compatible with both the TokenReview and token. An identifier is any
+     * identifier in the intersection of the TokenReviewSpec audiences and the
+     * token's audiences. A client of the TokenReview API that sets the
+     * spec.audiences field should validate that a compatible audience identifier
+     * is returned in the status.audiences field to ensure that the TokenReview
+     * server is audience aware. If a TokenReview returns an empty
+     * status.audience field where status.authenticated is "true", the token is
+     * valid against the audience of the Kubernetes API server.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 4;</code>
+     */
+    int getAudiencesCount();
+    /**
+     * <pre>
+     * Audiences are audience identifiers chosen by the authenticator that are
+     * compatible with both the TokenReview and token. An identifier is any
+     * identifier in the intersection of the TokenReviewSpec audiences and the
+     * token's audiences. A client of the TokenReview API that sets the
+     * spec.audiences field should validate that a compatible audience identifier
+     * is returned in the status.audiences field to ensure that the TokenReview
+     * server is audience aware. If a TokenReview returns an empty
+     * status.audience field where status.authenticated is "true", the token is
+     * valid against the audience of the Kubernetes API server.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 4;</code>
+     */
+    java.lang.String getAudiences(int index);
+    /**
+     * <pre>
+     * Audiences are audience identifiers chosen by the authenticator that are
+     * compatible with both the TokenReview and token. An identifier is any
+     * identifier in the intersection of the TokenReviewSpec audiences and the
+     * token's audiences. A client of the TokenReview API that sets the
+     * spec.audiences field should validate that a compatible audience identifier
+     * is returned in the status.audiences field to ensure that the TokenReview
+     * server is audience aware. If a TokenReview returns an empty
+     * status.audience field where status.authenticated is "true", the token is
+     * valid against the audience of the Kubernetes API server.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getAudiencesBytes(int index);
+
+    /**
+     * <pre>
      * Error indicates that the token couldn't be checked
      * +optional
      * </pre>
@@ -2516,6 +7579,7 @@ public final class V1Authentication {
     }
     private TokenReviewStatus() {
       authenticated_ = false;
+      audiences_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       error_ = "";
     }
 
@@ -2529,6 +7593,9 @@ public final class V1Authentication {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -2540,13 +7607,6 @@ public final class V1Authentication {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               bitField0_ |= 0x00000001;
               authenticated_ = input.readBool();
@@ -2571,6 +7631,22 @@ public final class V1Authentication {
               error_ = bs;
               break;
             }
+            case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                audiences_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              audiences_.add(bs);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -2579,6 +7655,9 @@ public final class V1Authentication {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          audiences_ = audiences_.getUnmodifiableView();
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -2588,6 +7667,7 @@ public final class V1Authentication {
       return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenReviewStatus_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenReviewStatus_fieldAccessorTable
@@ -2657,6 +7737,87 @@ public final class V1Authentication {
       return user_ == null ? io.kubernetes.client.proto.V1Authentication.UserInfo.getDefaultInstance() : user_;
     }
 
+    public static final int AUDIENCES_FIELD_NUMBER = 4;
+    private com.google.protobuf.LazyStringList audiences_;
+    /**
+     * <pre>
+     * Audiences are audience identifiers chosen by the authenticator that are
+     * compatible with both the TokenReview and token. An identifier is any
+     * identifier in the intersection of the TokenReviewSpec audiences and the
+     * token's audiences. A client of the TokenReview API that sets the
+     * spec.audiences field should validate that a compatible audience identifier
+     * is returned in the status.audiences field to ensure that the TokenReview
+     * server is audience aware. If a TokenReview returns an empty
+     * status.audience field where status.authenticated is "true", the token is
+     * valid against the audience of the Kubernetes API server.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 4;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getAudiencesList() {
+      return audiences_;
+    }
+    /**
+     * <pre>
+     * Audiences are audience identifiers chosen by the authenticator that are
+     * compatible with both the TokenReview and token. An identifier is any
+     * identifier in the intersection of the TokenReviewSpec audiences and the
+     * token's audiences. A client of the TokenReview API that sets the
+     * spec.audiences field should validate that a compatible audience identifier
+     * is returned in the status.audiences field to ensure that the TokenReview
+     * server is audience aware. If a TokenReview returns an empty
+     * status.audience field where status.authenticated is "true", the token is
+     * valid against the audience of the Kubernetes API server.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 4;</code>
+     */
+    public int getAudiencesCount() {
+      return audiences_.size();
+    }
+    /**
+     * <pre>
+     * Audiences are audience identifiers chosen by the authenticator that are
+     * compatible with both the TokenReview and token. An identifier is any
+     * identifier in the intersection of the TokenReviewSpec audiences and the
+     * token's audiences. A client of the TokenReview API that sets the
+     * spec.audiences field should validate that a compatible audience identifier
+     * is returned in the status.audiences field to ensure that the TokenReview
+     * server is audience aware. If a TokenReview returns an empty
+     * status.audience field where status.authenticated is "true", the token is
+     * valid against the audience of the Kubernetes API server.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 4;</code>
+     */
+    public java.lang.String getAudiences(int index) {
+      return audiences_.get(index);
+    }
+    /**
+     * <pre>
+     * Audiences are audience identifiers chosen by the authenticator that are
+     * compatible with both the TokenReview and token. An identifier is any
+     * identifier in the intersection of the TokenReviewSpec audiences and the
+     * token's audiences. A client of the TokenReview API that sets the
+     * spec.audiences field should validate that a compatible audience identifier
+     * is returned in the status.audiences field to ensure that the TokenReview
+     * server is audience aware. If a TokenReview returns an empty
+     * status.audience field where status.authenticated is "true", the token is
+     * valid against the audience of the Kubernetes API server.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string audiences = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAudiencesBytes(int index) {
+      return audiences_.getByteString(index);
+    }
+
     public static final int ERROR_FIELD_NUMBER = 3;
     private volatile java.lang.Object error_;
     /**
@@ -2715,6 +7876,7 @@ public final class V1Authentication {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2724,6 +7886,7 @@ public final class V1Authentication {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2735,9 +7898,13 @@ public final class V1Authentication {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, error_);
       }
+      for (int i = 0; i < audiences_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, audiences_.getRaw(i));
+      }
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -2753,6 +7920,14 @@ public final class V1Authentication {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, error_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < audiences_.size(); i++) {
+          dataSize += computeStringSizeNoTag(audiences_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getAudiencesList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2780,6 +7955,8 @@ public final class V1Authentication {
         result = result && getUser()
             .equals(other.getUser());
       }
+      result = result && getAudiencesList()
+          .equals(other.getAudiencesList());
       result = result && (hasError() == other.hasError());
       if (hasError()) {
         result = result && getError()
@@ -2804,6 +7981,10 @@ public final class V1Authentication {
       if (hasUser()) {
         hash = (37 * hash) + USER_FIELD_NUMBER;
         hash = (53 * hash) + getUser().hashCode();
+      }
+      if (getAudiencesCount() > 0) {
+        hash = (37 * hash) + AUDIENCES_FIELD_NUMBER;
+        hash = (53 * hash) + getAudiencesList().hashCode();
       }
       if (hasError()) {
         hash = (37 * hash) + ERROR_FIELD_NUMBER;
@@ -2884,6 +8065,7 @@ public final class V1Authentication {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -2891,6 +8073,7 @@ public final class V1Authentication {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Authentication.TokenReviewStatus prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -2918,6 +8101,7 @@ public final class V1Authentication {
         return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenReviewStatus_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenReviewStatus_fieldAccessorTable
@@ -2941,6 +8125,7 @@ public final class V1Authentication {
           getUserFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         authenticated_ = false;
@@ -2951,20 +8136,25 @@ public final class V1Authentication {
           userBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
-        error_ = "";
+        audiences_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
+        error_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_TokenReviewStatus_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authentication.TokenReviewStatus getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Authentication.TokenReviewStatus.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authentication.TokenReviewStatus build() {
         io.kubernetes.client.proto.V1Authentication.TokenReviewStatus result = buildPartial();
         if (!result.isInitialized()) {
@@ -2973,6 +8163,7 @@ public final class V1Authentication {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authentication.TokenReviewStatus buildPartial() {
         io.kubernetes.client.proto.V1Authentication.TokenReviewStatus result = new io.kubernetes.client.proto.V1Authentication.TokenReviewStatus(this);
         int from_bitField0_ = bitField0_;
@@ -2989,7 +8180,12 @@ public final class V1Authentication {
         } else {
           result.user_ = userBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          audiences_ = audiences_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.audiences_ = audiences_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000004;
         }
         result.error_ = error_;
@@ -2998,32 +8194,39 @@ public final class V1Authentication {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Authentication.TokenReviewStatus) {
           return mergeFrom((io.kubernetes.client.proto.V1Authentication.TokenReviewStatus)other);
@@ -3041,8 +8244,18 @@ public final class V1Authentication {
         if (other.hasUser()) {
           mergeUser(other.getUser());
         }
+        if (!other.audiences_.isEmpty()) {
+          if (audiences_.isEmpty()) {
+            audiences_ = other.audiences_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureAudiencesIsMutable();
+            audiences_.addAll(other.audiences_);
+          }
+          onChanged();
+        }
         if (other.hasError()) {
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000008;
           error_ = other.error_;
           onChanged();
         }
@@ -3051,10 +8264,12 @@ public final class V1Authentication {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3289,6 +8504,216 @@ public final class V1Authentication {
         return userBuilder_;
       }
 
+      private com.google.protobuf.LazyStringList audiences_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureAudiencesIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          audiences_ = new com.google.protobuf.LazyStringArrayList(audiences_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+      /**
+       * <pre>
+       * Audiences are audience identifiers chosen by the authenticator that are
+       * compatible with both the TokenReview and token. An identifier is any
+       * identifier in the intersection of the TokenReviewSpec audiences and the
+       * token's audiences. A client of the TokenReview API that sets the
+       * spec.audiences field should validate that a compatible audience identifier
+       * is returned in the status.audiences field to ensure that the TokenReview
+       * server is audience aware. If a TokenReview returns an empty
+       * status.audience field where status.authenticated is "true", the token is
+       * valid against the audience of the Kubernetes API server.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 4;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getAudiencesList() {
+        return audiences_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * Audiences are audience identifiers chosen by the authenticator that are
+       * compatible with both the TokenReview and token. An identifier is any
+       * identifier in the intersection of the TokenReviewSpec audiences and the
+       * token's audiences. A client of the TokenReview API that sets the
+       * spec.audiences field should validate that a compatible audience identifier
+       * is returned in the status.audiences field to ensure that the TokenReview
+       * server is audience aware. If a TokenReview returns an empty
+       * status.audience field where status.authenticated is "true", the token is
+       * valid against the audience of the Kubernetes API server.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 4;</code>
+       */
+      public int getAudiencesCount() {
+        return audiences_.size();
+      }
+      /**
+       * <pre>
+       * Audiences are audience identifiers chosen by the authenticator that are
+       * compatible with both the TokenReview and token. An identifier is any
+       * identifier in the intersection of the TokenReviewSpec audiences and the
+       * token's audiences. A client of the TokenReview API that sets the
+       * spec.audiences field should validate that a compatible audience identifier
+       * is returned in the status.audiences field to ensure that the TokenReview
+       * server is audience aware. If a TokenReview returns an empty
+       * status.audience field where status.authenticated is "true", the token is
+       * valid against the audience of the Kubernetes API server.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 4;</code>
+       */
+      public java.lang.String getAudiences(int index) {
+        return audiences_.get(index);
+      }
+      /**
+       * <pre>
+       * Audiences are audience identifiers chosen by the authenticator that are
+       * compatible with both the TokenReview and token. An identifier is any
+       * identifier in the intersection of the TokenReviewSpec audiences and the
+       * token's audiences. A client of the TokenReview API that sets the
+       * spec.audiences field should validate that a compatible audience identifier
+       * is returned in the status.audiences field to ensure that the TokenReview
+       * server is audience aware. If a TokenReview returns an empty
+       * status.audience field where status.authenticated is "true", the token is
+       * valid against the audience of the Kubernetes API server.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAudiencesBytes(int index) {
+        return audiences_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * Audiences are audience identifiers chosen by the authenticator that are
+       * compatible with both the TokenReview and token. An identifier is any
+       * identifier in the intersection of the TokenReviewSpec audiences and the
+       * token's audiences. A client of the TokenReview API that sets the
+       * spec.audiences field should validate that a compatible audience identifier
+       * is returned in the status.audiences field to ensure that the TokenReview
+       * server is audience aware. If a TokenReview returns an empty
+       * status.audience field where status.authenticated is "true", the token is
+       * valid against the audience of the Kubernetes API server.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 4;</code>
+       */
+      public Builder setAudiences(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAudiencesIsMutable();
+        audiences_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Audiences are audience identifiers chosen by the authenticator that are
+       * compatible with both the TokenReview and token. An identifier is any
+       * identifier in the intersection of the TokenReviewSpec audiences and the
+       * token's audiences. A client of the TokenReview API that sets the
+       * spec.audiences field should validate that a compatible audience identifier
+       * is returned in the status.audiences field to ensure that the TokenReview
+       * server is audience aware. If a TokenReview returns an empty
+       * status.audience field where status.authenticated is "true", the token is
+       * valid against the audience of the Kubernetes API server.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 4;</code>
+       */
+      public Builder addAudiences(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAudiencesIsMutable();
+        audiences_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Audiences are audience identifiers chosen by the authenticator that are
+       * compatible with both the TokenReview and token. An identifier is any
+       * identifier in the intersection of the TokenReviewSpec audiences and the
+       * token's audiences. A client of the TokenReview API that sets the
+       * spec.audiences field should validate that a compatible audience identifier
+       * is returned in the status.audiences field to ensure that the TokenReview
+       * server is audience aware. If a TokenReview returns an empty
+       * status.audience field where status.authenticated is "true", the token is
+       * valid against the audience of the Kubernetes API server.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 4;</code>
+       */
+      public Builder addAllAudiences(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureAudiencesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, audiences_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Audiences are audience identifiers chosen by the authenticator that are
+       * compatible with both the TokenReview and token. An identifier is any
+       * identifier in the intersection of the TokenReviewSpec audiences and the
+       * token's audiences. A client of the TokenReview API that sets the
+       * spec.audiences field should validate that a compatible audience identifier
+       * is returned in the status.audiences field to ensure that the TokenReview
+       * server is audience aware. If a TokenReview returns an empty
+       * status.audience field where status.authenticated is "true", the token is
+       * valid against the audience of the Kubernetes API server.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 4;</code>
+       */
+      public Builder clearAudiences() {
+        audiences_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Audiences are audience identifiers chosen by the authenticator that are
+       * compatible with both the TokenReview and token. An identifier is any
+       * identifier in the intersection of the TokenReviewSpec audiences and the
+       * token's audiences. A client of the TokenReview API that sets the
+       * spec.audiences field should validate that a compatible audience identifier
+       * is returned in the status.audiences field to ensure that the TokenReview
+       * server is audience aware. If a TokenReview returns an empty
+       * status.audience field where status.authenticated is "true", the token is
+       * valid against the audience of the Kubernetes API server.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string audiences = 4;</code>
+       */
+      public Builder addAudiencesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAudiencesIsMutable();
+        audiences_.add(value);
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object error_ = "";
       /**
        * <pre>
@@ -3299,7 +8724,7 @@ public final class V1Authentication {
        * <code>optional string error = 3;</code>
        */
       public boolean hasError() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
        * <pre>
@@ -3357,7 +8782,7 @@ public final class V1Authentication {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         error_ = value;
         onChanged();
         return this;
@@ -3371,7 +8796,7 @@ public final class V1Authentication {
        * <code>optional string error = 3;</code>
        */
       public Builder clearError() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         error_ = getDefaultInstance().getError();
         onChanged();
         return this;
@@ -3389,16 +8814,18 @@ public final class V1Authentication {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         error_ = value;
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -3420,11 +8847,12 @@ public final class V1Authentication {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<TokenReviewStatus>
         PARSER = new com.google.protobuf.AbstractParser<TokenReviewStatus>() {
+      @java.lang.Override
       public TokenReviewStatus parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new TokenReviewStatus(input, extensionRegistry);
+        return new TokenReviewStatus(input, extensionRegistry);
       }
     };
 
@@ -3437,6 +8865,7 @@ public final class V1Authentication {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Authentication.TokenReviewStatus getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -3642,6 +9071,9 @@ public final class V1Authentication {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -3653,13 +9085,6 @@ public final class V1Authentication {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -3694,6 +9119,13 @@ public final class V1Authentication {
                   extra__.getKey(), extra__.getValue());
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -3715,6 +9147,7 @@ public final class V1Authentication {
     }
 
     @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
@@ -3725,6 +9158,7 @@ public final class V1Authentication {
               "Invalid map field number: " + number);
       }
     }
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_UserInfo_fieldAccessorTable
@@ -3999,6 +9433,7 @@ public final class V1Authentication {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -4008,6 +9443,7 @@ public final class V1Authentication {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -4028,6 +9464,7 @@ public final class V1Authentication {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -4189,6 +9626,7 @@ public final class V1Authentication {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -4196,6 +9634,7 @@ public final class V1Authentication {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Authentication.UserInfo prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -4246,6 +9685,7 @@ public final class V1Authentication {
                 "Invalid map field number: " + number);
         }
       }
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_UserInfo_fieldAccessorTable
@@ -4268,6 +9708,7 @@ public final class V1Authentication {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         username_ = "";
@@ -4280,15 +9721,18 @@ public final class V1Authentication {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Authentication.internal_static_k8s_io_api_authentication_v1_UserInfo_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authentication.UserInfo getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Authentication.UserInfo.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authentication.UserInfo build() {
         io.kubernetes.client.proto.V1Authentication.UserInfo result = buildPartial();
         if (!result.isInitialized()) {
@@ -4297,6 +9741,7 @@ public final class V1Authentication {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authentication.UserInfo buildPartial() {
         io.kubernetes.client.proto.V1Authentication.UserInfo result = new io.kubernetes.client.proto.V1Authentication.UserInfo(this);
         int from_bitField0_ = bitField0_;
@@ -4321,32 +9766,39 @@ public final class V1Authentication {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Authentication.UserInfo) {
           return mergeFrom((io.kubernetes.client.proto.V1Authentication.UserInfo)other);
@@ -4385,10 +9837,12 @@ public final class V1Authentication {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4927,11 +10381,13 @@ public final class V1Authentication {
             .putAll(values);
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -4953,11 +10409,12 @@ public final class V1Authentication {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<UserInfo>
         PARSER = new com.google.protobuf.AbstractParser<UserInfo>() {
+      @java.lang.Override
       public UserInfo parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new UserInfo(input, extensionRegistry);
+        return new UserInfo(input, extensionRegistry);
       }
     };
 
@@ -4970,6 +10427,7 @@ public final class V1Authentication {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Authentication.UserInfo getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -4977,10 +10435,30 @@ public final class V1Authentication {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_k8s_io_api_authentication_v1_BoundObjectReference_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_authentication_v1_BoundObjectReference_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_k8s_io_api_authentication_v1_ExtraValue_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_authentication_v1_ExtraValue_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_k8s_io_api_authentication_v1_TokenRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_authentication_v1_TokenRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_k8s_io_api_authentication_v1_TokenRequestSpec_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_authentication_v1_TokenRequestSpec_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_k8s_io_api_authentication_v1_TokenRequestStatus_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_authentication_v1_TokenRequestStatus_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_k8s_io_api_authentication_v1_TokenReview_descriptor;
   private static final 
@@ -5020,25 +10498,38 @@ public final class V1Authentication {
       "s.io/apimachinery/pkg/apis/meta/v1/gener" +
       "ated.proto\032/k8s.io/apimachinery/pkg/runt" +
       "ime/generated.proto\0326k8s.io/apimachinery" +
-      "/pkg/runtime/schema/generated.proto\0323k8s" +
-      ".io/apimachinery/pkg/util/intstr/generat" +
-      "ed.proto\"\033\n\nExtraValue\022\r\n\005items\030\001 \003(\t\"\317\001" +
-      "\n\013TokenReview\022B\n\010metadata\030\001 \001(\01320.k8s.io" +
-      ".apimachinery.pkg.apis.meta.v1.ObjectMet",
-      "a\022;\n\004spec\030\002 \001(\0132-.k8s.io.api.authenticat" +
-      "ion.v1.TokenReviewSpec\022?\n\006status\030\003 \001(\0132/" +
-      ".k8s.io.api.authentication.v1.TokenRevie" +
-      "wStatus\" \n\017TokenReviewSpec\022\r\n\005token\030\001 \001(" +
-      "\t\"o\n\021TokenReviewStatus\022\025\n\rauthenticated\030" +
-      "\001 \001(\010\0224\n\004user\030\002 \001(\0132&.k8s.io.api.authent" +
-      "ication.v1.UserInfo\022\r\n\005error\030\003 \001(\t\"\323\001\n\010U" +
-      "serInfo\022\020\n\010username\030\001 \001(\t\022\013\n\003uid\030\002 \001(\t\022\016" +
-      "\n\006groups\030\003 \003(\t\022@\n\005extra\030\004 \003(\01321.k8s.io.a" +
-      "pi.authentication.v1.UserInfo.ExtraEntry",
-      "\032V\n\nExtraEntry\022\013\n\003key\030\001 \001(\t\0227\n\005value\030\002 \001" +
-      "(\0132(.k8s.io.api.authentication.v1.ExtraV" +
-      "alue:\0028\001B2\n\032io.kubernetes.client.protoB\020" +
-      "V1AuthenticationZ\002v1"
+      "/pkg/runtime/schema/generated.proto\"S\n\024B" +
+      "oundObjectReference\022\014\n\004kind\030\001 \001(\t\022\022\n\naPI" +
+      "Version\030\002 \001(\t\022\014\n\004name\030\003 \001(\t\022\013\n\003uID\030\004 \001(\t" +
+      "\"\033\n\nExtraValue\022\r\n\005items\030\001 \003(\t\"\322\001\n\014TokenR" +
+      "equest\022B\n\010metadata\030\001 \001(\01320.k8s.io.apimac" +
+      "hinery.pkg.apis.meta.v1.ObjectMeta\022<\n\004sp" +
+      "ec\030\002 \001(\0132..k8s.io.api.authentication.v1." +
+      "TokenRequestSpec\022@\n\006status\030\003 \001(\01320.k8s.i" +
+      "o.api.authentication.v1.TokenRequestStat" +
+      "us\"\214\001\n\020TokenRequestSpec\022\021\n\taudiences\030\001 \003" +
+      "(\t\022\031\n\021expirationSeconds\030\004 \001(\003\022J\n\016boundOb" +
+      "jectRef\030\003 \001(\01322.k8s.io.api.authenticatio" +
+      "n.v1.BoundObjectReference\"l\n\022TokenReques" +
+      "tStatus\022\r\n\005token\030\001 \001(\t\022G\n\023expirationTime" +
+      "stamp\030\002 \001(\0132*.k8s.io.apimachinery.pkg.ap" +
+      "is.meta.v1.Time\"\317\001\n\013TokenReview\022B\n\010metad" +
+      "ata\030\001 \001(\01320.k8s.io.apimachinery.pkg.apis" +
+      ".meta.v1.ObjectMeta\022;\n\004spec\030\002 \001(\0132-.k8s." +
+      "io.api.authentication.v1.TokenReviewSpec" +
+      "\022?\n\006status\030\003 \001(\0132/.k8s.io.api.authentica" +
+      "tion.v1.TokenReviewStatus\"3\n\017TokenReview" +
+      "Spec\022\r\n\005token\030\001 \001(\t\022\021\n\taudiences\030\002 \003(\t\"\202" +
+      "\001\n\021TokenReviewStatus\022\025\n\rauthenticated\030\001 " +
+      "\001(\010\0224\n\004user\030\002 \001(\0132&.k8s.io.api.authentic" +
+      "ation.v1.UserInfo\022\021\n\taudiences\030\004 \003(\t\022\r\n\005" +
+      "error\030\003 \001(\t\"\323\001\n\010UserInfo\022\020\n\010username\030\001 \001" +
+      "(\t\022\013\n\003uid\030\002 \001(\t\022\016\n\006groups\030\003 \003(\t\022@\n\005extra" +
+      "\030\004 \003(\01321.k8s.io.api.authentication.v1.Us" +
+      "erInfo.ExtraEntry\032V\n\nExtraEntry\022\013\n\003key\030\001" +
+      " \001(\t\0227\n\005value\030\002 \001(\0132(.k8s.io.api.authent" +
+      "ication.v1.ExtraValue:\0028\001B2\n\032io.kubernet" +
+      "es.client.protoB\020V1AuthenticationZ\002v1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -5054,34 +10545,57 @@ public final class V1Authentication {
           io.kubernetes.client.proto.Meta.getDescriptor(),
           io.kubernetes.client.proto.Runtime.getDescriptor(),
           io.kubernetes.client.proto.RuntimeSchema.getDescriptor(),
-          io.kubernetes.client.proto.IntStr.getDescriptor(),
         }, assigner);
-    internal_static_k8s_io_api_authentication_v1_ExtraValue_descriptor =
+    internal_static_k8s_io_api_authentication_v1_BoundObjectReference_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_k8s_io_api_authentication_v1_BoundObjectReference_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_k8s_io_api_authentication_v1_BoundObjectReference_descriptor,
+        new java.lang.String[] { "Kind", "APIVersion", "Name", "UID", });
+    internal_static_k8s_io_api_authentication_v1_ExtraValue_descriptor =
+      getDescriptor().getMessageTypes().get(1);
     internal_static_k8s_io_api_authentication_v1_ExtraValue_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_authentication_v1_ExtraValue_descriptor,
         new java.lang.String[] { "Items", });
+    internal_static_k8s_io_api_authentication_v1_TokenRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_k8s_io_api_authentication_v1_TokenRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_k8s_io_api_authentication_v1_TokenRequest_descriptor,
+        new java.lang.String[] { "Metadata", "Spec", "Status", });
+    internal_static_k8s_io_api_authentication_v1_TokenRequestSpec_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_k8s_io_api_authentication_v1_TokenRequestSpec_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_k8s_io_api_authentication_v1_TokenRequestSpec_descriptor,
+        new java.lang.String[] { "Audiences", "ExpirationSeconds", "BoundObjectRef", });
+    internal_static_k8s_io_api_authentication_v1_TokenRequestStatus_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_k8s_io_api_authentication_v1_TokenRequestStatus_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_k8s_io_api_authentication_v1_TokenRequestStatus_descriptor,
+        new java.lang.String[] { "Token", "ExpirationTimestamp", });
     internal_static_k8s_io_api_authentication_v1_TokenReview_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_k8s_io_api_authentication_v1_TokenReview_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_authentication_v1_TokenReview_descriptor,
         new java.lang.String[] { "Metadata", "Spec", "Status", });
     internal_static_k8s_io_api_authentication_v1_TokenReviewSpec_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_k8s_io_api_authentication_v1_TokenReviewSpec_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_authentication_v1_TokenReviewSpec_descriptor,
-        new java.lang.String[] { "Token", });
+        new java.lang.String[] { "Token", "Audiences", });
     internal_static_k8s_io_api_authentication_v1_TokenReviewStatus_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_k8s_io_api_authentication_v1_TokenReviewStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_authentication_v1_TokenReviewStatus_descriptor,
-        new java.lang.String[] { "Authenticated", "User", "Error", });
+        new java.lang.String[] { "Authenticated", "User", "Audiences", "Error", });
     internal_static_k8s_io_api_authentication_v1_UserInfo_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_k8s_io_api_authentication_v1_UserInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_authentication_v1_UserInfo_descriptor,
@@ -5095,7 +10609,6 @@ public final class V1Authentication {
     io.kubernetes.client.proto.Meta.getDescriptor();
     io.kubernetes.client.proto.Runtime.getDescriptor();
     io.kubernetes.client.proto.RuntimeSchema.getDescriptor();
-    io.kubernetes.client.proto.IntStr.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
