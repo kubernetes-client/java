@@ -98,6 +98,9 @@ public final class V1alpha1Settings {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -109,13 +112,6 @@ public final class V1alpha1Settings {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -142,6 +138,13 @@ public final class V1alpha1Settings {
               bitField0_ |= 0x00000002;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -159,6 +162,7 @@ public final class V1alpha1Settings {
       return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPreset_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPreset_fieldAccessorTable
@@ -234,6 +238,7 @@ public final class V1alpha1Settings {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -243,6 +248,7 @@ public final class V1alpha1Settings {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -254,6 +260,7 @@ public final class V1alpha1Settings {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -387,6 +394,7 @@ public final class V1alpha1Settings {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -394,6 +402,7 @@ public final class V1alpha1Settings {
     public static Builder newBuilder(io.kubernetes.client.proto.V1alpha1Settings.PodPreset prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -422,6 +431,7 @@ public final class V1alpha1Settings {
         return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPreset_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPreset_fieldAccessorTable
@@ -446,6 +456,7 @@ public final class V1alpha1Settings {
           getSpecFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -463,15 +474,18 @@ public final class V1alpha1Settings {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPreset_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Settings.PodPreset getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1alpha1Settings.PodPreset.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Settings.PodPreset build() {
         io.kubernetes.client.proto.V1alpha1Settings.PodPreset result = buildPartial();
         if (!result.isInitialized()) {
@@ -480,6 +494,7 @@ public final class V1alpha1Settings {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Settings.PodPreset buildPartial() {
         io.kubernetes.client.proto.V1alpha1Settings.PodPreset result = new io.kubernetes.client.proto.V1alpha1Settings.PodPreset(this);
         int from_bitField0_ = bitField0_;
@@ -505,32 +520,39 @@ public final class V1alpha1Settings {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1alpha1Settings.PodPreset) {
           return mergeFrom((io.kubernetes.client.proto.V1alpha1Settings.PodPreset)other);
@@ -553,10 +575,12 @@ public final class V1alpha1Settings {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -883,11 +907,13 @@ public final class V1alpha1Settings {
         }
         return specBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -909,11 +935,12 @@ public final class V1alpha1Settings {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<PodPreset>
         PARSER = new com.google.protobuf.AbstractParser<PodPreset>() {
+      @java.lang.Override
       public PodPreset parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new PodPreset(input, extensionRegistry);
+        return new PodPreset(input, extensionRegistry);
       }
     };
 
@@ -926,6 +953,7 @@ public final class V1alpha1Settings {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1alpha1Settings.PodPreset getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -1041,6 +1069,9 @@ public final class V1alpha1Settings {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1052,13 +1083,6 @@ public final class V1alpha1Settings {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ListMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1081,6 +1105,13 @@ public final class V1alpha1Settings {
                   input.readMessage(io.kubernetes.client.proto.V1alpha1Settings.PodPreset.PARSER, extensionRegistry));
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1101,6 +1132,7 @@ public final class V1alpha1Settings {
       return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPresetList_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPresetList_fieldAccessorTable
@@ -1204,6 +1236,7 @@ public final class V1alpha1Settings {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1213,6 +1246,7 @@ public final class V1alpha1Settings {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1224,6 +1258,7 @@ public final class V1alpha1Settings {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1354,6 +1389,7 @@ public final class V1alpha1Settings {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1361,6 +1397,7 @@ public final class V1alpha1Settings {
     public static Builder newBuilder(io.kubernetes.client.proto.V1alpha1Settings.PodPresetList prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1388,6 +1425,7 @@ public final class V1alpha1Settings {
         return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPresetList_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPresetList_fieldAccessorTable
@@ -1412,6 +1450,7 @@ public final class V1alpha1Settings {
           getItemsFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -1429,15 +1468,18 @@ public final class V1alpha1Settings {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPresetList_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Settings.PodPresetList getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1alpha1Settings.PodPresetList.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Settings.PodPresetList build() {
         io.kubernetes.client.proto.V1alpha1Settings.PodPresetList result = buildPartial();
         if (!result.isInitialized()) {
@@ -1446,6 +1488,7 @@ public final class V1alpha1Settings {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Settings.PodPresetList buildPartial() {
         io.kubernetes.client.proto.V1alpha1Settings.PodPresetList result = new io.kubernetes.client.proto.V1alpha1Settings.PodPresetList(this);
         int from_bitField0_ = bitField0_;
@@ -1472,32 +1515,39 @@ public final class V1alpha1Settings {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1alpha1Settings.PodPresetList) {
           return mergeFrom((io.kubernetes.client.proto.V1alpha1Settings.PodPresetList)other);
@@ -1543,10 +1593,12 @@ public final class V1alpha1Settings {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2049,11 +2101,13 @@ public final class V1alpha1Settings {
         }
         return itemsBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -2075,11 +2129,12 @@ public final class V1alpha1Settings {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<PodPresetList>
         PARSER = new com.google.protobuf.AbstractParser<PodPresetList>() {
+      @java.lang.Override
       public PodPresetList parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new PodPresetList(input, extensionRegistry);
+        return new PodPresetList(input, extensionRegistry);
       }
     };
 
@@ -2092,6 +2147,7 @@ public final class V1alpha1Settings {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1alpha1Settings.PodPresetList getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -2359,6 +2415,9 @@ public final class V1alpha1Settings {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -2370,13 +2429,6 @@ public final class V1alpha1Settings {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.LabelSelector.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2426,6 +2478,13 @@ public final class V1alpha1Settings {
                   input.readMessage(io.kubernetes.client.proto.V1.VolumeMount.PARSER, extensionRegistry));
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -2455,6 +2514,7 @@ public final class V1alpha1Settings {
       return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPresetSpec_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPresetSpec_fieldAccessorTable
@@ -2740,6 +2800,7 @@ public final class V1alpha1Settings {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2749,6 +2810,7 @@ public final class V1alpha1Settings {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2769,6 +2831,7 @@ public final class V1alpha1Settings {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -2929,6 +2992,7 @@ public final class V1alpha1Settings {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -2936,6 +3000,7 @@ public final class V1alpha1Settings {
     public static Builder newBuilder(io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -2963,6 +3028,7 @@ public final class V1alpha1Settings {
         return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPresetSpec_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPresetSpec_fieldAccessorTable
@@ -2990,6 +3056,7 @@ public final class V1alpha1Settings {
           getVolumeMountsFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (selectorBuilder_ == null) {
@@ -3025,15 +3092,18 @@ public final class V1alpha1Settings {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1alpha1Settings.internal_static_k8s_io_api_settings_v1alpha1_PodPresetSpec_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec build() {
         io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec result = buildPartial();
         if (!result.isInitialized()) {
@@ -3042,6 +3112,7 @@ public final class V1alpha1Settings {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec buildPartial() {
         io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec result = new io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec(this);
         int from_bitField0_ = bitField0_;
@@ -3095,32 +3166,39 @@ public final class V1alpha1Settings {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec) {
           return mergeFrom((io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec)other);
@@ -3244,10 +3322,12 @@ public final class V1alpha1Settings {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4749,11 +4829,13 @@ public final class V1alpha1Settings {
         }
         return volumeMountsBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -4775,11 +4857,12 @@ public final class V1alpha1Settings {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<PodPresetSpec>
         PARSER = new com.google.protobuf.AbstractParser<PodPresetSpec>() {
+      @java.lang.Override
       public PodPresetSpec parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new PodPresetSpec(input, extensionRegistry);
+        return new PodPresetSpec(input, extensionRegistry);
       }
     };
 
@@ -4792,6 +4875,7 @@ public final class V1alpha1Settings {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1alpha1Settings.PodPresetSpec getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -4828,24 +4912,23 @@ public final class V1alpha1Settings {
       "/apimachinery/pkg/apis/meta/v1/generated" +
       ".proto\032/k8s.io/apimachinery/pkg/runtime/" +
       "generated.proto\0326k8s.io/apimachinery/pkg" +
-      "/runtime/schema/generated.proto\0323k8s.io/" +
-      "apimachinery/pkg/util/intstr/generated.p" +
-      "roto\"\212\001\n\tPodPreset\022B\n\010metadata\030\001 \001(\01320.k" +
-      "8s.io.apimachinery.pkg.apis.meta.v1.Obje",
-      "ctMeta\0229\n\004spec\030\002 \001(\0132+.k8s.io.api.settin" +
-      "gs.v1alpha1.PodPresetSpec\"\211\001\n\rPodPresetL" +
-      "ist\022@\n\010metadata\030\001 \001(\0132..k8s.io.apimachin" +
-      "ery.pkg.apis.meta.v1.ListMeta\0226\n\005items\030\002" +
-      " \003(\0132\'.k8s.io.api.settings.v1alpha1.PodP" +
-      "reset\"\227\002\n\rPodPresetSpec\022E\n\010selector\030\001 \001(" +
-      "\01323.k8s.io.apimachinery.pkg.apis.meta.v1" +
-      ".LabelSelector\022\'\n\003env\030\002 \003(\0132\032.k8s.io.api" +
-      ".core.v1.EnvVar\0222\n\007envFrom\030\003 \003(\0132!.k8s.i" +
-      "o.api.core.v1.EnvFromSource\022+\n\007volumes\030\004",
-      " \003(\0132\032.k8s.io.api.core.v1.Volume\0225\n\014volu" +
-      "meMounts\030\005 \003(\0132\037.k8s.io.api.core.v1.Volu" +
-      "meMountB8\n\032io.kubernetes.client.protoB\020V" +
-      "1alpha1SettingsZ\010v1alpha1"
+      "/runtime/schema/generated.proto\"\212\001\n\tPodP" +
+      "reset\022B\n\010metadata\030\001 \001(\01320.k8s.io.apimach" +
+      "inery.pkg.apis.meta.v1.ObjectMeta\0229\n\004spe" +
+      "c\030\002 \001(\0132+.k8s.io.api.settings.v1alpha1.P" +
+      "odPresetSpec\"\211\001\n\rPodPresetList\022@\n\010metada" +
+      "ta\030\001 \001(\0132..k8s.io.apimachinery.pkg.apis." +
+      "meta.v1.ListMeta\0226\n\005items\030\002 \003(\0132\'.k8s.io" +
+      ".api.settings.v1alpha1.PodPreset\"\227\002\n\rPod" +
+      "PresetSpec\022E\n\010selector\030\001 \001(\01323.k8s.io.ap" +
+      "imachinery.pkg.apis.meta.v1.LabelSelecto" +
+      "r\022\'\n\003env\030\002 \003(\0132\032.k8s.io.api.core.v1.EnvV" +
+      "ar\0222\n\007envFrom\030\003 \003(\0132!.k8s.io.api.core.v1" +
+      ".EnvFromSource\022+\n\007volumes\030\004 \003(\0132\032.k8s.io" +
+      ".api.core.v1.Volume\0225\n\014volumeMounts\030\005 \003(" +
+      "\0132\037.k8s.io.api.core.v1.VolumeMountB8\n\032io" +
+      ".kubernetes.client.protoB\020V1alpha1Settin" +
+      "gsZ\010v1alpha1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4862,7 +4945,6 @@ public final class V1alpha1Settings {
           io.kubernetes.client.proto.Meta.getDescriptor(),
           io.kubernetes.client.proto.Runtime.getDescriptor(),
           io.kubernetes.client.proto.RuntimeSchema.getDescriptor(),
-          io.kubernetes.client.proto.IntStr.getDescriptor(),
         }, assigner);
     internal_static_k8s_io_api_settings_v1alpha1_PodPreset_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -4886,7 +4968,6 @@ public final class V1alpha1Settings {
     io.kubernetes.client.proto.Meta.getDescriptor();
     io.kubernetes.client.proto.Runtime.getDescriptor();
     io.kubernetes.client.proto.RuntimeSchema.getDescriptor();
-    io.kubernetes.client.proto.IntStr.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

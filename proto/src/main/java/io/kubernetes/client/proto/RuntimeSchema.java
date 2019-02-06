@@ -25,10 +25,8 @@ public final class RuntimeSchema {
     java.lang.String[] descriptorData = {
       "\n6k8s.io/apimachinery/pkg/runtime/schema" +
       "/generated.proto\022&k8s.io.apimachinery.pk" +
-      "g.runtime.schema\0323k8s.io/apimachinery/pk" +
-      "g/util/intstr/generated.protoB3\n\032io.kube" +
-      "rnetes.client.protoB\rRuntimeSchemaZ\006sche" +
-      "ma"
+      "g.runtime.schemaB3\n\032io.kubernetes.client" +
+      ".protoB\rRuntimeSchemaZ\006schema"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -41,9 +39,7 @@ public final class RuntimeSchema {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          io.kubernetes.client.proto.IntStr.getDescriptor(),
         }, assigner);
-    io.kubernetes.client.proto.IntStr.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

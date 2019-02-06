@@ -37,9 +37,7 @@ public final class Resource {
    * Quantity is a fixed-point representation of a number.
    * It provides convenient marshaling/unmarshaling in JSON and YAML,
    * in addition to String() and Int64() accessors.
-   * 
    * The serialization format is:
-   * 
    * &lt;quantity&gt;        ::= &lt;signedNumber&gt;&lt;suffix&gt;
    *   (Note that &lt;suffix&gt; may be empty, from the "" case in &lt;decimalSI&gt;.)
    * &lt;digit&gt;           ::= 0 | 1 | ... | 9
@@ -53,16 +51,13 @@ public final class Resource {
    * &lt;decimalSI&gt;       ::= m | "" | k | M | G | T | P | E
    *   (Note that 1024 = 1Ki but 1000 = 1k; I didn't choose the capitalization.)
    * &lt;decimalExponent&gt; ::= "e" &lt;signedNumber&gt; | "E" &lt;signedNumber&gt;
-   * 
    * No matter which of the three exponent forms is used, no quantity may represent
    * a number greater than 2^63-1 in magnitude, nor may it have more than 3 decimal
    * places. Numbers larger or more precise will be capped or rounded up.
    * (E.g.: 0.1m will rounded up to 1m.)
    * This may be extended in the future if we require larger or smaller quantities.
-   * 
    * When a Quantity is parsed from a string, it will remember the type of suffix
    * it had, and will use the same type again when it is serialized.
-   * 
    * Before serializing, Quantity will be put in "canonical form".
    * This means that Exponent/suffix will be adjusted up or down (with a
    * corresponding increase or decrease in Mantissa) such that:
@@ -70,31 +65,22 @@ public final class Resource {
    *   b. No fractional digits will be emitted
    *   c. The exponent (or suffix) is as large as possible.
    * The sign will be omitted unless the number is negative.
-   * 
    * Examples:
    *   1.5 will be serialized as "1500m"
    *   1.5Gi will be serialized as "1536Mi"
-   * 
-   * NOTE: We reserve the right to amend this canonical format, perhaps to
-   *   allow 1.5 to be canonical.
-   * TODO: Remove above disclaimer after all bikeshedding about format is over,
-   *   or after March 2015.
-   * 
    * Note that the quantity will NEVER be internally represented by a
    * floating point number. That is the whole point of this exercise.
-   * 
    * Non-canonical values will still parse as long as they are well formed,
    * but will be re-emitted in their canonical form. (So always use canonical
    * form, or don't diff.)
-   * 
    * This format is intended to make it difficult to use these numbers without
    * writing some sort of special handling code in the hopes that that will
    * cause implementors to also use a fixed point implementation.
-   * 
    * +protobuf=true
    * +protobuf.embed=string
    * +protobuf.options.marshal=false
    * +protobuf.options.(gogoproto.goproto_stringer)=false
+   * +k8s:deepcopy-gen=true
    * +k8s:openapi-gen=true
    * </pre>
    *
@@ -123,6 +109,9 @@ public final class Resource {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -134,17 +123,17 @@ public final class Resource {
             case 0:
               done = true;
               break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              string_ = bs;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
-              break;
-            }
-            case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000001;
-              string_ = bs;
               break;
             }
           }
@@ -164,6 +153,7 @@ public final class Resource {
       return io.kubernetes.client.proto.Resource.internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.Resource.internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_fieldAccessorTable
@@ -215,6 +205,7 @@ public final class Resource {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -224,6 +215,7 @@ public final class Resource {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -232,6 +224,7 @@ public final class Resource {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -351,6 +344,7 @@ public final class Resource {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -358,6 +352,7 @@ public final class Resource {
     public static Builder newBuilder(io.kubernetes.client.proto.Resource.Quantity prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -374,9 +369,7 @@ public final class Resource {
      * Quantity is a fixed-point representation of a number.
      * It provides convenient marshaling/unmarshaling in JSON and YAML,
      * in addition to String() and Int64() accessors.
-     * 
      * The serialization format is:
-     * 
      * &lt;quantity&gt;        ::= &lt;signedNumber&gt;&lt;suffix&gt;
      *   (Note that &lt;suffix&gt; may be empty, from the "" case in &lt;decimalSI&gt;.)
      * &lt;digit&gt;           ::= 0 | 1 | ... | 9
@@ -390,16 +383,13 @@ public final class Resource {
      * &lt;decimalSI&gt;       ::= m | "" | k | M | G | T | P | E
      *   (Note that 1024 = 1Ki but 1000 = 1k; I didn't choose the capitalization.)
      * &lt;decimalExponent&gt; ::= "e" &lt;signedNumber&gt; | "E" &lt;signedNumber&gt;
-     * 
      * No matter which of the three exponent forms is used, no quantity may represent
      * a number greater than 2^63-1 in magnitude, nor may it have more than 3 decimal
      * places. Numbers larger or more precise will be capped or rounded up.
      * (E.g.: 0.1m will rounded up to 1m.)
      * This may be extended in the future if we require larger or smaller quantities.
-     * 
      * When a Quantity is parsed from a string, it will remember the type of suffix
      * it had, and will use the same type again when it is serialized.
-     * 
      * Before serializing, Quantity will be put in "canonical form".
      * This means that Exponent/suffix will be adjusted up or down (with a
      * corresponding increase or decrease in Mantissa) such that:
@@ -407,31 +397,22 @@ public final class Resource {
      *   b. No fractional digits will be emitted
      *   c. The exponent (or suffix) is as large as possible.
      * The sign will be omitted unless the number is negative.
-     * 
      * Examples:
      *   1.5 will be serialized as "1500m"
      *   1.5Gi will be serialized as "1536Mi"
-     * 
-     * NOTE: We reserve the right to amend this canonical format, perhaps to
-     *   allow 1.5 to be canonical.
-     * TODO: Remove above disclaimer after all bikeshedding about format is over,
-     *   or after March 2015.
-     * 
      * Note that the quantity will NEVER be internally represented by a
      * floating point number. That is the whole point of this exercise.
-     * 
      * Non-canonical values will still parse as long as they are well formed,
      * but will be re-emitted in their canonical form. (So always use canonical
      * form, or don't diff.)
-     * 
      * This format is intended to make it difficult to use these numbers without
      * writing some sort of special handling code in the hopes that that will
      * cause implementors to also use a fixed point implementation.
-     * 
      * +protobuf=true
      * +protobuf.embed=string
      * +protobuf.options.marshal=false
      * +protobuf.options.(gogoproto.goproto_stringer)=false
+     * +k8s:deepcopy-gen=true
      * +k8s:openapi-gen=true
      * </pre>
      *
@@ -446,6 +427,7 @@ public final class Resource {
         return io.kubernetes.client.proto.Resource.internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.Resource.internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_fieldAccessorTable
@@ -468,6 +450,7 @@ public final class Resource {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         string_ = "";
@@ -475,15 +458,18 @@ public final class Resource {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.Resource.internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.Resource.Quantity getDefaultInstanceForType() {
         return io.kubernetes.client.proto.Resource.Quantity.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.Resource.Quantity build() {
         io.kubernetes.client.proto.Resource.Quantity result = buildPartial();
         if (!result.isInitialized()) {
@@ -492,6 +478,7 @@ public final class Resource {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.Resource.Quantity buildPartial() {
         io.kubernetes.client.proto.Resource.Quantity result = new io.kubernetes.client.proto.Resource.Quantity(this);
         int from_bitField0_ = bitField0_;
@@ -505,32 +492,39 @@ public final class Resource {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.Resource.Quantity) {
           return mergeFrom((io.kubernetes.client.proto.Resource.Quantity)other);
@@ -552,10 +546,12 @@ public final class Resource {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -650,11 +646,13 @@ public final class Resource {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -676,11 +674,12 @@ public final class Resource {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<Quantity>
         PARSER = new com.google.protobuf.AbstractParser<Quantity>() {
+      @java.lang.Override
       public Quantity parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Quantity(input, extensionRegistry);
+        return new Quantity(input, extensionRegistry);
       }
     };
 
@@ -693,6 +692,7 @@ public final class Resource {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.Resource.Quantity getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -715,10 +715,9 @@ public final class Resource {
     java.lang.String[] descriptorData = {
       "\n4k8s.io/apimachinery/pkg/api/resource/g" +
       "enerated.proto\022$k8s.io.apimachinery.pkg." +
-      "api.resource\0323k8s.io/apimachinery/pkg/ut" +
-      "il/intstr/generated.proto\"\032\n\010Quantity\022\016\n" +
-      "\006string\030\001 \001(\tB0\n\032io.kubernetes.client.pr" +
-      "otoB\010ResourceZ\010resource"
+      "api.resource\"\032\n\010Quantity\022\016\n\006string\030\001 \001(\t" +
+      "B0\n\032io.kubernetes.client.protoB\010Resource" +
+      "Z\010resource"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -731,7 +730,6 @@ public final class Resource {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          io.kubernetes.client.proto.IntStr.getDescriptor(),
         }, assigner);
     internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -739,7 +737,6 @@ public final class Resource {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_descriptor,
         new java.lang.String[] { "String", });
-    io.kubernetes.client.proto.IntStr.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

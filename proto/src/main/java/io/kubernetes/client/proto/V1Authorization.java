@@ -69,6 +69,9 @@ public final class V1Authorization {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -80,13 +83,6 @@ public final class V1Authorization {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -94,6 +90,13 @@ public final class V1Authorization {
                 mutable_bitField0_ |= 0x00000001;
               }
               items_.add(bs);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -116,6 +119,7 @@ public final class V1Authorization {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_ExtraValue_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_ExtraValue_fieldAccessorTable
@@ -153,6 +157,7 @@ public final class V1Authorization {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -162,6 +167,7 @@ public final class V1Authorization {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < items_.size(); i++) {
@@ -170,6 +176,7 @@ public final class V1Authorization {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -291,6 +298,7 @@ public final class V1Authorization {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -298,6 +306,7 @@ public final class V1Authorization {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Authorization.ExtraValue prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -327,6 +336,7 @@ public final class V1Authorization {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_ExtraValue_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_ExtraValue_fieldAccessorTable
@@ -349,6 +359,7 @@ public final class V1Authorization {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         items_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -356,15 +367,18 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_ExtraValue_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.ExtraValue getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Authorization.ExtraValue.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.ExtraValue build() {
         io.kubernetes.client.proto.V1Authorization.ExtraValue result = buildPartial();
         if (!result.isInitialized()) {
@@ -373,6 +387,7 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.ExtraValue buildPartial() {
         io.kubernetes.client.proto.V1Authorization.ExtraValue result = new io.kubernetes.client.proto.V1Authorization.ExtraValue(this);
         int from_bitField0_ = bitField0_;
@@ -385,32 +400,39 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Authorization.ExtraValue) {
           return mergeFrom((io.kubernetes.client.proto.V1Authorization.ExtraValue)other);
@@ -437,10 +459,12 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -552,11 +576,13 @@ public final class V1Authorization {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -578,11 +604,12 @@ public final class V1Authorization {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<ExtraValue>
         PARSER = new com.google.protobuf.AbstractParser<ExtraValue>() {
+      @java.lang.Override
       public ExtraValue parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ExtraValue(input, extensionRegistry);
+        return new ExtraValue(input, extensionRegistry);
       }
     };
 
@@ -595,6 +622,7 @@ public final class V1Authorization {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Authorization.ExtraValue getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -717,6 +745,9 @@ public final class V1Authorization {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -728,13 +759,6 @@ public final class V1Authorization {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -774,6 +798,13 @@ public final class V1Authorization {
               bitField0_ |= 0x00000004;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -791,6 +822,7 @@ public final class V1Authorization {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_LocalSubjectAccessReview_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_LocalSubjectAccessReview_fieldAccessorTable
@@ -905,6 +937,7 @@ public final class V1Authorization {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -914,6 +947,7 @@ public final class V1Authorization {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -928,6 +962,7 @@ public final class V1Authorization {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1074,6 +1109,7 @@ public final class V1Authorization {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1081,6 +1117,7 @@ public final class V1Authorization {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Authorization.LocalSubjectAccessReview prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1110,6 +1147,7 @@ public final class V1Authorization {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_LocalSubjectAccessReview_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_LocalSubjectAccessReview_fieldAccessorTable
@@ -1135,6 +1173,7 @@ public final class V1Authorization {
           getStatusFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -1158,15 +1197,18 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_LocalSubjectAccessReview_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.LocalSubjectAccessReview getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Authorization.LocalSubjectAccessReview.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.LocalSubjectAccessReview build() {
         io.kubernetes.client.proto.V1Authorization.LocalSubjectAccessReview result = buildPartial();
         if (!result.isInitialized()) {
@@ -1175,6 +1217,7 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.LocalSubjectAccessReview buildPartial() {
         io.kubernetes.client.proto.V1Authorization.LocalSubjectAccessReview result = new io.kubernetes.client.proto.V1Authorization.LocalSubjectAccessReview(this);
         int from_bitField0_ = bitField0_;
@@ -1208,32 +1251,39 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Authorization.LocalSubjectAccessReview) {
           return mergeFrom((io.kubernetes.client.proto.V1Authorization.LocalSubjectAccessReview)other);
@@ -1259,10 +1309,12 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1761,11 +1813,13 @@ public final class V1Authorization {
         }
         return statusBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1787,11 +1841,12 @@ public final class V1Authorization {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<LocalSubjectAccessReview>
         PARSER = new com.google.protobuf.AbstractParser<LocalSubjectAccessReview>() {
+      @java.lang.Override
       public LocalSubjectAccessReview parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new LocalSubjectAccessReview(input, extensionRegistry);
+        return new LocalSubjectAccessReview(input, extensionRegistry);
       }
     };
 
@@ -1804,6 +1859,7 @@ public final class V1Authorization {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Authorization.LocalSubjectAccessReview getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -1903,6 +1959,9 @@ public final class V1Authorization {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1914,13 +1973,6 @@ public final class V1Authorization {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -1931,6 +1983,13 @@ public final class V1Authorization {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
               verb_ = bs;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -1950,6 +2009,7 @@ public final class V1Authorization {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_NonResourceAttributes_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_NonResourceAttributes_fieldAccessorTable
@@ -2073,6 +2133,7 @@ public final class V1Authorization {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2082,6 +2143,7 @@ public final class V1Authorization {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2093,6 +2155,7 @@ public final class V1Authorization {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -2224,6 +2287,7 @@ public final class V1Authorization {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -2231,6 +2295,7 @@ public final class V1Authorization {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Authorization.NonResourceAttributes prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -2258,6 +2323,7 @@ public final class V1Authorization {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_NonResourceAttributes_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_NonResourceAttributes_fieldAccessorTable
@@ -2280,6 +2346,7 @@ public final class V1Authorization {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         path_ = "";
@@ -2289,15 +2356,18 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_NonResourceAttributes_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.NonResourceAttributes getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Authorization.NonResourceAttributes.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.NonResourceAttributes build() {
         io.kubernetes.client.proto.V1Authorization.NonResourceAttributes result = buildPartial();
         if (!result.isInitialized()) {
@@ -2306,6 +2376,7 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.NonResourceAttributes buildPartial() {
         io.kubernetes.client.proto.V1Authorization.NonResourceAttributes result = new io.kubernetes.client.proto.V1Authorization.NonResourceAttributes(this);
         int from_bitField0_ = bitField0_;
@@ -2323,32 +2394,39 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Authorization.NonResourceAttributes) {
           return mergeFrom((io.kubernetes.client.proto.V1Authorization.NonResourceAttributes)other);
@@ -2375,10 +2453,12 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2609,11 +2689,13 @@ public final class V1Authorization {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -2635,11 +2717,12 @@ public final class V1Authorization {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<NonResourceAttributes>
         PARSER = new com.google.protobuf.AbstractParser<NonResourceAttributes>() {
+      @java.lang.Override
       public NonResourceAttributes parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new NonResourceAttributes(input, extensionRegistry);
+        return new NonResourceAttributes(input, extensionRegistry);
       }
     };
 
@@ -2652,6 +2735,7 @@ public final class V1Authorization {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Authorization.NonResourceAttributes getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -2771,6 +2855,9 @@ public final class V1Authorization {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -2782,13 +2869,6 @@ public final class V1Authorization {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2805,6 +2885,13 @@ public final class V1Authorization {
                 mutable_bitField0_ |= 0x00000002;
               }
               nonResourceURLs_.add(bs);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -2830,6 +2917,7 @@ public final class V1Authorization {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_NonResourceRule_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_NonResourceRule_fieldAccessorTable
@@ -2936,6 +3024,7 @@ public final class V1Authorization {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2945,6 +3034,7 @@ public final class V1Authorization {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < verbs_.size(); i++) {
@@ -2956,6 +3046,7 @@ public final class V1Authorization {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -3091,6 +3182,7 @@ public final class V1Authorization {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -3098,6 +3190,7 @@ public final class V1Authorization {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Authorization.NonResourceRule prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -3125,6 +3218,7 @@ public final class V1Authorization {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_NonResourceRule_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_NonResourceRule_fieldAccessorTable
@@ -3147,6 +3241,7 @@ public final class V1Authorization {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         verbs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -3156,15 +3251,18 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_NonResourceRule_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.NonResourceRule getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Authorization.NonResourceRule.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.NonResourceRule build() {
         io.kubernetes.client.proto.V1Authorization.NonResourceRule result = buildPartial();
         if (!result.isInitialized()) {
@@ -3173,6 +3271,7 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.NonResourceRule buildPartial() {
         io.kubernetes.client.proto.V1Authorization.NonResourceRule result = new io.kubernetes.client.proto.V1Authorization.NonResourceRule(this);
         int from_bitField0_ = bitField0_;
@@ -3190,32 +3289,39 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Authorization.NonResourceRule) {
           return mergeFrom((io.kubernetes.client.proto.V1Authorization.NonResourceRule)other);
@@ -3252,10 +3358,12 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3550,11 +3658,13 @@ public final class V1Authorization {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -3576,11 +3686,12 @@ public final class V1Authorization {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<NonResourceRule>
         PARSER = new com.google.protobuf.AbstractParser<NonResourceRule>() {
+      @java.lang.Override
       public NonResourceRule parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new NonResourceRule(input, extensionRegistry);
+        return new NonResourceRule(input, extensionRegistry);
       }
     };
 
@@ -3593,6 +3704,7 @@ public final class V1Authorization {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Authorization.NonResourceRule getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -3851,6 +3963,9 @@ public final class V1Authorization {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -3862,13 +3977,6 @@ public final class V1Authorization {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -3911,6 +4019,13 @@ public final class V1Authorization {
               name_ = bs;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -3928,6 +4043,7 @@ public final class V1Authorization {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_ResourceAttributes_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_ResourceAttributes_fieldAccessorTable
@@ -4345,6 +4461,7 @@ public final class V1Authorization {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -4354,6 +4471,7 @@ public final class V1Authorization {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -4380,6 +4498,7 @@ public final class V1Authorization {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -4571,6 +4690,7 @@ public final class V1Authorization {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -4578,6 +4698,7 @@ public final class V1Authorization {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Authorization.ResourceAttributes prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -4605,6 +4726,7 @@ public final class V1Authorization {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_ResourceAttributes_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_ResourceAttributes_fieldAccessorTable
@@ -4627,6 +4749,7 @@ public final class V1Authorization {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         namespace_ = "";
@@ -4646,15 +4769,18 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_ResourceAttributes_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.ResourceAttributes getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Authorization.ResourceAttributes.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.ResourceAttributes build() {
         io.kubernetes.client.proto.V1Authorization.ResourceAttributes result = buildPartial();
         if (!result.isInitialized()) {
@@ -4663,6 +4789,7 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.ResourceAttributes buildPartial() {
         io.kubernetes.client.proto.V1Authorization.ResourceAttributes result = new io.kubernetes.client.proto.V1Authorization.ResourceAttributes(this);
         int from_bitField0_ = bitField0_;
@@ -4700,32 +4827,39 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Authorization.ResourceAttributes) {
           return mergeFrom((io.kubernetes.client.proto.V1Authorization.ResourceAttributes)other);
@@ -4777,10 +4911,12 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -5559,11 +5695,13 @@ public final class V1Authorization {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -5585,11 +5723,12 @@ public final class V1Authorization {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<ResourceAttributes>
         PARSER = new com.google.protobuf.AbstractParser<ResourceAttributes>() {
+      @java.lang.Override
       public ResourceAttributes parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ResourceAttributes(input, extensionRegistry);
+        return new ResourceAttributes(input, extensionRegistry);
       }
     };
 
@@ -5602,6 +5741,7 @@ public final class V1Authorization {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Authorization.ResourceAttributes getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -5806,6 +5946,9 @@ public final class V1Authorization {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -5817,13 +5960,6 @@ public final class V1Authorization {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -5860,6 +5996,13 @@ public final class V1Authorization {
               resourceNames_.add(bs);
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -5889,6 +6032,7 @@ public final class V1Authorization {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_ResourceRule_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_ResourceRule_fieldAccessorTable
@@ -6097,6 +6241,7 @@ public final class V1Authorization {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -6106,6 +6251,7 @@ public final class V1Authorization {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < verbs_.size(); i++) {
@@ -6123,6 +6269,7 @@ public final class V1Authorization {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -6286,6 +6433,7 @@ public final class V1Authorization {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -6293,6 +6441,7 @@ public final class V1Authorization {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Authorization.ResourceRule prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -6321,6 +6470,7 @@ public final class V1Authorization {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_ResourceRule_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_ResourceRule_fieldAccessorTable
@@ -6343,6 +6493,7 @@ public final class V1Authorization {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         verbs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -6356,15 +6507,18 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_ResourceRule_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.ResourceRule getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Authorization.ResourceRule.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.ResourceRule build() {
         io.kubernetes.client.proto.V1Authorization.ResourceRule result = buildPartial();
         if (!result.isInitialized()) {
@@ -6373,6 +6527,7 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.ResourceRule buildPartial() {
         io.kubernetes.client.proto.V1Authorization.ResourceRule result = new io.kubernetes.client.proto.V1Authorization.ResourceRule(this);
         int from_bitField0_ = bitField0_;
@@ -6400,32 +6555,39 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Authorization.ResourceRule) {
           return mergeFrom((io.kubernetes.client.proto.V1Authorization.ResourceRule)other);
@@ -6482,10 +6644,12 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -7065,11 +7229,13 @@ public final class V1Authorization {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -7091,11 +7257,12 @@ public final class V1Authorization {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<ResourceRule>
         PARSER = new com.google.protobuf.AbstractParser<ResourceRule>() {
+      @java.lang.Override
       public ResourceRule parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ResourceRule(input, extensionRegistry);
+        return new ResourceRule(input, extensionRegistry);
       }
     };
 
@@ -7108,6 +7275,7 @@ public final class V1Authorization {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Authorization.ResourceRule getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -7227,6 +7395,9 @@ public final class V1Authorization {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -7238,13 +7409,6 @@ public final class V1Authorization {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -7284,6 +7448,13 @@ public final class V1Authorization {
               bitField0_ |= 0x00000004;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -7301,6 +7472,7 @@ public final class V1Authorization {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SelfSubjectAccessReview_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SelfSubjectAccessReview_fieldAccessorTable
@@ -7412,6 +7584,7 @@ public final class V1Authorization {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -7421,6 +7594,7 @@ public final class V1Authorization {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -7435,6 +7609,7 @@ public final class V1Authorization {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -7581,6 +7756,7 @@ public final class V1Authorization {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -7588,6 +7764,7 @@ public final class V1Authorization {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReview prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -7617,6 +7794,7 @@ public final class V1Authorization {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SelfSubjectAccessReview_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SelfSubjectAccessReview_fieldAccessorTable
@@ -7642,6 +7820,7 @@ public final class V1Authorization {
           getStatusFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -7665,15 +7844,18 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SelfSubjectAccessReview_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReview getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReview.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReview build() {
         io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReview result = buildPartial();
         if (!result.isInitialized()) {
@@ -7682,6 +7864,7 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReview buildPartial() {
         io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReview result = new io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReview(this);
         int from_bitField0_ = bitField0_;
@@ -7715,32 +7898,39 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReview) {
           return mergeFrom((io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReview)other);
@@ -7766,10 +7956,12 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -8259,11 +8451,13 @@ public final class V1Authorization {
         }
         return statusBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -8285,11 +8479,12 @@ public final class V1Authorization {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<SelfSubjectAccessReview>
         PARSER = new com.google.protobuf.AbstractParser<SelfSubjectAccessReview>() {
+      @java.lang.Override
       public SelfSubjectAccessReview parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new SelfSubjectAccessReview(input, extensionRegistry);
+        return new SelfSubjectAccessReview(input, extensionRegistry);
       }
     };
 
@@ -8302,6 +8497,7 @@ public final class V1Authorization {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReview getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -8398,6 +8594,9 @@ public final class V1Authorization {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -8409,13 +8608,6 @@ public final class V1Authorization {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.V1Authorization.ResourceAttributes.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -8442,6 +8634,13 @@ public final class V1Authorization {
               bitField0_ |= 0x00000002;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -8459,6 +8658,7 @@ public final class V1Authorization {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SelfSubjectAccessReviewSpec_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SelfSubjectAccessReviewSpec_fieldAccessorTable
@@ -8540,6 +8740,7 @@ public final class V1Authorization {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -8549,6 +8750,7 @@ public final class V1Authorization {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -8560,6 +8762,7 @@ public final class V1Authorization {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -8693,6 +8896,7 @@ public final class V1Authorization {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -8700,6 +8904,7 @@ public final class V1Authorization {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReviewSpec prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -8728,6 +8933,7 @@ public final class V1Authorization {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SelfSubjectAccessReviewSpec_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SelfSubjectAccessReviewSpec_fieldAccessorTable
@@ -8752,6 +8958,7 @@ public final class V1Authorization {
           getNonResourceAttributesFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (resourceAttributesBuilder_ == null) {
@@ -8769,15 +8976,18 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SelfSubjectAccessReviewSpec_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReviewSpec getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReviewSpec.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReviewSpec build() {
         io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReviewSpec result = buildPartial();
         if (!result.isInitialized()) {
@@ -8786,6 +8996,7 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReviewSpec buildPartial() {
         io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReviewSpec result = new io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReviewSpec(this);
         int from_bitField0_ = bitField0_;
@@ -8811,32 +9022,39 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReviewSpec) {
           return mergeFrom((io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReviewSpec)other);
@@ -8859,10 +9077,12 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -9207,11 +9427,13 @@ public final class V1Authorization {
         }
         return nonResourceAttributesBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -9233,11 +9455,12 @@ public final class V1Authorization {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<SelfSubjectAccessReviewSpec>
         PARSER = new com.google.protobuf.AbstractParser<SelfSubjectAccessReviewSpec>() {
+      @java.lang.Override
       public SelfSubjectAccessReviewSpec parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new SelfSubjectAccessReviewSpec(input, extensionRegistry);
+        return new SelfSubjectAccessReviewSpec(input, extensionRegistry);
       }
     };
 
@@ -9250,6 +9473,7 @@ public final class V1Authorization {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReviewSpec getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -9372,6 +9596,9 @@ public final class V1Authorization {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -9383,13 +9610,6 @@ public final class V1Authorization {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -9429,6 +9649,13 @@ public final class V1Authorization {
               bitField0_ |= 0x00000004;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -9446,6 +9673,7 @@ public final class V1Authorization {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SelfSubjectRulesReview_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SelfSubjectRulesReview_fieldAccessorTable
@@ -9557,6 +9785,7 @@ public final class V1Authorization {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -9566,6 +9795,7 @@ public final class V1Authorization {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -9580,6 +9810,7 @@ public final class V1Authorization {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -9726,6 +9957,7 @@ public final class V1Authorization {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -9733,6 +9965,7 @@ public final class V1Authorization {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReview prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -9765,6 +9998,7 @@ public final class V1Authorization {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SelfSubjectRulesReview_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SelfSubjectRulesReview_fieldAccessorTable
@@ -9790,6 +10024,7 @@ public final class V1Authorization {
           getStatusFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -9813,15 +10048,18 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SelfSubjectRulesReview_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReview getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReview.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReview build() {
         io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReview result = buildPartial();
         if (!result.isInitialized()) {
@@ -9830,6 +10068,7 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReview buildPartial() {
         io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReview result = new io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReview(this);
         int from_bitField0_ = bitField0_;
@@ -9863,32 +10102,39 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReview) {
           return mergeFrom((io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReview)other);
@@ -9914,10 +10160,12 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -10407,11 +10655,13 @@ public final class V1Authorization {
         }
         return statusBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -10433,11 +10683,12 @@ public final class V1Authorization {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<SelfSubjectRulesReview>
         PARSER = new com.google.protobuf.AbstractParser<SelfSubjectRulesReview>() {
+      @java.lang.Override
       public SelfSubjectRulesReview parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new SelfSubjectRulesReview(input, extensionRegistry);
+        return new SelfSubjectRulesReview(input, extensionRegistry);
       }
     };
 
@@ -10450,6 +10701,7 @@ public final class V1Authorization {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReview getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -10512,6 +10764,9 @@ public final class V1Authorization {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -10523,17 +10778,17 @@ public final class V1Authorization {
             case 0:
               done = true;
               break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              namespace_ = bs;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
-              break;
-            }
-            case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000001;
-              namespace_ = bs;
               break;
             }
           }
@@ -10553,6 +10808,7 @@ public final class V1Authorization {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SelfSubjectRulesReviewSpec_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SelfSubjectRulesReviewSpec_fieldAccessorTable
@@ -10616,6 +10872,7 @@ public final class V1Authorization {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -10625,6 +10882,7 @@ public final class V1Authorization {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -10633,6 +10891,7 @@ public final class V1Authorization {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -10752,6 +11011,7 @@ public final class V1Authorization {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -10759,6 +11019,7 @@ public final class V1Authorization {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReviewSpec prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -10782,6 +11043,7 @@ public final class V1Authorization {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SelfSubjectRulesReviewSpec_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SelfSubjectRulesReviewSpec_fieldAccessorTable
@@ -10804,6 +11066,7 @@ public final class V1Authorization {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         namespace_ = "";
@@ -10811,15 +11074,18 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SelfSubjectRulesReviewSpec_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReviewSpec getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReviewSpec.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReviewSpec build() {
         io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReviewSpec result = buildPartial();
         if (!result.isInitialized()) {
@@ -10828,6 +11094,7 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReviewSpec buildPartial() {
         io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReviewSpec result = new io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReviewSpec(this);
         int from_bitField0_ = bitField0_;
@@ -10841,32 +11108,39 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReviewSpec) {
           return mergeFrom((io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReviewSpec)other);
@@ -10888,10 +11162,12 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -11010,11 +11286,13 @@ public final class V1Authorization {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -11036,11 +11314,12 @@ public final class V1Authorization {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<SelfSubjectRulesReviewSpec>
         PARSER = new com.google.protobuf.AbstractParser<SelfSubjectRulesReviewSpec>() {
+      @java.lang.Override
       public SelfSubjectRulesReviewSpec parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new SelfSubjectRulesReviewSpec(input, extensionRegistry);
+        return new SelfSubjectRulesReviewSpec(input, extensionRegistry);
       }
     };
 
@@ -11053,6 +11332,7 @@ public final class V1Authorization {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReviewSpec getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -11170,6 +11450,9 @@ public final class V1Authorization {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -11181,13 +11464,6 @@ public final class V1Authorization {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -11227,6 +11503,13 @@ public final class V1Authorization {
               bitField0_ |= 0x00000004;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -11244,6 +11527,7 @@ public final class V1Authorization {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SubjectAccessReview_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SubjectAccessReview_fieldAccessorTable
@@ -11355,6 +11639,7 @@ public final class V1Authorization {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -11364,6 +11649,7 @@ public final class V1Authorization {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -11378,6 +11664,7 @@ public final class V1Authorization {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -11524,6 +11811,7 @@ public final class V1Authorization {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -11531,6 +11819,7 @@ public final class V1Authorization {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Authorization.SubjectAccessReview prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -11558,6 +11847,7 @@ public final class V1Authorization {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SubjectAccessReview_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SubjectAccessReview_fieldAccessorTable
@@ -11583,6 +11873,7 @@ public final class V1Authorization {
           getStatusFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -11606,15 +11897,18 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SubjectAccessReview_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.SubjectAccessReview getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Authorization.SubjectAccessReview.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.SubjectAccessReview build() {
         io.kubernetes.client.proto.V1Authorization.SubjectAccessReview result = buildPartial();
         if (!result.isInitialized()) {
@@ -11623,6 +11917,7 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.SubjectAccessReview buildPartial() {
         io.kubernetes.client.proto.V1Authorization.SubjectAccessReview result = new io.kubernetes.client.proto.V1Authorization.SubjectAccessReview(this);
         int from_bitField0_ = bitField0_;
@@ -11656,32 +11951,39 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Authorization.SubjectAccessReview) {
           return mergeFrom((io.kubernetes.client.proto.V1Authorization.SubjectAccessReview)other);
@@ -11707,10 +12009,12 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -12200,11 +12504,13 @@ public final class V1Authorization {
         }
         return statusBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -12226,11 +12532,12 @@ public final class V1Authorization {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<SubjectAccessReview>
         PARSER = new com.google.protobuf.AbstractParser<SubjectAccessReview>() {
+      @java.lang.Override
       public SubjectAccessReview parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new SubjectAccessReview(input, extensionRegistry);
+        return new SubjectAccessReview(input, extensionRegistry);
       }
     };
 
@@ -12243,6 +12550,7 @@ public final class V1Authorization {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Authorization.SubjectAccessReview getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -12506,6 +12814,9 @@ public final class V1Authorization {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -12517,13 +12828,6 @@ public final class V1Authorization {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.V1Authorization.ResourceAttributes.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -12584,6 +12888,13 @@ public final class V1Authorization {
               uid_ = bs;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -12605,6 +12916,7 @@ public final class V1Authorization {
     }
 
     @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
@@ -12615,6 +12927,7 @@ public final class V1Authorization {
               "Invalid map field number: " + number);
       }
     }
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SubjectAccessReviewSpec_fieldAccessorTable
@@ -12962,6 +13275,7 @@ public final class V1Authorization {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -12971,6 +13285,7 @@ public final class V1Authorization {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -12997,6 +13312,7 @@ public final class V1Authorization {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -13184,6 +13500,7 @@ public final class V1Authorization {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -13191,6 +13508,7 @@ public final class V1Authorization {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewSpec prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -13241,6 +13559,7 @@ public final class V1Authorization {
                 "Invalid map field number: " + number);
         }
       }
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SubjectAccessReviewSpec_fieldAccessorTable
@@ -13265,6 +13584,7 @@ public final class V1Authorization {
           getNonResourceAttributesFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (resourceAttributesBuilder_ == null) {
@@ -13289,15 +13609,18 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SubjectAccessReviewSpec_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewSpec getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewSpec.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewSpec build() {
         io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewSpec result = buildPartial();
         if (!result.isInitialized()) {
@@ -13306,6 +13629,7 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewSpec buildPartial() {
         io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewSpec result = new io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewSpec(this);
         int from_bitField0_ = bitField0_;
@@ -13346,32 +13670,39 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewSpec) {
           return mergeFrom((io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewSpec)other);
@@ -13416,10 +13747,12 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -14285,11 +14618,13 @@ public final class V1Authorization {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -14311,11 +14646,12 @@ public final class V1Authorization {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<SubjectAccessReviewSpec>
         PARSER = new com.google.protobuf.AbstractParser<SubjectAccessReviewSpec>() {
+      @java.lang.Override
       public SubjectAccessReviewSpec parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new SubjectAccessReviewSpec(input, extensionRegistry);
+        return new SubjectAccessReviewSpec(input, extensionRegistry);
       }
     };
 
@@ -14328,6 +14664,7 @@ public final class V1Authorization {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewSpec getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -14340,7 +14677,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Allowed is required.  True if the action would be allowed, false otherwise.
+     * Allowed is required. True if the action would be allowed, false otherwise.
      * </pre>
      *
      * <code>optional bool allowed = 1;</code>
@@ -14348,12 +14685,37 @@ public final class V1Authorization {
     boolean hasAllowed();
     /**
      * <pre>
-     * Allowed is required.  True if the action would be allowed, false otherwise.
+     * Allowed is required. True if the action would be allowed, false otherwise.
      * </pre>
      *
      * <code>optional bool allowed = 1;</code>
      */
     boolean getAllowed();
+
+    /**
+     * <pre>
+     * Denied is optional. True if the action would be denied, otherwise
+     * false. If both allowed is false and denied is false, then the
+     * authorizer has no opinion on whether to authorize the action. Denied
+     * may not be true if Allowed is true.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool denied = 4;</code>
+     */
+    boolean hasDenied();
+    /**
+     * <pre>
+     * Denied is optional. True if the action would be denied, otherwise
+     * false. If both allowed is false and denied is false, then the
+     * authorizer has no opinion on whether to authorize the action. Denied
+     * may not be true if Allowed is true.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool denied = 4;</code>
+     */
+    boolean getDenied();
 
     /**
      * <pre>
@@ -14437,6 +14799,7 @@ public final class V1Authorization {
     }
     private SubjectAccessReviewStatus() {
       allowed_ = false;
+      denied_ = false;
       reason_ = "";
       evaluationError_ = "";
     }
@@ -14451,6 +14814,9 @@ public final class V1Authorization {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -14462,13 +14828,6 @@ public final class V1Authorization {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               bitField0_ |= 0x00000001;
               allowed_ = input.readBool();
@@ -14476,14 +14835,26 @@ public final class V1Authorization {
             }
             case 18: {
               com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000002;
+              bitField0_ |= 0x00000004;
               reason_ = bs;
               break;
             }
             case 26: {
               com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000008;
               evaluationError_ = bs;
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000002;
+              denied_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -14503,6 +14874,7 @@ public final class V1Authorization {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SubjectAccessReviewStatus_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SubjectAccessReviewStatus_fieldAccessorTable
@@ -14515,7 +14887,7 @@ public final class V1Authorization {
     private boolean allowed_;
     /**
      * <pre>
-     * Allowed is required.  True if the action would be allowed, false otherwise.
+     * Allowed is required. True if the action would be allowed, false otherwise.
      * </pre>
      *
      * <code>optional bool allowed = 1;</code>
@@ -14525,13 +14897,44 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Allowed is required.  True if the action would be allowed, false otherwise.
+     * Allowed is required. True if the action would be allowed, false otherwise.
      * </pre>
      *
      * <code>optional bool allowed = 1;</code>
      */
     public boolean getAllowed() {
       return allowed_;
+    }
+
+    public static final int DENIED_FIELD_NUMBER = 4;
+    private boolean denied_;
+    /**
+     * <pre>
+     * Denied is optional. True if the action would be denied, otherwise
+     * false. If both allowed is false and denied is false, then the
+     * authorizer has no opinion on whether to authorize the action. Denied
+     * may not be true if Allowed is true.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool denied = 4;</code>
+     */
+    public boolean hasDenied() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * Denied is optional. True if the action would be denied, otherwise
+     * false. If both allowed is false and denied is false, then the
+     * authorizer has no opinion on whether to authorize the action. Denied
+     * may not be true if Allowed is true.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool denied = 4;</code>
+     */
+    public boolean getDenied() {
+      return denied_;
     }
 
     public static final int REASON_FIELD_NUMBER = 2;
@@ -14545,7 +14948,7 @@ public final class V1Authorization {
      * <code>optional string reason = 2;</code>
      */
     public boolean hasReason() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
      * <pre>
@@ -14604,7 +15007,7 @@ public final class V1Authorization {
      * <code>optional string evaluationError = 3;</code>
      */
     public boolean hasEvaluationError() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
      * <pre>
@@ -14655,6 +15058,7 @@ public final class V1Authorization {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -14664,20 +15068,25 @@ public final class V1Authorization {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeBool(1, allowed_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, reason_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, evaluationError_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBool(4, denied_);
       }
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -14687,11 +15096,15 @@ public final class V1Authorization {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(1, allowed_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, reason_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, evaluationError_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, denied_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -14713,6 +15126,11 @@ public final class V1Authorization {
       if (hasAllowed()) {
         result = result && (getAllowed()
             == other.getAllowed());
+      }
+      result = result && (hasDenied() == other.hasDenied());
+      if (hasDenied()) {
+        result = result && (getDenied()
+            == other.getDenied());
       }
       result = result && (hasReason() == other.hasReason());
       if (hasReason()) {
@@ -14739,6 +15157,11 @@ public final class V1Authorization {
         hash = (37 * hash) + ALLOWED_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
             getAllowed());
+      }
+      if (hasDenied()) {
+        hash = (37 * hash) + DENIED_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getDenied());
       }
       if (hasReason()) {
         hash = (37 * hash) + REASON_FIELD_NUMBER;
@@ -14823,6 +15246,7 @@ public final class V1Authorization {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -14830,6 +15254,7 @@ public final class V1Authorization {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatus prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -14857,6 +15282,7 @@ public final class V1Authorization {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SubjectAccessReviewStatus_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SubjectAccessReviewStatus_fieldAccessorTable
@@ -14879,26 +15305,32 @@ public final class V1Authorization {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         allowed_ = false;
         bitField0_ = (bitField0_ & ~0x00000001);
-        reason_ = "";
+        denied_ = false;
         bitField0_ = (bitField0_ & ~0x00000002);
-        evaluationError_ = "";
+        reason_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
+        evaluationError_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SubjectAccessReviewStatus_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatus getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatus.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatus build() {
         io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatus result = buildPartial();
         if (!result.isInitialized()) {
@@ -14907,6 +15339,7 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatus buildPartial() {
         io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatus result = new io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatus(this);
         int from_bitField0_ = bitField0_;
@@ -14918,9 +15351,13 @@ public final class V1Authorization {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.reason_ = reason_;
+        result.denied_ = denied_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
+        }
+        result.reason_ = reason_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
         }
         result.evaluationError_ = evaluationError_;
         result.bitField0_ = to_bitField0_;
@@ -14928,32 +15365,39 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatus) {
           return mergeFrom((io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatus)other);
@@ -14968,13 +15412,16 @@ public final class V1Authorization {
         if (other.hasAllowed()) {
           setAllowed(other.getAllowed());
         }
+        if (other.hasDenied()) {
+          setDenied(other.getDenied());
+        }
         if (other.hasReason()) {
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000004;
           reason_ = other.reason_;
           onChanged();
         }
         if (other.hasEvaluationError()) {
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000008;
           evaluationError_ = other.evaluationError_;
           onChanged();
         }
@@ -14983,10 +15430,12 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -15009,7 +15458,7 @@ public final class V1Authorization {
       private boolean allowed_ ;
       /**
        * <pre>
-       * Allowed is required.  True if the action would be allowed, false otherwise.
+       * Allowed is required. True if the action would be allowed, false otherwise.
        * </pre>
        *
        * <code>optional bool allowed = 1;</code>
@@ -15019,7 +15468,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Allowed is required.  True if the action would be allowed, false otherwise.
+       * Allowed is required. True if the action would be allowed, false otherwise.
        * </pre>
        *
        * <code>optional bool allowed = 1;</code>
@@ -15029,7 +15478,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Allowed is required.  True if the action would be allowed, false otherwise.
+       * Allowed is required. True if the action would be allowed, false otherwise.
        * </pre>
        *
        * <code>optional bool allowed = 1;</code>
@@ -15042,7 +15491,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Allowed is required.  True if the action would be allowed, false otherwise.
+       * Allowed is required. True if the action would be allowed, false otherwise.
        * </pre>
        *
        * <code>optional bool allowed = 1;</code>
@@ -15050,6 +15499,70 @@ public final class V1Authorization {
       public Builder clearAllowed() {
         bitField0_ = (bitField0_ & ~0x00000001);
         allowed_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean denied_ ;
+      /**
+       * <pre>
+       * Denied is optional. True if the action would be denied, otherwise
+       * false. If both allowed is false and denied is false, then the
+       * authorizer has no opinion on whether to authorize the action. Denied
+       * may not be true if Allowed is true.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool denied = 4;</code>
+       */
+      public boolean hasDenied() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * Denied is optional. True if the action would be denied, otherwise
+       * false. If both allowed is false and denied is false, then the
+       * authorizer has no opinion on whether to authorize the action. Denied
+       * may not be true if Allowed is true.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool denied = 4;</code>
+       */
+      public boolean getDenied() {
+        return denied_;
+      }
+      /**
+       * <pre>
+       * Denied is optional. True if the action would be denied, otherwise
+       * false. If both allowed is false and denied is false, then the
+       * authorizer has no opinion on whether to authorize the action. Denied
+       * may not be true if Allowed is true.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool denied = 4;</code>
+       */
+      public Builder setDenied(boolean value) {
+        bitField0_ |= 0x00000002;
+        denied_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Denied is optional. True if the action would be denied, otherwise
+       * false. If both allowed is false and denied is false, then the
+       * authorizer has no opinion on whether to authorize the action. Denied
+       * may not be true if Allowed is true.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool denied = 4;</code>
+       */
+      public Builder clearDenied() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        denied_ = false;
         onChanged();
         return this;
       }
@@ -15064,7 +15577,7 @@ public final class V1Authorization {
        * <code>optional string reason = 2;</code>
        */
       public boolean hasReason() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
        * <pre>
@@ -15122,7 +15635,7 @@ public final class V1Authorization {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
+  bitField0_ |= 0x00000004;
         reason_ = value;
         onChanged();
         return this;
@@ -15136,7 +15649,7 @@ public final class V1Authorization {
        * <code>optional string reason = 2;</code>
        */
       public Builder clearReason() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         reason_ = getDefaultInstance().getReason();
         onChanged();
         return this;
@@ -15154,7 +15667,7 @@ public final class V1Authorization {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
+  bitField0_ |= 0x00000004;
         reason_ = value;
         onChanged();
         return this;
@@ -15172,7 +15685,7 @@ public final class V1Authorization {
        * <code>optional string evaluationError = 3;</code>
        */
       public boolean hasEvaluationError() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
        * <pre>
@@ -15236,7 +15749,7 @@ public final class V1Authorization {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         evaluationError_ = value;
         onChanged();
         return this;
@@ -15252,7 +15765,7 @@ public final class V1Authorization {
        * <code>optional string evaluationError = 3;</code>
        */
       public Builder clearEvaluationError() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         evaluationError_ = getDefaultInstance().getEvaluationError();
         onChanged();
         return this;
@@ -15272,16 +15785,18 @@ public final class V1Authorization {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         evaluationError_ = value;
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -15303,11 +15818,12 @@ public final class V1Authorization {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<SubjectAccessReviewStatus>
         PARSER = new com.google.protobuf.AbstractParser<SubjectAccessReviewStatus>() {
+      @java.lang.Override
       public SubjectAccessReviewStatus parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new SubjectAccessReviewStatus(input, extensionRegistry);
+        return new SubjectAccessReviewStatus(input, extensionRegistry);
       }
     };
 
@@ -15320,6 +15836,7 @@ public final class V1Authorization {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatus getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -15518,6 +16035,9 @@ public final class V1Authorization {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -15529,13 +16049,6 @@ public final class V1Authorization {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 resourceRules_ = new java.util.ArrayList<io.kubernetes.client.proto.V1Authorization.ResourceRule>();
@@ -15565,6 +16078,13 @@ public final class V1Authorization {
               evaluationError_ = bs;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -15588,6 +16108,7 @@ public final class V1Authorization {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SubjectRulesReviewStatus_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SubjectRulesReviewStatus_fieldAccessorTable
@@ -15805,6 +16326,7 @@ public final class V1Authorization {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -15814,6 +16336,7 @@ public final class V1Authorization {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < resourceRules_.size(); i++) {
@@ -15831,6 +16354,7 @@ public final class V1Authorization {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -15984,6 +16508,7 @@ public final class V1Authorization {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -15991,6 +16516,7 @@ public final class V1Authorization {
     public static Builder newBuilder(io.kubernetes.client.proto.V1Authorization.SubjectRulesReviewStatus prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -16021,6 +16547,7 @@ public final class V1Authorization {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SubjectRulesReviewStatus_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SubjectRulesReviewStatus_fieldAccessorTable
@@ -16045,6 +16572,7 @@ public final class V1Authorization {
           getNonResourceRulesFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (resourceRulesBuilder_ == null) {
@@ -16066,15 +16594,18 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1Authorization.internal_static_k8s_io_api_authorization_v1_SubjectRulesReviewStatus_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.SubjectRulesReviewStatus getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1Authorization.SubjectRulesReviewStatus.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.SubjectRulesReviewStatus build() {
         io.kubernetes.client.proto.V1Authorization.SubjectRulesReviewStatus result = buildPartial();
         if (!result.isInitialized()) {
@@ -16083,6 +16614,7 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1Authorization.SubjectRulesReviewStatus buildPartial() {
         io.kubernetes.client.proto.V1Authorization.SubjectRulesReviewStatus result = new io.kubernetes.client.proto.V1Authorization.SubjectRulesReviewStatus(this);
         int from_bitField0_ = bitField0_;
@@ -16118,32 +16650,39 @@ public final class V1Authorization {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1Authorization.SubjectRulesReviewStatus) {
           return mergeFrom((io.kubernetes.client.proto.V1Authorization.SubjectRulesReviewStatus)other);
@@ -16220,10 +16759,12 @@ public final class V1Authorization {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -17072,11 +17613,13 @@ public final class V1Authorization {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -17098,11 +17641,12 @@ public final class V1Authorization {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<SubjectRulesReviewStatus>
         PARSER = new com.google.protobuf.AbstractParser<SubjectRulesReviewStatus>() {
+      @java.lang.Override
       public SubjectRulesReviewStatus parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new SubjectRulesReviewStatus(input, extensionRegistry);
+        return new SubjectRulesReviewStatus(input, extensionRegistry);
       }
     };
 
@@ -17115,6 +17659,7 @@ public final class V1Authorization {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1Authorization.SubjectRulesReviewStatus getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -17210,66 +17755,65 @@ public final class V1Authorization {
       "io/apimachinery/pkg/apis/meta/v1/generat" +
       "ed.proto\032/k8s.io/apimachinery/pkg/runtim" +
       "e/generated.proto\0326k8s.io/apimachinery/p" +
-      "kg/runtime/schema/generated.proto\0323k8s.i" +
-      "o/apimachinery/pkg/util/intstr/generated" +
-      ".proto\"\033\n\nExtraValue\022\r\n\005items\030\001 \003(\t\"\352\001\n\030" +
-      "LocalSubjectAccessReview\022B\n\010metadata\030\001 \001" +
-      "(\01320.k8s.io.apimachinery.pkg.apis.meta.v",
-      "1.ObjectMeta\022B\n\004spec\030\002 \001(\01324.k8s.io.api." +
-      "authorization.v1.SubjectAccessReviewSpec" +
-      "\022F\n\006status\030\003 \001(\01326.k8s.io.api.authorizat" +
-      "ion.v1.SubjectAccessReviewStatus\"3\n\025NonR" +
-      "esourceAttributes\022\014\n\004path\030\001 \001(\t\022\014\n\004verb\030" +
-      "\002 \001(\t\"9\n\017NonResourceRule\022\r\n\005verbs\030\001 \003(\t\022" +
-      "\027\n\017nonResourceURLs\030\002 \003(\t\"\212\001\n\022ResourceAtt" +
-      "ributes\022\021\n\tnamespace\030\001 \001(\t\022\014\n\004verb\030\002 \001(\t" +
-      "\022\r\n\005group\030\003 \001(\t\022\017\n\007version\030\004 \001(\t\022\020\n\010reso" +
-      "urce\030\005 \001(\t\022\023\n\013subresource\030\006 \001(\t\022\014\n\004name\030",
-      "\007 \001(\t\"Z\n\014ResourceRule\022\r\n\005verbs\030\001 \003(\t\022\021\n\t" +
-      "apiGroups\030\002 \003(\t\022\021\n\tresources\030\003 \003(\t\022\025\n\rre" +
-      "sourceNames\030\004 \003(\t\"\355\001\n\027SelfSubjectAccessR" +
-      "eview\022B\n\010metadata\030\001 \001(\01320.k8s.io.apimach" +
-      "inery.pkg.apis.meta.v1.ObjectMeta\022F\n\004spe" +
-      "c\030\002 \001(\01328.k8s.io.api.authorization.v1.Se" +
-      "lfSubjectAccessReviewSpec\022F\n\006status\030\003 \001(" +
-      "\01326.k8s.io.api.authorization.v1.SubjectA" +
-      "ccessReviewStatus\"\275\001\n\033SelfSubjectAccessR" +
-      "eviewSpec\022K\n\022resourceAttributes\030\001 \001(\0132/.",
-      "k8s.io.api.authorization.v1.ResourceAttr" +
-      "ibutes\022Q\n\025nonResourceAttributes\030\002 \001(\01322." +
-      "k8s.io.api.authorization.v1.NonResourceA" +
-      "ttributes\"\352\001\n\026SelfSubjectRulesReview\022B\n\010" +
-      "metadata\030\001 \001(\01320.k8s.io.apimachinery.pkg" +
-      ".apis.meta.v1.ObjectMeta\022E\n\004spec\030\002 \001(\01327" +
-      ".k8s.io.api.authorization.v1.SelfSubject" +
-      "RulesReviewSpec\022E\n\006status\030\003 \001(\01325.k8s.io" +
-      ".api.authorization.v1.SubjectRulesReview" +
-      "Status\"/\n\032SelfSubjectRulesReviewSpec\022\021\n\t",
-      "namespace\030\001 \001(\t\"\345\001\n\023SubjectAccessReview\022" +
-      "B\n\010metadata\030\001 \001(\01320.k8s.io.apimachinery." +
-      "pkg.apis.meta.v1.ObjectMeta\022B\n\004spec\030\002 \001(" +
-      "\01324.k8s.io.api.authorization.v1.SubjectA" +
-      "ccessReviewSpec\022F\n\006status\030\003 \001(\01326.k8s.io" +
-      ".api.authorization.v1.SubjectAccessRevie" +
-      "wStatus\"\213\003\n\027SubjectAccessReviewSpec\022K\n\022r" +
-      "esourceAttributes\030\001 \001(\0132/.k8s.io.api.aut" +
-      "horization.v1.ResourceAttributes\022Q\n\025nonR" +
-      "esourceAttributes\030\002 \001(\01322.k8s.io.api.aut",
-      "horization.v1.NonResourceAttributes\022\014\n\004u" +
-      "ser\030\003 \001(\t\022\016\n\006groups\030\004 \003(\t\022N\n\005extra\030\005 \003(\013" +
-      "2?.k8s.io.api.authorization.v1.SubjectAc" +
-      "cessReviewSpec.ExtraEntry\022\013\n\003uid\030\006 \001(\t\032U" +
-      "\n\nExtraEntry\022\013\n\003key\030\001 \001(\t\0226\n\005value\030\002 \001(\013" +
-      "2\'.k8s.io.api.authorization.v1.ExtraValu" +
-      "e:\0028\001\"U\n\031SubjectAccessReviewStatus\022\017\n\007al" +
-      "lowed\030\001 \001(\010\022\016\n\006reason\030\002 \001(\t\022\027\n\017evaluatio" +
-      "nError\030\003 \001(\t\"\321\001\n\030SubjectRulesReviewStatu" +
-      "s\022@\n\rresourceRules\030\001 \003(\0132).k8s.io.api.au",
-      "thorization.v1.ResourceRule\022F\n\020nonResour" +
-      "ceRules\030\002 \003(\0132,.k8s.io.api.authorization" +
-      ".v1.NonResourceRule\022\022\n\nincomplete\030\003 \001(\010\022" +
-      "\027\n\017evaluationError\030\004 \001(\tB1\n\032io.kubernete" +
-      "s.client.protoB\017V1AuthorizationZ\002v1"
+      "kg/runtime/schema/generated.proto\"\033\n\nExt" +
+      "raValue\022\r\n\005items\030\001 \003(\t\"\352\001\n\030LocalSubjectA" +
+      "ccessReview\022B\n\010metadata\030\001 \001(\01320.k8s.io.a" +
+      "pimachinery.pkg.apis.meta.v1.ObjectMeta\022" +
+      "B\n\004spec\030\002 \001(\01324.k8s.io.api.authorization" +
+      ".v1.SubjectAccessReviewSpec\022F\n\006status\030\003 " +
+      "\001(\01326.k8s.io.api.authorization.v1.Subjec" +
+      "tAccessReviewStatus\"3\n\025NonResourceAttrib" +
+      "utes\022\014\n\004path\030\001 \001(\t\022\014\n\004verb\030\002 \001(\t\"9\n\017NonR" +
+      "esourceRule\022\r\n\005verbs\030\001 \003(\t\022\027\n\017nonResourc" +
+      "eURLs\030\002 \003(\t\"\212\001\n\022ResourceAttributes\022\021\n\tna" +
+      "mespace\030\001 \001(\t\022\014\n\004verb\030\002 \001(\t\022\r\n\005group\030\003 \001" +
+      "(\t\022\017\n\007version\030\004 \001(\t\022\020\n\010resource\030\005 \001(\t\022\023\n" +
+      "\013subresource\030\006 \001(\t\022\014\n\004name\030\007 \001(\t\"Z\n\014Reso" +
+      "urceRule\022\r\n\005verbs\030\001 \003(\t\022\021\n\tapiGroups\030\002 \003" +
+      "(\t\022\021\n\tresources\030\003 \003(\t\022\025\n\rresourceNames\030\004" +
+      " \003(\t\"\355\001\n\027SelfSubjectAccessReview\022B\n\010meta" +
+      "data\030\001 \001(\01320.k8s.io.apimachinery.pkg.api" +
+      "s.meta.v1.ObjectMeta\022F\n\004spec\030\002 \001(\01328.k8s" +
+      ".io.api.authorization.v1.SelfSubjectAcce" +
+      "ssReviewSpec\022F\n\006status\030\003 \001(\01326.k8s.io.ap" +
+      "i.authorization.v1.SubjectAccessReviewSt" +
+      "atus\"\275\001\n\033SelfSubjectAccessReviewSpec\022K\n\022" +
+      "resourceAttributes\030\001 \001(\0132/.k8s.io.api.au" +
+      "thorization.v1.ResourceAttributes\022Q\n\025non" +
+      "ResourceAttributes\030\002 \001(\01322.k8s.io.api.au" +
+      "thorization.v1.NonResourceAttributes\"\352\001\n" +
+      "\026SelfSubjectRulesReview\022B\n\010metadata\030\001 \001(" +
+      "\01320.k8s.io.apimachinery.pkg.apis.meta.v1" +
+      ".ObjectMeta\022E\n\004spec\030\002 \001(\01327.k8s.io.api.a" +
+      "uthorization.v1.SelfSubjectRulesReviewSp" +
+      "ec\022E\n\006status\030\003 \001(\01325.k8s.io.api.authoriz" +
+      "ation.v1.SubjectRulesReviewStatus\"/\n\032Sel" +
+      "fSubjectRulesReviewSpec\022\021\n\tnamespace\030\001 \001" +
+      "(\t\"\345\001\n\023SubjectAccessReview\022B\n\010metadata\030\001" +
+      " \001(\01320.k8s.io.apimachinery.pkg.apis.meta" +
+      ".v1.ObjectMeta\022B\n\004spec\030\002 \001(\01324.k8s.io.ap" +
+      "i.authorization.v1.SubjectAccessReviewSp" +
+      "ec\022F\n\006status\030\003 \001(\01326.k8s.io.api.authoriz" +
+      "ation.v1.SubjectAccessReviewStatus\"\213\003\n\027S" +
+      "ubjectAccessReviewSpec\022K\n\022resourceAttrib" +
+      "utes\030\001 \001(\0132/.k8s.io.api.authorization.v1" +
+      ".ResourceAttributes\022Q\n\025nonResourceAttrib" +
+      "utes\030\002 \001(\01322.k8s.io.api.authorization.v1" +
+      ".NonResourceAttributes\022\014\n\004user\030\003 \001(\t\022\016\n\006" +
+      "groups\030\004 \003(\t\022N\n\005extra\030\005 \003(\0132?.k8s.io.api" +
+      ".authorization.v1.SubjectAccessReviewSpe" +
+      "c.ExtraEntry\022\013\n\003uid\030\006 \001(\t\032U\n\nExtraEntry\022" +
+      "\013\n\003key\030\001 \001(\t\0226\n\005value\030\002 \001(\0132\'.k8s.io.api" +
+      ".authorization.v1.ExtraValue:\0028\001\"e\n\031Subj" +
+      "ectAccessReviewStatus\022\017\n\007allowed\030\001 \001(\010\022\016" +
+      "\n\006denied\030\004 \001(\010\022\016\n\006reason\030\002 \001(\t\022\027\n\017evalua" +
+      "tionError\030\003 \001(\t\"\321\001\n\030SubjectRulesReviewSt" +
+      "atus\022@\n\rresourceRules\030\001 \003(\0132).k8s.io.api" +
+      ".authorization.v1.ResourceRule\022F\n\020nonRes" +
+      "ourceRules\030\002 \003(\0132,.k8s.io.api.authorizat" +
+      "ion.v1.NonResourceRule\022\022\n\nincomplete\030\003 \001" +
+      "(\010\022\027\n\017evaluationError\030\004 \001(\tB1\n\032io.kubern" +
+      "etes.client.protoB\017V1AuthorizationZ\002v1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -17285,7 +17829,6 @@ public final class V1Authorization {
           io.kubernetes.client.proto.Meta.getDescriptor(),
           io.kubernetes.client.proto.Runtime.getDescriptor(),
           io.kubernetes.client.proto.RuntimeSchema.getDescriptor(),
-          io.kubernetes.client.proto.IntStr.getDescriptor(),
         }, assigner);
     internal_static_k8s_io_api_authorization_v1_ExtraValue_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -17370,7 +17913,7 @@ public final class V1Authorization {
     internal_static_k8s_io_api_authorization_v1_SubjectAccessReviewStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_authorization_v1_SubjectAccessReviewStatus_descriptor,
-        new java.lang.String[] { "Allowed", "Reason", "EvaluationError", });
+        new java.lang.String[] { "Allowed", "Denied", "Reason", "EvaluationError", });
     internal_static_k8s_io_api_authorization_v1_SubjectRulesReviewStatus_descriptor =
       getDescriptor().getMessageTypes().get(13);
     internal_static_k8s_io_api_authorization_v1_SubjectRulesReviewStatus_fieldAccessorTable = new
@@ -17380,7 +17923,6 @@ public final class V1Authorization {
     io.kubernetes.client.proto.Meta.getDescriptor();
     io.kubernetes.client.proto.Runtime.getDescriptor();
     io.kubernetes.client.proto.RuntimeSchema.getDescriptor();
-    io.kubernetes.client.proto.IntStr.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

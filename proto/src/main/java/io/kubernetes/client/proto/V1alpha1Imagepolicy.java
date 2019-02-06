@@ -125,6 +125,9 @@ public final class V1alpha1Imagepolicy {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -136,13 +139,6 @@ public final class V1alpha1Imagepolicy {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -182,6 +178,13 @@ public final class V1alpha1Imagepolicy {
               bitField0_ |= 0x00000004;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -199,6 +202,7 @@ public final class V1alpha1Imagepolicy {
       return io.kubernetes.client.proto.V1alpha1Imagepolicy.internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReview_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1alpha1Imagepolicy.internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReview_fieldAccessorTable
@@ -310,6 +314,7 @@ public final class V1alpha1Imagepolicy {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -319,6 +324,7 @@ public final class V1alpha1Imagepolicy {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -333,6 +339,7 @@ public final class V1alpha1Imagepolicy {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -479,6 +486,7 @@ public final class V1alpha1Imagepolicy {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -486,6 +494,7 @@ public final class V1alpha1Imagepolicy {
     public static Builder newBuilder(io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReview prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -513,6 +522,7 @@ public final class V1alpha1Imagepolicy {
         return io.kubernetes.client.proto.V1alpha1Imagepolicy.internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReview_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1alpha1Imagepolicy.internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReview_fieldAccessorTable
@@ -538,6 +548,7 @@ public final class V1alpha1Imagepolicy {
           getStatusFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (metadataBuilder_ == null) {
@@ -561,15 +572,18 @@ public final class V1alpha1Imagepolicy {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1alpha1Imagepolicy.internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReview_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReview getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReview.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReview build() {
         io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReview result = buildPartial();
         if (!result.isInitialized()) {
@@ -578,6 +592,7 @@ public final class V1alpha1Imagepolicy {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReview buildPartial() {
         io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReview result = new io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReview(this);
         int from_bitField0_ = bitField0_;
@@ -611,32 +626,39 @@ public final class V1alpha1Imagepolicy {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReview) {
           return mergeFrom((io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReview)other);
@@ -662,10 +684,12 @@ public final class V1alpha1Imagepolicy {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1155,11 +1179,13 @@ public final class V1alpha1Imagepolicy {
         }
         return statusBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1181,11 +1207,12 @@ public final class V1alpha1Imagepolicy {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<ImageReview>
         PARSER = new com.google.protobuf.AbstractParser<ImageReview>() {
+      @java.lang.Override
       public ImageReview parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ImageReview(input, extensionRegistry);
+        return new ImageReview(input, extensionRegistry);
       }
     };
 
@@ -1198,6 +1225,7 @@ public final class V1alpha1Imagepolicy {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReview getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -1267,6 +1295,9 @@ public final class V1alpha1Imagepolicy {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1278,17 +1309,17 @@ public final class V1alpha1Imagepolicy {
             case 0:
               done = true;
               break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              image_ = bs;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
-              break;
-            }
-            case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000001;
-              image_ = bs;
               break;
             }
           }
@@ -1308,6 +1339,7 @@ public final class V1alpha1Imagepolicy {
       return io.kubernetes.client.proto.V1alpha1Imagepolicy.internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReviewContainerSpec_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1alpha1Imagepolicy.internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReviewContainerSpec_fieldAccessorTable
@@ -1374,6 +1406,7 @@ public final class V1alpha1Imagepolicy {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1383,6 +1416,7 @@ public final class V1alpha1Imagepolicy {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1391,6 +1425,7 @@ public final class V1alpha1Imagepolicy {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1510,6 +1545,7 @@ public final class V1alpha1Imagepolicy {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1517,6 +1553,7 @@ public final class V1alpha1Imagepolicy {
     public static Builder newBuilder(io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewContainerSpec prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1544,6 +1581,7 @@ public final class V1alpha1Imagepolicy {
         return io.kubernetes.client.proto.V1alpha1Imagepolicy.internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReviewContainerSpec_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1alpha1Imagepolicy.internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReviewContainerSpec_fieldAccessorTable
@@ -1566,6 +1604,7 @@ public final class V1alpha1Imagepolicy {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         image_ = "";
@@ -1573,15 +1612,18 @@ public final class V1alpha1Imagepolicy {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1alpha1Imagepolicy.internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReviewContainerSpec_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewContainerSpec getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewContainerSpec.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewContainerSpec build() {
         io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewContainerSpec result = buildPartial();
         if (!result.isInitialized()) {
@@ -1590,6 +1632,7 @@ public final class V1alpha1Imagepolicy {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewContainerSpec buildPartial() {
         io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewContainerSpec result = new io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewContainerSpec(this);
         int from_bitField0_ = bitField0_;
@@ -1603,32 +1646,39 @@ public final class V1alpha1Imagepolicy {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewContainerSpec) {
           return mergeFrom((io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewContainerSpec)other);
@@ -1650,10 +1700,12 @@ public final class V1alpha1Imagepolicy {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1778,11 +1830,13 @@ public final class V1alpha1Imagepolicy {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1804,11 +1858,12 @@ public final class V1alpha1Imagepolicy {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<ImageReviewContainerSpec>
         PARSER = new com.google.protobuf.AbstractParser<ImageReviewContainerSpec>() {
+      @java.lang.Override
       public ImageReviewContainerSpec parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ImageReviewContainerSpec(input, extensionRegistry);
+        return new ImageReviewContainerSpec(input, extensionRegistry);
       }
     };
 
@@ -1821,6 +1876,7 @@ public final class V1alpha1Imagepolicy {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewContainerSpec getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -2009,6 +2065,9 @@ public final class V1alpha1Imagepolicy {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -2020,13 +2079,6 @@ public final class V1alpha1Imagepolicy {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 containers_ = new java.util.ArrayList<io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewContainerSpec>();
@@ -2055,6 +2107,13 @@ public final class V1alpha1Imagepolicy {
               namespace_ = bs;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -2076,6 +2135,7 @@ public final class V1alpha1Imagepolicy {
     }
 
     @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
@@ -2086,6 +2146,7 @@ public final class V1alpha1Imagepolicy {
               "Invalid map field number: " + number);
       }
     }
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1alpha1Imagepolicy.internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReviewSpec_fieldAccessorTable
@@ -2316,6 +2377,7 @@ public final class V1alpha1Imagepolicy {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2325,6 +2387,7 @@ public final class V1alpha1Imagepolicy {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < containers_.size(); i++) {
@@ -2342,6 +2405,7 @@ public final class V1alpha1Imagepolicy {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -2487,6 +2551,7 @@ public final class V1alpha1Imagepolicy {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -2494,6 +2559,7 @@ public final class V1alpha1Imagepolicy {
     public static Builder newBuilder(io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewSpec prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -2543,6 +2609,7 @@ public final class V1alpha1Imagepolicy {
                 "Invalid map field number: " + number);
         }
       }
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1alpha1Imagepolicy.internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReviewSpec_fieldAccessorTable
@@ -2566,6 +2633,7 @@ public final class V1alpha1Imagepolicy {
           getContainersFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (containersBuilder_ == null) {
@@ -2580,15 +2648,18 @@ public final class V1alpha1Imagepolicy {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1alpha1Imagepolicy.internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReviewSpec_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewSpec getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewSpec.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewSpec build() {
         io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewSpec result = buildPartial();
         if (!result.isInitialized()) {
@@ -2597,6 +2668,7 @@ public final class V1alpha1Imagepolicy {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewSpec buildPartial() {
         io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewSpec result = new io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewSpec(this);
         int from_bitField0_ = bitField0_;
@@ -2621,32 +2693,39 @@ public final class V1alpha1Imagepolicy {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewSpec) {
           return mergeFrom((io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewSpec)other);
@@ -2696,10 +2775,12 @@ public final class V1alpha1Imagepolicy {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3326,11 +3407,13 @@ public final class V1alpha1Imagepolicy {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -3352,11 +3435,12 @@ public final class V1alpha1Imagepolicy {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<ImageReviewSpec>
         PARSER = new com.google.protobuf.AbstractParser<ImageReviewSpec>() {
+      @java.lang.Override
       public ImageReviewSpec parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ImageReviewSpec(input, extensionRegistry);
+        return new ImageReviewSpec(input, extensionRegistry);
       }
     };
 
@@ -3369,6 +3453,7 @@ public final class V1alpha1Imagepolicy {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewSpec getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -3430,10 +3515,84 @@ public final class V1alpha1Imagepolicy {
      */
     com.google.protobuf.ByteString
         getReasonBytes();
+
+    /**
+     * <pre>
+     * AuditAnnotations will be added to the attributes object of the
+     * admission controller request using 'AddAnnotation'.  The keys should
+     * be prefix-less (i.e., the admission controller will add an
+     * appropriate prefix).
+     * +optional
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; auditAnnotations = 3;</code>
+     */
+    int getAuditAnnotationsCount();
+    /**
+     * <pre>
+     * AuditAnnotations will be added to the attributes object of the
+     * admission controller request using 'AddAnnotation'.  The keys should
+     * be prefix-less (i.e., the admission controller will add an
+     * appropriate prefix).
+     * +optional
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; auditAnnotations = 3;</code>
+     */
+    boolean containsAuditAnnotations(
+        java.lang.String key);
+    /**
+     * Use {@link #getAuditAnnotationsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getAuditAnnotations();
+    /**
+     * <pre>
+     * AuditAnnotations will be added to the attributes object of the
+     * admission controller request using 'AddAnnotation'.  The keys should
+     * be prefix-less (i.e., the admission controller will add an
+     * appropriate prefix).
+     * +optional
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; auditAnnotations = 3;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getAuditAnnotationsMap();
+    /**
+     * <pre>
+     * AuditAnnotations will be added to the attributes object of the
+     * admission controller request using 'AddAnnotation'.  The keys should
+     * be prefix-less (i.e., the admission controller will add an
+     * appropriate prefix).
+     * +optional
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; auditAnnotations = 3;</code>
+     */
+
+    java.lang.String getAuditAnnotationsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
+    /**
+     * <pre>
+     * AuditAnnotations will be added to the attributes object of the
+     * admission controller request using 'AddAnnotation'.  The keys should
+     * be prefix-less (i.e., the admission controller will add an
+     * appropriate prefix).
+     * +optional
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; auditAnnotations = 3;</code>
+     */
+
+    java.lang.String getAuditAnnotationsOrThrow(
+        java.lang.String key);
   }
   /**
    * <pre>
-   * ImageReviewStatus is the result of the token authentication request.
+   * ImageReviewStatus is the result of the review for the pod creation request.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.imagepolicy.v1alpha1.ImageReviewStatus}
@@ -3462,6 +3621,9 @@ public final class V1alpha1Imagepolicy {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -3473,13 +3635,6 @@ public final class V1alpha1Imagepolicy {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               bitField0_ |= 0x00000001;
               allowed_ = input.readBool();
@@ -3489,6 +3644,26 @@ public final class V1alpha1Imagepolicy {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
               reason_ = bs;
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                auditAnnotations_ = com.google.protobuf.MapField.newMapField(
+                    AuditAnnotationsDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000004;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              auditAnnotations__ = input.readMessage(
+                  AuditAnnotationsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              auditAnnotations_.getMutableMap().put(
+                  auditAnnotations__.getKey(), auditAnnotations__.getValue());
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -3508,6 +3683,19 @@ public final class V1alpha1Imagepolicy {
       return io.kubernetes.client.proto.V1alpha1Imagepolicy.internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReviewStatus_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 3:
+          return internalGetAuditAnnotations();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return io.kubernetes.client.proto.V1alpha1Imagepolicy.internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReviewStatus_fieldAccessorTable
@@ -3602,7 +3790,116 @@ public final class V1alpha1Imagepolicy {
       }
     }
 
+    public static final int AUDITANNOTATIONS_FIELD_NUMBER = 3;
+    private static final class AuditAnnotationsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  io.kubernetes.client.proto.V1alpha1Imagepolicy.internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReviewStatus_AuditAnnotationsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> auditAnnotations_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetAuditAnnotations() {
+      if (auditAnnotations_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            AuditAnnotationsDefaultEntryHolder.defaultEntry);
+      }
+      return auditAnnotations_;
+    }
+
+    public int getAuditAnnotationsCount() {
+      return internalGetAuditAnnotations().getMap().size();
+    }
+    /**
+     * <pre>
+     * AuditAnnotations will be added to the attributes object of the
+     * admission controller request using 'AddAnnotation'.  The keys should
+     * be prefix-less (i.e., the admission controller will add an
+     * appropriate prefix).
+     * +optional
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; auditAnnotations = 3;</code>
+     */
+
+    public boolean containsAuditAnnotations(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetAuditAnnotations().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getAuditAnnotationsMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getAuditAnnotations() {
+      return getAuditAnnotationsMap();
+    }
+    /**
+     * <pre>
+     * AuditAnnotations will be added to the attributes object of the
+     * admission controller request using 'AddAnnotation'.  The keys should
+     * be prefix-less (i.e., the admission controller will add an
+     * appropriate prefix).
+     * +optional
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; auditAnnotations = 3;</code>
+     */
+
+    public java.util.Map<java.lang.String, java.lang.String> getAuditAnnotationsMap() {
+      return internalGetAuditAnnotations().getMap();
+    }
+    /**
+     * <pre>
+     * AuditAnnotations will be added to the attributes object of the
+     * admission controller request using 'AddAnnotation'.  The keys should
+     * be prefix-less (i.e., the admission controller will add an
+     * appropriate prefix).
+     * +optional
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; auditAnnotations = 3;</code>
+     */
+
+    public java.lang.String getAuditAnnotationsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetAuditAnnotations().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * AuditAnnotations will be added to the attributes object of the
+     * admission controller request using 'AddAnnotation'.  The keys should
+     * be prefix-less (i.e., the admission controller will add an
+     * appropriate prefix).
+     * +optional
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; auditAnnotations = 3;</code>
+     */
+
+    public java.lang.String getAuditAnnotationsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetAuditAnnotations().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -3612,6 +3909,7 @@ public final class V1alpha1Imagepolicy {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -3620,9 +3918,16 @@ public final class V1alpha1Imagepolicy {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, reason_);
       }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetAuditAnnotations(),
+          AuditAnnotationsDefaultEntryHolder.defaultEntry,
+          3);
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -3634,6 +3939,16 @@ public final class V1alpha1Imagepolicy {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, reason_);
+      }
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetAuditAnnotations().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        auditAnnotations__ = AuditAnnotationsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(3, auditAnnotations__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3661,6 +3976,8 @@ public final class V1alpha1Imagepolicy {
         result = result && getReason()
             .equals(other.getReason());
       }
+      result = result && internalGetAuditAnnotations().equals(
+          other.internalGetAuditAnnotations());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -3680,6 +3997,10 @@ public final class V1alpha1Imagepolicy {
       if (hasReason()) {
         hash = (37 * hash) + REASON_FIELD_NUMBER;
         hash = (53 * hash) + getReason().hashCode();
+      }
+      if (!internalGetAuditAnnotations().getMap().isEmpty()) {
+        hash = (37 * hash) + AUDITANNOTATIONS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetAuditAnnotations().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -3756,6 +4077,7 @@ public final class V1alpha1Imagepolicy {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -3763,6 +4085,7 @@ public final class V1alpha1Imagepolicy {
     public static Builder newBuilder(io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewStatus prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -3776,7 +4099,7 @@ public final class V1alpha1Imagepolicy {
     }
     /**
      * <pre>
-     * ImageReviewStatus is the result of the token authentication request.
+     * ImageReviewStatus is the result of the review for the pod creation request.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.imagepolicy.v1alpha1.ImageReviewStatus}
@@ -3790,6 +4113,29 @@ public final class V1alpha1Imagepolicy {
         return io.kubernetes.client.proto.V1alpha1Imagepolicy.internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReviewStatus_descriptor;
       }
 
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 3:
+            return internalGetAuditAnnotations();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 3:
+            return internalGetMutableAuditAnnotations();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return io.kubernetes.client.proto.V1alpha1Imagepolicy.internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReviewStatus_fieldAccessorTable
@@ -3812,24 +4158,29 @@ public final class V1alpha1Imagepolicy {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         allowed_ = false;
         bitField0_ = (bitField0_ & ~0x00000001);
         reason_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
+        internalGetMutableAuditAnnotations().clear();
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return io.kubernetes.client.proto.V1alpha1Imagepolicy.internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReviewStatus_descriptor;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewStatus getDefaultInstanceForType() {
         return io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewStatus.getDefaultInstance();
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewStatus build() {
         io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewStatus result = buildPartial();
         if (!result.isInitialized()) {
@@ -3838,6 +4189,7 @@ public final class V1alpha1Imagepolicy {
         return result;
       }
 
+      @java.lang.Override
       public io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewStatus buildPartial() {
         io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewStatus result = new io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewStatus(this);
         int from_bitField0_ = bitField0_;
@@ -3850,37 +4202,46 @@ public final class V1alpha1Imagepolicy {
           to_bitField0_ |= 0x00000002;
         }
         result.reason_ = reason_;
+        result.auditAnnotations_ = internalGetAuditAnnotations();
+        result.auditAnnotations_.makeImmutable();
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewStatus) {
           return mergeFrom((io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewStatus)other);
@@ -3900,15 +4261,19 @@ public final class V1alpha1Imagepolicy {
           reason_ = other.reason_;
           onChanged();
         }
+        internalGetMutableAuditAnnotations().mergeFrom(
+            other.internalGetAuditAnnotations());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4093,11 +4458,192 @@ public final class V1alpha1Imagepolicy {
         onChanged();
         return this;
       }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> auditAnnotations_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetAuditAnnotations() {
+        if (auditAnnotations_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              AuditAnnotationsDefaultEntryHolder.defaultEntry);
+        }
+        return auditAnnotations_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableAuditAnnotations() {
+        onChanged();;
+        if (auditAnnotations_ == null) {
+          auditAnnotations_ = com.google.protobuf.MapField.newMapField(
+              AuditAnnotationsDefaultEntryHolder.defaultEntry);
+        }
+        if (!auditAnnotations_.isMutable()) {
+          auditAnnotations_ = auditAnnotations_.copy();
+        }
+        return auditAnnotations_;
+      }
+
+      public int getAuditAnnotationsCount() {
+        return internalGetAuditAnnotations().getMap().size();
+      }
+      /**
+       * <pre>
+       * AuditAnnotations will be added to the attributes object of the
+       * admission controller request using 'AddAnnotation'.  The keys should
+       * be prefix-less (i.e., the admission controller will add an
+       * appropriate prefix).
+       * +optional
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; auditAnnotations = 3;</code>
+       */
+
+      public boolean containsAuditAnnotations(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetAuditAnnotations().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getAuditAnnotationsMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getAuditAnnotations() {
+        return getAuditAnnotationsMap();
+      }
+      /**
+       * <pre>
+       * AuditAnnotations will be added to the attributes object of the
+       * admission controller request using 'AddAnnotation'.  The keys should
+       * be prefix-less (i.e., the admission controller will add an
+       * appropriate prefix).
+       * +optional
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; auditAnnotations = 3;</code>
+       */
+
+      public java.util.Map<java.lang.String, java.lang.String> getAuditAnnotationsMap() {
+        return internalGetAuditAnnotations().getMap();
+      }
+      /**
+       * <pre>
+       * AuditAnnotations will be added to the attributes object of the
+       * admission controller request using 'AddAnnotation'.  The keys should
+       * be prefix-less (i.e., the admission controller will add an
+       * appropriate prefix).
+       * +optional
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; auditAnnotations = 3;</code>
+       */
+
+      public java.lang.String getAuditAnnotationsOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetAuditAnnotations().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <pre>
+       * AuditAnnotations will be added to the attributes object of the
+       * admission controller request using 'AddAnnotation'.  The keys should
+       * be prefix-less (i.e., the admission controller will add an
+       * appropriate prefix).
+       * +optional
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; auditAnnotations = 3;</code>
+       */
+
+      public java.lang.String getAuditAnnotationsOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetAuditAnnotations().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearAuditAnnotations() {
+        internalGetMutableAuditAnnotations().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <pre>
+       * AuditAnnotations will be added to the attributes object of the
+       * admission controller request using 'AddAnnotation'.  The keys should
+       * be prefix-less (i.e., the admission controller will add an
+       * appropriate prefix).
+       * +optional
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; auditAnnotations = 3;</code>
+       */
+
+      public Builder removeAuditAnnotations(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableAuditAnnotations().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableAuditAnnotations() {
+        return internalGetMutableAuditAnnotations().getMutableMap();
+      }
+      /**
+       * <pre>
+       * AuditAnnotations will be added to the attributes object of the
+       * admission controller request using 'AddAnnotation'.  The keys should
+       * be prefix-less (i.e., the admission controller will add an
+       * appropriate prefix).
+       * +optional
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; auditAnnotations = 3;</code>
+       */
+      public Builder putAuditAnnotations(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableAuditAnnotations().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <pre>
+       * AuditAnnotations will be added to the attributes object of the
+       * admission controller request using 'AddAnnotation'.  The keys should
+       * be prefix-less (i.e., the admission controller will add an
+       * appropriate prefix).
+       * +optional
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; auditAnnotations = 3;</code>
+       */
+
+      public Builder putAllAuditAnnotations(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableAuditAnnotations().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -4119,11 +4665,12 @@ public final class V1alpha1Imagepolicy {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<ImageReviewStatus>
         PARSER = new com.google.protobuf.AbstractParser<ImageReviewStatus>() {
+      @java.lang.Override
       public ImageReviewStatus parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ImageReviewStatus(input, extensionRegistry);
+        return new ImageReviewStatus(input, extensionRegistry);
       }
     };
 
@@ -4136,6 +4683,7 @@ public final class V1alpha1Imagepolicy {
       return PARSER;
     }
 
+    @java.lang.Override
     public io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewStatus getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -4167,6 +4715,11 @@ public final class V1alpha1Imagepolicy {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReviewStatus_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReviewStatus_AuditAnnotationsEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReviewStatus_AuditAnnotationsEntry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -4182,24 +4735,26 @@ public final class V1alpha1Imagepolicy {
       "/generated.proto\032/k8s.io/apimachinery/pk" +
       "g/runtime/generated.proto\0326k8s.io/apimac" +
       "hinery/pkg/runtime/schema/generated.prot" +
-      "o\0323k8s.io/apimachinery/pkg/util/intstr/g" +
-      "enerated.proto\"\325\001\n\013ImageReview\022B\n\010metada" +
-      "ta\030\001 \001(\01320.k8s.io.apimachinery.pkg.apis." +
-      "meta.v1.ObjectMeta\022>\n\004spec\030\002 \001(\01320.k8s.i",
-      "o.api.imagepolicy.v1alpha1.ImageReviewSp" +
-      "ec\022B\n\006status\030\003 \001(\01322.k8s.io.api.imagepol" +
-      "icy.v1alpha1.ImageReviewStatus\")\n\030ImageR" +
-      "eviewContainerSpec\022\r\n\005image\030\001 \001(\t\"\377\001\n\017Im" +
-      "ageReviewSpec\022M\n\ncontainers\030\001 \003(\01329.k8s." +
-      "io.api.imagepolicy.v1alpha1.ImageReviewC" +
-      "ontainerSpec\022V\n\013annotations\030\002 \003(\0132A.k8s." +
-      "io.api.imagepolicy.v1alpha1.ImageReviewS" +
-      "pec.AnnotationsEntry\022\021\n\tnamespace\030\003 \001(\t\032" +
-      "2\n\020AnnotationsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu",
-      "e\030\002 \001(\t:\0028\001\"4\n\021ImageReviewStatus\022\017\n\007allo" +
-      "wed\030\001 \001(\010\022\016\n\006reason\030\002 \001(\tB;\n\032io.kubernet" +
-      "es.client.protoB\023V1alpha1ImagepolicyZ\010v1" +
-      "alpha1"
+      "o\"\325\001\n\013ImageReview\022B\n\010metadata\030\001 \001(\01320.k8" +
+      "s.io.apimachinery.pkg.apis.meta.v1.Objec" +
+      "tMeta\022>\n\004spec\030\002 \001(\01320.k8s.io.api.imagepo" +
+      "licy.v1alpha1.ImageReviewSpec\022B\n\006status\030" +
+      "\003 \001(\01322.k8s.io.api.imagepolicy.v1alpha1." +
+      "ImageReviewStatus\")\n\030ImageReviewContaine" +
+      "rSpec\022\r\n\005image\030\001 \001(\t\"\377\001\n\017ImageReviewSpec" +
+      "\022M\n\ncontainers\030\001 \003(\01329.k8s.io.api.imagep" +
+      "olicy.v1alpha1.ImageReviewContainerSpec\022" +
+      "V\n\013annotations\030\002 \003(\0132A.k8s.io.api.imagep" +
+      "olicy.v1alpha1.ImageReviewSpec.Annotatio" +
+      "nsEntry\022\021\n\tnamespace\030\003 \001(\t\0322\n\020Annotation" +
+      "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\321" +
+      "\001\n\021ImageReviewStatus\022\017\n\007allowed\030\001 \001(\010\022\016\n" +
+      "\006reason\030\002 \001(\t\022b\n\020auditAnnotations\030\003 \003(\0132" +
+      "H.k8s.io.api.imagepolicy.v1alpha1.ImageR" +
+      "eviewStatus.AuditAnnotationsEntry\0327\n\025Aud" +
+      "itAnnotationsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value" +
+      "\030\002 \001(\t:\0028\001B;\n\032io.kubernetes.client.proto" +
+      "B\023V1alpha1ImagepolicyZ\010v1alpha1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4215,7 +4770,6 @@ public final class V1alpha1Imagepolicy {
           io.kubernetes.client.proto.Meta.getDescriptor(),
           io.kubernetes.client.proto.Runtime.getDescriptor(),
           io.kubernetes.client.proto.RuntimeSchema.getDescriptor(),
-          io.kubernetes.client.proto.IntStr.getDescriptor(),
         }, assigner);
     internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReview_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -4246,11 +4800,16 @@ public final class V1alpha1Imagepolicy {
     internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReviewStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReviewStatus_descriptor,
-        new java.lang.String[] { "Allowed", "Reason", });
+        new java.lang.String[] { "Allowed", "Reason", "AuditAnnotations", });
+    internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReviewStatus_AuditAnnotationsEntry_descriptor =
+      internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReviewStatus_descriptor.getNestedTypes().get(0);
+    internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReviewStatus_AuditAnnotationsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_k8s_io_api_imagepolicy_v1alpha1_ImageReviewStatus_AuditAnnotationsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     io.kubernetes.client.proto.Meta.getDescriptor();
     io.kubernetes.client.proto.Runtime.getDescriptor();
     io.kubernetes.client.proto.RuntimeSchema.getDescriptor();
-    io.kubernetes.client.proto.IntStr.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
