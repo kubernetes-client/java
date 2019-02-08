@@ -43,6 +43,8 @@ public class YamlTest {
 
   private static final URL EXPECTED_YAML_FILE = Resources.getResource("expected.yaml");
 
+  private static final URL CREATED_TIMESTAMP_FILE = Resources.getResource("test-pod.yaml");
+
   private static final String[] kinds =
       new String[] {
         "Pod",
@@ -232,6 +234,21 @@ public class YamlTest {
           "2018-09-06T15:12:24.000Z",
           new String(pod.getMetadata().getCreationTimestamp().toString().getBytes(), UTF_8));
 
+    } catch (Exception ex) {
+      assertNull("Unexpected exception: " + ex.toString(), ex);
+    }
+  }
+
+  @Test
+  public void testDateTimeRoundTrip() {
+    // There was an issue with dumping JODA DateTime as String.
+    // This test verifies that its fixed.
+    try {
+      String data = Resources.toString(CREATED_TIMESTAMP_FILE, UTF_8);
+      V1Pod pod = Yaml.loadAs(data, V1Pod.class);
+      String output = Yaml.dump(pod);
+      V1Pod pod2 = Yaml.loadAs(output, V1Pod.class);
+      assertEquals(pod, pod2);
     } catch (Exception ex) {
       assertNull("Unexpected exception: " + ex.toString(), ex);
     }

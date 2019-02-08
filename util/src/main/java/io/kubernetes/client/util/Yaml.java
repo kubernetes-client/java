@@ -358,6 +358,14 @@ public class Yaml {
       this.representers.put(IntOrString.class, new RepresentIntOrString());
       this.representers.put(byte[].class, new RepresentByteArray());
       this.representers.put(Quantity.class, new RepresentQuantity());
+      this.representers.put(DateTime.class, new RepresentDateTime());
+    }
+
+    private class RepresentDateTime implements Represent {
+      @Override
+      public Node representData(Object data) {
+        return CustomRepresenter.this.representData(data.toString());
+      }
     }
 
     private class RepresentIntOrString implements Represent {
