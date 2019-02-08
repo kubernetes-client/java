@@ -364,7 +364,6 @@ public class Yaml {
     private class RepresentDateTime implements Represent {
       @Override
       public Node representData(Object data) {
-        DateTime dateTime = (DateTime) data;
         return CustomRepresenter.this.representData(data.toString());
       }
     }
