@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.kubernetes</groupId>
 	<artifactId>client-java-proto</artifactId>
-	<version>4.0.0</version>
+	<version>5.0.0-SNAPSHOT</version>
 	<packaging>bundle</packaging>
 	<name>client-java-proto</name>
 	<url>https://github.com/kubernetes-client/java</url>
@@ -10,7 +10,7 @@
 	<parent>
 		<groupId>io.kubernetes</groupId>
 		<artifactId>client-java-parent</artifactId>
-		<version>4.0.0</version>
+		<version>5.0.0-SNAPSHOT</version>
 	</parent>
 
 	<dependencies>
