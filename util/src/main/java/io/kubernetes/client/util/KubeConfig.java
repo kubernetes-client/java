@@ -12,10 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonParser;
 import io.kubernetes.client.util.authenticators.Authenticator;
 import io.kubernetes.client.util.authenticators.AzureActiveDirectoryAuthenticator;
 import io.kubernetes.client.util.authenticators.GCPAuthenticator;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.FileSystems;
@@ -23,6 +29,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
@@ -185,6 +192,7 @@ public class KubeConfig {
     return getData(currentUser, "password");
   }
 
+  @SuppressWarnings("unchecked")
   public String getAccessToken() {
     if (currentUser == null) {
       return null;
@@ -212,6 +220,60 @@ public class KubeConfig {
         } else {
           log.error("Unknown auth provider: " + name);
         }
+      }
+    }
+    Object exec = currentUser.get("exec");
+    if (exec != null) {
+      // TODO extract to helper method for clarity
+      Map<String, Object> execMap = (Map<String, Object>) exec;
+      // https://kubernetes.io/docs/reference/access-authn-authz/authentication/#client-go-credential-plugins
+      String apiVersion = (String) execMap.get("apiVersion");
+      if ("client.authentication.k8s.io/v1beta1".equals(apiVersion)) { // TODO or v1alpha1 is apparently identical and could be supported
+        String command = (String) execMap.get("command");
+        List<Map<String, String>> env = (List) execMap.get("env");
+        List<String> args = (List) execMap.get("args");
+        // TODO relativize command to basedir of config file (requires KubeConfig to be given a basedir)
+        List<String> argv = new ArrayList<>();
+        argv.add(command);
+        if (args != null) {
+          argv.addAll(args);
+        }
+        ProcessBuilder pb = new ProcessBuilder(argv);
+        if (env != null) {
+          // TODO apply
+        }
+        pb.redirectError(ProcessBuilder.Redirect.INHERIT);
+        try {
+          Process proc = pb.start();
+          JsonElement root = null;
+          try (InputStream is = proc.getInputStream();
+               Reader r = new InputStreamReader(is, StandardCharsets.UTF_8)) {
+            root = new JsonParser().parse(r);
+          } catch (JsonParseException x) {
+            log.error("Failed to parse output of " + command, x);
+          }
+          int r = proc.waitFor();
+          if (r == 0) {
+            if (root != null) {
+              // TODO verify .apiVersion and .kind = ExecCredential
+              JsonObject status = root.getAsJsonObject().get("status").getAsJsonObject();
+              JsonElement token = status.get("token");
+              if (token != null) {
+                return token.getAsString();
+              }
+              // TODO handle clientCertificateData/clientKeyData (KubeconfigAuthentication is not yet set up for that to be dynamic)
+            }
+          } else {
+            log.error("{} failed with exit code {}", command, r);
+          }
+        } catch (IOException | InterruptedException x) {
+          log.error("Failed to run " + command, x);
+        }
+        // TODO cache tokens between calls, up to .status.expirationTimestamp
+        // TODO a 401 is supposed to force a refresh, but KubeconfigAuthentication hard-codes AccessTokenAuthentication which does not support that
+        // and anyway ClientBuilder only calls Authenticator.provide once per ApiClient; we would need to do it on every request
+      } else {
+        log.error("Unrecognized user.exec.apiVersion: {}", apiVersion);
       }
     }
     if (currentUser.containsKey("token")) {
