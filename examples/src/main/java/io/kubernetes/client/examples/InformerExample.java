@@ -76,7 +76,7 @@ public class InformerExample {
     V1Node createdNode = coreV1Api.createNode(nodeToCreate, null, null, null);
     Thread.sleep(3000);
 
-    Lister<V1Node> nodeLister = new Lister<V1Node>(nodeInformer);
+    Lister<V1Node> nodeLister = new Lister<V1Node>(nodeInformer.getIndexer());
     V1Node node = nodeLister.get("noxu");
     System.out.printf("noxu created! %s\n", node.getMetadata().getCreationTimestamp());
     factory.stopAllRegisteredInformers();
