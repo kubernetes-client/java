@@ -12,9 +12,9 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import com.google.gson.JsonParseException;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
 import com.squareup.okhttp.Call;
 import com.squareup.okhttp.ResponseBody;
 import io.kubernetes.client.ApiClient;
@@ -22,6 +22,7 @@ import io.kubernetes.client.ApiException;
 import io.kubernetes.client.JSON;
 import io.kubernetes.client.models.V1Status;
 import java.io.IOException;
+import java.io.StringReader;
 import java.lang.reflect.Type;
 import java.util.Iterator;
 import org.slf4j.Logger;
@@ -112,7 +113,7 @@ public class Watch<T>
     }
   }
 
-  private Watch(JSON json, ResponseBody body, Type watchType, Call call) {
+  protected Watch(JSON json, ResponseBody body, Type watchType, Call call) {
     this.response = body;
     this.watchType = watchType;
     this.json = json;
@@ -125,16 +126,58 @@ public class Watch<T>
       if (line == null) {
         throw new RuntimeException("Null response from the server.");
       }
-      try {
-        return json.deserialize(line, watchType);
-      } catch (JsonParseException ex) {
-        Type statusType = new TypeToken<Response<V1Status>>() {}.getType();
-        Response<V1Status> status = json.deserialize(line, statusType);
-        return new Response<T>(status.type, status.object);
-      }
+      return parseLine(line);
     } catch (IOException e) {
       throw new RuntimeException("IO Exception during next method.", e);
     }
+  }
+
+  protected boolean isStatus(String line) throws IOException {
+    boolean found = false;
+    JsonReader reader = new JsonReader(new StringReader(line));
+    reader.beginObject();
+    // extract object data.
+    while (reader.hasNext()) {
+      String name = reader.nextName();
+      if (name.equals("object")) {
+        found = true;
+        break;
+      }
+      reader.skipValue();
+    }
+    if (!found) {
+      return false;
+    }
+
+    String kind = null;
+    String apiVersion = null;
+    reader.beginObject();
+    while (reader.hasNext()) {
+      String name = reader.nextName();
+      if (name.equals("kind")) {
+        kind = reader.nextString();
+      } else if (name.equals("apiVersion")) {
+        apiVersion = reader.nextString();
+      } else {
+        reader.skipValue();
+      }
+      if (apiVersion != null && kind != null) {
+        break;
+      }
+    }
+    if ("Status".equals(kind) && "v1".equals(apiVersion)) {
+      return true;
+    }
+    return false;
+  }
+
+  protected Response<T> parseLine(String line) throws IOException {
+    if (!isStatus(line)) {
+      return json.deserialize(line, watchType);
+    }
+    Type statusType = new TypeToken<Response<V1Status>>() {}.getType();
+    Response<V1Status> status = json.deserialize(line, statusType);
+    return new Response<T>(status.type, status.object);
   }
 
   public boolean hasNext() {
