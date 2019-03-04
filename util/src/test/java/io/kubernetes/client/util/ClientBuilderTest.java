@@ -21,6 +21,7 @@ import static org.mockito.Mockito.verify;
 import com.google.common.io.Resources;
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.util.credentials.Authentication;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -72,6 +73,14 @@ public class ClientBuilderTest {
   @Test
   public void testDefaultClientReadsKubeConfig() throws Exception {
     environmentVariables.set("KUBECONFIG", KUBECONFIG_FILE_PATH);
+    final ApiClient client = ClientBuilder.defaultClient();
+    assertEquals("http://kubeconfig.dir.com", client.getBasePath());
+  }
+
+  @Test
+  public void testDefaultClientReadsKubeConfigMultiple() throws Exception {
+    final String kubeConfigEnv = KUBECONFIG_FILE_PATH + File.pathSeparator + KUBECONFIG_FILE_PATH;
+    environmentVariables.set("KUBECONFIG", kubeConfigEnv);
     final ApiClient client = ClientBuilder.defaultClient();
     assertEquals("http://kubeconfig.dir.com", client.getBasePath());
   }
