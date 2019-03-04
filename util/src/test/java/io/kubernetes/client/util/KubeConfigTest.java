@@ -273,4 +273,27 @@ public class KubeConfigTest {
     String token = config.getAccessToken();
     assertEquals(token, fake.token);
   }
+
+  private static final String KUBECONFIG_EXEC =
+      "apiVersion: v1\n"
+          + "current-context: c\n"
+          + "contexts:\n"
+          + "- name: c\n"
+          + "  context:\n"
+          + "    user: u\n"
+          + "users:\n"
+          + "- name: u\n"
+          + "  user:\n"
+          + "    exec:\n"
+          + "      apiVersion: client.authentication.k8s.io/v1beta1\n"
+          + "      command: echo\n"
+          + "      args:\n"
+          + "        - >-\n"
+          + "          {\"apiVersion\": \"client.authentication.k8s.io/v1beta1\", \"kind\": \"ExecCredential\", \"status\": {\"token\": \"abc123\"}}\n";
+
+  @Test
+  public void testExecCredentials() throws Exception {
+    KubeConfig kc = KubeConfig.loadKubeConfig(new StringReader(KUBECONFIG_EXEC));
+    assertEquals("abc123", kc.getAccessToken());
+  }
 }
