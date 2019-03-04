@@ -19,6 +19,7 @@ import com.google.gson.JsonParser;
 import io.kubernetes.client.util.authenticators.Authenticator;
 import io.kubernetes.client.util.authenticators.AzureActiveDirectoryAuthenticator;
 import io.kubernetes.client.util.authenticators.GCPAuthenticator;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -61,6 +62,7 @@ public class KubeConfig {
   String currentNamespace;
   Object preferences;
   ConfigPersister persister;
+  private File file;
 
   public static void registerAuthenticator(Authenticator auth) {
     synchronized (authenticators) {
@@ -283,9 +285,18 @@ public class KubeConfig {
   }
 
   private JsonElement runExec(String command, List<String> args, List<Map<String, String>> env) {
-    // TODO relativize command to basedir of config file (requires KubeConfig to be given a basedir)
     List<String> argv = new ArrayList<>();
-    argv.add(command);
+    if (command.startsWith("./")) {
+      // TODO spec is unclear on what should be treated as a “relative command path”
+      File resolvedCommand = new File(file.getParentFile(), command);
+      if (!resolvedCommand.isFile()) {
+        log.error("No such file: {}", resolvedCommand);
+        return null;
+      }
+      argv.add(resolvedCommand.getAbsolutePath());
+    } else {
+      argv.add(command);
+    }
     if (args != null) {
       argv.addAll(args);
     }
@@ -335,6 +346,15 @@ public class KubeConfig {
    */
   public void setPersistConfig(ConfigPersister persister) {
     this.persister = persister;
+  }
+
+  /**
+   * Indicates a file from which this configuration was loaded.
+   *
+   * @param file a file path, available for use when resolving relative file paths
+   */
+  public void setFile(File file) {
+    this.file = file;
   }
 
   public void setPreferences(Object preferences) {

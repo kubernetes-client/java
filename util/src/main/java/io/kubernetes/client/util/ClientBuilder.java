@@ -78,21 +78,23 @@ public class ClientBuilder {
   public static ClientBuilder standard(boolean persistConfig) throws IOException {
     final File kubeConfig = findConfigFromEnv();
     if (kubeConfig != null) {
-      try (FileReader kubeConfigReader = new FileReader(kubeConfig)) {
+      try (FileReader kubeConfigReader = new FileReader(kubeConfig)) { // TODO UTF-8
         KubeConfig kc = KubeConfig.loadKubeConfig(kubeConfigReader);
         if (persistConfig) {
           kc.setPersistConfig(new FilePersister(kubeConfig));
         }
+        kc.setFile(kubeConfig);
         return kubeconfig(kc);
       }
     }
     final File config = findConfigInHomeDir();
     if (config != null) {
-      try (FileReader configReader = new FileReader(config)) {
+      try (FileReader configReader = new FileReader(config)) { // TODO UTF-8
         KubeConfig kc = KubeConfig.loadKubeConfig(configReader);
         if (persistConfig) {
           kc.setPersistConfig(new FilePersister(config));
         }
+        kc.setFile(kubeConfig);
         return kubeconfig(kc);
       }
     }
