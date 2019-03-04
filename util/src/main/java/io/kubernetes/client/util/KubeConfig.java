@@ -249,6 +249,7 @@ public class KubeConfig {
    *     href="https://kubernetes.io/docs/reference/access-authn-authz/authentication/#client-go-credential-plugins">
    *     Authenticating » client-go credential plugins</a>
    */
+  @SuppressWarnings("unchecked")
   private String tokenViaExecCredential(Map<String, Object> execMap) {
     if (execMap == null) {
       return null;
@@ -260,8 +261,28 @@ public class KubeConfig {
       return null;
     }
     String command = (String) execMap.get("command");
-    List<Map<String, String>> env = (List) execMap.get("env");
-    List<String> args = (List) execMap.get("args");
+    JsonElement root = runExec(command, (List) execMap.get("args"), (List) execMap.get("env"));
+    if (root == null) {
+      return null;
+    }
+    // TODO verify .apiVersion and .kind = ExecCredential
+    JsonObject status = root.getAsJsonObject().get("status").getAsJsonObject();
+    JsonElement token = status.get("token");
+    if (token == null) {
+      // TODO handle clientCertificateData/clientKeyData
+      // (KubeconfigAuthentication is not yet set up for that to be dynamic)
+      log.warn("No token produced by {}", command);
+      return null;
+    }
+    return token.getAsString();
+    // TODO cache tokens between calls, up to .status.expirationTimestamp
+    // TODO a 401 is supposed to force a refresh,
+    // but KubeconfigAuthentication hardcodes AccessTokenAuthentication which does not support that
+    // and anyway ClientBuilder only calls Authenticator.provide once per ApiClient;
+    // we would need to do it on every request
+  }
+
+  private JsonElement runExec(String command, List<String> args, List<Map<String, String>> env) {
     // TODO relativize command to basedir of config file (requires KubeConfig to be given a basedir)
     List<String> argv = new ArrayList<>();
     argv.add(command);
@@ -270,7 +291,9 @@ public class KubeConfig {
     }
     ProcessBuilder pb = new ProcessBuilder(argv);
     if (env != null) {
-      // TODO apply
+      for (Map<String, String> entry : env) {
+        pb.environment().put(entry.get("name"), entry.get("value"));
+      }
     }
     pb.redirectError(ProcessBuilder.Redirect.INHERIT);
     try {
@@ -288,25 +311,11 @@ public class KubeConfig {
         log.error("{} failed with exit code {}", command, r);
         return null;
       }
-      // TODO verify .apiVersion and .kind = ExecCredential
-      JsonObject status = root.getAsJsonObject().get("status").getAsJsonObject();
-      JsonElement token = status.get("token");
-      if (token == null) {
-        // TODO handle clientCertificateData/clientKeyData
-        // (KubeconfigAuthentication is not yet set up for that to be dynamic)
-        log.warn("No token produced by {}", command);
-        return null;
-      }
-      return token.getAsString();
+      return root;
     } catch (IOException | InterruptedException x) {
       log.error("Failed to run " + command, x);
       return null;
     }
-    // TODO cache tokens between calls, up to .status.expirationTimestamp
-    // TODO a 401 is supposed to force a refresh,
-    // but KubeconfigAuthentication hardcodes AccessTokenAuthentication which does not support that
-    // and anyway ClientBuilder only calls Authenticator.provide once per ApiClient;
-    // we would need to do it on every request
   }
 
   public boolean verifySSL() {

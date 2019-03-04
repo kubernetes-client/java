@@ -296,4 +296,31 @@ public class KubeConfigTest {
     KubeConfig kc = KubeConfig.loadKubeConfig(new StringReader(KUBECONFIG_EXEC));
     assertEquals("abc123", kc.getAccessToken());
   }
+
+  private static final String KUBECONFIG_EXEC_ENV =
+      "apiVersion: v1\n"
+          + "current-context: c\n"
+          + "contexts:\n"
+          + "- name: c\n"
+          + "  context:\n"
+          + "    user: u\n"
+          + "users:\n"
+          + "- name: u\n"
+          + "  user:\n"
+          + "    exec:\n"
+          + "      apiVersion: client.authentication.k8s.io/v1beta1\n"
+          + "      command: sh\n"
+          + "      env:\n"
+          + "        - name: TOK\n"
+          + "          value: abc\n"
+          + "      args:\n"
+          + "        - -c\n"
+          + "        - >-\n"
+          + "          echo '{\"apiVersion\": \"client.authentication.k8s.io/v1beta1\", \"kind\": \"ExecCredential\", \"status\": {\"token\": \"'$TOK'123\"}}'\n";
+
+  @Test
+  public void testExecCredentialsEnv() throws Exception {
+    KubeConfig kc = KubeConfig.loadKubeConfig(new StringReader(KUBECONFIG_EXEC_ENV));
+    assertEquals("abc123", kc.getAccessToken());
+  }
 }
