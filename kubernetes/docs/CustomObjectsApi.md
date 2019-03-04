@@ -672,7 +672,7 @@ Name | Type | Description  | Notes
 
 <a name="listClusterCustomObject"></a>
 # **listClusterCustomObject**
-> Object listClusterCustomObject(group, version, plural, pretty, labelSelector, resourceVersion, watch)
+> Object listClusterCustomObject(group, version, plural, pretty, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -702,9 +702,10 @@ String plural = "plural_example"; // String | The custom resource's plural name.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications.
 try {
-    Object result = apiInstance.listClusterCustomObject(group, version, plural, pretty, labelSelector, resourceVersion, watch);
+    Object result = apiInstance.listClusterCustomObject(group, version, plural, pretty, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CustomObjectsApi#listClusterCustomObject");
@@ -722,6 +723,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. | [optional]
 
 ### Return type
@@ -739,7 +741,7 @@ Name | Type | Description  | Notes
 
 <a name="listNamespacedCustomObject"></a>
 # **listNamespacedCustomObject**
-> Object listNamespacedCustomObject(group, version, namespace, plural, pretty, labelSelector, resourceVersion, watch)
+> Object listNamespacedCustomObject(group, version, namespace, plural, pretty, labelSelector, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -770,9 +772,10 @@ String plural = "plural_example"; // String | The custom resource's plural name.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications.
 try {
-    Object result = apiInstance.listNamespacedCustomObject(group, version, namespace, plural, pretty, labelSelector, resourceVersion, watch);
+    Object result = apiInstance.listNamespacedCustomObject(group, version, namespace, plural, pretty, labelSelector, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CustomObjectsApi#listNamespacedCustomObject");
@@ -791,6 +794,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
+ **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
  **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. | [optional]
 
 ### Return type

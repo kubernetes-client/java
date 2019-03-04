@@ -26,7 +26,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.kubernetes</groupId>
     <artifactId>client-java</artifactId>
-    <version>3.0.0</version>
+    <version>4.0.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -34,7 +34,7 @@ Add this dependency to your project's POM:
 ### Gradle users
 
 ```groovy
-compile 'io.kubernetes:client-java:3.0.0'
+compile 'io.kubernetes:client-java:4.0.0'
 ```
 
 ### Others
@@ -127,12 +127,12 @@ All APIs and Models' documentation can be found at the [Generated client's docs]
 
 ## Compatibility
 
-|  client version  | 1.8              | 1.9         | 1.10       | 1.11       | 1.12        |   
+|  client version  | 1.9         | 1.10       | 1.11       | 1.12        |   1.13    |
 |------------------|------------------|-------------|------------|------------|-------------|
-|  1.0.0           |  ✓               |  -          |  -         |  -         | -           |
-|  2.0.0           |  +               |  -          |  ✓         |  -         | -           |
-|  3.0.0           |  +               |  +          |  +         |  ✓         | -           |
-|  4.0.0-beta1     |  +               |  +          |  +         |  +         | ✓           |
+|  2.0.0           |  ✓               |  -          |  -         |  -         | -           |
+|  3.0.0           |  +               |  -          |  ✓         |  -         | -           |
+|  4.0.0           |  +               |  +          |  +         |  ✓         | -           |
+|  5.0.0-beta1    |  +               |  +          |  +         |  +         | ✓           |
 
 Key: 
 

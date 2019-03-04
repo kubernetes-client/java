@@ -750,7 +750,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteNamespacedControllerRevision"></a>
 # **deleteNamespacedControllerRevision**
-> V1Status deleteNamespacedControllerRevision(name, namespace, body, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy)
+> V1Status deleteNamespacedControllerRevision(name, namespace, pretty, body, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy)
 
 
 
@@ -776,14 +776,14 @@ BearerToken.setApiKey("YOUR API KEY");
 AppsV1Api apiInstance = new AppsV1Api();
 String name = "name_example"; // String | name of the ControllerRevision
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
 String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
-    V1Status result = apiInstance.deleteNamespacedControllerRevision(name, namespace, body, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy);
+    V1Status result = apiInstance.deleteNamespacedControllerRevision(name, namespace, pretty, body, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#deleteNamespacedControllerRevision");
@@ -797,8 +797,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the ControllerRevision |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
@@ -819,7 +819,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteNamespacedDaemonSet"></a>
 # **deleteNamespacedDaemonSet**
-> V1Status deleteNamespacedDaemonSet(name, namespace, body, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy)
+> V1Status deleteNamespacedDaemonSet(name, namespace, pretty, body, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy)
 
 
 
@@ -845,14 +845,14 @@ BearerToken.setApiKey("YOUR API KEY");
 AppsV1Api apiInstance = new AppsV1Api();
 String name = "name_example"; // String | name of the DaemonSet
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
 String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
-    V1Status result = apiInstance.deleteNamespacedDaemonSet(name, namespace, body, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy);
+    V1Status result = apiInstance.deleteNamespacedDaemonSet(name, namespace, pretty, body, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#deleteNamespacedDaemonSet");
@@ -866,8 +866,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the DaemonSet |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
@@ -888,7 +888,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteNamespacedDeployment"></a>
 # **deleteNamespacedDeployment**
-> V1Status deleteNamespacedDeployment(name, namespace, body, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy)
+> V1Status deleteNamespacedDeployment(name, namespace, pretty, body, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy)
 
 
 
@@ -914,14 +914,14 @@ BearerToken.setApiKey("YOUR API KEY");
 AppsV1Api apiInstance = new AppsV1Api();
 String name = "name_example"; // String | name of the Deployment
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
 String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
-    V1Status result = apiInstance.deleteNamespacedDeployment(name, namespace, body, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy);
+    V1Status result = apiInstance.deleteNamespacedDeployment(name, namespace, pretty, body, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#deleteNamespacedDeployment");
@@ -935,8 +935,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the Deployment |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
@@ -957,7 +957,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteNamespacedReplicaSet"></a>
 # **deleteNamespacedReplicaSet**
-> V1Status deleteNamespacedReplicaSet(name, namespace, body, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy)
+> V1Status deleteNamespacedReplicaSet(name, namespace, pretty, body, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy)
 
 
 
@@ -983,14 +983,14 @@ BearerToken.setApiKey("YOUR API KEY");
 AppsV1Api apiInstance = new AppsV1Api();
 String name = "name_example"; // String | name of the ReplicaSet
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
 String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
-    V1Status result = apiInstance.deleteNamespacedReplicaSet(name, namespace, body, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy);
+    V1Status result = apiInstance.deleteNamespacedReplicaSet(name, namespace, pretty, body, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#deleteNamespacedReplicaSet");
@@ -1004,8 +1004,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the ReplicaSet |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
@@ -1026,7 +1026,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteNamespacedStatefulSet"></a>
 # **deleteNamespacedStatefulSet**
-> V1Status deleteNamespacedStatefulSet(name, namespace, body, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy)
+> V1Status deleteNamespacedStatefulSet(name, namespace, pretty, body, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy)
 
 
 
@@ -1052,14 +1052,14 @@ BearerToken.setApiKey("YOUR API KEY");
 AppsV1Api apiInstance = new AppsV1Api();
 String name = "name_example"; // String | name of the StatefulSet
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
 String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
-    V1Status result = apiInstance.deleteNamespacedStatefulSet(name, namespace, body, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy);
+    V1Status result = apiInstance.deleteNamespacedStatefulSet(name, namespace, pretty, body, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AppsV1Api#deleteNamespacedStatefulSet");
@@ -1073,8 +1073,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the StatefulSet |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]

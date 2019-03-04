@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteInitializerConfiguration"></a>
 # **deleteInitializerConfiguration**
-> V1Status deleteInitializerConfiguration(name, body, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy)
+> V1Status deleteInitializerConfiguration(name, pretty, body, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy)
 
 
 
@@ -173,14 +173,14 @@ BearerToken.setApiKey("YOUR API KEY");
 
 AdmissionregistrationV1alpha1Api apiInstance = new AdmissionregistrationV1alpha1Api();
 String name = "name_example"; // String | name of the InitializerConfiguration
-V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
 String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
 try {
-    V1Status result = apiInstance.deleteInitializerConfiguration(name, body, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy);
+    V1Status result = apiInstance.deleteInitializerConfiguration(name, pretty, body, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AdmissionregistrationV1alpha1Api#deleteInitializerConfiguration");
@@ -193,8 +193,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the InitializerConfiguration |
- **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
