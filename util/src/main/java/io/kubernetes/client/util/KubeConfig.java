@@ -222,7 +222,8 @@ public class KubeConfig {
         }
       }
     }
-    String tokenViaExecCredential = tokenViaExecCredential((Map<String, Object>) currentUser.get("exec"));
+    String tokenViaExecCredential =
+        tokenViaExecCredential((Map<String, Object>) currentUser.get("exec"));
     if (tokenViaExecCredential != null) {
       return tokenViaExecCredential;
     }
@@ -243,14 +244,18 @@ public class KubeConfig {
 
   /**
    * Attempt to create an access token by running a configured external program.
-   * @see <a href="https://kubernetes.io/docs/reference/access-authn-authz/authentication/#client-go-credential-plugins">Authenticating » client-go credential plugins</a>
+   *
+   * @see <a
+   *     href="https://kubernetes.io/docs/reference/access-authn-authz/authentication/#client-go-credential-plugins">
+   *     Authenticating » client-go credential plugins</a>
    */
   private String tokenViaExecCredential(Map<String, Object> execMap) {
     if (execMap == null) {
       return null;
     }
     String apiVersion = (String) execMap.get("apiVersion");
-    if (!"client.authentication.k8s.io/v1beta1".equals(apiVersion)) { // TODO or v1alpha1 is apparently identical and could be supported
+    if (!"client.authentication.k8s.io/v1beta1".equals(apiVersion)) {
+      // TODO or v1alpha1 is apparently identical and could be supported
       log.error("Unrecognized user.exec.apiVersion: {}", apiVersion);
       return null;
     }
@@ -272,7 +277,7 @@ public class KubeConfig {
       Process proc = pb.start();
       JsonElement root;
       try (InputStream is = proc.getInputStream();
-           Reader r = new InputStreamReader(is, StandardCharsets.UTF_8)) {
+          Reader r = new InputStreamReader(is, StandardCharsets.UTF_8)) {
         root = new JsonParser().parse(r);
       } catch (JsonParseException x) {
         log.error("Failed to parse output of " + command, x);
@@ -287,7 +292,8 @@ public class KubeConfig {
       JsonObject status = root.getAsJsonObject().get("status").getAsJsonObject();
       JsonElement token = status.get("token");
       if (token == null) {
-        // TODO handle clientCertificateData/clientKeyData (KubeconfigAuthentication is not yet set up for that to be dynamic)
+        // TODO handle clientCertificateData/clientKeyData
+        // (KubeconfigAuthentication is not yet set up for that to be dynamic)
         log.warn("No token produced by {}", command);
         return null;
       }
@@ -297,8 +303,10 @@ public class KubeConfig {
       return null;
     }
     // TODO cache tokens between calls, up to .status.expirationTimestamp
-    // TODO a 401 is supposed to force a refresh, but KubeconfigAuthentication hard-codes AccessTokenAuthentication which does not support that
-    // and anyway ClientBuilder only calls Authenticator.provide once per ApiClient; we would need to do it on every request
+    // TODO a 401 is supposed to force a refresh,
+    // but KubeconfigAuthentication hardcodes AccessTokenAuthentication which does not support that
+    // and anyway ClientBuilder only calls Authenticator.provide once per ApiClient;
+    // we would need to do it on every request
   }
 
   public boolean verifySSL() {
