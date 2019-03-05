@@ -79,7 +79,7 @@ public class ClientBuilderTest {
 
   @Test
   public void testDefaultClientReadsKubeConfigMultiple() throws Exception {
-    final String kubeConfigEnv = KUBECONFIG_FILE_PATH + File.pathSeparator + KUBECONFIG_FILE_PATH;
+    final String kubeConfigEnv = KUBECONFIG_FILE_PATH + File.pathSeparator + "/non-existent";
     environmentVariables.set("KUBECONFIG", kubeConfigEnv);
     final ApiClient client = ClientBuilder.defaultClient();
     assertEquals("http://kubeconfig.dir.com", client.getBasePath());
