@@ -257,8 +257,8 @@ public class KubeConfig {
       return null;
     }
     String apiVersion = (String) execMap.get("apiVersion");
-    if (!"client.authentication.k8s.io/v1beta1".equals(apiVersion)) {
-      // TODO or v1alpha1 is apparently identical and could be supported
+    if (!"client.authentication.k8s.io/v1beta1".equals(apiVersion)
+        && !"client.authentication.k8s.io/v1alpha1".equals(apiVersion)) {
       log.error("Unrecognized user.exec.apiVersion: {}", apiVersion);
       return null;
     }

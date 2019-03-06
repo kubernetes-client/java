@@ -298,6 +298,13 @@ public class KubeConfigTest {
     assertEquals("abc123", kc.getAccessToken());
   }
 
+  @Test
+  public void testExecCredentialsAlpha1() throws Exception {
+    KubeConfig kc =
+        KubeConfig.loadKubeConfig(new StringReader(KUBECONFIG_EXEC.replace("v1beta1", "v1alpha1")));
+    assertEquals("abc123", kc.getAccessToken());
+  }
+
   private static final String KUBECONFIG_EXEC_ENV =
       "apiVersion: v1\n"
           + "current-context: c\n"
