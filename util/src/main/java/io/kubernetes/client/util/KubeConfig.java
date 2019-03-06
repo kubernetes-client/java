@@ -283,6 +283,7 @@ public class KubeConfig {
       log.warn("No token produced by {}", command);
       return null;
     }
+    log.debug("Obtained a token from {}", command);
     return token.getAsString();
     // TODO cache tokens between calls, up to .status.expirationTimestamp
     // TODO a 401 is supposed to force a refresh,
