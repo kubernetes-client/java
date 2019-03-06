@@ -267,7 +267,14 @@ public class KubeConfig {
     if (root == null) {
       return null;
     }
-    // TODO verify .apiVersion and .kind = ExecCredential
+    if (!"ExecCredential".equals(root.getAsJsonObject().get("kind").getAsString())) {
+      log.error("Unrecognized kind in response");
+      return null;
+    }
+    if (!apiVersion.equals(root.getAsJsonObject().get("apiVersion").getAsString())) {
+      log.error("Mismatched apiVersion in response");
+      return null;
+    }
     JsonObject status = root.getAsJsonObject().get("status").getAsJsonObject();
     JsonElement token = status.get("token");
     if (token == null) {
