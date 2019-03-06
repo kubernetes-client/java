@@ -43,7 +43,7 @@ public class WatchTest {
     status.addProperty("code", 410);
 
     JsonObject obj = new JsonObject();
-    obj.addProperty("type", "ERR");
+    obj.addProperty("type", "ERROR");
     obj.add("object", status);
     String data = json.getGson().toJson(obj);
     Watch.Response<V1ConfigMap> response = watch.parseLine(data);
