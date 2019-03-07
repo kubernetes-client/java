@@ -99,7 +99,7 @@ public class ReflectorRunnable<ApiType, ApiListType> implements Runnable {
             return;
           }
           log.error("{}#Watch failed as {} unexpected", apiTypeClass, t.getMessage(), t);
-          continue;
+          return;
         } finally {
           if (watch != null) {
             watch.close();
