@@ -2,16 +2,13 @@ package io.kubernetes.client.informer.cache;
 
 import static org.junit.Assert.*;
 
-import io.kubernetes.client.ApiException;
 import io.kubernetes.client.informer.EventType;
 import io.kubernetes.client.informer.ListerWatcher;
 import io.kubernetes.client.models.V1ListMeta;
 import io.kubernetes.client.models.V1ObjectMeta;
 import io.kubernetes.client.models.V1Pod;
 import io.kubernetes.client.models.V1PodList;
-import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.Watch;
-import io.kubernetes.client.util.Watchable;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -37,24 +34,10 @@ public class ControllerTest {
         new DeltaFIFO<>(Cache::deletionHandlingMetaNamespaceKeyFunc, new Cache());
 
     AtomicBoolean runOnce = new AtomicBoolean(false);
-    ListerWatcher<V1Pod, V1PodList> listerWatcher =
-        new ListerWatcher<V1Pod, V1PodList>() {
-          @Override
-          public V1PodList list(CallGeneratorParams params) throws ApiException {
-            return podList;
-          }
 
-          @Override
-          public Watchable<V1Pod> watch(CallGeneratorParams params) throws ApiException {
-            if (!runOnce.get()) {
-              runOnce.set(true);
-              return new MockWatch<V1Pod>(
-                  new Watch.Response<V1Pod>(EventType.MODIFIED.name(), foo3));
-            } else {
-              return new MockWatch<V1Pod>();
-            }
-          }
-        };
+    ListerWatcher<V1Pod, V1PodList> listerWatcher =
+        new MockRunOnceListerWatcher<V1Pod, V1PodList>(
+            podList, new Watch.Response<V1Pod>(EventType.MODIFIED.name(), foo3));
 
     Controller<V1Pod, V1PodList> controller =
         new Controller<>(
