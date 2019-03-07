@@ -1,4 +1,7 @@
 .gitignore
+.travis.yml
+*gradle*
+*sbt*
 git_push.sh
 README.md
 # Remove this once swagger-codegen 2.3.0 is released and we update. 
