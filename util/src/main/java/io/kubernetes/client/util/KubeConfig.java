@@ -27,6 +27,7 @@ import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -294,14 +295,17 @@ public class KubeConfig {
 
   private JsonElement runExec(String command, List<String> args, List<Map<String, String>> env) {
     List<String> argv = new ArrayList<>();
-    if (command.startsWith("./")) {
-      // TODO spec is unclear on what should be treated as a “relative command path”
-      File resolvedCommand = new File(file.getParentFile(), command);
-      if (!resolvedCommand.isFile()) {
+    if (command.contains("/") || command.contains("\\")) {
+      // Spec is unclear on what should be treated as a “relative command path”.
+      // This clause should cover anything not resolved from $PATH / %Path%.
+      Path resolvedCommand = file.toPath().getParent().resolve(command).normalize();
+      if (!Files.exists(resolvedCommand)) {
         log.error("No such file: {}", resolvedCommand);
         return null;
       }
-      argv.add(resolvedCommand.getAbsolutePath());
+      // Not checking isRegularFile or isExecutable here; leave that to ProcessBuilder.start.
+      log.debug("Resolved {} to {}", command, resolvedCommand);
+      argv.add(resolvedCommand.toString());
     } else {
       argv.add(command);
     }
