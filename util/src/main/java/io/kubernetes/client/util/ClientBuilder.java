@@ -104,16 +104,38 @@ public class ClientBuilder {
   }
 
   private static File findConfigFromEnv() {
-    String kubeConfigPath = System.getenv(ENV_KUBECONFIG);
+    final KubeConfigEnvParser kubeConfigEnvParser = new KubeConfigEnvParser();
+
+    final String kubeConfigPath =
+        kubeConfigEnvParser.parseKubeConfigPath(System.getenv(ENV_KUBECONFIG));
     if (kubeConfigPath == null) {
       return null;
     }
+
     final File kubeConfig = new File(kubeConfigPath);
     if (kubeConfig.exists()) {
       return kubeConfig;
     } else {
       log.debug("Could not find file specified in $KUBECONFIG");
       return null;
+    }
+  }
+
+  private static class KubeConfigEnvParser {
+    private String parseKubeConfigPath(String kubeConfigEnv) {
+      if (kubeConfigEnv == null) {
+        return null;
+      }
+
+      final String[] filePaths = kubeConfigEnv.split(File.pathSeparator);
+      final String kubeConfigPath = filePaths[0];
+      if (filePaths.length > 1) {
+        log.warn(
+            "Found multiple kubeconfigs files, $KUBECONFIG: " + kubeConfigEnv + " using first: {}",
+            kubeConfigPath);
+      }
+
+      return kubeConfigPath;
     }
   }
 
