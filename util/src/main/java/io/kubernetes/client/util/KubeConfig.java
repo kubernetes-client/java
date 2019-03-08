@@ -12,17 +12,26 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonParser;
 import io.kubernetes.client.util.authenticators.Authenticator;
 import io.kubernetes.client.util.authenticators.AzureActiveDirectoryAuthenticator;
 import io.kubernetes.client.util.authenticators.GCPAuthenticator;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
@@ -54,6 +63,7 @@ public class KubeConfig {
   String currentNamespace;
   Object preferences;
   ConfigPersister persister;
+  private File file;
 
   public static void registerAuthenticator(Authenticator auth) {
     synchronized (authenticators) {
@@ -185,6 +195,7 @@ public class KubeConfig {
     return getData(currentUser, "password");
   }
 
+  @SuppressWarnings("unchecked")
   public String getAccessToken() {
     if (currentUser == null) {
       return null;
@@ -214,6 +225,11 @@ public class KubeConfig {
         }
       }
     }
+    String tokenViaExecCredential =
+        tokenViaExecCredential((Map<String, Object>) currentUser.get("exec"));
+    if (tokenViaExecCredential != null) {
+      return tokenViaExecCredential;
+    }
     if (currentUser.containsKey("token")) {
       return (String) currentUser.get("token");
     }
@@ -227,6 +243,102 @@ public class KubeConfig {
       }
     }
     return null;
+  }
+
+  /**
+   * Attempt to create an access token by running a configured external program.
+   *
+   * @see <a
+   *     href="https://kubernetes.io/docs/reference/access-authn-authz/authentication/#client-go-credential-plugins">
+   *     Authenticating » client-go credential plugins</a>
+   */
+  @SuppressWarnings("unchecked")
+  private String tokenViaExecCredential(Map<String, Object> execMap) {
+    if (execMap == null) {
+      return null;
+    }
+    String apiVersion = (String) execMap.get("apiVersion");
+    if (!"client.authentication.k8s.io/v1beta1".equals(apiVersion)
+        && !"client.authentication.k8s.io/v1alpha1".equals(apiVersion)) {
+      log.error("Unrecognized user.exec.apiVersion: {}", apiVersion);
+      return null;
+    }
+    String command = (String) execMap.get("command");
+    JsonElement root = runExec(command, (List) execMap.get("args"), (List) execMap.get("env"));
+    if (root == null) {
+      return null;
+    }
+    if (!"ExecCredential".equals(root.getAsJsonObject().get("kind").getAsString())) {
+      log.error("Unrecognized kind in response");
+      return null;
+    }
+    if (!apiVersion.equals(root.getAsJsonObject().get("apiVersion").getAsString())) {
+      log.error("Mismatched apiVersion in response");
+      return null;
+    }
+    JsonObject status = root.getAsJsonObject().get("status").getAsJsonObject();
+    JsonElement token = status.get("token");
+    if (token == null) {
+      // TODO handle clientCertificateData/clientKeyData
+      // (KubeconfigAuthentication is not yet set up for that to be dynamic)
+      log.warn("No token produced by {}", command);
+      return null;
+    }
+    log.debug("Obtained a token from {}", command);
+    return token.getAsString();
+    // TODO cache tokens between calls, up to .status.expirationTimestamp
+    // TODO a 401 is supposed to force a refresh,
+    // but KubeconfigAuthentication hardcodes AccessTokenAuthentication which does not support that
+    // and anyway ClientBuilder only calls Authenticator.provide once per ApiClient;
+    // we would need to do it on every request
+  }
+
+  private JsonElement runExec(String command, List<String> args, List<Map<String, String>> env) {
+    List<String> argv = new ArrayList<>();
+    if (command.contains("/") || command.contains("\\")) {
+      // Spec is unclear on what should be treated as a “relative command path”.
+      // This clause should cover anything not resolved from $PATH / %Path%.
+      Path resolvedCommand = file.toPath().getParent().resolve(command).normalize();
+      if (!Files.exists(resolvedCommand)) {
+        log.error("No such file: {}", resolvedCommand);
+        return null;
+      }
+      // Not checking isRegularFile or isExecutable here; leave that to ProcessBuilder.start.
+      log.debug("Resolved {} to {}", command, resolvedCommand);
+      argv.add(resolvedCommand.toString());
+    } else {
+      argv.add(command);
+    }
+    if (args != null) {
+      argv.addAll(args);
+    }
+    ProcessBuilder pb = new ProcessBuilder(argv);
+    if (env != null) {
+      for (Map<String, String> entry : env) {
+        pb.environment().put(entry.get("name"), entry.get("value"));
+      }
+    }
+    pb.redirectError(ProcessBuilder.Redirect.INHERIT);
+    try {
+      Process proc = pb.start();
+      JsonElement root;
+      try (InputStream is = proc.getInputStream();
+          Reader r = new InputStreamReader(is, StandardCharsets.UTF_8)) {
+        root = new JsonParser().parse(r);
+      } catch (JsonParseException x) {
+        log.error("Failed to parse output of " + command, x);
+        return null;
+      }
+      int r = proc.waitFor();
+      if (r != 0) {
+        log.error("{} failed with exit code {}", command, r);
+        return null;
+      }
+      return root;
+    } catch (IOException | InterruptedException x) {
+      log.error("Failed to run " + command, x);
+      return null;
+    }
   }
 
   public boolean verifySSL() {
@@ -246,6 +358,15 @@ public class KubeConfig {
    */
   public void setPersistConfig(ConfigPersister persister) {
     this.persister = persister;
+  }
+
+  /**
+   * Indicates a file from which this configuration was loaded.
+   *
+   * @param file a file path, available for use when resolving relative file paths
+   */
+  public void setFile(File file) {
+    this.file = file;
   }
 
   public void setPreferences(Object preferences) {

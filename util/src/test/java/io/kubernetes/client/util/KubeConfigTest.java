@@ -273,4 +273,103 @@ public class KubeConfigTest {
     String token = config.getAccessToken();
     assertEquals(token, fake.token);
   }
+
+  private static final String KUBECONFIG_EXEC =
+      "apiVersion: v1\n"
+          + "current-context: c\n"
+          + "contexts:\n"
+          + "- name: c\n"
+          + "  context:\n"
+          + "    user: u\n"
+          + "users:\n"
+          + "- name: u\n"
+          + "  user:\n"
+          + "    exec:\n"
+          + "      apiVersion: client.authentication.k8s.io/v1beta1\n"
+          + "      command: echo\n"
+          + "      args:\n"
+          + "        - >-\n"
+          + "          {\"apiVersion\": \"client.authentication.k8s.io/v1beta1\", \"kind\": \"ExecCredential\", \"status\": {\"token\": \"abc123\"}}\n";
+
+  @Test
+  public void testExecCredentials() throws Exception {
+    KubeConfig kc = KubeConfig.loadKubeConfig(new StringReader(KUBECONFIG_EXEC));
+    kc.setFile(folder.newFile()); // just making sure it is ignored
+    assertEquals("abc123", kc.getAccessToken());
+  }
+
+  @Test
+  public void testExecCredentialsAlpha1() throws Exception {
+    KubeConfig kc =
+        KubeConfig.loadKubeConfig(new StringReader(KUBECONFIG_EXEC.replace("v1beta1", "v1alpha1")));
+    assertEquals("abc123", kc.getAccessToken());
+  }
+
+  private static final String KUBECONFIG_EXEC_ENV =
+      "apiVersion: v1\n"
+          + "current-context: c\n"
+          + "contexts:\n"
+          + "- name: c\n"
+          + "  context:\n"
+          + "    user: u\n"
+          + "users:\n"
+          + "- name: u\n"
+          + "  user:\n"
+          + "    exec:\n"
+          + "      apiVersion: client.authentication.k8s.io/v1beta1\n"
+          + "      command: sh\n"
+          + "      env:\n"
+          + "        - name: TOK\n"
+          + "          value: abc\n"
+          + "      args:\n"
+          + "        - -c\n"
+          + "        - >-\n"
+          + "          echo '{\"apiVersion\": \"client.authentication.k8s.io/v1beta1\", \"kind\": \"ExecCredential\", \"status\": {\"token\": \"'$TOK'123\"}}'\n";
+
+  @Test
+  public void testExecCredentialsEnv() throws Exception {
+    KubeConfig kc = KubeConfig.loadKubeConfig(new StringReader(KUBECONFIG_EXEC_ENV));
+    assertEquals("abc123", kc.getAccessToken());
+  }
+
+  private static final String KUBECONFIG_EXEC_BASEDIR =
+      "apiVersion: v1\n"
+          + "current-context: c\n"
+          + "contexts:\n"
+          + "- name: c\n"
+          + "  context:\n"
+          + "    user: u\n"
+          + "users:\n"
+          + "- name: u\n"
+          + "  user:\n"
+          + "    exec:\n"
+          + "      apiVersion: client.authentication.k8s.io/v1beta1\n"
+          + "      command: ./bin/authenticate\n";
+
+  private static final String AUTH_SCRIPT =
+      "#!/bin/sh\n"
+          + "echo '{\"apiVersion\": \"client.authentication.k8s.io/v1beta1\", \"kind\": \"ExecCredential\", \"status\": {\"token\": \"abc123\"}}'\n";
+
+  @Test
+  public void testExecCredentialsBasedir() throws Exception {
+    File basedir = folder.newFolder();
+    File config = new File(basedir, ".kubeconfig");
+    try (FileWriter writer = new FileWriter(config)) {
+      writer.write(KUBECONFIG_EXEC_BASEDIR);
+      writer.flush();
+    }
+    File bindir = new File(basedir, "bin");
+    bindir.mkdir();
+    File script = new File(bindir, "authenticate");
+    try (FileWriter writer = new FileWriter(script)) {
+      writer.write(AUTH_SCRIPT);
+      writer.flush();
+    }
+    script.setExecutable(true);
+    try (FileReader reader = new FileReader(config)) {
+      KubeConfig kc = KubeConfig.loadKubeConfig(reader);
+      kc.setFile(config);
+      assertEquals("abc123", kc.getAccessToken());
+    }
+  }
 }
