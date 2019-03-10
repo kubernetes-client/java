@@ -65,7 +65,7 @@ public class Pager {
         originalRequest
             .httpUrl()
             .newBuilder()
-            .addQueryParameter("continue", _continue)
+            .setQueryParameter("continue", _continue)
             .setQueryParameter("limit", String.valueOf(limit))
             // .addQueryParameter("resourceversion", resourceVersion)
             .build();
