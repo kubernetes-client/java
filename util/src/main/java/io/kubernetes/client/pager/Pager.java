@@ -14,17 +14,18 @@ import io.kubernetes.client.models.V1ListMeta;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Type;
+import java.util.function.Function;
 
 public class Pager {
   private Request originalRequest;
   private String _continue;
   private String resourceVersion;
-  private int limit;
+  private Integer limit;
   private ApiClient client;
   private Call call;
   private Type listType;
 
-  public Pager(ApiClient client, Call call, int limit, Type listType) {
+  public Pager(ApiClient client, Call call, Integer limit, Type listType) {
     this.client = client;
     this.call = call;
     this.limit = limit;
@@ -51,12 +52,10 @@ public class Pager {
     } else if (_continue == null && originalRequest != null) {
       // list was exhausted at server
       V1ConfigMapList list =
-          client.getJSON().deserialize("{}", new TypeToken<V1ConfigMapList>() {}.getType());
-    } else {
-      // subsequent calls
+          client.getJSON().deserialize("{}", listType);
+    }
       Request nextRequest = transFormRequest();
       call = client.getHttpClient().newCall(nextRequest);
-    }
     return executeRequest(client, call, listType);
   }
 
@@ -66,9 +65,10 @@ public class Pager {
             .httpUrl()
             .newBuilder()
             .setQueryParameter("continue", _continue)
-            .setQueryParameter("limit", String.valueOf(limit))
+            .setQueryParameter("limit",  (limit==null)?"-1":String.valueOf(limit))
             // .addQueryParameter("resourceversion", resourceVersion)
             .build();
+    System.out.println(url);
     Request request = new Request.Builder().headers(originalRequest.headers()).url(url).build();
     return request;
   }
