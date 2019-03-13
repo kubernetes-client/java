@@ -8,6 +8,7 @@ import io.kubernetes.client.apis.CoreV1Api;
 import io.kubernetes.client.models.V1Namespace;
 import io.kubernetes.client.models.V1NamespaceList;
 import io.kubernetes.client.pager.Pager;
+import io.kubernetes.client.pager.PagerParams;
 import io.kubernetes.client.util.Config;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -28,9 +29,23 @@ public class PagerExample {
           api.listNamespaceCall(
               null, "pretty", null, null, null, 20, null, null, null, null, null);
 
-      Pager pager = new Pager(client, call, 1, new TypeToken<V1NamespaceList>() {}.getType());
-      while (pager.hasNextPage()) {
-        V1NamespaceList list = pager.getnextPage();
+      //Pager pager = new Pager(client, call, 1, new TypeToken<V1NamespaceList>() {}.getType());
+      Pager pager = new Pager(
+          (PagerParams param)-> {
+            try {
+            return api.listNamespaceCall(
+                  null, "pretty", param.getContinue(), null, null, param.getLimit(), null, null, null, null, null);
+            }
+            catch(Exception e) {
+              throw new RuntimeException(e);
+            }
+            },
+          client,
+          20,
+          new TypeToken<V1NamespaceList>() {}.getType()
+          );
+      while (pager.hasNext()) {
+        V1NamespaceList list = pager.next();
         List<V1Namespace> items = list.getItems();
         System.out.println("count:"+items.size());
         for (V1Namespace namespace : items) {

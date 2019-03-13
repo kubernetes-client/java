@@ -1,39 +1,36 @@
 package io.kubernetes.client.pager;
 
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.google.gson.reflect.TypeToken;
-import com.squareup.okhttp.Call;
-import com.squareup.okhttp.HttpUrl;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
-import io.kubernetes.client.ApiClient;
-import io.kubernetes.client.ApiException;
-import io.kubernetes.client.models.V1ConfigMapList;
-import io.kubernetes.client.models.V1ListMeta;
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 import java.util.function.Function;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.squareup.okhttp.Call;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
+import com.squareup.okhttp.ResponseBody;
+import io.kubernetes.client.ApiClient;
+import io.kubernetes.client.ApiException;
+import io.kubernetes.client.models.V1ListMeta;
+import io.kubernetes.client.util.ResponseUtils;
 
 public class Pager {
-  private Request originalRequest;
   private String _continue;
-  private String resourceVersion;
   private Integer limit;
   private ApiClient client;
   private Call call;
   private Type listType;
+  private Function<PagerParams, Call> listFunc;
 
-  public Pager(ApiClient client, Call call, Integer limit, Type listType) {
+  public Pager(Function<PagerParams, Call> listFunc, ApiClient client, Integer limit, Type listType) {
+    this.listFunc = listFunc;
     this.client = client;
-    this.call = call;
     this.limit = limit;
     this.listType = listType;
   }
 
   public Boolean hasNext() {
-    if (_continue == null && originalRequest != null) {
+    if (_continue == null && call != null) {
       return Boolean.FALSE;
     }
     return Boolean.TRUE;
@@ -42,43 +39,27 @@ public class Pager {
   public <T> T next()
       throws NoSuchFieldException, SecurityException, IllegalArgumentException,
           IllegalAccessException, IOException, ApiException {
-
-    // first call;
-    if (_continue == null && originalRequest == null) {
-      Class cls = call.getClass();
-      Field field = cls.getDeclaredField("originalRequest");
-      field.setAccessible(true);
-      originalRequest = (Request) field.get(call);
-    } else if (_continue == null && originalRequest != null) {
-      // list was exhausted at server
-      V1ConfigMapList list =
-          client.getJSON().deserialize("{}", listType);
-    }
-      Request nextRequest = transFormRequest();
-      call = client.getHttpClient().newCall(nextRequest);
+    call = getNextCall();
     return executeRequest(client, call, listType);
   }
 
-  private Request transFormRequest() {
-    HttpUrl url =
-        originalRequest
-            .httpUrl()
-            .newBuilder()
-            .setQueryParameter("continue", _continue)
-            .setQueryParameter("limit",  (limit==null)?"-1":String.valueOf(limit))
-            // .addQueryParameter("resourceversion", resourceVersion)
-            .build();
-    System.out.println(url);
-    Request request = new Request.Builder().headers(originalRequest.headers()).url(url).build();
-    return request;
+  private Call getNextCall() {
+    PagerParams params = new PagerParams();
+    if(_continue != null) {
+    params.setContinue(_continue);
+    }
+    params.setLimit(limit);
+    return listFunc.apply(params);
   }
 
   private <T> T executeRequest(ApiClient client, Call call, Type listType)
       throws IOException, ApiException {
-    Response response = call.execute();
+    String line = ResponseUtils.getResponseString(call.execute());
+    setNextContinue(line);
+    return client.getJSON().deserialize(line, listType);
+  }
 
-    String line = response.body().source().readUtf8Line();
-    // TODO: handle all responses.
+  private void setNextContinue(String line) {
     JsonParser parser = new JsonParser();
     JsonObject json = (JsonObject) parser.parse(line);
     if (json.has("kind") && json.has("metadata")) {
@@ -87,11 +68,12 @@ public class Pager {
         V1ListMeta metaList =
             client.getJSON().deserialize(json.get("metadata").toString(), V1ListMeta.class);
         _continue = metaList.getContinue();
-        resourceVersion = metaList.getResourceVersion();
+      }else {
+        throw new RuntimeException("Subsequent call failed " + line);
       }
     } else {
       throw new RuntimeException("Subsequent call failed " + line);
     }
-    return client.getJSON().deserialize(line, listType);
   }
+ 
 }
