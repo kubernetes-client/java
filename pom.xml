@@ -13,6 +13,7 @@
     <module>examples</module>
     <module>kubernetes</module>
     <module>proto</module>
+    <module>extended</module>
   </modules>
 
   <scm>
