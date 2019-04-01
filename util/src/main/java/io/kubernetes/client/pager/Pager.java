@@ -20,15 +20,20 @@ import io.kubernetes.client.util.Reflect;
 import io.kubernetes.client.util.exception.ObjectMetaReflectException;
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.util.Iterator;
 import java.util.function.Function;
 
-public class Pager<ApiType, ApiListType> {
+public class Pager<ApiType, ApiListType> implements Iterable<ApiType>, Iterator<ApiType> {
   private String continueToken;
   private Integer limit;
   private ApiClient client;
   private Call call;
   private Type listType;
   private Function<PagerParams, Call> listFunc;
+
+  private ApiListType listObjectCurrentPage;
+  private int offsetCurrentPage;
+  private int currentPageSize;
 
   /**
    * Pagination in kubernetes list call depends on continue and limit variable
@@ -52,8 +57,13 @@ public class Pager<ApiType, ApiListType> {
    *
    * @return
    */
-  public Boolean hasNext() {
-    if (continueToken == null && call != null) {
+  @Override
+  public boolean hasNext() {
+    if (call == null) {
+      // the first time looping over the pager
+      return Boolean.TRUE;
+    }
+    if (continueToken == null && offsetCurrentPage >= currentPageSize) {
       return Boolean.FALSE;
     }
     return Boolean.TRUE;
@@ -64,43 +74,67 @@ public class Pager<ApiType, ApiListType> {
    *
    * @return Object
    */
-  public <ApiType> ApiListType next() {
-    return next(null);
-  }
-
-  /**
-   * returns next chunk of list. size of list depends on limit set in constructor or nextLimit.
-   *
-   * @param nextLimit
-   * @return
-   */
-  public <ApiType> ApiListType next(Integer nextLimit) {
+  @Override
+  public ApiType next() {
     try {
-      call = getNextCall(nextLimit);
-      return executeRequest(call);
-    } catch (Exception e) {
-      if (e instanceof ApiException) {
-        throw new RuntimeException(((ApiException) e).getResponseBody());
+      if (offsetCurrentPage >= currentPageSize) {
+        call = getNextCall(limit);
+        listObjectCurrentPage = executeRequest(call);
+
+        offsetCurrentPage = 0;
+        currentPageSize = Reflect.<ApiType>getItems(listObjectCurrentPage).size();
       }
+      return Reflect.<ApiType>getItems(listObjectCurrentPage).get(offsetCurrentPage++);
+    } catch (ApiException e) {
+      throw new RuntimeException(e.getResponseBody());
+    } catch (ObjectMetaReflectException | IOException e) {
       throw new RuntimeException(e);
     }
+  }
+
+  @Override
+  public Iterator<ApiType> iterator() {
+    this.call = null;
+    return this;
   }
 
   /** returns next list call by setting continue variable and limit */
   private Call getNextCall(Integer nextLimit) {
     PagerParams params = new PagerParams((nextLimit != null) ? nextLimit : limit);
     if (continueToken != null) {
-      params.setContinue(continueToken);
+      params.continueToken = continueToken;
     }
     return listFunc.apply(params);
   }
 
   /** executes the list call and sets the continue variable for next list call */
-  private <ApiType> ApiListType executeRequest(Call call)
+  private ApiListType executeRequest(Call call)
       throws IOException, ApiException, ObjectMetaReflectException {
     ApiListType data = client.handleResponse(call.execute(), listType);
     V1ListMeta listMetaData = Reflect.listMetadata(data);
     continueToken = listMetaData.getContinue();
     return data;
+  }
+
+  public static class PagerParams {
+    private Integer limit;
+    private String continueToken;
+
+    public PagerParams(Integer limit) {
+      this.limit = limit;
+    }
+
+    public PagerParams(Integer limit, String continueToken) {
+      this.limit = limit;
+      this.continueToken = continueToken;
+    }
+
+    public Integer getLimit() {
+      return limit;
+    }
+
+    public String getContinueToken() {
+      return continueToken;
+    }
   }
 }

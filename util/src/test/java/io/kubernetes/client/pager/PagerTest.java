@@ -39,8 +39,10 @@ import org.junit.Test;
 public class PagerTest {
 
   private ApiClient client;
-  private static final String LIST_FILE_PATH =
-      Resources.getResource("namespace-list.json").getPath();
+  private static final String LIST_PAGE1_FILE_PATH =
+      Resources.getResource("namespace-list-pager1.json").getPath();
+  private static final String LIST_PAGE2_FILE_PATH =
+      Resources.getResource("namespace-list-pager2.json").getPath();
   private static final String LIST_STATUS_FILE_PATH =
       Resources.getResource("status-400.json").getPath();
   private static final String STATUS_BAD_TOKEN_FILE_PATH =
@@ -55,7 +57,8 @@ public class PagerTest {
 
   @Test
   public void testPaginationForNamespaceListWithSuccess() throws IOException {
-    String namespaceListStr = new String(Files.readAllBytes(Paths.get(LIST_FILE_PATH)));
+    String namespaceListPage1Str = new String(Files.readAllBytes(Paths.get(LIST_PAGE1_FILE_PATH)));
+    String namespaceListPage2Str = new String(Files.readAllBytes(Paths.get(LIST_PAGE2_FILE_PATH)));
     CoreV1Api api = new CoreV1Api(client);
 
     stubFor(
@@ -65,15 +68,25 @@ public class PagerTest {
                 aResponse()
                     .withStatus(200)
                     .withHeader("Content-Type", "application/json")
-                    .withBody(namespaceListStr)));
-    Pager pager =
+                    .withBody(namespaceListPage1Str)));
+    stubFor(
+        get(urlPathEqualTo("/api/v1/namespaces"))
+            .withQueryParam("limit", equalTo("1"))
+            .withQueryParam("continue", equalTo("c1"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withHeader("Content-Type", "application/json")
+                    .withBody(namespaceListPage2Str)));
+
+    Pager<V1Namespace, V1NamespaceList> pager =
         new Pager<V1Namespace, V1NamespaceList>(
-            (PagerParams param) -> {
+            (Pager.PagerParams param) -> {
               try {
                 return api.listNamespaceCall(
                     null,
                     null,
-                    param.getContinue(),
+                    param.getContinueToken(),
                     null,
                     null,
                     param.getLimit(),
@@ -89,16 +102,16 @@ public class PagerTest {
             client,
             1,
             V1NamespaceList.class);
-    while (pager.hasNext()) {
-      V1NamespaceList list = (V1NamespaceList) pager.next();
-      List<V1Namespace> items = list.getItems();
-      assertEquals(1, items.size());
-      for (V1Namespace namespace : items) {
-        assertEquals("default", namespace.getMetadata().getName());
-      }
+
+    int size = 0;
+    for (V1Namespace namespace : pager) {
+      assertEquals("default", namespace.getMetadata().getName());
+      size++;
     }
+    assertEquals(2, size);
 
     verify(
+        2,
         getRequestedFor(urlPathEqualTo("/api/v1/namespaces"))
             .withQueryParam("limit", equalTo("1")));
   }
@@ -118,12 +131,12 @@ public class PagerTest {
                     .withBody(status400Str)));
     Pager pager =
         new Pager<V1Namespace, V1NamespaceList>(
-            (PagerParams param) -> {
+            (Pager.PagerParams param) -> {
               try {
                 return api.listNamespaceCall(
                     null,
                     null,
-                    param.getContinue(),
+                    param.getContinueToken(),
                     null,
                     null,
                     param.getLimit(),
@@ -163,7 +176,7 @@ public class PagerTest {
 
     stubFor(
         get(urlPathEqualTo("/api/v1/namespaces"))
-            .withQueryParam("fieldSelector", equalTo("metadata.nam=default"))
+            .withQueryParam("fieldSelector", equalTo("metadata.name=default"))
             .withQueryParam("limit", equalTo("1"))
             .willReturn(
                 aResponse()
@@ -172,13 +185,13 @@ public class PagerTest {
                     .withBody(status400Str)));
     Pager pager =
         new Pager<V1Namespace, V1NamespaceList>(
-            (PagerParams param) -> {
+            (Pager.PagerParams param) -> {
               try {
                 return api.listNamespaceCall(
                     null,
                     null,
-                    param.getContinue(),
-                    "metadata.nam=default",
+                    param.getContinueToken(),
+                    "metadata.name=default",
                     null,
                     param.getLimit(),
                     null,
@@ -207,7 +220,7 @@ public class PagerTest {
     }
     verify(
         getRequestedFor(urlPathEqualTo("/api/v1/namespaces"))
-            .withQueryParam("fieldSelector", equalTo("metadata.nam=default"))
+            .withQueryParam("fieldSelector", equalTo("metadata.name=default"))
             .withQueryParam("limit", equalTo("1")));
   }
 }
