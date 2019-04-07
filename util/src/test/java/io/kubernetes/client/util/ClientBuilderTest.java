@@ -12,6 +12,7 @@ limitations under the License.
  */
 package io.kubernetes.client.util;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
@@ -20,6 +21,7 @@ import static org.mockito.Mockito.verify;
 
 import com.google.common.io.Resources;
 import io.kubernetes.client.ApiClient;
+import io.kubernetes.client.ApiException;
 import io.kubernetes.client.util.credentials.Authentication;
 import java.io.File;
 import java.io.IOException;
@@ -160,6 +162,14 @@ public class ClientBuilderTest {
     final ApiClient client =
         new ClientBuilder()
             .setCertificateAuthority(Files.readAllBytes(Paths.get(INVALID_SSL_CA_CERT_PATH)))
+            .build();
+  }
+
+  @Test
+  public void testOverridePatchFormat() throws IOException, ApiException {
+    final ApiClient client =
+        new ClientBuilder()
+            .setOverridePatchFormat(ApiClient.PATCH_FORMAT_STRATEGIC_MERGE_PATCH)
             .build();
   }
 }

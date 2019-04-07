@@ -73,6 +73,10 @@ public class ApiClient {
 
     private HttpLoggingInterceptor loggingInterceptor;
 
+    public static final String PATCH_FORMAT_JSON_PATCH = "application/json-patch+json";
+    public static final String PATCH_FORMAT_JSON_MERGE_PATCH = "application/merge-patch+json";
+    public static final String PATCH_FORMAT_STRATEGIC_MERGE_PATCH = "application/strategic-merge-patch+json";
+
     /*
      * Constructor for ApiClient
      */
