@@ -1,4 +1,3 @@
-/** Alipay.com Inc. Copyright (c) 2004-2019 All Rights Reserved. */
 package io.kubernetes.client.util;
 
 import com.google.common.base.Strings;
