@@ -19,7 +19,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.verify;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.google.common.io.Resources;
@@ -31,7 +31,10 @@ import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -56,7 +59,7 @@ public class PagerTest {
   }
 
   @Test
-  public void testPaginationForNamespaceListWithSuccess() throws IOException {
+  public void testPaginationForNamespaceListWithSuccessThreadSafely() throws IOException {
     String namespaceListPage1Str = new String(Files.readAllBytes(Paths.get(LIST_PAGE1_FILE_PATH)));
     String namespaceListPage2Str = new String(Files.readAllBytes(Paths.get(LIST_PAGE2_FILE_PATH)));
     CoreV1Api api = new CoreV1Api(client);
@@ -78,6 +81,10 @@ public class PagerTest {
                     .withStatus(200)
                     .withHeader("Content-Type", "application/json")
                     .withBody(namespaceListPage2Str)));
+
+    int threads = 10;
+    CountDownLatch latch = new CountDownLatch(threads);
+    ExecutorService service = Executors.newFixedThreadPool(threads);
 
     Pager<V1Namespace, V1NamespaceList> pager =
         new Pager<V1Namespace, V1NamespaceList>(
@@ -103,15 +110,27 @@ public class PagerTest {
             1,
             V1NamespaceList.class);
 
-    int size = 0;
-    for (V1Namespace namespace : pager) {
-      assertEquals("default", namespace.getMetadata().getName());
-      size++;
+    for (int i = 0; i < threads; i++) {
+      service.submit(
+          () -> {
+            int size = 0;
+            for (V1Namespace namespace : pager) {
+              assertEquals("default", namespace.getMetadata().getName());
+              size++;
+            }
+            assertEquals(2, size);
+            latch.countDown();
+          });
     }
-    assertEquals(2, size);
+
+    try {
+      latch.await(5, TimeUnit.SECONDS);
+    } catch (InterruptedException e) {
+      fail("timed out waiting for pager finished");
+    }
 
     verify(
-        2,
+        2 * threads,
         getRequestedFor(urlPathEqualTo("/api/v1/namespaces"))
             .withQueryParam("limit", equalTo("1")));
   }
@@ -129,7 +148,7 @@ public class PagerTest {
                     .withStatus(400)
                     .withHeader("Content-Type", "application/json")
                     .withBody(status400Str)));
-    Pager pager =
+    Pager<V1Namespace, V1NamespaceList> pager =
         new Pager<V1Namespace, V1NamespaceList>(
             (Pager.PagerParams param) -> {
               try {
@@ -152,18 +171,16 @@ public class PagerTest {
             client,
             1,
             V1NamespaceList.class);
-    while (pager.hasNext()) {
-      try {
-        V1NamespaceList list = (V1NamespaceList) pager.next();
-        List<V1Namespace> items = list.getItems();
-        assertEquals(1, items.size());
-        for (V1Namespace namespace : items) {
-          assertEquals("default", namespace.getMetadata().getName());
-        }
-      } catch (Exception e) {
-        assertEquals(status400Str, e.getMessage());
+    int count = 0;
+    try {
+      for (V1Namespace namespace : pager) {
+        assertEquals("default", namespace.getMetadata().getName());
+        count++;
       }
+    } catch (Exception e) {
+      assertEquals(status400Str, e.getMessage());
     }
+
     verify(
         getRequestedFor(urlPathEqualTo("/api/v1/namespaces"))
             .withQueryParam("limit", equalTo("1")));
@@ -183,7 +200,7 @@ public class PagerTest {
                     .withStatus(400)
                     .withHeader("Content-Type", "application/json")
                     .withBody(status400Str)));
-    Pager pager =
+    Pager<V1Namespace, V1NamespaceList> pager =
         new Pager<V1Namespace, V1NamespaceList>(
             (Pager.PagerParams param) -> {
               try {
@@ -206,18 +223,16 @@ public class PagerTest {
             client,
             1,
             V1NamespaceList.class);
-    while (pager.hasNext()) {
-      try {
-        V1NamespaceList list = (V1NamespaceList) pager.next();
-        List<V1Namespace> items = list.getItems();
-        assertEquals(1, items.size());
-        for (V1Namespace namespace : items) {
-          assertEquals("default", namespace.getMetadata().getName());
-        }
-      } catch (Exception e) {
-        assertEquals(status400Str, e.getMessage());
+    int count = 0;
+    try {
+      for (V1Namespace namespace : pager) {
+        count++;
+        assertEquals("default", namespace.getMetadata().getName());
       }
+    } catch (Exception e) {
+      assertEquals(status400Str, e.getMessage());
     }
+
     verify(
         getRequestedFor(urlPathEqualTo("/api/v1/namespaces"))
             .withQueryParam("fieldSelector", equalTo("metadata.name=default"))
