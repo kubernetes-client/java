@@ -1,3 +1,19 @@
+# 4.0.0-alpha1
+Changes since 3.0.0
+Changes since 4.0.0-beta1
+* Fix DateTime string generation. (#500)
+* Update proto buff files for 1.13.0 (#498)
+* Improve auth tests, fix a bug in credential parsing (#465)
+* NPE System.getenv(ENV_HOME) returns null on Windows (#455)
+* Fix serialization of null quantities  (#442)
+* Fix Quantity serialization
+* Add merge in ProtoClient
+* Invoke async callback on unexpected exceptions
+* Update to 1.12 generated code. Fix a few compile errors w/ the new code.
+
+*Note*
+This library includes an update to the generated Kubernetes code which may contain breaking API changes.
+
 # 3.0.0
 Changes Since 2.0.0
 
@@ -17,6 +33,9 @@ Changes Since 2.0.0
 * Support refresh for Azure Active Directory tokens.
 * Regenerate client for Kubernetes 1.11
 
+*Note*
+This library includes an update to the generated Kubernetes code which may contain breaking API changes.
+
 # 2.0.0
 
 Changes since 1.0.0:
@@ -28,6 +47,9 @@ Changes since 1.0.0:
 * Close the response body in the case of error. #281
 * Add a warning and an exception if a watch is created with debugging enabled. #280
 * Update to 1.10 API.
+
+*Note*
+This library includes an update to the generated Kubernetes code which may contain breaking API changes.
 
 # 1.0.0
 * Fix a bug with HTML escaping byte arrays (#240)
