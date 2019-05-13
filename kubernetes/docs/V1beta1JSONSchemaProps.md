@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **minimum** | **Double** |  |  [optional]
 **multipleOf** | **Double** |  |  [optional]
 **not** | [**V1beta1JSONSchemaProps**](V1beta1JSONSchemaProps.md) |  |  [optional]
+**nullable** | **Boolean** |  |  [optional]
 **oneOf** | [**List&lt;V1beta1JSONSchemaProps&gt;**](V1beta1JSONSchemaProps.md) |  |  [optional]
 **pattern** | **String** |  |  [optional]
 **patternProperties** | [**Map&lt;String, V1beta1JSONSchemaProps&gt;**](V1beta1JSONSchemaProps.md) |  |  [optional]

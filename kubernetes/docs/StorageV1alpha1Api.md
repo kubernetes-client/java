@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 <a name="createVolumeAttachment"></a>
 # **createVolumeAttachment**
-> V1alpha1VolumeAttachment createVolumeAttachment(body, includeUninitialized, pretty, dryRun)
+> V1alpha1VolumeAttachment createVolumeAttachment(body, pretty, dryRun, fieldManager)
 
 
 
@@ -41,11 +41,11 @@ BearerToken.setApiKey("YOUR API KEY");
 
 StorageV1alpha1Api apiInstance = new StorageV1alpha1Api();
 V1alpha1VolumeAttachment body = new V1alpha1VolumeAttachment(); // V1alpha1VolumeAttachment | 
-Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
 try {
-    V1alpha1VolumeAttachment result = apiInstance.createVolumeAttachment(body, includeUninitialized, pretty, dryRun);
+    V1alpha1VolumeAttachment result = apiInstance.createVolumeAttachment(body, pretty, dryRun, fieldManager);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageV1alpha1Api#createVolumeAttachment");
@@ -58,9 +58,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**V1alpha1VolumeAttachment**](V1alpha1VolumeAttachment.md)|  |
- **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
 
 ### Return type
 
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCollectionVolumeAttachment"></a>
 # **deleteCollectionVolumeAttachment**
-> V1Status deleteCollectionVolumeAttachment(includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
+> V1Status deleteCollectionVolumeAttachment(pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -101,7 +101,6 @@ BearerToken.setApiKey("YOUR API KEY");
 //BearerToken.setApiKeyPrefix("Token");
 
 StorageV1alpha1Api apiInstance = new StorageV1alpha1Api();
-Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -111,7 +110,7 @@ String resourceVersion = "resourceVersion_example"; // String | When specified w
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1Status result = apiInstance.deleteCollectionVolumeAttachment(includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
+    V1Status result = apiInstance.deleteCollectionVolumeAttachment(pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageV1alpha1Api#deleteCollectionVolumeAttachment");
@@ -123,7 +122,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
@@ -266,7 +264,7 @@ This endpoint does not need any parameter.
 
 <a name="listVolumeAttachment"></a>
 # **listVolumeAttachment**
-> V1alpha1VolumeAttachmentList listVolumeAttachment(includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
+> V1alpha1VolumeAttachmentList listVolumeAttachment(pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -290,7 +288,6 @@ BearerToken.setApiKey("YOUR API KEY");
 //BearerToken.setApiKeyPrefix("Token");
 
 StorageV1alpha1Api apiInstance = new StorageV1alpha1Api();
-Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -300,7 +297,7 @@ String resourceVersion = "resourceVersion_example"; // String | When specified w
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1alpha1VolumeAttachmentList result = apiInstance.listVolumeAttachment(includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
+    V1alpha1VolumeAttachmentList result = apiInstance.listVolumeAttachment(pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageV1alpha1Api#listVolumeAttachment");
@@ -312,7 +309,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
@@ -337,7 +333,7 @@ Name | Type | Description  | Notes
 
 <a name="patchVolumeAttachment"></a>
 # **patchVolumeAttachment**
-> V1alpha1VolumeAttachment patchVolumeAttachment(name, body, pretty, dryRun)
+> V1alpha1VolumeAttachment patchVolumeAttachment(name, body, pretty, dryRun, fieldManager, force)
 
 
 
@@ -365,8 +361,10 @@ String name = "name_example"; // String | name of the VolumeAttachment
 Object body = null; // Object | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+Boolean force = true; // Boolean | Force is going to \"force\" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
 try {
-    V1alpha1VolumeAttachment result = apiInstance.patchVolumeAttachment(name, body, pretty, dryRun);
+    V1alpha1VolumeAttachment result = apiInstance.patchVolumeAttachment(name, body, pretty, dryRun, fieldManager, force);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageV1alpha1Api#patchVolumeAttachment");
@@ -382,6 +380,8 @@ Name | Type | Description  | Notes
  **body** | **Object**|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
+ **force** | **Boolean**| Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. | [optional]
 
 ### Return type
 
@@ -424,8 +424,8 @@ BearerToken.setApiKey("YOUR API KEY");
 StorageV1alpha1Api apiInstance = new StorageV1alpha1Api();
 String name = "name_example"; // String | name of the VolumeAttachment
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
-Boolean exact = true; // Boolean | Should the export be exact.  Exact export maintains cluster-specific fields like 'Namespace'.
-Boolean export = true; // Boolean | Should this value be exported.  Export strips fields that a user can not specify.
+Boolean exact = true; // Boolean | Should the export be exact.  Exact export maintains cluster-specific fields like 'Namespace'. Deprecated. Planned for removal in 1.18.
+Boolean export = true; // Boolean | Should this value be exported.  Export strips fields that a user can not specify. Deprecated. Planned for removal in 1.18.
 try {
     V1alpha1VolumeAttachment result = apiInstance.readVolumeAttachment(name, pretty, exact, export);
     System.out.println(result);
@@ -441,8 +441,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the VolumeAttachment |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **exact** | **Boolean**| Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. | [optional]
- **export** | **Boolean**| Should this value be exported.  Export strips fields that a user can not specify. | [optional]
+ **exact** | **Boolean**| Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. | [optional]
+ **export** | **Boolean**| Should this value be exported.  Export strips fields that a user can not specify. Deprecated. Planned for removal in 1.18. | [optional]
 
 ### Return type
 
@@ -459,7 +459,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceVolumeAttachment"></a>
 # **replaceVolumeAttachment**
-> V1alpha1VolumeAttachment replaceVolumeAttachment(name, body, pretty, dryRun)
+> V1alpha1VolumeAttachment replaceVolumeAttachment(name, body, pretty, dryRun, fieldManager)
 
 
 
@@ -487,8 +487,9 @@ String name = "name_example"; // String | name of the VolumeAttachment
 V1alpha1VolumeAttachment body = new V1alpha1VolumeAttachment(); // V1alpha1VolumeAttachment | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
 try {
-    V1alpha1VolumeAttachment result = apiInstance.replaceVolumeAttachment(name, body, pretty, dryRun);
+    V1alpha1VolumeAttachment result = apiInstance.replaceVolumeAttachment(name, body, pretty, dryRun, fieldManager);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageV1alpha1Api#replaceVolumeAttachment");
@@ -504,6 +505,7 @@ Name | Type | Description  | Notes
  **body** | [**V1alpha1VolumeAttachment**](V1alpha1VolumeAttachment.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
 
 ### Return type
 

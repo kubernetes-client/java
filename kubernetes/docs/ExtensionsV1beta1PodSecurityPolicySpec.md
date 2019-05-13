@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **allowPrivilegeEscalation** | **Boolean** | allowPrivilegeEscalation determines if a pod can request to allow privilege escalation. If unspecified, defaults to true. |  [optional]
+**allowedCSIDrivers** | [**List&lt;ExtensionsV1beta1AllowedCSIDriver&gt;**](ExtensionsV1beta1AllowedCSIDriver.md) | AllowedCSIDrivers is a whitelist of inline CSI drivers that must be explicitly set to be embedded within a pod spec. An empty value means no CSI drivers can run inline within a pod spec. |  [optional]
 **allowedCapabilities** | **List&lt;String&gt;** | allowedCapabilities is a list of capabilities that can be requested to add to the container. Capabilities in this field may be added at the pod author&#39;s discretion. You must not list a capability in both allowedCapabilities and requiredDropCapabilities. |  [optional]
 **allowedFlexVolumes** | [**List&lt;ExtensionsV1beta1AllowedFlexVolume&gt;**](ExtensionsV1beta1AllowedFlexVolume.md) | allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes is allowed in the \&quot;volumes\&quot; field. |  [optional]
 **allowedHostPaths** | [**List&lt;ExtensionsV1beta1AllowedHostPath&gt;**](ExtensionsV1beta1AllowedHostPath.md) | allowedHostPaths is a white list of allowed host paths. Empty indicates that all host paths may be used. |  [optional]

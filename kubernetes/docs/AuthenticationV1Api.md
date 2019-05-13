@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="createTokenReview"></a>
 # **createTokenReview**
-> V1TokenReview createTokenReview(body, dryRun, includeUninitialized, pretty)
+> V1TokenReview createTokenReview(body, dryRun, fieldManager, pretty)
 
 
 
@@ -36,10 +36,10 @@ BearerToken.setApiKey("YOUR API KEY");
 AuthenticationV1Api apiInstance = new AuthenticationV1Api();
 V1TokenReview body = new V1TokenReview(); // V1TokenReview | 
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
-Boolean includeUninitialized = true; // Boolean | If IncludeUninitialized is specified, the object may be returned without completing initialization.
+String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 try {
-    V1TokenReview result = apiInstance.createTokenReview(body, dryRun, includeUninitialized, pretty);
+    V1TokenReview result = apiInstance.createTokenReview(body, dryRun, fieldManager, pretty);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AuthenticationV1Api#createTokenReview");
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**V1TokenReview**](V1TokenReview.md)|  |
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
- **includeUninitialized** | **Boolean**| If IncludeUninitialized is specified, the object may be returned without completing initialization. | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
 
 ### Return type

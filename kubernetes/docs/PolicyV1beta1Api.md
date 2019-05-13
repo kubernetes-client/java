@@ -27,7 +27,7 @@ Method | HTTP request | Description
 
 <a name="createNamespacedPodDisruptionBudget"></a>
 # **createNamespacedPodDisruptionBudget**
-> V1beta1PodDisruptionBudget createNamespacedPodDisruptionBudget(namespace, body, includeUninitialized, pretty, dryRun)
+> V1beta1PodDisruptionBudget createNamespacedPodDisruptionBudget(namespace, body, pretty, dryRun, fieldManager)
 
 
 
@@ -53,11 +53,11 @@ BearerToken.setApiKey("YOUR API KEY");
 PolicyV1beta1Api apiInstance = new PolicyV1beta1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 V1beta1PodDisruptionBudget body = new V1beta1PodDisruptionBudget(); // V1beta1PodDisruptionBudget | 
-Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
 try {
-    V1beta1PodDisruptionBudget result = apiInstance.createNamespacedPodDisruptionBudget(namespace, body, includeUninitialized, pretty, dryRun);
+    V1beta1PodDisruptionBudget result = apiInstance.createNamespacedPodDisruptionBudget(namespace, body, pretty, dryRun, fieldManager);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PolicyV1beta1Api#createNamespacedPodDisruptionBudget");
@@ -71,9 +71,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **body** | [**V1beta1PodDisruptionBudget**](V1beta1PodDisruptionBudget.md)|  |
- **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
 
 ### Return type
 
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 <a name="createPodSecurityPolicy"></a>
 # **createPodSecurityPolicy**
-> PolicyV1beta1PodSecurityPolicy createPodSecurityPolicy(body, includeUninitialized, pretty, dryRun)
+> PolicyV1beta1PodSecurityPolicy createPodSecurityPolicy(body, pretty, dryRun, fieldManager)
 
 
 
@@ -115,11 +115,11 @@ BearerToken.setApiKey("YOUR API KEY");
 
 PolicyV1beta1Api apiInstance = new PolicyV1beta1Api();
 PolicyV1beta1PodSecurityPolicy body = new PolicyV1beta1PodSecurityPolicy(); // PolicyV1beta1PodSecurityPolicy | 
-Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
 try {
-    PolicyV1beta1PodSecurityPolicy result = apiInstance.createPodSecurityPolicy(body, includeUninitialized, pretty, dryRun);
+    PolicyV1beta1PodSecurityPolicy result = apiInstance.createPodSecurityPolicy(body, pretty, dryRun, fieldManager);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PolicyV1beta1Api#createPodSecurityPolicy");
@@ -132,9 +132,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**PolicyV1beta1PodSecurityPolicy**](PolicyV1beta1PodSecurityPolicy.md)|  |
- **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
 
 ### Return type
 
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCollectionNamespacedPodDisruptionBudget"></a>
 # **deleteCollectionNamespacedPodDisruptionBudget**
-> V1Status deleteCollectionNamespacedPodDisruptionBudget(namespace, includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
+> V1Status deleteCollectionNamespacedPodDisruptionBudget(namespace, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -176,7 +176,6 @@ BearerToken.setApiKey("YOUR API KEY");
 
 PolicyV1beta1Api apiInstance = new PolicyV1beta1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -186,7 +185,7 @@ String resourceVersion = "resourceVersion_example"; // String | When specified w
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1Status result = apiInstance.deleteCollectionNamespacedPodDisruptionBudget(namespace, includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
+    V1Status result = apiInstance.deleteCollectionNamespacedPodDisruptionBudget(namespace, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PolicyV1beta1Api#deleteCollectionNamespacedPodDisruptionBudget");
@@ -199,7 +198,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
@@ -224,7 +222,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCollectionPodSecurityPolicy"></a>
 # **deleteCollectionPodSecurityPolicy**
-> V1Status deleteCollectionPodSecurityPolicy(includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
+> V1Status deleteCollectionPodSecurityPolicy(pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -248,7 +246,6 @@ BearerToken.setApiKey("YOUR API KEY");
 //BearerToken.setApiKeyPrefix("Token");
 
 PolicyV1beta1Api apiInstance = new PolicyV1beta1Api();
-Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -258,7 +255,7 @@ String resourceVersion = "resourceVersion_example"; // String | When specified w
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1Status result = apiInstance.deleteCollectionPodSecurityPolicy(includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
+    V1Status result = apiInstance.deleteCollectionPodSecurityPolicy(pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PolicyV1beta1Api#deleteCollectionPodSecurityPolicy");
@@ -270,7 +267,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
@@ -482,7 +478,7 @@ This endpoint does not need any parameter.
 
 <a name="listNamespacedPodDisruptionBudget"></a>
 # **listNamespacedPodDisruptionBudget**
-> V1beta1PodDisruptionBudgetList listNamespacedPodDisruptionBudget(namespace, includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
+> V1beta1PodDisruptionBudgetList listNamespacedPodDisruptionBudget(namespace, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -507,7 +503,6 @@ BearerToken.setApiKey("YOUR API KEY");
 
 PolicyV1beta1Api apiInstance = new PolicyV1beta1Api();
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -517,7 +512,7 @@ String resourceVersion = "resourceVersion_example"; // String | When specified w
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1beta1PodDisruptionBudgetList result = apiInstance.listNamespacedPodDisruptionBudget(namespace, includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
+    V1beta1PodDisruptionBudgetList result = apiInstance.listNamespacedPodDisruptionBudget(namespace, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PolicyV1beta1Api#listNamespacedPodDisruptionBudget");
@@ -530,7 +525,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
@@ -555,7 +549,7 @@ Name | Type | Description  | Notes
 
 <a name="listPodDisruptionBudgetForAllNamespaces"></a>
 # **listPodDisruptionBudgetForAllNamespaces**
-> V1beta1PodDisruptionBudgetList listPodDisruptionBudgetForAllNamespaces(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch)
+> V1beta1PodDisruptionBudgetList listPodDisruptionBudgetForAllNamespaces(_continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -581,7 +575,6 @@ BearerToken.setApiKey("YOUR API KEY");
 PolicyV1beta1Api apiInstance = new PolicyV1beta1Api();
 String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
 Integer limit = 56; // Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
@@ -589,7 +582,7 @@ String resourceVersion = "resourceVersion_example"; // String | When specified w
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    V1beta1PodDisruptionBudgetList result = apiInstance.listPodDisruptionBudgetForAllNamespaces(_continue, fieldSelector, includeUninitialized, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch);
+    V1beta1PodDisruptionBudgetList result = apiInstance.listPodDisruptionBudgetForAllNamespaces(_continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PolicyV1beta1Api#listPodDisruptionBudgetForAllNamespaces");
@@ -603,7 +596,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
- **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
@@ -626,7 +618,7 @@ Name | Type | Description  | Notes
 
 <a name="listPodSecurityPolicy"></a>
 # **listPodSecurityPolicy**
-> PolicyV1beta1PodSecurityPolicyList listPodSecurityPolicy(includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
+> PolicyV1beta1PodSecurityPolicyList listPodSecurityPolicy(pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -650,7 +642,6 @@ BearerToken.setApiKey("YOUR API KEY");
 //BearerToken.setApiKeyPrefix("Token");
 
 PolicyV1beta1Api apiInstance = new PolicyV1beta1Api();
-Boolean includeUninitialized = true; // Boolean | If true, partially initialized resources are included in the response.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
 String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -660,7 +651,7 @@ String resourceVersion = "resourceVersion_example"; // String | When specified w
 Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
 Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 try {
-    PolicyV1beta1PodSecurityPolicyList result = apiInstance.listPodSecurityPolicy(includeUninitialized, pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
+    PolicyV1beta1PodSecurityPolicyList result = apiInstance.listPodSecurityPolicy(pretty, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PolicyV1beta1Api#listPodSecurityPolicy");
@@ -672,7 +663,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **includeUninitialized** | **Boolean**| If true, partially initialized resources are included in the response. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
@@ -697,7 +687,7 @@ Name | Type | Description  | Notes
 
 <a name="patchNamespacedPodDisruptionBudget"></a>
 # **patchNamespacedPodDisruptionBudget**
-> V1beta1PodDisruptionBudget patchNamespacedPodDisruptionBudget(name, namespace, body, pretty, dryRun)
+> V1beta1PodDisruptionBudget patchNamespacedPodDisruptionBudget(name, namespace, body, pretty, dryRun, fieldManager, force)
 
 
 
@@ -726,8 +716,10 @@ String namespace = "namespace_example"; // String | object name and auth scope, 
 Object body = null; // Object | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+Boolean force = true; // Boolean | Force is going to \"force\" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
 try {
-    V1beta1PodDisruptionBudget result = apiInstance.patchNamespacedPodDisruptionBudget(name, namespace, body, pretty, dryRun);
+    V1beta1PodDisruptionBudget result = apiInstance.patchNamespacedPodDisruptionBudget(name, namespace, body, pretty, dryRun, fieldManager, force);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PolicyV1beta1Api#patchNamespacedPodDisruptionBudget");
@@ -744,6 +736,8 @@ Name | Type | Description  | Notes
  **body** | **Object**|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
+ **force** | **Boolean**| Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. | [optional]
 
 ### Return type
 
@@ -760,7 +754,7 @@ Name | Type | Description  | Notes
 
 <a name="patchNamespacedPodDisruptionBudgetStatus"></a>
 # **patchNamespacedPodDisruptionBudgetStatus**
-> V1beta1PodDisruptionBudget patchNamespacedPodDisruptionBudgetStatus(name, namespace, body, pretty, dryRun)
+> V1beta1PodDisruptionBudget patchNamespacedPodDisruptionBudgetStatus(name, namespace, body, pretty, dryRun, fieldManager, force)
 
 
 
@@ -789,8 +783,10 @@ String namespace = "namespace_example"; // String | object name and auth scope, 
 Object body = null; // Object | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+Boolean force = true; // Boolean | Force is going to \"force\" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
 try {
-    V1beta1PodDisruptionBudget result = apiInstance.patchNamespacedPodDisruptionBudgetStatus(name, namespace, body, pretty, dryRun);
+    V1beta1PodDisruptionBudget result = apiInstance.patchNamespacedPodDisruptionBudgetStatus(name, namespace, body, pretty, dryRun, fieldManager, force);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PolicyV1beta1Api#patchNamespacedPodDisruptionBudgetStatus");
@@ -807,6 +803,8 @@ Name | Type | Description  | Notes
  **body** | **Object**|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
+ **force** | **Boolean**| Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. | [optional]
 
 ### Return type
 
@@ -823,7 +821,7 @@ Name | Type | Description  | Notes
 
 <a name="patchPodSecurityPolicy"></a>
 # **patchPodSecurityPolicy**
-> PolicyV1beta1PodSecurityPolicy patchPodSecurityPolicy(name, body, pretty, dryRun)
+> PolicyV1beta1PodSecurityPolicy patchPodSecurityPolicy(name, body, pretty, dryRun, fieldManager, force)
 
 
 
@@ -851,8 +849,10 @@ String name = "name_example"; // String | name of the PodSecurityPolicy
 Object body = null; // Object | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+Boolean force = true; // Boolean | Force is going to \"force\" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
 try {
-    PolicyV1beta1PodSecurityPolicy result = apiInstance.patchPodSecurityPolicy(name, body, pretty, dryRun);
+    PolicyV1beta1PodSecurityPolicy result = apiInstance.patchPodSecurityPolicy(name, body, pretty, dryRun, fieldManager, force);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PolicyV1beta1Api#patchPodSecurityPolicy");
@@ -868,6 +868,8 @@ Name | Type | Description  | Notes
  **body** | **Object**|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
+ **force** | **Boolean**| Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. | [optional]
 
 ### Return type
 
@@ -911,8 +913,8 @@ PolicyV1beta1Api apiInstance = new PolicyV1beta1Api();
 String name = "name_example"; // String | name of the PodDisruptionBudget
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
-Boolean exact = true; // Boolean | Should the export be exact.  Exact export maintains cluster-specific fields like 'Namespace'.
-Boolean export = true; // Boolean | Should this value be exported.  Export strips fields that a user can not specify.
+Boolean exact = true; // Boolean | Should the export be exact.  Exact export maintains cluster-specific fields like 'Namespace'. Deprecated. Planned for removal in 1.18.
+Boolean export = true; // Boolean | Should this value be exported.  Export strips fields that a user can not specify. Deprecated. Planned for removal in 1.18.
 try {
     V1beta1PodDisruptionBudget result = apiInstance.readNamespacedPodDisruptionBudget(name, namespace, pretty, exact, export);
     System.out.println(result);
@@ -929,8 +931,8 @@ Name | Type | Description  | Notes
  **name** | **String**| name of the PodDisruptionBudget |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **exact** | **Boolean**| Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. | [optional]
- **export** | **Boolean**| Should this value be exported.  Export strips fields that a user can not specify. | [optional]
+ **exact** | **Boolean**| Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. | [optional]
+ **export** | **Boolean**| Should this value be exported.  Export strips fields that a user can not specify. Deprecated. Planned for removal in 1.18. | [optional]
 
 ### Return type
 
@@ -1032,8 +1034,8 @@ BearerToken.setApiKey("YOUR API KEY");
 PolicyV1beta1Api apiInstance = new PolicyV1beta1Api();
 String name = "name_example"; // String | name of the PodSecurityPolicy
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
-Boolean exact = true; // Boolean | Should the export be exact.  Exact export maintains cluster-specific fields like 'Namespace'.
-Boolean export = true; // Boolean | Should this value be exported.  Export strips fields that a user can not specify.
+Boolean exact = true; // Boolean | Should the export be exact.  Exact export maintains cluster-specific fields like 'Namespace'. Deprecated. Planned for removal in 1.18.
+Boolean export = true; // Boolean | Should this value be exported.  Export strips fields that a user can not specify. Deprecated. Planned for removal in 1.18.
 try {
     PolicyV1beta1PodSecurityPolicy result = apiInstance.readPodSecurityPolicy(name, pretty, exact, export);
     System.out.println(result);
@@ -1049,8 +1051,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the PodSecurityPolicy |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **exact** | **Boolean**| Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. | [optional]
- **export** | **Boolean**| Should this value be exported.  Export strips fields that a user can not specify. | [optional]
+ **exact** | **Boolean**| Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. | [optional]
+ **export** | **Boolean**| Should this value be exported.  Export strips fields that a user can not specify. Deprecated. Planned for removal in 1.18. | [optional]
 
 ### Return type
 
@@ -1067,7 +1069,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceNamespacedPodDisruptionBudget"></a>
 # **replaceNamespacedPodDisruptionBudget**
-> V1beta1PodDisruptionBudget replaceNamespacedPodDisruptionBudget(name, namespace, body, pretty, dryRun)
+> V1beta1PodDisruptionBudget replaceNamespacedPodDisruptionBudget(name, namespace, body, pretty, dryRun, fieldManager)
 
 
 
@@ -1096,8 +1098,9 @@ String namespace = "namespace_example"; // String | object name and auth scope, 
 V1beta1PodDisruptionBudget body = new V1beta1PodDisruptionBudget(); // V1beta1PodDisruptionBudget | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
 try {
-    V1beta1PodDisruptionBudget result = apiInstance.replaceNamespacedPodDisruptionBudget(name, namespace, body, pretty, dryRun);
+    V1beta1PodDisruptionBudget result = apiInstance.replaceNamespacedPodDisruptionBudget(name, namespace, body, pretty, dryRun, fieldManager);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PolicyV1beta1Api#replaceNamespacedPodDisruptionBudget");
@@ -1114,6 +1117,7 @@ Name | Type | Description  | Notes
  **body** | [**V1beta1PodDisruptionBudget**](V1beta1PodDisruptionBudget.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
 
 ### Return type
 
@@ -1130,7 +1134,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceNamespacedPodDisruptionBudgetStatus"></a>
 # **replaceNamespacedPodDisruptionBudgetStatus**
-> V1beta1PodDisruptionBudget replaceNamespacedPodDisruptionBudgetStatus(name, namespace, body, pretty, dryRun)
+> V1beta1PodDisruptionBudget replaceNamespacedPodDisruptionBudgetStatus(name, namespace, body, pretty, dryRun, fieldManager)
 
 
 
@@ -1159,8 +1163,9 @@ String namespace = "namespace_example"; // String | object name and auth scope, 
 V1beta1PodDisruptionBudget body = new V1beta1PodDisruptionBudget(); // V1beta1PodDisruptionBudget | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
 try {
-    V1beta1PodDisruptionBudget result = apiInstance.replaceNamespacedPodDisruptionBudgetStatus(name, namespace, body, pretty, dryRun);
+    V1beta1PodDisruptionBudget result = apiInstance.replaceNamespacedPodDisruptionBudgetStatus(name, namespace, body, pretty, dryRun, fieldManager);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PolicyV1beta1Api#replaceNamespacedPodDisruptionBudgetStatus");
@@ -1177,6 +1182,7 @@ Name | Type | Description  | Notes
  **body** | [**V1beta1PodDisruptionBudget**](V1beta1PodDisruptionBudget.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
 
 ### Return type
 
@@ -1193,7 +1199,7 @@ Name | Type | Description  | Notes
 
 <a name="replacePodSecurityPolicy"></a>
 # **replacePodSecurityPolicy**
-> PolicyV1beta1PodSecurityPolicy replacePodSecurityPolicy(name, body, pretty, dryRun)
+> PolicyV1beta1PodSecurityPolicy replacePodSecurityPolicy(name, body, pretty, dryRun, fieldManager)
 
 
 
@@ -1221,8 +1227,9 @@ String name = "name_example"; // String | name of the PodSecurityPolicy
 PolicyV1beta1PodSecurityPolicy body = new PolicyV1beta1PodSecurityPolicy(); // PolicyV1beta1PodSecurityPolicy | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
 try {
-    PolicyV1beta1PodSecurityPolicy result = apiInstance.replacePodSecurityPolicy(name, body, pretty, dryRun);
+    PolicyV1beta1PodSecurityPolicy result = apiInstance.replacePodSecurityPolicy(name, body, pretty, dryRun, fieldManager);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PolicyV1beta1Api#replacePodSecurityPolicy");
@@ -1238,6 +1245,7 @@ Name | Type | Description  | Notes
  **body** | [**PolicyV1beta1PodSecurityPolicy**](PolicyV1beta1PodSecurityPolicy.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
 
 ### Return type
 
