@@ -36,7 +36,7 @@ public class Lister<ApiType> {
 
   public ApiType get(String name) {
     String key = name;
-    if (Strings.isNullOrEmpty(namespace)) {
+    if (!Strings.isNullOrEmpty(namespace)) {
       key = namespace + "/" + name;
     }
     return indexer.getByKey(key);
