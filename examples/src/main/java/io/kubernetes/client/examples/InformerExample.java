@@ -11,11 +11,20 @@ import io.kubernetes.client.models.V1NodeList;
 import io.kubernetes.client.models.V1ObjectMeta;
 import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.Config;
+import java.util.concurrent.TimeUnit;
 
+/**
+ * A simple example of how to use the Java API
+ *
+ * <p>Easiest way to run this: mvn exec:java
+ * -Dexec.mainClass="io.kubernetes.client.examples.InformerExample"
+ *
+ * <p>From inside $REPO_DIR/examples
+ */
 public class InformerExample {
   public static void main(String[] args) throws Exception {
-
     ApiClient client = Config.defaultClient();
+    client.getHttpClient().setReadTimeout(60, TimeUnit.SECONDS);
     Configuration.setDefaultApiClient(client);
 
     SharedInformerFactory factory = new SharedInformerFactory();
@@ -72,7 +81,6 @@ public class InformerExample {
     V1ObjectMeta metadata = new V1ObjectMeta();
     metadata.setName("noxu");
     nodeToCreate.setMetadata(metadata);
-    String s = coreV1Api.getApiClient().getJSON().serialize(nodeToCreate);
     V1Node createdNode = coreV1Api.createNode(nodeToCreate, null, null, null);
     Thread.sleep(3000);
 
