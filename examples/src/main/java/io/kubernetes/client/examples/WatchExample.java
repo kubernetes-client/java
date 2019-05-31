@@ -27,7 +27,7 @@ import java.util.concurrent.TimeUnit;
 public class WatchExample {
   public static void main(String[] args) throws IOException, ApiException {
     ApiClient client = Config.defaultClient();
-    client.getHttpClient().setReadTimeout(60, TimeUnit.SECONDS);
+    client.getHttpClient().setReadTimeout(0, TimeUnit.SECONDS); // infinite timeout
     Configuration.setDefaultApiClient(client);
 
     CoreV1Api api = new CoreV1Api();
