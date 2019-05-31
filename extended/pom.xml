@@ -9,7 +9,7 @@
     <parent>
         <artifactId>client-java-parent</artifactId>
         <groupId>io.kubernetes</groupId>
-        <version>5.0.0</version>
+        <version>6.0.0-beta1-SNAPSHOT</version>
     </parent>
 
     <dependencies>
