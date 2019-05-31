@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 public class InformerExample {
   public static void main(String[] args) throws Exception {
     ApiClient client = Config.defaultClient();
-    client.getHttpClient().setReadTimeout(60, TimeUnit.SECONDS);
+    client.getHttpClient().setReadTimeout(0, TimeUnit.SECONDS); // infinite timeout
     Configuration.setDefaultApiClient(client);
 
     SharedInformerFactory factory = new SharedInformerFactory();
