@@ -96,12 +96,20 @@ public class Controller<ApiType, ApiListType> {
       log.info("informer#Controller: resync skipped due to 0 full resync period");
     }
 
-    // TODO(yue9944882): proper naming for reflector
-    reflector = new ReflectorRunnable<ApiType, ApiListType>(apiTypeClass, listerWatcher, queue);
-
-    reflectorFuture =
-        reflectExecutor.scheduleWithFixedDelay(
-            reflector::run, 0L, DEFAULT_PERIOD, TimeUnit.MILLISECONDS);
+    synchronized (this) {
+      // TODO(yue9944882): proper naming for reflector
+      reflector = new ReflectorRunnable<ApiType, ApiListType>(apiTypeClass, listerWatcher, queue);
+      try {
+        reflectorFuture =
+            reflectExecutor.scheduleWithFixedDelay(
+                reflector::run, 0L, DEFAULT_PERIOD, TimeUnit.MILLISECONDS);
+      } catch (RejectedExecutionException e) {
+        // submitting reflector list-watching job can fail due to concurrent invocation of
+        // `shutdown`. handling exception with a warning then return.
+        log.warn("reflector list-watching job exiting because the thread-pool is shutting down");
+        return;
+      }
+    }
 
     // start the process loop
     this.processLoop();
@@ -109,15 +117,13 @@ public class Controller<ApiType, ApiListType> {
 
   /** stops the resync thread pool firstly, then stop the reflector */
   public void stop() {
-
-    reflector.stop();
-    reflectorFuture.cancel(true);
-    reflectExecutor.shutdown();
-
-    if (resyncFuture != null) {
-      resyncFuture.cancel(true);
-      resyncExecutor.shutdown();
+    synchronized (this) {
+      if (reflectorFuture != null) {
+        reflector.stop();
+        reflectorFuture.cancel(true);
+      }
     }
+    reflectExecutor.shutdown();
   }
 
   /** returns true if the queue has been resycned */
