@@ -103,7 +103,7 @@ public class ExpandedExample {
   public static List<String> getAllNameSpaces() throws ApiException {
     V1NamespaceList listNamespace =
         COREV1_API.listNamespace(
-            null, "true", null, null, null, 0, null, Integer.MAX_VALUE, Boolean.FALSE);
+            "true", null, null, null, 0, null, Integer.MAX_VALUE, Boolean.FALSE);
     List<String> list =
         listNamespace
             .getItems()
@@ -121,7 +121,7 @@ public class ExpandedExample {
    */
   public static List<String> getPods() throws ApiException {
     V1PodList v1podList =
-        COREV1_API.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null);
+        COREV1_API.listPodForAllNamespaces(null, null, null, null, null, null, null, null);
     List<String> podList =
         v1podList
             .getItems()
@@ -167,7 +167,6 @@ public class ExpandedExample {
             null,
             null,
             null,
-            null,
             label,
             Integer.MAX_VALUE,
             null,
@@ -196,7 +195,6 @@ public class ExpandedExample {
             null,
             null,
             null,
-            null,
             Integer.MAX_VALUE,
             null,
             TIME_OUT_VALUE,
@@ -221,7 +219,7 @@ public class ExpandedExample {
     extensionV1Api.setApiClient(COREV1_API.getApiClient());
     ExtensionsV1beta1DeploymentList listNamespacedDeployment =
         extensionV1Api.listNamespacedDeployment(
-            DEFAULT_NAME_SPACE, null, null, null, null, null, null, null, null, Boolean.FALSE);
+            DEFAULT_NAME_SPACE, null, null, null, null, null, null, null, Boolean.FALSE);
 
     List<ExtensionsV1beta1Deployment> extensionsV1beta1DeploymentItems =
         listNamespacedDeployment.getItems();
@@ -238,7 +236,7 @@ public class ExpandedExample {
             ExtensionsV1beta1DeploymentSpec newSpec = deploy.getSpec().replicas(numberOfReplicas);
             ExtensionsV1beta1Deployment newDeploy = deploy.spec(newSpec);
             extensionV1Api.replaceNamespacedDeployment(
-                deploymentName, DEFAULT_NAME_SPACE, newDeploy, null, null);
+                deploymentName, DEFAULT_NAME_SPACE, newDeploy, null, null, null);
           } catch (ApiException ex) {
             LOGGER.warn("Scale the pod failed for Deployment:" + deploymentName, ex);
           }

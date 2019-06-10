@@ -92,7 +92,6 @@ public class PagerTest {
               try {
                 return api.listNamespaceCall(
                     null,
-                    null,
                     param.getContinueToken(),
                     null,
                     null,
@@ -154,7 +153,6 @@ public class PagerTest {
               try {
                 return api.listNamespaceCall(
                     null,
-                    null,
                     param.getContinueToken(),
                     null,
                     null,
@@ -205,7 +203,6 @@ public class PagerTest {
             (Pager.PagerParams param) -> {
               try {
                 return api.listNamespaceCall(
-                    null,
                     null,
                     param.getContinueToken(),
                     "metadata.name=default",

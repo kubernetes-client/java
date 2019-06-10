@@ -44,7 +44,6 @@ public class PagerExample {
               try {
                 return api.listNamespaceCall(
                     null,
-                    null,
                     param.getContinueToken(),
                     null,
                     null,

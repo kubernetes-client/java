@@ -89,7 +89,6 @@ public class DefaultSharedIndexInformerTest {
                     null,
                     null,
                     null,
-                    null,
                     params.resourceVersion,
                     params.timeoutSeconds,
                     params.watch,
@@ -185,7 +184,6 @@ public class DefaultSharedIndexInformerTest {
                     null,
                     null,
                     null,
-                    null,
                     params.resourceVersion,
                     params.timeoutSeconds,
                     params.watch,
@@ -272,7 +270,6 @@ public class DefaultSharedIndexInformerTest {
                     null,
                     null,
                     null,
-                    null,
                     params.resourceVersion,
                     params.timeoutSeconds,
                     params.watch,
@@ -329,7 +326,6 @@ public class DefaultSharedIndexInformerTest {
               try {
                 return coreV1Api.listNamespacedPodCall(
                     namespace,
-                    null,
                     null,
                     null,
                     null,
