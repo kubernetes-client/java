@@ -12,26 +12,27 @@ limitations under the License.
 */
 package io.kubernetes.client.examples;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
 import io.kubernetes.client.Configuration;
 import io.kubernetes.client.apis.ExtensionsV1beta1Api;
+import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.models.ExtensionsV1beta1Deployment;
 import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * A simple Example of how to use the Java API.<br>
- * This example demonstrates patching of deployment using Json Patch.<br>
- * For generating Json Patches, refer <a href="http://jsonpatch.com/">http://jsonpatch.com</a>.
+ * This example demonstrates patching of deployment using Json Patch and Strategic Merge Patch.<br>
+ * For generating Json Patches, refer <a href="http://jsonpatch.com/">http://jsonpatch.com</a>. For
+ * generating Strategic Merge Patches, refer <a
+ * href="https://github.com/kubernetes/community/blob/master/contributors/devel/sig-api-machinery/strategic-merge-patch.md">strategic-merge-patch.md</a>.
  *
  * <ul>
- *   <li>Creates deployment hello-node with <b>terminationGracePeriodSeconds</b> value as 30.
- *   <li>Patches deployment hello-node with <b>terminationGracePeriodSeconds</b> value as 27.
+ *   <li>Creates deployment hello-node with <b>terminationGracePeriodSeconds</b> value as 30 and a
+ *       finalizer.
+ *   <li>Json-Patches deployment hello-node with <b>terminationGracePeriodSeconds</b> value as 27.
+ *   <li>Strategic-Merge-Patches deployment hello-node removing the finalizer.
  * </ul>
  *
  * <p>Easiest way to run this: mvn exec:java
@@ -41,46 +42,55 @@ import java.util.ArrayList;
  */
 public class PatchExample {
   static String jsonPatchStr =
-      "{\"op\":\"replace\",\"path\":\"/spec/template/spec/terminationGracePeriodSeconds\",\"value\":27}";
-  static String jsonDepStr =
-      "{\"kind\":\"Deployment\",\"apiVersion\":\"extensions/v1beta1\",\"metadata\":{\"name\":\"hello-node\",\"creationTimestamp\":null,\"labels\":{\"run\":\"hello-node\"}},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"run\":\"hello-node\"}},\"template\":{\"metadata\":{\"creationTimestamp\":null,\"labels\":{\"run\":\"hello-node\"}},\"spec\":{\"terminationGracePeriodSeconds\":30,\"containers\":[{\"name\":\"hello-node\",\"image\":\"hello-node:v1\",\"ports\":[{\"containerPort\":8080}],\"resources\":{}}]}},\"strategy\":{}},\"status\":{}}";
+      "[{\"op\":\"replace\",\"path\":\"/spec/template/spec/terminationGracePeriodSeconds\",\"value\":27}]";
+  static String strategicMergePatchStr =
+      "{\"metadata\":{\"$deleteFromPrimitiveList/finalizers\":[\"example.com/test\"]}}";
+  static String jsonDeploymentStr =
+      "{\"kind\":\"Deployment\",\"apiVersion\":\"extensions/v1beta1\",\"metadata\":{\"name\":\"hello-node\",\"finalizers\":[\"example.com/test\"],\"labels\":{\"run\":\"hello-node\"}},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"run\":\"hello-node\"}},\"template\":{\"metadata\":{\"creationTimestamp\":null,\"labels\":{\"run\":\"hello-node\"}},\"spec\":{\"terminationGracePeriodSeconds\":30,\"containers\":[{\"name\":\"hello-node\",\"image\":\"hello-node:v1\",\"ports\":[{\"containerPort\":8080}],\"resources\":{}}]}},\"strategy\":{}},\"status\":{}}";
 
-  public static void main(String[] args) throws IOException, ApiException {
-    PatchExample example = new PatchExample();
-    ApiClient client = ClientBuilder.defaultClient();
-    Configuration.setDefaultApiClient(client);
+  public static void main(String[] args) throws IOException {
+    try {
+      ExtensionsV1beta1Api api = new ExtensionsV1beta1Api(ClientBuilder.standard().build());
+      ExtensionsV1beta1Deployment body =
+          Configuration.getDefaultApiClient()
+              .getJSON()
+              .deserialize(jsonDeploymentStr, ExtensionsV1beta1Deployment.class);
 
-    ExtensionsV1beta1Deployment body =
-        (ExtensionsV1beta1Deployment)
-            example.deserialize(jsonDepStr, ExtensionsV1beta1Deployment.class);
-    ExtensionsV1beta1Deployment deploy1 = example.createDeployment("default", body, "false");
-    System.out.println("original deployment" + deploy1);
+      // create a deployment
+      ExtensionsV1beta1Deployment deploy1 =
+          api.createNamespacedDeployment("default", body, null, null, null);
+      System.out.println("original deployment" + deploy1);
 
-    ArrayList<JsonObject> arr = new ArrayList<>();
-    arr.add(((JsonElement) example.deserialize(jsonPatchStr, JsonElement.class)).getAsJsonObject());
-    ExtensionsV1beta1Deployment deploy2 =
-        example.PatchDeployment("hello-node", "default", arr, "false");
-    System.out.println("patched deployment" + deploy2);
-  }
+      // json-patch a deployment
+      ApiClient jsonPatchClient =
+          ClientBuilder.standard().setOverridePatchFormat(V1Patch.PATCH_FORMAT_JSON_PATCH).build();
+      ExtensionsV1beta1Deployment deploy2 =
+          new ExtensionsV1beta1Api(jsonPatchClient)
+              .patchNamespacedDeployment(
+                  "hello-node", "default", new V1Patch(jsonPatchStr), null, null, null, null);
+      System.out.println("json-patched deployment" + deploy2);
 
-  public ExtensionsV1beta1Deployment createDeployment(
-      String namespace, ExtensionsV1beta1Deployment body, String pretty) throws ApiException {
-    ExtensionsV1beta1Api api = new ExtensionsV1beta1Api();
-    ExtensionsV1beta1Deployment deploy =
-        api.createNamespacedDeployment(namespace, body, pretty, null, null);
-    return deploy;
-  }
+      // strategic-merge-patch a deployment
+      ApiClient strategicMergePatchClient =
+          ClientBuilder.standard()
+              .setOverridePatchFormat(V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH)
+              .build();
+      strategicMergePatchClient.setDebugging(true);
+      ExtensionsV1beta1Deployment deploy3 =
+          new ExtensionsV1beta1Api(strategicMergePatchClient)
+              .patchNamespacedDeployment(
+                  "hello-node",
+                  "default",
+                  new V1Patch(strategicMergePatchStr),
+                  null,
+                  null,
+                  null,
+                  null);
+      System.out.println("strategic-merge-patched deployment" + deploy3);
 
-  public ExtensionsV1beta1Deployment PatchDeployment(
-      String deployName, String namespace, Object body, String pretty) throws ApiException {
-    ExtensionsV1beta1Api api = new ExtensionsV1beta1Api();
-    ExtensionsV1beta1Deployment deploy =
-        api.patchNamespacedDeployment(deployName, namespace, body, pretty, null, null, null);
-    return deploy;
-  }
-
-  public Object deserialize(String jsonStr, Class<?> targetClass) {
-    Object obj = (new Gson()).fromJson(jsonStr, targetClass);
-    return obj;
+    } catch (ApiException e) {
+      System.out.println(e.getResponseBody());
+      e.printStackTrace();
+    }
   }
 }
