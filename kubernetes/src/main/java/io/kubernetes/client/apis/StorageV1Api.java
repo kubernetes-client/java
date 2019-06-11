@@ -29,6 +29,7 @@ import java.io.IOException;
 
 import io.kubernetes.client.models.V1APIResourceList;
 import io.kubernetes.client.models.V1DeleteOptions;
+import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.models.V1Status;
 import io.kubernetes.client.models.V1StorageClass;
 import io.kubernetes.client.models.V1StorageClassList;
@@ -1460,7 +1461,7 @@ public class StorageV1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call patchStorageClassCall(String name, Object body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call patchStorageClassCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -1511,7 +1512,7 @@ public class StorageV1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call patchStorageClassValidateBeforeCall(String name, Object body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call patchStorageClassValidateBeforeCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1545,7 +1546,7 @@ public class StorageV1Api {
      * @return V1StorageClass
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public V1StorageClass patchStorageClass(String name, Object body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
+    public V1StorageClass patchStorageClass(String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
         ApiResponse<V1StorageClass> resp = patchStorageClassWithHttpInfo(name, body, pretty, dryRun, fieldManager, force);
         return resp.getData();
     }
@@ -1562,7 +1563,7 @@ public class StorageV1Api {
      * @return ApiResponse&lt;V1StorageClass&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V1StorageClass> patchStorageClassWithHttpInfo(String name, Object body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
+    public ApiResponse<V1StorageClass> patchStorageClassWithHttpInfo(String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
         com.squareup.okhttp.Call call = patchStorageClassValidateBeforeCall(name, body, pretty, dryRun, fieldManager, force, null, null);
         Type localVarReturnType = new TypeToken<V1StorageClass>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1581,7 +1582,7 @@ public class StorageV1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call patchStorageClassAsync(String name, Object body, String pretty, String dryRun, String fieldManager, Boolean force, final ApiCallback<V1StorageClass> callback) throws ApiException {
+    public com.squareup.okhttp.Call patchStorageClassAsync(String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force, final ApiCallback<V1StorageClass> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1620,7 +1621,7 @@ public class StorageV1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call patchVolumeAttachmentCall(String name, Object body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call patchVolumeAttachmentCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -1671,7 +1672,7 @@ public class StorageV1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call patchVolumeAttachmentValidateBeforeCall(String name, Object body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call patchVolumeAttachmentValidateBeforeCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1705,7 +1706,7 @@ public class StorageV1Api {
      * @return V1VolumeAttachment
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public V1VolumeAttachment patchVolumeAttachment(String name, Object body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
+    public V1VolumeAttachment patchVolumeAttachment(String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
         ApiResponse<V1VolumeAttachment> resp = patchVolumeAttachmentWithHttpInfo(name, body, pretty, dryRun, fieldManager, force);
         return resp.getData();
     }
@@ -1722,7 +1723,7 @@ public class StorageV1Api {
      * @return ApiResponse&lt;V1VolumeAttachment&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V1VolumeAttachment> patchVolumeAttachmentWithHttpInfo(String name, Object body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
+    public ApiResponse<V1VolumeAttachment> patchVolumeAttachmentWithHttpInfo(String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
         com.squareup.okhttp.Call call = patchVolumeAttachmentValidateBeforeCall(name, body, pretty, dryRun, fieldManager, force, null, null);
         Type localVarReturnType = new TypeToken<V1VolumeAttachment>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1741,7 +1742,7 @@ public class StorageV1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call patchVolumeAttachmentAsync(String name, Object body, String pretty, String dryRun, String fieldManager, Boolean force, final ApiCallback<V1VolumeAttachment> callback) throws ApiException {
+    public com.squareup.okhttp.Call patchVolumeAttachmentAsync(String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force, final ApiCallback<V1VolumeAttachment> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1780,7 +1781,7 @@ public class StorageV1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call patchVolumeAttachmentStatusCall(String name, Object body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call patchVolumeAttachmentStatusCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -1831,7 +1832,7 @@ public class StorageV1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call patchVolumeAttachmentStatusValidateBeforeCall(String name, Object body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call patchVolumeAttachmentStatusValidateBeforeCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1865,7 +1866,7 @@ public class StorageV1Api {
      * @return V1VolumeAttachment
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public V1VolumeAttachment patchVolumeAttachmentStatus(String name, Object body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
+    public V1VolumeAttachment patchVolumeAttachmentStatus(String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
         ApiResponse<V1VolumeAttachment> resp = patchVolumeAttachmentStatusWithHttpInfo(name, body, pretty, dryRun, fieldManager, force);
         return resp.getData();
     }
@@ -1882,7 +1883,7 @@ public class StorageV1Api {
      * @return ApiResponse&lt;V1VolumeAttachment&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V1VolumeAttachment> patchVolumeAttachmentStatusWithHttpInfo(String name, Object body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
+    public ApiResponse<V1VolumeAttachment> patchVolumeAttachmentStatusWithHttpInfo(String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
         com.squareup.okhttp.Call call = patchVolumeAttachmentStatusValidateBeforeCall(name, body, pretty, dryRun, fieldManager, force, null, null);
         Type localVarReturnType = new TypeToken<V1VolumeAttachment>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1901,7 +1902,7 @@ public class StorageV1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call patchVolumeAttachmentStatusAsync(String name, Object body, String pretty, String dryRun, String fieldManager, Boolean force, final ApiCallback<V1VolumeAttachment> callback) throws ApiException {
+    public com.squareup.okhttp.Call patchVolumeAttachmentStatusAsync(String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force, final ApiCallback<V1VolumeAttachment> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

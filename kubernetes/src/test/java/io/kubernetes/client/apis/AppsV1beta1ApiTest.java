@@ -20,6 +20,7 @@ import io.kubernetes.client.models.AppsV1beta1DeploymentRollback;
 import io.kubernetes.client.models.AppsV1beta1Scale;
 import io.kubernetes.client.models.V1APIResourceList;
 import io.kubernetes.client.models.V1DeleteOptions;
+import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.models.V1Status;
 import io.kubernetes.client.models.V1beta1ControllerRevision;
 import io.kubernetes.client.models.V1beta1ControllerRevisionList;
@@ -432,7 +433,7 @@ public class AppsV1beta1ApiTest {
     public void patchNamespacedControllerRevisionTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -454,7 +455,7 @@ public class AppsV1beta1ApiTest {
     public void patchNamespacedDeploymentTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -476,7 +477,7 @@ public class AppsV1beta1ApiTest {
     public void patchNamespacedDeploymentScaleTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -498,7 +499,7 @@ public class AppsV1beta1ApiTest {
     public void patchNamespacedDeploymentStatusTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -520,7 +521,7 @@ public class AppsV1beta1ApiTest {
     public void patchNamespacedStatefulSetTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -542,7 +543,7 @@ public class AppsV1beta1ApiTest {
     public void patchNamespacedStatefulSetScaleTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -564,7 +565,7 @@ public class AppsV1beta1ApiTest {
     public void patchNamespacedStatefulSetStatusTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;

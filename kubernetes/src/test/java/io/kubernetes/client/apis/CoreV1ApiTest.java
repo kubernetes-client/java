@@ -31,6 +31,7 @@ import io.kubernetes.client.models.V1Namespace;
 import io.kubernetes.client.models.V1NamespaceList;
 import io.kubernetes.client.models.V1Node;
 import io.kubernetes.client.models.V1NodeList;
+import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.models.V1PersistentVolume;
 import io.kubernetes.client.models.V1PersistentVolumeClaim;
 import io.kubernetes.client.models.V1PersistentVolumeClaimList;
@@ -2651,7 +2652,7 @@ public class CoreV1ApiTest {
     @Test
     public void patchNamespaceTest() throws ApiException {
         String name = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -2672,7 +2673,7 @@ public class CoreV1ApiTest {
     @Test
     public void patchNamespaceStatusTest() throws ApiException {
         String name = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -2694,7 +2695,7 @@ public class CoreV1ApiTest {
     public void patchNamespacedConfigMapTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -2716,7 +2717,7 @@ public class CoreV1ApiTest {
     public void patchNamespacedEndpointsTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -2738,7 +2739,7 @@ public class CoreV1ApiTest {
     public void patchNamespacedEventTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -2760,7 +2761,7 @@ public class CoreV1ApiTest {
     public void patchNamespacedLimitRangeTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -2782,7 +2783,7 @@ public class CoreV1ApiTest {
     public void patchNamespacedPersistentVolumeClaimTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -2804,7 +2805,7 @@ public class CoreV1ApiTest {
     public void patchNamespacedPersistentVolumeClaimStatusTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -2826,7 +2827,7 @@ public class CoreV1ApiTest {
     public void patchNamespacedPodTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -2848,7 +2849,7 @@ public class CoreV1ApiTest {
     public void patchNamespacedPodStatusTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -2870,7 +2871,7 @@ public class CoreV1ApiTest {
     public void patchNamespacedPodTemplateTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -2892,7 +2893,7 @@ public class CoreV1ApiTest {
     public void patchNamespacedReplicationControllerTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -2914,7 +2915,7 @@ public class CoreV1ApiTest {
     public void patchNamespacedReplicationControllerScaleTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -2936,7 +2937,7 @@ public class CoreV1ApiTest {
     public void patchNamespacedReplicationControllerStatusTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -2958,7 +2959,7 @@ public class CoreV1ApiTest {
     public void patchNamespacedResourceQuotaTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -2980,7 +2981,7 @@ public class CoreV1ApiTest {
     public void patchNamespacedResourceQuotaStatusTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -3002,7 +3003,7 @@ public class CoreV1ApiTest {
     public void patchNamespacedSecretTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -3024,7 +3025,7 @@ public class CoreV1ApiTest {
     public void patchNamespacedServiceTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -3046,7 +3047,7 @@ public class CoreV1ApiTest {
     public void patchNamespacedServiceAccountTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -3068,7 +3069,7 @@ public class CoreV1ApiTest {
     public void patchNamespacedServiceStatusTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -3089,7 +3090,7 @@ public class CoreV1ApiTest {
     @Test
     public void patchNodeTest() throws ApiException {
         String name = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -3110,7 +3111,7 @@ public class CoreV1ApiTest {
     @Test
     public void patchNodeStatusTest() throws ApiException {
         String name = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -3131,7 +3132,7 @@ public class CoreV1ApiTest {
     @Test
     public void patchPersistentVolumeTest() throws ApiException {
         String name = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -3152,7 +3153,7 @@ public class CoreV1ApiTest {
     @Test
     public void patchPersistentVolumeStatusTest() throws ApiException {
         String name = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;

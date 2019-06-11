@@ -18,6 +18,7 @@ import io.kubernetes.client.models.NetworkingV1beta1Ingress;
 import io.kubernetes.client.models.NetworkingV1beta1IngressList;
 import io.kubernetes.client.models.V1APIResourceList;
 import io.kubernetes.client.models.V1DeleteOptions;
+import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.models.V1Status;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -177,7 +178,7 @@ public class NetworkingV1beta1ApiTest {
     public void patchNamespacedIngressTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -199,7 +200,7 @@ public class NetworkingV1beta1ApiTest {
     public void patchNamespacedIngressStatusTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;

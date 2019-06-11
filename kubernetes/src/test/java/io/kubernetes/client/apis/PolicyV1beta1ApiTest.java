@@ -18,6 +18,7 @@ import io.kubernetes.client.models.PolicyV1beta1PodSecurityPolicy;
 import io.kubernetes.client.models.PolicyV1beta1PodSecurityPolicyList;
 import io.kubernetes.client.models.V1APIResourceList;
 import io.kubernetes.client.models.V1DeleteOptions;
+import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.models.V1Status;
 import io.kubernetes.client.models.V1beta1PodDisruptionBudget;
 import io.kubernetes.client.models.V1beta1PodDisruptionBudgetList;
@@ -266,7 +267,7 @@ public class PolicyV1beta1ApiTest {
     public void patchNamespacedPodDisruptionBudgetTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -288,7 +289,7 @@ public class PolicyV1beta1ApiTest {
     public void patchNamespacedPodDisruptionBudgetStatusTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -309,7 +310,7 @@ public class PolicyV1beta1ApiTest {
     @Test
     public void patchPodSecurityPolicyTest() throws ApiException {
         String name = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;

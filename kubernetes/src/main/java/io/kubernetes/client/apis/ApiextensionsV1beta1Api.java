@@ -29,6 +29,7 @@ import java.io.IOException;
 
 import io.kubernetes.client.models.V1APIResourceList;
 import io.kubernetes.client.models.V1DeleteOptions;
+import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.models.V1Status;
 import io.kubernetes.client.models.V1beta1CustomResourceDefinition;
 import io.kubernetes.client.models.V1beta1CustomResourceDefinitionList;
@@ -823,7 +824,7 @@ public class ApiextensionsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call patchCustomResourceDefinitionCall(String name, Object body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call patchCustomResourceDefinitionCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -874,7 +875,7 @@ public class ApiextensionsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call patchCustomResourceDefinitionValidateBeforeCall(String name, Object body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call patchCustomResourceDefinitionValidateBeforeCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -908,7 +909,7 @@ public class ApiextensionsV1beta1Api {
      * @return V1beta1CustomResourceDefinition
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public V1beta1CustomResourceDefinition patchCustomResourceDefinition(String name, Object body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
+    public V1beta1CustomResourceDefinition patchCustomResourceDefinition(String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
         ApiResponse<V1beta1CustomResourceDefinition> resp = patchCustomResourceDefinitionWithHttpInfo(name, body, pretty, dryRun, fieldManager, force);
         return resp.getData();
     }
@@ -925,7 +926,7 @@ public class ApiextensionsV1beta1Api {
      * @return ApiResponse&lt;V1beta1CustomResourceDefinition&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V1beta1CustomResourceDefinition> patchCustomResourceDefinitionWithHttpInfo(String name, Object body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
+    public ApiResponse<V1beta1CustomResourceDefinition> patchCustomResourceDefinitionWithHttpInfo(String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
         com.squareup.okhttp.Call call = patchCustomResourceDefinitionValidateBeforeCall(name, body, pretty, dryRun, fieldManager, force, null, null);
         Type localVarReturnType = new TypeToken<V1beta1CustomResourceDefinition>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -944,7 +945,7 @@ public class ApiextensionsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call patchCustomResourceDefinitionAsync(String name, Object body, String pretty, String dryRun, String fieldManager, Boolean force, final ApiCallback<V1beta1CustomResourceDefinition> callback) throws ApiException {
+    public com.squareup.okhttp.Call patchCustomResourceDefinitionAsync(String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force, final ApiCallback<V1beta1CustomResourceDefinition> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -983,7 +984,7 @@ public class ApiextensionsV1beta1Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call patchCustomResourceDefinitionStatusCall(String name, Object body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call patchCustomResourceDefinitionStatusCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -1034,7 +1035,7 @@ public class ApiextensionsV1beta1Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call patchCustomResourceDefinitionStatusValidateBeforeCall(String name, Object body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call patchCustomResourceDefinitionStatusValidateBeforeCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1068,7 +1069,7 @@ public class ApiextensionsV1beta1Api {
      * @return V1beta1CustomResourceDefinition
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public V1beta1CustomResourceDefinition patchCustomResourceDefinitionStatus(String name, Object body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
+    public V1beta1CustomResourceDefinition patchCustomResourceDefinitionStatus(String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
         ApiResponse<V1beta1CustomResourceDefinition> resp = patchCustomResourceDefinitionStatusWithHttpInfo(name, body, pretty, dryRun, fieldManager, force);
         return resp.getData();
     }
@@ -1085,7 +1086,7 @@ public class ApiextensionsV1beta1Api {
      * @return ApiResponse&lt;V1beta1CustomResourceDefinition&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V1beta1CustomResourceDefinition> patchCustomResourceDefinitionStatusWithHttpInfo(String name, Object body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
+    public ApiResponse<V1beta1CustomResourceDefinition> patchCustomResourceDefinitionStatusWithHttpInfo(String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
         com.squareup.okhttp.Call call = patchCustomResourceDefinitionStatusValidateBeforeCall(name, body, pretty, dryRun, fieldManager, force, null, null);
         Type localVarReturnType = new TypeToken<V1beta1CustomResourceDefinition>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1104,7 +1105,7 @@ public class ApiextensionsV1beta1Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call patchCustomResourceDefinitionStatusAsync(String name, Object body, String pretty, String dryRun, String fieldManager, Boolean force, final ApiCallback<V1beta1CustomResourceDefinition> callback) throws ApiException {
+    public com.squareup.okhttp.Call patchCustomResourceDefinitionStatusAsync(String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force, final ApiCallback<V1beta1CustomResourceDefinition> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

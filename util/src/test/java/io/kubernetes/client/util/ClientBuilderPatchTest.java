@@ -19,6 +19,7 @@ import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.squareup.okhttp.Call;
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
+import io.kubernetes.client.custom.V1Patch;
 import java.io.IOException;
 import java.util.HashMap;
 import org.junit.Before;
@@ -38,7 +39,7 @@ public class ClientBuilderPatchTest {
     client =
         new ClientBuilder()
             .setBasePath("http://localhost:" + PORT)
-            .setOverridePatchFormat(ApiClient.PATCH_FORMAT_STRATEGIC_MERGE_PATCH)
+            .setOverridePatchFormat(V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH)
             .build();
   }
 
@@ -49,7 +50,7 @@ public class ClientBuilderPatchTest {
             .willReturn(
                 aResponse()
                     .withStatus(200)
-                    .withHeader("Content-Type", ApiClient.PATCH_FORMAT_STRATEGIC_MERGE_PATCH)
+                    .withHeader("Content-Type", V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH)
                     .withBody("{}")));
     Call call =
         client.buildCall(

@@ -29,6 +29,7 @@ import java.io.IOException;
 
 import io.kubernetes.client.models.V1APIResourceList;
 import io.kubernetes.client.models.V1DeleteOptions;
+import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.models.V1Status;
 import io.kubernetes.client.models.V2beta2HorizontalPodAutoscaler;
 import io.kubernetes.client.models.V2beta2HorizontalPodAutoscalerList;
@@ -1029,7 +1030,7 @@ public class AutoscalingV2beta2Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call patchNamespacedHorizontalPodAutoscalerCall(String name, String namespace, Object body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call patchNamespacedHorizontalPodAutoscalerCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -1081,7 +1082,7 @@ public class AutoscalingV2beta2Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call patchNamespacedHorizontalPodAutoscalerValidateBeforeCall(String name, String namespace, Object body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call patchNamespacedHorizontalPodAutoscalerValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1121,7 +1122,7 @@ public class AutoscalingV2beta2Api {
      * @return V2beta2HorizontalPodAutoscaler
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public V2beta2HorizontalPodAutoscaler patchNamespacedHorizontalPodAutoscaler(String name, String namespace, Object body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
+    public V2beta2HorizontalPodAutoscaler patchNamespacedHorizontalPodAutoscaler(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
         ApiResponse<V2beta2HorizontalPodAutoscaler> resp = patchNamespacedHorizontalPodAutoscalerWithHttpInfo(name, namespace, body, pretty, dryRun, fieldManager, force);
         return resp.getData();
     }
@@ -1139,7 +1140,7 @@ public class AutoscalingV2beta2Api {
      * @return ApiResponse&lt;V2beta2HorizontalPodAutoscaler&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V2beta2HorizontalPodAutoscaler> patchNamespacedHorizontalPodAutoscalerWithHttpInfo(String name, String namespace, Object body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
+    public ApiResponse<V2beta2HorizontalPodAutoscaler> patchNamespacedHorizontalPodAutoscalerWithHttpInfo(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
         com.squareup.okhttp.Call call = patchNamespacedHorizontalPodAutoscalerValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, force, null, null);
         Type localVarReturnType = new TypeToken<V2beta2HorizontalPodAutoscaler>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1159,7 +1160,7 @@ public class AutoscalingV2beta2Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call patchNamespacedHorizontalPodAutoscalerAsync(String name, String namespace, Object body, String pretty, String dryRun, String fieldManager, Boolean force, final ApiCallback<V2beta2HorizontalPodAutoscaler> callback) throws ApiException {
+    public com.squareup.okhttp.Call patchNamespacedHorizontalPodAutoscalerAsync(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force, final ApiCallback<V2beta2HorizontalPodAutoscaler> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1199,7 +1200,7 @@ public class AutoscalingV2beta2Api {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call patchNamespacedHorizontalPodAutoscalerStatusCall(String name, String namespace, Object body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call patchNamespacedHorizontalPodAutoscalerStatusCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -1251,7 +1252,7 @@ public class AutoscalingV2beta2Api {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call patchNamespacedHorizontalPodAutoscalerStatusValidateBeforeCall(String name, String namespace, Object body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call patchNamespacedHorizontalPodAutoscalerStatusValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -1291,7 +1292,7 @@ public class AutoscalingV2beta2Api {
      * @return V2beta2HorizontalPodAutoscaler
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public V2beta2HorizontalPodAutoscaler patchNamespacedHorizontalPodAutoscalerStatus(String name, String namespace, Object body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
+    public V2beta2HorizontalPodAutoscaler patchNamespacedHorizontalPodAutoscalerStatus(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
         ApiResponse<V2beta2HorizontalPodAutoscaler> resp = patchNamespacedHorizontalPodAutoscalerStatusWithHttpInfo(name, namespace, body, pretty, dryRun, fieldManager, force);
         return resp.getData();
     }
@@ -1309,7 +1310,7 @@ public class AutoscalingV2beta2Api {
      * @return ApiResponse&lt;V2beta2HorizontalPodAutoscaler&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V2beta2HorizontalPodAutoscaler> patchNamespacedHorizontalPodAutoscalerStatusWithHttpInfo(String name, String namespace, Object body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
+    public ApiResponse<V2beta2HorizontalPodAutoscaler> patchNamespacedHorizontalPodAutoscalerStatusWithHttpInfo(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force) throws ApiException {
         com.squareup.okhttp.Call call = patchNamespacedHorizontalPodAutoscalerStatusValidateBeforeCall(name, namespace, body, pretty, dryRun, fieldManager, force, null, null);
         Type localVarReturnType = new TypeToken<V2beta2HorizontalPodAutoscaler>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1329,7 +1330,7 @@ public class AutoscalingV2beta2Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call patchNamespacedHorizontalPodAutoscalerStatusAsync(String name, String namespace, Object body, String pretty, String dryRun, String fieldManager, Boolean force, final ApiCallback<V2beta2HorizontalPodAutoscaler> callback) throws ApiException {
+    public com.squareup.okhttp.Call patchNamespacedHorizontalPodAutoscalerStatusAsync(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force, final ApiCallback<V2beta2HorizontalPodAutoscaler> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

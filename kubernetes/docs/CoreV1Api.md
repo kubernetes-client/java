@@ -8200,7 +8200,7 @@ BearerToken.setApiKey("YOUR API KEY");
 
 CoreV1Api apiInstance = new CoreV1Api();
 String name = "name_example"; // String | name of the Namespace
-Object body = null; // Object | 
+V1Patch body = new V1Patch(); // V1Patch | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
@@ -8219,7 +8219,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the Namespace |
- **body** | **Object**|  |
+ **body** | [**V1Patch**](V1Patch.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
@@ -8265,7 +8265,7 @@ BearerToken.setApiKey("YOUR API KEY");
 
 CoreV1Api apiInstance = new CoreV1Api();
 String name = "name_example"; // String | name of the Namespace
-Object body = null; // Object | 
+V1Patch body = new V1Patch(); // V1Patch | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
@@ -8284,7 +8284,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the Namespace |
- **body** | **Object**|  |
+ **body** | [**V1Patch**](V1Patch.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
@@ -8331,7 +8331,7 @@ BearerToken.setApiKey("YOUR API KEY");
 CoreV1Api apiInstance = new CoreV1Api();
 String name = "name_example"; // String | name of the ConfigMap
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-Object body = null; // Object | 
+V1Patch body = new V1Patch(); // V1Patch | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
@@ -8351,7 +8351,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the ConfigMap |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | **Object**|  |
+ **body** | [**V1Patch**](V1Patch.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
@@ -8398,7 +8398,7 @@ BearerToken.setApiKey("YOUR API KEY");
 CoreV1Api apiInstance = new CoreV1Api();
 String name = "name_example"; // String | name of the Endpoints
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-Object body = null; // Object | 
+V1Patch body = new V1Patch(); // V1Patch | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
@@ -8418,7 +8418,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the Endpoints |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | **Object**|  |
+ **body** | [**V1Patch**](V1Patch.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
@@ -8465,7 +8465,7 @@ BearerToken.setApiKey("YOUR API KEY");
 CoreV1Api apiInstance = new CoreV1Api();
 String name = "name_example"; // String | name of the Event
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-Object body = null; // Object | 
+V1Patch body = new V1Patch(); // V1Patch | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
@@ -8485,7 +8485,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the Event |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | **Object**|  |
+ **body** | [**V1Patch**](V1Patch.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
@@ -8532,7 +8532,7 @@ BearerToken.setApiKey("YOUR API KEY");
 CoreV1Api apiInstance = new CoreV1Api();
 String name = "name_example"; // String | name of the LimitRange
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-Object body = null; // Object | 
+V1Patch body = new V1Patch(); // V1Patch | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
@@ -8552,7 +8552,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the LimitRange |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | **Object**|  |
+ **body** | [**V1Patch**](V1Patch.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
@@ -8599,7 +8599,7 @@ BearerToken.setApiKey("YOUR API KEY");
 CoreV1Api apiInstance = new CoreV1Api();
 String name = "name_example"; // String | name of the PersistentVolumeClaim
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-Object body = null; // Object | 
+V1Patch body = new V1Patch(); // V1Patch | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
@@ -8619,7 +8619,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the PersistentVolumeClaim |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | **Object**|  |
+ **body** | [**V1Patch**](V1Patch.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
@@ -8666,7 +8666,7 @@ BearerToken.setApiKey("YOUR API KEY");
 CoreV1Api apiInstance = new CoreV1Api();
 String name = "name_example"; // String | name of the PersistentVolumeClaim
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-Object body = null; // Object | 
+V1Patch body = new V1Patch(); // V1Patch | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
@@ -8686,7 +8686,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the PersistentVolumeClaim |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | **Object**|  |
+ **body** | [**V1Patch**](V1Patch.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
@@ -8733,7 +8733,7 @@ BearerToken.setApiKey("YOUR API KEY");
 CoreV1Api apiInstance = new CoreV1Api();
 String name = "name_example"; // String | name of the Pod
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-Object body = null; // Object | 
+V1Patch body = new V1Patch(); // V1Patch | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
@@ -8753,7 +8753,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the Pod |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | **Object**|  |
+ **body** | [**V1Patch**](V1Patch.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
@@ -8800,7 +8800,7 @@ BearerToken.setApiKey("YOUR API KEY");
 CoreV1Api apiInstance = new CoreV1Api();
 String name = "name_example"; // String | name of the Pod
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-Object body = null; // Object | 
+V1Patch body = new V1Patch(); // V1Patch | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
@@ -8820,7 +8820,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the Pod |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | **Object**|  |
+ **body** | [**V1Patch**](V1Patch.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
@@ -8867,7 +8867,7 @@ BearerToken.setApiKey("YOUR API KEY");
 CoreV1Api apiInstance = new CoreV1Api();
 String name = "name_example"; // String | name of the PodTemplate
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-Object body = null; // Object | 
+V1Patch body = new V1Patch(); // V1Patch | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
@@ -8887,7 +8887,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the PodTemplate |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | **Object**|  |
+ **body** | [**V1Patch**](V1Patch.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
@@ -8934,7 +8934,7 @@ BearerToken.setApiKey("YOUR API KEY");
 CoreV1Api apiInstance = new CoreV1Api();
 String name = "name_example"; // String | name of the ReplicationController
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-Object body = null; // Object | 
+V1Patch body = new V1Patch(); // V1Patch | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
@@ -8954,7 +8954,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the ReplicationController |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | **Object**|  |
+ **body** | [**V1Patch**](V1Patch.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
@@ -9001,7 +9001,7 @@ BearerToken.setApiKey("YOUR API KEY");
 CoreV1Api apiInstance = new CoreV1Api();
 String name = "name_example"; // String | name of the Scale
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-Object body = null; // Object | 
+V1Patch body = new V1Patch(); // V1Patch | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
@@ -9021,7 +9021,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the Scale |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | **Object**|  |
+ **body** | [**V1Patch**](V1Patch.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
@@ -9068,7 +9068,7 @@ BearerToken.setApiKey("YOUR API KEY");
 CoreV1Api apiInstance = new CoreV1Api();
 String name = "name_example"; // String | name of the ReplicationController
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-Object body = null; // Object | 
+V1Patch body = new V1Patch(); // V1Patch | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
@@ -9088,7 +9088,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the ReplicationController |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | **Object**|  |
+ **body** | [**V1Patch**](V1Patch.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
@@ -9135,7 +9135,7 @@ BearerToken.setApiKey("YOUR API KEY");
 CoreV1Api apiInstance = new CoreV1Api();
 String name = "name_example"; // String | name of the ResourceQuota
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-Object body = null; // Object | 
+V1Patch body = new V1Patch(); // V1Patch | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
@@ -9155,7 +9155,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the ResourceQuota |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | **Object**|  |
+ **body** | [**V1Patch**](V1Patch.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
@@ -9202,7 +9202,7 @@ BearerToken.setApiKey("YOUR API KEY");
 CoreV1Api apiInstance = new CoreV1Api();
 String name = "name_example"; // String | name of the ResourceQuota
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-Object body = null; // Object | 
+V1Patch body = new V1Patch(); // V1Patch | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
@@ -9222,7 +9222,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the ResourceQuota |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | **Object**|  |
+ **body** | [**V1Patch**](V1Patch.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
@@ -9269,7 +9269,7 @@ BearerToken.setApiKey("YOUR API KEY");
 CoreV1Api apiInstance = new CoreV1Api();
 String name = "name_example"; // String | name of the Secret
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-Object body = null; // Object | 
+V1Patch body = new V1Patch(); // V1Patch | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
@@ -9289,7 +9289,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the Secret |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | **Object**|  |
+ **body** | [**V1Patch**](V1Patch.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
@@ -9336,7 +9336,7 @@ BearerToken.setApiKey("YOUR API KEY");
 CoreV1Api apiInstance = new CoreV1Api();
 String name = "name_example"; // String | name of the Service
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-Object body = null; // Object | 
+V1Patch body = new V1Patch(); // V1Patch | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
@@ -9356,7 +9356,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the Service |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | **Object**|  |
+ **body** | [**V1Patch**](V1Patch.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
@@ -9403,7 +9403,7 @@ BearerToken.setApiKey("YOUR API KEY");
 CoreV1Api apiInstance = new CoreV1Api();
 String name = "name_example"; // String | name of the ServiceAccount
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-Object body = null; // Object | 
+V1Patch body = new V1Patch(); // V1Patch | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
@@ -9423,7 +9423,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the ServiceAccount |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | **Object**|  |
+ **body** | [**V1Patch**](V1Patch.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
@@ -9470,7 +9470,7 @@ BearerToken.setApiKey("YOUR API KEY");
 CoreV1Api apiInstance = new CoreV1Api();
 String name = "name_example"; // String | name of the Service
 String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-Object body = null; // Object | 
+V1Patch body = new V1Patch(); // V1Patch | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
@@ -9490,7 +9490,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the Service |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | **Object**|  |
+ **body** | [**V1Patch**](V1Patch.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
@@ -9536,7 +9536,7 @@ BearerToken.setApiKey("YOUR API KEY");
 
 CoreV1Api apiInstance = new CoreV1Api();
 String name = "name_example"; // String | name of the Node
-Object body = null; // Object | 
+V1Patch body = new V1Patch(); // V1Patch | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
@@ -9555,7 +9555,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the Node |
- **body** | **Object**|  |
+ **body** | [**V1Patch**](V1Patch.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
@@ -9601,7 +9601,7 @@ BearerToken.setApiKey("YOUR API KEY");
 
 CoreV1Api apiInstance = new CoreV1Api();
 String name = "name_example"; // String | name of the Node
-Object body = null; // Object | 
+V1Patch body = new V1Patch(); // V1Patch | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
@@ -9620,7 +9620,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the Node |
- **body** | **Object**|  |
+ **body** | [**V1Patch**](V1Patch.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
@@ -9666,7 +9666,7 @@ BearerToken.setApiKey("YOUR API KEY");
 
 CoreV1Api apiInstance = new CoreV1Api();
 String name = "name_example"; // String | name of the PersistentVolume
-Object body = null; // Object | 
+V1Patch body = new V1Patch(); // V1Patch | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
@@ -9685,7 +9685,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the PersistentVolume |
- **body** | **Object**|  |
+ **body** | [**V1Patch**](V1Patch.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
@@ -9731,7 +9731,7 @@ BearerToken.setApiKey("YOUR API KEY");
 
 CoreV1Api apiInstance = new CoreV1Api();
 String name = "name_example"; // String | name of the PersistentVolume
-Object body = null; // Object | 
+V1Patch body = new V1Patch(); // V1Patch | 
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
 String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
@@ -9750,7 +9750,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the PersistentVolume |
- **body** | **Object**|  |
+ **body** | [**V1Patch**](V1Patch.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]

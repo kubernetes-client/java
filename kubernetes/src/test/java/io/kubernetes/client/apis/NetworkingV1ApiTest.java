@@ -18,6 +18,7 @@ import io.kubernetes.client.models.V1APIResourceList;
 import io.kubernetes.client.models.V1DeleteOptions;
 import io.kubernetes.client.models.V1NetworkPolicy;
 import io.kubernetes.client.models.V1NetworkPolicyList;
+import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.models.V1Status;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -177,7 +178,7 @@ public class NetworkingV1ApiTest {
     public void patchNamespacedNetworkPolicyTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
