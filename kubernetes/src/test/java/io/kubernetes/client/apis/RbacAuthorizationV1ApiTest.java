@@ -20,6 +20,7 @@ import io.kubernetes.client.models.V1ClusterRoleBinding;
 import io.kubernetes.client.models.V1ClusterRoleBindingList;
 import io.kubernetes.client.models.V1ClusterRoleList;
 import io.kubernetes.client.models.V1DeleteOptions;
+import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.models.V1Role;
 import io.kubernetes.client.models.V1RoleBinding;
 import io.kubernetes.client.models.V1RoleBindingList;
@@ -470,7 +471,7 @@ public class RbacAuthorizationV1ApiTest {
     @Test
     public void patchClusterRoleTest() throws ApiException {
         String name = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -491,7 +492,7 @@ public class RbacAuthorizationV1ApiTest {
     @Test
     public void patchClusterRoleBindingTest() throws ApiException {
         String name = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -513,7 +514,7 @@ public class RbacAuthorizationV1ApiTest {
     public void patchNamespacedRoleTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -535,7 +536,7 @@ public class RbacAuthorizationV1ApiTest {
     public void patchNamespacedRoleBindingTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;

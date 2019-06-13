@@ -16,6 +16,7 @@ package io.kubernetes.client.apis;
 import io.kubernetes.client.ApiException;
 import io.kubernetes.client.models.V1APIResourceList;
 import io.kubernetes.client.models.V1DeleteOptions;
+import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.models.V1Status;
 import io.kubernetes.client.models.V1beta1PriorityClass;
 import io.kubernetes.client.models.V1beta1PriorityClassList;
@@ -149,7 +150,7 @@ public class SchedulingV1beta1ApiTest {
     @Test
     public void patchPriorityClassTest() throws ApiException {
         String name = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;

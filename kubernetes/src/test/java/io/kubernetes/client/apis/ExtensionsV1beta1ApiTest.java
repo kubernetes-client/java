@@ -24,6 +24,7 @@ import io.kubernetes.client.models.ExtensionsV1beta1PodSecurityPolicyList;
 import io.kubernetes.client.models.ExtensionsV1beta1Scale;
 import io.kubernetes.client.models.V1APIResourceList;
 import io.kubernetes.client.models.V1DeleteOptions;
+import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.models.V1Status;
 import io.kubernetes.client.models.V1beta1DaemonSet;
 import io.kubernetes.client.models.V1beta1DaemonSetList;
@@ -753,7 +754,7 @@ public class ExtensionsV1beta1ApiTest {
     public void patchNamespacedDaemonSetTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -775,7 +776,7 @@ public class ExtensionsV1beta1ApiTest {
     public void patchNamespacedDaemonSetStatusTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -797,7 +798,7 @@ public class ExtensionsV1beta1ApiTest {
     public void patchNamespacedDeploymentTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -819,7 +820,7 @@ public class ExtensionsV1beta1ApiTest {
     public void patchNamespacedDeploymentScaleTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -841,7 +842,7 @@ public class ExtensionsV1beta1ApiTest {
     public void patchNamespacedDeploymentStatusTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -863,7 +864,7 @@ public class ExtensionsV1beta1ApiTest {
     public void patchNamespacedIngressTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -885,7 +886,7 @@ public class ExtensionsV1beta1ApiTest {
     public void patchNamespacedIngressStatusTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -907,7 +908,7 @@ public class ExtensionsV1beta1ApiTest {
     public void patchNamespacedNetworkPolicyTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -929,7 +930,7 @@ public class ExtensionsV1beta1ApiTest {
     public void patchNamespacedReplicaSetTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -951,7 +952,7 @@ public class ExtensionsV1beta1ApiTest {
     public void patchNamespacedReplicaSetScaleTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -973,7 +974,7 @@ public class ExtensionsV1beta1ApiTest {
     public void patchNamespacedReplicaSetStatusTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -995,7 +996,7 @@ public class ExtensionsV1beta1ApiTest {
     public void patchNamespacedReplicationControllerDummyScaleTest() throws ApiException {
         String name = null;
         String namespace = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -1016,7 +1017,7 @@ public class ExtensionsV1beta1ApiTest {
     @Test
     public void patchPodSecurityPolicyTest() throws ApiException {
         String name = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;

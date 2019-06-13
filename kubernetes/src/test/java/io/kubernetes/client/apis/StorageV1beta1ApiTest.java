@@ -16,6 +16,7 @@ package io.kubernetes.client.apis;
 import io.kubernetes.client.ApiException;
 import io.kubernetes.client.models.V1APIResourceList;
 import io.kubernetes.client.models.V1DeleteOptions;
+import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.models.V1Status;
 import io.kubernetes.client.models.V1beta1CSIDriver;
 import io.kubernetes.client.models.V1beta1CSIDriverList;
@@ -416,7 +417,7 @@ public class StorageV1beta1ApiTest {
     @Test
     public void patchCSIDriverTest() throws ApiException {
         String name = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -437,7 +438,7 @@ public class StorageV1beta1ApiTest {
     @Test
     public void patchCSINodeTest() throws ApiException {
         String name = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -458,7 +459,7 @@ public class StorageV1beta1ApiTest {
     @Test
     public void patchStorageClassTest() throws ApiException {
         String name = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -479,7 +480,7 @@ public class StorageV1beta1ApiTest {
     @Test
     public void patchVolumeAttachmentTest() throws ApiException {
         String name = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;

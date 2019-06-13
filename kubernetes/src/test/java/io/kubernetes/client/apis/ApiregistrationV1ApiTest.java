@@ -18,6 +18,7 @@ import io.kubernetes.client.models.V1APIResourceList;
 import io.kubernetes.client.models.V1APIService;
 import io.kubernetes.client.models.V1APIServiceList;
 import io.kubernetes.client.models.V1DeleteOptions;
+import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.models.V1Status;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -149,7 +150,7 @@ public class ApiregistrationV1ApiTest {
     @Test
     public void patchAPIServiceTest() throws ApiException {
         String name = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
@@ -170,7 +171,7 @@ public class ApiregistrationV1ApiTest {
     @Test
     public void patchAPIServiceStatusTest() throws ApiException {
         String name = null;
-        Object body = null;
+        V1Patch body = null;
         String pretty = null;
         String dryRun = null;
         String fieldManager = null;
