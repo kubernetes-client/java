@@ -1,6 +1,6 @@
 # CustomObjectsApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -59,7 +59,7 @@ CustomObjectsApi apiInstance = new CustomObjectsApi();
 String group = "group_example"; // String | The custom resource's group name
 String version = "version_example"; // String | The custom resource's version
 String plural = "plural_example"; // String | The custom resource's plural name. For TPRs this would be lowercase plural kind.
-Object body = null; // Object | The JSON schema of the Resource to create.
+UNKNOWN_BASE_TYPE body = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The JSON schema of the Resource to create.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 try {
     Object result = apiInstance.createClusterCustomObject(group, version, plural, body, pretty);
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
  **group** | **String**| The custom resource&#39;s group name |
  **version** | **String**| The custom resource&#39;s version |
  **plural** | **String**| The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
- **body** | **Object**| The JSON schema of the Resource to create. |
+ **body** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The JSON schema of the Resource to create. |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
 
 ### Return type
@@ -123,7 +123,7 @@ String group = "group_example"; // String | The custom resource's group name
 String version = "version_example"; // String | The custom resource's version
 String namespace = "namespace_example"; // String | The custom resource's namespace
 String plural = "plural_example"; // String | The custom resource's plural name. For TPRs this would be lowercase plural kind.
-Object body = null; // Object | The JSON schema of the Resource to create.
+UNKNOWN_BASE_TYPE body = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The JSON schema of the Resource to create.
 String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
 try {
     Object result = apiInstance.createNamespacedCustomObject(group, version, namespace, plural, body, pretty);
@@ -142,7 +142,7 @@ Name | Type | Description  | Notes
  **version** | **String**| The custom resource&#39;s version |
  **namespace** | **String**| The custom resource&#39;s namespace |
  **plural** | **String**| The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
- **body** | **Object**| The JSON schema of the Resource to create. |
+ **body** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The JSON schema of the Resource to create. |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
 
 ### Return type
@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="deleteNamespacedCustomObject"></a>
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getClusterCustomObject"></a>
@@ -356,7 +356,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getClusterCustomObjectScale"></a>
@@ -417,7 +417,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 <a name="getClusterCustomObjectStatus"></a>
@@ -478,7 +478,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 <a name="getNamespacedCustomObject"></a>
@@ -541,7 +541,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getNamespacedCustomObjectScale"></a>
@@ -604,7 +604,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 <a name="getNamespacedCustomObjectStatus"></a>
@@ -667,7 +667,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 <a name="listClusterCustomObject"></a>
@@ -738,7 +738,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json, application/json;stream=watch
 
 <a name="listNamespacedCustomObject"></a>
@@ -811,7 +811,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json, application/json;stream=watch
 
 <a name="patchClusterCustomObject"></a>
@@ -844,7 +844,7 @@ String group = "group_example"; // String | the custom resource's group
 String version = "version_example"; // String | the custom resource's version
 String plural = "plural_example"; // String | the custom object's plural name. For TPRs this would be lowercase plural kind.
 String name = "name_example"; // String | the custom object's name
-Object body = null; // Object | The JSON schema of the Resource to patch.
+UNKNOWN_BASE_TYPE body = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The JSON schema of the Resource to patch.
 try {
     Object result = apiInstance.patchClusterCustomObject(group, version, plural, name, body);
     System.out.println(result);
@@ -862,7 +862,7 @@ Name | Type | Description  | Notes
  **version** | **String**| the custom resource&#39;s version |
  **plural** | **String**| the custom object&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
- **body** | **Object**| The JSON schema of the Resource to patch. |
+ **body** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The JSON schema of the Resource to patch. |
 
 ### Return type
 
@@ -907,7 +907,7 @@ String group = "group_example"; // String | the custom resource's group
 String version = "version_example"; // String | the custom resource's version
 String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
 String name = "name_example"; // String | the custom object's name
-Object body = null; // Object | 
+UNKNOWN_BASE_TYPE body = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
 try {
     Object result = apiInstance.patchClusterCustomObjectScale(group, version, plural, name, body);
     System.out.println(result);
@@ -925,7 +925,7 @@ Name | Type | Description  | Notes
  **version** | **String**| the custom resource&#39;s version |
  **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
- **body** | **Object**|  |
+ **body** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
 
 ### Return type
 
@@ -970,7 +970,7 @@ String group = "group_example"; // String | the custom resource's group
 String version = "version_example"; // String | the custom resource's version
 String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
 String name = "name_example"; // String | the custom object's name
-Object body = null; // Object | 
+UNKNOWN_BASE_TYPE body = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
 try {
     Object result = apiInstance.patchClusterCustomObjectStatus(group, version, plural, name, body);
     System.out.println(result);
@@ -988,7 +988,7 @@ Name | Type | Description  | Notes
  **version** | **String**| the custom resource&#39;s version |
  **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
- **body** | **Object**|  |
+ **body** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
 
 ### Return type
 
@@ -1034,7 +1034,7 @@ String version = "version_example"; // String | the custom resource's version
 String namespace = "namespace_example"; // String | The custom resource's namespace
 String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
 String name = "name_example"; // String | the custom object's name
-Object body = null; // Object | The JSON schema of the Resource to patch.
+UNKNOWN_BASE_TYPE body = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The JSON schema of the Resource to patch.
 try {
     Object result = apiInstance.patchNamespacedCustomObject(group, version, namespace, plural, name, body);
     System.out.println(result);
@@ -1053,7 +1053,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| The custom resource&#39;s namespace |
  **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
- **body** | **Object**| The JSON schema of the Resource to patch. |
+ **body** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The JSON schema of the Resource to patch. |
 
 ### Return type
 
@@ -1099,7 +1099,7 @@ String version = "version_example"; // String | the custom resource's version
 String namespace = "namespace_example"; // String | The custom resource's namespace
 String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
 String name = "name_example"; // String | the custom object's name
-Object body = null; // Object | 
+UNKNOWN_BASE_TYPE body = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
 try {
     Object result = apiInstance.patchNamespacedCustomObjectScale(group, version, namespace, plural, name, body);
     System.out.println(result);
@@ -1118,7 +1118,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| The custom resource&#39;s namespace |
  **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
- **body** | **Object**|  |
+ **body** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
 
 ### Return type
 
@@ -1164,7 +1164,7 @@ String version = "version_example"; // String | the custom resource's version
 String namespace = "namespace_example"; // String | The custom resource's namespace
 String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
 String name = "name_example"; // String | the custom object's name
-Object body = null; // Object | 
+UNKNOWN_BASE_TYPE body = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
 try {
     Object result = apiInstance.patchNamespacedCustomObjectStatus(group, version, namespace, plural, name, body);
     System.out.println(result);
@@ -1183,7 +1183,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| The custom resource&#39;s namespace |
  **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
- **body** | **Object**|  |
+ **body** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
 
 ### Return type
 
@@ -1228,7 +1228,7 @@ String group = "group_example"; // String | the custom resource's group
 String version = "version_example"; // String | the custom resource's version
 String plural = "plural_example"; // String | the custom object's plural name. For TPRs this would be lowercase plural kind.
 String name = "name_example"; // String | the custom object's name
-Object body = null; // Object | The JSON schema of the Resource to replace.
+UNKNOWN_BASE_TYPE body = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The JSON schema of the Resource to replace.
 try {
     Object result = apiInstance.replaceClusterCustomObject(group, version, plural, name, body);
     System.out.println(result);
@@ -1246,7 +1246,7 @@ Name | Type | Description  | Notes
  **version** | **String**| the custom resource&#39;s version |
  **plural** | **String**| the custom object&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
- **body** | **Object**| The JSON schema of the Resource to replace. |
+ **body** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The JSON schema of the Resource to replace. |
 
 ### Return type
 
@@ -1258,7 +1258,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="replaceClusterCustomObjectScale"></a>
@@ -1291,7 +1291,7 @@ String group = "group_example"; // String | the custom resource's group
 String version = "version_example"; // String | the custom resource's version
 String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
 String name = "name_example"; // String | the custom object's name
-Object body = null; // Object | 
+UNKNOWN_BASE_TYPE body = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
 try {
     Object result = apiInstance.replaceClusterCustomObjectScale(group, version, plural, name, body);
     System.out.println(result);
@@ -1309,7 +1309,7 @@ Name | Type | Description  | Notes
  **version** | **String**| the custom resource&#39;s version |
  **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
- **body** | **Object**|  |
+ **body** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
 
 ### Return type
 
@@ -1321,7 +1321,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 <a name="replaceClusterCustomObjectStatus"></a>
@@ -1354,7 +1354,7 @@ String group = "group_example"; // String | the custom resource's group
 String version = "version_example"; // String | the custom resource's version
 String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
 String name = "name_example"; // String | the custom object's name
-Object body = null; // Object | 
+UNKNOWN_BASE_TYPE body = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
 try {
     Object result = apiInstance.replaceClusterCustomObjectStatus(group, version, plural, name, body);
     System.out.println(result);
@@ -1372,7 +1372,7 @@ Name | Type | Description  | Notes
  **version** | **String**| the custom resource&#39;s version |
  **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
- **body** | **Object**|  |
+ **body** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
 
 ### Return type
 
@@ -1384,7 +1384,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 <a name="replaceNamespacedCustomObject"></a>
@@ -1418,7 +1418,7 @@ String version = "version_example"; // String | the custom resource's version
 String namespace = "namespace_example"; // String | The custom resource's namespace
 String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
 String name = "name_example"; // String | the custom object's name
-Object body = null; // Object | The JSON schema of the Resource to replace.
+UNKNOWN_BASE_TYPE body = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The JSON schema of the Resource to replace.
 try {
     Object result = apiInstance.replaceNamespacedCustomObject(group, version, namespace, plural, name, body);
     System.out.println(result);
@@ -1437,7 +1437,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| The custom resource&#39;s namespace |
  **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
- **body** | **Object**| The JSON schema of the Resource to replace. |
+ **body** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The JSON schema of the Resource to replace. |
 
 ### Return type
 
@@ -1449,7 +1449,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="replaceNamespacedCustomObjectScale"></a>
@@ -1483,7 +1483,7 @@ String version = "version_example"; // String | the custom resource's version
 String namespace = "namespace_example"; // String | The custom resource's namespace
 String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
 String name = "name_example"; // String | the custom object's name
-Object body = null; // Object | 
+UNKNOWN_BASE_TYPE body = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
 try {
     Object result = apiInstance.replaceNamespacedCustomObjectScale(group, version, namespace, plural, name, body);
     System.out.println(result);
@@ -1502,7 +1502,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| The custom resource&#39;s namespace |
  **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
- **body** | **Object**|  |
+ **body** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
 
 ### Return type
 
@@ -1514,7 +1514,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 <a name="replaceNamespacedCustomObjectStatus"></a>
@@ -1548,7 +1548,7 @@ String version = "version_example"; // String | the custom resource's version
 String namespace = "namespace_example"; // String | The custom resource's namespace
 String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
 String name = "name_example"; // String | the custom object's name
-Object body = null; // Object | 
+UNKNOWN_BASE_TYPE body = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
 try {
     Object result = apiInstance.replaceNamespacedCustomObjectStatus(group, version, namespace, plural, name, body);
     System.out.println(result);
@@ -1567,7 +1567,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| The custom resource&#39;s namespace |
  **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
- **body** | **Object**|  |
+ **body** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
 
 ### Return type
 
@@ -1579,6 +1579,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 

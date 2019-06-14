@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **description** | **String** | description is an arbitrary string that usually provides guidelines on when this priority class should be used. |  [optional]
 **globalDefault** | **Boolean** | globalDefault specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class. Only one PriorityClass can be marked as &#x60;globalDefault&#x60;. However, if more than one PriorityClasses exists with their &#x60;globalDefault&#x60; field set to true, the smallest value of such global default PriorityClasses will be used as the default priority. |  [optional]
 **kind** | **String** | Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds |  [optional]
-**metadata** | [**V1ObjectMeta**](V1ObjectMeta.md) | Standard object&#39;s metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata |  [optional]
+**metadata** | [**V1ObjectMeta**](V1ObjectMeta.md) |  |  [optional]
 **value** | **Integer** | The value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec. | 
 
 
