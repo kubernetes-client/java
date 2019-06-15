@@ -10,6 +10,8 @@ import java.io.IOException;
 @JsonAdapter(V1Patch.V1PatchAdapter.class)
 public class V1Patch {
 
+  private String value;
+
   public static final String PATCH_FORMAT_JSON_PATCH = "application/json-patch+json";
   public static final String PATCH_FORMAT_JSON_MERGE_PATCH = "application/merge-patch+json";
   public static final String PATCH_FORMAT_STRATEGIC_MERGE_PATCH = "application/strategic-merge-patch+json";
@@ -18,7 +20,6 @@ public class V1Patch {
     this.value = value;
   }
 
-  private String value;
 
   public String getValue() {
     return value;
@@ -35,5 +36,4 @@ public class V1Patch {
       throw new UnsupportedOperationException("deserializing patch data is not supported");
     }
   }
-
 }
