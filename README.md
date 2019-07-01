@@ -192,7 +192,7 @@ Then to update the client:
 
 ```sh
 cd ${HOME}/src/java
-${GEN_ROOT}/gen/openapi/java.sh kubernetes ./settings
+${GEN_ROOT}/openapi/java.sh kubernetes ./settings
 ```
 
 This should run through a long-ish build process involving `docker` and eventually result in a new set of
