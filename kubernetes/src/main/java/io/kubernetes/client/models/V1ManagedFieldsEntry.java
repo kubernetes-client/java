@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.models.V1Fields;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -34,7 +35,7 @@ public class V1ManagedFieldsEntry {
   private String apiVersion = null;
 
   @SerializedName("fields")
-  private Object fields = null;
+  private V1Fields fields = null;
 
   @SerializedName("manager")
   private String manager = null;
@@ -63,7 +64,7 @@ public class V1ManagedFieldsEntry {
     this.apiVersion = apiVersion;
   }
 
-  public V1ManagedFieldsEntry fields(Object fields) {
+  public V1ManagedFieldsEntry fields(V1Fields fields) {
     this.fields = fields;
     return this;
   }
@@ -73,11 +74,11 @@ public class V1ManagedFieldsEntry {
    * @return fields
   **/
   @ApiModelProperty(value = "Fields identifies a set of fields.")
-  public Object getFields() {
+  public V1Fields getFields() {
     return fields;
   }
 
-  public void setFields(Object fields) {
+  public void setFields(V1Fields fields) {
     this.fields = fields;
   }
 

@@ -874,7 +874,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/merge-patch+json
+ - **Content-Type**: application/json-patch+json, application/merge-patch+json
  - **Accept**: application/json
 
 <a name="patchClusterCustomObjectScale"></a>
@@ -937,7 +937,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/merge-patch+json
+ - **Content-Type**: application/json-patch+json, application/merge-patch+json
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 <a name="patchClusterCustomObjectStatus"></a>
@@ -1000,7 +1000,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/merge-patch+json
+ - **Content-Type**: application/json-patch+json, application/merge-patch+json
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 <a name="patchNamespacedCustomObject"></a>
@@ -1065,7 +1065,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/merge-patch+json
+ - **Content-Type**: application/json-patch+json, application/merge-patch+json
  - **Accept**: application/json
 
 <a name="patchNamespacedCustomObjectScale"></a>
@@ -1130,7 +1130,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/merge-patch+json
+ - **Content-Type**: application/json-patch+json, application/merge-patch+json
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 <a name="patchNamespacedCustomObjectStatus"></a>
@@ -1195,7 +1195,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/merge-patch+json
+ - **Content-Type**: application/json-patch+json, application/merge-patch+json
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 <a name="replaceClusterCustomObject"></a>
