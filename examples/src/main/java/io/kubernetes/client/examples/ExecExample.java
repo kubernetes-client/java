@@ -21,6 +21,12 @@ import io.kubernetes.client.util.Config;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.CommandLineParser;
+import org.apache.commons.cli.DefaultParser;
+import org.apache.commons.cli.Option;
+import org.apache.commons.cli.Options;
+import org.apache.commons.cli.ParseException;
 
 /**
  * A simple example of how to use the Java API
@@ -31,15 +37,21 @@ import java.util.List;
  * <p>From inside $REPO_DIR/examples
  */
 public class ExecExample {
-  public static void main(String[] args) throws IOException, ApiException, InterruptedException {
-    String podName = "nginx-4217019353-k5sn9";
-    String namespace = "default";
+  public static void main(String[] args)
+      throws IOException, ApiException, InterruptedException, ParseException {
+    final Options options = new Options();
+    options.addOption(new Option("p", "pod", true, "The name of the pod"));
+    options.addOption(new Option("n", "namespace", true, "The namespace of the pod"));
+
+    CommandLineParser parser = new DefaultParser();
+    CommandLine cmd = parser.parse(options, args);
+
+    String podName = cmd.getOptionValue("p", "nginx-dbddb74b8-s4cx5");
+    String namespace = cmd.getOptionValue("n", "default");
     List<String> commands = new ArrayList<>();
 
-    int len = args.length;
-    if (len >= 1) podName = args[0];
-    if (len >= 2) namespace = args[1];
-    for (int i = 2; i < len; i++) {
+    args = cmd.getArgs();
+    for (int i = 0; i < args.length; i++) {
       commands.add(args[i]);
     }
 
