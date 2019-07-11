@@ -47,6 +47,8 @@ public class PatchExample {
       "{\"metadata\":{\"$deleteFromPrimitiveList/finalizers\":[\"example.com/test\"]}}";
   static String jsonDeploymentStr =
       "{\"kind\":\"Deployment\",\"apiVersion\":\"extensions/v1beta1\",\"metadata\":{\"name\":\"hello-node\",\"finalizers\":[\"example.com/test\"],\"labels\":{\"run\":\"hello-node\"}},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"run\":\"hello-node\"}},\"template\":{\"metadata\":{\"creationTimestamp\":null,\"labels\":{\"run\":\"hello-node\"}},\"spec\":{\"terminationGracePeriodSeconds\":30,\"containers\":[{\"name\":\"hello-node\",\"image\":\"hello-node:v1\",\"ports\":[{\"containerPort\":8080}],\"resources\":{}}]}},\"strategy\":{}},\"status\":{}}";
+  static String applyYamlStr =
+      "{\"kind\":\"Deployment\",\"apiVersion\":\"extensions/v1beta1\",\"metadata\":{\"name\":\"hello-node\",\"finalizers\":[\"example.com/test\"],\"labels\":{\"run\":\"hello-node\"}},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"run\":\"hello-node\"}},\"template\":{\"metadata\":{\"creationTimestamp\":null,\"labels\":{\"run\":\"hello-node\"}},\"spec\":{\"terminationGracePeriodSeconds\":30,\"containers\":[{\"name\":\"hello-node\",\"image\":\"hello-node:v2\",\"ports\":[{\"containerPort\":8080}],\"resources\":{}}]}},\"strategy\":{}},\"status\":{}}";
 
   public static void main(String[] args) throws IOException {
     try {
@@ -87,6 +89,16 @@ public class PatchExample {
                   null,
                   null);
       System.out.println("strategic-merge-patched deployment" + deploy3);
+
+      // apply-yaml a deployment
+      ApiClient applyYamlClient =
+          ClientBuilder.standard().setOverridePatchFormat(V1Patch.PATCH_FORMAT_APPLY_YAML).build();
+      applyYamlClient.setDebugging(true);
+      ExtensionsV1beta1Deployment deploy4 =
+          new ExtensionsV1beta1Api(applyYamlClient)
+              .patchNamespacedDeployment(
+                  "hello-node", "default", new V1Patch(applyYamlStr), null, null, null, null);
+      System.out.println("application/apply-patch+yaml deployment" + deploy4);
 
     } catch (ApiException e) {
       System.out.println(e.getResponseBody());
