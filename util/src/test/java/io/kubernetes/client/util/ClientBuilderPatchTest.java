@@ -68,6 +68,6 @@ public class ClientBuilderPatchTest {
     WireMock.verify(
         1,
         patchRequestedFor(urlPathEqualTo("/apis"))
-            .withHeader("Content-Type", equalTo(ApiClient.PATCH_FORMAT_STRATEGIC_MERGE_PATCH)));
+            .withHeader("Content-Type", equalTo(V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH)));
   }
 }
