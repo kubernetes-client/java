@@ -61,65 +61,43 @@ Then manually install the following JARs:
 
 ## Example
 
-list all pods:
-
-```java
-import io.kubernetes.client.ApiClient;
-import io.kubernetes.client.ApiException;
-import io.kubernetes.client.Configuration;
-import io.kubernetes.client.apis.CoreV1Api;
-import io.kubernetes.client.models.V1Pod;
-import io.kubernetes.client.models.V1PodList;
-import io.kubernetes.client.util.Config;
-
-import java.io.IOException;
-
-public class Example {
-    public static void main(String[] args) throws IOException, ApiException{
-        ApiClient client = Config.defaultClient();
-        Configuration.setDefaultApiClient(client);
-
-        CoreV1Api api = new CoreV1Api();
-        V1PodList list = api.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null);
-        for (V1Pod item : list.getItems()) {
-            System.out.println(item.getMetadata().getName());
-        }
-    }
-}
-```
-
-watch on namespace object:
-
-```java
-import com.google.gson.reflect.TypeToken;
-import io.kubernetes.client.ApiClient;
-import io.kubernetes.client.ApiException;
-import io.kubernetes.client.Configuration;
-import io.kubernetes.client.apis.CoreV1Api;
-import io.kubernetes.client.models.V1Namespace;
-import io.kubernetes.client.util.Config;
-import io.kubernetes.client.util.Watch;
-
-import java.io.IOException;
-
-public class WatchExample {
-    public static void main(String[] args) throws IOException, ApiException{
-        ApiClient client = Config.defaultClient();
-        Configuration.setDefaultApiClient(client);
-
-        CoreV1Api api = new CoreV1Api();
-
-        Watch<V1Namespace> watch = Watch.createWatch(
-                client,
-                api.listNamespaceCall(null, null, null, null, null, 5, null, null, Boolean.TRUE, null, null),
-                new TypeToken<Watch.Response<V1Namespace>>(){}.getType());
-
-        for (Watch.Response<V1Namespace> item : watch) {
-            System.out.printf("%s : %s%n", item.type, item.object.getMetadata().getName());
-        }
-    }
-}
-```
+We prepared a few examples for common use-cases which are shown below:
+- __Configuration__:
+  - [InClusterClientExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/InClusterClientExample.java): 
+  Configure a client while running inside the Kubernetes cluster.
+  - [KubeConfigFileClientExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/KubeConfigFileClientExample.java): 
+  Configure a client to access a Kubernetes cluster from outside.
+- __Basics__:
+  - [SimpleExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/Example.java):
+  Simple minimum example of how to use the client.
+  - [ProtoExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/ProtoExample.java): 
+  Request/receive payloads in protobuf serialization protocol.
+  - [PatchExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/PatchExample.java): 
+  Patch resource objects in various supported patch formats, equal to `kubectl patch`.
+  - [FluentExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/FluentExample.java): 
+  Construct arbitrary resource in a fluent builder style.
+- __Streaming__:
+  - [WatchExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/WatchExample.java): 
+  Subscribe watch events from certain resources, equal to `kubectl get <resource> -w`.
+  - [LogsExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/LogsExample.java): 
+  Fetch logs from running containers, equal to `kubectl logs`.
+  - [ExecExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/ExecExample.java): 
+  Establish an "exec" session with running containers, equal to `kubectl exec`.
+  - [PortForwardExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/PortForwardExample.java): 
+  Maps local port to a port on the pod, equal to `kubectl port-forward`.
+  - [AttachExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/AttachExample.java): 
+  Attach to a process that is already running inside an existing container, equal to `kubectl attach`.
+  - [CopyExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/CopyExample.java): 
+  Copy files and directories to and from containers, equal to `kubectl cp`.
+  - [WebSocketExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/WebSocketExample.java): 
+  Establish an arbitrary web-socket session to certain resources.
+- __Advanced__:
+  - [InformerExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/InformerExample.java): 
+  Build an informer which list-watches resources and reflects the notifications to a local cache.
+  - [LeaderElectionExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/LeaderElectionExample.java): 
+  Leader election utilities to help implement HA controllers.
+  - [PagerExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/PagerExample.java): 
+  Support Pagination (only for the list request) to ease server-side loads/network congestion.
 
 More examples can be found in [examples](examples/) folder. To run examples, run this command:
 
