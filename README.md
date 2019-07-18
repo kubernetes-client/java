@@ -61,9 +61,48 @@ Then manually install the following JARs:
 
 ## Example
 
-list all pods:
+We prepared a few examples for common use-cases which are shown below:
+- __Configuration__:
+  - [InClusterClientExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/InClusterClientExample.java): 
+  Configure a client while running inside the Kubernetes cluster.
+  - [KubeConfigFileClientExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/KubeConfigFileClientExample.java): 
+  Configure a client to access a Kubernetes cluster from outside.
+- __Basics__:
+  - [SimpleExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/Example.java):
+  Simple minimum example of how to use the client.
+  - [ProtoExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/ProtoExample.java): 
+  Request/receive payloads in protobuf serialization protocol.
+  - [PatchExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/PatchExample.java): 
+  Patch resource objects in various supported patch formats, equal to `kubectl patch`.
+  - [FluentExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/FluentExample.java): 
+  Construct arbitrary resource in a fluent builder style.
+- __Streaming__:
+  - [WatchExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/WatchExample.java): 
+  Subscribe watch events from certain resources, equal to `kubectl get <resource> -w`.
+  - [LogsExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/LogsExample.java): 
+  Fetch logs from running containers, equal to `kubectl logs`.
+  - [ExecExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/ExecExample.java): 
+  Establish an "exec" session with running containers, equal to `kubectl exec`.
+  - [PortForwardExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/PortForwardExample.java): 
+  Maps local port to a port on the pod, equal to `kubectl port-forward`.
+  - [AttachExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/AttachExample.java): 
+  Attach to a process that is already running inside an existing container, equal to `kubectl attach`.
+  - [CopyExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/CopyExample.java): 
+  Copy files and directories to and from containers, equal to `kubectl cp`.
+  - [WebSocketExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/WebSocketExample.java): 
+  Establish an arbitrary web-socket session to certain resources.
+- __Advanced__:
+  - [InformerExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/InformerExample.java): 
+  Build an informer which list-watches resources and reflects the notifications to a local cache.
+  - [LeaderElectionExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/LeaderElectionExample.java): 
+  Leader election utilities to help implement HA controllers.
+  - [PagerExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/PagerExample.java): 
+  Support Pagination (only for the list request) to ease server-side loads/network congestion.
 
-```java
+
+__list all pods__:
+
+```
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
 import io.kubernetes.client.Configuration;
@@ -88,9 +127,9 @@ public class Example {
 }
 ```
 
-watch on namespace object:
+__watch on namespace object__:
 
-```java
+```
 import com.google.gson.reflect.TypeToken;
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
