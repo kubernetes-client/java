@@ -32,7 +32,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.kubernetes</groupId>
     <artifactId>client-java</artifactId>
-    <version>4.0.0</version>
+    <version>5.0.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 ### Gradle users
 
 ```groovy
-compile 'io.kubernetes:client-java:4.0.0'
+compile 'io.kubernetes:client-java:5.0.0'
 ```
 
 ### Others
@@ -56,7 +56,7 @@ mvn package
 
 Then manually install the following JARs:
 
-* target/client-java-api-4.0.0-beta1-SNAPSHOT.jar
+* target/client-java-api-6.0.0-beta1-SNAPSHOT.jar
 * target/lib/*.jar
 
 ## Example
