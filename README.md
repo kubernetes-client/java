@@ -92,6 +92,8 @@ We prepared a few examples for common use-cases which are shown below:
   - [WebSocketExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/WebSocketExample.java): 
   Establish an arbitrary web-socket session to certain resources.
 - __Advanced__:
+  - [ControllerExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/ControllerExample.java): 
+  Build a controller reconciling the state of world by list-watching one or multiple resources.
   - [InformerExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/InformerExample.java): 
   Build an informer which list-watches resources and reflects the notifications to a local cache.
   - [LeaderElectionExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/LeaderElectionExample.java): 
