@@ -4,6 +4,7 @@ import com.google.gson.reflect.TypeToken;
 import com.squareup.okhttp.Call;
 import io.kubernetes.client.*;
 import io.kubernetes.client.informer.impl.DefaultSharedIndexInformer;
+import io.kubernetes.client.util.CallGenerator;
 import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.Watch;
 import io.kubernetes.client.util.common.Collections;
@@ -13,7 +14,6 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-import java.util.function.Function;
 
 /** SharedInformerFactory class constructs and caches informers for api types. */
 public class SharedInformerFactory {
@@ -51,7 +51,7 @@ public class SharedInformerFactory {
    * @return the shared index informer
    */
   public synchronized <ApiType, ApiListType> SharedIndexInformer<ApiType> sharedIndexInformerFor(
-      Function<CallGeneratorParams, Call> callGenerator,
+      CallGenerator callGenerator,
       Class<ApiType> apiTypeClass,
       Class<ApiListType> apiListTypeClass) {
     return sharedIndexInformerFor(callGenerator, apiTypeClass, apiListTypeClass, 0);
@@ -70,7 +70,7 @@ public class SharedInformerFactory {
    * @return the shared index informer
    */
   public synchronized <ApiType, ApiListType> SharedIndexInformer<ApiType> sharedIndexInformerFor(
-      Function<CallGeneratorParams, Call> callGenerator,
+      CallGenerator callGenerator,
       Class<ApiType> apiTypeClass,
       Class<ApiListType> apiListTypeClass,
       long resyncPeriodInMillis) {
@@ -84,26 +84,39 @@ public class SharedInformerFactory {
   }
 
   private <ApiType, ApiListType> ListerWatcher<ApiType, ApiListType> listerWatcherFor(
-      Function<CallGeneratorParams, Call> callGenerator,
+      CallGenerator callGenerator,
       Class<ApiType> apiTypeClass,
       Class<ApiListType> apiListTypeClass) {
     ApiClient apiClient = Configuration.getDefaultApiClient();
     return new ListerWatcher<ApiType, ApiListType>() {
       @Override
       public ApiListType list(CallGeneratorParams params) throws ApiException {
-        Call call = callGenerator.apply(params);
+        Call call = callGenerator.generate(params);
         return (ApiListType) apiClient.execute(call, apiListTypeClass).getData();
       }
 
       @Override
       public Watch<ApiType> watch(CallGeneratorParams params) throws ApiException {
-        Call call = callGenerator.apply(params);
+        Call call = callGenerator.generate(params);
         return Watch.createWatch(
             apiClient,
             call,
             TypeToken.getParameterized(Watch.Response.class, apiTypeClass).getType());
       }
     };
+  }
+
+  /**
+   * Gets existing shared index informer, return null if the requesting informer is never
+   * constructed.
+   *
+   * @param <ApiType> the type parameter
+   * @param apiTypeClass the api type class
+   * @return the existing shared index informer
+   */
+  public synchronized <ApiType> SharedIndexInformer<ApiType> getExistingSharedIndexInformer(
+      Class<ApiType> apiTypeClass) {
+    return this.informers.get(TypeToken.get(apiTypeClass).getType());
   }
 
   /** Start all registered informers. */

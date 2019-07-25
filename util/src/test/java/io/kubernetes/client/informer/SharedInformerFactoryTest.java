@@ -1,6 +1,5 @@
 package io.kubernetes.client.informer;
 
-import io.kubernetes.client.ApiException;
 import io.kubernetes.client.apis.CoreV1Api;
 import io.kubernetes.client.models.V1Namespace;
 import io.kubernetes.client.models.V1NamespaceList;
@@ -14,21 +13,17 @@ public class SharedInformerFactoryTest {
     SharedInformerFactory factory = new SharedInformerFactory();
     factory.sharedIndexInformerFor(
         (CallGeneratorParams params) -> {
-          try {
-            return api.listNamespaceCall(
-                null,
-                null,
-                null,
-                null,
-                null,
-                params.resourceVersion,
-                params.timeoutSeconds,
-                params.watch,
-                null,
-                null);
-          } catch (ApiException e) {
-            throw new RuntimeException(e);
-          }
+          return api.listNamespaceCall(
+              null,
+              null,
+              null,
+              null,
+              null,
+              params.resourceVersion,
+              params.timeoutSeconds,
+              params.watch,
+              null,
+              null);
         },
         V1Namespace.class,
         V1NamespaceList.class);
