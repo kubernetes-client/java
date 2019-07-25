@@ -1,7 +1,6 @@
 package io.kubernetes.client.examples;
 
 import io.kubernetes.client.ApiClient;
-import io.kubernetes.client.ApiException;
 import io.kubernetes.client.Configuration;
 import io.kubernetes.client.apis.CoreV1Api;
 import io.kubernetes.client.informer.*;
@@ -35,21 +34,17 @@ public class InformerExample {
     SharedIndexInformer<V1Node> nodeInformer =
         factory.sharedIndexInformerFor(
             (CallGeneratorParams params) -> {
-              try {
-                return coreV1Api.listNodeCall(
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    params.resourceVersion,
-                    params.timeoutSeconds,
-                    params.watch,
-                    null,
-                    null);
-              } catch (ApiException e) {
-                throw new RuntimeException(e);
-              }
+              return coreV1Api.listNodeCall(
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  params.resourceVersion,
+                  params.timeoutSeconds,
+                  params.watch,
+                  null,
+                  null);
             },
             V1Node.class,
             V1NodeList.class);
