@@ -26,17 +26,8 @@ public class ItemExponentialFailureRateLimiter<T> implements RateLimiter<T> {
   public synchronized Duration when(T item) {
     int exp = failures.getOrDefault(item, 0);
     failures.put(item, exp + 1);
-
-    double backOff = baseDelay.toNanos() * Math.pow(2, exp);
-    if (backOff > Long.MAX_VALUE) {
-      return maxDelay;
-    }
-
-    if (backOff > maxDelay.toNanos()) {
-      return maxDelay;
-    }
-
-    return Duration.ofNanos((long) backOff);
+    long d = maxDelay.toMillis() >> exp;
+    return d > baseDelay.toMillis() ? baseDelay.multipliedBy(1 << exp) : maxDelay;
   }
 
   @Override

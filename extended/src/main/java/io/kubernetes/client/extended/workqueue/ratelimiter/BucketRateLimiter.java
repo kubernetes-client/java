@@ -1,15 +1,18 @@
 package io.kubernetes.client.extended.workqueue.ratelimiter;
 
-import io.github.bucket4j.*;
+import io.github.bucket4j.Bandwidth;
+import io.github.bucket4j.Bucket;
+import io.github.bucket4j.Bucket4j;
+import io.github.bucket4j.Refill;
+import io.github.bucket4j.local.SynchronizationStrategy;
 import java.time.Duration;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /** A light-weight token bucket implementation for RateLimiter. */
 public class BucketRateLimiter<T> implements RateLimiter<T> {
-
   private Bucket bucket;
-  private long tokensInQueue;
-  private long tokensGeneratedInPeriod;
-  private Duration period;
 
   /**
    * @param capacity Capacity is the maximum number of tokens can be consumed.
@@ -19,26 +22,18 @@ public class BucketRateLimiter<T> implements RateLimiter<T> {
   public BucketRateLimiter(long capacity, long tokensGeneratedInPeriod, Duration period) {
     Bandwidth bandwidth =
         Bandwidth.classic(capacity, Refill.greedy(tokensGeneratedInPeriod, period));
-
-    this.bucket = Bucket4j.builder().addLimit(bandwidth).build();
-    this.tokensInQueue = 0;
-    this.tokensGeneratedInPeriod = tokensGeneratedInPeriod;
-    this.period = period;
+    this.bucket =
+        Bucket4j.builder()
+            .addLimit(bandwidth)
+            .withSynchronizationStrategy(SynchronizationStrategy.SYNCHRONIZED)
+            .build();
   }
 
   @Override
   public synchronized Duration when(T item) {
-    tokensInQueue++;
-
-    long consumedTokens = bucket.tryConsumeAsMuchAsPossible(tokensInQueue);
-    if (tokensInQueue - consumedTokens == 0) {
-      tokensInQueue = 0;
-      return Duration.ZERO;
-    }
-
-    tokensInQueue = tokensInQueue - consumedTokens;
-
-    return durationFromTokens(tokensInQueue, tokensGeneratedInPeriod, period);
+    DelayGetter delayGetter = new DelayGetter();
+    bucket.asAsyncScheduler().consume(1, delayGetter).complete(null);
+    return delayGetter.getDelay();
   }
 
   @Override
@@ -49,8 +44,21 @@ public class BucketRateLimiter<T> implements RateLimiter<T> {
     return 0;
   }
 
-  private Duration durationFromTokens(
-      long tokensNeedToBeConsumed, long tokensGeneratedInPeriod, Duration period) {
-    return period.dividedBy(tokensGeneratedInPeriod).multipliedBy(tokensNeedToBeConsumed);
+  private class DelayGetter extends ScheduledThreadPoolExecutor {
+    private Duration delay = Duration.ZERO;
+
+    @Override
+    public ScheduledFuture<?> schedule(Runnable command, long delay, TimeUnit unit) {
+      this.delay = Duration.ofNanos(unit.toNanos(delay));
+      return null;
+    }
+
+    private DelayGetter() {
+      super(0);
+    }
+
+    private Duration getDelay() {
+      return delay;
+    }
   }
 }

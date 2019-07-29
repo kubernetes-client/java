@@ -1,6 +1,7 @@
 package io.kubernetes.client.extended.workqueue.ratelimiter;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.time.Duration;
 import org.junit.Test;
@@ -55,5 +56,31 @@ public class ItemExponentialFailureRateLimiterTest {
       rateLimiter.when("overflow2");
     }
     assertEquals(Duration.ofHours(1000), rateLimiter.when("overflow2"));
+  }
+
+  @Test
+  public void testNegativeBaseDelay() {
+    RateLimiter<String> rateLimiter =
+        new ItemExponentialFailureRateLimiter<>(Duration.ofMillis(-1), Duration.ofSeconds(1000));
+
+    for (int i = 0; i < 5; i++) {
+      rateLimiter.when("one");
+    }
+    assertEquals(Duration.ofMillis(-32), rateLimiter.when("one"));
+    for (int i = 0; i < 1000; i++) {
+      rateLimiter.when("overflow1");
+    }
+    assertTrue(rateLimiter.when("overflow1").isNegative());
+  }
+
+  @Test
+  public void testNegativeMaxDelay() {
+    RateLimiter<String> rateLimiter =
+        new ItemExponentialFailureRateLimiter<>(Duration.ofMillis(1), Duration.ofSeconds(-1000));
+
+    assertEquals(Duration.ofSeconds(-1000), rateLimiter.when("one"));
+    assertEquals(Duration.ofSeconds(-1000), rateLimiter.when("one"));
+    assertEquals(Duration.ofSeconds(-1000), rateLimiter.when("one"));
+    assertEquals(Duration.ofSeconds(-1000), rateLimiter.when("one"));
   }
 }
