@@ -12,6 +12,9 @@ limitations under the License.
 */
 package io.kubernetes.client.examples;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.squareup.okhttp.Response;
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
 import io.kubernetes.client.Configuration;
@@ -20,10 +23,6 @@ import io.kubernetes.client.util.Config;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.StringReader;
-
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.squareup.okhttp.Response;
 
 /**
  * A simple example of how to parse a Kubernetes object.
@@ -69,8 +68,7 @@ public class ParseExample {
   }
 
   /**
-   * a example to
-   * mock "kubectl get configName -o json"
+   * a example to mock "kubectl get configName -o json"
    *
    * @return @throws ApiException，IOException
    */
@@ -81,7 +79,7 @@ public class ParseExample {
 
     CoreV1Api api = new CoreV1Api();
     com.squareup.okhttp.Call call =
-            api.readNamespacedConfigMapCall("configmap-name", "default", null, null, null, null, null);
+        api.readNamespacedConfigMapCall("configmap-name", "default", null, null, null, null, null);
 
     Response response = call.execute();
 
@@ -94,8 +92,5 @@ public class ParseExample {
     JsonObject returnData = new JsonParser().parse(body).getAsJsonObject();
 
     System.out.println(returnData);
-
   }
-
-
 }
