@@ -14,10 +14,16 @@ package io.kubernetes.client.examples;
 
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
+import io.kubernetes.client.Configuration;
+import io.kubernetes.client.apis.CoreV1Api;
 import io.kubernetes.client.util.Config;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.StringReader;
+
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.squareup.okhttp.Response;
 
 /**
  * A simple example of how to parse a Kubernetes object.
@@ -61,4 +67,35 @@ public class ParseExample {
 
     System.out.println(output);
   }
+
+  /**
+   * a example to
+   * mock "kubectl get configName -o json"
+   *
+   * @return @throws ApiException，IOException
+   */
+  public static void mockKubeJson() throws ApiException, IOException {
+
+    ApiClient client = Config.defaultClient();
+    Configuration.setDefaultApiClient(client);
+
+    CoreV1Api api = new CoreV1Api();
+    com.squareup.okhttp.Call call =
+            api.readNamespacedConfigMapCall("configmap-name", "default", null, null, null, null, null);
+
+    Response response = call.execute();
+
+    if (!response.isSuccessful()) {
+      return;
+    }
+
+    String body = response.body().string();
+
+    JsonObject returnData = new JsonParser().parse(body).getAsJsonObject();
+
+    System.out.println(returnData);
+
+  }
+
+
 }
