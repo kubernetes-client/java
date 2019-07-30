@@ -90,7 +90,9 @@ public class PatchExample {
                   null);
       System.out.println("strategic-merge-patched deployment" + deploy3);
 
-      // apply-yaml a deployment
+      // apply-yaml a deployment, server side apply is alpha in kubernetes v1.14,
+      // You need to actively enable the Server Side Apply alpha feature
+      // https://kubernetes.io/docs/reference/using-api/api-concepts/#server-side-apply
       ApiClient applyYamlClient =
           ClientBuilder.standard().setOverridePatchFormat(V1Patch.PATCH_FORMAT_APPLY_YAML).build();
       applyYamlClient.setDebugging(true);
