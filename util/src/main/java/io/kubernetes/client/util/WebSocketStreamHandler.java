@@ -92,9 +92,24 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
   public synchronized void close() {
     if (state != State.CLOSED) {
       state = State.CLOSED;
+      try {
+        if (null != socket) {
+          // code 1000 means "Normal Closure"
+          socket.close(1000, "Triggered client-side terminate");
+          log.debug("Successfully closed socket.");
+        }
+      } catch (IOException ex) {
+        log.error("Error on close socket", ex);
+        // continue to flush and release the buffers
+      }
       // Close all output streams.  Caller of getInputStream(int) is responsible
       // for closing returned input streams
       for (PipedOutputStream out : pipedOutput.values()) {
+        try {
+          out.flush();
+        } catch (IOException ex) {
+          log.error("Error on flush", ex);
+        }
         try {
           out.close();
         } catch (IOException ex) {
@@ -102,6 +117,11 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
         }
       }
       for (OutputStream out : output.values()) {
+        try {
+          out.flush();
+        } catch (IOException ex) {
+          log.error("Error on flush", ex);
+        }
         try {
           out.close();
         } catch (IOException ex) {
