@@ -30,7 +30,7 @@ public class BucketRateLimiter<T> implements RateLimiter<T> {
   }
 
   @Override
-  public synchronized Duration when(T item) {
+  public Duration when(T item) {
     DelayGetter delayGetter = new DelayGetter();
     bucket.asAsyncScheduler().consume(1, delayGetter).complete(null);
     return delayGetter.getDelay();
