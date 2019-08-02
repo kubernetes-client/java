@@ -72,7 +72,7 @@ We prepared a few examples for common use-cases which are shown below:
   Simple minimum example of how to use the client.
   - [ProtoExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/ProtoExample.java): 
   Request/receive payloads in protobuf serialization protocol.
-  - [PatchExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/PatchExample.java): 
+  - ([5.0.0+](https://github.com/kubernetes-client/java/tree/client-java-parent-5.0.0)) [PatchExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/PatchExample.java): 
   Patch resource objects in various supported patch formats, equal to `kubectl patch`.
   - [FluentExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/FluentExample.java): 
   Construct arbitrary resource in a fluent builder style.
@@ -92,14 +92,14 @@ We prepared a few examples for common use-cases which are shown below:
   - [WebSocketExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/WebSocketExample.java): 
   Establish an arbitrary web-socket session to certain resources.
 - __Advanced__:
-  - [ControllerExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/ControllerExample.java): 
-  Build a controller reconciling the state of world by list-watching one or multiple resources.
-  - [InformerExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/InformerExample.java): 
+  - ([5.0.0+](https://github.com/kubernetes-client/java/tree/client-java-parent-5.0.0)) [InformerExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/InformerExample.java): 
   Build an informer which list-watches resources and reflects the notifications to a local cache.
-  - [LeaderElectionExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/LeaderElectionExample.java): 
-  Leader election utilities to help implement HA controllers.
-  - [PagerExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/PagerExample.java): 
+  - ([5.0.0+](https://github.com/kubernetes-client/java/tree/client-java-parent-5.0.0)) [PagerExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/PagerExample.java): 
   Support Pagination (only for the list request) to ease server-side loads/network congestion.
+  - ([6.0.0+](https://github.com/kubernetes-client/java/tree/client-java-parent-6.0.0)) [ControllerExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/ControllerExample.java): 
+  Build a controller reconciling the state of world by list-watching one or multiple resources.
+  - ([6.0.0+](https://github.com/kubernetes-client/java/tree/client-java-parent-6.0.0)) [LeaderElectionExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/LeaderElectionExample.java): 
+  Leader election utilities to help implement HA controllers.
 
 
 __list all pods__:
