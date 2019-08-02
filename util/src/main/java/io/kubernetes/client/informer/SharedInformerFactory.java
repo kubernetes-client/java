@@ -18,7 +18,7 @@ import java.util.concurrent.Future;
 /** SharedInformerFactory class constructs and caches informers for api types. */
 public class SharedInformerFactory {
 
-  private Map<Type, SharedIndexInformer> informers;
+  protected Map<Type, SharedIndexInformer> informers;
 
   private Map<Type, Future> startedInformers;
 
