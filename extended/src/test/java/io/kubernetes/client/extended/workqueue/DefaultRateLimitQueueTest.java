@@ -1,8 +1,8 @@
 package io.kubernetes.client.extended.workqueue;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import io.kubernetes.client.extended.workqueue.ratelimiter.RateLimiter;
 import java.time.Duration;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -10,7 +10,7 @@ import org.junit.Test;
 
 public class DefaultRateLimitQueueTest {
 
-  private static class MockRateLimiter implements RateLimiter {
+  private static class MockRateLimiter<T> implements RateLimiter<T> {
 
     private int count;
 
@@ -34,30 +34,13 @@ public class DefaultRateLimitQueueTest {
 
   @Test
   public void testSimpleRateLimitQueue() throws Exception {
-    MockRateLimiter mockRateLimiter = new MockRateLimiter();
+    MockRateLimiter<String> mockRateLimiter = new MockRateLimiter<>();
     DefaultRateLimitingQueue<String> rlq =
-        new DefaultRateLimitingQueue(Executors.newSingleThreadExecutor(), mockRateLimiter);
+        new DefaultRateLimitingQueue<>(Executors.newSingleThreadExecutor(), mockRateLimiter);
     long t1 = System.nanoTime();
     rlq.addRateLimited("foo");
     rlq.get();
     long t2 = System.nanoTime();
     assertTrue(t2 - t1 > TimeUnit.MILLISECONDS.toNanos(500));
-  }
-
-  @Test
-  public void testExponentialRateLimit() throws Exception {
-    DefaultRateLimitingQueue.ExponentialRateLimiter rateLimiter =
-        new DefaultRateLimitingQueue.ExponentialRateLimiter();
-    String foo = "foo";
-    for (int i = 0; i < 9999; i++) {
-      long expected = Double.valueOf(rateLimiter.baseDelay.toNanos() * Math.pow(2, i)).longValue();
-      if (expected > rateLimiter.maxDelay.toNanos()) {
-        expected = rateLimiter.maxDelay.toNanos();
-      }
-      long actual = rateLimiter.when(foo).toNanos();
-      if (expected != actual) {
-        assertEquals(expected, actual);
-      }
-    }
   }
 }
