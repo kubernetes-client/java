@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** The type Controller mananger builder. */
-public class ControllerManangerBuilder {
+public class ControllerManagerBuilder {
 
   private SharedInformerFactory informerFactory;
 
   /** Instantiates a new Controller mananger builder. */
-  ControllerManangerBuilder(SharedInformerFactory factory) {
+  ControllerManagerBuilder(SharedInformerFactory factory) {
     this.informerFactory = factory;
     this.controllerList = new ArrayList<>();
   }
@@ -25,7 +25,7 @@ public class ControllerManangerBuilder {
    * @param controller the controller
    * @return the controller mananger builder
    */
-  public ControllerManangerBuilder addController(Controller controller) {
+  public ControllerManagerBuilder addController(Controller controller) {
     this.controllerList.add(controller);
     return this;
   }

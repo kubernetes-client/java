@@ -12,10 +12,12 @@ import java.util.function.Predicate;
  *
  * @param <ApiType> the type parameter
  */
-public class WorkQueueResourceEventHandler<ApiType> implements ResourceEventHandler<ApiType> {
+public class DefaultControllerWatch<ApiType> implements ControllerWatch<ApiType> {
 
   private final WorkQueue<Request> workQueue;
   private final Function<ApiType, Request> workKeyGenerator;
+
+  private Class<ApiType> apiTypeClass;
   private Predicate<ApiType> onAddFilterPredicate;
   private BiPredicate<ApiType, ApiType> onUpdateFilterPredicate;
   private BiPredicate<ApiType, Boolean> onDeleteFilterPredicate;
@@ -26,9 +28,12 @@ public class WorkQueueResourceEventHandler<ApiType> implements ResourceEventHand
    * @param workQueue the work queue
    * @param workKeyGenerator the work key generator
    */
-  public WorkQueueResourceEventHandler(
-      WorkQueue<Request> workQueue, Function<ApiType, Request> workKeyGenerator) {
+  public DefaultControllerWatch(
+      Class<ApiType> apiTypeClass,
+      WorkQueue<Request> workQueue,
+      Function<ApiType, Request> workKeyGenerator) {
     this.workQueue = workQueue;
+    this.apiTypeClass = apiTypeClass;
     this.workKeyGenerator = workKeyGenerator;
   }
 
@@ -56,25 +61,39 @@ public class WorkQueueResourceEventHandler<ApiType> implements ResourceEventHand
     this.onDeleteFilterPredicate = onDeleteFilterPredicate;
   }
 
-  @Override
-  public void onAdd(ApiType obj) {
-    if (onAddFilterPredicate == null || onAddFilterPredicate.test(obj)) {
-      workQueue.add(workKeyGenerator.apply(obj));
-    }
+  public Class<ApiType> getApiTypeClass() {
+    return apiTypeClass;
   }
 
   @Override
-  public void onUpdate(ApiType oldObj, ApiType newObj) {
-    if (onUpdateFilterPredicate == null || onUpdateFilterPredicate.test(oldObj, newObj)) {
-      workQueue.add(workKeyGenerator.apply(newObj));
-    }
+  public Class<ApiType> getResourceClass() {
+    return this.apiTypeClass;
   }
 
   @Override
-  public void onDelete(ApiType obj, boolean deletedFinalStateUnknown) {
-    if (onDeleteFilterPredicate == null
-        || onDeleteFilterPredicate.test(obj, deletedFinalStateUnknown)) {
-      workQueue.add(workKeyGenerator.apply(obj));
-    }
+  public ResourceEventHandler<ApiType> getResourceEventHandler() {
+    return new ResourceEventHandler<ApiType>() {
+      @Override
+      public void onAdd(ApiType obj) {
+        if (onAddFilterPredicate == null || onAddFilterPredicate.test(obj)) {
+          workQueue.add(workKeyGenerator.apply(obj));
+        }
+      }
+
+      @Override
+      public void onUpdate(ApiType oldObj, ApiType newObj) {
+        if (onUpdateFilterPredicate == null || onUpdateFilterPredicate.test(oldObj, newObj)) {
+          workQueue.add(workKeyGenerator.apply(newObj));
+        }
+      }
+
+      @Override
+      public void onDelete(ApiType obj, boolean deletedFinalStateUnknown) {
+        if (onDeleteFilterPredicate == null
+            || onDeleteFilterPredicate.test(obj, deletedFinalStateUnknown)) {
+          workQueue.add(workKeyGenerator.apply(obj));
+        }
+      }
+    };
   }
 }

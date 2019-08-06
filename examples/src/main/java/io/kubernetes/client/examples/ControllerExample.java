@@ -53,29 +53,31 @@ public class ControllerExample {
     // Use builder library to construct a default controller.
     Controller controller =
         ControllerBuilder.defaultBuilder(informerFactory)
-            .watch(V1Node.class)
-            .withWorkQueueKeyFunc(
-                (V1Node node) -> new Request(node.getMetadata().getName())) // optional, default to
-            // Controllers#defaultReflectiveKeyFunc
-            .withOnAddFilter(
-                (V1Node createdNode) ->
-                    createdNode
-                        .getMetadata()
-                        .getName()
-                        .startsWith("docker-")) // optional, set onAdd filter
-            .withOnUpdateFilter(
-                (V1Node oldNode, V1Node newNode) ->
-                    newNode
-                        .getMetadata()
-                        .getName()
-                        .startsWith("docker-")) // optional, set onUpdate filter
-            .withOnDeleteFilter(
-                (V1Node deletedNode, Boolean stateUnknown) ->
-                    deletedNode
-                        .getMetadata()
-                        .getName()
-                        .startsWith("docker-")) // optional, set onDelete filter
-            .endWatch()
+            .watch(
+                (workQueue) ->
+                    ControllerBuilder.controllerWatchBuilder(V1Node.class, workQueue)
+                        .withWorkQueueKeyFunc(
+                            (V1Node node) ->
+                                new Request(node.getMetadata().getName())) // optional, default to
+                        .withOnAddFilter(
+                            (V1Node createdNode) ->
+                                createdNode
+                                    .getMetadata()
+                                    .getName()
+                                    .startsWith("docker-")) // optional, set onAdd filter
+                        .withOnUpdateFilter(
+                            (V1Node oldNode, V1Node newNode) ->
+                                newNode
+                                    .getMetadata()
+                                    .getName()
+                                    .startsWith("docker-")) // optional, set onUpdate filter
+                        .withOnDeleteFilter(
+                            (V1Node deletedNode, Boolean stateUnknown) ->
+                                deletedNode
+                                    .getMetadata()
+                                    .getName()
+                                    .startsWith("docker-")) // optional, set onDelete filter
+                        .build())
             .withReconciler(nodeReconciler) // required, set the actual reconciler
             .withName("node-printing-controller") // optional, set name for controller
             .withWorkerCount(4) // optional, set worker thread count
