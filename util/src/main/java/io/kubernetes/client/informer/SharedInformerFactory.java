@@ -79,7 +79,7 @@ public class SharedInformerFactory {
     SharedIndexInformer<ApiType> informer =
         new DefaultSharedIndexInformer<ApiType, ApiListType>(
             apiTypeClass, listerWatcher, resyncPeriodInMillis);
-    this.informers.put(TypeToken.get(apiTypeClass).getType(), informer);
+    this.informers.putIfAbsent(TypeToken.get(apiTypeClass).getType(), informer);
     return informer;
   }
 

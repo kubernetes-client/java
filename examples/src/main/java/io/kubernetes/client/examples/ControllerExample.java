@@ -86,7 +86,9 @@ public class ControllerExample {
 
     // Use builder library to manage one or multiple controllers.
     ControllerManager controllerManager =
-        ControllerBuilder.controllerManagerBuilder().addController(controller).build();
+        ControllerBuilder.controllerManagerBuilder(informerFactory)
+            .addController(controller)
+            .build();
 
     LeaderElectingController leaderElectingController =
         new LeaderElectingController(

@@ -19,9 +19,10 @@ public class ControllerBuilder {
   /**
    * Controller manager builder is for building controller-manager .
    *
+   * @param factory the informer factory
    * @return the controller mananger builder
    */
-  public static ControllerManangerBuilder controllerManagerBuilder() {
-    return new ControllerManangerBuilder();
+  public static ControllerManangerBuilder controllerManagerBuilder(SharedInformerFactory factory) {
+    return new ControllerManangerBuilder(factory);
   }
 }
