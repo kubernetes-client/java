@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import io.kubernetes.client.models.V1ObjectMeta;
 import io.kubernetes.client.models.V1Pod;
+import io.kubernetes.client.models.V1PodSpec;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -122,25 +123,25 @@ public class CacheTest {
   }
 
   @Test
-  public void testDefaultNamespaceIndex() {
-    if (this.obj == null) {
-      // skip null object storing test b/c it should be checked before invoking cache
-      return;
-    }
+  public void testMultiIndexFuncCacheStore() {
+    String testIndexFuncName = "test-idx-func";
+    Cache<V1Pod> podCache = new Cache<>();
+    podCache.addIndexFunc(
+        testIndexFuncName,
+        (V1Pod pod) -> {
+          return Arrays.asList(pod.getSpec().getNodeName());
+        });
 
-    V1Pod pod = ((V1Pod) this.obj);
+    V1Pod testPod =
+        new V1Pod()
+            .metadata(new V1ObjectMeta().namespace("ns").name("n"))
+            .spec(new V1PodSpec().nodeName("node1"));
+    podCache.add(testPod);
 
-    List<String> indices = Cache.metaNamespaceIndexFunc(this.obj);
-    assertEquals(pod.getMetadata().getNamespace(), indices.get(0));
-  }
+    List<V1Pod> namespaceIndexedPods = podCache.byIndex(Caches.NAMESPACE_INDEX, "ns");
+    assertEquals(1, namespaceIndexedPods.size());
 
-  @Test
-  public void testDefaultNamespaceNameKey() {
-    if (this.obj == null) {
-      // skip null object storing test b/c it should be checked before invoking cache
-      return;
-    }
-
-    Cache.metaNamespaceKeyFunc(this.obj);
+    List<V1Pod> nodeNameIndexedPods = podCache.byIndex(testIndexFuncName, "node1");
+    assertEquals(1, nodeNameIndexedPods.size());
   }
 }
