@@ -69,6 +69,7 @@ public class LeaderElector {
               } catch (CancellationException e) {
                 log.info("Processing tryAcquireOrRenew successfully canceled");
               } catch (Throwable t) {
+                log.error("Error processing tryAcquireOrRenew as {}", t.getMessage());
                 future.cancel(true);
               }
             },
