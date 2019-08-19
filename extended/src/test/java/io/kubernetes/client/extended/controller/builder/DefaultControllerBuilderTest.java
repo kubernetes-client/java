@@ -11,8 +11,6 @@ import io.kubernetes.client.extended.controller.Controller;
 import io.kubernetes.client.extended.controller.reconciler.Reconciler;
 import io.kubernetes.client.extended.controller.reconciler.Request;
 import io.kubernetes.client.extended.controller.reconciler.Result;
-import io.kubernetes.client.extended.workqueue.DefaultRateLimitingQueue;
-import io.kubernetes.client.extended.workqueue.RateLimitingQueue;
 import io.kubernetes.client.informer.SharedIndexInformer;
 import io.kubernetes.client.informer.SharedInformerFactory;
 import io.kubernetes.client.models.*;
@@ -66,11 +64,6 @@ public class DefaultControllerBuilderTest {
     ControllerBuilder.defaultBuilder(informerFactory).build();
   }
 
-  @Test(expected = IllegalStateException.class)
-  public void testBuildWatchShouldFailIfInformerAbsent() {
-    ControllerBuilder.defaultBuilder(informerFactory).watch(V1ConfigMap.class).endWatch().build();
-  }
-
   @Test
   public void testBuildWatchShouldWorkIfInformerPresent() {
     CoreV1Api api = new CoreV1Api();
@@ -91,8 +84,8 @@ public class DefaultControllerBuilderTest {
         V1Pod.class,
         V1PodList.class);
     ControllerBuilder.defaultBuilder(informerFactory)
-        .watch(V1Pod.class)
-        .endWatch()
+        .watch(
+            (workQueue) -> ControllerBuilder.controllerWatchBuilder(V1Pod.class, workQueue).build())
         .withReconciler(
             new Reconciler() {
               @Override
@@ -143,8 +136,6 @@ public class DefaultControllerBuilderTest {
                     .withBody(new JSON().serialize(podList))));
 
     CoreV1Api api = new CoreV1Api(client);
-    RateLimitingQueue<Request> workQueue =
-        new DefaultRateLimitingQueue<>(Executors.newSingleThreadExecutor());
     SharedIndexInformer<V1Pod> podInformer =
         informerFactory.sharedIndexInformerFor(
             (CallGeneratorParams params) -> {
@@ -184,10 +175,11 @@ public class DefaultControllerBuilderTest {
                     return new Result(false);
                   }
                 })
-            .withWorkQueue(workQueue)
-            .watch(V1Pod.class)
-            .withWorkQueueKeyFunc(podKeyFunc)
-            .endWatch()
+            .watch(
+                (workQueue) ->
+                    ControllerBuilder.controllerWatchBuilder(V1Pod.class, workQueue)
+                        .withWorkQueueKeyFunc(podKeyFunc)
+                        .build())
             .build();
 
     controllerThead.submit(testController::run);

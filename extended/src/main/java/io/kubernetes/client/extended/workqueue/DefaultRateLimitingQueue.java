@@ -3,12 +3,17 @@ package io.kubernetes.client.extended.workqueue;
 import io.kubernetes.client.extended.workqueue.ratelimiter.DefaultControllerRateLimiter;
 import io.kubernetes.client.extended.workqueue.ratelimiter.RateLimiter;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /** The default rate limiting queue implementation. */
 public class DefaultRateLimitingQueue<T> extends DefaultDelayingQueue<T>
     implements RateLimitingQueue<T> {
 
   private RateLimiter<T> rateLimiter;
+
+  public DefaultRateLimitingQueue() {
+    super(Executors.newSingleThreadExecutor());
+  }
 
   public DefaultRateLimitingQueue(ExecutorService waitingWorker) {
     super(waitingWorker);

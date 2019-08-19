@@ -1,24 +1,30 @@
 package io.kubernetes.client.extended.controller;
 
+import io.kubernetes.client.informer.SharedInformerFactory;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/** The type Controller manager manages a set of controllers' lifecycle. */
+/**
+ * The type Controller manager manages a set of controllers' lifecycle and also their informer
+ * factory.
+ */
 public class ControllerManager implements Controller {
   private static final Logger log = LoggerFactory.getLogger(DefaultController.class);
   private Controller[] controllers;
   private ExecutorService controllerThreadPool;
+  private SharedInformerFactory informerFactory;
 
   /**
    * Instantiates a new Controller manager.
    *
    * @param controllers the controllers to be managed.
    */
-  public ControllerManager(Controller... controllers) {
+  public ControllerManager(SharedInformerFactory factory, Controller... controllers) {
     this.controllers = controllers;
+    this.informerFactory = factory;
   }
 
   @Override
@@ -29,6 +35,7 @@ public class ControllerManager implements Controller {
     if (controllerThreadPool != null) {
       this.controllerThreadPool.shutdown();
     }
+    this.informerFactory.stopAllRegisteredInformers();
   }
 
   @Override
@@ -36,6 +43,7 @@ public class ControllerManager implements Controller {
     if (controllers.length == 0) {
       throw new RuntimeException("no controller registered in the manager..");
     }
+    this.informerFactory.startAllRegisteredInformers();
     CountDownLatch latch = new CountDownLatch(controllers.length);
     this.controllerThreadPool = Executors.newFixedThreadPool(controllers.length);
     for (Controller controller : this.controllers) {

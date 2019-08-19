@@ -2,6 +2,7 @@ package io.kubernetes.client.extended.controller;
 
 import static org.junit.Assert.*;
 
+import io.kubernetes.client.informer.SharedInformerFactory;
 import org.junit.Test;
 
 public class ControllerManagerTest {
@@ -11,7 +12,7 @@ public class ControllerManagerTest {
     DummyController dummy1 = new DummyController();
     DummyController dummy2 = new DummyController();
 
-    ControllerManager cm = new ControllerManager(dummy1, dummy2);
+    ControllerManager cm = new ControllerManager(new SharedInformerFactory(), dummy1, dummy2);
 
     cm.run();
     assertTrue(dummy1.started);
