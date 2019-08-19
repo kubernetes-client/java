@@ -96,6 +96,7 @@ public class EndpointsLock implements Lock {
           .putAnnotationsItem(
               LeaderElectionRecordAnnotationKey,
               coreV1Client.getApiClient().getJSON().serialize(record));
+      // TODO consider to retry if receiving a 409 code
       V1Endpoints replacedEndpoints =
           coreV1Client.replaceNamespacedEndpoints(name, namespace, endpoints, null, null, null);
       endpointsRefer.set(replacedEndpoints);
