@@ -76,7 +76,8 @@ public class DefaultSharedIndexInformer<ApiType, ApiListType>
             processor::shouldResync,
             resyncCheckPeriodMillis);
 
-    controllerThread = new Thread(controller::run);
+    controllerThread =
+        new Thread(controller::run, "informer-controller-" + apiTypeClass.getSimpleName());
   }
 
   /** add event callback */

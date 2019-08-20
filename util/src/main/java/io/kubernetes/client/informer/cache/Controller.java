@@ -146,6 +146,9 @@ public class Controller<ApiType, ApiListType> {
         this.queue.pop(this.processFunc);
       } catch (InterruptedException t) {
         log.error("DefaultController#processLoop get interrupted {}", t.getMessage(), t);
+        return;
+      } catch (Throwable t) {
+        log.error("DefaultController#processLoop recovered from crashing {}", t.getMessage(), t);
       }
     }
   }
