@@ -56,15 +56,16 @@ public class DefaultController implements Controller {
   // preFlightCheck checks if the controller is ready for working.
   private boolean preFlightCheck() {
     if (workerCount <= 0) {
-      log.error("Fail to start controller {}: worker count must be positive.");
+      log.error("Fail to start controller {}: worker count must be positive.", this.name);
       return false;
     }
     if (workerThreadPool == null) {
-      log.error("Fail to start controller {}: missing worker thread-pool.");
+      log.error("Fail to start controller {}: missing worker thread-pool.", this.name);
       return false;
     }
     if (!isReady()) {
-      log.error("Timed out waiting for cache to be synced.");
+      log.error(
+          "Fail to start controller {}: Timed out waiting for cache to be synced.", this.name);
       return false;
     }
     return true;
@@ -143,10 +144,10 @@ public class DefaultController implements Controller {
       }
       // request is expected to be null, when the work-queue is shutting-down.
       if (request == null) {
-        log.info("Controller {} worker exiting because work-queue has shutdown..");
+        log.info("Controller {} worker exiting because work-queue has shutdown..", this.name);
         return;
       }
-      log.debug("Controller {} start reconciling {}..", request);
+      log.debug("Controller {} start reconciling {}..", this.name, request);
 
       // do reconciliation, invoke user customized logic.
       Result result = this.reconciler.reconcile(request);
@@ -155,22 +156,22 @@ public class DefaultController implements Controller {
         // checks whether do a re-queue (on failure)
         if (result.isRequeue()) {
           if (result.getRequeueAfter() == null) {
-            log.debug("Controller {} reconciling {} failed, requeuing {}..", request);
+            log.debug("Controller {} reconciling {} failed, requeuing {}..", this.name, request);
             workQueue.addRateLimited(request);
           } else {
             log.debug(
                 "Controller {} reconciling {} failed, requeuing after {}..",
+                this.name,
                 request,
                 result.getRequeueAfter());
             workQueue.addAfter(request, result.getRequeueAfter());
           }
-          return;
         } else {
           workQueue.forget(request);
         }
       } finally {
         workQueue.done(request);
-        log.debug("Controller {} finished reconciling {}..", request);
+        log.debug("Controller {} finished reconciling {}..", this.name, request);
       }
     }
   }
