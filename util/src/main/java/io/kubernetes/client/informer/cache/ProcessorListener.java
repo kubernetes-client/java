@@ -45,18 +45,36 @@ public class ProcessorListener<ApiType> implements Runnable {
         Notification obj = queue.take();
         if (obj instanceof UpdateNotification) {
           UpdateNotification notification = (UpdateNotification) obj;
-          this.handler.onUpdate(
-              (ApiType) notification.getOldObj(), (ApiType) notification.getNewObj());
+          try {
+            this.handler.onUpdate(
+                (ApiType) notification.getOldObj(), (ApiType) notification.getNewObj());
+          } catch (Throwable t) {
+            // Catch all exceptions here so that listeners won't quit unexpectedly
+            log.error("failed invoking UPDATE event handler: {}", t.getMessage());
+            continue;
+          }
         } else if (obj instanceof AddNotification) {
           AddNotification notification = (AddNotification) obj;
-          this.handler.onAdd((ApiType) notification.getNewObj());
+          try {
+            this.handler.onAdd((ApiType) notification.getNewObj());
+          } catch (Throwable t) {
+            // Catch all exceptions here so that listeners won't quit unexpectedly
+            log.error("failed invoking ADD event handler: {}", t.getMessage());
+            continue;
+          }
         } else if (obj instanceof DeleteNotification) {
           Object deletedObj = ((DeleteNotification) obj).getOldObj();
-          if (deletedObj instanceof DeltaFIFO.DeletedFinalStateUnknown) {
-            this.handler.onDelete(
-                ((DeltaFIFO.DeletedFinalStateUnknown<ApiType>) deletedObj).getObj(), true);
-          } else {
-            this.handler.onDelete((ApiType) deletedObj, false);
+          try {
+            if (deletedObj instanceof DeltaFIFO.DeletedFinalStateUnknown) {
+              this.handler.onDelete(
+                  ((DeltaFIFO.DeletedFinalStateUnknown<ApiType>) deletedObj).getObj(), true);
+            } else {
+              this.handler.onDelete((ApiType) deletedObj, false);
+            }
+          } catch (Throwable t) {
+            // Catch all exceptions here so that listeners won't quit unexpectedly
+            log.error("failed invoking DELETE event handler: {}", t.getMessage());
+            continue;
           }
         } else {
           throw new BadNotificationException("unrecognized notification");
