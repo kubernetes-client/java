@@ -90,7 +90,9 @@ public class ProcessorListener<ApiType> implements Runnable {
     if (obj == null) {
       return;
     }
-    this.queue.add(obj);
+    if (!this.queue.offer(obj)) {
+      log.warn("notification queue full!");
+    }
   }
 
   public void determineNextResync(DateTime now) {
