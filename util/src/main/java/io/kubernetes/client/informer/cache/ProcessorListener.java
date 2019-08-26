@@ -2,22 +2,19 @@ package io.kubernetes.client.informer.cache;
 
 import io.kubernetes.client.informer.ResourceEventHandler;
 import io.kubernetes.client.informer.exception.BadNotificationException;
-import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * ProcessorListener implements Runnable interface. It's supposed to run in background and actually
- * executes its event handler on notification. Note that it allows 1000 pending notifications at
- * maximum.
+ * executes its event handler on notification.
  */
 public class ProcessorListener<ApiType> implements Runnable {
 
   private static final Logger log = LoggerFactory.getLogger(ProcessorListener.class);
-
-  private static final int DEFAULT_QUEUE_CAPACITY = 1000;
 
   // resyncPeriod is how frequently the listener wants a full resync from the shared informer. This
   // value may differ from requestedResyncPeriod if the shared informer adjusts it to align with the
@@ -33,7 +30,7 @@ public class ProcessorListener<ApiType> implements Runnable {
     this.resyncPeriod = resyncPeriod;
     this.handler = handler;
 
-    this.queue = new ArrayBlockingQueue<>(DEFAULT_QUEUE_CAPACITY);
+    this.queue = new LinkedBlockingQueue<>();
 
     determineNextResync(DateTime.now());
   }
@@ -90,9 +87,7 @@ public class ProcessorListener<ApiType> implements Runnable {
     if (obj == null) {
       return;
     }
-    if (!this.queue.offer(obj)) {
-      log.warn("notification queue full!");
-    }
+    this.queue.add(obj);
   }
 
   public void determineNextResync(DateTime now) {
