@@ -56,7 +56,7 @@ mvn package
 
 Then manually install the following JARs:
 
-* target/client-java-api-6.0.0-beta1-SNAPSHOT.jar
+* target/client-java-api-6.0.0.jar
 * target/lib/*.jar
 
 ## Example
