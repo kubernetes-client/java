@@ -40,7 +40,6 @@ import java.security.cert.X509Certificate;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.RSAPrivateCrtKeySpec;
-import java.util.Collection;
 import javax.net.ssl.KeyManager;
 import javax.net.ssl.KeyManagerFactory;
 import org.apache.commons.codec.binary.Base64;
@@ -145,9 +144,7 @@ public class SSLUtils {
       throws IOException, CertificateException, NoSuchAlgorithmException, InvalidKeySpecException,
           KeyStoreException {
     CertificateFactory certFactory = CertificateFactory.getInstance("X509");
-    Collection<X509Certificate> certs =
-        (Collection<X509Certificate>) certFactory.generateCertificates(certInputStream);
-    X509Certificate[] certsArray = certs.toArray(new X509Certificate[0]);
+    X509Certificate cert = (X509Certificate) certFactory.generateCertificate(certInputStream);
 
     PrivateKey privateKey = loadKey(keyInputStream, clientKeyAlgo);
 
@@ -158,8 +155,8 @@ public class SSLUtils {
       loadDefaultKeyStoreFile(keyStore, keyStorePassphrase);
     }
 
-    String alias = certsArray[0].getSubjectX500Principal().getName();
-    keyStore.setKeyEntry(alias, privateKey, clientKeyPassphrase, certsArray);
+    String alias = cert.getSubjectX500Principal().getName();
+    keyStore.setKeyEntry(alias, privateKey, clientKeyPassphrase, new X509Certificate[] {cert});
 
     return keyStore;
   }
