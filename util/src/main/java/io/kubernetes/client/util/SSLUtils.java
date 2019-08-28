@@ -104,9 +104,13 @@ public class SSLUtils {
     // Try PKCS7 / EC
     if (clientKeyAlgo.equals("EC")) {
       Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
-      PEMKeyPair keys =
-          (PEMKeyPair) new PEMParser(new InputStreamReader(keyInputStream)).readObject();
-      return new JcaPEMKeyConverter().getKeyPair(keys).getPrivate();
+      PEMParser pemParser = new PEMParser(new InputStreamReader(keyInputStream));
+      Object pemObject;
+      while ((pemObject = pemParser.readObject()) != null) {
+        if (pemObject instanceof PEMKeyPair) {
+          return new JcaPEMKeyConverter().getKeyPair(((PEMKeyPair) pemObject)).getPrivate();
+        }
+      }
     }
 
     byte[] keyBytes = decodePem(keyInputStream);
