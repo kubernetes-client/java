@@ -56,7 +56,7 @@ mvn package
 
 Then manually install the following JARs:
 
-* target/client-java-api-6.0.0-beta1-SNAPSHOT.jar
+* target/client-java-api-7.0.0-SNAPSHOT.jar
 * target/lib/*.jar
 
 ## Example
@@ -174,13 +174,14 @@ All APIs and Models' documentation can be found at the [Generated client's docs]
 
 ## Compatibility
 
-|  client version  | 1.9     | 1.10      | 1.11     | 1.12     |  1.13     |  1.14    |
-|------------------|---------|-----------|----------|----------|-----------|----------|
-|  2.0.0           |  ✓      |  -        |  -       |  -       | -         | -        |
-|  3.0.0           |  +      |  -        |  ✓       |  -       | -         | -        |
-|  4.0.0           |  +      |  +        |  +       |  ✓       | -         | -        |
-|  5.0.0           |  +      |  +        |  +       |  +       | ✓         | -        |
-|  6.0.0-beta1     |  +      |  +        |  +       |  +       | +         | ✓        |
+|  client version  | 1.9     | 1.10      | 1.11     | 1.12     |  1.13     |  1.14    |  1.15    |
+|------------------|---------|-----------|----------|----------|-----------|----------|----------|
+|  2.0.0           |  ✓      |  -        |  -       |  -       | -         | -        | -        |
+|  3.0.0           |  +      |  -        |  ✓       |  -       | -         | -        | -        |
+|  4.0.0           |  +      |  +        |  +       |  ✓       | -         | -        | -        |
+|  5.0.0           |  +      |  +        |  +       |  +       | ✓         | -        | -        |
+|  6.0.1           |  +      |  +        |  +       |  +       | +         | ✓        | -        |
+|  7.0.0-SNAPSHOT  |  +      |  +        |  +       |  +       | +         | +        | ✓        |
 
 Key: 
 
