@@ -12,12 +12,11 @@ public class DefaultRateLimitingQueue<T> extends DefaultDelayingQueue<T>
   private RateLimiter<T> rateLimiter;
 
   public DefaultRateLimitingQueue() {
-    super(Executors.newSingleThreadExecutor());
+    this(Executors.newSingleThreadExecutor());
   }
 
   public DefaultRateLimitingQueue(ExecutorService waitingWorker) {
-    super(waitingWorker);
-    this.rateLimiter = new DefaultControllerRateLimiter<>();
+    this(waitingWorker, new DefaultControllerRateLimiter<>());
   }
 
   public DefaultRateLimitingQueue(ExecutorService waitingWorker, RateLimiter<T> rateLimiter) {
