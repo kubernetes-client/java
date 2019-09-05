@@ -178,12 +178,12 @@ public class PortForward {
      * @param port The port number to get the stream for.
      * @return The error stream, or null if there is no such port.
      */
-    public OutputStream getErrorStream(int port) {
+    public InputStream getErrorStream(int port) {
       int portIndex = findPortIndex(port);
       if (portIndex == -1) {
         return null;
       }
-      return handler.getOutputStream(portIndex * 2 + 1);
+      return handler.getInputStream(portIndex * 2 + 1);
     }
 
     /**
