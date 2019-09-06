@@ -76,7 +76,7 @@ public class Copy extends Exec {
   public void copyFileFromPod(
       String namespace, String name, String container, String srcPath, Path destination)
       throws ApiException, IOException {
-    try (InputStream is = copyFileFromPod(namespace, name, srcPath);
+    try (InputStream is = copyFileFromPod(namespace, name, container, srcPath);
         FileOutputStream fos = new FileOutputStream(destination.toFile())) {
       ByteStreams.copy(is, fos);
       fos.flush();
