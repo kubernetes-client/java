@@ -152,7 +152,7 @@ public class ExecTest {
             .withQueryParam("tty", equalTo("false"))
             .withQueryParam("command", equalTo("cmd")));
 
-    assertEquals(-1, p.exitValue());
+    assertEquals(-1975219, p.exitValue());
   }
 
   @Test

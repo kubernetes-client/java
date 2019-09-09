@@ -143,6 +143,14 @@ public class Copy extends Exec {
         }
       }
     }
+    try {
+      int status = proc.waitFor();
+      if (status != 0) {
+        throw new IOException("Copy command failed with status " + status);
+      }
+    } catch (InterruptedException ex) {
+      throw new IOException(ex);
+    }
   }
 
   public static void copyFileFromPod(String namespace, String pod, String srcPath, Path dest)
