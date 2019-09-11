@@ -266,6 +266,7 @@ public class Exec {
                     ExecProcess.this.notifyAll();
                   }
                 }
+                inStream.close();
               } else super.handleMessage(stream, inStream);
             }
 
