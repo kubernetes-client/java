@@ -16,6 +16,7 @@ import static io.kubernetes.client.KubernetesConstants.*;
 
 import com.google.common.io.CharStreams;
 import com.google.gson.reflect.TypeToken;
+import io.kubernetes.client.apis.CoreV1Api;
 import io.kubernetes.client.models.V1Pod;
 import io.kubernetes.client.models.V1Status;
 import io.kubernetes.client.models.V1StatusCause;
@@ -130,7 +131,7 @@ public class Exec {
    * @param stdin If true, pass a stdin stream into the container
    */
   public Process exec(V1Pod pod, String[] command, boolean stdin) throws ApiException, IOException {
-    return exec(pod, command, null, stdin, false);
+    return exec(pod, command, pod.getSpec().getContainers().get(0).getName(), stdin, false);
   }
 
   /**
@@ -159,7 +160,7 @@ public class Exec {
    */
   public Process exec(V1Pod pod, String[] command, boolean stdin, boolean tty)
       throws ApiException, IOException {
-    return exec(pod, command, null, stdin, tty);
+    return exec(pod, command, pod.getSpec().getContainers().get(0).getName(), stdin, tty);
   }
 
   /**
@@ -174,6 +175,9 @@ public class Exec {
    */
   public Process exec(V1Pod pod, String[] command, String container, boolean stdin, boolean tty)
       throws ApiException, IOException {
+    if (container == null) {
+      container = pod.getSpec().getContainers().get(0).getName();
+    }
     return exec(
         pod.getMetadata().getNamespace(),
         pod.getMetadata().getName(),
@@ -197,6 +201,11 @@ public class Exec {
   public Process exec(
       String namespace, String name, String[] command, String container, boolean stdin, boolean tty)
       throws ApiException, IOException {
+    if (container == null) {
+      CoreV1Api api = new CoreV1Api(apiClient);
+      V1Pod pod = api.readNamespacedPod(name, namespace, "false", null, null);
+      container = pod.getSpec().getContainers().get(0).getName();
+    }
     String path = makePath(namespace, name, command, container, stdin, tty);
 
     ExecProcess exec = new ExecProcess(apiClient);
