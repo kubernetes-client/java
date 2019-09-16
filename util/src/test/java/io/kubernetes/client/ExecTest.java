@@ -140,7 +140,7 @@ public class ExecTest {
                     .withHeader("Content-Type", "application/json")
                     .withBody("{}")));
 
-    Process p = exec.exec(pod, cmd, true, false);
+    Process p = exec.exec(pod, cmd, "container", true, false);
     p.waitFor();
 
     verify(

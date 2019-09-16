@@ -60,7 +60,7 @@ public class CopyTest {
                     .withHeader("Content-Type", "application/json")
                     .withBody("{}")));
 
-    InputStream is = copy.copyFileFromPod(pod, "/some/path/to/file");
+    InputStream is = copy.copyFileFromPod(pod, "container", "/some/path/to/file");
 
     //    verify(
     //        getRequestedFor(
