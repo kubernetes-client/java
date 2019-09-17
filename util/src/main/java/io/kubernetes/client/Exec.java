@@ -279,6 +279,22 @@ public class Exec {
             }
 
             @Override
+            public void failure(Exception ex) {
+              super.failure(ex);
+              // TODO, it's possible we should suppress this error message, but currently there's
+              // no good place to surface the message, and without it, this will be really hard to
+              // debug.
+              ex.printStackTrace();
+              synchronized (ExecProcess.this) {
+                // Try for a pretty unique error code, so if someone searches they'll find this
+                // code.
+                statusCode = -1975219;
+                isAlive = false;
+                ExecProcess.this.notifyAll();
+              }
+            }
+
+            @Override
             public void close() {
               // notify of process completion
               synchronized (ExecProcess.this) {

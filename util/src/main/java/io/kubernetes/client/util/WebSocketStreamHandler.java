@@ -43,6 +43,7 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
   private final Map<Integer, PipedOutputStream> pipedOutput = new HashMap<>();
   private final Map<Integer, OutputStream> output = new HashMap<>();
   private WebSocket socket;
+  private Exception error;
 
   @SuppressWarnings("unused")
   private String protocol;
@@ -86,6 +87,15 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
   protected void handleMessage(int stream, InputStream inStream) throws IOException {
     OutputStream out = getSocketInputOutputStream(stream);
     ByteStreams.copy(inStream, out);
+  }
+
+  @Override
+  public void failure(Exception ex) {
+    this.error = ex;
+  }
+
+  public Exception getError() {
+    return this.error;
   }
 
   @Override
