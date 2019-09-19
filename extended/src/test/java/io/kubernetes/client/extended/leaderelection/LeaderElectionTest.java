@@ -47,7 +47,8 @@ public class LeaderElectionTest {
     leaderElectionConfig.setLock(mockLock);
     leaderElectionConfig.setLeaseDuration(Duration.ofMillis(1000));
     leaderElectionConfig.setRetryPeriod(Duration.ofMillis(500));
-    LeaderElector leaderElector = new LeaderElector(leaderElectionConfig);
+    leaderElectionConfig.setRenewDeadline(Duration.ofMillis(600));
+    LeaderElector leaderElector = LeaderElector.newLeaderElector(leaderElectionConfig);
 
     CountDownLatch testLeaderElectionLatch = new CountDownLatch(2);
     ExecutorService leaderElectionWorker = Executors.newSingleThreadExecutor();
@@ -96,7 +97,8 @@ public class LeaderElectionTest {
     leaderElectionConfigA.setLock(mockLockA);
     leaderElectionConfigA.setLeaseDuration(Duration.ofMillis(500));
     leaderElectionConfigA.setRetryPeriod(Duration.ofMillis(300));
-    LeaderElector leaderElectorA = new LeaderElector(leaderElectionConfigA);
+    leaderElectionConfigA.setRenewDeadline(Duration.ofMillis(400));
+    LeaderElector leaderElectorA = LeaderElector.newLeaderElector(leaderElectionConfigA);
 
     MockResourceLock mockLockB = new MockResourceLock("mockB");
     mockLockB.renewCountMax = 4;
@@ -117,7 +119,8 @@ public class LeaderElectionTest {
     leaderElectionConfigB.setLock(mockLockB);
     leaderElectionConfigB.setLeaseDuration(Duration.ofMillis(500));
     leaderElectionConfigB.setRetryPeriod(Duration.ofMillis(300));
-    LeaderElector leaderElectorB = new LeaderElector(leaderElectionConfigB);
+    leaderElectionConfigB.setRenewDeadline(Duration.ofMillis(400));
+    LeaderElector leaderElectorB = LeaderElector.newLeaderElector(leaderElectionConfigB);
 
     CountDownLatch testLeaderElectionLatch = new CountDownLatch(4);
     ExecutorService leaderElectionWorker = Executors.newFixedThreadPool(2);

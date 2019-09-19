@@ -24,8 +24,9 @@ public class LeaderElectionExample {
     EndpointsLock lock = new EndpointsLock("kube-system", "leader-election", "foo");
 
     LeaderElectionConfig leaderElectionConfig =
-        new LeaderElectionConfig(lock, Duration.ofMillis(10000), null, Duration.ofMillis(2000));
-    LeaderElector leaderElector = new LeaderElector(leaderElectionConfig);
+        new LeaderElectionConfig(
+            lock, Duration.ofMillis(10000), Duration.ofMillis(3000), Duration.ofMillis(2000));
+    LeaderElector leaderElector = LeaderElector.newLeaderElector(leaderElectionConfig);
 
     leaderElector.run(
         () -> {

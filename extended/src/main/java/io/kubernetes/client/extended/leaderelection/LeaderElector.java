@@ -15,6 +15,41 @@ public class LeaderElector {
 
   private static final double JITTER_FACTOR = 1.2;
 
+  public static LeaderElector newLeaderElector(LeaderElectionConfig config) {
+    if (config == null) {
+      throw new RuntimeException("Config must be provided.");
+    }
+    if (config.getLock() == null) {
+      throw new RuntimeException("Lock must be provided.");
+    }
+    if (config.getLeaseDuration() == null) {
+      throw new RuntimeException("LeaseDuration must be provided.");
+    }
+    if (config.getRetryPeriod() == null) {
+      throw new RuntimeException("RetryPeriod must be provided.");
+    }
+    if (config.getRenewDeadline() == null) {
+      throw new RuntimeException("RenewDeadline must be provided.");
+    }
+    if (config.getLeaseDuration().compareTo(config.getRenewDeadline()) <= 0) {
+      throw new RuntimeException("LeaseDuration must be greater than renewDeadline.");
+    }
+    if (config.getRenewDeadline().compareTo(config.getRetryPeriod()) <= 0) {
+      throw new RuntimeException("RenewDeadline must be greater than retryPeriod.");
+    }
+    if (config.getLeaseDuration().isZero() || config.getLeaseDuration().isNegative()) {
+      throw new RuntimeException("LeaseDuration must be greater than zero.");
+    }
+    if (config.getRenewDeadline().isZero() || config.getRenewDeadline().isNegative()) {
+      throw new RuntimeException("RenewDeadline must be greater than zero.");
+    }
+    if (config.getRetryPeriod().isZero() || config.getRetryPeriod().isNegative()) {
+      throw new RuntimeException("RetryPeriod must be greater than zero.");
+    }
+
+    return new LeaderElector(config);
+  }
+
   private final LeaderElectionConfig config;
 
   // internal bookkeeping
@@ -25,7 +60,7 @@ public class LeaderElector {
   private ExecutorService leaseWorkers = Executors.newSingleThreadExecutor();
   private ExecutorService hookWorkers = Executors.newSingleThreadExecutor();
 
-  public LeaderElector(LeaderElectionConfig config) {
+  protected LeaderElector(LeaderElectionConfig config) {
     this.config = config;
   }
 
@@ -97,6 +132,7 @@ public class LeaderElector {
     Duration retryPeriod = config.getRetryPeriod();
     long retryPeriodMillis = retryPeriod.toMillis();
     AtomicBoolean renewed = new AtomicBoolean(true);
+    long renewDeadlineMillis = config.getRenewDeadline().toMillis();
 
     ScheduledFuture scheduledFuture =
         scheduledWorkers.scheduleAtFixedRate(
@@ -104,7 +140,7 @@ public class LeaderElector {
               Future<Boolean> future = leaseWorkers.submit(this::tryAcquireOrRenew);
               try {
                 //  set renew success
-                renewed.set(future.get(retryPeriodMillis, TimeUnit.MILLISECONDS));
+                renewed.set(future.get(renewDeadlineMillis, TimeUnit.MILLISECONDS));
               } catch (Throwable t) {
                 future.cancel(true);
               }

@@ -94,7 +94,7 @@ public class ControllerExample {
 
     LeaderElectingController leaderElectingController =
         new LeaderElectingController(
-            new LeaderElector(
+            LeaderElector.newLeaderElector(
                 new LeaderElectionConfig(
                     new EndpointsLock("kube-system", "leader-election", "foo"),
                     Duration.ofMillis(10000),
