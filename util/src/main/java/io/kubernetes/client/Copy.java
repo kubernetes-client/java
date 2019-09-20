@@ -115,8 +115,8 @@ public class Copy extends Exec {
             container,
             false,
             false);
-    InputStream is = new Base64InputStream(new BufferedInputStream(proc.getInputStream()));
-    try (ArchiveInputStream archive = new TarArchiveInputStream(is)) {
+    try (InputStream is = new Base64InputStream(new BufferedInputStream(proc.getInputStream()));
+        ArchiveInputStream archive = new TarArchiveInputStream(is)) {
       // TODO Use new GzipCompressorInputStream(is))) here {
       for (ArchiveEntry entry = archive.getNextEntry();
           entry != null;
@@ -136,7 +136,6 @@ public class Copy extends Exec {
             throw new IOException("create directory failed: " + parent);
           }
           try (OutputStream fs = new FileOutputStream(f)) {
-            System.out.println("Writing: " + f.getCanonicalPath());
             ByteStreams.copy(archive, fs);
             fs.flush();
           }
@@ -156,10 +155,10 @@ public class Copy extends Exec {
   public static void copyFileFromPod(String namespace, String pod, String srcPath, Path dest)
       throws ApiException, IOException {
     Copy c = new Copy();
-    InputStream is = c.copyFileFromPod(namespace, pod, null, srcPath);
-    FileOutputStream os = new FileOutputStream(dest.toFile());
-    ByteStreams.copy(is, os);
-    os.flush();
-    os.close();
+    try (InputStream is = c.copyFileFromPod(namespace, pod, null, srcPath);
+        FileOutputStream os = new FileOutputStream(dest.toFile())) {
+      ByteStreams.copy(is, os);
+      os.flush();
+    }
   }
 }

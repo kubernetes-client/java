@@ -136,12 +136,15 @@ public class WebSockets {
 
     @Override
     public void onMessage(ResponseBody body) throws IOException {
-      if (body.contentType() == TEXT) {
-        listener.textMessage(body.charStream());
-      } else if (body.contentType() == BINARY) {
-        listener.bytesMessage(body.byteStream());
+      try {
+        if (body.contentType() == TEXT) {
+          listener.textMessage(body.charStream());
+        } else if (body.contentType() == BINARY) {
+          listener.bytesMessage(body.byteStream());
+        }
+      } finally {
+        body.close();
       }
-      body.close();
     }
 
     @Override

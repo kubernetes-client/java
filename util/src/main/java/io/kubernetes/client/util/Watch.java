@@ -21,6 +21,7 @@ import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
 import io.kubernetes.client.JSON;
 import io.kubernetes.client.models.V1Status;
+import java.io.Closeable;
 import java.io.IOException;
 import java.io.StringReader;
 import java.lang.reflect.Type;
@@ -34,7 +35,7 @@ import org.slf4j.LoggerFactory;
  * example CoreV1Api.listNamespace has watch parameter, so you can create a call using
  * CoreV1Api.listNamespaceCall and set watch to True and watch the changes to namespaces.
  */
-public class Watch<T> implements Watchable<T> {
+public class Watch<T> implements Watchable<T>, Closeable {
 
   private static final Logger log = LoggerFactory.getLogger(Watch.class);
 
@@ -94,7 +95,7 @@ public class Watch<T> implements Watchable<T> {
         String respBody = null;
         try (ResponseBody body = response.body()) {
           if (body != null) {
-            respBody = response.body().string();
+            respBody = body.string();
           }
         } catch (IOException e) {
           throw new ApiException(
