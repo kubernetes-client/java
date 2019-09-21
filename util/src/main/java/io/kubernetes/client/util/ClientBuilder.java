@@ -22,7 +22,6 @@ import static io.kubernetes.client.util.KubeConfig.KUBECONFIG;
 import static io.kubernetes.client.util.KubeConfig.KUBEDIR;
 
 import com.google.common.base.Strings;
-import com.squareup.okhttp.*;
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.util.credentials.AccessTokenAuthentication;
 import io.kubernetes.client.util.credentials.Authentication;
@@ -37,6 +36,10 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+
+import okhttp3.Interceptor;
+import okhttp3.Request;
+import okhttp3.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

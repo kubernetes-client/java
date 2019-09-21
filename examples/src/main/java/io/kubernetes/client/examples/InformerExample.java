@@ -10,6 +10,8 @@ import io.kubernetes.client.models.V1NodeList;
 import io.kubernetes.client.models.V1ObjectMeta;
 import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.Config;
+import okhttp3.OkHttpClient;
+
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -23,7 +25,10 @@ import java.util.concurrent.TimeUnit;
 public class InformerExample {
   public static void main(String[] args) throws Exception {
     ApiClient client = Config.defaultClient();
-    client.getHttpClient().setReadTimeout(0, TimeUnit.SECONDS); // infinite timeout
+    // infinite timeout
+    OkHttpClient httpClient =
+        client.getHttpClient().newBuilder().readTimeout(0, TimeUnit.SECONDS).build();
+    client.setHttpClient(httpClient);
     Configuration.setDefaultApiClient(client);
 
     SharedInformerFactory factory = new SharedInformerFactory();
@@ -40,10 +45,10 @@ public class InformerExample {
                   null,
                   null,
                   null,
+                  null,
                   params.resourceVersion,
                   params.timeoutSeconds,
                   params.watch,
-                  null,
                   null);
             },
             V1Node.class,

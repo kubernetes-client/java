@@ -1,7 +1,6 @@
 package io.kubernetes.client.informer;
 
 import com.google.gson.reflect.TypeToken;
-import com.squareup.okhttp.Call;
 import io.kubernetes.client.*;
 import io.kubernetes.client.informer.impl.DefaultSharedIndexInformer;
 import io.kubernetes.client.util.CallGenerator;
@@ -15,6 +14,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.collections4.MapUtils;
+import okhttp3.Call;
+import okhttp3.OkHttpClient;
 
 /** SharedInformerFactory class constructs and caches informers for api types. */
 public class SharedInformerFactory {
@@ -106,8 +107,12 @@ public class SharedInformerFactory {
       CallGenerator callGenerator,
       Class<ApiType> apiTypeClass,
       Class<ApiListType> apiListTypeClass) {
-    // set read timeout zero to ensure client doesn't time out
-    apiClient.getHttpClient().setReadTimeout(0, TimeUnit.MILLISECONDS);
+    if (apiClient.getHttpClient().readTimeoutMillis() > 0) {
+      // set read timeout zero to ensure client doesn't time out
+      OkHttpClient httpClient =
+          apiClient.getHttpClient().newBuilder().readTimeout(0, TimeUnit.MILLISECONDS).build();
+      apiClient.setHttpClient(httpClient);
+    }
     return new ListerWatcher<ApiType, ApiListType>() {
       @Override
       public ApiListType list(CallGeneratorParams params) throws ApiException {

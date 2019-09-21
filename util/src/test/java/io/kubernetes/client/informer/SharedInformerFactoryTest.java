@@ -19,10 +19,10 @@ public class SharedInformerFactoryTest {
               null,
               null,
               null,
+              null,
               params.resourceVersion,
               params.timeoutSeconds,
               params.watch,
-              null,
               null);
         },
         V1Namespace.class,

@@ -12,11 +12,12 @@ limitations under the License.
  */
 package io.kubernetes.client.extended.pager;
 
-import com.squareup.okhttp.Call;
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
 import io.kubernetes.client.util.Reflect;
 import io.kubernetes.client.util.exception.ObjectMetaReflectException;
+import okhttp3.Call;
+
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Iterator;

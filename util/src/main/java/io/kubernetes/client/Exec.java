@@ -280,7 +280,7 @@ public class Exec {
             }
 
             @Override
-            public void failure(Exception ex) {
+            public void failure(Throwable ex) {
               super.failure(ex);
               // TODO, it's possible we should suppress this error message, but currently there's
               // no good place to surface the message, and without it, this will be really hard to

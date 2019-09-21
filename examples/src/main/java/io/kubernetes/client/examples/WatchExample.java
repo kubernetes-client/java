@@ -20,6 +20,8 @@ import io.kubernetes.client.apis.CoreV1Api;
 import io.kubernetes.client.models.V1Namespace;
 import io.kubernetes.client.util.Config;
 import io.kubernetes.client.util.Watch;
+import okhttp3.OkHttpClient;
+
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -27,7 +29,10 @@ import java.util.concurrent.TimeUnit;
 public class WatchExample {
   public static void main(String[] args) throws IOException, ApiException {
     ApiClient client = Config.defaultClient();
-    client.getHttpClient().setReadTimeout(0, TimeUnit.SECONDS); // infinite timeout
+    // infinite timeout
+    OkHttpClient httpClient =
+        client.getHttpClient().newBuilder().readTimeout(0, TimeUnit.SECONDS).build();
+    client.setHttpClient(httpClient);
     Configuration.setDefaultApiClient(client);
 
     CoreV1Api api = new CoreV1Api();
@@ -35,7 +40,7 @@ public class WatchExample {
     Watch<V1Namespace> watch =
         Watch.createWatch(
             client,
-            api.listNamespaceCall(null, null, null, null, 5, null, null, Boolean.TRUE, null, null),
+            api.listNamespaceCall(null, null, null, null, null, 5, null, null, Boolean.TRUE, null),
             new TypeToken<Watch.Response<V1Namespace>>() {}.getType());
 
     try {

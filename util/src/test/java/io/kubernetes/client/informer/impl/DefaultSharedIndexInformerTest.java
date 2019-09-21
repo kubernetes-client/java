@@ -89,10 +89,10 @@ public class DefaultSharedIndexInformerTest {
                     null,
                     null,
                     null,
+                    null,
                     params.resourceVersion,
                     params.timeoutSeconds,
                     params.watch,
-                    null,
                     null);
               } catch (ApiException e) {
                 throw new RuntimeException(e);
@@ -184,10 +184,10 @@ public class DefaultSharedIndexInformerTest {
                     null,
                     null,
                     null,
+                    null,
                     params.resourceVersion,
                     params.timeoutSeconds,
                     params.watch,
-                    null,
                     null);
               } catch (ApiException e) {
                 throw new RuntimeException(e);
@@ -270,10 +270,10 @@ public class DefaultSharedIndexInformerTest {
                     null,
                     null,
                     null,
+                    null,
                     params.resourceVersion,
                     params.timeoutSeconds,
                     params.watch,
-                    null,
                     null);
               } catch (ApiException e) {
                 throw new RuntimeException(e);
@@ -331,10 +331,10 @@ public class DefaultSharedIndexInformerTest {
                     null,
                     null,
                     null,
+                    null,
                     params.resourceVersion,
                     params.timeoutSeconds,
                     params.watch,
-                    null,
                     null);
               } catch (ApiException e) {
                 throw new RuntimeException(e);

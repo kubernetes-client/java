@@ -99,11 +99,11 @@ public class YamlExample {
             yamlSvc.getMetadata().getName(),
             "default",
             null,
-            new V1DeleteOptions(),
             null,
             null,
             null,
-            null);
+            null,
+            new V1DeleteOptions());
     System.out.println(deleteResult);
   }
 }

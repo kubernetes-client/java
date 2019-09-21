@@ -16,12 +16,13 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 
 import com.github.tomakehurst.wiremock.client.WireMock;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
-import com.squareup.okhttp.Call;
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
 import io.kubernetes.client.custom.V1Patch;
 import java.io.IOException;
 import java.util.HashMap;
+
+import okhttp3.Call;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;

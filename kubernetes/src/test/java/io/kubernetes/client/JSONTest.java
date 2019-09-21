@@ -1,10 +1,10 @@
 package io.kubernetes.client;
 
-import okio.ByteString;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
 
 public class JSONTest {
 
@@ -13,15 +13,9 @@ public class JSONTest {
     final JSON json = new JSON();
     final String plainText = "string that contains '=' when encoded";
     final String base64String = json.serialize(plainText.getBytes());
-    //serialize returns string surrounded by quotes: "\"[base64]\""
-    final String pureString = base64String.replaceAll("^\"|\"$", "");
-    final ByteString byteStr = ByteString.decodeBase64(pureString);
-
-    //Check encoded to valid base64
-    assertNotNull(byteStr);
-
-    //Check encoded string correctly
-    final String decodedText = new String(byteStr.toByteArray());
-    assertThat(decodedText, is(plainText));
+    byte[] pure = json.deserialize(base64String, byte[].class);
+    assertNotNull(pure);
+    String decodedText = new String(pure);
+    assertThat(decodedText, equalTo(plainText));
   }
 }

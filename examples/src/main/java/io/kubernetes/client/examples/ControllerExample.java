@@ -37,10 +37,10 @@ public class ControllerExample {
                   null,
                   null,
                   null,
+                  null,
                   params.resourceVersion,
                   params.timeoutSeconds,
                   params.watch,
-                  null,
                   null);
             },
             V1Node.class,
