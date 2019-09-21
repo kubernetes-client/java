@@ -1,7 +1,9 @@
 
+
 # V1LimitRangeItem
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **_default** | [**Map&lt;String, Quantity&gt;**](Quantity.md) | Default resource requirement limit value by resource name if resource limit is omitted. |  [optional]

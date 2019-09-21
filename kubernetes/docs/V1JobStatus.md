@@ -1,7 +1,9 @@
 
+
 # V1JobStatus
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **active** | **Integer** | The number of actively running pods. |  [optional]

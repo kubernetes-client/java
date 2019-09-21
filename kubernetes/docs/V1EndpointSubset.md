@@ -1,7 +1,9 @@
 
+
 # V1EndpointSubset
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **addresses** | [**List&lt;V1EndpointAddress&gt;**](V1EndpointAddress.md) | IP addresses which offer the related ports that are marked as ready. These endpoints should be considered safe for load balancers and clients to utilize. |  [optional]

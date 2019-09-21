@@ -1,7 +1,9 @@
 
+
 # V1ResourceRequirements
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **limits** | [**Map&lt;String, Quantity&gt;**](Quantity.md) | Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/ |  [optional]

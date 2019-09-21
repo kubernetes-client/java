@@ -1,7 +1,9 @@
 
+
 # V2alpha1CronJobStatus
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **active** | [**List&lt;V1ObjectReference&gt;**](V1ObjectReference.md) | A list of pointers to currently running jobs. |  [optional]

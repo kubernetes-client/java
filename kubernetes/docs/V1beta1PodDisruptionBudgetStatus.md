@@ -1,7 +1,9 @@
 
+
 # V1beta1PodDisruptionBudgetStatus
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **currentHealthy** | **Integer** | current number of healthy pods | 

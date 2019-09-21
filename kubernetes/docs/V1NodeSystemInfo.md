@@ -1,7 +1,9 @@
 
+
 # V1NodeSystemInfo
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **architecture** | **String** | The Architecture reported by the node | 

@@ -1,7 +1,9 @@
 
+
 # V1beta1LeaseSpec
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **acquireTime** | [**DateTime**](DateTime.md) | acquireTime is a time when the current lease was acquired. |  [optional]

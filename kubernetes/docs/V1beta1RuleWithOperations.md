@@ -1,7 +1,9 @@
 
+
 # V1beta1RuleWithOperations
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **apiGroups** | **List&lt;String&gt;** | APIGroups is the API groups the resources belong to. &#39;*&#39; is all groups. If &#39;*&#39; is present, the length of the slice must be one. Required. |  [optional]

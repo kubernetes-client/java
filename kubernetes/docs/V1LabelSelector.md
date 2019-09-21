@@ -1,7 +1,9 @@
 
+
 # V1LabelSelector
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **matchExpressions** | [**List&lt;V1LabelSelectorRequirement&gt;**](V1LabelSelectorRequirement.md) | matchExpressions is a list of label selector requirements. The requirements are ANDed. |  [optional]

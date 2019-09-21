@@ -1,7 +1,9 @@
 
+
 # V1beta1ResourceAttributes
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **group** | **String** | Group is the API Group of the Resource.  \&quot;*\&quot; means all. |  [optional]

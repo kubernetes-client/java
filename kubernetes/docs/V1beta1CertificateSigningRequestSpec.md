@@ -1,7 +1,9 @@
 
+
 # V1beta1CertificateSigningRequestSpec
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **extra** | [**Map&lt;String, List&lt;String&gt;&gt;**](List.md) | Extra information about the requesting user. See user.Info interface for details. |  [optional]

@@ -1,7 +1,9 @@
 
+
 # V1GroupVersionForDiscovery
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **groupVersion** | **String** | groupVersion specifies the API group and version in the form \&quot;group/version\&quot; | 

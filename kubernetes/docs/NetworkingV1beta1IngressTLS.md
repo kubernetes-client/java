@@ -1,7 +1,9 @@
 
+
 # NetworkingV1beta1IngressTLS
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **hosts** | **List&lt;String&gt;** | Hosts are a list of hosts included in the TLS certificate. The values in this list must match the name/s used in the tlsSecret. Defaults to the wildcard host setting for the loadbalancer controller fulfilling this Ingress, if left unspecified. |  [optional]

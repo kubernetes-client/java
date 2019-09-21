@@ -1,7 +1,9 @@
 
+
 # V1ReplicaSetCondition
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **lastTransitionTime** | [**DateTime**](DateTime.md) | The last time the condition transitioned from one status to another. |  [optional]

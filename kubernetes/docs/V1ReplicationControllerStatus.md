@@ -1,7 +1,9 @@
 
+
 # V1ReplicationControllerStatus
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **availableReplicas** | **Integer** | The number of available replicas (ready for at least minReadySeconds) for this replication controller. |  [optional]

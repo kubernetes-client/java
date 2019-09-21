@@ -1,7 +1,9 @@
 
+
 # V1UserInfo
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **extra** | [**Map&lt;String, List&lt;String&gt;&gt;**](List.md) | Any additional information provided by the authenticator. |  [optional]

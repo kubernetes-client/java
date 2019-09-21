@@ -1,7 +1,9 @@
 
+
 # V1beta1CustomResourceColumnDefinition
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **jsONPath** | **String** | JSONPath is a simple JSON path, i.e. with array notation. | 

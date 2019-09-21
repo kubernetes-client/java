@@ -1,7 +1,9 @@
 
+
 # V1beta1RoleRef
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **apiGroup** | **String** | APIGroup is the group for the resource being referenced | 

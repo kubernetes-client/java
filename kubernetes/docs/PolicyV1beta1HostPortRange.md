@@ -1,7 +1,9 @@
 
+
 # PolicyV1beta1HostPortRange
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **max** | **Integer** | max is the end of the range, inclusive. | 

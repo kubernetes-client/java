@@ -1,7 +1,9 @@
 
+
 # V1NodeCondition
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **lastHeartbeatTime** | [**DateTime**](DateTime.md) | Last time we got an update on a given condition. |  [optional]

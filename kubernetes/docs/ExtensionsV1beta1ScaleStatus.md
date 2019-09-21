@@ -1,7 +1,9 @@
 
+
 # ExtensionsV1beta1ScaleStatus
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **replicas** | **Integer** | actual number of observed instances of the scaled object. | 
