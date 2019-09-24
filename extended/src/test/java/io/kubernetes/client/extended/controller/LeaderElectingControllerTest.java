@@ -2,7 +2,10 @@ package io.kubernetes.client.extended.controller;
 
 import static org.junit.Assert.*;
 
+import io.kubernetes.client.extended.leaderelection.LeaderElectionConfig;
 import io.kubernetes.client.extended.leaderelection.LeaderElector;
+import io.kubernetes.client.extended.leaderelection.resourcelock.EndpointsLock;
+import java.time.Duration;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -59,7 +62,12 @@ public class LeaderElectingControllerTest {
     Runnable stopHook;
 
     private MockLeaderElector() {
-      super(null);
+      super(
+          new LeaderElectionConfig(
+              new EndpointsLock("default", "foo", "identity"),
+              Duration.ofMillis(500),
+              Duration.ofMillis(400),
+              Duration.ofMillis(300)));
     }
 
     private void start() {

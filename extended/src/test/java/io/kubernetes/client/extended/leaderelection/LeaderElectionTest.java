@@ -1,6 +1,6 @@
 package io.kubernetes.client.extended.leaderelection;
 
-import static java.util.concurrent.TimeUnit.*;
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -47,6 +47,7 @@ public class LeaderElectionTest {
     leaderElectionConfig.setLock(mockLock);
     leaderElectionConfig.setLeaseDuration(Duration.ofMillis(1000));
     leaderElectionConfig.setRetryPeriod(Duration.ofMillis(500));
+    leaderElectionConfig.setRenewDeadline(Duration.ofMillis(600));
     LeaderElector leaderElector = new LeaderElector(leaderElectionConfig);
 
     CountDownLatch testLeaderElectionLatch = new CountDownLatch(2);
@@ -96,6 +97,7 @@ public class LeaderElectionTest {
     leaderElectionConfigA.setLock(mockLockA);
     leaderElectionConfigA.setLeaseDuration(Duration.ofMillis(500));
     leaderElectionConfigA.setRetryPeriod(Duration.ofMillis(300));
+    leaderElectionConfigA.setRenewDeadline(Duration.ofMillis(400));
     LeaderElector leaderElectorA = new LeaderElector(leaderElectionConfigA);
 
     MockResourceLock mockLockB = new MockResourceLock("mockB");
@@ -117,6 +119,7 @@ public class LeaderElectionTest {
     leaderElectionConfigB.setLock(mockLockB);
     leaderElectionConfigB.setLeaseDuration(Duration.ofMillis(500));
     leaderElectionConfigB.setRetryPeriod(Duration.ofMillis(300));
+    leaderElectionConfigB.setRenewDeadline(Duration.ofMillis(400));
     LeaderElector leaderElectorB = new LeaderElector(leaderElectionConfigB);
 
     CountDownLatch testLeaderElectionLatch = new CountDownLatch(4);
