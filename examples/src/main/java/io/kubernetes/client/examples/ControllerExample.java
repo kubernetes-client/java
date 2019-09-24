@@ -25,9 +25,9 @@ public class ControllerExample {
 
     CoreV1Api coreV1Api = new CoreV1Api();
 
-    // instantiating an informer-facotry, and there should be only one informer-factory globally.
+    // instantiating an informer-factory, and there should be only one informer-factory globally.
     SharedInformerFactory informerFactory = new SharedInformerFactory();
-    // registering node-informer into the informer-facotry.
+    // registering node-informer into the informer-factory.
     SharedIndexInformer<V1Node> nodeInformer =
         informerFactory.sharedIndexInformerFor(
             (CallGeneratorParams params) -> {
