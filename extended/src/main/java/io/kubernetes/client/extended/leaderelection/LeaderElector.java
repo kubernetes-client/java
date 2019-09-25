@@ -155,6 +155,9 @@ public class LeaderElector {
         try {
           renewResult = future.get(renewDeadlineMillis, TimeUnit.MILLISECONDS);
         } catch (ExecutionException | TimeoutException t) {
+          if (log.isDebugEnabled()) {
+            log.debug("failed to tryAcquireOrRenew", t);
+          }
           renewResult = false;
         } finally {
           future.cancel(true);
@@ -163,6 +166,7 @@ public class LeaderElector {
           if (log.isDebugEnabled()) {
             log.debug("Successfully renewed lease");
           }
+          Thread.sleep(retryPeriodMillis);
         } else {
           break;
         }
