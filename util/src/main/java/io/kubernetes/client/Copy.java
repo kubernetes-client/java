@@ -16,15 +16,20 @@ import com.google.common.io.ByteStreams;
 import io.kubernetes.client.models.V1Pod;
 import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.file.Path;
 import org.apache.commons.codec.binary.Base64InputStream;
+import org.apache.commons.codec.binary.Base64OutputStream;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
+import org.apache.commons.compress.archivers.ArchiveOutputStream;
+import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
 import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
+import org.apache.commons.compress.archivers.tar.TarArchiveOutputStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -160,5 +165,35 @@ public class Copy extends Exec {
       ByteStreams.copy(is, os);
       os.flush();
     }
+  }
+
+  public void copyFileToPod(
+      String namespace, String pod, String container, File srcFile, String destPath)
+      throws ApiException, IOException {
+    // Run decoding and extracting processes
+    final Process proc =
+        this.exec(
+            namespace,
+            pod,
+            new String[] {"sh", "-c", "base64 -d | tar -xf - -C " + destPath},
+            container,
+            true,
+            false);
+
+    // Send encoded archive output stream
+    try (ArchiveOutputStream archiveOutputStream =
+            new TarArchiveOutputStream(
+                new Base64OutputStream(proc.getOutputStream(), true, 0, null));
+        FileInputStream input = new FileInputStream(srcFile)) {
+      ArchiveEntry tarEntry = new TarArchiveEntry(srcFile, srcFile.getName());
+
+      archiveOutputStream.putArchiveEntry(tarEntry);
+      ByteStreams.copy(input, archiveOutputStream);
+      archiveOutputStream.closeArchiveEntry();
+    } finally {
+      proc.destroy();
+    }
+
+    return;
   }
 }
