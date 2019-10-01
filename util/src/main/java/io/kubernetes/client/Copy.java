@@ -168,24 +168,27 @@ public class Copy extends Exec {
   }
 
   public void copyFileToPod(
-      String namespace, String pod, String container, File srcFile, String destPath)
+      String namespace, String pod, String container, Path srcPath, Path destPath)
       throws ApiException, IOException {
+
     // Run decoding and extracting processes
+    String parentPath = destPath.getParent() != null ? destPath.getParent().toString() : ".";
     final Process proc =
         this.exec(
             namespace,
             pod,
-            new String[] {"sh", "-c", "base64 -d | tar -xf - -C " + destPath},
+            new String[] {"sh", "-c", "base64 -d | tar -xmf - -C " + parentPath},
             container,
             true,
             false);
 
     // Send encoded archive output stream
+    File srcFile = new File(srcPath.toUri());
     try (ArchiveOutputStream archiveOutputStream =
             new TarArchiveOutputStream(
                 new Base64OutputStream(proc.getOutputStream(), true, 0, null));
         FileInputStream input = new FileInputStream(srcFile)) {
-      ArchiveEntry tarEntry = new TarArchiveEntry(srcFile, srcFile.getName());
+      ArchiveEntry tarEntry = new TarArchiveEntry(srcFile, destPath.getFileName().toString());
 
       archiveOutputStream.putArchiveEntry(tarEntry);
       ByteStreams.copy(input, archiveOutputStream);
