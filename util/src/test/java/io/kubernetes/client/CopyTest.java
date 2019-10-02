@@ -13,16 +13,21 @@ limitations under the License.
 package io.kubernetes.client;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
+import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
+import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.verify;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.kubernetes.client.models.V1ObjectMeta;
 import io.kubernetes.client.models.V1Pod;
 import io.kubernetes.client.util.ClientBuilder;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Paths;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -71,5 +76,52 @@ public class CopyTest {
     //                .withQueryParam("stderr", equalTo("true"))
     //                .withQueryParam("tty", equalTo("false"))
     //                .withQueryParam("command", new AnythingPattern()));
+  }
+
+  @Test
+  public void testCopyFileToPod() throws IOException, ApiException, InterruptedException {
+
+    File testFile = File.createTempFile("testfile", null);
+    testFile.deleteOnExit();
+
+    Copy copy = new Copy(client);
+
+    stubFor(
+        get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
+            .willReturn(
+                aResponse()
+                    .withStatus(404)
+                    .withHeader("Content-Type", "application/json")
+                    .withBody("{}")));
+
+    // When attempting to write to the process outputstream in copyFileToPod, the
+    // WebSocketStreamHandler is in a wait state because no websocket is created by mock, which
+    // blocks the main thread. So here we execute the method in a thread.
+    Thread t =
+        new Thread(
+            new Runnable() {
+              public void run() {
+                try {
+                  copy.copyFileToPod(
+                      namespace, podName, "", testFile.toPath(), Paths.get("/copied-testfile"));
+                } catch (IOException | ApiException ex) {
+                  ex.printStackTrace();
+                }
+              }
+            });
+    t.start();
+    Thread.sleep(2000);
+    t.interrupt();
+
+    verify(
+        getRequestedFor(
+                urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
+            .withQueryParam("stdin", equalTo("true"))
+            .withQueryParam("stdout", equalTo("true"))
+            .withQueryParam("stderr", equalTo("true"))
+            .withQueryParam("tty", equalTo("false"))
+            .withQueryParam("command", equalTo("sh"))
+            .withQueryParam("command", equalTo("-c"))
+            .withQueryParam("command", equalTo("base64 -d | tar -xmf - -C /")));
   }
 }
