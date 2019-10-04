@@ -49,6 +49,8 @@ public class ClientBuilderTest {
   private String userName = "userName";
   private String password = "password";
   private String apiKeyPrefix = "Bearer";
+  public static final String KUBEDIR = ".kube";
+  public static final String KUBECONFIG = "config";
 
   @Rule public final EnvironmentVariables environmentVariables = new EnvironmentVariables();
 
@@ -171,5 +173,14 @@ public class ClientBuilderTest {
         new ClientBuilder()
             .setOverridePatchFormat(V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH)
             .build();
+  }
+
+  @Test
+  public void testHomeDirPreferredOverKubeConfig() throws Exception {
+    environmentVariables.set("HOME", HOME_PATH);
+    environmentVariables.set("KUBEDIR", KUBEDIR);
+    environmentVariables.set("KUBECONFIG", KUBECONFIG);
+    final ApiClient client = ClientBuilder.standard().build();
+    assertEquals("http://home.dir.com", client.getBasePath());
   }
 }
