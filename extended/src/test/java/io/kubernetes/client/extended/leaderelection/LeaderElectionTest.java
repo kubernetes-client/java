@@ -75,7 +75,7 @@ public class LeaderElectionTest {
   public void testLeaderElection() throws InterruptedException {
     List<String> electionHistory = new ArrayList<>();
     List<String> leadershipHistory = new ArrayList<>();
-    CountDownLatch lockAStartLeading = new CountDownLatch(1);
+    CountDownLatch lockAStopLeading = new CountDownLatch(1);
 
     MockResourceLock mockLockA = new MockResourceLock("mockA");
     mockLockA.renewCountMax = 3;
@@ -83,7 +83,6 @@ public class LeaderElectionTest {
         record -> {
           electionHistory.add("A creates record");
           leadershipHistory.add("A gets leadership");
-          lockAStartLeading.countDown();
         };
     mockLockA.onUpdate =
         record -> {
@@ -134,10 +133,11 @@ public class LeaderElectionTest {
               () -> {
                 leadershipHistory.add("A stops leading");
                 testLeaderElectionLatch.countDown();
+                lockAStopLeading.countDown();
               });
         });
 
-    lockAStartLeading.await(3, SECONDS);
+    lockAStopLeading.await(3, SECONDS);
     leaderElectionWorker.submit(
         () -> {
           leaderElectorB.run(
