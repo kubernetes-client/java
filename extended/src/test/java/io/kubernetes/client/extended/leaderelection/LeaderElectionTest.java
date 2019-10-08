@@ -172,6 +172,69 @@ public class LeaderElectionTest {
         "B stops leading");
   }
 
+  @Test
+  public void testLeaderElectionWithRenewDeadline() throws InterruptedException {
+    List<String> electionHistory = new ArrayList<>();
+    List<String> leadershipHistory = new ArrayList<>();
+
+    MockResourceLock mockLock = new MockResourceLock("mock");
+    mockLock.renewCountMax = 3;
+    mockLock.onCreate =
+        record -> {
+          electionHistory.add("create record");
+          leadershipHistory.add("get leadership");
+        };
+    mockLock.onUpdate =
+        record -> {
+          electionHistory.add("update record");
+        };
+    mockLock.onChange =
+        record -> {
+          electionHistory.add("change record");
+        };
+    mockLock.onTryUpdate =
+        record -> {
+          electionHistory.add("try update record");
+        };
+
+    LeaderElectionConfig leaderElectionConfig = new LeaderElectionConfig();
+    leaderElectionConfig.setLock(mockLock);
+    leaderElectionConfig.setLeaseDuration(Duration.ofMillis(1000));
+    leaderElectionConfig.setRetryPeriod(Duration.ofMillis(200));
+    leaderElectionConfig.setRenewDeadline(Duration.ofMillis(700));
+    LeaderElector leaderElector = new LeaderElector(leaderElectionConfig);
+
+    CountDownLatch testLeaderElectionLatch = new CountDownLatch(2);
+    ExecutorService leaderElectionWorker = Executors.newSingleThreadExecutor();
+    leaderElectionWorker.submit(
+        () -> {
+          leaderElector.run(
+              () -> {
+                leadershipHistory.add("start leading");
+                testLeaderElectionLatch.countDown();
+              },
+              () -> {
+                leadershipHistory.add("stop leading");
+                testLeaderElectionLatch.countDown();
+              });
+        });
+
+    testLeaderElectionLatch.await(10, SECONDS);
+
+    assertHistory(
+        electionHistory,
+        "create record",
+        "try update record",
+        "update record",
+        "try update record",
+        "update record",
+        "try update record",
+        "try update record",
+        "try update record",
+        "try update record");
+    assertHistory(leadershipHistory, "get leadership", "start leading", "stop leading");
+  }
+
   private void assertHistory(List<String> history, String... expected) {
     Assert.assertNotNull(expected);
     Assert.assertNotNull(history);
@@ -198,6 +261,7 @@ public class LeaderElectionTest {
     private Consumer<LeaderElectionRecord> onCreate;
     private Consumer<LeaderElectionRecord> onUpdate;
     private Consumer<LeaderElectionRecord> onChange;
+    private Consumer<LeaderElectionRecord> onTryUpdate;
 
     private String iden;
 
@@ -235,6 +299,9 @@ public class LeaderElectionTest {
     public boolean update(LeaderElectionRecord record) {
       lock.lock();
       try {
+        if (onTryUpdate != null) {
+          onTryUpdate.accept(record);
+        }
         if (renewCount >= renewCountMax) {
           return false;
         }
