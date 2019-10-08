@@ -1,6 +1,6 @@
 package io.kubernetes.client.extended.leaderelection;
 
-import static java.util.concurrent.TimeUnit.*;
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -47,6 +47,7 @@ public class LeaderElectionTest {
     leaderElectionConfig.setLock(mockLock);
     leaderElectionConfig.setLeaseDuration(Duration.ofMillis(1000));
     leaderElectionConfig.setRetryPeriod(Duration.ofMillis(500));
+    leaderElectionConfig.setRenewDeadline(Duration.ofMillis(600));
     LeaderElector leaderElector = new LeaderElector(leaderElectionConfig);
 
     CountDownLatch testLeaderElectionLatch = new CountDownLatch(2);
@@ -74,7 +75,7 @@ public class LeaderElectionTest {
   public void testLeaderElection() throws InterruptedException {
     List<String> electionHistory = new ArrayList<>();
     List<String> leadershipHistory = new ArrayList<>();
-    CountDownLatch lockAStartLeading = new CountDownLatch(1);
+    CountDownLatch lockAStopLeading = new CountDownLatch(1);
 
     MockResourceLock mockLockA = new MockResourceLock("mockA");
     mockLockA.renewCountMax = 3;
@@ -82,7 +83,6 @@ public class LeaderElectionTest {
         record -> {
           electionHistory.add("A creates record");
           leadershipHistory.add("A gets leadership");
-          lockAStartLeading.countDown();
         };
     mockLockA.onUpdate =
         record -> {
@@ -96,6 +96,7 @@ public class LeaderElectionTest {
     leaderElectionConfigA.setLock(mockLockA);
     leaderElectionConfigA.setLeaseDuration(Duration.ofMillis(500));
     leaderElectionConfigA.setRetryPeriod(Duration.ofMillis(300));
+    leaderElectionConfigA.setRenewDeadline(Duration.ofMillis(400));
     LeaderElector leaderElectorA = new LeaderElector(leaderElectionConfigA);
 
     MockResourceLock mockLockB = new MockResourceLock("mockB");
@@ -117,6 +118,7 @@ public class LeaderElectionTest {
     leaderElectionConfigB.setLock(mockLockB);
     leaderElectionConfigB.setLeaseDuration(Duration.ofMillis(500));
     leaderElectionConfigB.setRetryPeriod(Duration.ofMillis(300));
+    leaderElectionConfigB.setRenewDeadline(Duration.ofMillis(400));
     LeaderElector leaderElectorB = new LeaderElector(leaderElectionConfigB);
 
     CountDownLatch testLeaderElectionLatch = new CountDownLatch(4);
@@ -131,10 +133,11 @@ public class LeaderElectionTest {
               () -> {
                 leadershipHistory.add("A stops leading");
                 testLeaderElectionLatch.countDown();
+                lockAStopLeading.countDown();
               });
         });
 
-    lockAStartLeading.await(3, SECONDS);
+    lockAStopLeading.await(3, SECONDS);
     leaderElectionWorker.submit(
         () -> {
           leaderElectorB.run(
@@ -169,6 +172,69 @@ public class LeaderElectionTest {
         "B stops leading");
   }
 
+  @Test
+  public void testLeaderElectionWithRenewDeadline() throws InterruptedException {
+    List<String> electionHistory = new ArrayList<>();
+    List<String> leadershipHistory = new ArrayList<>();
+
+    MockResourceLock mockLock = new MockResourceLock("mock");
+    mockLock.renewCountMax = 3;
+    mockLock.onCreate =
+        record -> {
+          electionHistory.add("create record");
+          leadershipHistory.add("get leadership");
+        };
+    mockLock.onUpdate =
+        record -> {
+          electionHistory.add("update record");
+        };
+    mockLock.onChange =
+        record -> {
+          electionHistory.add("change record");
+        };
+    mockLock.onTryUpdate =
+        record -> {
+          electionHistory.add("try update record");
+        };
+
+    LeaderElectionConfig leaderElectionConfig = new LeaderElectionConfig();
+    leaderElectionConfig.setLock(mockLock);
+    leaderElectionConfig.setLeaseDuration(Duration.ofMillis(1000));
+    leaderElectionConfig.setRetryPeriod(Duration.ofMillis(200));
+    leaderElectionConfig.setRenewDeadline(Duration.ofMillis(700));
+    LeaderElector leaderElector = new LeaderElector(leaderElectionConfig);
+
+    CountDownLatch testLeaderElectionLatch = new CountDownLatch(2);
+    ExecutorService leaderElectionWorker = Executors.newSingleThreadExecutor();
+    leaderElectionWorker.submit(
+        () -> {
+          leaderElector.run(
+              () -> {
+                leadershipHistory.add("start leading");
+                testLeaderElectionLatch.countDown();
+              },
+              () -> {
+                leadershipHistory.add("stop leading");
+                testLeaderElectionLatch.countDown();
+              });
+        });
+
+    testLeaderElectionLatch.await(10, SECONDS);
+
+    assertHistory(
+        electionHistory,
+        "create record",
+        "try update record",
+        "update record",
+        "try update record",
+        "update record",
+        "try update record",
+        "try update record",
+        "try update record",
+        "try update record");
+    assertHistory(leadershipHistory, "get leadership", "start leading", "stop leading");
+  }
+
   private void assertHistory(List<String> history, String... expected) {
     Assert.assertNotNull(expected);
     Assert.assertNotNull(history);
@@ -195,6 +261,7 @@ public class LeaderElectionTest {
     private Consumer<LeaderElectionRecord> onCreate;
     private Consumer<LeaderElectionRecord> onUpdate;
     private Consumer<LeaderElectionRecord> onChange;
+    private Consumer<LeaderElectionRecord> onTryUpdate;
 
     private String iden;
 
@@ -232,6 +299,9 @@ public class LeaderElectionTest {
     public boolean update(LeaderElectionRecord record) {
       lock.lock();
       try {
+        if (onTryUpdate != null) {
+          onTryUpdate.accept(record);
+        }
         if (renewCount >= renewCountMax) {
           return false;
         }
