@@ -16,15 +16,20 @@ import com.google.common.io.ByteStreams;
 import io.kubernetes.client.models.V1Pod;
 import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.file.Path;
 import org.apache.commons.codec.binary.Base64InputStream;
+import org.apache.commons.codec.binary.Base64OutputStream;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
+import org.apache.commons.compress.archivers.ArchiveOutputStream;
+import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
 import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
+import org.apache.commons.compress.archivers.tar.TarArchiveOutputStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -76,7 +81,7 @@ public class Copy extends Exec {
   public void copyFileFromPod(
       String namespace, String name, String container, String srcPath, Path destination)
       throws ApiException, IOException {
-    try (InputStream is = copyFileFromPod(namespace, name, srcPath);
+    try (InputStream is = copyFileFromPod(namespace, name, container, srcPath);
         FileOutputStream fos = new FileOutputStream(destination.toFile())) {
       ByteStreams.copy(is, fos);
       fos.flush();
@@ -115,8 +120,8 @@ public class Copy extends Exec {
             container,
             false,
             false);
-    InputStream is = new Base64InputStream(new BufferedInputStream(proc.getInputStream()));
-    try (ArchiveInputStream archive = new TarArchiveInputStream(is)) {
+    try (InputStream is = new Base64InputStream(new BufferedInputStream(proc.getInputStream()));
+        ArchiveInputStream archive = new TarArchiveInputStream(is)) {
       // TODO Use new GzipCompressorInputStream(is))) here {
       for (ArchiveEntry entry = archive.getNextEntry();
           entry != null;
@@ -136,22 +141,62 @@ public class Copy extends Exec {
             throw new IOException("create directory failed: " + parent);
           }
           try (OutputStream fs = new FileOutputStream(f)) {
-            System.out.println("Writing: " + f.getCanonicalPath());
             ByteStreams.copy(archive, fs);
             fs.flush();
           }
         }
       }
     }
+    try {
+      int status = proc.waitFor();
+      if (status != 0) {
+        throw new IOException("Copy command failed with status " + status);
+      }
+    } catch (InterruptedException ex) {
+      throw new IOException(ex);
+    }
   }
 
   public static void copyFileFromPod(String namespace, String pod, String srcPath, Path dest)
       throws ApiException, IOException {
     Copy c = new Copy();
-    InputStream is = c.copyFileFromPod(namespace, pod, null, srcPath);
-    FileOutputStream os = new FileOutputStream(dest.toFile());
-    ByteStreams.copy(is, os);
-    os.flush();
-    os.close();
+    try (InputStream is = c.copyFileFromPod(namespace, pod, null, srcPath);
+        FileOutputStream os = new FileOutputStream(dest.toFile())) {
+      ByteStreams.copy(is, os);
+      os.flush();
+    }
+  }
+
+  public void copyFileToPod(
+      String namespace, String pod, String container, Path srcPath, Path destPath)
+      throws ApiException, IOException {
+
+    // Run decoding and extracting processes
+    String parentPath = destPath.getParent() != null ? destPath.getParent().toString() : ".";
+    final Process proc =
+        this.exec(
+            namespace,
+            pod,
+            new String[] {"sh", "-c", "base64 -d | tar -xmf - -C " + parentPath},
+            container,
+            true,
+            false);
+
+    // Send encoded archive output stream
+    File srcFile = new File(srcPath.toUri());
+    try (ArchiveOutputStream archiveOutputStream =
+            new TarArchiveOutputStream(
+                new Base64OutputStream(proc.getOutputStream(), true, 0, null));
+        FileInputStream input = new FileInputStream(srcFile)) {
+      ArchiveEntry tarEntry = new TarArchiveEntry(srcFile, destPath.getFileName().toString());
+
+      archiveOutputStream.putArchiveEntry(tarEntry);
+      ByteStreams.copy(input, archiveOutputStream);
+      archiveOutputStream.closeArchiveEntry();
+    } finally {
+      proc.destroy();
+    }
+
+    return;
   }
 }

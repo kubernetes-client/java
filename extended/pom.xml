@@ -9,7 +9,7 @@
     <parent>
         <artifactId>client-java-parent</artifactId>
         <groupId>io.kubernetes</groupId>
-        <version>6.0.0-beta1-SNAPSHOT</version>
+        <version>7.0.0-SNAPSHOT</version>
     </parent>
 
     <dependencies>
@@ -37,6 +37,11 @@
             <artifactId>guava</artifactId>
             <version>25.1-jre</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.vladimir-bukhtoyarov</groupId>
+            <artifactId>bucket4j-core</artifactId>
+            <version>${bucket4jVersion}</version>
+        </dependency>
         <!-- test dependencies -->
         <dependency>
             <groupId>junit</groupId>
@@ -47,7 +52,7 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>2.13.0</version>
+            <version>3.0.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -130,5 +135,6 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <slf4jVersion>1.7.7</slf4jVersion>
+        <bucket4jVersion>4.4.1</bucket4jVersion>
     </properties>
 </project>

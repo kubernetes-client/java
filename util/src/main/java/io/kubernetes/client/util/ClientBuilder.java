@@ -97,7 +97,7 @@ public class ClientBuilder {
         if (persistConfig) {
           kc.setPersistConfig(new FilePersister(config));
         }
-        kc.setFile(kubeConfig);
+        kc.setFile(config);
         return kubeconfig(kc);
       }
     }

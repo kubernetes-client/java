@@ -140,7 +140,7 @@ public class ExecTest {
                     .withHeader("Content-Type", "application/json")
                     .withBody("{}")));
 
-    Process p = exec.exec(pod, cmd, true, false);
+    Process p = exec.exec(pod, cmd, "container", true, false);
     p.waitFor();
 
     verify(
@@ -152,7 +152,7 @@ public class ExecTest {
             .withQueryParam("tty", equalTo("false"))
             .withQueryParam("command", equalTo("cmd")));
 
-    assertEquals(-1, p.exitValue());
+    assertEquals(-1975219, p.exitValue());
   }
 
   @Test

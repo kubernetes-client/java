@@ -13,11 +13,11 @@ public class Lister<ApiType> {
   private Indexer<ApiType> indexer;
 
   public Lister(Indexer<ApiType> indexer) {
-    this(indexer, null, Cache.NAMESPACE_INDEX);
+    this(indexer, null, Caches.NAMESPACE_INDEX);
   }
 
   public Lister(Indexer<ApiType> indexer, String namespace) {
-    this(indexer, namespace, Cache.NAMESPACE_INDEX);
+    this(indexer, namespace, Caches.NAMESPACE_INDEX);
   }
 
   public Lister(Indexer<ApiType> indexer, String namespace, String indexName) {

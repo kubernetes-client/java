@@ -62,6 +62,13 @@ public class WebSockets {
      */
     public void textMessage(Reader in);
 
+    /**
+     * Called when there has been a failure
+     *
+     * @param the exception associated with the failure.
+     */
+    public void failure(Exception ex);
+
     /** Called when the stream is closed. */
     public void close();
   }
@@ -129,12 +136,15 @@ public class WebSockets {
 
     @Override
     public void onMessage(ResponseBody body) throws IOException {
-      if (body.contentType() == TEXT) {
-        listener.textMessage(body.charStream());
-      } else if (body.contentType() == BINARY) {
-        listener.bytesMessage(body.byteStream());
+      try {
+        if (body.contentType() == TEXT) {
+          listener.textMessage(body.charStream());
+        } else if (body.contentType() == BINARY) {
+          listener.bytesMessage(body.byteStream());
+        }
+      } finally {
+        body.close();
       }
-      body.close();
     }
 
     @Override
@@ -147,7 +157,7 @@ public class WebSockets {
 
     @Override
     public void onFailure(IOException e, Response res) {
-      e.printStackTrace();
+      listener.failure(e);
       listener.close();
     }
   }

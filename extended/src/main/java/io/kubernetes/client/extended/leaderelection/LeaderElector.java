@@ -4,6 +4,8 @@ import io.kubernetes.client.ApiException;
 import java.net.HttpURLConnection;
 import java.time.Duration;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.slf4j.Logger;
@@ -26,6 +28,40 @@ public class LeaderElector {
   private ExecutorService hookWorkers = Executors.newSingleThreadExecutor();
 
   public LeaderElector(LeaderElectionConfig config) {
+    if (config == null) {
+      throw new IllegalArgumentException("Config must be provided.");
+    }
+    List<String> errors = new LinkedList<>();
+    if (config.getLock() == null) {
+      errors.add("Lock must be provided.");
+    }
+    if (config.getLeaseDuration() == null) {
+      errors.add("LeaseDuration must be provided.");
+    }
+    if (config.getRetryPeriod() == null) {
+      errors.add("RetryPeriod must be provided.");
+    }
+    if (config.getRenewDeadline() == null) {
+      errors.add("RenewDeadline must be provided.");
+    }
+    if (config.getLeaseDuration().compareTo(config.getRenewDeadline()) <= 0) {
+      errors.add("LeaseDuration must be greater than renewDeadline.");
+    }
+    if (config.getRenewDeadline().compareTo(config.getRetryPeriod()) <= 0) {
+      errors.add("RenewDeadline must be greater than retryPeriod.");
+    }
+    if (config.getLeaseDuration().isZero() || config.getLeaseDuration().isNegative()) {
+      errors.add("LeaseDuration must be greater than zero.");
+    }
+    if (config.getRenewDeadline().isZero() || config.getRenewDeadline().isNegative()) {
+      errors.add("RenewDeadline must be greater than zero.");
+    }
+    if (config.getRetryPeriod().isZero() || config.getRetryPeriod().isNegative()) {
+      errors.add("RetryPeriod must be greater than zero.");
+    }
+    if (errors.size() > 0) {
+      throw new IllegalArgumentException(String.join(",", errors));
+    }
     this.config = config;
   }
 
@@ -69,6 +105,7 @@ public class LeaderElector {
               } catch (CancellationException e) {
                 log.info("Processing tryAcquireOrRenew successfully canceled");
               } catch (Throwable t) {
+                log.error("Error processing tryAcquireOrRenew as {}", t.getMessage());
                 future.cancel(true);
               }
             },
@@ -95,34 +132,47 @@ public class LeaderElector {
     }
     Duration retryPeriod = config.getRetryPeriod();
     long retryPeriodMillis = retryPeriod.toMillis();
-    AtomicBoolean renewed = new AtomicBoolean(true);
-
-    ScheduledFuture scheduledFuture =
-        scheduledWorkers.scheduleAtFixedRate(
-            () -> {
-              Future<Boolean> future = leaseWorkers.submit(this::tryAcquireOrRenew);
-              try {
-                //  set renew success
-                renewed.set(future.get(retryPeriodMillis, TimeUnit.MILLISECONDS));
-              } catch (Throwable t) {
-                future.cancel(true);
-              }
-            },
-            0,
-            retryPeriodMillis,
-            TimeUnit.MILLISECONDS);
+    Duration renewDeadline = config.getRenewDeadline();
+    long renewDeadlineMillis = renewDeadline.toMillis();
 
     try {
-      while (renewed.get()) {
-        if (log.isDebugEnabled()) {
-          log.debug("Successfully renewed lease");
+      while (true) {
+        final Future<Boolean> future =
+            leaseWorkers.submit(
+                () -> {
+                  try {
+                    // retry until success or interrupted
+                    while (!tryAcquireOrRenew()) {
+                      Thread.sleep(retryPeriodMillis);
+                    }
+                  } catch (InterruptedException e) {
+                    return false;
+                  }
+                  return true;
+                });
+
+        boolean renewResult;
+        try {
+          renewResult = future.get(renewDeadlineMillis, TimeUnit.MILLISECONDS);
+        } catch (ExecutionException | TimeoutException t) {
+          if (log.isDebugEnabled()) {
+            log.debug("failed to tryAcquireOrRenew", t);
+          }
+          renewResult = false;
+        } finally {
+          future.cancel(true);
         }
-        Thread.sleep(retryPeriodMillis);
+        if (renewResult) {
+          if (log.isDebugEnabled()) {
+            log.debug("Successfully renewed lease");
+          }
+          Thread.sleep(retryPeriodMillis);
+        } else {
+          break;
+        }
       }
     } catch (InterruptedException e) {
       log.error("LeaderElection renew loop gets interrupted {}", e.getMessage());
-    } finally {
-      scheduledFuture.cancel(true);
     }
   }
 

@@ -43,6 +43,7 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
   private final Map<Integer, PipedOutputStream> pipedOutput = new HashMap<>();
   private final Map<Integer, OutputStream> output = new HashMap<>();
   private WebSocket socket;
+  private Exception error;
 
   @SuppressWarnings("unused")
   private String protocol;
@@ -84,17 +85,45 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
   }
 
   protected void handleMessage(int stream, InputStream inStream) throws IOException {
-    OutputStream out = getSocketInputOutputStream(stream);
-    ByteStreams.copy(inStream, out);
+    try {
+      OutputStream out = getSocketInputOutputStream(stream);
+      ByteStreams.copy(inStream, out);
+    } finally {
+      inStream.close();
+    }
+  }
+
+  @Override
+  public void failure(Exception ex) {
+    this.error = ex;
+  }
+
+  public Exception getError() {
+    return this.error;
   }
 
   @Override
   public synchronized void close() {
     if (state != State.CLOSED) {
       state = State.CLOSED;
+      try {
+        if (null != socket) {
+          // code 1000 means "Normal Closure"
+          socket.close(1000, "Triggered client-side terminate");
+          log.debug("Successfully closed socket.");
+        }
+      } catch (IOException ex) {
+        log.error("Error on close socket", ex);
+        // continue to flush and release the buffers
+      }
       // Close all output streams.  Caller of getInputStream(int) is responsible
       // for closing returned input streams
       for (PipedOutputStream out : pipedOutput.values()) {
+        try {
+          out.flush();
+        } catch (IOException ex) {
+          log.error("Error on flush", ex);
+        }
         try {
           out.close();
         } catch (IOException ex) {
@@ -102,6 +131,11 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
         }
       }
       for (OutputStream out : output.values()) {
+        try {
+          out.flush();
+        } catch (IOException ex) {
+          log.error("Error on flush", ex);
+        }
         try {
           out.close();
         } catch (IOException ex) {

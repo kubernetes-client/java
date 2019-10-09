@@ -49,6 +49,10 @@ public class WebSocketsExample {
 
           public void bytesMessage(InputStream is) {}
 
+          public void failure(Exception ex) {
+            ex.printStackTrace();
+          }
+
           public void textMessage(Reader in) {
             try {
               BufferedReader reader = new BufferedReader(in);

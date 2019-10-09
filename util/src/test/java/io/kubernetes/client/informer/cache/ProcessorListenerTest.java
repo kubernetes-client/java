@@ -60,4 +60,39 @@ public class ProcessorListenerTest {
     assertTrue(updateNotificationReceived);
     assertTrue(deleteNotificationReceived);
   }
+
+  @Test
+  public void testMultipleNotificationsHandling() throws InterruptedException {
+    V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name("foo").namespace("default"));
+    final int[] count = {0};
+
+    ProcessorListener<V1Pod> listener =
+        new ProcessorListener<>(
+            new ResourceEventHandler<V1Pod>() {
+              @Override
+              public void onAdd(V1Pod obj) {
+                assertEquals(pod, obj);
+                count[0]++;
+              }
+
+              @Override
+              public void onUpdate(V1Pod oldObj, V1Pod newObj) {}
+
+              @Override
+              public void onDelete(V1Pod obj, boolean deletedFinalStateUnknown) {}
+            },
+            0);
+
+    for (int i = 0; i < 2000; i++) {
+      listener.add(new ProcessorListener.AddNotification<>(pod));
+    }
+
+    Thread listenerThread = new Thread(listener);
+    listenerThread.setDaemon(true);
+    listenerThread.start();
+
+    Thread.sleep(2000);
+
+    assertEquals(count[0], 2000);
+  }
 }

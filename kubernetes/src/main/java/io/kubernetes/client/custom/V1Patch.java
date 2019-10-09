@@ -15,6 +15,7 @@ public class V1Patch {
   public static final String PATCH_FORMAT_JSON_PATCH = "application/json-patch+json";
   public static final String PATCH_FORMAT_JSON_MERGE_PATCH = "application/merge-patch+json";
   public static final String PATCH_FORMAT_STRATEGIC_MERGE_PATCH = "application/strategic-merge-patch+json";
+  public static final String PATCH_FORMAT_APPLY_YAML = "application/apply-patch+yaml";
 
   public V1Patch(final String value) {
     this.value = value;

@@ -1,13 +1,14 @@
 package io.kubernetes.client.informer.cache;
 
-import com.google.common.base.Strings;
-import io.kubernetes.client.informer.exception.BadObjectException;
-import io.kubernetes.client.models.V1ObjectMeta;
-import io.kubernetes.client.util.Reflect;
-import io.kubernetes.client.util.exception.ObjectMetaReflectException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.locks.ReentrantLock;
-import java.util.function.*;
+import java.util.function.Function;
 
 /**
  * Cache is a java port of k/client-go's ThreadSafeStore. It basically saves and indexes all the
@@ -19,8 +20,12 @@ public class Cache<ApiType> implements Indexer<ApiType> {
   /** keyFunc defines how to map objects into indices */
   private Function<ApiType, String> keyFunc;
 
-  /** NAMESPACE_INDEX is the default index function for caching objects */
-  public static final String NAMESPACE_INDEX = "namespace";
+  /**
+   * DEPRECATE: use Caches#NAMESPACE_INDEX instead. TODO: remove after 7.0.0
+   *
+   * <p>NAMESPACE_INDEX is the default index function for caching objects
+   */
+  @Deprecated public static final String NAMESPACE_INDEX = "namespace";
 
   /** indexers stores index functions by their names */
   private Map<String, Function<ApiType, List<String>>> indexers = new HashMap<>();
@@ -35,12 +40,11 @@ public class Cache<ApiType> implements Indexer<ApiType> {
   // TODO: might remove the lock here and make the methods synchronized
   private ReentrantLock lock = new ReentrantLock();
 
-  /** Constructor. */
   public Cache() {
     this(
-        NAMESPACE_INDEX,
-        Cache::metaNamespaceIndexFunc,
-        Cache::deletionHandlingMetaNamespaceKeyFunc);
+        Caches.NAMESPACE_INDEX,
+        Caches::metaNamespaceIndexFunc,
+        Caches::deletionHandlingMetaNamespaceKeyFunc);
   }
 
   /**
@@ -376,67 +380,65 @@ public class Cache<ApiType> implements Indexer<ApiType> {
   }
 
   /**
-   * deletionHandlingMetaNamespaceKeyFunc checks for DeletedFinalStateUnknown objects before calling
-   * metaNamespaceKeyFunc.
+   * Add index func.
    *
-   * @param object specific object
-   * @return the key
+   * @param indexName the index name
+   * @param indexFunc the index func
    */
-  public static <ApiType> String deletionHandlingMetaNamespaceKeyFunc(ApiType object) {
-    if (object instanceof DeltaFIFO.DeletedFinalStateUnknown) {
-      DeltaFIFO.DeletedFinalStateUnknown deleteObj = (DeltaFIFO.DeletedFinalStateUnknown) object;
-      return deleteObj.getKey();
-    }
-    return metaNamespaceKeyFunc(object);
+  public void addIndexFunc(String indexName, Function<ApiType, List<String>> indexFunc) {
+    this.indices.put(indexName, new HashMap<>());
+    this.indexers.put(indexName, indexFunc);
+  }
+
+  public Function<ApiType, String> getKeyFunc() {
+    return keyFunc;
+  }
+
+  public void setKeyFunc(Function<ApiType, String> keyFunc) {
+    this.keyFunc = keyFunc;
   }
 
   /**
-   * MetaNamespaceKeyFunc is a convenient default KeyFunc which knows how to make keys for API
+   * DEPRECATE: use Caches#deletionHandlingMetaNamespaceKeyFunc instead. TODO: remove after 7.0.0
+   *
+   * <p>deletionHandlingMetaNamespaceKeyFunc checks for DeletedFinalStateUnknown objects before
+   * calling metaNamespaceKeyFunc.
+   *
+   * @param <ApiType> the type parameter
+   * @param object specific object
+   * @return the key
+   */
+  @Deprecated
+  public static <ApiType> String deletionHandlingMetaNamespaceKeyFunc(ApiType object) {
+    return Caches.deletionHandlingMetaNamespaceKeyFunc(object);
+  }
+
+  /**
+   * DEPRECATE: use Caches#metaNamespaceKeyFunc instead. TODO: remove after 7.0.0
+   *
+   * <p>MetaNamespaceKeyFunc is a convenient default KeyFunc which knows how to make keys for API
    * objects which implement HasMetadata Interface. The key uses the format <namespace>/<name>
    * unless <namespace> is empty, then it's just <name>.
    *
    * @param obj specific object
    * @return the key
    */
+  @Deprecated
   public static String metaNamespaceKeyFunc(Object obj) {
-    try {
-      V1ObjectMeta metadata;
-      if (obj instanceof String) {
-        return (String) obj;
-      } else if (obj instanceof V1ObjectMeta) {
-        metadata = (V1ObjectMeta) obj;
-      } else {
-        metadata = Reflect.objectMetadata(obj);
-        if (metadata == null) {
-          throw new BadObjectException(obj);
-        }
-      }
-      if (!Strings.isNullOrEmpty(metadata.getNamespace())) {
-        return metadata.getNamespace() + "/" + metadata.getName();
-      }
-      return metadata.getName();
-    } catch (ObjectMetaReflectException e) {
-      // NOTE(yue9944882): might want to handle this as a checked exception
-      throw new RuntimeException(e);
-    }
+    return Caches.metaNamespaceKeyFunc(obj);
   }
 
   /**
-   * metaNamespaceIndexFunc is a default index function that indexes based on an object's namespace.
+   * DEPRECATE: use Caches#metaNamespaceIndexFunc instead. TODO: remove after 7.0.0
+   *
+   * <p>metaNamespaceIndexFunc is a default index function that indexes based on an object's
+   * namespace.
    *
    * @param obj specific object
    * @return the indexed value
    */
+  @Deprecated
   public static List<String> metaNamespaceIndexFunc(Object obj) {
-    try {
-      V1ObjectMeta metadata = Reflect.objectMetadata(obj);
-      if (metadata == null) {
-        return Collections.emptyList();
-      }
-      return Collections.singletonList(metadata.getNamespace());
-    } catch (ObjectMetaReflectException e) {
-      // NOTE(yue9944882): might want to handle this as a checked exception
-      throw new RuntimeException(e);
-    }
+    return Caches.metaNamespaceIndexFunc(obj);
   }
 }

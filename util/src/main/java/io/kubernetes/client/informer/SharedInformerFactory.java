@@ -14,19 +14,27 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 /** SharedInformerFactory class constructs and caches informers for api types. */
 public class SharedInformerFactory {
 
-  private Map<Type, SharedIndexInformer> informers;
+  protected Map<Type, SharedIndexInformer> informers;
 
   private Map<Type, Future> startedInformers;
 
   private ExecutorService informerExecutor;
 
+  private ApiClient apiClient;
+
   /** Constructor w/ default thread pool. */
   public SharedInformerFactory() {
-    this(Executors.newCachedThreadPool());
+    this(Configuration.getDefaultApiClient(), Executors.newCachedThreadPool());
+  }
+
+  /** Constructor w/ api client specified and default thread pool. */
+  public SharedInformerFactory(ApiClient apiClient) {
+    this(apiClient, Executors.newCachedThreadPool());
   }
 
   /**
@@ -35,6 +43,17 @@ public class SharedInformerFactory {
    * @param threadPool specified thread pool
    */
   public SharedInformerFactory(ExecutorService threadPool) {
+    this(Configuration.getDefaultApiClient(), threadPool);
+  }
+
+  /**
+   * Constructor w/ api client and thread pool specified.
+   *
+   * @param client specific api client
+   * @param threadPool specified thread pool
+   */
+  public SharedInformerFactory(ApiClient client, ExecutorService threadPool) {
+    apiClient = client;
     informerExecutor = threadPool;
     informers = new HashMap<>();
     startedInformers = new HashMap<>();
@@ -79,7 +98,7 @@ public class SharedInformerFactory {
     SharedIndexInformer<ApiType> informer =
         new DefaultSharedIndexInformer<ApiType, ApiListType>(
             apiTypeClass, listerWatcher, resyncPeriodInMillis);
-    this.informers.put(TypeToken.get(apiTypeClass).getType(), informer);
+    this.informers.putIfAbsent(TypeToken.get(apiTypeClass).getType(), informer);
     return informer;
   }
 
@@ -87,7 +106,8 @@ public class SharedInformerFactory {
       CallGenerator callGenerator,
       Class<ApiType> apiTypeClass,
       Class<ApiListType> apiListTypeClass) {
-    ApiClient apiClient = Configuration.getDefaultApiClient();
+    // set read timeout zero to ensure client doesn't time out
+    apiClient.getHttpClient().setReadTimeout(0, TimeUnit.MILLISECONDS);
     return new ListerWatcher<ApiType, ApiListType>() {
       @Override
       public ApiListType list(CallGeneratorParams params) throws ApiException {

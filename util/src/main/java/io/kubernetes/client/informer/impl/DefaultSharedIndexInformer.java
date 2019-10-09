@@ -40,24 +40,44 @@ public class DefaultSharedIndexInformer<ApiType, ApiListType>
 
   public DefaultSharedIndexInformer(
       Class<ApiType> apiTypeClass, ListerWatcher listerWatcher, long resyncPeriod) {
+    this(apiTypeClass, listerWatcher, resyncPeriod, new Cache<>());
+  }
+
+  public DefaultSharedIndexInformer(
+      Class<ApiType> apiTypeClass,
+      ListerWatcher listerWatcher,
+      long resyncPeriod,
+      Cache<ApiType> cache) {
+    this(
+        apiTypeClass,
+        listerWatcher,
+        resyncPeriod,
+        new DeltaFIFO<>(cache.getKeyFunc(), cache),
+        cache);
+  }
+
+  public DefaultSharedIndexInformer(
+      Class<ApiType> apiTypeClass,
+      ListerWatcher<ApiType, ApiListType> listerWatcher,
+      long resyncPeriod,
+      DeltaFIFO<ApiType> deltaFIFO,
+      Indexer<ApiType> indexer) {
     this.resyncCheckPeriodMillis = resyncPeriod;
     this.defaultEventHandlerResyncPeriod = resyncPeriod;
 
     this.processor = new SharedProcessor<>();
-    this.indexer = new Cache();
-
-    DeltaFIFO<ApiType> fifo = new DeltaFIFO<ApiType>(Cache::metaNamespaceKeyFunc, this.indexer);
-
+    this.indexer = indexer;
     this.controller =
         new Controller<ApiType, ApiListType>(
             apiTypeClass,
-            fifo,
+            deltaFIFO,
             listerWatcher,
             this::handleDeltas,
             processor::shouldResync,
             resyncCheckPeriodMillis);
 
-    controllerThread = new Thread(controller::run);
+    controllerThread =
+        new Thread(controller::run, "informer-controller-" + apiTypeClass.getSimpleName());
   }
 
   /** add event callback */

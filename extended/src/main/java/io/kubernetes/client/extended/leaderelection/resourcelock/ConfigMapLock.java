@@ -96,6 +96,7 @@ public class ConfigMapLock implements Lock {
           .putAnnotationsItem(
               LeaderElectionRecordAnnotationKey,
               coreV1Client.getApiClient().getJSON().serialize(record));
+      // TODO consider to retry if receiving a 409 code
       V1ConfigMap replacedConfigMap =
           coreV1Client.replaceNamespacedConfigMap(name, namespace, configMap, null, null, null);
       configMapRefer.set(replacedConfigMap);
