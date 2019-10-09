@@ -316,7 +316,9 @@ public class SSLUtils {
   private static boolean loadDefaultStoreFile(KeyStore keyStore, File fileToLoad, char[] passphrase)
       throws CertificateException, NoSuchAlgorithmException, IOException {
     if (fileToLoad.exists() && fileToLoad.isFile() && fileToLoad.length() > 0) {
-      keyStore.load(new FileInputStream(fileToLoad), passphrase);
+      try (FileInputStream inputStream = new FileInputStream(fileToLoad)) {
+        keyStore.load(inputStream, passphrase);
+      }
       return true;
     }
     return false;
