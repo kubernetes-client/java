@@ -86,10 +86,10 @@ public class Yaml {
 
   private static Pair<String, String> getApiGroup(String name) {
     MutablePair<String, String> parts = new MutablePair<>();
-    for (String prefix : apiGroups.keySet()) {
-      if (name.startsWith(prefix)) {
-        parts.left = apiGroups.get(prefix);
-        parts.right = name.substring(prefix.length());
+    for (Map.Entry<String, String> entry : apiGroups.entrySet()) {
+      if (name.startsWith(entry.getKey())) {
+        parts.left = entry.getValue();
+        parts.right = name.substring(entry.getKey().length());
         break;
       }
     }
