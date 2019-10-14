@@ -1,9 +1,8 @@
 package io.kubernetes.client.informer.impl;
 
-import java.util.*;
-
 import io.kubernetes.client.informer.*;
 import io.kubernetes.client.informer.cache.*;
+import java.util.*;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.slf4j.Logger;

@@ -1,15 +1,14 @@
 package io.kubernetes.client.informer;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.*;
-
 import com.google.gson.reflect.TypeToken;
 import com.squareup.okhttp.Call;
 import io.kubernetes.client.*;
 import io.kubernetes.client.informer.impl.DefaultSharedIndexInformer;
 import io.kubernetes.client.util.*;
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.*;
 import org.apache.commons.collections4.MapUtils;
 
 /** SharedInformerFactory class constructs and caches informers for api types. */
