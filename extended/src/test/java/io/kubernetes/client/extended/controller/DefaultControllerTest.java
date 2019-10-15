@@ -1,6 +1,7 @@
 package io.kubernetes.client.extended.controller;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 import io.kubernetes.client.extended.controller.reconciler.Reconciler;
 import io.kubernetes.client.extended.controller.reconciler.Request;
@@ -16,7 +17,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 
+@RunWith(MockitoJUnitRunner.class)
 public class DefaultControllerTest {
 
   private ExecutorService controllerThead = Executors.newSingleThreadExecutor();
@@ -39,26 +44,28 @@ public class DefaultControllerTest {
   @After
   public void tearDown() throws Exception {}
 
+  @Mock private Reconciler mockReconciler;
+
   @Test
   public void testStartingStoppingController() throws InterruptedException {
-    MockReconciler testReconciler = new MockReconciler(new Result(false));
 
-    DefaultController testController = new DefaultController(testReconciler, workQueue);
+    DefaultController testController = new DefaultController(mockReconciler, workQueue);
 
     testController.setWorkerCount(1);
     testController.setWorkerThreadPool(Executors.newScheduledThreadPool(1));
 
     Request request1 = new Request("test1");
+    when(mockReconciler.reconcile(request1)).thenReturn(new Result(false));
 
     // emit an event when the controller hasn't started
     workQueue.add(request1);
     cooldown();
-    assertNull(testReconciler.receivingRequest);
+    verify(mockReconciler, times(0)).reconcile(request1);
 
     controllerThead.submit(testController::run);
 
     cooldown();
-    assertEquals(request1, testReconciler.receivingRequest);
+    verify(mockReconciler, times(1)).reconcile(request1);
 
     testController.shutdown();
     Request request2 = new Request("test2");
@@ -66,16 +73,18 @@ public class DefaultControllerTest {
     // emit an event after the controller has shutdown
     workQueue.add(request2);
     cooldown();
-    assertEquals(request1, testReconciler.receivingRequest);
+    verify(mockReconciler, times(0)).reconcile(request2);
   }
 
   @Test
   public void testControllerWontStartBeforeReady() throws InterruptedException {
-    MockReconciler testReconciler = new MockReconciler(new Result(false));
+
+    Request request1 = new Request("test1");
+    when(mockReconciler.reconcile(request1)).thenReturn(new Result(false));
 
     AtomicBoolean ready = new AtomicBoolean(false);
     DefaultController testController =
-        new DefaultController(testReconciler, workQueue, () -> ready.get());
+        new DefaultController(mockReconciler, workQueue, () -> ready.get());
     testController.setWorkerCount(1);
     testController.setWorkerThreadPool(Executors.newScheduledThreadPool(1));
     testController.setReadyCheckInternal(Duration.ofMillis(100));
@@ -83,14 +92,14 @@ public class DefaultControllerTest {
     controllerThead.submit(testController::run);
 
     // emit an event when the controller hasn't been ready
-    Request request1 = new Request("test1");
     workQueue.add(request1);
     cooldown();
-    assertNull(testReconciler.receivingRequest);
+
+    verify(mockReconciler, times(0)).reconcile(request1);
 
     ready.set(true);
     cooldown();
-    assertEquals(request1, testReconciler.receivingRequest);
+    verify(mockReconciler, times(1)).reconcile(request1);
   }
 
   @Test
@@ -130,21 +139,5 @@ public class DefaultControllerTest {
 
     assertFalse(resumed.get());
     assertEquals(0, finishedRequests.size());
-  }
-
-  private class MockReconciler implements Reconciler {
-
-    public MockReconciler(Result result) {
-      this.returningResult = result;
-    }
-
-    private Request receivingRequest;
-    private Result returningResult;
-
-    @Override
-    public Result reconcile(Request request) {
-      this.receivingRequest = request;
-      return this.returningResult;
-    }
   }
 }
