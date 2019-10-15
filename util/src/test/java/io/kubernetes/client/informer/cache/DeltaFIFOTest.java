@@ -1,7 +1,9 @@
 package io.kubernetes.client.informer.cache;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
+import com.google.common.collect.Lists;
 import io.kubernetes.client.models.V1ObjectMeta;
 import io.kubernetes.client.models.V1Pod;
 import java.util.Arrays;
@@ -127,5 +129,31 @@ public class DeltaFIFOTest {
     assertEquals(1, deltas.size());
     assertEquals(foo1, deltas.peekLast().getRight());
     assertEquals(DeltaFIFO.DeltaType.Sync, deltas.peekLast().getLeft());
+  }
+
+  @Test
+  public void testDeltaFIFOReplaceWithDeleteDeltaIn() throws InterruptedException {
+    V1Pod oldPod = new V1Pod().metadata(new V1ObjectMeta().namespace("default").name("foo1"));
+    V1Pod newPod = new V1Pod().metadata(new V1ObjectMeta().namespace("default").name("foo2"));
+
+    Cache mockCache = mock(Cache.class);
+    doReturn(oldPod).when(mockCache).getByKey(Caches.deletionHandlingMetaNamespaceKeyFunc(oldPod));
+    DeltaFIFO<V1Pod> deltaFIFO =
+        new DeltaFIFO<>(Caches::deletionHandlingMetaNamespaceKeyFunc, mockCache);
+
+    deltaFIFO.delete(oldPod);
+    deltaFIFO.replace(Lists.newArrayList(newPod), "0");
+
+    deltaFIFO.pop(
+        (deltas) -> {
+          assertEquals(DeltaFIFO.DeltaType.Deleted, deltas.getFirst().getLeft());
+          assertEquals(oldPod, deltas.getFirst().getRight());
+        });
+
+    deltaFIFO.pop(
+        (deltas) -> {
+          assertEquals(DeltaFIFO.DeltaType.Sync, deltas.getFirst().getLeft());
+          assertEquals(newPod, deltas.getFirst().getRight());
+        });
   }
 }
