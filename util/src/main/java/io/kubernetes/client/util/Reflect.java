@@ -12,7 +12,7 @@ public class Reflect {
 
   public static V1ObjectMeta objectMetadata(Object obj) throws ObjectMetaReflectException {
     try {
-      Method mdField = obj.getClass().getDeclaredMethod("getMetadata");
+      Method mdField = obj.getClass().getMethod("getMetadata");
       return (V1ObjectMeta) mdField.invoke(obj);
     } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
       throw new ObjectMetaReflectException(e);
@@ -25,7 +25,7 @@ public class Reflect {
 
   public static V1ListMeta listMetadata(Object listObj) throws ObjectMetaReflectException {
     try {
-      Method mdField = listObj.getClass().getDeclaredMethod("getMetadata");
+      Method mdField = listObj.getClass().getMethod("getMetadata");
       return (V1ListMeta) mdField.invoke(listObj);
     } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
       throw new ObjectMetaReflectException(e);
