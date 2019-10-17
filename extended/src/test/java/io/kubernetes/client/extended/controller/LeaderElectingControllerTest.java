@@ -1,19 +1,29 @@
 package io.kubernetes.client.extended.controller;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
+import io.kubernetes.client.ApiException;
 import io.kubernetes.client.extended.leaderelection.LeaderElectionConfig;
+import io.kubernetes.client.extended.leaderelection.LeaderElectionRecord;
 import io.kubernetes.client.extended.leaderelection.LeaderElector;
-import io.kubernetes.client.extended.leaderelection.resourcelock.EndpointsLock;
+import io.kubernetes.client.extended.leaderelection.Lock;
 import java.time.Duration;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicReference;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 
+@RunWith(MockitoJUnitRunner.class)
 public class LeaderElectingControllerTest {
 
-  private ExecutorService controllerThread = Executors.newSingleThreadExecutor();
+  @Mock private Controller mockController;
+
+  @Mock private Lock mockLock;
+
   private final int stepCooldownIntervalInMillis = 500;
 
   private void cooldown() {
@@ -25,63 +35,40 @@ public class LeaderElectingControllerTest {
   }
 
   @Test
-  public void testLeaderElectingController() {
+  public void testLeaderElectingController() throws ApiException {
 
-    AtomicBoolean startTriggered = new AtomicBoolean(false);
-    AtomicBoolean stopTriggered = new AtomicBoolean(false);
+    AtomicReference<LeaderElectionRecord> record = new AtomicReference<>();
+    record.set(new LeaderElectionRecord());
 
-    MockLeaderElector leaderElector = new MockLeaderElector();
+    when(mockLock.identity()).thenReturn("foo");
+
+    doAnswer(invocationOnMock -> record.get()).when(mockLock).get();
+
+    doAnswer(
+            invocationOnMock -> {
+              record.set(invocationOnMock.getArgument(0));
+              return true;
+            })
+        .when(mockLock)
+        .create(any());
+
+    doReturn(false).when(mockLock).update(any());
 
     LeaderElectingController leaderElectingController =
         new LeaderElectingController(
-            leaderElector,
-            new Controller() {
-              @Override
-              public void shutdown() {
-                stopTriggered.set(true);
-              }
+            new LeaderElector(
+                new LeaderElectionConfig(
+                    mockLock, Duration.ofMillis(30), Duration.ofMillis(20), Duration.ofMillis(10))),
+            mockController);
 
-              @Override
-              public void run() {
-                startTriggered.set(true);
-              }
-            });
-
+    ExecutorService controllerThread = Executors.newSingleThreadExecutor();
     controllerThread.submit(leaderElectingController::run);
     cooldown();
 
-    leaderElector.start();
-    assertTrue(startTriggered.get());
-    leaderElector.stop();
-    assertTrue(stopTriggered.get());
-  }
+    verify(mockLock, times(1)).create(any());
+    verify(mockLock, atLeastOnce()).update(any());
 
-  private class MockLeaderElector extends LeaderElector {
-
-    Runnable startHook;
-    Runnable stopHook;
-
-    private MockLeaderElector() {
-      super(
-          new LeaderElectionConfig(
-              new EndpointsLock("default", "foo", "identity"),
-              Duration.ofMillis(500),
-              Duration.ofMillis(400),
-              Duration.ofMillis(300)));
-    }
-
-    private void start() {
-      startHook.run();
-    }
-
-    private void stop() {
-      stopHook.run();
-    }
-
-    @Override
-    public void run(Runnable startLeadingHook, Runnable stopLeadingHook) {
-      startHook = startLeadingHook;
-      stopHook = stopLeadingHook;
-    }
+    verify(mockController, times(1)).run();
+    verify(mockController, times(1)).shutdown();
   }
 }
