@@ -14,6 +14,7 @@
     <module>kubernetes</module>
     <module>proto</module>
     <module>extended</module>
+    <module>client-java-osgi</module>
   </modules>
 
   <scm>
