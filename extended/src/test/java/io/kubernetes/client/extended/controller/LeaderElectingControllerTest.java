@@ -9,8 +9,6 @@ import io.kubernetes.client.extended.leaderelection.LeaderElectionRecord;
 import io.kubernetes.client.extended.leaderelection.LeaderElector;
 import io.kubernetes.client.extended.leaderelection.Lock;
 import java.time.Duration;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicReference;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,7 +22,7 @@ public class LeaderElectingControllerTest {
 
   @Mock private Lock mockLock;
 
-  private final int stepCooldownIntervalInMillis = 500;
+  private final int stepCooldownIntervalInMillis = 2000;
 
   private void cooldown() {
     try {
@@ -58,12 +56,16 @@ public class LeaderElectingControllerTest {
         new LeaderElectingController(
             new LeaderElector(
                 new LeaderElectionConfig(
-                    mockLock, Duration.ofMillis(30), Duration.ofMillis(20), Duration.ofMillis(10))),
+                    mockLock,
+                    Duration.ofMillis(300),
+                    Duration.ofMillis(200),
+                    Duration.ofMillis(100))),
             mockController);
 
-    ExecutorService controllerThread = Executors.newSingleThreadExecutor();
-    controllerThread.submit(leaderElectingController::run);
+    Thread controllerThread = new Thread(leaderElectingController::run);
+    controllerThread.start();
     cooldown();
+    controllerThread.interrupt();
 
     verify(mockLock, times(1)).create(any());
     verify(mockLock, atLeastOnce()).update(any());
