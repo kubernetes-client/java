@@ -1,12 +1,20 @@
 package io.kubernetes.client.informer.cache;
 
-import io.kubernetes.client.util.common.Collections;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.Set;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -388,7 +396,7 @@ public class DeltaFIFO<ApiType> implements Store<Object> {
 
     String id = this.keyOf(obj);
     Deque<MutablePair<DeltaType, Object>> deltas = this.items.get(id);
-    if (deltas != null && !(Collections.isEmptyCollection(deltas))) {
+    if (deltas != null && !(CollectionUtils.isEmpty(deltas))) {
       return;
     }
 

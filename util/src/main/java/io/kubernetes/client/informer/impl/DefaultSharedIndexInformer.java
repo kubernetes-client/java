@@ -3,11 +3,16 @@ package io.kubernetes.client.informer.impl;
 import io.kubernetes.client.informer.ListerWatcher;
 import io.kubernetes.client.informer.ResourceEventHandler;
 import io.kubernetes.client.informer.SharedIndexInformer;
-import io.kubernetes.client.informer.cache.*;
-import io.kubernetes.client.util.common.Collections;
+import io.kubernetes.client.informer.cache.Cache;
+import io.kubernetes.client.informer.cache.Controller;
+import io.kubernetes.client.informer.cache.DeltaFIFO;
+import io.kubernetes.client.informer.cache.Indexer;
+import io.kubernetes.client.informer.cache.ProcessorListener;
+import io.kubernetes.client.informer.cache.SharedProcessor;
 import java.util.Deque;
 import java.util.List;
 import java.util.Map;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -185,7 +190,7 @@ public class DefaultSharedIndexInformer<ApiType, ApiListType>
    * @param deltas deltas
    */
   private void handleDeltas(Deque<MutablePair<DeltaFIFO.DeltaType, Object>> deltas) {
-    if (Collections.isEmptyCollection(deltas)) {
+    if (CollectionUtils.isEmpty(deltas)) {
       return;
     }
 
