@@ -162,6 +162,46 @@ public class WatchExample {
 }
 ```
 
+__Create a StatefulSet from YAML file__:
+
+```
+import io.kubernetes.client.ApiClient;
+import io.kubernetes.client.ApiException;
+import io.kubernetes.client.Configuration;
+import io.kubernetes.client.apis.AppsV1Api;
+import io.kubernetes.client.models.V1StatefulSet;
+import io.kubernetes.client.util.Config;
+import io.kubernetes.client.util.Yaml;
+
+public class CreateTest {
+	@Test
+	public void testCreateFromYaml() throws ApiException, IOException {
+		ApiClient client = Config.defaultClient();
+		Configuration.setDefaultApiClient(client);
+
+		/*Example yaml file can be found in examples/test-sts.yaml*/
+		File file = new File("test-sts.yaml");
+		V1StatefulSet pod;
+
+		/*
+		 * @See issue #474. Not needed at most cases, but it need if you are using war
+		 * packging or running this on JUnit.
+		 */
+		Yaml.addModelMap("v1", "StatefulSet", V1StatefulSet.class);
+
+		pod = (V1StatefulSet) Yaml.load(file);
+
+		/*
+		 * Deployment and StatefulSet is defined in apps/v1, so you should use AppsV1Api
+		 * instead CoreV1Api
+		 */
+		AppsV1Api api = new AppsV1Api();
+
+		api.createNamespacedStatefulSet("default", pod, null, null, null);
+	}
+}
+```
+
 More examples can be found in [examples](examples/) folder. To run examples, run this command:
 
 ```shell

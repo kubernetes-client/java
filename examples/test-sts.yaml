@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: sshd-sts
+spec:
+  serviceName: sshd
+  selector:
+    matchLabels:
+      app: sshd
+  template:
+    metadata:
+      labels:
+        app: sshd
+    spec:
+      containers:
+      - name: sshd
+        image: rastasheep/ubuntu-sshd
+        ports:
+        - containerPort: 22
+        - containerPort: 23
