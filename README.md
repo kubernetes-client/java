@@ -181,15 +181,15 @@ public class CreateTest {
 
 		/*Example yaml file can be found in examples/test-sts.yaml*/
 		File file = new File("test-sts.yaml");
-		V1StatefulSet pod;
+		V1StatefulSet sts;
 
 		/*
-		 * @See issue #474. Not needed at most cases, but it need if you are using war
+		 * See issue #474, Not needed at most cases, but it need if you are using war
 		 * packging or running this on JUnit.
 		 */
 		Yaml.addModelMap("v1", "StatefulSet", V1StatefulSet.class);
 
-		pod = (V1StatefulSet) Yaml.load(file);
+		sts = (V1StatefulSet) Yaml.load(file);
 
 		/*
 		 * Deployment and StatefulSet is defined in apps/v1, so you should use AppsV1Api
@@ -197,7 +197,7 @@ public class CreateTest {
 		 */
 		AppsV1Api api = new AppsV1Api();
 
-		api.createNamespacedStatefulSet("default", pod, null, null, null);
+		api.createNamespacedStatefulSet("default", sts, null, null, null);
 	}
 }
 ```
