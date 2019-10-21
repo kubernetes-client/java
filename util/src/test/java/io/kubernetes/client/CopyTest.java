@@ -57,13 +57,13 @@ public class CopyTest {
 
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name(podName).namespace(namespace));
 
-    stubFor(
-        get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
-            .willReturn(
-                aResponse()
-                    .withStatus(404)
-                    .withHeader("Content-Type", "application/json")
-                    .withBody("{}")));
+    //    stubFor(
+    //        get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
+    //            .willReturn(
+    //                aResponse()
+    //                    .withStatus(404)
+    //                    .withHeader("Content-Type", "application/json")
+    //                    .withBody("{}")));
 
     InputStream is = copy.copyFileFromPod(pod, "container", "/some/path/to/file");
 
