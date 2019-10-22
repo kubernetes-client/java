@@ -33,7 +33,7 @@ import java.io.IOException;
  * PersistentVolumeClaim is a user&#39;s request for and claim to a persistent volume
  */
 @ApiModel(description = "PersistentVolumeClaim is a user's request for and claim to a persistent volume")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-10-22T00:42:19.661Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-10-22T21:44:21.999Z[Etc/UTC]")
 public class V1PersistentVolumeClaim {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)

@@ -30,7 +30,7 @@ import java.io.IOException;
  * NamespaceStatus is information about the current status of a Namespace.
  */
 @ApiModel(description = "NamespaceStatus is information about the current status of a Namespace.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-10-22T00:42:19.661Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-10-22T21:44:21.999Z[Etc/UTC]")
 public class V1NamespaceStatus {
   public static final String SERIALIZED_NAME_PHASE = "phase";
   @SerializedName(SERIALIZED_NAME_PHASE)

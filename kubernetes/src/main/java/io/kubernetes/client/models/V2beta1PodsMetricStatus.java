@@ -32,7 +32,7 @@ import java.io.IOException;
  * PodsMetricStatus indicates the current value of a metric describing each pod in the current scale target (for example, transactions-processed-per-second).
  */
 @ApiModel(description = "PodsMetricStatus indicates the current value of a metric describing each pod in the current scale target (for example, transactions-processed-per-second).")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-10-22T00:42:19.661Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-10-22T21:44:21.999Z[Etc/UTC]")
 public class V2beta1PodsMetricStatus {
   public static final String SERIALIZED_NAME_CURRENT_AVERAGE_VALUE = "currentAverageValue";
   @SerializedName(SERIALIZED_NAME_CURRENT_AVERAGE_VALUE)

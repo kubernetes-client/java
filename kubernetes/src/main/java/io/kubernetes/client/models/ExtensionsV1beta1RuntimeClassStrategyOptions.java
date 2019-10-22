@@ -32,7 +32,7 @@ import java.util.List;
  * RuntimeClassStrategyOptions define the strategy that will dictate the allowable RuntimeClasses for a pod.
  */
 @ApiModel(description = "RuntimeClassStrategyOptions define the strategy that will dictate the allowable RuntimeClasses for a pod.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-10-22T00:42:19.661Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-10-22T21:44:21.999Z[Etc/UTC]")
 public class ExtensionsV1beta1RuntimeClassStrategyOptions {
   public static final String SERIALIZED_NAME_ALLOWED_RUNTIME_CLASS_NAMES = "allowedRuntimeClassNames";
   @SerializedName(SERIALIZED_NAME_ALLOWED_RUNTIME_CLASS_NAMES)

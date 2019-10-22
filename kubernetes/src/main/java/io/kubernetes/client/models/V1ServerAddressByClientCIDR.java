@@ -30,7 +30,7 @@ import java.io.IOException;
  * ServerAddressByClientCIDR helps the client to determine the server address that they should use, depending on the clientCIDR that they match.
  */
 @ApiModel(description = "ServerAddressByClientCIDR helps the client to determine the server address that they should use, depending on the clientCIDR that they match.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-10-22T00:42:19.661Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-10-22T21:44:21.999Z[Etc/UTC]")
 public class V1ServerAddressByClientCIDR {
   public static final String SERIALIZED_NAME_CLIENT_C_I_D_R = "clientCIDR";
   @SerializedName(SERIALIZED_NAME_CLIENT_C_I_D_R)
