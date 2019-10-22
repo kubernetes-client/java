@@ -1,12 +1,12 @@
 package io.kubernetes.client.informer.cache;
 
-import io.kubernetes.client.util.common.Collections;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
+import org.apache.commons.collections4.CollectionUtils;
 import org.joda.time.DateTime;
 
 /*
@@ -72,7 +72,7 @@ public class SharedProcessor<ApiType> {
   public void run() {
     lock.readLock().lock();
     try {
-      if (Collections.isEmptyCollection(listeners)) {
+      if (CollectionUtils.isEmpty(listeners)) {
         return;
       }
       for (ProcessorListener listener : listeners) {

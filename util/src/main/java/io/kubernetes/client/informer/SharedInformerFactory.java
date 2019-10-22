@@ -7,7 +7,6 @@ import io.kubernetes.client.informer.impl.DefaultSharedIndexInformer;
 import io.kubernetes.client.util.CallGenerator;
 import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.Watch;
-import io.kubernetes.client.util.common.Collections;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,6 +14,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
+import org.apache.commons.collections4.MapUtils;
 
 /** SharedInformerFactory class constructs and caches informers for api types. */
 public class SharedInformerFactory {
@@ -141,7 +141,7 @@ public class SharedInformerFactory {
 
   /** Start all registered informers. */
   public synchronized void startAllRegisteredInformers() {
-    if (Collections.isEmptyMap(informers)) {
+    if (MapUtils.isEmpty(informers)) {
       return;
     }
     informers.forEach(
@@ -154,7 +154,7 @@ public class SharedInformerFactory {
 
   /** Stop all registered informers. */
   public synchronized void stopAllRegisteredInformers() {
-    if (Collections.isEmptyMap(informers)) {
+    if (MapUtils.isEmpty(informers)) {
       return;
     }
     informers.forEach(
