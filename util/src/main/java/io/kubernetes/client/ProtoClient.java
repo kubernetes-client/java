@@ -13,12 +13,6 @@ limitations under the License.
 
 package io.kubernetes.client;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-
 import com.google.common.io.ByteStreams;
 import com.google.common.primitives.Bytes;
 import com.google.protobuf.Message;
@@ -26,6 +20,11 @@ import io.kubernetes.client.proto.Meta.DeleteOptions;
 import io.kubernetes.client.proto.Meta.Status;
 import io.kubernetes.client.proto.Runtime.TypeMeta;
 import io.kubernetes.client.proto.Runtime.Unknown;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;

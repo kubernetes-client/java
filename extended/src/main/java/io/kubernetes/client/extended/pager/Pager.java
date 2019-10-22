@@ -16,12 +16,11 @@ import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
 import io.kubernetes.client.util.Reflect;
 import io.kubernetes.client.util.exception.ObjectMetaReflectException;
-import okhttp3.Call;
-
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Iterator;
 import java.util.function.Function;
+import okhttp3.Call;
 
 /*
  * Pager encapsulates kubernetes limit/continue-based list pagination into an iterator.

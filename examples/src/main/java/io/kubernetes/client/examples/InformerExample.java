@@ -10,9 +10,8 @@ import io.kubernetes.client.models.V1NodeList;
 import io.kubernetes.client.models.V1ObjectMeta;
 import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.Config;
-import okhttp3.OkHttpClient;
-
 import java.util.concurrent.TimeUnit;
+import okhttp3.OkHttpClient;
 
 /**
  * A simple example of how to use the Java API

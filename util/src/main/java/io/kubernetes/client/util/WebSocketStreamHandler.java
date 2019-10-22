@@ -12,6 +12,9 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
+import com.google.common.base.Charsets;
+import com.google.common.io.ByteStreams;
+import com.google.common.io.CharStreams;
 import java.io.ByteArrayInputStream;
 import java.io.Closeable;
 import java.io.IOException;
@@ -23,10 +26,6 @@ import java.io.PipedOutputStream;
 import java.io.Reader;
 import java.util.HashMap;
 import java.util.Map;
-
-import com.google.common.base.Charsets;
-import com.google.common.io.ByteStreams;
-import com.google.common.io.CharStreams;
 import okhttp3.WebSocket;
 import okio.ByteString;
 import org.slf4j.Logger;

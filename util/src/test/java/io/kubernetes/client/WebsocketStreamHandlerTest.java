@@ -1,21 +1,20 @@
 package io.kubernetes.client;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import io.kubernetes.client.util.WebSocketStreamHandler;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
-
-import io.kubernetes.client.util.WebSocketStreamHandler;
 import okhttp3.Request;
 import okhttp3.WebSocket;
 import okio.BufferedSink;
 import okio.ByteString;
 import okio.Okio;
 import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class WebsocketStreamHandlerTest {
 

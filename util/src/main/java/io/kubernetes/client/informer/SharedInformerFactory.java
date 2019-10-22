@@ -13,9 +13,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
-import org.apache.commons.collections4.MapUtils;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
+import org.apache.commons.collections4.MapUtils;
 
 /** SharedInformerFactory class constructs and caches informers for api types. */
 public class SharedInformerFactory {

@@ -12,6 +12,10 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
+import com.google.common.net.HttpHeaders;
+import io.kubernetes.client.ApiClient;
+import io.kubernetes.client.ApiException;
+import io.kubernetes.client.Pair;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,11 +25,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import javax.annotation.Nullable;
-
-import com.google.common.net.HttpHeaders;
-import io.kubernetes.client.ApiClient;
-import io.kubernetes.client.ApiException;
-import io.kubernetes.client.Pair;
 import okhttp3.Call;
 import okhttp3.Request;
 import okhttp3.Response;

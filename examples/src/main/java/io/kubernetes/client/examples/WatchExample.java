@@ -20,10 +20,9 @@ import io.kubernetes.client.apis.CoreV1Api;
 import io.kubernetes.client.models.V1Namespace;
 import io.kubernetes.client.util.Config;
 import io.kubernetes.client.util.Watch;
-import okhttp3.OkHttpClient;
-
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+import okhttp3.OkHttpClient;
 
 /** A simple example of how to use Watch API to watch changes in Namespace list. */
 public class WatchExample {

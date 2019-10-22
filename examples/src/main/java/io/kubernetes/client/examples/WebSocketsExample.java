@@ -16,12 +16,11 @@ import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
 import io.kubernetes.client.util.Config;
 import io.kubernetes.client.util.WebSockets;
-import okhttp3.WebSocket;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
+import okhttp3.WebSocket;
 
 /**
  * This is a pretty low level, most people won't need to use WebSockets directly.

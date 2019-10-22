@@ -12,12 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.StringReader;
-import java.lang.reflect.Type;
-import java.util.Iterator;
-
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -25,6 +19,11 @@ import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.ApiException;
 import io.kubernetes.client.JSON;
 import io.kubernetes.client.models.V1Status;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.StringReader;
+import java.lang.reflect.Type;
+import java.util.Iterator;
 import okhttp3.Call;
 import okhttp3.ResponseBody;
 import org.slf4j.Logger;
