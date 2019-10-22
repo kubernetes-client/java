@@ -111,6 +111,15 @@
             </goals>
           </execution>
         </executions>
+        <configuration>
+          <tags>
+            <tag>
+              <name>http.response.details</name>
+              <placement>a</placement>
+              <head>Http Response Details:</head>
+            </tag>
+          </tags>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
