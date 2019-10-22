@@ -94,7 +94,7 @@ public class ApiregistrationV1beta1ServiceReference {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ApiregistrationV1beta1ServiceReference {\n");
+    sb.append(ApiregistrationV1beta1ServiceReference.class).append(" {\n");
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
