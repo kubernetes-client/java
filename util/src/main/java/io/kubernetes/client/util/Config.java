@@ -15,12 +15,14 @@ package io.kubernetes.client.util;
 import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.util.credentials.AccessTokenAuthentication;
 import io.kubernetes.client.util.credentials.UsernamePasswordAuthentication;
+import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -74,13 +76,17 @@ public class Config {
   }
 
   public static ApiClient fromConfig(String fileName) throws IOException {
-    KubeConfig config = KubeConfig.loadKubeConfig(new FileReader(fileName)); // TODO UTF-8
+    KubeConfig config =
+        KubeConfig.loadKubeConfig(
+            new BufferedReader(
+                new InputStreamReader(
+                    new FileInputStream(fileName), StandardCharsets.UTF_8.name())));
     config.setFile(new File(fileName));
     return fromConfig(config);
   }
 
   public static ApiClient fromConfig(InputStream stream) throws IOException {
-    return fromConfig(new InputStreamReader(stream)); // TODO UTF-8
+    return fromConfig(new InputStreamReader(stream, StandardCharsets.UTF_8.name()));
   }
 
   public static ApiClient fromConfig(Reader input) throws IOException {
