@@ -27,12 +27,14 @@ import io.kubernetes.client.ApiClient;
 import io.kubernetes.client.util.credentials.AccessTokenAuthentication;
 import io.kubernetes.client.util.credentials.Authentication;
 import io.kubernetes.client.util.credentials.KubeconfigAuthentication;
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileReader;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.Reader;
+import java.io.InputStreamReader;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import org.slf4j.Logger;
@@ -81,7 +83,10 @@ public class ClientBuilder {
   public static ClientBuilder standard(boolean persistConfig) throws IOException {
     final File kubeConfig = findConfigFromEnv();
     if (kubeConfig != null) {
-      try (FileReader kubeConfigReader = new FileReader(kubeConfig)) { // TODO UTF-8
+      try (BufferedReader kubeConfigReader =
+          new BufferedReader(
+              new InputStreamReader(
+                  new FileInputStream(kubeConfig), StandardCharsets.UTF_8.name()))) {
         KubeConfig kc = KubeConfig.loadKubeConfig(kubeConfigReader);
         if (persistConfig) {
           kc.setPersistConfig(new FilePersister(kubeConfig));
@@ -92,7 +97,9 @@ public class ClientBuilder {
     }
     final File config = findConfigInHomeDir();
     if (config != null) {
-      try (FileReader configReader = new FileReader(config)) { // TODO UTF-8
+      try (BufferedReader configReader =
+          new BufferedReader(
+              new InputStreamReader(new FileInputStream(config), StandardCharsets.UTF_8.name()))) {
         KubeConfig kc = KubeConfig.loadKubeConfig(configReader);
         if (persistConfig) {
           kc.setPersistConfig(new FilePersister(config));

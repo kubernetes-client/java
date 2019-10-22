@@ -36,6 +36,8 @@ import org.junit.contrib.java.lang.system.EnvironmentVariables;
 public class ClientBuilderTest {
   private static final String HOME_PATH = Resources.getResource("").getPath();
   private static final String KUBECONFIG_FILE_PATH = Resources.getResource("kubeconfig").getPath();
+  private static final String KUBECONFIG_UTF8_FILE_PATH =
+      Resources.getResource("kubeconfig-utf8").getPath();
   private static final String KUBECONFIG_HTTP_FILE_PATH =
       Resources.getResource("kubeconfig-http").getPath();
   private static final String KUBECONFIG_HTTPS_FILE_PATH =
@@ -77,6 +79,13 @@ public class ClientBuilderTest {
   @Test
   public void testDefaultClientReadsKubeConfig() throws Exception {
     environmentVariables.set("KUBECONFIG", KUBECONFIG_FILE_PATH);
+    final ApiClient client = ClientBuilder.defaultClient();
+    assertEquals("http://kubeconfig.dir.com", client.getBasePath());
+  }
+
+  @Test
+  public void testDefaultClientUTF8EncodedConfig() throws Exception {
+    environmentVariables.set("KUBECONFIG", KUBECONFIG_UTF8_FILE_PATH);
     final ApiClient client = ClientBuilder.defaultClient();
     assertEquals("http://kubeconfig.dir.com", client.getBasePath());
   }
