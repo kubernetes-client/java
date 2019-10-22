@@ -76,13 +76,13 @@ public class Config {
   }
 
   public static ApiClient fromConfig(String fileName) throws IOException {
-    KubeConfig config =
-        KubeConfig.loadKubeConfig(
-            new BufferedReader(
-                new InputStreamReader(
-                    new FileInputStream(fileName), StandardCharsets.UTF_8.name())));
-    config.setFile(new File(fileName));
-    return fromConfig(config);
+    try (BufferedReader bufferedReader =
+        new BufferedReader(
+            new InputStreamReader(new FileInputStream(fileName), StandardCharsets.UTF_8.name()))) {
+      KubeConfig config = KubeConfig.loadKubeConfig(bufferedReader);
+      config.setFile(new File(fileName));
+      return fromConfig(config);
+    }
   }
 
   public static ApiClient fromConfig(InputStream stream) throws IOException {
