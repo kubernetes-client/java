@@ -76,6 +76,8 @@ We prepared a few examples for common use-cases which are shown below:
   Patch resource objects in various supported patch formats, equal to `kubectl patch`.
   - [FluentExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/FluentExample.java): 
   Construct arbitrary resource in a fluent builder style.
+  - [YamlExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/YamlExample.java): 
+  Suggested way to load or dump resource in Yaml.
 - __Streaming__:
   - [WatchExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/WatchExample.java): 
   Subscribe watch events from certain resources, equal to `kubectl get <resource> -w`.
