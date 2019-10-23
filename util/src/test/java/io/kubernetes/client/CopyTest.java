@@ -29,6 +29,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Paths;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -79,6 +80,8 @@ public class CopyTest {
   }
 
   @Test
+  @Ignore // TODO(yue9944882): this test leads to flakiness in the test infra, revert this after the
+  // root cause is located
   public void testCopyFileToPod() throws IOException, ApiException, InterruptedException {
 
     File testFile = File.createTempFile("testfile", null);
