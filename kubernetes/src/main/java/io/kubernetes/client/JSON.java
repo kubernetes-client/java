@@ -17,7 +17,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapter;
-import com.google.gson.internal.bind.util.ISO8601Utils;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.google.gson.JsonElement;
@@ -37,7 +36,6 @@ import java.io.StringReader;
 import java.lang.reflect.Type;
 import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.ParsePosition;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Map;
@@ -318,7 +316,7 @@ public class JSON {
                         if (dateFormat != null) {
                             return new java.sql.Date(dateFormat.parse(date).getTime());
                         }
-                        return new java.sql.Date(ISO8601Utils.parse(date, new ParsePosition(0)).getTime());
+                        return new java.sql.Date(ISODateTimeFormat.basicDateTime().parseMillis(date));
                     } catch (ParseException e) {
                         throw new JsonParseException(e);
                     }
@@ -353,7 +351,7 @@ public class JSON {
                 if (dateFormat != null) {
                     value = dateFormat.format(date);
                 } else {
-                    value = ISO8601Utils.format(date, true);
+                    value = ISODateTimeFormat.basicDateTime().print(date.getTime());
                 }
                 out.value(value);
             }
@@ -372,7 +370,7 @@ public class JSON {
                             if (dateFormat != null) {
                                 return dateFormat.parse(date);
                             }
-                            return ISO8601Utils.parse(date, new ParsePosition(0));
+                            return ISODateTimeFormat.basicDateTime().parseDateTime(date).toDate();
                         } catch (ParseException e) {
                             throw new JsonParseException(e);
                         }
