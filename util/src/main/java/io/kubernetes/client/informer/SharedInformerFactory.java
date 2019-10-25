@@ -25,7 +25,7 @@ public class SharedInformerFactory {
 
   private ExecutorService informerExecutor;
 
-  private ApiClient apiClient;
+  protected ApiClient apiClient;
 
   /** Constructor w/ default thread pool. */
   public SharedInformerFactory() {
@@ -102,7 +102,7 @@ public class SharedInformerFactory {
     return informer;
   }
 
-  private <ApiType, ApiListType> ListerWatcher<ApiType, ApiListType> listerWatcherFor(
+  protected <ApiType, ApiListType> ListerWatcher<ApiType, ApiListType> listerWatcherFor(
       CallGenerator callGenerator,
       Class<ApiType> apiTypeClass,
       Class<ApiListType> apiListTypeClass) {
