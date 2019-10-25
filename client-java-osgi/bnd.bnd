@@ -1,6 +1,6 @@
 Bundle-SymbolicName: io.kubernetes.client.java.osgi
 
--includeresource \
+-includeresource: \
 	@client-java-api-${project.version}.jar, \
 	@client-java-${project.version}.jar
 
