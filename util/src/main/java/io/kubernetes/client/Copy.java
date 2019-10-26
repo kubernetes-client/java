@@ -117,7 +117,7 @@ public class Copy extends Exec {
         this.exec(
             namespace,
             pod,
-            new String[] {"sh", "-c", "tar cf - " + srcPath + " | base64"},
+            new String[] {"sh", "-c", "tar cz - " + srcPath + " | base64"},
             container,
             false,
             false);
