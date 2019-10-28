@@ -32,7 +32,6 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
 
 /** Tests for the Copy helper class */
 public class CopyTest {
@@ -44,7 +43,6 @@ public class CopyTest {
 
   private static final int PORT = 8089;
   @Rule public WireMockRule wireMockRule = new WireMockRule(PORT);
-  @Rule public TemporaryFolder tempFolder = new TemporaryFolder();
 
   @Before
   public void setup() throws IOException {
@@ -128,54 +126,5 @@ public class CopyTest {
             .withQueryParam("command", equalTo("sh"))
             .withQueryParam("command", equalTo("-c"))
             .withQueryParam("command", equalTo("base64 -d | tar -xmf - -C /")));
-  }
-
-  @Test
-  public void testCopyDirectoryFromPod() throws IOException, ApiException, InterruptedException {
-
-    File testFile = File.createTempFile("testfile", null);
-    testFile.deleteOnExit();
-
-    Copy copy = new Copy(client);
-
-    stubFor(
-        get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
-            .willReturn(
-                aResponse()
-                    .withStatus(404)
-                    .withHeader("Content-Type", "application/json")
-                    .withBody("{}")));
-
-    Thread t =
-        new Thread(
-            new Runnable() {
-              public void run() {
-                try {
-                  copy.copyDirectoryFromPod(
-                      namespace,
-                      podName,
-                      "",
-                      tempFolder.getRoot().getPath(),
-                      Paths.get("/copied-testfolder"));
-                } catch (IOException | ApiException ex) {
-                  ex.printStackTrace();
-                }
-              }
-            });
-    t.start();
-    Thread.sleep(2000);
-    t.interrupt();
-
-    verify(
-        getRequestedFor(
-                urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
-            .withQueryParam("stdin", equalTo("false"))
-            .withQueryParam("stdout", equalTo("true"))
-            .withQueryParam("stderr", equalTo("true"))
-            .withQueryParam("tty", equalTo("false"))
-            .withQueryParam("command", equalTo("sh"))
-            .withQueryParam("command", equalTo("-c"))
-            .withQueryParam(
-                "command", equalTo("tar cz - " + tempFolder.getRoot().getPath() + " | base64")));
   }
 }
