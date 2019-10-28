@@ -21,10 +21,8 @@ import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 
 /**
- * Created by 烛坤 on 2019/10/24.
- *
- * @author 烛坤
- * @date 2019/10/24
+ * enhance default JSON，which serialize list/watch objects，SerializeFilterJSON enhance common object
+ * fields unserialize capability which customer use FilterField definition。
  */
 public class SerializeFilterJSON extends JSON {
 
@@ -42,6 +40,11 @@ public class SerializeFilterJSON extends JSON {
     this(Lists.newArrayList());
   }
 
+  /**
+   * when serialize object, use filterFields to unserialize some object fields;
+   *
+   * @param filterFields
+   */
   public SerializeFilterJSON(List<FilterField> filterFields) {
 
     this.filterFields =

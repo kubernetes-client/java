@@ -20,12 +20,6 @@ import io.kubernetes.client.util.Config;
 import java.util.List;
 import org.apache.commons.collections4.CollectionUtils;
 
-/**
- * Created by 烛坤 on 2019/10/18.
- *
- * @author 烛坤
- * @date 2019/10/18
- */
 public class FieldFilterPageInformerExample {
 
   private static final ResourceEventHandler<V1Node> RESOURCE_EVENT_HANDLER =

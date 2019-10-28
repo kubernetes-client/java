@@ -6,12 +6,6 @@ import static org.apache.commons.collections4.CollectionUtils.emptyIfNull;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Created by 烛坤 on 2019/10/23.
- *
- * @author 烛坤
- * @date 2019/10/23
- */
 @FunctionalInterface
 public interface FilterFunction<T> {
 

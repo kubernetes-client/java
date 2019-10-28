@@ -3,12 +3,6 @@ package io.kubernetes.client.extended.informer;
 import io.kubernetes.client.extended.pager.Pager;
 import io.kubernetes.client.util.CallGeneratorParams;
 
-/**
- * Created by 烛坤 on 2019/10/18.
- *
- * @author 烛坤
- * @date 2019/10/18
- */
 public class PagerCallGeneratorParams extends CallGeneratorParams {
 
   private static final int DEFAULT_PAGE_SIZE = 500;

@@ -14,12 +14,6 @@ import io.kubernetes.client.models.V1ObjectMeta;
 import io.kubernetes.client.util.CallGenerator;
 import io.kubernetes.client.util.Config;
 
-/**
- * Created by 烛坤 on 2019/10/18.
- *
- * @author 烛坤
- * @date 2019/10/18
- */
 public class PageInformerExample {
 
   private static final ResourceEventHandler<V1Node> RESOURCE_EVENT_HANDLER =

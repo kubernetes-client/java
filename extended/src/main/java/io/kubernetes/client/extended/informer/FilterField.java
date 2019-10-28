@@ -2,12 +2,6 @@ package io.kubernetes.client.extended.informer;
 
 import org.apache.commons.lang3.StringUtils;
 
-/**
- * Created by 烛坤 on 2019/10/24.
- *
- * @author 烛坤
- * @date 2019/10/24
- */
 public class FilterField {
 
   // the name of the field

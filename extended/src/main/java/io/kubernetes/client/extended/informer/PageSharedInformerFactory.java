@@ -19,12 +19,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
-/**
- * Created by 烛坤 on 2019/10/18.
- *
- * @author 烛坤
- * @date 2019/10/18
- */
+/** informer list request support pagination like client-go(default limit 500). */
 public class PageSharedInformerFactory extends SharedInformerFactory {
 
   protected <ApiType, ApiListType> ListerWatcher<ApiType, ApiListType> listerWatcherFor(
