@@ -1,0 +1,15 @@
+Bundle-SymbolicName: io.kubernetes.client.java.osgi
+
+-includeresource: \
+	@client-java-api-${project.version}.jar, \
+	@client-java-${project.version}.jar
+
+Import-Package: \
+	io.kubernetes.client.proto, \
+	com.microsoft.aad.adal4j;resolution:=optional, \
+	*
+			
+Export-Package: \
+	!io.kubernetes.client.informer.impl, \
+	!io.kubernetes.client.proto, \
+	io.kubernetes.client.*;-split-package:=merge-first
