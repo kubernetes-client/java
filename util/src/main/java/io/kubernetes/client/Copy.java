@@ -30,6 +30,7 @@ import org.apache.commons.compress.archivers.ArchiveOutputStream;
 import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
 import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
 import org.apache.commons.compress.archivers.tar.TarArchiveOutputStream;
+import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -116,13 +117,12 @@ public class Copy extends Exec {
         this.exec(
             namespace,
             pod,
-            new String[] {"sh", "-c", "tar cf - " + srcPath + " | base64"},
+            new String[] {"sh", "-c", "tar cz - " + srcPath + " | base64"},
             container,
             false,
             false);
     try (InputStream is = new Base64InputStream(new BufferedInputStream(proc.getInputStream()));
-        ArchiveInputStream archive = new TarArchiveInputStream(is)) {
-      // TODO Use new GzipCompressorInputStream(is))) here {
+        ArchiveInputStream archive = new TarArchiveInputStream(new GzipCompressorInputStream(is))) {
       for (ArchiveEntry entry = archive.getNextEntry();
           entry != null;
           entry = archive.getNextEntry()) {
