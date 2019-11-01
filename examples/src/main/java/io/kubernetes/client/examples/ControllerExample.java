@@ -19,11 +19,16 @@ import io.kubernetes.client.models.V1NodeList;
 import io.kubernetes.client.util.CallGeneratorParams;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class ControllerExample {
   public static void main(String[] args) throws IOException {
 
     CoreV1Api coreV1Api = new CoreV1Api();
+    coreV1Api
+        .getApiClient()
+        .getHttpClient()
+        .setReadTimeout(0, TimeUnit.SECONDS); // infinite timeout
 
     // instantiating an informer-factory, and there should be only one informer-factory globally.
     SharedInformerFactory informerFactory = new SharedInformerFactory();
