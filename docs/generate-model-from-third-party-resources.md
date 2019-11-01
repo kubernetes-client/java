@@ -30,7 +30,9 @@ docker run -i --rm yue9944882/java-model-gen < /tmp/swagger | tar -xzf - -C /tmp
 ```
 
 By default, the package-name of generated codes will be `io.kubernetes.client`. If you want to override the package-name, consider 
-use `-p <package_name>` flag.
+use `-p <package_name>` flag. Additionally, you can use `-l <length>` option to make the generator to trim the length of generated 
+class name, the lower number generates shorter names. e.g. for a CRD named `crontabs.v1.example.io`, with `-l 1` the generated 
+name will be `CronTab`, otherwise with `-l3` it will be `ExampleV1Crontab`.
 
 ```
 docker run -i --rm yue9944882/java-model-gen -p com.example < /tmp/swagger | tar -xzf - -C /tmp/
