@@ -91,7 +91,7 @@ We prepared a few examples for common use-cases which are shown below:
   Attach to a process that is already running inside an existing container, equal to `kubectl attach`.
   - [CopyExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/CopyExample.java): 
   Copy files and directories to and from containers, equal to `kubectl cp`.
-  - [WebSocketExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/WebSocketExample.java): 
+  - [WebSocketsExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/WebSocketsExample.java): 
   Establish an arbitrary web-socket session to certain resources.
 - __Advanced__:
   - ([5.0.0+](https://github.com/kubernetes-client/java/tree/client-java-parent-5.0.0)) [InformerExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/InformerExample.java): 
