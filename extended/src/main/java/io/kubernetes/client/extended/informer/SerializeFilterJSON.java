@@ -36,6 +36,7 @@ public class SerializeFilterJSON extends JSON {
           LocalDate.class, new LocalDateTypeAdapter(),
           byte[].class, new ByteArrayAdapter());
 
+  /** some with io.kubernetes.client.JSON */
   public SerializeFilterJSON() {
     this(Lists.newArrayList());
   }
@@ -66,6 +67,16 @@ public class SerializeFilterJSON extends JSON {
     setGson(builder.create());
   }
 
+  /**
+   * A customer definition strategy (use filterFields ) that is used to decide whether or not a
+   * field or top-level class should be serialized
+   *
+   * <p>like: new FilterField().setSerializedName("images").setDeclaringClass(V1NodeStatus.class)。
+   * should be unserialize V1NodeStatus object "images" field
+   *
+   * @param filterFields customer definition
+   * @return
+   */
   private ExclusionStrategy getStrategy(List<FilterField> filterFields) {
 
     if (CollectionUtils.isEmpty(filterFields)) {
@@ -100,6 +111,7 @@ public class SerializeFilterJSON extends JSON {
     };
   }
 
+  /** check customer definition */
   private static final BiPredicate<FilterField, FilterField> MATCH_PREDICATE =
       (customer, system) -> {
         if (customer.isEmpty()) { // double check
