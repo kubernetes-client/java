@@ -102,7 +102,7 @@ public class SerializeFilterJSON extends JSON {
 
   private static final BiPredicate<FilterField, FilterField> MATCH_PREDICATE =
       (customer, system) -> {
-        if (!customer.isNotEmpty()) { // double check
+        if (customer.isEmpty()) { // double check
           return false;
         }
 

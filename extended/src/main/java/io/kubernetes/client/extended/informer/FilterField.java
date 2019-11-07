@@ -4,13 +4,10 @@ import org.apache.commons.lang3.StringUtils;
 
 public class FilterField {
 
-  // the name of the field
   private String name;
 
-  // the declaring class name that contains this field
   private Class<?> declaringClass;
 
-  // the serialized name of the field
   private String serializedName;
 
   public FilterField setName(String name) {
@@ -44,5 +41,9 @@ public class FilterField {
     return StringUtils.isNotEmpty(name)
         || declaringClass != null
         || StringUtils.isNotEmpty(serializedName);
+  }
+
+  public boolean isEmpty() {
+    return !isNotEmpty();
   }
 }
