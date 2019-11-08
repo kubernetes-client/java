@@ -1,7 +1,7 @@
 package io.kubernetes.client.util;
 
-import com.squareup.okhttp.Call;
-import io.kubernetes.client.ApiException;
+import io.kubernetes.client.openapi.ApiException;
+import okhttp3.Call;
 
 /**
  * The interface Call generator. It's for homogenizing client interface so that we can invoke a

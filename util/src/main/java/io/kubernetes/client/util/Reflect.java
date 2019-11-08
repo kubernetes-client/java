@@ -1,7 +1,7 @@
 package io.kubernetes.client.util;
 
-import io.kubernetes.client.models.V1ListMeta;
-import io.kubernetes.client.models.V1ObjectMeta;
+import io.kubernetes.client.openapi.models.V1ListMeta;
+import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.util.exception.ObjectMetaReflectException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

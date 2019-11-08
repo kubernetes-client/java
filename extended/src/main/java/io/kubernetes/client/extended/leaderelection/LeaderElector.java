@@ -1,6 +1,6 @@
 package io.kubernetes.client.extended.leaderelection;
 
-import io.kubernetes.client.ApiException;
+import io.kubernetes.client.openapi.ApiException;
 import java.net.HttpURLConnection;
 import java.time.Duration;
 import java.util.Date;

@@ -1,6 +1,6 @@
 package io.kubernetes.client.util.credentials;
 
-import io.kubernetes.client.ApiClient;
+import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.util.SSLUtils;
 import java.io.IOException;
 import java.security.KeyStoreException;

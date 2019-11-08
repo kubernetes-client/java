@@ -1,9 +1,9 @@
 package io.kubernetes.client.util;
 
 import com.google.common.base.Strings;
-import com.squareup.okhttp.MediaType;
-import com.squareup.okhttp.RequestBody;
 import java.io.IOException;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import okio.BufferedSink;
 
 public class ProxyContentTypeRequestBody extends RequestBody {

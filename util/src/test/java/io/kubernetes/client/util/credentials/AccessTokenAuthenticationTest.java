@@ -4,7 +4,7 @@ import static io.kubernetes.client.util.TestUtils.getApiKeyAuthFromClient;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
-import io.kubernetes.client.ApiClient;
+import io.kubernetes.client.openapi.ApiClient;
 import org.junit.Test;
 
 public class AccessTokenAuthenticationTest {

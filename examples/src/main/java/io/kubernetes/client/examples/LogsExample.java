@@ -13,12 +13,12 @@ limitations under the License.
 package io.kubernetes.client.examples;
 
 import com.google.common.io.ByteStreams;
-import io.kubernetes.client.ApiClient;
-import io.kubernetes.client.ApiException;
-import io.kubernetes.client.Configuration;
 import io.kubernetes.client.PodLogs;
-import io.kubernetes.client.apis.CoreV1Api;
-import io.kubernetes.client.models.V1Pod;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.Configuration;
+import io.kubernetes.client.openapi.apis.CoreV1Api;
+import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.util.Config;
 import java.io.IOException;
 import java.io.InputStream;
@@ -40,7 +40,7 @@ public class LogsExample {
     PodLogs logs = new PodLogs();
     V1Pod pod =
         coreApi
-            .listNamespacedPod("default", "false", null, null, null, null, null, null, null)
+            .listNamespacedPod("default", "false", null, null, null, null, null, null, null, null)
             .getItems()
             .get(0);
 

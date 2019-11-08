@@ -3,11 +3,11 @@ package io.kubernetes.client.extended.controller;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
-import io.kubernetes.client.ApiException;
 import io.kubernetes.client.extended.leaderelection.LeaderElectionConfig;
 import io.kubernetes.client.extended.leaderelection.LeaderElectionRecord;
 import io.kubernetes.client.extended.leaderelection.LeaderElector;
 import io.kubernetes.client.extended.leaderelection.Lock;
+import io.kubernetes.client.openapi.ApiException;
 import java.time.Duration;
 import java.util.concurrent.atomic.AtomicReference;
 import org.junit.Test;

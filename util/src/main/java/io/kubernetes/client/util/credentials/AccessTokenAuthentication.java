@@ -1,7 +1,7 @@
 package io.kubernetes.client.util.credentials;
 
 import com.google.common.base.Preconditions;
-import io.kubernetes.client.ApiClient;
+import io.kubernetes.client.openapi.ApiClient;
 
 /** Uses a Bearer Token to configure {@link ApiClient} authentication to the Kubernetes API. */
 public class AccessTokenAuthentication implements Authentication {

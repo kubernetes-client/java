@@ -1,13 +1,18 @@
 package io.kubernetes.client;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.ws.WebSocket;
 import io.kubernetes.client.util.WebSocketStreamHandler;
-import java.io.*;
-import okio.Buffer;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.Charset;
+import okhttp3.Request;
+import okhttp3.WebSocket;
 import okio.BufferedSink;
+import okio.ByteString;
 import okio.Okio;
 import org.junit.Test;
 
@@ -44,25 +49,53 @@ public class WebsocketStreamHandlerTest {
 
   private class MockWebSocket implements WebSocket {
     private byte[] data;
-    private boolean pinged = false;
     private boolean closed = false;
 
     @Override
-    public void sendMessage(RequestBody message) throws IOException {
+    public boolean send(String s) {
       ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
       BufferedSink sink = Okio.buffer(Okio.sink(outputStream));
-      message.writeTo(sink);
+      try {
+        sink.writeString(s, Charset.defaultCharset());
+      } catch (IOException e) {
+        throw new RuntimeException(e);
+      }
       this.data = outputStream.toByteArray();
+      return true;
     }
 
     @Override
-    public void sendPing(Buffer payload) throws IOException {
-      this.pinged = true;
+    public boolean send(ByteString byteString) {
+      ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+      BufferedSink sink = Okio.buffer(Okio.sink(outputStream));
+      try {
+        sink.write(byteString);
+      } catch (IOException e) {
+        throw new RuntimeException(e);
+      }
+      this.data = outputStream.toByteArray();
+      return false;
     }
 
     @Override
-    public void close(int code, String reason) throws IOException {
+    public Request request() {
+      return null;
+    }
+
+    @Override
+    public long queueSize() {
+      return 0;
+    }
+
+    @Override
+    public void cancel() {
+      close(-1, "");
+    }
+
+    @Override
+    public boolean close(int code, String reason) {
       this.closed = true;
+      return true;
     }
   }
 }

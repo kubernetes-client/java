@@ -4,16 +4,16 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.Assert.*;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
-import io.kubernetes.client.ApiClient;
-import io.kubernetes.client.JSON;
-import io.kubernetes.client.apis.CoreV1Api;
 import io.kubernetes.client.extended.controller.Controller;
 import io.kubernetes.client.extended.controller.reconciler.Reconciler;
 import io.kubernetes.client.extended.controller.reconciler.Request;
 import io.kubernetes.client.extended.controller.reconciler.Result;
 import io.kubernetes.client.informer.SharedIndexInformer;
 import io.kubernetes.client.informer.SharedInformerFactory;
-import io.kubernetes.client.models.*;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.JSON;
+import io.kubernetes.client.openapi.apis.CoreV1Api;
+import io.kubernetes.client.openapi.models.*;
 import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.ClientBuilder;
 import java.util.ArrayList;
@@ -75,10 +75,10 @@ public class DefaultControllerBuilderTest {
               null,
               null,
               null,
+              null,
               params.resourceVersion,
               params.timeoutSeconds,
               params.watch,
-              null,
               null);
         },
         V1Pod.class,
@@ -145,10 +145,10 @@ public class DefaultControllerBuilderTest {
                   null,
                   null,
                   null,
+                  null,
                   params.resourceVersion,
                   params.timeoutSeconds,
                   params.watch,
-                  null,
                   null);
             },
             V1Pod.class,

@@ -12,17 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.examples;
 
-import io.kubernetes.client.ApiClient;
-import io.kubernetes.client.ApiException;
-import io.kubernetes.client.Configuration;
-import io.kubernetes.client.apis.CoreV1Api;
-import io.kubernetes.client.apis.ExtensionsV1beta1Api;
-import io.kubernetes.client.models.ExtensionsV1beta1Deployment;
-import io.kubernetes.client.models.ExtensionsV1beta1DeploymentList;
-import io.kubernetes.client.models.ExtensionsV1beta1DeploymentSpec;
-import io.kubernetes.client.models.V1NamespaceList;
-import io.kubernetes.client.models.V1PodList;
-import io.kubernetes.client.models.V1ServiceList;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.Configuration;
+import io.kubernetes.client.openapi.apis.CoreV1Api;
+import io.kubernetes.client.openapi.apis.ExtensionsV1beta1Api;
+import io.kubernetes.client.openapi.models.ExtensionsV1beta1Deployment;
+import io.kubernetes.client.openapi.models.ExtensionsV1beta1DeploymentList;
+import io.kubernetes.client.openapi.models.ExtensionsV1beta1DeploymentSpec;
+import io.kubernetes.client.openapi.models.V1NamespaceList;
+import io.kubernetes.client.openapi.models.V1PodList;
+import io.kubernetes.client.openapi.models.V1ServiceList;
 import io.kubernetes.client.util.Config;
 import java.io.IOException;
 import java.util.List;
@@ -103,7 +103,7 @@ public class ExpandedExample {
   public static List<String> getAllNameSpaces() throws ApiException {
     V1NamespaceList listNamespace =
         COREV1_API.listNamespace(
-            "true", null, null, null, 0, null, Integer.MAX_VALUE, Boolean.FALSE);
+            "true", null, null, null, null, 0, null, Integer.MAX_VALUE, Boolean.FALSE);
     List<String> list =
         listNamespace
             .getItems()
@@ -121,7 +121,7 @@ public class ExpandedExample {
    */
   public static List<String> getPods() throws ApiException {
     V1PodList v1podList =
-        COREV1_API.listPodForAllNamespaces(null, null, null, null, null, null, null, null);
+        COREV1_API.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null);
     List<String> podList =
         v1podList
             .getItems()
@@ -167,6 +167,7 @@ public class ExpandedExample {
             null,
             null,
             null,
+            null,
             label,
             Integer.MAX_VALUE,
             null,
@@ -195,6 +196,7 @@ public class ExpandedExample {
             null,
             null,
             null,
+            null,
             Integer.MAX_VALUE,
             null,
             TIME_OUT_VALUE,
@@ -219,7 +221,7 @@ public class ExpandedExample {
     extensionV1Api.setApiClient(COREV1_API.getApiClient());
     ExtensionsV1beta1DeploymentList listNamespacedDeployment =
         extensionV1Api.listNamespacedDeployment(
-            DEFAULT_NAME_SPACE, null, null, null, null, null, null, null, Boolean.FALSE);
+            DEFAULT_NAME_SPACE, null, null, null, null, null, null, null, null, Boolean.FALSE);
 
     List<ExtensionsV1beta1Deployment> extensionsV1beta1DeploymentItems =
         listNamespacedDeployment.getItems();

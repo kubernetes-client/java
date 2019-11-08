@@ -5,5 +5,5 @@
 git_push.sh
 README.md
 
-# Remove when changes in kubernetes-client/java#366 make into upstream openapi-generator
-src/main/java/io/kubernetes/client/JSON.java
+# Remove when changes in kubernetes-client/java#366,#240 make into upstream openapi-generator
+src/main/java/io/kubernetes/client/openapi/JSON.java

@@ -2,9 +2,9 @@ package io.kubernetes.client.informer.cache;
 
 import static org.junit.Assert.*;
 
-import io.kubernetes.client.models.V1ObjectMeta;
-import io.kubernetes.client.models.V1Pod;
-import io.kubernetes.client.models.V1PodSpec;
+import io.kubernetes.client.openapi.models.V1ObjectMeta;
+import io.kubernetes.client.openapi.models.V1Pod;
+import io.kubernetes.client.openapi.models.V1PodSpec;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -69,9 +69,9 @@ public class CacheTest {
 
     return Arrays.asList(
         new Object[][] {
-          {normalPod, "io.kubernetes.client.models.V1Pod"},
-          {missingNamespacePod, "io.kubernetes.client.models.V1Pod"},
-          {missingNamePod, "io.kubernetes.client.models.V1Pod"},
+          {normalPod, "io.kubernetes.client.openapi.models.V1Pod"},
+          {missingNamespacePod, "io.kubernetes.client.openapi.models.V1Pod"},
+          {missingNamePod, "io.kubernetes.client.openapi.models.V1Pod"},
           {null, "null"},
         });
   }

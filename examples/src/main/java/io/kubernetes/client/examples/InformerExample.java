@@ -1,16 +1,15 @@
 package io.kubernetes.client.examples;
 
-import io.kubernetes.client.ApiClient;
-import io.kubernetes.client.Configuration;
-import io.kubernetes.client.apis.CoreV1Api;
 import io.kubernetes.client.informer.*;
 import io.kubernetes.client.informer.cache.Lister;
-import io.kubernetes.client.models.V1Node;
-import io.kubernetes.client.models.V1NodeList;
-import io.kubernetes.client.models.V1ObjectMeta;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.apis.CoreV1Api;
+import io.kubernetes.client.openapi.models.V1Node;
+import io.kubernetes.client.openapi.models.V1NodeList;
+import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.util.CallGeneratorParams;
-import io.kubernetes.client.util.Config;
 import java.util.concurrent.TimeUnit;
+import okhttp3.OkHttpClient;
 
 /**
  * A simple example of how to use the Java API
@@ -22,13 +21,13 @@ import java.util.concurrent.TimeUnit;
  */
 public class InformerExample {
   public static void main(String[] args) throws Exception {
-    ApiClient client = Config.defaultClient();
-    client.getHttpClient().setReadTimeout(0, TimeUnit.SECONDS); // infinite timeout
-    Configuration.setDefaultApiClient(client);
+    CoreV1Api coreV1Api = new CoreV1Api();
+    ApiClient apiClient = coreV1Api.getApiClient();
+    OkHttpClient httpClient =
+        apiClient.getHttpClient().newBuilder().readTimeout(0, TimeUnit.SECONDS).build();
+    apiClient.setHttpClient(httpClient);
 
     SharedInformerFactory factory = new SharedInformerFactory();
-
-    CoreV1Api coreV1Api = new CoreV1Api();
 
     // Node informer
     SharedIndexInformer<V1Node> nodeInformer =
@@ -40,10 +39,10 @@ public class InformerExample {
                   null,
                   null,
                   null,
+                  null,
                   params.resourceVersion,
                   params.timeoutSeconds,
                   params.watch,
-                  null,
                   null);
             },
             V1Node.class,

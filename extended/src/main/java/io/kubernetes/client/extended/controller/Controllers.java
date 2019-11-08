@@ -2,7 +2,7 @@ package io.kubernetes.client.extended.controller;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import io.kubernetes.client.extended.controller.reconciler.Request;
-import io.kubernetes.client.models.V1ObjectMeta;
+import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.util.Reflect;
 import io.kubernetes.client.util.exception.ObjectMetaReflectException;
 import java.util.concurrent.ThreadFactory;
