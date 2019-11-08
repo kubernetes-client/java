@@ -1,11 +1,14 @@
 
+
 # V1SelfSubjectAccessReviewSpec
 
+SelfSubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**nonResourceAttributes** | [**V1NonResourceAttributes**](V1NonResourceAttributes.md) | NonResourceAttributes describes information for a non-resource access request |  [optional]
-**resourceAttributes** | [**V1ResourceAttributes**](V1ResourceAttributes.md) | ResourceAuthorizationAttributes describes information for a resource access request |  [optional]
+**nonResourceAttributes** | [**V1NonResourceAttributes**](V1NonResourceAttributes.md) |  |  [optional]
+**resourceAttributes** | [**V1ResourceAttributes**](V1ResourceAttributes.md) |  |  [optional]
 
 
 

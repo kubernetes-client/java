@@ -1,7 +1,10 @@
 
+
 # V1PersistentVolumeClaimCondition
 
+PersistentVolumeClaimCondition contails details about state of pvc
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **lastProbeTime** | [**DateTime**](DateTime.md) | Last time we probed the condition. |  [optional]

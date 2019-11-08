@@ -1,7 +1,10 @@
 
+
 # V1ScopedResourceSelectorRequirement
 
+A scoped-resource selector requirement is a selector that contains values, a scope name, and an operator that relates the scope name and values.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **operator** | **String** | Represents a scope&#39;s relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. | 

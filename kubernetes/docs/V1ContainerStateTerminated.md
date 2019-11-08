@@ -1,7 +1,10 @@
 
+
 # V1ContainerStateTerminated
 
+ContainerStateTerminated is a terminated state of a container.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **containerID** | **String** | Container&#39;s ID in the format &#39;docker://&lt;container_id&gt;&#39; |  [optional]

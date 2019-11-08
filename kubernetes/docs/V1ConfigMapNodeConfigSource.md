@@ -1,7 +1,10 @@
 
+
 # V1ConfigMapNodeConfigSource
 
+ConfigMapNodeConfigSource contains the information to reference a ConfigMap as a config source for the Node.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **kubeletConfigKey** | **String** | KubeletConfigKey declares which key of the referenced ConfigMap corresponds to the KubeletConfiguration structure This field is required in all cases. | 

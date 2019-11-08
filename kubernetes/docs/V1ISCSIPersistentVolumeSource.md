@@ -1,7 +1,10 @@
 
+
 # V1ISCSIPersistentVolumeSource
 
+ISCSIPersistentVolumeSource represents an ISCSI disk. ISCSI volumes can only be mounted as read/write once. ISCSI volumes support ownership management and SELinux relabeling.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **chapAuthDiscovery** | **Boolean** | whether support iSCSI Discovery CHAP authentication |  [optional]
@@ -13,7 +16,7 @@ Name | Type | Description | Notes
 **lun** | **Integer** | iSCSI Target Lun number. | 
 **portals** | **List&lt;String&gt;** | iSCSI Target Portal List. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260). |  [optional]
 **readOnly** | **Boolean** | ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. |  [optional]
-**secretRef** | [**V1SecretReference**](V1SecretReference.md) | CHAP Secret for iSCSI target and initiator authentication |  [optional]
+**secretRef** | [**V1SecretReference**](V1SecretReference.md) |  |  [optional]
 **targetPortal** | **String** | iSCSI Target Portal. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260). | 
 
 

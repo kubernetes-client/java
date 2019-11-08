@@ -1,7 +1,10 @@
 
+
 # V1ContainerPort
 
+ContainerPort represents a network port in a single container.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **containerPort** | **Integer** | Number of port to expose on the pod&#39;s IP address. This must be a valid port number, 0 &lt; x &lt; 65536. | 

@@ -1,7 +1,10 @@
 
+
 # V1beta2ScaleStatus
 
+ScaleStatus represents the current status of a scale subresource.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **replicas** | **Integer** | actual number of observed instances of the scaled object. | 

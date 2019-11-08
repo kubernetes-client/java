@@ -1,7 +1,10 @@
 
+
 # V1beta1UserInfo
 
+UserInfo holds the information about the user needed to implement the user.Info interface.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **extra** | [**Map&lt;String, List&lt;String&gt;&gt;**](List.md) | Any additional information provided by the authenticator. |  [optional]

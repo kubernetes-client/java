@@ -1,7 +1,10 @@
 
+
 # V1APIResource
 
+APIResource specifies the name of a resource and whether it is namespaced.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **categories** | **List&lt;String&gt;** | categories is a list of the grouped resources this resource belongs to (e.g. &#39;all&#39;) |  [optional]

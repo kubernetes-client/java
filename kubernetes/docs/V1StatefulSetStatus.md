@@ -1,7 +1,10 @@
 
+
 # V1StatefulSetStatus
 
+StatefulSetStatus represents the current state of a StatefulSet.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **collisionCount** | **Integer** | collisionCount is the count of hash collisions for the StatefulSet. The StatefulSet controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ControllerRevision. |  [optional]

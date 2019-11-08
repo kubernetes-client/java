@@ -1,7 +1,10 @@
 
+
 # V1PersistentVolumeClaimStatus
 
+PersistentVolumeClaimStatus is the current status of a persistent volume claim.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accessModes** | **List&lt;String&gt;** | AccessModes contains the actual access modes the volume backing the PVC has. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1 |  [optional]
