@@ -3,41 +3,25 @@ package io.kubernetes.client.util;
 import io.kubernetes.client.openapi.models.V1ListMeta;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.util.exception.ObjectMetaReflectException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.List;
 
 /** Reflect is a set of utils which extracts metadata from objects dynamically */
+@Deprecated
 public class Reflect {
 
   public static V1ObjectMeta objectMetadata(Object obj) throws ObjectMetaReflectException {
-    try {
-      Method mdField = obj.getClass().getMethod("getMetadata");
-      return (V1ObjectMeta) mdField.invoke(obj);
-    } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-      throw new ObjectMetaReflectException(e);
-    }
+    return ObjectAccessor.objectMetadata(obj);
   }
 
   public static String namespace(Object obj) throws ObjectMetaReflectException {
-    return objectMetadata(obj).getNamespace();
+    return ObjectAccessor.namespace(obj);
   }
 
   public static V1ListMeta listMetadata(Object listObj) throws ObjectMetaReflectException {
-    try {
-      Method mdField = listObj.getClass().getMethod("getMetadata");
-      return (V1ListMeta) mdField.invoke(listObj);
-    } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-      throw new ObjectMetaReflectException(e);
-    }
+    return ListAccessor.listMetadata(listObj);
   }
 
   public static <ApiType> List<ApiType> getItems(Object listObj) throws ObjectMetaReflectException {
-    try {
-      Method getItemsMethod = listObj.getClass().getMethod("getItems");
-      return (List<ApiType>) getItemsMethod.invoke(listObj);
-    } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-      throw new ObjectMetaReflectException(e);
-    }
+    return ListAccessor.getItems(listObj);
   }
 }
