@@ -1,7 +1,10 @@
 
+
 # V1beta1CustomResourceColumnDefinition
 
+CustomResourceColumnDefinition specifies a column for server side printing.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **jsONPath** | **String** | JSONPath is a simple JSON path, i.e. with array notation. | 

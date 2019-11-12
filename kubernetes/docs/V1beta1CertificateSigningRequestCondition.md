@@ -1,7 +1,9 @@
 
+
 # V1beta1CertificateSigningRequestCondition
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **lastUpdateTime** | [**DateTime**](DateTime.md) | timestamp for the last update to this condition |  [optional]

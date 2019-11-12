@@ -1,7 +1,10 @@
 
+
 # V1ComponentCondition
 
+Information about the condition of a component.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **error** | **String** | Condition error code for a component. For example, a health check error code. |  [optional]

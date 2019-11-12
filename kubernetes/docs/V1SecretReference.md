@@ -1,7 +1,10 @@
 
+
 # V1SecretReference
 
+SecretReference represents a Secret Reference. It has enough information to retrieve secret in any namespace
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | Name is unique within a namespace to reference a secret resource. |  [optional]

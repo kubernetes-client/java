@@ -16,10 +16,10 @@ package io.kubernetes.client;
 import com.google.common.io.ByteStreams;
 import com.google.common.primitives.Bytes;
 import com.google.protobuf.Message;
-import com.squareup.okhttp.MediaType;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.Response;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.Configuration;
+import io.kubernetes.client.openapi.Pair;
 import io.kubernetes.client.proto.Meta.DeleteOptions;
 import io.kubernetes.client.proto.Meta.Status;
 import io.kubernetes.client.proto.Runtime.TypeMeta;
@@ -29,6 +29,10 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import okhttp3.MediaType;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import org.apache.commons.codec.binary.Hex;
 
 public class ProtoClient {
@@ -199,6 +203,7 @@ public class ProtoClient {
             new ArrayList<Pair>(),
             null,
             headers,
+            new HashMap<String, String>(),
             new HashMap<String, Object>(),
             localVarAuthNames,
             null);
@@ -247,6 +252,7 @@ public class ProtoClient {
             new ArrayList<Pair>(),
             null,
             headers,
+            new HashMap<String, String>(),
             new HashMap<String, Object>(),
             localVarAuthNames,
             null);

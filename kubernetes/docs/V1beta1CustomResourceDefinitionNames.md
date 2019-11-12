@@ -1,7 +1,10 @@
 
+
 # V1beta1CustomResourceDefinitionNames
 
+CustomResourceDefinitionNames indicates the names to serve this CustomResourceDefinition
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **categories** | **List&lt;String&gt;** | Categories is a list of grouped resources custom resources belong to (e.g. &#39;all&#39;) |  [optional]

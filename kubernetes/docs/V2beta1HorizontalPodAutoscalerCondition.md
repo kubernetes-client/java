@@ -1,7 +1,10 @@
 
+
 # V2beta1HorizontalPodAutoscalerCondition
 
+HorizontalPodAutoscalerCondition describes the state of a HorizontalPodAutoscaler at a certain point.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **lastTransitionTime** | [**DateTime**](DateTime.md) | lastTransitionTime is the last time the condition transitioned from one status to another |  [optional]

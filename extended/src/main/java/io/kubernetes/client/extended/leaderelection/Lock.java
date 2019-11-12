@@ -1,6 +1,6 @@
 package io.kubernetes.client.extended.leaderelection;
 
-import io.kubernetes.client.ApiException;
+import io.kubernetes.client.openapi.ApiException;
 
 /**
  * Lock offers a common interface for locking on arbitrary resources used in leader election. The

@@ -12,12 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client;
 
-import com.squareup.okhttp.Call;
-import com.squareup.okhttp.Response;
-import io.kubernetes.client.apis.CoreV1Api;
-import io.kubernetes.client.models.V1Pod;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.Configuration;
+import io.kubernetes.client.openapi.apis.CoreV1Api;
+import io.kubernetes.client.openapi.models.V1Pod;
 import java.io.IOException;
 import java.io.InputStream;
+import okhttp3.Call;
+import okhttp3.Response;
 
 /** Utility class offering streaming access to Pod logs. */
 public class PodLogs {
@@ -88,7 +91,6 @@ public class PodLogs {
             sinceSeconds,
             tailLines,
             timestamps,
-            null,
             null);
     Response response = call.execute();
     if (!response.isSuccessful()) {

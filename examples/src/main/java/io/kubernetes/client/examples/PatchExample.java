@@ -12,12 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.examples;
 
-import io.kubernetes.client.ApiClient;
-import io.kubernetes.client.ApiException;
-import io.kubernetes.client.Configuration;
-import io.kubernetes.client.apis.ExtensionsV1beta1Api;
 import io.kubernetes.client.custom.V1Patch;
-import io.kubernetes.client.models.ExtensionsV1beta1Deployment;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.Configuration;
+import io.kubernetes.client.openapi.apis.ExtensionsV1beta1Api;
+import io.kubernetes.client.openapi.models.ExtensionsV1beta1Deployment;
 import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
 

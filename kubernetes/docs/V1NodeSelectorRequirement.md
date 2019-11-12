@@ -1,7 +1,10 @@
 
+
 # V1NodeSelectorRequirement
 
+A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **key** | **String** | The label key that the selector applies to. | 

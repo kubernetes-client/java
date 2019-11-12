@@ -1,14 +1,17 @@
 
+
 # V1beta1CustomResourceDefinitionCondition
 
+CustomResourceDefinitionCondition contains details for the current condition of this pod.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **lastTransitionTime** | [**DateTime**](DateTime.md) | Last time the condition transitioned from one status to another. |  [optional]
 **message** | **String** | Human-readable message indicating details about last transition. |  [optional]
 **reason** | **String** | Unique, one-word, CamelCase reason for the condition&#39;s last transition. |  [optional]
 **status** | **String** | Status is the status of the condition. Can be True, False, Unknown. | 
-**type** | **String** | Type is the type of the condition. | 
+**type** | **String** | Type is the type of the condition. Types include Established, NamesAccepted and Terminating. | 
 
 
 

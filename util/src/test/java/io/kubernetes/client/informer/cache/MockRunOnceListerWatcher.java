@@ -1,7 +1,7 @@
 package io.kubernetes.client.informer.cache;
 
-import io.kubernetes.client.ApiException;
 import io.kubernetes.client.informer.ListerWatcher;
+import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.Watch;
 import io.kubernetes.client.util.Watchable;

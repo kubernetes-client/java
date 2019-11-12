@@ -2,10 +2,10 @@ package io.kubernetes.client.informer.cache;
 
 import static org.junit.Assert.*;
 
-import io.kubernetes.client.ApiException;
 import io.kubernetes.client.informer.EventType;
 import io.kubernetes.client.informer.ListerWatcher;
-import io.kubernetes.client.models.*;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.models.*;
 import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.Watch;
 import io.kubernetes.client.util.Watchable;

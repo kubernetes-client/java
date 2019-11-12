@@ -1,7 +1,9 @@
 
+
 # V1beta1CertificateSigningRequestStatus
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **certificate** | **byte[]** | If request was approved, the controller will place the issued certificate here. |  [optional]

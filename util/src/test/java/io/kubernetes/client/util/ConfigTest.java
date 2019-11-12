@@ -14,7 +14,7 @@ package io.kubernetes.client.util;
 
 import static org.junit.Assert.*;
 
-import io.kubernetes.client.ApiClient;
+import io.kubernetes.client.openapi.ApiClient;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;

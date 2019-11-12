@@ -1,7 +1,10 @@
 
+
 # V1JobCondition
 
+JobCondition describes current state of a job.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **lastProbeTime** | [**DateTime**](DateTime.md) | Last time the condition was checked. |  [optional]

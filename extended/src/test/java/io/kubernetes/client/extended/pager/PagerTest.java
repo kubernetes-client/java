@@ -23,10 +23,10 @@ import static org.junit.Assert.*;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.google.common.io.Resources;
-import io.kubernetes.client.ApiClient;
-import io.kubernetes.client.apis.CoreV1Api;
-import io.kubernetes.client.models.V1Namespace;
-import io.kubernetes.client.models.V1NamespaceList;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.apis.CoreV1Api;
+import io.kubernetes.client.openapi.models.V1Namespace;
+import io.kubernetes.client.openapi.models.V1NamespaceList;
 import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -92,11 +92,11 @@ public class PagerTest {
               try {
                 return api.listNamespaceCall(
                     null,
+                    null,
                     param.getContinueToken(),
                     null,
                     null,
                     param.getLimit(),
-                    null,
                     null,
                     null,
                     null,
@@ -153,11 +153,11 @@ public class PagerTest {
               try {
                 return api.listNamespaceCall(
                     null,
+                    null,
                     param.getContinueToken(),
                     null,
                     null,
                     param.getLimit(),
-                    null,
                     null,
                     null,
                     null,
@@ -204,11 +204,11 @@ public class PagerTest {
               try {
                 return api.listNamespaceCall(
                     null,
+                    null,
                     param.getContinueToken(),
                     "metadata.name=default",
                     null,
                     param.getLimit(),
-                    null,
                     null,
                     null,
                     null,

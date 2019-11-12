@@ -1,7 +1,10 @@
 
+
 # V1beta1RuleWithOperations
 
+RuleWithOperations is a tuple of Operations and Resources. It is recommended to make sure that all the tuple expansions are valid.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **apiGroups** | **List&lt;String&gt;** | APIGroups is the API groups the resources belong to. &#39;*&#39; is all groups. If &#39;*&#39; is present, the length of the slice must be one. Required. |  [optional]

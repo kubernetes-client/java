@@ -2,8 +2,8 @@ package io.kubernetes.client.informer.cache;
 
 import io.kubernetes.client.informer.EventType;
 import io.kubernetes.client.informer.ListerWatcher;
-import io.kubernetes.client.models.V1ListMeta;
-import io.kubernetes.client.models.V1ObjectMeta;
+import io.kubernetes.client.openapi.models.V1ListMeta;
+import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.Reflect;
 import io.kubernetes.client.util.Watchable;

@@ -1,7 +1,10 @@
 
+
 # V1alpha1Policy
 
+Policy defines the configuration of how audit events are logged
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **level** | **String** | The Level that all requests are recorded at. available options: None, Metadata, Request, RequestResponse required | 

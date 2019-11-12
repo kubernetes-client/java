@@ -15,8 +15,6 @@ package io.kubernetes.client.util;
 import com.google.common.base.Charsets;
 import com.google.common.io.ByteStreams;
 import com.google.common.io.CharStreams;
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.ws.WebSocket;
 import java.io.ByteArrayInputStream;
 import java.io.Closeable;
 import java.io.IOException;
@@ -28,6 +26,7 @@ import java.io.PipedOutputStream;
 import java.io.Reader;
 import java.util.HashMap;
 import java.util.Map;
+import okhttp3.WebSocket;
 import okio.ByteString;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,7 +42,7 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
   private final Map<Integer, PipedOutputStream> pipedOutput = new HashMap<>();
   private final Map<Integer, OutputStream> output = new HashMap<>();
   private WebSocket socket;
-  private Exception error;
+  private Throwable error;
 
   @SuppressWarnings("unused")
   private String protocol;
@@ -94,11 +93,11 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
   }
 
   @Override
-  public void failure(Exception ex) {
-    this.error = ex;
+  public void failure(Throwable t) {
+    this.error = t;
   }
 
-  public Exception getError() {
+  public Throwable getError() {
     return this.error;
   }
 
@@ -106,15 +105,10 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
   public synchronized void close() {
     if (state != State.CLOSED) {
       state = State.CLOSED;
-      try {
-        if (null != socket) {
-          // code 1000 means "Normal Closure"
-          socket.close(1000, "Triggered client-side terminate");
-          log.debug("Successfully closed socket.");
-        }
-      } catch (IOException ex) {
-        log.error("Error on close socket", ex);
-        // continue to flush and release the buffers
+      if (null != socket) {
+        // code 1000 means "Normal Closure"
+        socket.close(1000, "Triggered client-side terminate");
+        log.debug("Successfully closed socket.");
       }
       // Close all output streams.  Caller of getInputStream(int) is responsible
       // for closing returned input streams
@@ -241,8 +235,7 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
       byte[] buffer = new byte[length + 1];
       buffer[0] = stream;
       System.arraycopy(b, offset, buffer, 1, length);
-      WebSocketStreamHandler.this.socket.sendMessage(
-          RequestBody.create(WebSocket.BINARY, ByteString.of(buffer)));
+      WebSocketStreamHandler.this.socket.send(ByteString.of(buffer));
     }
   }
 }

@@ -1,6 +1,6 @@
 package io.kubernetes.client.informer;
 
-import io.kubernetes.client.ApiException;
+import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.Watchable;
 

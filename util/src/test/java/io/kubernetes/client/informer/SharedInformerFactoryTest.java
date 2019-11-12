@@ -1,8 +1,8 @@
 package io.kubernetes.client.informer;
 
-import io.kubernetes.client.apis.CoreV1Api;
-import io.kubernetes.client.models.V1Namespace;
-import io.kubernetes.client.models.V1NamespaceList;
+import io.kubernetes.client.openapi.apis.CoreV1Api;
+import io.kubernetes.client.openapi.models.V1Namespace;
+import io.kubernetes.client.openapi.models.V1NamespaceList;
 import io.kubernetes.client.util.CallGeneratorParams;
 import org.junit.Test;
 
@@ -19,10 +19,10 @@ public class SharedInformerFactoryTest {
               null,
               null,
               null,
+              null,
               params.resourceVersion,
               params.timeoutSeconds,
               params.watch,
-              null,
               null);
         },
         V1Namespace.class,

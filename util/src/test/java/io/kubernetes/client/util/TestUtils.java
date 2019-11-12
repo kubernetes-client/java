@@ -1,7 +1,7 @@
 package io.kubernetes.client.util;
 
-import io.kubernetes.client.ApiClient;
-import io.kubernetes.client.auth.ApiKeyAuth;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.auth.ApiKeyAuth;
 
 public class TestUtils {
 

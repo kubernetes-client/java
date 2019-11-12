@@ -12,15 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.examples;
 
-import com.squareup.okhttp.ws.WebSocket;
-import io.kubernetes.client.ApiClient;
-import io.kubernetes.client.ApiException;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.util.Config;
 import io.kubernetes.client.util.WebSockets;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
+import okhttp3.WebSocket;
 
 /**
  * This is a pretty low level, most people won't need to use WebSockets directly.
@@ -40,19 +40,25 @@ public class WebSocketsExample {
         "GET",
         client,
         new WebSockets.SocketListener() {
-          public void open(String protocol, WebSocket socket) {}
+          private volatile WebSocket socket;
 
-          public void close() {
-            // Trigger shutdown of the dispatcher's executor so this process can exit cleanly.
-            client.getHttpClient().getDispatcher().getExecutorService().shutdown();
+          @Override
+          public void open(String protocol, WebSocket socket) {
+            this.socket = socket;
           }
 
+          @Override
+          public void close() {}
+
+          @Override
           public void bytesMessage(InputStream is) {}
 
-          public void failure(Exception ex) {
-            ex.printStackTrace();
+          @Override
+          public void failure(Throwable t) {
+            t.printStackTrace();
           }
 
+          @Override
           public void textMessage(Reader in) {
             try {
               BufferedReader reader = new BufferedReader(in);

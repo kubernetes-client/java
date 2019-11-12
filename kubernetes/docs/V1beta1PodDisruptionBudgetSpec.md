@@ -1,12 +1,15 @@
 
+
 # V1beta1PodDisruptionBudgetSpec
 
+PodDisruptionBudgetSpec is a description of a PodDisruptionBudget.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**maxUnavailable** | [**IntOrString**](IntOrString.md) | An eviction is allowed if at most \&quot;maxUnavailable\&quot; pods selected by \&quot;selector\&quot; are unavailable after the eviction, i.e. even in absence of the evicted pod. For example, one can prevent all voluntary evictions by specifying 0. This is a mutually exclusive setting with \&quot;minAvailable\&quot;. |  [optional]
-**minAvailable** | [**IntOrString**](IntOrString.md) | An eviction is allowed if at least \&quot;minAvailable\&quot; pods selected by \&quot;selector\&quot; will still be available after the eviction, i.e. even in the absence of the evicted pod.  So for example you can prevent all voluntary evictions by specifying \&quot;100%\&quot;. |  [optional]
-**selector** | [**V1LabelSelector**](V1LabelSelector.md) | Label query over pods whose evictions are managed by the disruption budget. |  [optional]
+**maxUnavailable** | [**IntOrString**](IntOrString.md) | IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number. |  [optional]
+**minAvailable** | [**IntOrString**](IntOrString.md) | IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number. |  [optional]
+**selector** | [**V1LabelSelector**](V1LabelSelector.md) |  |  [optional]
 
 
 

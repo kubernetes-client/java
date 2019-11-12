@@ -13,7 +13,10 @@ limitations under the License.
 package io.kubernetes.client;
 
 import com.google.common.io.ByteStreams;
-import io.kubernetes.client.models.V1Pod;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.Configuration;
+import io.kubernetes.client.openapi.models.V1Pod;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;

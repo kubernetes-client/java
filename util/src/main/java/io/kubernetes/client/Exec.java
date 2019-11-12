@@ -16,11 +16,14 @@ import static io.kubernetes.client.KubernetesConstants.*;
 
 import com.google.common.io.CharStreams;
 import com.google.gson.reflect.TypeToken;
-import io.kubernetes.client.apis.CoreV1Api;
-import io.kubernetes.client.models.V1Pod;
-import io.kubernetes.client.models.V1Status;
-import io.kubernetes.client.models.V1StatusCause;
-import io.kubernetes.client.models.V1StatusDetails;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.Configuration;
+import io.kubernetes.client.openapi.apis.CoreV1Api;
+import io.kubernetes.client.openapi.models.V1Pod;
+import io.kubernetes.client.openapi.models.V1Status;
+import io.kubernetes.client.openapi.models.V1StatusCause;
+import io.kubernetes.client.openapi.models.V1StatusDetails;
 import io.kubernetes.client.util.WebSocketStreamHandler;
 import io.kubernetes.client.util.WebSockets;
 import java.io.IOException;
@@ -280,7 +283,7 @@ public class Exec {
             }
 
             @Override
-            public void failure(Exception ex) {
+            public void failure(Throwable ex) {
               super.failure(ex);
               // TODO, it's possible we should suppress this error message, but currently there's
               // no good place to surface the message, and without it, this will be really hard to

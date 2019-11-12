@@ -22,6 +22,8 @@ import static com.github.tomakehurst.wiremock.client.WireMock.verify;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.kubernetes.client.Attach.AttachResult;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
 import org.junit.Before;

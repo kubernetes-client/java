@@ -1,7 +1,10 @@
 
+
 # V1beta1DaemonSetStatus
 
+DaemonSetStatus represents the current status of a daemon set.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **collisionCount** | **Integer** | Count of hash collisions for the DaemonSet. The DaemonSet controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ControllerRevision. |  [optional]

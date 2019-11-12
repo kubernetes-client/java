@@ -1,7 +1,10 @@
 
+
 # V1ReplicationControllerCondition
 
+ReplicationControllerCondition describes the state of a replication controller at a certain point.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **lastTransitionTime** | [**DateTime**](DateTime.md) | The last time the condition transitioned from one status to another. |  [optional]
