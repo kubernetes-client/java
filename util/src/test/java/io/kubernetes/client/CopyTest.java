@@ -20,6 +20,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.verify;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.matching.AnythingPattern;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
@@ -58,25 +59,38 @@ public class CopyTest {
 
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name(podName).namespace(namespace));
 
-    //    stubFor(
-    //        get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
-    //            .willReturn(
-    //                aResponse()
-    //                    .withStatus(404)
-    //                    .withHeader("Content-Type", "application/json")
-    //                    .withBody("{}")));
+    wireMockRule.stubFor(
+        get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
+            .willReturn(
+                aResponse()
+                    .withStatus(404)
+                    .withHeader("Content-Type", "application/json")
+                    .withBody("{}")));
 
-    InputStream is = copy.copyFileFromPod(pod, "container", "/some/path/to/file");
+    Thread t =
+        new Thread(
+            new Runnable() {
+              @Override
+              public void run() {
+                try {
+                  InputStream is = copy.copyFileFromPod(pod, "container", "/some/path/to/file");
+                } catch (IOException | ApiException e) {
+                  e.printStackTrace();
+                }
+              }
+            });
+    t.start();
+    Thread.sleep(2000);
+    t.interrupt();
 
-    //    verify(
-    //        getRequestedFor(
-    //                urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName +
-    // "/exec"))
-    //                .withQueryParam("stdin", equalTo("false"))
-    //                .withQueryParam("stdout", equalTo("true"))
-    //                .withQueryParam("stderr", equalTo("true"))
-    //                .withQueryParam("tty", equalTo("false"))
-    //                .withQueryParam("command", new AnythingPattern()));
+    verify(
+        getRequestedFor(
+                urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
+            .withQueryParam("stdin", equalTo("false"))
+            .withQueryParam("stdout", equalTo("true"))
+            .withQueryParam("stderr", equalTo("true"))
+            .withQueryParam("tty", equalTo("false"))
+            .withQueryParam("command", new AnythingPattern()));
   }
 
   @Test
