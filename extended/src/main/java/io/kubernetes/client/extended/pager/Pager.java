@@ -14,7 +14,7 @@ package io.kubernetes.client.extended.pager;
 
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
-import io.kubernetes.client.util.Reflect;
+import io.kubernetes.client.util.ListAccessor;
 import io.kubernetes.client.util.exception.ObjectMetaReflectException;
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -136,12 +136,12 @@ public class Pager<ApiType, ApiListType> implements Iterable<ApiType> {
           call = getNextCall(limit, continueToken);
 
           listObjectCurrentPage = executeRequest(call);
-          continueToken = Reflect.listMetadata(listObjectCurrentPage).getContinue();
+          continueToken = ListAccessor.listMetadata(listObjectCurrentPage).getContinue();
 
           offsetCurrentPage = 0;
-          currentPageSize = Reflect.<ApiType>getItems(listObjectCurrentPage).size();
+          currentPageSize = ListAccessor.<ApiType>getItems(listObjectCurrentPage).size();
         }
-        return Reflect.<ApiType>getItems(listObjectCurrentPage).get(offsetCurrentPage++);
+        return ListAccessor.<ApiType>getItems(listObjectCurrentPage).get(offsetCurrentPage++);
       } catch (ApiException e) {
         throw new RuntimeException(e.getResponseBody());
       } catch (ObjectMetaReflectException | IOException e) {
