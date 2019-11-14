@@ -99,6 +99,24 @@ public class SharedInformerFactory {
       long resyncPeriodInMillis) {
     ListerWatcher<ApiType, ApiListType> listerWatcher =
         listerWatcherFor(callGenerator, apiTypeClass, apiListTypeClass);
+    return sharedIndexInformerFor(listerWatcher, apiTypeClass, resyncPeriodInMillis);
+  }
+
+  /**
+   * Constructs and returns a shared index informer by specifying lister-watcher. And the informer
+   * cache will be overwritten on multiple call w/ the the same apiTypeClass.
+   *
+   * @param <ApiType> the type parameter
+   * @param <ApiListType> the type parameter
+   * @param listerWatcher the lister watcher
+   * @param apiTypeClass the api type class
+   * @param resyncPeriodInMillis the resync period in millis
+   * @return the shared index informer
+   */
+  public synchronized <ApiType, ApiListType> SharedIndexInformer<ApiType> sharedIndexInformerFor(
+      ListerWatcher<ApiType, ApiListType> listerWatcher,
+      Class<ApiType> apiTypeClass,
+      long resyncPeriodInMillis) {
     SharedIndexInformer<ApiType> informer =
         new DefaultSharedIndexInformer<ApiType, ApiListType>(
             apiTypeClass, listerWatcher, resyncPeriodInMillis);
