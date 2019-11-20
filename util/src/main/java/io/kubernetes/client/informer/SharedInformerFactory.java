@@ -178,8 +178,17 @@ public class SharedInformerFactory {
         });
   }
 
-  /** Stop all registered informers. */
+  /** Stop all registered informers and shut down the thread pool. */
   public synchronized void stopAllRegisteredInformers() {
+    stopAllRegisteredInformers(true);
+  }
+
+  /**
+   * Stop all registered informers.
+   *
+   * @param shutdownThreadPool whether or not to shut down the thread pool.
+   */
+  public synchronized void stopAllRegisteredInformers(boolean shutdownThreadPool) {
     if (MapUtils.isEmpty(informers)) {
       return;
     }
@@ -190,6 +199,8 @@ public class SharedInformerFactory {
             informer.stop();
           }
         });
-    informerExecutor.shutdown();
+    if (shutdownThreadPool) {
+      informerExecutor.shutdown();
+    }
   }
 }
