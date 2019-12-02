@@ -1,7 +1,10 @@
 
+
 # V1QuobyteVolumeSource
 
+Represents a Quobyte mount that lasts the lifetime of a pod. Quobyte volumes do not support ownership management or SELinux relabeling.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **group** | **String** | Group to map volume access to Default is no group |  [optional]

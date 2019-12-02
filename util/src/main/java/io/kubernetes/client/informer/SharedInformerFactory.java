@@ -1,9 +1,11 @@
 package io.kubernetes.client.informer;
 
 import com.google.gson.reflect.TypeToken;
-import com.squareup.okhttp.Call;
 import io.kubernetes.client.*;
 import io.kubernetes.client.informer.impl.DefaultSharedIndexInformer;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.util.CallGenerator;
 import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.Watch;
@@ -14,6 +16,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
+import okhttp3.Call;
+import okhttp3.OkHttpClient;
 import org.apache.commons.collections4.MapUtils;
 
 /** SharedInformerFactory class constructs and caches informers for api types. */
@@ -95,6 +99,24 @@ public class SharedInformerFactory {
       long resyncPeriodInMillis) {
     ListerWatcher<ApiType, ApiListType> listerWatcher =
         listerWatcherFor(callGenerator, apiTypeClass, apiListTypeClass);
+    return sharedIndexInformerFor(listerWatcher, apiTypeClass, resyncPeriodInMillis);
+  }
+
+  /**
+   * Constructs and returns a shared index informer by specifying lister-watcher. And the informer
+   * cache will be overwritten on multiple call w/ the the same apiTypeClass.
+   *
+   * @param <ApiType> the type parameter
+   * @param <ApiListType> the type parameter
+   * @param listerWatcher the lister watcher
+   * @param apiTypeClass the api type class
+   * @param resyncPeriodInMillis the resync period in millis
+   * @return the shared index informer
+   */
+  public synchronized <ApiType, ApiListType> SharedIndexInformer<ApiType> sharedIndexInformerFor(
+      ListerWatcher<ApiType, ApiListType> listerWatcher,
+      Class<ApiType> apiTypeClass,
+      long resyncPeriodInMillis) {
     SharedIndexInformer<ApiType> informer =
         new DefaultSharedIndexInformer<ApiType, ApiListType>(
             apiTypeClass, listerWatcher, resyncPeriodInMillis);
@@ -106,8 +128,12 @@ public class SharedInformerFactory {
       CallGenerator callGenerator,
       Class<ApiType> apiTypeClass,
       Class<ApiListType> apiListTypeClass) {
-    // set read timeout zero to ensure client doesn't time out
-    apiClient.getHttpClient().setReadTimeout(0, TimeUnit.MILLISECONDS);
+    if (apiClient.getHttpClient().readTimeoutMillis() > 0) {
+      // set read timeout zero to ensure client doesn't time out
+      OkHttpClient httpClient =
+          apiClient.getHttpClient().newBuilder().readTimeout(0, TimeUnit.MILLISECONDS).build();
+      apiClient.setHttpClient(httpClient);
+    }
     return new ListerWatcher<ApiType, ApiListType>() {
       @Override
       public ApiListType list(CallGeneratorParams params) throws ApiException {
@@ -152,8 +178,17 @@ public class SharedInformerFactory {
         });
   }
 
-  /** Stop all registered informers. */
+  /** Stop all registered informers and shut down the thread pool. */
   public synchronized void stopAllRegisteredInformers() {
+    stopAllRegisteredInformers(true);
+  }
+
+  /**
+   * Stop all registered informers.
+   *
+   * @param shutdownThreadPool whether or not to shut down the thread pool.
+   */
+  public synchronized void stopAllRegisteredInformers(boolean shutdownThreadPool) {
     if (MapUtils.isEmpty(informers)) {
       return;
     }
@@ -164,6 +199,8 @@ public class SharedInformerFactory {
             informer.stop();
           }
         });
-    informerExecutor.shutdown();
+    if (shutdownThreadPool) {
+      informerExecutor.shutdown();
+    }
   }
 }

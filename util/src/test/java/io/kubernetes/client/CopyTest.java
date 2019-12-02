@@ -16,20 +16,20 @@ import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
-import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.verify;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
-import io.kubernetes.client.models.V1ObjectMeta;
-import io.kubernetes.client.models.V1Pod;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.models.V1ObjectMeta;
+import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.util.ClientBuilder;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Paths;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -80,8 +80,6 @@ public class CopyTest {
   }
 
   @Test
-  @Ignore // TODO(yue9944882): this test leads to flakiness in the test infra, revert this after the
-  // root cause is located
   public void testCopyFileToPod() throws IOException, ApiException, InterruptedException {
 
     File testFile = File.createTempFile("testfile", null);
@@ -89,7 +87,7 @@ public class CopyTest {
 
     Copy copy = new Copy(client);
 
-    stubFor(
+    wireMockRule.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
             .willReturn(
                 aResponse()

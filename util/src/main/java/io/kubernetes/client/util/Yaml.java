@@ -117,7 +117,8 @@ public class Yaml {
     initApiVersionList();
 
     ClassPath cp = ClassPath.from(Yaml.class.getClassLoader());
-    Set<ClassPath.ClassInfo> allClasses = cp.getTopLevelClasses("io.kubernetes.client.models");
+    Set<ClassPath.ClassInfo> allClasses =
+        cp.getTopLevelClasses("io.kubernetes.client.openapi.models");
 
     for (ClassPath.ClassInfo clazz : allClasses) {
       String modelName = "";

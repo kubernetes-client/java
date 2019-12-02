@@ -1,7 +1,10 @@
 
+
 # V2beta2HorizontalPodAutoscalerStatus
 
+HorizontalPodAutoscalerStatus describes the current status of a horizontal pod autoscaler.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **conditions** | [**List&lt;V2beta2HorizontalPodAutoscalerCondition&gt;**](V2beta2HorizontalPodAutoscalerCondition.md) | conditions is the set of conditions required for this autoscaler to scale its target, and indicates whether or not those conditions are met. | 

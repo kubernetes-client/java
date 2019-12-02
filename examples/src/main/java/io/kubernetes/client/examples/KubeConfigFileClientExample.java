@@ -13,12 +13,12 @@ limitations under the License.
 
 package io.kubernetes.client.examples;
 
-import io.kubernetes.client.ApiClient;
-import io.kubernetes.client.ApiException;
-import io.kubernetes.client.Configuration;
-import io.kubernetes.client.apis.CoreV1Api;
-import io.kubernetes.client.models.V1Pod;
-import io.kubernetes.client.models.V1PodList;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.Configuration;
+import io.kubernetes.client.openapi.apis.CoreV1Api;
+import io.kubernetes.client.openapi.models.V1Pod;
+import io.kubernetes.client.openapi.models.V1PodList;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.KubeConfig;
 import java.io.FileReader;
@@ -49,7 +49,8 @@ public class KubeConfigFileClientExample {
     CoreV1Api api = new CoreV1Api();
 
     // invokes the CoreV1Api client
-    V1PodList list = api.listPodForAllNamespaces(null, null, null, null, null, null, null, null);
+    V1PodList list =
+        api.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null);
     for (V1Pod item : list.getItems()) {
       System.out.println(item.getMetadata().getName());
     }

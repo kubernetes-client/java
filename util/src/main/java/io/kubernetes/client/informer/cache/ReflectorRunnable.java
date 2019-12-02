@@ -2,11 +2,9 @@ package io.kubernetes.client.informer.cache;
 
 import io.kubernetes.client.informer.EventType;
 import io.kubernetes.client.informer.ListerWatcher;
-import io.kubernetes.client.models.V1ListMeta;
-import io.kubernetes.client.models.V1ObjectMeta;
-import io.kubernetes.client.util.CallGeneratorParams;
-import io.kubernetes.client.util.Reflect;
-import io.kubernetes.client.util.Watchable;
+import io.kubernetes.client.openapi.models.V1ListMeta;
+import io.kubernetes.client.openapi.models.V1ObjectMeta;
+import io.kubernetes.client.util.*;
 import io.kubernetes.client.util.exception.ObjectMetaReflectException;
 import java.net.ConnectException;
 import java.time.Duration;
@@ -46,9 +44,9 @@ public class ReflectorRunnable<ApiType, ApiListType> implements Runnable {
 
       ApiListType list = listerWatcher.list(new CallGeneratorParams(Boolean.FALSE, null, null));
 
-      V1ListMeta listMeta = Reflect.listMetadata(list);
+      V1ListMeta listMeta = ListAccessor.listMetadata(list);
       String resourceVersion = listMeta.getResourceVersion();
-      List<ApiType> items = Reflect.getItems(list);
+      List<ApiType> items = ListAccessor.getItems(list);
 
       if (log.isDebugEnabled()) {
         log.debug("{}#Extract resourceVersion {} list meta", apiTypeClass, resourceVersion);
@@ -144,7 +142,7 @@ public class ReflectorRunnable<ApiType, ApiListType> implements Runnable {
 
       V1ObjectMeta meta;
       try {
-        meta = Reflect.objectMetadata(obj);
+        meta = ObjectAccessor.objectMetadata(obj);
       } catch (ObjectMetaReflectException e) {
         log.error("malformed watch event {}", item);
         continue;

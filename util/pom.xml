@@ -24,7 +24,7 @@
         <dependency>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
-            <version>1.19</version>
+            <version>1.25</version>
         </dependency>
         <dependency>
             <groupId>commons-codec</groupId>
@@ -39,11 +39,6 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.squareup.okhttp</groupId>
-            <artifactId>okhttp-ws</artifactId>
-            <version>2.7.5</version>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
@@ -81,6 +76,10 @@
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
             <version>3.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
         </dependency>
         <!-- test dependencies -->
         <dependency>
@@ -148,9 +147,6 @@
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
                 <extensions>true</extensions>
-                <configuration>
-                  <excludeDependencies>client-java-api</excludeDependencies>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

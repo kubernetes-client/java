@@ -1,7 +1,10 @@
 
+
 # V1ReplicationControllerStatus
 
+ReplicationControllerStatus represents the current status of a replication controller.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **availableReplicas** | **Integer** | The number of available replicas (ready for at least minReadySeconds) for this replication controller. |  [optional]

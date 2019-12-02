@@ -12,17 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.examples;
 
-import io.kubernetes.client.ApiClient;
-import io.kubernetes.client.ApiException;
-import io.kubernetes.client.Configuration;
-import io.kubernetes.client.apis.CoreV1Api;
 import io.kubernetes.client.custom.IntOrString;
-import io.kubernetes.client.models.V1DeleteOptions;
-import io.kubernetes.client.models.V1Pod;
-import io.kubernetes.client.models.V1PodBuilder;
-import io.kubernetes.client.models.V1Service;
-import io.kubernetes.client.models.V1ServiceBuilder;
-import io.kubernetes.client.models.V1Status;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.Configuration;
+import io.kubernetes.client.openapi.apis.CoreV1Api;
+import io.kubernetes.client.openapi.models.V1DeleteOptions;
+import io.kubernetes.client.openapi.models.V1Pod;
+import io.kubernetes.client.openapi.models.V1PodBuilder;
+import io.kubernetes.client.openapi.models.V1Service;
+import io.kubernetes.client.openapi.models.V1ServiceBuilder;
+import io.kubernetes.client.openapi.models.V1Status;
 import io.kubernetes.client.util.Config;
 import io.kubernetes.client.util.Yaml;
 import java.io.File;
@@ -99,11 +99,11 @@ public class YamlExample {
             yamlSvc.getMetadata().getName(),
             "default",
             null,
-            new V1DeleteOptions(),
             null,
             null,
             null,
-            null);
+            null,
+            new V1DeleteOptions());
     System.out.println(deleteResult);
   }
 }

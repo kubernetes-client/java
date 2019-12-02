@@ -1,7 +1,7 @@
 package io.kubernetes.client.util.credentials;
 
 import com.google.common.io.Resources;
-import io.kubernetes.client.ApiClient;
+import io.kubernetes.client.openapi.ApiClient;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import org.junit.Test;

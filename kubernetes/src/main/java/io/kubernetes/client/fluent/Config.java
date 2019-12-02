@@ -6,7 +6,7 @@ import io.sundr.builder.annotations.ExternalBuildables;
         editableEnabled = false,
         generateBuilderPackage = true,
         builderPackage = "io.kubernetes.client.fluent",
-        value = {"io.kubernetes.client.models"}
+        value = {"io.kubernetes.client.openapi.models"}
 )
 public class Config {
 }

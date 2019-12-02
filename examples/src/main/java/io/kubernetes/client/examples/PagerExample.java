@@ -12,15 +12,16 @@ limitations under the License.
  */
 package io.kubernetes.client.examples;
 
-import io.kubernetes.client.ApiClient;
-import io.kubernetes.client.Configuration;
-import io.kubernetes.client.apis.CoreV1Api;
 import io.kubernetes.client.extended.pager.Pager;
-import io.kubernetes.client.models.V1Namespace;
-import io.kubernetes.client.models.V1NamespaceList;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.Configuration;
+import io.kubernetes.client.openapi.apis.CoreV1Api;
+import io.kubernetes.client.openapi.models.V1Namespace;
+import io.kubernetes.client.openapi.models.V1NamespaceList;
 import io.kubernetes.client.util.Config;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+import okhttp3.OkHttpClient;
 
 /**
  * A simple example of how to use the Java API
@@ -34,7 +35,9 @@ public class PagerExample {
   public static void main(String[] args) throws IOException {
 
     ApiClient client = Config.defaultClient();
-    client.getHttpClient().setReadTimeout(60, TimeUnit.SECONDS);
+    OkHttpClient httpClient =
+        client.getHttpClient().newBuilder().readTimeout(60, TimeUnit.SECONDS).build();
+    client.setHttpClient(httpClient);
     Configuration.setDefaultApiClient(client);
     CoreV1Api api = new CoreV1Api();
     int i = 0;
@@ -44,13 +47,13 @@ public class PagerExample {
               try {
                 return api.listNamespaceCall(
                     null,
+                    null,
                     param.getContinueToken(),
                     null,
                     null,
                     param.getLimit(),
                     null,
                     1,
-                    null,
                     null,
                     null);
               } catch (Exception e) {

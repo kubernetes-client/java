@@ -1,7 +1,10 @@
 
+
 # V1APIGroupList
 
+APIGroupList is a list of APIGroup, to allow clients to discover the API at /apis.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **apiVersion** | **String** | APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources |  [optional]

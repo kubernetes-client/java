@@ -1,7 +1,10 @@
 
+
 # V1beta2DeploymentStatus
 
+DeploymentStatus is the most recently observed status of the Deployment.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **availableReplicas** | **Integer** | Total number of available pods (ready for at least minReadySeconds) targeted by this deployment. |  [optional]

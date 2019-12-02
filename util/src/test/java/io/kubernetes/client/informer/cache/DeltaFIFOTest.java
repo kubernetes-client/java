@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 import com.google.common.collect.Lists;
-import io.kubernetes.client.models.V1ObjectMeta;
-import io.kubernetes.client.models.V1Pod;
+import io.kubernetes.client.openapi.models.V1ObjectMeta;
+import io.kubernetes.client.openapi.models.V1Pod;
 import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;

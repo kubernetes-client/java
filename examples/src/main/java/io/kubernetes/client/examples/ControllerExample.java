@@ -1,6 +1,5 @@
 package io.kubernetes.client.examples;
 
-import io.kubernetes.client.apis.CoreV1Api;
 import io.kubernetes.client.extended.controller.Controller;
 import io.kubernetes.client.extended.controller.ControllerManager;
 import io.kubernetes.client.extended.controller.LeaderElectingController;
@@ -14,21 +13,24 @@ import io.kubernetes.client.extended.leaderelection.resourcelock.EndpointsLock;
 import io.kubernetes.client.informer.SharedIndexInformer;
 import io.kubernetes.client.informer.SharedInformerFactory;
 import io.kubernetes.client.informer.cache.Lister;
-import io.kubernetes.client.models.V1Node;
-import io.kubernetes.client.models.V1NodeList;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.apis.CoreV1Api;
+import io.kubernetes.client.openapi.models.V1Node;
+import io.kubernetes.client.openapi.models.V1NodeList;
 import io.kubernetes.client.util.CallGeneratorParams;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
+import okhttp3.OkHttpClient;
 
 public class ControllerExample {
   public static void main(String[] args) throws IOException {
 
     CoreV1Api coreV1Api = new CoreV1Api();
-    coreV1Api
-        .getApiClient()
-        .getHttpClient()
-        .setReadTimeout(0, TimeUnit.SECONDS); // infinite timeout
+    ApiClient apiClient = coreV1Api.getApiClient();
+    OkHttpClient httpClient =
+        apiClient.getHttpClient().newBuilder().readTimeout(0, TimeUnit.SECONDS).build();
+    apiClient.setHttpClient(httpClient);
 
     // instantiating an informer-factory, and there should be only one informer-factory globally.
     SharedInformerFactory informerFactory = new SharedInformerFactory();
@@ -42,10 +44,10 @@ public class ControllerExample {
                   null,
                   null,
                   null,
+                  null,
                   params.resourceVersion,
                   params.timeoutSeconds,
                   params.watch,
-                  null,
                   null);
             },
             V1Node.class,

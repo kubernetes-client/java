@@ -1,7 +1,10 @@
 
+
 # ExtensionsV1beta1DeploymentCondition
 
+DeploymentCondition describes the state of a deployment at a certain point.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **lastTransitionTime** | [**DateTime**](DateTime.md) | Last time the condition transitioned from one status to another. |  [optional]

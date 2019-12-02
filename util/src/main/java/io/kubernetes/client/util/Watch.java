@@ -15,17 +15,17 @@ package io.kubernetes.client.util;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
-import com.squareup.okhttp.Call;
-import com.squareup.okhttp.ResponseBody;
-import io.kubernetes.client.ApiClient;
-import io.kubernetes.client.ApiException;
-import io.kubernetes.client.JSON;
-import io.kubernetes.client.models.V1Status;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.JSON;
+import io.kubernetes.client.openapi.models.V1Status;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.StringReader;
 import java.lang.reflect.Type;
 import java.util.Iterator;
+import okhttp3.Call;
+import okhttp3.ResponseBody;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -90,7 +90,7 @@ public class Watch<T> implements Watchable<T>, Closeable {
       throw new ApiException("Watch is incompatible with debugging mode active.");
     }
     try {
-      com.squareup.okhttp.Response response = call.execute();
+      okhttp3.Response response = call.execute();
       if (!response.isSuccessful()) {
         String respBody = null;
         try (ResponseBody body = response.body()) {

@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import io.kubernetes.client.ApiClient;
+import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.util.credentials.AccessTokenAuthentication;
 import io.kubernetes.client.util.credentials.UsernamePasswordAuthentication;
 import java.io.BufferedReader;

@@ -1,7 +1,10 @@
 
+
 # V1SELinuxOptions
 
+SELinuxOptions are the labels to be applied to the container
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **level** | **String** | Level is SELinux level label that applies to the container. |  [optional]

@@ -51,6 +51,11 @@
         <artifactId>commons-lang3</artifactId>
         <version>3.7</version>
       </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-collections4</artifactId>
+        <version>4.1</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 

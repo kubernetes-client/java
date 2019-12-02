@@ -81,7 +81,7 @@ public class Quantity {
            Objects.equals(this.format, otherQuantity.format);
   }
 
-  public class QuantityAdapter extends TypeAdapter<Quantity> {
+  public static class QuantityAdapter extends TypeAdapter<Quantity> {
     @Override
     public void write(JsonWriter jsonWriter, Quantity quantity) throws IOException {
       jsonWriter.value(quantity != null ? quantity.toSuffixedString() : null);

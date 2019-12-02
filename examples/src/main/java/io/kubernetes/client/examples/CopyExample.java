@@ -13,10 +13,10 @@ limitations under the License.
 package io.kubernetes.client.examples;
 
 import com.google.common.io.ByteStreams;
-import io.kubernetes.client.ApiClient;
-import io.kubernetes.client.ApiException;
-import io.kubernetes.client.Configuration;
 import io.kubernetes.client.Copy;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.util.Config;
 import java.io.IOException;
 import java.io.InputStream;

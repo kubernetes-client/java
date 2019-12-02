@@ -1,7 +1,10 @@
 
+
 # V1beta1SubjectAccessReviewStatus
 
+SubjectAccessReviewStatus
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **allowed** | **Boolean** | Allowed is required. True if the action would be allowed, false otherwise. | 

@@ -13,7 +13,11 @@ limitations under the License.
 
 package io.kubernetes.client;
 
-import io.kubernetes.client.models.V1Pod;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.Configuration;
+import io.kubernetes.client.openapi.Pair;
+import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.util.WebSocketStreamHandler;
 import io.kubernetes.client.util.WebSockets;
 import java.io.IOException;

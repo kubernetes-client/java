@@ -5,7 +5,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 import com.google.common.base.Charsets;
-import io.kubernetes.client.ApiClient;
+import io.kubernetes.client.openapi.ApiClient;
 import okio.ByteString;
 import org.junit.Test;
 

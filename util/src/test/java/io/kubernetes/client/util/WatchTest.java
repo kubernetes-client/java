@@ -16,8 +16,8 @@ import static org.junit.Assert.assertEquals;
 
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
-import io.kubernetes.client.JSON;
-import io.kubernetes.client.models.V1ConfigMap;
+import io.kubernetes.client.openapi.JSON;
+import io.kubernetes.client.openapi.models.V1ConfigMap;
 import java.io.IOException;
 import org.junit.Test;
 

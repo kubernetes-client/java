@@ -1,7 +1,10 @@
 
+
 # V1NodeSystemInfo
 
+NodeSystemInfo is a set of ids/uuids to uniquely identify the node.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **architecture** | **String** | The Architecture reported by the node | 

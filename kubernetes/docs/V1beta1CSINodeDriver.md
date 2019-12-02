@@ -1,7 +1,10 @@
 
+
 # V1beta1CSINodeDriver
 
+CSINodeDriver holds information about the specification of one CSI driver installed on a node
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | This is the name of the CSI driver that this object refers to. This MUST be the same name returned by the CSI GetPluginName() call for that driver. | 

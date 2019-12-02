@@ -2,8 +2,8 @@ package io.kubernetes.client.informer.cache;
 
 import com.google.common.base.Strings;
 import io.kubernetes.client.informer.exception.BadObjectException;
-import io.kubernetes.client.models.V1ObjectMeta;
-import io.kubernetes.client.util.Reflect;
+import io.kubernetes.client.openapi.models.V1ObjectMeta;
+import io.kubernetes.client.util.ObjectAccessor;
 import io.kubernetes.client.util.exception.ObjectMetaReflectException;
 import java.util.Collections;
 import java.util.List;
@@ -46,7 +46,7 @@ public class Caches {
       } else if (obj instanceof V1ObjectMeta) {
         metadata = (V1ObjectMeta) obj;
       } else {
-        metadata = Reflect.objectMetadata(obj);
+        metadata = ObjectAccessor.objectMetadata(obj);
         if (metadata == null) {
           throw new BadObjectException(obj);
         }
@@ -69,7 +69,7 @@ public class Caches {
    */
   public static List<String> metaNamespaceIndexFunc(Object obj) {
     try {
-      V1ObjectMeta metadata = Reflect.objectMetadata(obj);
+      V1ObjectMeta metadata = ObjectAccessor.objectMetadata(obj);
       if (metadata == null) {
         return Collections.emptyList();
       }

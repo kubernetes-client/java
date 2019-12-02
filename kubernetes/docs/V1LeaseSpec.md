@@ -1,7 +1,10 @@
 
+
 # V1LeaseSpec
 
+LeaseSpec is a specification of a Lease.
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **acquireTime** | [**DateTime**](DateTime.md) | acquireTime is a time when the current lease was acquired. |  [optional]

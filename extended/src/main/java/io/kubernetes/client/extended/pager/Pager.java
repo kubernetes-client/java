@@ -12,15 +12,15 @@ limitations under the License.
  */
 package io.kubernetes.client.extended.pager;
 
-import com.squareup.okhttp.Call;
-import io.kubernetes.client.ApiClient;
-import io.kubernetes.client.ApiException;
-import io.kubernetes.client.util.Reflect;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.util.ListAccessor;
 import io.kubernetes.client.util.exception.ObjectMetaReflectException;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Iterator;
 import java.util.function.Function;
+import okhttp3.Call;
 
 /*
  * Pager encapsulates kubernetes limit/continue-based list pagination into an iterator.
@@ -140,12 +140,12 @@ public class Pager<ApiType, ApiListType> implements Iterable<ApiType> {
           call = getNextCall(limit, continueToken);
 
           listObjectCurrentPage = executeRequest(call);
-          continueToken = Reflect.listMetadata(listObjectCurrentPage).getContinue();
+          continueToken = ListAccessor.listMetadata(listObjectCurrentPage).getContinue();
 
           offsetCurrentPage = 0;
-          currentPageSize = Reflect.<ApiType>getItems(listObjectCurrentPage).size();
+          currentPageSize = ListAccessor.<ApiType>getItems(listObjectCurrentPage).size();
         }
-        return Reflect.<ApiType>getItems(listObjectCurrentPage).get(offsetCurrentPage++);
+        return ListAccessor.<ApiType>getItems(listObjectCurrentPage).get(offsetCurrentPage++);
       } catch (ApiException e) {
         throw new RuntimeException(e.getResponseBody());
       } catch (ObjectMetaReflectException | IOException e) {

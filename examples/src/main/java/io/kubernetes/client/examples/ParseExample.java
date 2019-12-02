@@ -12,8 +12,8 @@ limitations under the License.
 */
 package io.kubernetes.client.examples;
 
-import io.kubernetes.client.ApiClient;
-import io.kubernetes.client.ApiException;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.util.Config;
 import java.io.FileReader;
 import java.io.IOException;

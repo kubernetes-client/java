@@ -5,9 +5,9 @@ import static org.junit.Assert.*;
 import io.kubernetes.client.extended.controller.reconciler.Request;
 import io.kubernetes.client.extended.workqueue.DefaultWorkQueue;
 import io.kubernetes.client.extended.workqueue.WorkQueue;
-import io.kubernetes.client.models.V1ObjectMeta;
-import io.kubernetes.client.models.V1Pod;
-import io.kubernetes.client.models.V1PodSpec;
+import io.kubernetes.client.openapi.models.V1ObjectMeta;
+import io.kubernetes.client.openapi.models.V1Pod;
+import io.kubernetes.client.openapi.models.V1PodSpec;
 import org.junit.Test;
 
 public class ControllerWatchTest {
