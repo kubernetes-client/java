@@ -192,8 +192,7 @@ public class SharedInformerFactory {
     }
     informers.forEach(
         (informerType, informer) -> {
-          if (startedInformers.containsKey(informerType)) {
-            startedInformers.remove(informerType);
+          if (startedInformers.remove(informerType) != null) {
             informer.stop();
           }
         });
