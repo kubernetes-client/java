@@ -34,6 +34,10 @@ public class Pager<ApiType, ApiListType> implements Iterable<ApiType> {
 
   private ApiListType listObjectCurrentPage;
 
+  public ApiListType getListObjectCurrentPage() {
+    return listObjectCurrentPage;
+  }
+
   /**
    * Pagination in kubernetes list call depends on continue and limit variable
    *

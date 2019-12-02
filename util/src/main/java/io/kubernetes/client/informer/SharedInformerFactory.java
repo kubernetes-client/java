@@ -1,7 +1,6 @@
 package io.kubernetes.client.informer;
 
 import com.google.gson.reflect.TypeToken;
-import io.kubernetes.client.*;
 import io.kubernetes.client.informer.impl.DefaultSharedIndexInformer;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
@@ -29,7 +28,7 @@ public class SharedInformerFactory {
 
   private ExecutorService informerExecutor;
 
-  private ApiClient apiClient;
+  protected ApiClient apiClient;
 
   /** Constructor w/ default thread pool. */
   public SharedInformerFactory() {
@@ -124,7 +123,7 @@ public class SharedInformerFactory {
     return informer;
   }
 
-  private <ApiType, ApiListType> ListerWatcher<ApiType, ApiListType> listerWatcherFor(
+  protected <ApiType, ApiListType> ListerWatcher<ApiType, ApiListType> listerWatcherFor(
       CallGenerator callGenerator,
       Class<ApiType> apiTypeClass,
       Class<ApiListType> apiListTypeClass) {

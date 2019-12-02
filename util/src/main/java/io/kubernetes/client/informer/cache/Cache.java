@@ -210,6 +210,21 @@ public class Cache<ApiType> implements Indexer<ApiType> {
   }
 
   /**
+   * size of all objects in the cache.
+   *
+   * @return the list size
+   */
+  @Override
+  public int size() {
+    lock.lock();
+    try {
+      return this.items.size();
+    } finally {
+      lock.unlock();
+    }
+  }
+
+  /**
    * Gets get by key.
    *
    * @param key the key

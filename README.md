@@ -98,6 +98,10 @@ We prepared a few examples for common use-cases which are shown below:
   Build an informer which list-watches resources and reflects the notifications to a local cache.
   - ([5.0.0+](https://github.com/kubernetes-client/java/tree/client-java-parent-5.0.0)) [PagerExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/PagerExample.java): 
   Support Pagination (only for the list request) to ease server-side loads/network congestion.
+  - ([5.0.0+](https://github.com/kubernetes-client/java/tree/client-java-parent-5.0.0)) [PageInformerExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/PageInformerExample.java): 
+  Build an informer which list-watches resources, and informer list request support pagination like client-go(default limit 500).
+  - ([5.0.0+](https://github.com/kubernetes-client/java/tree/client-java-parent-5.0.0)) [FieldFilterPageInformerExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/FieldFilterPageInformerExample.java): 
+  Like PageInformerExample, but informer local-cache filter resource fields which customer definition，to ease server-side JVM memory usage，avoid oom.
   - ([6.0.0+](https://github.com/kubernetes-client/java/tree/client-java-parent-6.0.0)) [ControllerExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/ControllerExample.java): 
   Build a controller reconciling the state of world by list-watching one or multiple resources.
   - ([6.0.0+](https://github.com/kubernetes-client/java/tree/client-java-parent-6.0.0)) [LeaderElectionExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/LeaderElectionExample.java): 

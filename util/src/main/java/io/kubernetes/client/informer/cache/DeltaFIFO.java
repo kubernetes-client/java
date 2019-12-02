@@ -292,6 +292,21 @@ public class DeltaFIFO<ApiType> implements Store<Object> {
   }
 
   /**
+   * size of list.
+   *
+   * @return the list size
+   */
+  @Override
+  public int size() {
+    lock.readLock().lock();
+    try {
+      return items.size();
+    } finally {
+      lock.readLock().unlock();
+    }
+  }
+
+  /**
    * Pop deltas.
    *
    * @param func the func

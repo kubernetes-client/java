@@ -65,4 +65,11 @@ public interface Store<ApiType> {
    * @return list of all the items
    */
   List<ApiType> list();
+
+  /**
+   * size of all objects in the cache.
+   *
+   * @return the list size
+   */
+  int size();
 }

@@ -13,7 +13,7 @@ import okhttp3.Call;
  * params.resourceVersion, params.timeoutSeconds, params.watch, null, null); },
  */
 @FunctionalInterface
-public interface CallGenerator {
+public interface CallGenerator<T extends CallGeneratorParams> {
   /**
    * Generate call.
    *
@@ -21,5 +21,5 @@ public interface CallGenerator {
    * @return the call
    * @throws ApiException the api exception
    */
-  Call generate(CallGeneratorParams params) throws ApiException;
+  Call generate(T params) throws ApiException;
 }

@@ -26,7 +26,7 @@ import java.io.IOException;
  *
  * Taken from https://github.com/square/okhttp/issues/350
  */
-class GzipRequestInterceptor implements Interceptor {
+public class GzipRequestInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request originalRequest = chain.request();
