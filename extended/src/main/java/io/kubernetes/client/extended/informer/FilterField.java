@@ -5,9 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 public class FilterField {
 
   private String name;
-
   private Class<?> declaringClass;
-
   private String serializedName;
 
   public FilterField setName(String name) {
