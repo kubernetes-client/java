@@ -1,3 +1,15 @@
+# 7.0.0
+Changes since 6.0.1
+
+* Bump kubernetes openapi spec version to `v1.15.7`.
+* Migrate underlying code-generator library from `swagger-codegen` to `openapi-codegen`.
+* Move/rename generated OpenAPI packages (including apis, models..) from `io.kubernetes.client` 
+  to `io.kubernetes.client.openapi` for OSGi integration. (#737)
+* Default patch format of `CustomObjectApi` move from `application/merge-patch+json` to `application/json-patch+json`. 
+* Backport kubernetes upstream client-go informer fix to prevent notification leakage. (#731)
+* Add new required `renewDeadline` option for leader-election utilities.
+* Provide label-selector filtering utilities. 
+
 # 4.0.0-alpha1
 Changes since 3.0.0
 Changes since 4.0.0-beta1
