@@ -8,7 +8,7 @@ CustomResourceSubresources defines the status and scale subresources for CustomR
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **scale** | [**V1beta1CustomResourceSubresourceScale**](V1beta1CustomResourceSubresourceScale.md) |  |  [optional]
-**status** | [**Object**](.md) | Status denotes the status subresource for CustomResources |  [optional]
+**status** | [**Object**](.md) | status indicates the custom resource should serve a &#x60;/status&#x60; subresource. When enabled: 1. requests to the custom resource primary endpoint ignore changes to the &#x60;status&#x60; stanza of the object. 2. requests to the custom resource &#x60;/status&#x60; subresource ignore changes to anything other than the &#x60;status&#x60; stanza of the object. |  [optional]
 
 
 
