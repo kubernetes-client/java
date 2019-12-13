@@ -13,12 +13,12 @@ limitations under the License.
 package io.kubernetes.client.examples;
 
 import io.kubernetes.client.custom.V1Patch;
-import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.apis.ExtensionsV1beta1Api;
 import io.kubernetes.client.openapi.models.ExtensionsV1beta1Deployment;
 import io.kubernetes.client.util.ClientBuilder;
+import io.kubernetes.client.util.PatchUtils;
 import java.io.IOException;
 
 /**
@@ -64,42 +64,59 @@ public class PatchExample {
       System.out.println("original deployment" + deploy1);
 
       // json-patch a deployment
-      ApiClient jsonPatchClient =
-          ClientBuilder.standard().setOverridePatchFormat(V1Patch.PATCH_FORMAT_JSON_PATCH).build();
       ExtensionsV1beta1Deployment deploy2 =
-          new ExtensionsV1beta1Api(jsonPatchClient)
-              .patchNamespacedDeployment(
-                  "hello-node", "default", new V1Patch(jsonPatchStr), null, null, null, null);
+          PatchUtils.patch(
+              ExtensionsV1beta1Deployment.class,
+              () ->
+                  api.patchNamespacedDeploymentCall(
+                      "hello-node",
+                      "default",
+                      new V1Patch(jsonPatchStr),
+                      null,
+                      null,
+                      null,
+                      null,
+                      null),
+              V1Patch.PATCH_FORMAT_JSON_PATCH,
+              api.getApiClient());
       System.out.println("json-patched deployment" + deploy2);
 
       // strategic-merge-patch a deployment
-      ApiClient strategicMergePatchClient =
-          ClientBuilder.standard()
-              .setOverridePatchFormat(V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH)
-              .build();
-      strategicMergePatchClient.setDebugging(true);
       ExtensionsV1beta1Deployment deploy3 =
-          new ExtensionsV1beta1Api(strategicMergePatchClient)
-              .patchNamespacedDeployment(
-                  "hello-node",
-                  "default",
-                  new V1Patch(strategicMergePatchStr),
-                  null,
-                  null,
-                  null,
-                  null);
+          PatchUtils.patch(
+              ExtensionsV1beta1Deployment.class,
+              () ->
+                  api.patchNamespacedDeploymentCall(
+                      "hello-node",
+                      "default",
+                      new V1Patch(strategicMergePatchStr),
+                      null,
+                      null,
+                      null,
+                      null,
+                      null),
+              V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH,
+              api.getApiClient());
       System.out.println("strategic-merge-patched deployment" + deploy3);
 
       // apply-yaml a deployment, server side apply is alpha in kubernetes v1.14,
       // You need to actively enable the Server Side Apply alpha feature
       // https://kubernetes.io/docs/reference/using-api/api-concepts/#server-side-apply
-      ApiClient applyYamlClient =
-          ClientBuilder.standard().setOverridePatchFormat(V1Patch.PATCH_FORMAT_APPLY_YAML).build();
-      applyYamlClient.setDebugging(true);
       ExtensionsV1beta1Deployment deploy4 =
-          new ExtensionsV1beta1Api(applyYamlClient)
-              .patchNamespacedDeployment(
-                  "hello-node", "default", new V1Patch(applyYamlStr), null, null, null, null);
+          PatchUtils.patch(
+              ExtensionsV1beta1Deployment.class,
+              () ->
+                  api.patchNamespacedDeploymentCall(
+                      "hello-node",
+                      "default",
+                      new V1Patch(applyYamlStr),
+                      null,
+                      null,
+                      null,
+                      null,
+                      null),
+              V1Patch.PATCH_FORMAT_APPLY_YAML,
+              api.getApiClient());
       System.out.println("application/apply-patch+yaml deployment" + deploy4);
 
     } catch (ApiException e) {
