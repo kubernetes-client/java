@@ -8,12 +8,12 @@ Event is a report of an event somewhere in the cluster.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action** | **String** | What action was taken/failed regarding to the Regarding object. |  [optional]
-**apiVersion** | **String** | APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources |  [optional]
+**apiVersion** | **String** | APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources |  [optional]
 **count** | **Integer** | The number of times this event has occurred. |  [optional]
 **eventTime** | [**DateTime**](DateTime.md) | Time when this Event was first observed. |  [optional]
 **firstTimestamp** | [**DateTime**](DateTime.md) | The time at which the event was first recorded. (Time of server receipt is in TypeMeta.) |  [optional]
 **involvedObject** | [**V1ObjectReference**](V1ObjectReference.md) |  | 
-**kind** | **String** | Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds |  [optional]
+**kind** | **String** | Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds |  [optional]
 **lastTimestamp** | [**DateTime**](DateTime.md) | The time at which the most recent occurrence of this event was recorded. |  [optional]
 **message** | **String** | A human-readable description of the status of this operation. |  [optional]
 **metadata** | [**V1ObjectMeta**](V1ObjectMeta.md) |  | 

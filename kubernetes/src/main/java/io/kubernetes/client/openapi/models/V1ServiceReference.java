@@ -28,7 +28,7 @@ import java.io.IOException;
  * ServiceReference holds a reference to Service.legacy.k8s.io
  */
 @ApiModel(description = "ServiceReference holds a reference to Service.legacy.k8s.io")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-28T14:07:30.308Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-10T08:12:38.034Z[Etc/UTC]")
 public class V1ServiceReference {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)

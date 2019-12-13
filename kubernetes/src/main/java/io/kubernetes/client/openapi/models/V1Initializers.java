@@ -32,7 +32,7 @@ import java.util.List;
  * Initializers tracks the progress of initialization.
  */
 @ApiModel(description = "Initializers tracks the progress of initialization.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-28T14:07:30.308Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-10T08:12:38.034Z[Etc/UTC]")
 public class V1Initializers {
   public static final String SERIALIZED_NAME_PENDING = "pending";
   @SerializedName(SERIALIZED_NAME_PENDING)

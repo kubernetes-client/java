@@ -28,7 +28,7 @@ import java.io.IOException;
  * Initializer is information about an initializer that has not yet completed.
  */
 @ApiModel(description = "Initializer is information about an initializer that has not yet completed.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-11-28T14:07:30.308Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-10T08:12:38.034Z[Etc/UTC]")
 public class V1Initializer {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
