@@ -26,7 +26,7 @@ public class V1Patch {
     return value;
   }
 
-  public class V1PatchAdapter extends TypeAdapter<V1Patch> {
+  public static class V1PatchAdapter extends TypeAdapter<V1Patch> {
     @Override
     public void write(JsonWriter jsonWriter, V1Patch patch) throws IOException {
       jsonWriter.jsonValue(patch.getValue());
