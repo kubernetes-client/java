@@ -413,8 +413,13 @@ public class Cache<ApiType> implements Indexer<ApiType> {
     }
   }
 
-  /** Protected for testing. */
-  protected void addIndexFunc(String indexName, Function<ApiType, List<String>> indexFunc) {
+  /**
+   * Add index func.
+   *
+   * @param indexName the index name
+   * @param indexFunc the index func
+   */
+  public void addIndexFunc(String indexName, Function<ApiType, List<String>> indexFunc) {
     this.indices.put(indexName, new HashMap<>());
     this.indexers.put(indexName, indexFunc);
   }
