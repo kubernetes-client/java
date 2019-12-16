@@ -320,6 +320,38 @@ public class Cache<ApiType> implements Indexer<ApiType> {
   }
 
   /**
+   * Return the indexers registered with the cache.
+   *
+   * @return registered indexers
+   */
+  @Override
+  public Map<String, Function<ApiType, List<String>>> getIndexers() {
+    return indexers;
+  }
+
+  /**
+   * Add additional indexers to the cache.
+   *
+   * @param newIndexers indexers to add
+   */
+  @Override
+  public void addIndexers(Map<String, Function<ApiType, List<String>>> newIndexers) {
+    if (!items.isEmpty()) {
+      throw new IllegalStateException("cannot add indexers to a non-empty cache");
+    }
+    Set<String> oldKeys = indexers.keySet();
+    Set<String> newKeys = newIndexers.keySet();
+    Set<String> intersection = new HashSet<>(oldKeys);
+    intersection.retainAll(newKeys);
+    if (!intersection.isEmpty()) {
+      throw new IllegalArgumentException("indexer conflict: " + intersection);
+    }
+    for (Map.Entry<String, Function<ApiType, List<String>>> indexEntry : newIndexers.entrySet()) {
+      addIndexFunc(indexEntry.getKey(), indexEntry.getValue());
+    }
+  }
+
+  /**
    * updateIndices modifies the objects location in the managed indexes, if this is an update, you
    * must provide an oldObj.
    *
@@ -381,13 +413,8 @@ public class Cache<ApiType> implements Indexer<ApiType> {
     }
   }
 
-  /**
-   * Add index func.
-   *
-   * @param indexName the index name
-   * @param indexFunc the index func
-   */
-  public void addIndexFunc(String indexName, Function<ApiType, List<String>> indexFunc) {
+  /** Protected for testing. */
+  protected void addIndexFunc(String indexName, Function<ApiType, List<String>> indexFunc) {
     this.indices.put(indexName, new HashMap<>());
     this.indexers.put(indexName, indexFunc);
   }

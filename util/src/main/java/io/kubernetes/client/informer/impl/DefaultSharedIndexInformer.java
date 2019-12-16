@@ -12,6 +12,7 @@ import io.kubernetes.client.informer.cache.SharedProcessor;
 import java.util.Deque;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.slf4j.Logger;
@@ -223,8 +224,11 @@ public class DefaultSharedIndexInformer<ApiType, ApiListType>
   }
 
   @Override
-  public void addIndexers(Map indexers) {
-    throw new RuntimeException("unimplemented!");
+  public void addIndexers(Map<String, Function<ApiType, List<String>>> indexers) {
+    if (started) {
+      throw new IllegalStateException("cannot add indexers to a running informer");
+    }
+    indexer.addIndexers(indexers);
   }
 
   @Override
