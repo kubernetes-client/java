@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteClusterCustomObject"></a>
 # **deleteClusterCustomObject**
-> Object deleteClusterCustomObject(group, version, plural, name, body, gracePeriodSeconds, orphanDependents, propagationPolicy)
+> Object deleteClusterCustomObject(group, version, plural, name, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
 
 
 
@@ -222,12 +222,12 @@ public class Example {
     String version = "version_example"; // String | the custom resource's version
     String plural = "plural_example"; // String | the custom object's plural name. For TPRs this would be lowercase plural kind.
     String name = "name_example"; // String | the custom object's name
-    V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
     Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
     Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
     String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+    V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
     try {
-      Object result = apiInstance.deleteClusterCustomObject(group, version, plural, name, body, gracePeriodSeconds, orphanDependents, propagationPolicy);
+      Object result = apiInstance.deleteClusterCustomObject(group, version, plural, name, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomObjectsApi#deleteClusterCustomObject");
@@ -248,10 +248,10 @@ Name | Type | Description  | Notes
  **version** | **String**| the custom resource&#39;s version |
  **plural** | **String**| the custom object&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
- **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  |
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
  **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  | [optional]
 
 ### Return type
 
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteNamespacedCustomObject"></a>
 # **deleteNamespacedCustomObject**
-> Object deleteNamespacedCustomObject(group, version, namespace, plural, name, body, gracePeriodSeconds, orphanDependents, propagationPolicy)
+> Object deleteNamespacedCustomObject(group, version, namespace, plural, name, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
 
 
 
@@ -307,12 +307,12 @@ public class Example {
     String namespace = "namespace_example"; // String | The custom resource's namespace
     String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
     String name = "name_example"; // String | the custom object's name
-    V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
     Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
     Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
     String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+    V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
     try {
-      Object result = apiInstance.deleteNamespacedCustomObject(group, version, namespace, plural, name, body, gracePeriodSeconds, orphanDependents, propagationPolicy);
+      Object result = apiInstance.deleteNamespacedCustomObject(group, version, namespace, plural, name, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomObjectsApi#deleteNamespacedCustomObject");
@@ -334,10 +334,10 @@ Name | Type | Description  | Notes
  **namespace** | **String**| The custom resource&#39;s namespace |
  **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
- **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  |
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
  **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  | [optional]
 
 ### Return type
 
