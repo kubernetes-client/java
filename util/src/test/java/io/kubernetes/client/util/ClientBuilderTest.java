@@ -12,6 +12,8 @@ limitations under the License.
  */
 package io.kubernetes.client.util;
 
+import static io.kubernetes.client.util.Config.ENV_SERVICE_HOST;
+import static io.kubernetes.client.util.Config.ENV_SERVICE_PORT;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
@@ -191,5 +193,39 @@ public class ClientBuilderTest {
     environmentVariables.set("KUBECONFIG", KUBECONFIG);
     final ApiClient client = ClientBuilder.standard().build();
     assertEquals("http://home.dir.com", client.getBasePath());
+  }
+
+  @Test
+  public void testIPv4AddressParsingShouldWork() {
+    environmentVariables.set(ENV_SERVICE_HOST, "127.0.0.1");
+    environmentVariables.set(ENV_SERVICE_PORT, "6443");
+    String ipv4Host = "127.0.0.1";
+    String port = "6443";
+    ClientBuilder builder =
+        new ClientBuilder() {
+          @Override
+          public ClientBuilder setBasePath(String host, String port) {
+            return super.setBasePath(host, port);
+          }
+        }.setBasePath(ipv4Host, port);
+
+    assertEquals("https://127.0.0.1:6443", builder.getBasePath());
+  }
+
+  @Test
+  public void testIPv6AddressParsingShouldWork() {
+    environmentVariables.set(ENV_SERVICE_HOST, "127.0.0.1");
+    environmentVariables.set(ENV_SERVICE_PORT, "6443");
+    String ipv4Host = "::1";
+    String port = "6443";
+    ClientBuilder builder =
+        new ClientBuilder() {
+          @Override
+          public ClientBuilder setBasePath(String host, String port) {
+            return super.setBasePath(host, port);
+          }
+        }.setBasePath(ipv4Host, port);
+
+    assertEquals("https://[::1]:6443", builder.getBasePath());
   }
 }
