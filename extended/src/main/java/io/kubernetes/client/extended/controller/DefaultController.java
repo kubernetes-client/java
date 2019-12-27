@@ -77,6 +77,7 @@ public class DefaultController implements Controller {
     if (this.readyFuncs.length > 0) {
       synced =
           Wait.poll(
+              Duration.ZERO,
               readyCheckInternal,
               readyTimeout,
               () -> {
