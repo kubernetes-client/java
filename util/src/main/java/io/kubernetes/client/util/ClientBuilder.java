@@ -32,6 +32,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -205,7 +207,7 @@ public class ClientBuilder {
 
     final String host = System.getenv(ENV_SERVICE_HOST);
     final String port = System.getenv(ENV_SERVICE_PORT);
-    builder.setBasePath("https://" + host + ":" + port);
+    builder.setBasePath(host, port);
 
     final String token =
         new String(
@@ -214,6 +216,17 @@ public class ClientBuilder {
     builder.setAuthentication(new AccessTokenAuthentication(token));
 
     return builder;
+  }
+
+  protected ClientBuilder setBasePath(String host, String port) {
+    try {
+      Integer iPort = Integer.valueOf(port);
+      URI uri = new URI("https", null, host, iPort, null, null, null);
+      this.setBasePath(uri.toString());
+    } catch (NumberFormatException | URISyntaxException e) {
+      throw new IllegalStateException(e);
+    }
+    return this;
   }
 
   /**
