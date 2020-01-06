@@ -18,6 +18,20 @@ public class Wait {
    * @param condition the condition func
    */
   public static boolean poll(Duration interval, Duration timeout, Supplier<Boolean> condition) {
+    return poll(interval, interval, timeout, condition);
+  }
+
+  /**
+   * Poll tries a condition func until w/ the initial delay specified.
+   *
+   * @param initialDelay the initial delay
+   * @param interval the check interval
+   * @param timeout the timeout period
+   * @param condition the condition
+   * @return returns true if gracefully finished
+   */
+  public static boolean poll(
+      Duration initialDelay, Duration interval, Duration timeout, Supplier<Boolean> condition) {
     ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
     AtomicBoolean result = new AtomicBoolean(false);
     long dueDate = System.currentTimeMillis() + timeout.toMillis();
@@ -30,7 +44,7 @@ public class Wait {
                 result.set(false);
               }
             },
-            interval.toMillis(),
+            initialDelay.toMillis(),
             interval.toMillis(),
             TimeUnit.MILLISECONDS);
     try {
