@@ -145,12 +145,30 @@ public class ExecTest {
     Process p = exec.exec(pod, cmd, "container", true, false);
     p.waitFor();
 
+    exec.newExecutionBuilder(pod.getMetadata().getNamespace(), pod.getMetadata().getName(), cmd)
+        .setContainer("container")
+        .setStdin(false)
+        .setStderr(false)
+        .execute()
+        .waitFor();
+
     verify(
         getRequestedFor(
                 urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
             .withQueryParam("stdin", equalTo("true"))
             .withQueryParam("stdout", equalTo("true"))
             .withQueryParam("stderr", equalTo("true"))
+            .withQueryParam("container", equalTo("container"))
+            .withQueryParam("tty", equalTo("false"))
+            .withQueryParam("command", equalTo("cmd")));
+
+    verify(
+        getRequestedFor(
+                urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
+            .withQueryParam("stdin", equalTo("false"))
+            .withQueryParam("stdout", equalTo("true"))
+            .withQueryParam("stderr", equalTo("false"))
+            .withQueryParam("container", equalTo("container"))
             .withQueryParam("tty", equalTo("false"))
             .withQueryParam("command", equalTo("cmd")));
 
