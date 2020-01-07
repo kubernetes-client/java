@@ -57,18 +57,14 @@ public class Attach {
     this.apiClient = apiClient;
   }
 
-  private String makePath(
-      String namespace, String name, String container, boolean stdin, boolean tty) {
-    return "/api/v1/namespaces/"
-        + namespace
-        + "/pods/"
-        + name
-        + "/attach?"
-        + "stdin="
-        + stdin
-        + "&tty="
-        + tty
-        + (container != null ? "&container=" + container : "");
+  /**
+   * Setup a Builder for the given namespace and name
+   *
+   * @param namespace The namespace of the Pod
+   * @param name The name of the Pod
+   */
+  public ConnectionBuilder newConnectionBuilder(String namespace, String name) {
+    return new ConnectionBuilder(namespace, name);
   }
 
   /**
@@ -136,13 +132,107 @@ public class Attach {
   public AttachResult attach(
       String namespace, String name, String container, boolean stdin, boolean tty)
       throws ApiException, IOException {
-    String path = makePath(namespace, name, container, stdin, tty);
+    return newConnectionBuilder(namespace, name)
+        .setContainer(container)
+        .setStdin(stdin)
+        .setTty(tty)
+        .connect();
+  }
 
-    WebSocketStreamHandler handler = new WebSocketStreamHandler();
-    AttachResult result = new AttachResult(handler);
-    WebSockets.stream(path, "GET", apiClient, handler);
+  public final class ConnectionBuilder {
+    private final String namespace;
+    private final String name;
 
-    return result;
+    private String container;
+
+    private boolean stdin;
+    private boolean stdout;
+    private boolean stderr;
+    private boolean tty;
+
+    private ConnectionBuilder(String namespace, String name) {
+      this.namespace = namespace;
+      this.name = name;
+      this.stdin = true;
+    }
+
+    public String getName() {
+      return name;
+    }
+
+    public String getNamespace() {
+      return namespace;
+    }
+
+    public String getContainer() {
+      return container;
+    }
+
+    public ConnectionBuilder setContainer(String container) {
+      this.container = container;
+      return this;
+    }
+
+    public boolean getStdin() {
+      return stdin;
+    }
+
+    public ConnectionBuilder setStdin(boolean stdin) {
+      this.stdin = stdin;
+      return this;
+    }
+
+    public boolean getStdout() {
+      return stdout;
+    }
+
+    public ConnectionBuilder setStdout(boolean stdout) {
+      this.stdout = stdout;
+      return this;
+    }
+
+    public boolean getStderr() {
+      return stderr;
+    }
+
+    public ConnectionBuilder setStderr(boolean stderr) {
+      this.stderr = stderr;
+      return this;
+    }
+
+    public boolean getTty() {
+      return tty;
+    }
+
+    public ConnectionBuilder setTty(boolean tty) {
+      this.tty = tty;
+      return this;
+    }
+
+    private String makePath() {
+      return "/api/v1/namespaces/"
+          + namespace
+          + "/pods/"
+          + name
+          + "/attach?"
+          + "stdin="
+          + stdin
+          + "&stdout="
+          + stdout
+          + "&stderr="
+          + stderr
+          + "&tty="
+          + tty
+          + (container != null ? "&container=" + container : "");
+    }
+
+    public AttachResult connect() throws ApiException, IOException {
+      WebSocketStreamHandler handler = new WebSocketStreamHandler();
+      AttachResult result = new AttachResult(handler);
+      WebSockets.stream(makePath(), "GET", apiClient, handler);
+
+      return result;
+    }
   }
 
   /**
