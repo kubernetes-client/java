@@ -64,6 +64,13 @@ public class AttachTest {
 
     AttachResult res1 = attach.attach(namespace, podName, container, false, false);
     AttachResult res2 = attach.attach(namespace, podName, true);
+    AttachResult res3 =
+        attach
+            .newConnectionBuilder(namespace, podName)
+            .setContainer(container)
+            .setStdin(false)
+            .setStdout(true)
+            .connect();
 
     // TODO: Kill this sleep, the trouble is that the test tries to validate before the connection
     // event has happened
@@ -71,11 +78,14 @@ public class AttachTest {
 
     res1.close();
     res2.close();
+    res3.close();
 
     verify(
         getRequestedFor(
                 urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/attach"))
             .withQueryParam("stdin", equalTo("false"))
+            .withQueryParam("stdout", equalTo("false"))
+            .withQueryParam("stderr", equalTo("false"))
             .withQueryParam("tty", equalTo("false"))
             .withQueryParam("container", equalTo(container)));
 
@@ -83,6 +93,17 @@ public class AttachTest {
         getRequestedFor(
                 urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/attach"))
             .withQueryParam("stdin", equalTo("true"))
+            .withQueryParam("stdout", equalTo("false"))
+            .withQueryParam("stderr", equalTo("false"))
             .withQueryParam("tty", equalTo("false")));
+
+    verify(
+        getRequestedFor(
+                urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/attach"))
+            .withQueryParam("stdin", equalTo("false"))
+            .withQueryParam("stdout", equalTo("true"))
+            .withQueryParam("stderr", equalTo("false"))
+            .withQueryParam("tty", equalTo("false"))
+            .withQueryParam("container", equalTo(container)));
   }
 }

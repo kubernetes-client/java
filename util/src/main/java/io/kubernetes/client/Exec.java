@@ -79,36 +79,15 @@ public class Exec {
     this.apiClient = apiClient;
   }
 
-  private String makePath(
-      String namespace,
-      String name,
-      String[] command,
-      String container,
-      boolean stdin,
-      boolean tty) {
-    for (int i = 0; i < command.length; i++) {
-      try {
-        command[i] = URLEncoder.encode(command[i], "UTF-8");
-      } catch (UnsupportedEncodingException ex) {
-        throw new RuntimeException("some thing wrong happend: " + ex.getMessage());
-      }
-    }
-    String path =
-        "/api/v1/namespaces/"
-            + namespace
-            + "/pods/"
-            + name
-            + "/exec?"
-            + "stdin="
-            + stdin
-            + "&stdout=true"
-            + "&stderr=true"
-            + "&tty="
-            + tty
-            + (container != null ? "&container=" + container : "")
-            + "&command="
-            + StringUtils.join(command, "&command=");
-    return path;
+  /**
+   * Setup a Builder for the given namespace, name and command
+   *
+   * @param namespace The namespace of the Pod
+   * @param name The name of the Pod
+   * @param command The command to run
+   */
+  public ExecutionBuilder newExecutionBuilder(String namespace, String name, String[] command) {
+    return new ExecutionBuilder(namespace, name, command);
   }
 
   /**
@@ -204,18 +183,131 @@ public class Exec {
   public Process exec(
       String namespace, String name, String[] command, String container, boolean stdin, boolean tty)
       throws ApiException, IOException {
-    if (container == null) {
-      CoreV1Api api = new CoreV1Api(apiClient);
-      V1Pod pod = api.readNamespacedPod(name, namespace, "false", null, null);
-      container = pod.getSpec().getContainers().get(0).getName();
+    return newExecutionBuilder(namespace, name, command)
+        .setContainer(container)
+        .setStdin(stdin)
+        .setTty(tty)
+        .execute();
+  }
+
+  public final class ExecutionBuilder {
+    private final String namespace;
+    private final String name;
+    private final String[] command;
+
+    private String container;
+
+    private boolean stdin;
+    private boolean stdout;
+    private boolean stderr;
+    private boolean tty;
+
+    private ExecutionBuilder(String namespace, String name, String[] command) {
+      this.namespace = namespace;
+      this.name = name;
+      this.command = command;
+      this.stdin = true;
+      this.stdout = true;
+      this.stderr = true;
     }
-    String path = makePath(namespace, name, command, container, stdin, tty);
 
-    ExecProcess exec = new ExecProcess(apiClient);
-    WebSocketStreamHandler handler = exec.getHandler();
-    WebSockets.stream(path, "GET", apiClient, handler);
+    public String getName() {
+      return name;
+    }
 
-    return exec;
+    public String getNamespace() {
+      return namespace;
+    }
+
+    public String[] getCommand() {
+      return command;
+    }
+
+    public String getContainer() {
+      return container;
+    }
+
+    public ExecutionBuilder setContainer(String container) {
+      this.container = container;
+      return this;
+    }
+
+    public boolean getStdin() {
+      return stdin;
+    }
+
+    public ExecutionBuilder setStdin(boolean stdin) {
+      this.stdin = stdin;
+      return this;
+    }
+
+    public boolean getStdout() {
+      return stdout;
+    }
+
+    public ExecutionBuilder setStdout(boolean stdout) {
+      this.stdout = stdout;
+      return this;
+    }
+
+    public boolean getStderr() {
+      return stderr;
+    }
+
+    public ExecutionBuilder setStderr(boolean stderr) {
+      this.stderr = stderr;
+      return this;
+    }
+
+    public boolean getTty() {
+      return tty;
+    }
+
+    public ExecutionBuilder setTty(boolean tty) {
+      this.tty = tty;
+      return this;
+    }
+
+    private String makePath() {
+      String[] encodedCommand = new String[command.length];
+      for (int i = 0; i < command.length; i++) {
+        try {
+          encodedCommand[i] = URLEncoder.encode(command[i], "UTF-8");
+        } catch (UnsupportedEncodingException ex) {
+          throw new RuntimeException("some thing wrong happend: " + ex.getMessage());
+        }
+      }
+      return "/api/v1/namespaces/"
+          + namespace
+          + "/pods/"
+          + name
+          + "/exec?"
+          + "stdin="
+          + stdin
+          + "&stdout="
+          + stdout
+          + "&stderr="
+          + stderr
+          + "&tty="
+          + tty
+          + (container != null ? "&container=" + container : "")
+          + "&command="
+          + StringUtils.join(encodedCommand, "&command=");
+    }
+
+    public Process execute() throws ApiException, IOException {
+      if (container == null) {
+        CoreV1Api api = new CoreV1Api(apiClient);
+        V1Pod pod = api.readNamespacedPod(name, namespace, "false", null, null);
+        container = pod.getSpec().getContainers().get(0).getName();
+      }
+
+      ExecProcess exec = new ExecProcess(apiClient);
+      WebSocketStreamHandler handler = exec.getHandler();
+      WebSockets.stream(makePath(), "GET", apiClient, handler);
+
+      return exec;
+    }
   }
 
   static int parseExitCode(ApiClient client, InputStream inputStream) {
