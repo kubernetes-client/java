@@ -140,6 +140,6 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <slf4jVersion>1.7.7</slf4jVersion>
-        <bucket4jVersion>4.4.1</bucket4jVersion>
+        <bucket4jVersion>4.8.0</bucket4jVersion>
     </properties>
 </project>
