@@ -6,9 +6,6 @@ import io.github.bucket4j.Bucket4j;
 import io.github.bucket4j.Refill;
 import io.github.bucket4j.local.SynchronizationStrategy;
 import java.time.Duration;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 
 /** A light-weight token bucket implementation for RateLimiter. */
 public class BucketRateLimiter<T> implements RateLimiter<T> {
@@ -31,9 +28,8 @@ public class BucketRateLimiter<T> implements RateLimiter<T> {
 
   @Override
   public Duration when(T item) {
-    DelayGetter delayGetter = new DelayGetter();
-    bucket.asAsyncScheduler().consume(1, delayGetter).complete(null);
-    return delayGetter.getDelay();
+    long overdraftNanos = bucket.consumeIgnoringRateLimits(1);
+    return Duration.ofNanos(overdraftNanos);
   }
 
   @Override
@@ -42,23 +38,5 @@ public class BucketRateLimiter<T> implements RateLimiter<T> {
   @Override
   public int numRequeues(T item) {
     return 0;
-  }
-
-  private class DelayGetter extends ScheduledThreadPoolExecutor {
-    private Duration delay = Duration.ZERO;
-
-    @Override
-    public ScheduledFuture<?> schedule(Runnable command, long delay, TimeUnit unit) {
-      this.delay = Duration.ofNanos(unit.toNanos(delay));
-      return null;
-    }
-
-    private DelayGetter() {
-      super(0);
-    }
-
-    private Duration getDelay() {
-      return delay;
-    }
   }
 }
