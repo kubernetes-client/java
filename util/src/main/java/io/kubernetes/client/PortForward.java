@@ -36,7 +36,7 @@ import java.util.List;
  *
  * <p>And the protocol is:
  *
- * <p>ws://server/api/v1/namespaces/<namespace>/pods/<pod>/portforward?ports=80&ports=8080
+ * <p>web sockets on server/api/v1/namespaces/<namespace>/pods/<pod>/portforward?ports=80&ports=8080
  *
  * <p>I/O for first port (80) is on Channel 0 Err for first port (80) is on Channel 1 I/O for second
  * port (8080) is on Channel 2 Err for second port (8080) is on Channel 3 <and so on for remaining
