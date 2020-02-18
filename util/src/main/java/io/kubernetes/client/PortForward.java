@@ -32,14 +32,15 @@ import java.util.List;
  * API (which the Go client uses)
  *
  * <p>The protocol is undocumented as far as I can tell, but the PR that added it is here:
- * https://github.com/kubernetes/kubernetes/pull/33684
+ * github.com/kubernetes/kubernetes/pull/33684
  *
  * <p>And the protocol is:
  *
- * <p>web sockets on server/api/v1/namespaces/<namespace>/pods/<pod>/portforward?ports=80&ports=8080
+ * <p>web sockets on server/api/v1/namespaces/&lt;namespace&gt;/pods/&lt;pod&gt;/portforward with
+ * args ports=80 and ports=8080
  *
  * <p>I/O for first port (80) is on Channel 0 Err for first port (80) is on Channel 1 I/O for second
- * port (8080) is on Channel 2 Err for second port (8080) is on Channel 3 <and so on for remaining
+ * port (8080) is on Channel 2 Err for second port (8080) is on Channel 3 < and so on for remaining
  * ports>
  *
  * <p>The first two bytes of each output stream is the port that is being forwarded in little-endian
