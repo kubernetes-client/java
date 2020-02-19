@@ -7,6 +7,10 @@ import io.kubernetes.client.extended.controller.builder.ControllerBuilder;
 import io.kubernetes.client.extended.controller.reconciler.Reconciler;
 import io.kubernetes.client.extended.controller.reconciler.Request;
 import io.kubernetes.client.extended.controller.reconciler.Result;
+import io.kubernetes.client.extended.event.EventType;
+import io.kubernetes.client.extended.event.legacy.EventBroadcaster;
+import io.kubernetes.client.extended.event.legacy.EventRecorder;
+import io.kubernetes.client.extended.event.legacy.LegacyEventBroadcaster;
 import io.kubernetes.client.extended.leaderelection.LeaderElectionConfig;
 import io.kubernetes.client.extended.leaderelection.LeaderElector;
 import io.kubernetes.client.extended.leaderelection.resourcelock.EndpointsLock;
@@ -15,6 +19,7 @@ import io.kubernetes.client.informer.SharedInformerFactory;
 import io.kubernetes.client.informer.cache.Lister;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.apis.CoreV1Api;
+import io.kubernetes.client.openapi.models.V1EventSource;
 import io.kubernetes.client.openapi.models.V1Node;
 import io.kubernetes.client.openapi.models.V1NodeList;
 import io.kubernetes.client.util.CallGeneratorParams;
@@ -54,8 +59,14 @@ public class ControllerExample {
             V1NodeList.class);
     informerFactory.startAllRegisteredInformers();
 
+    EventBroadcaster eventBroadcaster = new LegacyEventBroadcaster(coreV1Api);
+
     // nodeReconciler prints node information on events
-    NodePrintingReconciler nodeReconciler = new NodePrintingReconciler(nodeInformer);
+    NodePrintingReconciler nodeReconciler =
+        new NodePrintingReconciler(
+            nodeInformer,
+            eventBroadcaster.newRecorder(
+                new V1EventSource().host("localhost").component("node-printer")));
 
     // Use builder library to construct a default controller.
     Controller controller =
@@ -115,15 +126,24 @@ public class ControllerExample {
   static class NodePrintingReconciler implements Reconciler {
 
     private Lister<V1Node> nodeLister;
+    private EventRecorder eventRecorder;
 
-    public NodePrintingReconciler(SharedIndexInformer<V1Node> nodeInformer) {
+    public NodePrintingReconciler(
+        SharedIndexInformer<V1Node> nodeInformer, EventRecorder recorder) {
       this.nodeLister = new Lister<>(nodeInformer.getIndexer());
+      this.eventRecorder = recorder;
     }
 
     @Override
     public Result reconcile(Request request) {
       V1Node node = this.nodeLister.get(request.getName());
       System.out.println("triggered reconciling " + node.getMetadata().getName());
+      this.eventRecorder.event(
+          node,
+          EventType.Normal,
+          "Print Node",
+          "Successfully printed %s",
+          node.getMetadata().getName());
       return new Result(false);
     }
   }
