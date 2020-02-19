@@ -1,11 +1,17 @@
 package io.kubernetes.client.extended.event;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.extended.event.legacy.EventLogger;
 import io.kubernetes.client.extended.event.legacy.EventUtils;
-import io.kubernetes.client.openapi.models.*;
+import io.kubernetes.client.openapi.models.V1Event;
+import io.kubernetes.client.openapi.models.V1EventBuilder;
+import io.kubernetes.client.openapi.models.V1EventSourceBuilder;
+import io.kubernetes.client.openapi.models.V1ObjectMeta;
+import io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.junit.Test;
 

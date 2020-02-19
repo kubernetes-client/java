@@ -7,6 +7,7 @@ import io.kubernetes.client.openapi.models.V1Event;
 import io.kubernetes.client.openapi.models.V1EventBuilder;
 import io.kubernetes.client.openapi.models.V1ObjectMetaBuilder;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.ExecutionException;
 import org.apache.commons.lang3.tuple.MutablePair;
@@ -81,23 +82,12 @@ public class EventAggregator {
 
     @Override
     public boolean equals(Object o) {
-      if (this == o) return true;
-      if (o == null || getClass() != o.getClass()) return false;
-
-      AggregatedRecord record = (AggregatedRecord) o;
-
-      if (localKeys != null ? !localKeys.equals(record.localKeys) : record.localKeys != null)
-        return false;
-      return lastTimestamp != null
-          ? lastTimestamp.equals(record.lastTimestamp)
-          : record.lastTimestamp == null;
+      return Objects.equals(this, o);
     }
 
     @Override
     public int hashCode() {
-      int result = localKeys != null ? localKeys.hashCode() : 0;
-      result = 31 * result + (lastTimestamp != null ? lastTimestamp.hashCode() : 0);
-      return result;
+      return Objects.hashCode(this);
     }
   }
 

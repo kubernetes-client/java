@@ -1,20 +1,33 @@
 package io.kubernetes.client.extended.event;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.fail;
 
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.extended.event.legacy.EventAggregator;
 import io.kubernetes.client.extended.event.legacy.EventCorrelator;
 import io.kubernetes.client.extended.event.legacy.EventSpamFilter;
 import io.kubernetes.client.extended.event.legacy.EventUtils;
-import io.kubernetes.client.openapi.models.*;
-import java.util.*;
+import io.kubernetes.client.openapi.models.V1Event;
+import io.kubernetes.client.openapi.models.V1EventBuilder;
+import io.kubernetes.client.openapi.models.V1EventSource;
+import io.kubernetes.client.openapi.models.V1EventSourceBuilder;
+import io.kubernetes.client.openapi.models.V1ObjectMetaBuilder;
+import io.kubernetes.client.openapi.models.V1ObjectReference;
+import io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.*;
+import org.junit.runners.Parameterized.Parameter;
+import org.junit.runners.Parameterized.Parameters;
 
 @RunWith(Parameterized.class)
 public class EventCorrelatorTest {

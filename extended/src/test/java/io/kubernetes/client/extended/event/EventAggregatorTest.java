@@ -1,10 +1,14 @@
 package io.kubernetes.client.extended.event;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 import io.kubernetes.client.extended.event.legacy.EventAggregator;
 import io.kubernetes.client.extended.event.legacy.EventUtils;
-import io.kubernetes.client.openapi.models.*;
+import io.kubernetes.client.openapi.models.V1Event;
+import io.kubernetes.client.openapi.models.V1EventBuilder;
+import io.kubernetes.client.openapi.models.V1EventSource;
+import io.kubernetes.client.openapi.models.V1ObjectReference;
 import org.junit.Test;
 
 public class EventAggregatorTest {

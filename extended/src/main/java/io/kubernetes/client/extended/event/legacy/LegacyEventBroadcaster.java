@@ -10,7 +10,11 @@ import io.kubernetes.client.util.PatchUtils;
 import java.net.HttpURLConnection;
 import java.time.Duration;
 import java.util.Optional;
-import java.util.concurrent.*;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.TimeUnit;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +22,8 @@ import org.slf4j.LoggerFactory;
 public class LegacyEventBroadcaster implements EventBroadcaster {
 
   private static final Logger logger = LoggerFactory.getLogger(LegacyEventBroadcaster.class);
+
+  private static final int maxTriesPerEvent = 10;
 
   public LegacyEventBroadcaster(CoreV1Api coreV1Api) {
     this(
@@ -84,7 +90,7 @@ public class LegacyEventBroadcaster implements EventBroadcaster {
   public void startRecording() {
     this.eventProcessingWorker.submit(
         () -> {
-          while (true) {
+          while (!this.shuttingDown) {
             try {
               V1Event event = pendingEventQueue.poll(100, TimeUnit.MILLISECONDS);
               if (event != null) {
@@ -92,9 +98,6 @@ public class LegacyEventBroadcaster implements EventBroadcaster {
               }
             } catch (InterruptedException e) {
               logger.info("shutdown signaled");
-            }
-            if (this.shuttingDown) {
-              return;
             }
           }
         });
@@ -114,7 +117,6 @@ public class LegacyEventBroadcaster implements EventBroadcaster {
     }
     V1Event recordingEvent = eventAndPatch.get().getLeft();
     V1Patch patch = eventAndPatch.get().getRight();
-    final int maxTriesPerEvent = 10;
     for (int retries = 0; retries < maxTriesPerEvent; retries++) {
       if (recordEvent(recordingEvent, patch, event.getCount() > 1)) {
         break;

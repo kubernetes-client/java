@@ -2,7 +2,12 @@ package io.kubernetes.client.extended.event.legacy;
 
 import com.google.common.base.Strings;
 import io.kubernetes.client.extended.event.EventType;
-import io.kubernetes.client.openapi.models.*;
+import io.kubernetes.client.openapi.models.V1Event;
+import io.kubernetes.client.openapi.models.V1EventBuilder;
+import io.kubernetes.client.openapi.models.V1ObjectMeta;
+import io.kubernetes.client.openapi.models.V1ObjectMetaBuilder;
+import io.kubernetes.client.openapi.models.V1ObjectReference;
+import io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder;
 import io.kubernetes.client.util.ObjectAccessor;
 import io.kubernetes.client.util.TypeAccessor;
 import io.kubernetes.client.util.exception.ObjectMetaReflectException;

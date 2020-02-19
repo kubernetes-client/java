@@ -1,10 +1,13 @@
 package io.kubernetes.client.extended.event;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import io.kubernetes.client.extended.event.legacy.EventSpamFilter;
 import io.kubernetes.client.extended.event.legacy.EventUtils;
-import io.kubernetes.client.openapi.models.*;
+import io.kubernetes.client.openapi.models.V1Event;
+import io.kubernetes.client.openapi.models.V1EventBuilder;
+import io.kubernetes.client.openapi.models.V1EventSourceBuilder;
+import io.kubernetes.client.openapi.models.V1ObjectReference;
 import java.time.Duration;
 import org.junit.Test;
 
