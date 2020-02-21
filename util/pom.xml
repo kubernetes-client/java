@@ -81,6 +81,11 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-collections4</artifactId>
         </dependency>
+        <dependency>
+			<groupId>org.bitbucket.b_c</groupId>
+			<artifactId>jose4j</artifactId>
+			<version>0.7.0</version>
+		</dependency> 
         <!-- test dependencies -->
         <dependency>
             <groupId>junit</groupId>
