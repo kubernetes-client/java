@@ -14,15 +14,28 @@ limitations under the License.
 package io.kubernetes.client.util.authenticators;
 
 import io.kubernetes.client.util.KubeConfig;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.security.KeyManagementException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
 import java.util.Base64;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
 import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManagerFactory;
 import org.jose4j.json.internal.json_simple.JSONObject;
 import org.jose4j.json.internal.json_simple.parser.JSONParser;
 import org.jose4j.json.internal.json_simple.parser.ParseException;
@@ -46,6 +59,8 @@ public class OpenIDConnectAuthenticator implements Authenticator {
   private static final String OIDC_CLIENT_ID = "client-id";
   /** Optional client secret */
   private static final String OIDC_CLIENT_SECRET = "client-secret";
+  /** Optional IdP TLS Certificate */
+  private static final String OIDC_IDP_CERT_DATA = "idp-certificate-authority-data";
 
   static {
     KubeConfig.registerAuthenticator(new OpenIDConnectAuthenticator());
@@ -90,6 +105,50 @@ public class OpenIDConnectAuthenticator implements Authenticator {
     String clientId = (String) config.get(OIDC_CLIENT_ID);
     String refreshToken = (String) config.get(OIDC_REFRESH_TOKEN);
     String clientSecret = (String) config.get(OIDC_CLIENT_SECRET);
+    String idpCert = (String) config.get(OIDC_IDP_CERT_DATA);
+
+    SSLContext sslContext = null;
+
+    if (idpCert != null) {
+      // fist, lets get the pem
+      String pemCert = new String(Base64.getDecoder().decode(idpCert));
+
+      // next lets get a cert object
+      String alias = "doenotmatter";
+      KeyStore ks;
+
+      try {
+        ks = java.security.KeyStore.getInstance("PKCS12");
+        ks.load(null, "doesnotmatter".toCharArray());
+        ByteArrayInputStream bais = new ByteArrayInputStream(pemCert.getBytes("UTF-8"));
+        CertificateFactory cf = CertificateFactory.getInstance("X.509");
+        Collection<? extends java.security.cert.Certificate> c = cf.generateCertificates(bais);
+
+        if (c.size() > 1) {
+          int j = 0;
+          Iterator<? extends java.security.cert.Certificate> i = c.iterator();
+          while (i.hasNext()) {
+            Certificate certificate = (Certificate) i.next();
+            ks.setCertificateEntry(alias + "-" + j, certificate);
+          }
+        } else {
+          ks.setCertificateEntry(alias, c.iterator().next());
+        }
+
+        TrustManagerFactory tmf = TrustManagerFactory.getInstance("PKIX");
+        tmf.init(ks);
+
+        sslContext = SSLContext.getInstance("TLSv1.2");
+        sslContext.init(null, tmf.getTrustManagers(), new SecureRandom());
+
+      } catch (KeyStoreException
+          | NoSuchAlgorithmException
+          | CertificateException
+          | IOException
+          | KeyManagementException e) {
+        throw new RuntimeException("Could not import idp certificate", e);
+      }
+    }
 
     if (clientSecret == null) {
       clientSecret = "";
@@ -108,6 +167,9 @@ public class OpenIDConnectAuthenticator implements Authenticator {
       URL wellKnown = new URL(wellKnownURL);
       HttpsURLConnection https = (HttpsURLConnection) wellKnown.openConnection();
       https.setRequestMethod("GET");
+      if (sslContext != null) {
+        https.setSSLSocketFactory(sslContext.getSocketFactory());
+      }
       https.setUseCaches(false);
       int code = https.getResponseCode();
       if (code == 200) {
@@ -120,6 +182,9 @@ public class OpenIDConnectAuthenticator implements Authenticator {
         URL tokenEndpoint = new URL(tokenUrl);
         https = (HttpsURLConnection) tokenEndpoint.openConnection();
         https.setRequestMethod("POST");
+        if (sslContext != null) {
+          https.setSSLSocketFactory(sslContext.getSocketFactory());
+        }
 
         String credentials =
             Base64.getEncoder()
