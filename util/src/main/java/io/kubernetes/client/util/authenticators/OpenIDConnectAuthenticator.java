@@ -1,5 +1,5 @@
 /*
-Copyright 2017 The Kubernetes Authors.
+Copyright 2020 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -50,17 +50,17 @@ import org.jose4j.lang.JoseException;
 public class OpenIDConnectAuthenticator implements Authenticator {
 
   /** The id_token */
-  private static final String OIDC_ID_TOKEN = "id-token";
+  public static final String OIDC_ID_TOKEN = "id-token";
   /** The issuer */
-  private static final String OIDC_ISSUER = "idp-issuer-url";
+  public static final String OIDC_ISSUER = "idp-issuer-url";
   /** The refresh_token */
-  private static final String OIDC_REFRESH_TOKEN = "refresh-token";
+  public static final String OIDC_REFRESH_TOKEN = "refresh-token";
   /** The client_id */
-  private static final String OIDC_CLIENT_ID = "client-id";
+  public static final String OIDC_CLIENT_ID = "client-id";
   /** Optional client secret */
-  private static final String OIDC_CLIENT_SECRET = "client-secret";
+  public static final String OIDC_CLIENT_SECRET = "client-secret";
   /** Optional IdP TLS Certificate */
-  private static final String OIDC_IDP_CERT_DATA = "idp-certificate-authority-data";
+  public static final String OIDC_IDP_CERT_DATA = "idp-certificate-authority-data";
 
   static {
     KubeConfig.registerAuthenticator(new OpenIDConnectAuthenticator());
@@ -86,7 +86,10 @@ public class OpenIDConnectAuthenticator implements Authenticator {
       JsonWebSignature jws = new JsonWebSignature();
       try {
         jws.setCompactSerialization(idToken);
-        // we don't care if its valid or not cryptographicly
+        // we don't care if its valid or not cryptographicly as the only way to verify is to query the remote
+        // identity provider's configuration url which is the same chanel as the token request.  If there is a
+        // malicious proxy there's no way for the client to know.  Also, the client doesn't need to trust the,
+        // token, only bear it to the server which will verify it.  
         String jwt = jws.getUnverifiedPayload();
         JwtClaims claims = JwtClaims.parse(jwt);
 
@@ -104,7 +107,7 @@ public class OpenIDConnectAuthenticator implements Authenticator {
     String issuer = (String) config.get(OIDC_ISSUER);
     String clientId = (String) config.get(OIDC_CLIENT_ID);
     String refreshToken = (String) config.get(OIDC_REFRESH_TOKEN);
-    String clientSecret = (String) config.get(OIDC_CLIENT_SECRET);
+    String clientSecret = (String) config.getOrDefault(OIDC_CLIENT_SECRET,"");
     String idpCert = (String) config.get(OIDC_IDP_CERT_DATA);
 
     SSLContext sslContext = null;
@@ -114,26 +117,27 @@ public class OpenIDConnectAuthenticator implements Authenticator {
       String pemCert = new String(Base64.getDecoder().decode(idpCert));
 
       // next lets get a cert object
+      // need an alias name to store the certificate in a keystore.  Also
+      // java keystores need passwords. this value is as good as any as
+      // there isn't anything actually secret being stored.
       String alias = "doenotmatter";
       KeyStore ks;
 
       try {
         ks = java.security.KeyStore.getInstance("PKCS12");
-        ks.load(null, "doesnotmatter".toCharArray());
+        ks.load(null, alias.toCharArray());
         ByteArrayInputStream bais = new ByteArrayInputStream(pemCert.getBytes("UTF-8"));
         CertificateFactory cf = CertificateFactory.getInstance("X.509");
         Collection<? extends java.security.cert.Certificate> c = cf.generateCertificates(bais);
 
-        if (c.size() > 1) {
-          int j = 0;
-          Iterator<? extends java.security.cert.Certificate> i = c.iterator();
-          while (i.hasNext()) {
-            Certificate certificate = (Certificate) i.next();
-            ks.setCertificateEntry(alias + "-" + j, certificate);
-          }
-        } else {
-          ks.setCertificateEntry(alias, c.iterator().next());
+        
+        int j = 0;
+        for (java.security.cert.Certificate certificate : c) {
+          ks.setCertificateEntry(alias + "-" + j, certificate);
+          j++;
         }
+          
+        
 
         TrustManagerFactory tmf = TrustManagerFactory.getInstance("PKIX");
         tmf.init(ks);
@@ -150,21 +154,105 @@ public class OpenIDConnectAuthenticator implements Authenticator {
       }
     }
 
-    if (clientSecret == null) {
-      clientSecret = "";
-    }
 
-    StringBuilder sb = new StringBuilder();
-    sb.append(issuer);
+
+    // check the identity provider's configuration url for a token endpoint
+    String tokenURL = loadTokenURL(issuer, sslContext);
+
+    // get the refreshed tokens
+    JSONObject response = refreshOidcToken(clientId, refreshToken, clientSecret, sslContext, tokenURL);
+
+    // reload the config
+    config.put(OIDC_ID_TOKEN, response.get("id_token"));
+    config.put(OIDC_REFRESH_TOKEN, response.get("refresh_token"));
+
+    return config;    
+  }
+
+  /**
+   * Refreshes the OpenID Connect id_token
+   * @param clientId from client-id
+   * @param refreshToken from refresh-token
+   * @param clientSecret from client-secret
+   * @param sslContext to support TLS with a self signed certificate in idp-certificate-authority-data
+   * @param tokenURL the url for refreshing the token
+   * @return
+   */
+  private JSONObject refreshOidcToken(String clientId, String refreshToken, String clientSecret, SSLContext sslContext,
+      String tokenURL) {
+    try {
+      URL tokenEndpoint = new URL(tokenURL);
+      HttpsURLConnection https = (HttpsURLConnection) tokenEndpoint.openConnection();
+      https.setRequestMethod("POST");
+      if (sslContext != null) {
+        https.setSSLSocketFactory(sslContext.getSocketFactory());
+      }
+
+      // per https://tools.ietf.org/html/rfc6749#section-2.3 the secret should be a header, not in the body
+      String credentials =
+          Base64.getEncoder()
+              .encodeToString(
+                  new StringBuilder()
+                      .append(clientId)
+                      .append(':')
+                      .append(clientSecret)
+                      .toString()
+                      .getBytes("UTF-8"));
+      https.setRequestProperty(
+          "Authorization", new StringBuilder().append("Basic ").append(credentials).toString());
+      https.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+      https.setDoOutput(true);
+
+      String urlData =
+          new StringBuilder()
+              .append("refresh_token=")
+              .append(URLEncoder.encode(refreshToken, "UTF-8"))
+              .append("&grant_type=refresh_token")
+              .toString();
+      OutputStream ou = https.getOutputStream();
+      ou.write(urlData.getBytes("UTF-8"));
+      ou.flush();
+      ou.close();
+
+      int code = https.getResponseCode();
+
+      if (code != HttpsURLConnection.HTTP_OK) {
+        throw new RuntimeException(
+            new StringBuilder()
+                .append("Invalid response code for token retrieval - ")
+                .append(code)
+                .toString());
+      }
+      
+      Scanner scanner = new Scanner(https.getInputStream(), StandardCharsets.UTF_8.name());
+      String json = scanner.useDelimiter("\\A").next();
+
+      return (JSONObject) new JSONParser().parse(json);
+
+    } catch (Throwable t) {
+      throw new RuntimeException("Could not refresh token",t);
+    }
+  }
+
+  
+  /**
+   * Determines the token url
+   * @param issuer from the idp-issuer-url
+   * @param sslContext to support TLS with a self signed certificate in idp-certificate-authority-data
+   * @return
+   */
+  private String loadTokenURL(String issuer, SSLContext sslContext) {
+    StringBuilder wellKnownUrl = new StringBuilder();
+    wellKnownUrl.append(issuer);
     if (!issuer.endsWith("/")) {
-      sb.append("/");
+      wellKnownUrl.append("/");
     }
-    sb.append(".well-known/openid-configuration");
+    wellKnownUrl.append(".well-known/openid-configuration");
 
-    String wellKnownURL = sb.toString();
+    
 
     try {
-      URL wellKnown = new URL(wellKnownURL);
+      URL wellKnown = new URL(wellKnownUrl.toString());
       HttpsURLConnection https = (HttpsURLConnection) wellKnown.openConnection();
       https.setRequestMethod("GET");
       if (sslContext != null) {
@@ -172,75 +260,25 @@ public class OpenIDConnectAuthenticator implements Authenticator {
       }
       https.setUseCaches(false);
       int code = https.getResponseCode();
-      if (code == 200) {
-        Scanner scanner = new Scanner(https.getInputStream(), StandardCharsets.UTF_8.name());
-        String json = scanner.useDelimiter("\\A").next();
-
-        JSONObject wellKnownJson = (JSONObject) new JSONParser().parse(json);
-        String tokenUrl = (String) wellKnownJson.get("token_endpoint");
-
-        URL tokenEndpoint = new URL(tokenUrl);
-        https = (HttpsURLConnection) tokenEndpoint.openConnection();
-        https.setRequestMethod("POST");
-        if (sslContext != null) {
-          https.setSSLSocketFactory(sslContext.getSocketFactory());
-        }
-
-        String credentials =
-            Base64.getEncoder()
-                .encodeToString(
-                    new StringBuilder()
-                        .append(clientId)
-                        .append(':')
-                        .append(clientSecret)
-                        .toString()
-                        .getBytes("UTF-8"));
-        https.setRequestProperty(
-            "Authorization", new StringBuilder().append("Bearer ").append(credentials).toString());
-        https.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-        https.setDoOutput(true);
-
-        String urlData =
-            new StringBuilder()
-                .append("refresh_token=")
-                .append(URLEncoder.encode(refreshToken, "UTF-8"))
-                .toString();
-        OutputStream ou = https.getOutputStream();
-        ou.write(urlData.getBytes("UTF-8"));
-        ou.flush();
-        ou.close();
-
-        code = https.getResponseCode();
-
-        if (code == 200) {
-          scanner = new Scanner(https.getInputStream(), StandardCharsets.UTF_8.name());
-          json = scanner.useDelimiter("\\A").next();
-
-          JSONObject response = (JSONObject) new JSONParser().parse(json);
-
-          config.put(OIDC_ID_TOKEN, response.get("id_token"));
-          config.put(OIDC_REFRESH_TOKEN, response.get("refresh_token"));
-
-          return config;
-
-        } else {
-          throw new RuntimeException(
-              new StringBuilder()
-                  .append("Invalid response code for token retrieval - ")
-                  .append(code)
-                  .toString());
-        }
-
-      } else {
+      
+      if (code != HttpsURLConnection.HTTP_OK) {
         throw new RuntimeException(
             new StringBuilder()
                 .append("Invalid response code for issuer - ")
                 .append(code)
                 .toString());
       }
+        
+      Scanner scanner = new Scanner(https.getInputStream(), StandardCharsets.UTF_8.name());
+      String json = scanner.useDelimiter("\\A").next();
 
+      JSONObject wellKnownJson = (JSONObject) new JSONParser().parse(json);
+      String tokenUrl = (String) wellKnownJson.get("token_endpoint");
+
+      return tokenUrl;
+    
     } catch (IOException | ParseException e) {
-      throw new RuntimeException("Could not refresh", e);
+        throw new RuntimeException("Could not refresh", e);
     }
   }
 }
