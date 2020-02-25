@@ -33,6 +33,7 @@ import java.util.Map;
 import java.util.Scanner;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLEngine;
 import javax.net.ssl.TrustManagerFactory;
 import org.jose4j.json.internal.json_simple.JSONObject;
 import org.jose4j.json.internal.json_simple.parser.JSONParser;
@@ -139,6 +140,8 @@ public class OpenIDConnectAuthenticator implements Authenticator {
         TrustManagerFactory tmf = TrustManagerFactory.getInstance("PKIX");
         tmf.init(ks);
 
+        // TODO would be good to make this more dyanamic.  Doesn't seem like
+        // a good way to do this.
         sslContext = SSLContext.getInstance("TLSv1.2");
         sslContext.init(null, tmf.getTrustManagers(), new SecureRandom());
 
