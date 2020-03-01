@@ -24,9 +24,13 @@ public class LeaderElector {
   private LeaderElectionRecord observedRecord;
   private long observedTimeMilliSeconds;
 
-  private ScheduledExecutorService scheduledWorkers = Executors.newSingleThreadScheduledExecutor(makeThreadFactory("leader-elector-scheduled-worker-%d"));
-  private ExecutorService leaseWorkers = Executors.newSingleThreadExecutor(makeThreadFactory("leader-elector-lease-worker-%d"));
-  private ExecutorService hookWorkers = Executors.newSingleThreadExecutor(makeThreadFactory("leader-elector-hook-worker-%d"));
+  private ScheduledExecutorService scheduledWorkers =
+      Executors.newSingleThreadScheduledExecutor(
+          makeThreadFactory("leader-elector-scheduled-worker-%d"));
+  private ExecutorService leaseWorkers =
+      Executors.newSingleThreadExecutor(makeThreadFactory("leader-elector-lease-worker-%d"));
+  private ExecutorService hookWorkers =
+      Executors.newSingleThreadExecutor(makeThreadFactory("leader-elector-hook-worker-%d"));
 
   public LeaderElector(LeaderElectionConfig config) {
     if (config == null) {
@@ -265,11 +269,7 @@ public class LeaderElector {
     return this.config.getLock().identity().equals(this.observedRecord.getHolderIdentity());
   }
 
-  private ThreadFactory makeThreadFactory(String nameFormat)
-  {
-    return new ThreadFactoryBuilder()
-        .setDaemon(true)
-        .setNameFormat(nameFormat)
-        .build();
+  private ThreadFactory makeThreadFactory(String nameFormat) {
+    return new ThreadFactoryBuilder().setDaemon(true).setNameFormat(nameFormat).build();
   }
 }
