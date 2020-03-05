@@ -1,5 +1,6 @@
 package io.kubernetes.client.extended.leaderelection;
 
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import io.kubernetes.client.openapi.ApiException;
 import java.net.HttpURLConnection;
 import java.time.Duration;
@@ -23,9 +24,13 @@ public class LeaderElector {
   private LeaderElectionRecord observedRecord;
   private long observedTimeMilliSeconds;
 
-  private ScheduledExecutorService scheduledWorkers = Executors.newSingleThreadScheduledExecutor();
-  private ExecutorService leaseWorkers = Executors.newSingleThreadExecutor();
-  private ExecutorService hookWorkers = Executors.newSingleThreadExecutor();
+  private ScheduledExecutorService scheduledWorkers =
+      Executors.newSingleThreadScheduledExecutor(
+          makeThreadFactory("leader-elector-scheduled-worker-%d"));
+  private ExecutorService leaseWorkers =
+      Executors.newSingleThreadExecutor(makeThreadFactory("leader-elector-lease-worker-%d"));
+  private ExecutorService hookWorkers =
+      Executors.newSingleThreadExecutor(makeThreadFactory("leader-elector-hook-worker-%d"));
 
   public LeaderElector(LeaderElectionConfig config) {
     if (config == null) {
@@ -262,5 +267,9 @@ public class LeaderElector {
 
   private boolean isLeader() {
     return this.config.getLock().identity().equals(this.observedRecord.getHolderIdentity());
+  }
+
+  private ThreadFactory makeThreadFactory(String nameFormat) {
+    return new ThreadFactoryBuilder().setDaemon(true).setNameFormat(nameFormat).build();
   }
 }
