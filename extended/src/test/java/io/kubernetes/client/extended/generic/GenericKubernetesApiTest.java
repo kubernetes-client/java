@@ -80,7 +80,7 @@ public class GenericKubernetesApiTest {
     V1JobList jobList = new V1JobList().kind("JobList").metadata(new V1ListMeta());
 
     stubFor(
-        get(urlEqualTo("/apis/batch/v1/namespaces/default/jobs"))
+        get(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs"))
             .willReturn(aResponse().withStatus(200).withBody(new Gson().toJson(jobList))));
     KubernetesApiResponse<V1JobList> jobListResp = jobClient.list("default");
     assertTrue(jobListResp.isSuccess());
@@ -94,7 +94,7 @@ public class GenericKubernetesApiTest {
     V1JobList jobList = new V1JobList().kind("JobList").metadata(new V1ListMeta());
 
     stubFor(
-        get(urlEqualTo("/apis/batch/v1/jobs"))
+        get(urlPathEqualTo("/apis/batch/v1/jobs"))
             .willReturn(aResponse().withStatus(200).withBody(new Gson().toJson(jobList))));
     KubernetesApiResponse<V1JobList> jobListResp = jobClient.list();
     assertTrue(jobListResp.isSuccess());
