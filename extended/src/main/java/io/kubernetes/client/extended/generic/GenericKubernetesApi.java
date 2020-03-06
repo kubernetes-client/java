@@ -25,6 +25,7 @@ import io.kubernetes.client.util.Watchable;
 import io.kubernetes.client.util.exception.ObjectMetaReflectException;
 import java.net.SocketTimeoutException;
 import okhttp3.Call;
+import okhttp3.HttpUrl;
 
 /**
  * The Generic kubernetes api provides a unified client interface for not only the non-core-group
@@ -120,10 +121,6 @@ public class GenericKubernetesApi<ApiType, ApiListType> {
       String apiVersion,
       String resourcePlural,
       CustomObjectsApi customObjectsApi) {
-    if ("".equals(apiGroup)) {
-      throw new IllegalArgumentException(
-          "core group (\"v1\") api not supported, use CoreV1Api instead");
-    }
     this.apiGroup = apiGroup;
     this.apiVersion = apiVersion;
     this.resourcePlural = resourcePlural;
@@ -280,8 +277,11 @@ public class GenericKubernetesApi<ApiType, ApiListType> {
         customObjectsApi.getApiClient(),
         apiTypeClass,
         () -> {
-          return customObjectsApi.getClusterCustomObjectCall(
-              this.apiGroup, this.apiVersion, this.resourcePlural, name, null);
+          Call call =
+              customObjectsApi.getClusterCustomObjectCall(
+                  this.apiGroup, this.apiVersion, this.resourcePlural, name, null);
+
+          return call;
         });
   }
 
@@ -497,14 +497,16 @@ public class GenericKubernetesApi<ApiType, ApiListType> {
           PatchUtils.patch(
               apiTypeClass,
               () -> {
-                return customObjectsApi.patchNamespacedCustomObjectCall(
-                    this.apiGroup,
-                    this.apiVersion,
-                    namespace,
-                    this.resourcePlural,
-                    name,
-                    patch,
-                    null);
+                Call call =
+                    customObjectsApi.patchNamespacedCustomObjectCall(
+                        this.apiGroup,
+                        this.apiVersion,
+                        namespace,
+                        this.resourcePlural,
+                        name,
+                        patch,
+                        null);
+                return tweakCallForCoreV1Group(call);
               },
               patchType);
       return new KubernetesApiResponse<ApiType>(object);
@@ -658,10 +660,11 @@ public class GenericKubernetesApi<ApiType, ApiListType> {
     return new KubernetesApiResponse<>(gson.fromJson(element, dataClass));
   }
 
-  private static <DataType> KubernetesApiResponse<DataType> executeCall(
+  private <DataType> KubernetesApiResponse<DataType> executeCall(
       ApiClient apiClient, Class<DataType> dataClass, CallBuilder callBuilder) {
     try {
       Call call = callBuilder.build();
+      call = tweakCallForCoreV1Group(call);
       JsonElement element = apiClient.<JsonElement>execute(call, JsonElement.class).getData();
       return getKubernetesApiResponse(dataClass, element, apiClient.getJSON().getGson());
     } catch (ApiException e) {
@@ -682,5 +685,17 @@ public class GenericKubernetesApi<ApiType, ApiListType> {
      * @throws ApiException the api exception
      */
     Call build() throws ApiException;
+  }
+
+  private Call tweakCallForCoreV1Group(Call call) {
+    if (!apiGroup.equals("")) {
+      return call;
+    }
+    HttpUrl url = call.request().url();
+    HttpUrl tweakedUrl = url.newBuilder().removePathSegment(1).setPathSegment(0, "api").build();
+    return this.customObjectsApi
+        .getApiClient()
+        .getHttpClient()
+        .newCall(call.request().newBuilder().url(tweakedUrl).build());
   }
 }
