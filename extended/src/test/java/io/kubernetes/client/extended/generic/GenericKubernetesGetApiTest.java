@@ -12,10 +12,6 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
-/**
- * @author zuoxiu.jm
- * @version : GenericKubernetesGetApiTest.java, v 0.1 2019年10月18日 1:52 PM zuoxiu.jm Exp $
- */
 public class GenericKubernetesGetApiTest {
 
   @Rule public WireMockRule wireMockRule = new WireMockRule(8181);
