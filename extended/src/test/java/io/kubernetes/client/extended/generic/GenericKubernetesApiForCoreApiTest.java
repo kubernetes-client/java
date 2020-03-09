@@ -94,13 +94,15 @@ public class GenericKubernetesApiForCoreApiTest {
     V1PodList podList = new V1PodList().kind("PodList").metadata(new V1ListMeta());
 
     stubFor(
-        get(urlEqualTo("/api/v1/pods"))
+        get(urlPathEqualTo("/api/v1/pods"))
             .willReturn(aResponse().withStatus(200).withBody(new Gson().toJson(podList))));
     KubernetesApiResponse<V1PodList> podListResp = podClient.list();
     assertTrue(podListResp.isSuccess());
     assertEquals(podList, podListResp.getObject());
     assertNull(podListResp.getStatus());
-    verify(1, getRequestedFor(urlPathEqualTo("/api/v1/pods")));
+    verify(
+        1,
+        getRequestedFor(urlPathEqualTo("/api/v1/pods")).withQueryParam("watch", equalTo("false")));
   }
 
   @Test

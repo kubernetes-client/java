@@ -332,7 +332,7 @@ public class GenericKubernetesApi<ApiType, ApiListType> {
               listOptions.getLimit(),
               listOptions.getResourceVersion(),
               listOptions.getTimeoutSeconds(),
-              null,
+              false,
               null);
         });
   }
@@ -602,9 +602,10 @@ public class GenericKubernetesApi<ApiType, ApiListType> {
             listOptions.getLimit(),
             listOptions.getResourceVersion(),
             listOptions.getTimeoutSeconds(),
-            null,
+            true,
             null);
 
+    call = tweakCallForCoreV1Group(call);
     return Watch.createWatch(
         customObjectsApi.getApiClient(),
         call,
@@ -636,7 +637,7 @@ public class GenericKubernetesApi<ApiType, ApiListType> {
             listOptions.getLimit(),
             listOptions.getResourceVersion(),
             listOptions.getTimeoutSeconds(),
-            null,
+            true,
             null);
 
     return Watch.createWatch(
