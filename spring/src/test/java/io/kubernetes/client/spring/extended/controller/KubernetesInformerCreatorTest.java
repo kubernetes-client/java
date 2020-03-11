@@ -4,8 +4,6 @@ import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
-import static com.github.tomakehurst.wiremock.client.WireMock.moreThan;
-import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlMatching;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.verify;
@@ -104,7 +102,7 @@ public class KubernetesInformerCreatorTest {
             .kind("ConfigMap")
             .metadata(new V1ObjectMeta().namespace("default").name("bar1"));
 
-    stubFor(
+    wireMockRule.stubFor(
         get(urlMatching("^/api/v1/pods.*"))
             .withQueryParam("watch", equalTo("false"))
             .willReturn(
@@ -116,12 +114,12 @@ public class KubernetesInformerCreatorTest {
                                 new V1PodList()
                                     .metadata(new V1ListMeta().resourceVersion("0"))
                                     .items(Arrays.asList(foo1))))));
-    stubFor(
+    wireMockRule.stubFor(
         get(urlMatching("^/api/v1/pods.*"))
             .withQueryParam("watch", equalTo("true"))
             .willReturn(aResponse().withStatus(200).withBody("{}")));
 
-    stubFor(
+    wireMockRule.stubFor(
         get(urlMatching("^/api/v1/configmaps.*"))
             .withQueryParam("watch", equalTo("false"))
             .willReturn(
@@ -133,7 +131,7 @@ public class KubernetesInformerCreatorTest {
                                 new V1ConfigMapList()
                                     .metadata(new V1ListMeta().resourceVersion("0"))
                                     .items(Arrays.asList(bar1))))));
-    stubFor(
+    wireMockRule.stubFor(
         get(urlMatching("^/api/v1/configmaps.*"))
             .withQueryParam("watch", equalTo("true"))
             .willReturn(aResponse().withStatus(200).withBody("{}")));
@@ -146,14 +144,12 @@ public class KubernetesInformerCreatorTest {
         1,
         getRequestedFor(urlPathEqualTo("/api/v1/pods")).withQueryParam("watch", equalTo("false")));
     verify(
-        moreThan(0),
         getRequestedFor(urlPathEqualTo("/api/v1/pods")).withQueryParam("watch", equalTo("true")));
     verify(
         1,
         getRequestedFor(urlPathEqualTo("/api/v1/configmaps"))
             .withQueryParam("watch", equalTo("false")));
     verify(
-        moreThan(0),
         getRequestedFor(urlPathEqualTo("/api/v1/configmaps"))
             .withQueryParam("watch", equalTo("true")));
 
