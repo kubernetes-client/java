@@ -53,12 +53,12 @@
         <dependency>
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcprov-ext-jdk15on</artifactId>
-            <version>1.61</version>
+            <version>1.64</version>
         </dependency>
         <dependency>
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcpkix-jdk15on</artifactId>
-            <version>1.61</version>
+            <version>1.64</version>
         </dependency>
         <dependency>
             <groupId>com.microsoft.azure</groupId>
