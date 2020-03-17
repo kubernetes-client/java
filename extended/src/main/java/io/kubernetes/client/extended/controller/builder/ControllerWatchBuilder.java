@@ -4,6 +4,7 @@ import io.kubernetes.client.extended.controller.Controllers;
 import io.kubernetes.client.extended.controller.DefaultControllerWatch;
 import io.kubernetes.client.extended.controller.reconciler.Request;
 import io.kubernetes.client.extended.workqueue.WorkQueue;
+import java.time.Duration;
 import java.util.function.BiPredicate;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -13,6 +14,7 @@ public class ControllerWatchBuilder<ApiType> {
   private Function<ApiType, Request> workKeyGenerator;
   private WorkQueue<Request> workQueue;
   private Class<ApiType> apiTypeClass;
+  private Duration resyncPeriod = Duration.ZERO;
 
   private Predicate<ApiType> onAddFilterPredicate;
   private BiPredicate<ApiType, ApiType> onUpdateFilterPredicate;
@@ -69,6 +71,11 @@ public class ControllerWatchBuilder<ApiType> {
     return this;
   }
 
+  public ControllerWatchBuilder<ApiType> withResyncPeriod(Duration resyncPeriod) {
+    this.resyncPeriod = resyncPeriod;
+    return this;
+  }
+
   /**
    * End building controller-watch.
    *
@@ -77,7 +84,7 @@ public class ControllerWatchBuilder<ApiType> {
    */
   public DefaultControllerWatch<ApiType> build() throws IllegalStateException {
     DefaultControllerWatch<ApiType> workQueueHandler =
-        new DefaultControllerWatch<>(apiTypeClass, workQueue, workKeyGenerator);
+        new DefaultControllerWatch<>(apiTypeClass, workQueue, workKeyGenerator, resyncPeriod);
     workQueueHandler.setOnAddFilterPredicate(onAddFilterPredicate);
     workQueueHandler.setOnUpdateFilterPredicate(onUpdateFilterPredicate);
     workQueueHandler.setOnDeleteFilterPredicate(onDeleteFilterPredicate);

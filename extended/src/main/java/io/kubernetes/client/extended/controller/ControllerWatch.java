@@ -1,6 +1,7 @@
 package io.kubernetes.client.extended.controller;
 
 import io.kubernetes.client.informer.ResourceEventHandler;
+import java.time.Duration;
 
 /**
  * The interface Controller watch defines how a controller watches certain resources.
@@ -21,4 +22,11 @@ public interface ControllerWatch<ApiType> {
    * @return the resource event handler
    */
   ResourceEventHandler<ApiType> getResourceEventHandler();
+
+  /**
+   * Gets resync period for the registering event handler.
+   *
+   * @return the resync period
+   */
+  Duration getResyncPeriod();
 }

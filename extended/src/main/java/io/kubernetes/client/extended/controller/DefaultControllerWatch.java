@@ -3,6 +3,7 @@ package io.kubernetes.client.extended.controller;
 import io.kubernetes.client.extended.controller.reconciler.Request;
 import io.kubernetes.client.extended.workqueue.WorkQueue;
 import io.kubernetes.client.informer.ResourceEventHandler;
+import java.time.Duration;
 import java.util.function.BiPredicate;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -21,6 +22,7 @@ public class DefaultControllerWatch<ApiType> implements ControllerWatch<ApiType>
   private Predicate<ApiType> onAddFilterPredicate;
   private BiPredicate<ApiType, ApiType> onUpdateFilterPredicate;
   private BiPredicate<ApiType, Boolean> onDeleteFilterPredicate;
+  private Duration resyncPeriod;
 
   /**
    * Instantiates a new Work queue resource event handler.
@@ -31,10 +33,12 @@ public class DefaultControllerWatch<ApiType> implements ControllerWatch<ApiType>
   public DefaultControllerWatch(
       Class<ApiType> apiTypeClass,
       WorkQueue<Request> workQueue,
-      Function<ApiType, Request> workKeyGenerator) {
+      Function<ApiType, Request> workKeyGenerator,
+      Duration resyncPeriod) {
     this.workQueue = workQueue;
     this.apiTypeClass = apiTypeClass;
     this.workKeyGenerator = workKeyGenerator;
+    this.resyncPeriod = resyncPeriod;
   }
 
   public Predicate<ApiType> getOnAddFilterPredicate() {
@@ -95,5 +99,10 @@ public class DefaultControllerWatch<ApiType> implements ControllerWatch<ApiType>
         }
       }
     };
+  }
+
+  @Override
+  public Duration getResyncPeriod() {
+    return this.resyncPeriod;
   }
 }
