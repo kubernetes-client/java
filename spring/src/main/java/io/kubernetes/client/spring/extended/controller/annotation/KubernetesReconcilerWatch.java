@@ -22,33 +22,6 @@ public @interface KubernetesReconcilerWatch {
   Class apiTypeClass() default V1Namespace.class;
 
   /**
-   * Add filter class whichs filters "ADD" watch-events from watching resources.
-   *
-   * @return the class
-   */
-  Class<? extends Predicate> addFilter() default NoopPredicate.class;
-
-  /**
-   * Add filter class whichs filters "UPDATE" watch-events from watching resources. The first
-   * parameter of the predicate is the previous state of resource which the watch-event happened
-   * upon. The second parameter of the predicate is the latest state of that resource.
-   *
-   * @return the class
-   */
-  Class<? extends BiPredicate> updateFilter() default NoopBiPredicate.class;
-
-  /**
-   * Delete filter class whichs filters "DELETE" watch-events from watching resources.
-   *
-   * <p>The first parameter of the predicate is the before-deletion-state of resource which the
-   * watch-event happened upon. The second parameter indicates whether the resource's state in the
-   * cache is unknown/uncertain.
-   *
-   * @return the class
-   */
-  Class<? extends BiPredicate> deleteFilter() default NoopBiPredicate.class;
-
-  /**
    * Work queue key func class maps the source resource of the watch event to a standard reconciler
    * request.
    *
@@ -56,27 +29,18 @@ public @interface KubernetesReconcilerWatch {
    */
   Class<? extends Function<?, Request>> workQueueKeyFunc() default DefaultReflectiveKeyFunc.class;
 
+  /**
+   * Resync period in milliseconds .
+   *
+   * @return the long
+   */
+  long resyncPeriodMillis() default 0;
+
   /** The type Default reflective key func which adapts default implementation. */
   class DefaultReflectiveKeyFunc implements Function<Object, Request> {
     @Override
     public Request apply(Object o) {
       return Controllers.defaultReflectiveKeyFunc().apply(o);
-    }
-  }
-
-  /** The type Noop predicate always returns true. */
-  class NoopPredicate implements Predicate {
-    @Override
-    public boolean test(Object o) {
-      return true;
-    }
-  }
-
-  /** The type Noop bi predicate always returns true. */
-  class NoopBiPredicate implements BiPredicate {
-    @Override
-    public boolean test(Object o, Object o2) {
-      return true;
     }
   }
 }

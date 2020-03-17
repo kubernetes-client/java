@@ -63,7 +63,8 @@ public class DefaultControllerBuilder {
                   + "check if informer already constructed in the informerFactory",
               apiTypeClass));
     }
-    informer.addEventHandler(watch.getResourceEventHandler());
+    informer.addEventHandlerWithResyncPeriod(
+        watch.getResourceEventHandler(), watch.getResyncPeriod().toMillis());
     return this;
   }
 

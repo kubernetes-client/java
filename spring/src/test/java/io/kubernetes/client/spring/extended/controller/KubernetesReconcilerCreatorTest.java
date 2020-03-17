@@ -11,7 +11,9 @@ import io.kubernetes.client.informer.SharedInformer;
 import io.kubernetes.client.informer.cache.Lister;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.spring.extended.controller.annotation.*;
-import java.util.function.Supplier;
+import io.kubernetes.client.spring.extended.controller.annotation.AddWatchEventFilter;
+import io.kubernetes.client.spring.extended.controller.annotation.DeleteWatchEventFilter;
+import io.kubernetes.client.spring.extended.controller.annotation.UpdateWatchEventFilter;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,8 +43,12 @@ public class KubernetesReconcilerCreatorTest {
   @KubernetesReconciler(
       value = "test-reconcile",
       watches =
-          @KubernetesReconcilerWatches({@KubernetesReconcilerWatch(apiTypeClass = V1Pod.class)}))
-  @KubernetesReconcilerReadyFuncs(TestReconciler.PodCacheReadyFunc.class)
+          @KubernetesReconcilerWatches({
+            @KubernetesReconcilerWatch(
+                apiTypeClass = V1Pod.class,
+                resyncPeriodMillis = 60 * 1000L // resync every 60s
+                )
+          }))
   @KubernetesReconcilerWorkerCount(4)
   static class TestReconciler implements Reconciler {
 
@@ -58,11 +64,24 @@ public class KubernetesReconcilerCreatorTest {
       return new Result(false);
     }
 
-    class PodCacheReadyFunc implements Supplier<Boolean> {
-      @Override
-      public Boolean get() {
-        return podInformer.hasSynced();
-      }
+    @AddWatchEventFilter
+    private boolean onAddFilter(V1Pod pod) {
+      return true;
+    }
+
+    @UpdateWatchEventFilter
+    private boolean onUpdateFilter(V1Pod oldPod, V1Pod newPod) {
+      return true;
+    }
+
+    @DeleteWatchEventFilter
+    private boolean onDeleteFilter(V1Pod pod) {
+      return true;
+    }
+
+    @KubernetesReconcilerReadyFunc
+    private boolean podInformerCacheReady() {
+      return podInformer.hasSynced();
     }
   }
 

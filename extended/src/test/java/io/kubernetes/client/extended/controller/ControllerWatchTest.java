@@ -8,6 +8,7 @@ import io.kubernetes.client.extended.workqueue.WorkQueue;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1PodSpec;
+import java.time.Duration;
 import org.junit.Test;
 
 public class ControllerWatchTest {
@@ -18,7 +19,8 @@ public class ControllerWatchTest {
   public void testOnAdd() {
     WorkQueue<Request> workQueue = new DefaultWorkQueue<>();
     DefaultControllerWatch<V1Pod> controllerWatch =
-        new DefaultControllerWatch(V1Pod.class, workQueue, Controllers.defaultReflectiveKeyFunc());
+        new DefaultControllerWatch(
+            V1Pod.class, workQueue, Controllers.defaultReflectiveKeyFunc(), Duration.ZERO);
     controllerWatch.getResourceEventHandler().onAdd(testPod);
     assertEquals(1, workQueue.length());
 
@@ -31,7 +33,8 @@ public class ControllerWatchTest {
   public void testOnUpdate() {
     WorkQueue<Request> workQueue = new DefaultWorkQueue<>();
     DefaultControllerWatch<V1Pod> controllerWatch =
-        new DefaultControllerWatch(V1Pod.class, workQueue, Controllers.defaultReflectiveKeyFunc());
+        new DefaultControllerWatch(
+            V1Pod.class, workQueue, Controllers.defaultReflectiveKeyFunc(), Duration.ZERO);
     controllerWatch.getResourceEventHandler().onUpdate(null, testPod);
     assertEquals(1, workQueue.length());
 
@@ -44,7 +47,8 @@ public class ControllerWatchTest {
   public void testOnDelete() {
     WorkQueue<Request> workQueue = new DefaultWorkQueue<>();
     DefaultControllerWatch<V1Pod> controllerWatch =
-        new DefaultControllerWatch(V1Pod.class, workQueue, Controllers.defaultReflectiveKeyFunc());
+        new DefaultControllerWatch(
+            V1Pod.class, workQueue, Controllers.defaultReflectiveKeyFunc(), Duration.ZERO);
     controllerWatch.getResourceEventHandler().onDelete(testPod, false);
     assertEquals(1, workQueue.length());
 
