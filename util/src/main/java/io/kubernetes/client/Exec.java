@@ -349,7 +349,7 @@ public class Exec {
     return -1;
   }
 
-  protected static class ExecProcess extends Process {
+  public static class ExecProcess extends Process {
     private final WebSocketStreamHandler streamHandler;
     private int statusCode = -1;
     private boolean isAlive = true;
@@ -423,6 +423,14 @@ public class Exec {
     @Override
     public InputStream getErrorStream() {
       return getInputStream(2);
+    }
+
+    public InputStream getConnectionErrorStream() {
+      return getInputStream(3);
+    }
+
+    public OutputStream getResizeStream() {
+      return streamHandler.getOutputStream(4);
     }
 
     private synchronized InputStream getInputStream(int stream) {
