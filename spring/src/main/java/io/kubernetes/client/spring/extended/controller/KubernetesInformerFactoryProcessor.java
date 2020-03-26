@@ -22,8 +22,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
-import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.support.AbstractBeanDefinition;
+import org.springframework.beans.factory.support.BeanDefinitionRegistry;
+import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
+import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.core.Ordered;
 import org.springframework.core.ResolvableType;
 import org.springframework.stereotype.Component;
@@ -37,12 +40,15 @@ import org.springframework.stereotype.Component;
  * injects informers to spring context with the underlying constructing process hidden from users.
  */
 @Component
-public class KubernetesInformerFactoryProcessor implements BeanFactoryPostProcessor, Ordered {
+public class KubernetesInformerFactoryProcessor
+    implements BeanDefinitionRegistryPostProcessor, Ordered {
 
   private static final Logger log =
       LoggerFactory.getLogger(KubernetesInformerFactoryProcessor.class);
 
   public static final int ORDER = 0;
+
+  private BeanDefinitionRegistry beanDefinitionRegistry;
 
   @Override
   public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory)
@@ -124,17 +130,35 @@ public class KubernetesInformerFactoryProcessor implements BeanFactoryPostProces
       ResolvableType informerType =
           ResolvableType.forClassWithGenerics(
               SharedInformer.class, kubernetesInformer.apiTypeClass());
-      beanFactory.registerResolvableDependency(informerType.resolve(), sharedIndexInformer);
+      RootBeanDefinition informerBean = new RootBeanDefinition();
+      informerBean.setTargetType(informerType);
+      informerBean.setAutowireMode(AbstractBeanDefinition.AUTOWIRE_BY_TYPE);
+      informerBean.setAutowireCandidate(true);
+      String informerBeanName = informerType.toString();
+      this.beanDefinitionRegistry.registerBeanDefinition(informerBeanName, informerBean);
+      beanFactory.registerSingleton(informerBeanName, sharedIndexInformer);
 
       Lister lister = new Lister(sharedIndexInformer.getIndexer());
       ResolvableType listerType =
           ResolvableType.forClassWithGenerics(Lister.class, kubernetesInformer.apiTypeClass());
-      beanFactory.registerResolvableDependency(listerType.resolve(), lister);
+      RootBeanDefinition listerBean = new RootBeanDefinition();
+      listerBean.setTargetType(listerType);
+      listerBean.setAutowireMode(AbstractBeanDefinition.AUTOWIRE_BY_TYPE);
+      listerBean.setAutowireCandidate(true);
+      String listerBeanName = listerType.toString();
+      this.beanDefinitionRegistry.registerBeanDefinition(listerBeanName, listerBean);
+      beanFactory.registerSingleton(listerBeanName, lister);
     }
   }
 
   @Override
   public int getOrder() {
     return 0;
+  }
+
+  @Override
+  public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry)
+      throws BeansException {
+    this.beanDefinitionRegistry = registry;
   }
 }
