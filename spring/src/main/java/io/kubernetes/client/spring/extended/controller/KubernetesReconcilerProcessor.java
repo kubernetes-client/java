@@ -74,6 +74,8 @@ public class KubernetesReconcilerProcessor implements BeanFactoryPostProcessor, 
 
     KubernetesReconcilerWatches watches = kubernetesReconciler.watches();
     DefaultControllerBuilder builder = ControllerBuilder.defaultBuilder(sharedInformerFactory);
+    RateLimitingQueue<Request> workQueue = new DefaultRateLimitingQueue<>();
+    builder = builder.withWorkQueue(workQueue);
     for (KubernetesReconcilerWatch watch : watches.value()) {
       try {
         Predicate addFilter = null;
@@ -101,8 +103,8 @@ public class KubernetesReconcilerProcessor implements BeanFactoryPostProcessor, 
         final BiPredicate finalDeleteFilter = deleteFilter;
         builder =
             builder.watch(
-                (workQueue) -> {
-                  return ControllerBuilder.controllerWatchBuilder(watch.apiTypeClass(), workQueue)
+                (q) -> {
+                  return ControllerBuilder.controllerWatchBuilder(watch.apiTypeClass(), q)
                       .withOnAddFilter(finalAddFilter)
                       .withOnUpdateFilter(finalUpdateFilter)
                       .withOnDeleteFilter(finalDeleteFilter)
@@ -124,8 +126,7 @@ public class KubernetesReconcilerProcessor implements BeanFactoryPostProcessor, 
       builder = builder.withWorkerCount(workerCount.value());
     }
 
-    RateLimitingQueue<Request> workQueue = new DefaultRateLimitingQueue<>();
-    return builder.withReconciler(r).withName(reconcilerName).withWorkQueue(workQueue).build();
+    return builder.withReconciler(r).withName(reconcilerName).build();
   }
 
   private static class AddFilterAdaptor implements Predicate {
