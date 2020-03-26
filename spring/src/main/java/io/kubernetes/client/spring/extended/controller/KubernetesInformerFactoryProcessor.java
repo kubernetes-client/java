@@ -16,6 +16,7 @@ import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.Watchable;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Map;
 import java.util.Optional;
 import org.slf4j.Logger;
@@ -85,6 +86,8 @@ public class KubernetesInformerFactoryProcessor
         return;
       }
     }
+    apiClient.setHttpClient(
+        apiClient.getHttpClient().newBuilder().readTimeout(Duration.ZERO).build());
 
     SharedInformerFactory sharedInformerFactory = beanFactory.getBean(SharedInformerFactory.class);
     KubernetesInformers kubernetesInformers =
