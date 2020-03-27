@@ -23,7 +23,7 @@ import io.kubernetes.client.util.Reflect;
 import io.kubernetes.client.util.Watch;
 import io.kubernetes.client.util.Watchable;
 import io.kubernetes.client.util.exception.ObjectMetaReflectException;
-import java.net.SocketTimeoutException;
+import java.io.IOException;
 import okhttp3.Call;
 import okhttp3.HttpUrl;
 
@@ -669,7 +669,7 @@ public class GenericKubernetesApi<ApiType, ApiListType> {
       JsonElement element = apiClient.<JsonElement>execute(call, JsonElement.class).getData();
       return getKubernetesApiResponse(dataClass, element, apiClient.getJSON().getGson());
     } catch (ApiException e) {
-      if (e.getCause() instanceof SocketTimeoutException) {
+      if (e.getCause() instanceof IOException) {
         throw new IllegalStateException(e.getCause()); // make this a checked exception?
       }
       V1Status status = apiClient.getJSON().deserialize(e.getResponseBody(), V1Status.class);
