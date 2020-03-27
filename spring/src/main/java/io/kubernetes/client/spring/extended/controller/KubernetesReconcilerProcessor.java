@@ -14,13 +14,18 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.function.BiPredicate;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -76,38 +81,20 @@ public class KubernetesReconcilerProcessor implements BeanFactoryPostProcessor, 
     DefaultControllerBuilder builder = ControllerBuilder.defaultBuilder(sharedInformerFactory);
     RateLimitingQueue<Request> workQueue = new DefaultRateLimitingQueue<>();
     builder = builder.withWorkQueue(workQueue);
+    Map<Class, AddFilterAdaptor> addFilters = getAddFilters(watches, r);
+    Map<Class, UpdateFilterAdaptor> updateFilters = getUpdateFilters(watches, r);
+    Map<Class, DeleteFilterAdaptor> deleteFilters = getDeleteFilters(watches, r);
+    List<ReadyFuncAdaptor> readyFuncs = getReadyFuncs(r);
     for (KubernetesReconcilerWatch watch : watches.value()) {
       try {
-        Predicate addFilter = null;
-        BiPredicate updateFilter = null;
-        BiPredicate deleteFilter = null;
-        final List<Supplier<Boolean>> readyFuncs = new ArrayList<>();
         Function<?, Request> workQueueKeyFunc = watch.workQueueKeyFunc().newInstance();
-        for (Method method : r.getClass().getMethods()) {
-          if (method.isAnnotationPresent(AddWatchEventFilter.class)) {
-            addFilter = new AddFilterAdaptor(r, method);
-          }
-          if (method.isAnnotationPresent(UpdateWatchEventFilter.class)) {
-            updateFilter = new UpdateFilterAdaptor(r, method);
-          }
-          if (method.isAnnotationPresent(DeleteWatchEventFilter.class)) {
-            deleteFilter = new DeleteFilterAdaptor(r, method);
-          }
-          if (method.isAnnotationPresent(KubernetesReconcilerReadyFunc.class)) {
-            readyFuncs.add(new ReadyFuncAdaptor(r, method));
-          }
-        }
-
-        final Predicate finalAddFilter = addFilter;
-        final BiPredicate finalUpdateFilter = updateFilter;
-        final BiPredicate finalDeleteFilter = deleteFilter;
         builder =
             builder.watch(
                 (q) -> {
                   return ControllerBuilder.controllerWatchBuilder(watch.apiTypeClass(), q)
-                      .withOnAddFilter(finalAddFilter)
-                      .withOnUpdateFilter(finalUpdateFilter)
-                      .withOnDeleteFilter(finalDeleteFilter)
+                      .withOnAddFilter(addFilters.get(watch.apiTypeClass()))
+                      .withOnUpdateFilter(updateFilters.get(watch.apiTypeClass()))
+                      .withOnDeleteFilter(deleteFilters.get(watch.apiTypeClass()))
                       .withWorkQueueKeyFunc(workQueueKeyFunc)
                       .withResyncPeriod(Duration.ofMillis(watch.resyncPeriodMillis()))
                       .build();
@@ -120,13 +107,99 @@ public class KubernetesReconcilerProcessor implements BeanFactoryPostProcessor, 
       }
     }
 
-    if (r.getClass().isAnnotationPresent(KubernetesReconcilerWorkerCount.class)) {
-      KubernetesReconcilerWorkerCount workerCount =
-          r.getClass().getAnnotation(KubernetesReconcilerWorkerCount.class);
-      builder = builder.withWorkerCount(workerCount.value());
-    }
+    builder = builder.withWorkerCount(kubernetesReconciler.workerCount());
 
     return builder.withReconciler(r).withName(reconcilerName).build();
+  }
+
+  private Map<Class, AddFilterAdaptor> getAddFilters(
+      KubernetesReconcilerWatches watches, Reconciler reconciler) {
+    Map<Class, AddFilterAdaptor> filters = new HashMap<>();
+    Set<Method> allAnnotatedMethods = new HashSet<>();
+    Set<Method> adoptedMethods = new HashSet<>();
+    for (KubernetesReconcilerWatch watch : watches.value()) {
+      for (Method method : reconciler.getClass().getMethods()) {
+        AddWatchEventFilter annotation = method.getAnnotation(AddWatchEventFilter.class);
+        if (watch.apiTypeClass().equals(annotation.apiTypeClass())) {
+          if (filters.containsKey(watch.apiTypeClass())) {
+            log.warn(
+                "Duplicated watch ADD event filter upon apiType {}", annotation.apiTypeClass());
+          }
+          filters.put(watch.apiTypeClass(), new AddFilterAdaptor(reconciler, method));
+          adoptedMethods.add(method);
+        }
+        allAnnotatedMethods.add(method);
+      }
+    }
+    allAnnotatedMethods.removeAll(adoptedMethods);
+    if (allAnnotatedMethods.size() > 0) {
+      log.warn("Dangling watch ADD event filters {}", StringUtils.join(allAnnotatedMethods, ","));
+    }
+    return filters;
+  }
+
+  private Map<Class, UpdateFilterAdaptor> getUpdateFilters(
+      KubernetesReconcilerWatches watches, Reconciler reconciler) {
+    Map<Class, UpdateFilterAdaptor> filters = new HashMap<>();
+    Set<Method> allAnnotatedMethods = new HashSet<>();
+    Set<Method> adoptedMethods = new HashSet<>();
+    for (KubernetesReconcilerWatch watch : watches.value()) {
+      for (Method method : reconciler.getClass().getMethods()) {
+        UpdateWatchEventFilter annotation = method.getAnnotation(UpdateWatchEventFilter.class);
+        if (watch.apiTypeClass().equals(annotation.apiTypeClass())) {
+          if (filters.containsKey(watch.apiTypeClass())) {
+            log.warn(
+                "Duplicated watch UPDATE event filter upon apiType {}", annotation.apiTypeClass());
+          }
+          filters.put(watch.apiTypeClass(), new UpdateFilterAdaptor(reconciler, method));
+          adoptedMethods.add(method);
+        }
+        allAnnotatedMethods.add(method);
+      }
+    }
+    allAnnotatedMethods.removeAll(adoptedMethods);
+    if (allAnnotatedMethods.size() > 0) {
+      log.warn(
+          "Dangling watch UPDATE event filters {}", StringUtils.join(allAnnotatedMethods, ","));
+    }
+    return filters;
+  }
+
+  private Map<Class, DeleteFilterAdaptor> getDeleteFilters(
+      KubernetesReconcilerWatches watches, Reconciler reconciler) {
+    Map<Class, DeleteFilterAdaptor> filters = new HashMap<>();
+    Set<Method> allAnnotatedMethods = new HashSet<>();
+    Set<Method> adoptedMethods = new HashSet<>();
+    for (KubernetesReconcilerWatch watch : watches.value()) {
+      for (Method method : reconciler.getClass().getMethods()) {
+        DeleteWatchEventFilter annotation = method.getAnnotation(DeleteWatchEventFilter.class);
+        if (watch.apiTypeClass().equals(annotation.apiTypeClass())) {
+          if (filters.containsKey(watch.apiTypeClass())) {
+            log.warn(
+                "Duplicated watch DELETE event filter upon apiType {}", annotation.apiTypeClass());
+          }
+          filters.put(watch.apiTypeClass(), new DeleteFilterAdaptor(reconciler, method));
+          adoptedMethods.add(method);
+        }
+        allAnnotatedMethods.add(method);
+      }
+    }
+    allAnnotatedMethods.removeAll(adoptedMethods);
+    if (allAnnotatedMethods.size() > 0) {
+      log.warn(
+          "Dangling watch DELETE event filters {}", StringUtils.join(allAnnotatedMethods, ","));
+    }
+    return filters;
+  }
+
+  private List<ReadyFuncAdaptor> getReadyFuncs(Reconciler reconciler) {
+    List<ReadyFuncAdaptor> readyFuncs = new ArrayList<>();
+    for (Method method : reconciler.getClass().getMethods()) {
+      if (method.isAnnotationPresent(KubernetesReconcilerReadyFunc.class)) {
+        readyFuncs.add(new ReadyFuncAdaptor(reconciler, method));
+      }
+    }
+    return readyFuncs;
   }
 
   private static class AddFilterAdaptor implements Predicate {

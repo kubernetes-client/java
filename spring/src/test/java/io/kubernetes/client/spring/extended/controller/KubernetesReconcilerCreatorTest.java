@@ -49,7 +49,6 @@ public class KubernetesReconcilerCreatorTest {
                 resyncPeriodMillis = 60 * 1000L // resync every 60s
                 )
           }))
-  @KubernetesReconcilerWorkerCount(4)
   static class TestReconciler implements Reconciler {
 
     private int observedPodCount;
@@ -64,17 +63,17 @@ public class KubernetesReconcilerCreatorTest {
       return new Result(false);
     }
 
-    @AddWatchEventFilter
+    @AddWatchEventFilter(apiTypeClass = V1Pod.class)
     private boolean onAddFilter(V1Pod pod) {
       return true;
     }
 
-    @UpdateWatchEventFilter
+    @UpdateWatchEventFilter(apiTypeClass = V1Pod.class)
     private boolean onUpdateFilter(V1Pod oldPod, V1Pod newPod) {
       return true;
     }
 
-    @DeleteWatchEventFilter
+    @DeleteWatchEventFilter(apiTypeClass = V1Pod.class)
     private boolean onDeleteFilter(V1Pod pod) {
       return true;
     }
