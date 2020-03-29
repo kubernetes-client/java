@@ -102,6 +102,8 @@ We prepared a few examples for common use-cases which are shown below:
   Build a controller reconciling the state of world by list-watching one or multiple resources.
   - ([6.0.0+](https://github.com/kubernetes-client/java/tree/client-java-parent-6.0.0)) [LeaderElectionExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/LeaderElectionExample.java): 
   Leader election utilities to help implement HA controllers.
+  - ([9.0.0+](https://github.com/kubernetes-client/java/tree/client-java-parent-9.0.0)) [SpringIntegrationControllerExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/SpringControllerExample.java): 
+  Building a kubernetes controller based on spring framework's bean injection.
 
 
 __list all pods__:
