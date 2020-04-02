@@ -13,21 +13,26 @@
 
 package io.kubernetes.client.openapi.apis;
 
-import com.google.gson.reflect.TypeToken;
-import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.openapi.ApiCallback;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.ApiResponse;
 import io.kubernetes.client.openapi.Configuration;
-import io.kubernetes.client.openapi.ModelUtil;
 import io.kubernetes.client.openapi.Pair;
+import io.kubernetes.client.openapi.ProgressRequestBody;
+import io.kubernetes.client.openapi.ProgressResponseBody;
+
+import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
+
+
 import io.kubernetes.client.openapi.models.V1APIResourceList;
 import io.kubernetes.client.openapi.models.V1DeleteOptions;
 import io.kubernetes.client.openapi.models.V1Job;
 import io.kubernetes.client.openapi.models.V1JobList;
+import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.openapi.models.V1Status;
-import io.kubernetes.client.openapi.models.V1beta1CronJob;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -210,91 +215,6 @@ public class BatchV1Api {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
-
-    /**
-     *
-     * create a Job
-     * @param namespace object name and auth scope, such as for teams and projects (required)
-     * @param body cron job  (required)
-     * @param jobName job name
-     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
-     * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-     * @return V1Job
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-    <table summary="Response Details" border="1">
-    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-    <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-    <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-    <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
-    <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-    </table>
-     */
-    public V1Job createNamespacedJobFromCronJob(String namespace, V1beta1CronJob body, String jobName, String pretty, String dryRun, String fieldManager) throws ApiException {
-        V1Job v1Job = ModelUtil.cronJobToJob(body, jobName);
-        ApiResponse<V1Job> localVarResp = createNamespacedJobWithHttpInfo(namespace, v1Job, pretty, dryRun, fieldManager);
-        return localVarResp.getData();
-    }
-
-
-    /**
-     *
-     * create a Job
-     * @param namespace object name and auth scope, such as for teams and projects (required)
-     * @param body cron job  (required)
-     * @param jobName job name
-     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
-     * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-     * @return ApiResponse&lt;V1Job&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-    <table summary="Response Details" border="1">
-    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-    <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-    <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-    <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
-    <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-    </table>
-     */
-    public ApiResponse<V1Job> createNamespacedJobFromCronJobWithHttpInfo(String namespace, V1beta1CronJob body, String jobName, String pretty, String dryRun, String fieldManager) throws ApiException {
-        V1Job v1Job = ModelUtil.cronJobToJob(body, jobName);
-        okhttp3.Call localVarCall = createNamespacedJobValidateBeforeCall(namespace, v1Job, pretty, dryRun, fieldManager, null);
-        Type localVarReturnType = new TypeToken<V1Job>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * create a Job
-     * @param namespace object name and auth scope, such as for teams and projects (required)
-     * @param body cron job  (required)
-     * @param jobName job name
-     * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-     * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
-     * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-    <table summary="Response Details" border="1">
-    <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-    <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-    <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-    <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
-    <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-    </table>
-     */
-    public okhttp3.Call createNamespacedJobFromCronJobAsync(String namespace, V1beta1CronJob body, String jobName, String pretty, String dryRun, String fieldManager, final ApiCallback<V1Job> _callback) throws ApiException {
-        V1Job v1Job = ModelUtil.cronJobToJob(body, jobName);
-        okhttp3.Call localVarCall = createNamespacedJobValidateBeforeCall(namespace, v1Job, pretty, dryRun, fieldManager, _callback);
-        Type localVarReturnType = new TypeToken<V1Job>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-
     /**
      * Build call for deleteCollectionNamespacedJob
      * @param namespace object name and auth scope, such as for teams and projects (required)
