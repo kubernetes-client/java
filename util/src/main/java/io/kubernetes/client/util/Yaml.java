@@ -350,7 +350,11 @@ public class Yaml {
     }
 
     private Object constructDateTime(ScalarNode node) {
-      return new DateTime(((ScalarNode) node).getValue(), DateTimeZone.UTC);
+    	if(node.getValue() == null || "null".equalsIgnoreCase(node.getValue())) {
+    		return null;
+    	}else {
+    		return new DateTime(node.getValue(), DateTimeZone.UTC);
+    	}
     }
   }
 
