@@ -350,6 +350,7 @@ public class Yaml {
     }
 
     private Object constructDateTime(ScalarNode node) {
+    	// Issue:#845.
     	if(node.getValue() == null || "null".equalsIgnoreCase(node.getValue())) {
     		return null;
     	}else {
