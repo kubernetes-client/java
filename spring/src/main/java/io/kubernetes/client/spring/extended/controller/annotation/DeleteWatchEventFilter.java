@@ -15,4 +15,6 @@ import java.lang.annotation.Target;
  */
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface DeleteWatchEventFilter {}
+public @interface DeleteWatchEventFilter {
+  Class apiTypeClass();
+}
