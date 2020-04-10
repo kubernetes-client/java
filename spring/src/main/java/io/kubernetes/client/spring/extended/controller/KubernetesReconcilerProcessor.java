@@ -120,7 +120,7 @@ public class KubernetesReconcilerProcessor implements BeanFactoryPostProcessor, 
     for (KubernetesReconcilerWatch watch : watches.value()) {
       for (Method method : reconciler.getClass().getMethods()) {
         AddWatchEventFilter annotation = method.getAnnotation(AddWatchEventFilter.class);
-        if (watch.apiTypeClass().equals(annotation.apiTypeClass())) {
+        if (annotation != null && watch.apiTypeClass().equals(annotation.apiTypeClass())) {
           if (filters.containsKey(watch.apiTypeClass())) {
             log.warn(
                 "Duplicated watch ADD event filter upon apiType {}", annotation.apiTypeClass());
@@ -146,7 +146,7 @@ public class KubernetesReconcilerProcessor implements BeanFactoryPostProcessor, 
     for (KubernetesReconcilerWatch watch : watches.value()) {
       for (Method method : reconciler.getClass().getMethods()) {
         UpdateWatchEventFilter annotation = method.getAnnotation(UpdateWatchEventFilter.class);
-        if (watch.apiTypeClass().equals(annotation.apiTypeClass())) {
+        if (annotation != null && watch.apiTypeClass().equals(annotation.apiTypeClass())) {
           if (filters.containsKey(watch.apiTypeClass())) {
             log.warn(
                 "Duplicated watch UPDATE event filter upon apiType {}", annotation.apiTypeClass());
@@ -173,7 +173,7 @@ public class KubernetesReconcilerProcessor implements BeanFactoryPostProcessor, 
     for (KubernetesReconcilerWatch watch : watches.value()) {
       for (Method method : reconciler.getClass().getMethods()) {
         DeleteWatchEventFilter annotation = method.getAnnotation(DeleteWatchEventFilter.class);
-        if (watch.apiTypeClass().equals(annotation.apiTypeClass())) {
+        if (annotation != null && watch.apiTypeClass().equals(annotation.apiTypeClass())) {
           if (filters.containsKey(watch.apiTypeClass())) {
             log.warn(
                 "Duplicated watch DELETE event filter upon apiType {}", annotation.apiTypeClass());
