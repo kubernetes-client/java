@@ -109,13 +109,14 @@ public class ExecTest {
 
     process.getHandler().bytesMessage(makeStream(1, msgData.getBytes(StandardCharsets.UTF_8)));
     process.getHandler().bytesMessage(makeStream(2, errData.getBytes(StandardCharsets.UTF_8)));
-    process.getHandler().bytesMessage(makeStream(3, OUTPUT_EXIT0.getBytes(StandardCharsets.UTF_8)));
 
     final ByteArrayOutputStream stdout = new ByteArrayOutputStream();
     final ByteArrayOutputStream stderr = new ByteArrayOutputStream();
 
     Thread t1 = asyncCopy(process.getInputStream(), stdout);
     Thread t2 = asyncCopy(process.getErrorStream(), stderr);
+
+    process.getHandler().bytesMessage(makeStream(3, OUTPUT_EXIT0.getBytes(StandardCharsets.UTF_8)));
 
     // TODO: Fix this asap!
     Thread.sleep(1000);

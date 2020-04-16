@@ -98,6 +98,19 @@ public class ExecExample {
             });
     out.start();
 
+    Thread error =
+        new Thread(
+            new Runnable() {
+              public void run() {
+                try {
+                  ByteStreams.copy(proc.getErrorStream(), System.err);
+                } catch (IOException ex) {
+                  ex.printStackTrace();
+                }
+              }
+            });
+    error.start();
+
     proc.waitFor();
 
     // wait for any last output; no need to wait for input thread

@@ -371,6 +371,8 @@ public class Exec {
                   }
                 }
                 inStream.close();
+                // The websocket needs to be closed.
+                this.close();
               } else super.handleMessage(stream, inStream);
             }
 
