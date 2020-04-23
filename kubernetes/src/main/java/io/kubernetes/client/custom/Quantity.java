@@ -14,7 +14,7 @@ import org.apache.commons.lang3.ObjectUtils;
 @JsonAdapter(Quantity.QuantityAdapter.class)
 public class Quantity {
 
-  private final BigDecimal number;
+  private BigDecimal number;
   private Format format;
 
   public enum Format {
@@ -29,6 +29,9 @@ public class Quantity {
     public int getBase() {
       return base;
     }
+  }
+
+  public Quantity() {
   }
 
   public Quantity(final BigDecimal number, final Format format) {
