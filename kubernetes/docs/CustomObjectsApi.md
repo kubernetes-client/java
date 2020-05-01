@@ -7,6 +7,8 @@ Method | HTTP request | Description
 [**createClusterCustomObject**](CustomObjectsApi.md#createClusterCustomObject) | **POST** /apis/{group}/{version}/{plural} | 
 [**createNamespacedCustomObject**](CustomObjectsApi.md#createNamespacedCustomObject) | **POST** /apis/{group}/{version}/namespaces/{namespace}/{plural} | 
 [**deleteClusterCustomObject**](CustomObjectsApi.md#deleteClusterCustomObject) | **DELETE** /apis/{group}/{version}/{plural}/{name} | 
+[**deleteCollectionClusterCustomObject**](CustomObjectsApi.md#deleteCollectionClusterCustomObject) | **DELETE** /apis/{group}/{version}/{plural} | 
+[**deleteCollectionNamespacedCustomObject**](CustomObjectsApi.md#deleteCollectionNamespacedCustomObject) | **DELETE** /apis/{group}/{version}/namespaces/{namespace}/{plural} | 
 [**deleteNamespacedCustomObject**](CustomObjectsApi.md#deleteNamespacedCustomObject) | **DELETE** /apis/{group}/{version}/namespaces/{namespace}/{plural}/{name} | 
 [**getClusterCustomObject**](CustomObjectsApi.md#getClusterCustomObject) | **GET** /apis/{group}/{version}/{plural}/{name} | 
 [**getClusterCustomObjectScale**](CustomObjectsApi.md#getClusterCustomObjectScale) | **GET** /apis/{group}/{version}/{plural}/{name}/scale | 
@@ -32,7 +34,7 @@ Method | HTTP request | Description
 
 <a name="createClusterCustomObject"></a>
 # **createClusterCustomObject**
-> Object createClusterCustomObject(group, version, plural, body, pretty)
+> Object createClusterCustomObject(group, version, plural, body, pretty, dryRun, fieldManager)
 
 
 
@@ -65,8 +67,10 @@ public class Example {
     String plural = "plural_example"; // String | The custom resource's plural name. For TPRs this would be lowercase plural kind.
     Object body = null; // Object | The JSON schema of the Resource to create.
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+    String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+    String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
     try {
-      Object result = apiInstance.createClusterCustomObject(group, version, plural, body, pretty);
+      Object result = apiInstance.createClusterCustomObject(group, version, plural, body, pretty, dryRun, fieldManager);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomObjectsApi#createClusterCustomObject");
@@ -88,6 +92,8 @@ Name | Type | Description  | Notes
  **plural** | **String**| The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **body** | **Object**| The JSON schema of the Resource to create. |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
 
 ### Return type
 
@@ -110,7 +116,7 @@ Name | Type | Description  | Notes
 
 <a name="createNamespacedCustomObject"></a>
 # **createNamespacedCustomObject**
-> Object createNamespacedCustomObject(group, version, namespace, plural, body, pretty)
+> Object createNamespacedCustomObject(group, version, namespace, plural, body, pretty, dryRun, fieldManager)
 
 
 
@@ -144,8 +150,10 @@ public class Example {
     String plural = "plural_example"; // String | The custom resource's plural name. For TPRs this would be lowercase plural kind.
     Object body = null; // Object | The JSON schema of the Resource to create.
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+    String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+    String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
     try {
-      Object result = apiInstance.createNamespacedCustomObject(group, version, namespace, plural, body, pretty);
+      Object result = apiInstance.createNamespacedCustomObject(group, version, namespace, plural, body, pretty, dryRun, fieldManager);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomObjectsApi#createNamespacedCustomObject");
@@ -168,6 +176,8 @@ Name | Type | Description  | Notes
  **plural** | **String**| The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **body** | **Object**| The JSON schema of the Resource to create. |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
 
 ### Return type
 
@@ -190,7 +200,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteClusterCustomObject"></a>
 # **deleteClusterCustomObject**
-> Object deleteClusterCustomObject(group, version, plural, name, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
+> Object deleteClusterCustomObject(group, version, plural, name, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body)
 
 
 
@@ -225,9 +235,10 @@ public class Example {
     Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
     Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
     String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+    String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
     V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
     try {
-      Object result = apiInstance.deleteClusterCustomObject(group, version, plural, name, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+      Object result = apiInstance.deleteClusterCustomObject(group, version, plural, name, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomObjectsApi#deleteClusterCustomObject");
@@ -251,6 +262,179 @@ Name | Type | Description  | Notes
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
  **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  | [optional]
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**401** | Unauthorized |  -  |
+
+<a name="deleteCollectionClusterCustomObject"></a>
+# **deleteCollectionClusterCustomObject**
+> Object deleteCollectionClusterCustomObject(group, version, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body)
+
+
+
+Deletes the specified cluster scoped custom object
+
+### Example
+```java
+// Import classes:
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.Configuration;
+import io.kubernetes.client.openapi.auth.*;
+import io.kubernetes.client.openapi.models.*;
+import io.kubernetes.client.openapi.apis.CustomObjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: BearerToken
+    ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+    BearerToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //BearerToken.setApiKeyPrefix("Token");
+
+    CustomObjectsApi apiInstance = new CustomObjectsApi(defaultClient);
+    String group = "group_example"; // String | The custom resource's group name
+    String version = "version_example"; // String | The custom resource's version
+    String plural = "plural_example"; // String | The custom resource's plural name. For TPRs this would be lowercase plural kind.
+    String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+    Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
+    Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
+    String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+    String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+    V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
+    try {
+      Object result = apiInstance.deleteCollectionClusterCustomObject(group, version, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CustomObjectsApi#deleteCollectionClusterCustomObject");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group** | **String**| The custom resource&#39;s group name |
+ **version** | **String**| The custom resource&#39;s version |
+ **plural** | **String**| The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
+ **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
+ **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
+ **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  | [optional]
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**401** | Unauthorized |  -  |
+
+<a name="deleteCollectionNamespacedCustomObject"></a>
+# **deleteCollectionNamespacedCustomObject**
+> Object deleteCollectionNamespacedCustomObject(group, version, namespace, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.Configuration;
+import io.kubernetes.client.openapi.auth.*;
+import io.kubernetes.client.openapi.models.*;
+import io.kubernetes.client.openapi.apis.CustomObjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: BearerToken
+    ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+    BearerToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //BearerToken.setApiKeyPrefix("Token");
+
+    CustomObjectsApi apiInstance = new CustomObjectsApi(defaultClient);
+    String group = "group_example"; // String | The custom resource's group name
+    String version = "version_example"; // String | The custom resource's version
+    String namespace = "namespace_example"; // String | The custom resource's namespace
+    String plural = "plural_example"; // String | The custom resource's plural name. For TPRs this would be lowercase plural kind.
+    String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
+    Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
+    Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
+    String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+    String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+    V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
+    try {
+      Object result = apiInstance.deleteCollectionNamespacedCustomObject(group, version, namespace, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CustomObjectsApi#deleteCollectionNamespacedCustomObject");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group** | **String**| The custom resource&#39;s group name |
+ **version** | **String**| The custom resource&#39;s version |
+ **namespace** | **String**| The custom resource&#39;s namespace |
+ **plural** | **String**| The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
+ **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+ **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
+ **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
+ **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  | [optional]
 
 ### Return type
@@ -274,7 +458,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteNamespacedCustomObject"></a>
 # **deleteNamespacedCustomObject**
-> Object deleteNamespacedCustomObject(group, version, namespace, plural, name, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
+> Object deleteNamespacedCustomObject(group, version, namespace, plural, name, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body)
 
 
 
@@ -310,9 +494,10 @@ public class Example {
     Integer gracePeriodSeconds = 56; // Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
     Boolean orphanDependents = true; // Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
     String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+    String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
     V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
     try {
-      Object result = apiInstance.deleteNamespacedCustomObject(group, version, namespace, plural, name, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+      Object result = apiInstance.deleteNamespacedCustomObject(group, version, namespace, plural, name, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomObjectsApi#deleteNamespacedCustomObject");
@@ -337,6 +522,7 @@ Name | Type | Description  | Notes
  **gracePeriodSeconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional]
  **orphanDependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional]
  **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. | [optional]
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  | [optional]
 
 ### Return type
@@ -1004,7 +1190,7 @@ Name | Type | Description  | Notes
 
 <a name="patchClusterCustomObject"></a>
 # **patchClusterCustomObject**
-> Object patchClusterCustomObject(group, version, plural, name, body)
+> Object patchClusterCustomObject(group, version, plural, name, body, dryRun, fieldManager, force)
 
 
 
@@ -1037,8 +1223,11 @@ public class Example {
     String plural = "plural_example"; // String | the custom object's plural name. For TPRs this would be lowercase plural kind.
     String name = "name_example"; // String | the custom object's name
     Object body = null; // Object | The JSON schema of the Resource to patch.
+    String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+    String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+    Boolean force = true; // Boolean | Force is going to \"force\" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
     try {
-      Object result = apiInstance.patchClusterCustomObject(group, version, plural, name, body);
+      Object result = apiInstance.patchClusterCustomObject(group, version, plural, name, body, dryRun, fieldManager, force);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomObjectsApi#patchClusterCustomObject");
@@ -1060,6 +1249,9 @@ Name | Type | Description  | Notes
  **plural** | **String**| the custom object&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
  **body** | **Object**| The JSON schema of the Resource to patch. |
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
+ **force** | **Boolean**| Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. | [optional]
 
 ### Return type
 
@@ -1082,7 +1274,7 @@ Name | Type | Description  | Notes
 
 <a name="patchClusterCustomObjectScale"></a>
 # **patchClusterCustomObjectScale**
-> Object patchClusterCustomObjectScale(group, version, plural, name, body)
+> Object patchClusterCustomObjectScale(group, version, plural, name, body, dryRun, fieldManager, force)
 
 
 
@@ -1115,8 +1307,11 @@ public class Example {
     String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
     String name = "name_example"; // String | the custom object's name
     Object body = null; // Object | 
+    String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+    String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+    Boolean force = true; // Boolean | Force is going to \"force\" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
     try {
-      Object result = apiInstance.patchClusterCustomObjectScale(group, version, plural, name, body);
+      Object result = apiInstance.patchClusterCustomObjectScale(group, version, plural, name, body, dryRun, fieldManager, force);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomObjectsApi#patchClusterCustomObjectScale");
@@ -1138,6 +1333,9 @@ Name | Type | Description  | Notes
  **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
  **body** | **Object**|  |
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
+ **force** | **Boolean**| Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. | [optional]
 
 ### Return type
 
@@ -1160,7 +1358,7 @@ Name | Type | Description  | Notes
 
 <a name="patchClusterCustomObjectStatus"></a>
 # **patchClusterCustomObjectStatus**
-> Object patchClusterCustomObjectStatus(group, version, plural, name, body)
+> Object patchClusterCustomObjectStatus(group, version, plural, name, body, dryRun, fieldManager, force)
 
 
 
@@ -1193,8 +1391,11 @@ public class Example {
     String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
     String name = "name_example"; // String | the custom object's name
     Object body = null; // Object | 
+    String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+    String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+    Boolean force = true; // Boolean | Force is going to \"force\" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
     try {
-      Object result = apiInstance.patchClusterCustomObjectStatus(group, version, plural, name, body);
+      Object result = apiInstance.patchClusterCustomObjectStatus(group, version, plural, name, body, dryRun, fieldManager, force);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomObjectsApi#patchClusterCustomObjectStatus");
@@ -1216,6 +1417,9 @@ Name | Type | Description  | Notes
  **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
  **body** | **Object**|  |
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
+ **force** | **Boolean**| Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. | [optional]
 
 ### Return type
 
@@ -1238,7 +1442,7 @@ Name | Type | Description  | Notes
 
 <a name="patchNamespacedCustomObject"></a>
 # **patchNamespacedCustomObject**
-> Object patchNamespacedCustomObject(group, version, namespace, plural, name, body)
+> Object patchNamespacedCustomObject(group, version, namespace, plural, name, body, dryRun, fieldManager, force)
 
 
 
@@ -1272,8 +1476,11 @@ public class Example {
     String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
     String name = "name_example"; // String | the custom object's name
     Object body = null; // Object | The JSON schema of the Resource to patch.
+    String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+    String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+    Boolean force = true; // Boolean | Force is going to \"force\" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
     try {
-      Object result = apiInstance.patchNamespacedCustomObject(group, version, namespace, plural, name, body);
+      Object result = apiInstance.patchNamespacedCustomObject(group, version, namespace, plural, name, body, dryRun, fieldManager, force);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomObjectsApi#patchNamespacedCustomObject");
@@ -1296,6 +1503,9 @@ Name | Type | Description  | Notes
  **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
  **body** | **Object**| The JSON schema of the Resource to patch. |
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
+ **force** | **Boolean**| Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. | [optional]
 
 ### Return type
 
@@ -1318,7 +1528,7 @@ Name | Type | Description  | Notes
 
 <a name="patchNamespacedCustomObjectScale"></a>
 # **patchNamespacedCustomObjectScale**
-> Object patchNamespacedCustomObjectScale(group, version, namespace, plural, name, body)
+> Object patchNamespacedCustomObjectScale(group, version, namespace, plural, name, body, dryRun, fieldManager, force)
 
 
 
@@ -1352,8 +1562,11 @@ public class Example {
     String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
     String name = "name_example"; // String | the custom object's name
     Object body = null; // Object | 
+    String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+    String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+    Boolean force = true; // Boolean | Force is going to \"force\" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
     try {
-      Object result = apiInstance.patchNamespacedCustomObjectScale(group, version, namespace, plural, name, body);
+      Object result = apiInstance.patchNamespacedCustomObjectScale(group, version, namespace, plural, name, body, dryRun, fieldManager, force);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomObjectsApi#patchNamespacedCustomObjectScale");
@@ -1376,6 +1589,9 @@ Name | Type | Description  | Notes
  **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
  **body** | **Object**|  |
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
+ **force** | **Boolean**| Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. | [optional]
 
 ### Return type
 
@@ -1387,7 +1603,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/merge-patch+json
+ - **Content-Type**: application/json-patch+json, application/merge-patch+json, application/apply-patch+yaml
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 ### HTTP response details
@@ -1398,7 +1614,7 @@ Name | Type | Description  | Notes
 
 <a name="patchNamespacedCustomObjectStatus"></a>
 # **patchNamespacedCustomObjectStatus**
-> Object patchNamespacedCustomObjectStatus(group, version, namespace, plural, name, body)
+> Object patchNamespacedCustomObjectStatus(group, version, namespace, plural, name, body, dryRun, fieldManager, force)
 
 
 
@@ -1432,8 +1648,11 @@ public class Example {
     String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
     String name = "name_example"; // String | the custom object's name
     Object body = null; // Object | 
+    String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+    String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+    Boolean force = true; // Boolean | Force is going to \"force\" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
     try {
-      Object result = apiInstance.patchNamespacedCustomObjectStatus(group, version, namespace, plural, name, body);
+      Object result = apiInstance.patchNamespacedCustomObjectStatus(group, version, namespace, plural, name, body, dryRun, fieldManager, force);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomObjectsApi#patchNamespacedCustomObjectStatus");
@@ -1456,6 +1675,9 @@ Name | Type | Description  | Notes
  **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
  **body** | **Object**|  |
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
+ **force** | **Boolean**| Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. | [optional]
 
 ### Return type
 
@@ -1467,7 +1689,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/merge-patch+json
+ - **Content-Type**: application/json-patch+json, application/merge-patch+json, application/apply-patch+yaml
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 ### HTTP response details
@@ -1478,7 +1700,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceClusterCustomObject"></a>
 # **replaceClusterCustomObject**
-> Object replaceClusterCustomObject(group, version, plural, name, body)
+> Object replaceClusterCustomObject(group, version, plural, name, body, dryRun, fieldManager)
 
 
 
@@ -1511,8 +1733,10 @@ public class Example {
     String plural = "plural_example"; // String | the custom object's plural name. For TPRs this would be lowercase plural kind.
     String name = "name_example"; // String | the custom object's name
     Object body = null; // Object | The JSON schema of the Resource to replace.
+    String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+    String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
     try {
-      Object result = apiInstance.replaceClusterCustomObject(group, version, plural, name, body);
+      Object result = apiInstance.replaceClusterCustomObject(group, version, plural, name, body, dryRun, fieldManager);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomObjectsApi#replaceClusterCustomObject");
@@ -1534,6 +1758,8 @@ Name | Type | Description  | Notes
  **plural** | **String**| the custom object&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
  **body** | **Object**| The JSON schema of the Resource to replace. |
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
 
 ### Return type
 
@@ -1556,7 +1782,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceClusterCustomObjectScale"></a>
 # **replaceClusterCustomObjectScale**
-> Object replaceClusterCustomObjectScale(group, version, plural, name, body)
+> Object replaceClusterCustomObjectScale(group, version, plural, name, body, dryRun, fieldManager)
 
 
 
@@ -1589,8 +1815,10 @@ public class Example {
     String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
     String name = "name_example"; // String | the custom object's name
     Object body = null; // Object | 
+    String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+    String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
     try {
-      Object result = apiInstance.replaceClusterCustomObjectScale(group, version, plural, name, body);
+      Object result = apiInstance.replaceClusterCustomObjectScale(group, version, plural, name, body, dryRun, fieldManager);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomObjectsApi#replaceClusterCustomObjectScale");
@@ -1612,6 +1840,8 @@ Name | Type | Description  | Notes
  **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
  **body** | **Object**|  |
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
 
 ### Return type
 
@@ -1635,7 +1865,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceClusterCustomObjectStatus"></a>
 # **replaceClusterCustomObjectStatus**
-> Object replaceClusterCustomObjectStatus(group, version, plural, name, body)
+> Object replaceClusterCustomObjectStatus(group, version, plural, name, body, dryRun, fieldManager)
 
 
 
@@ -1668,8 +1898,10 @@ public class Example {
     String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
     String name = "name_example"; // String | the custom object's name
     Object body = null; // Object | 
+    String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+    String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
     try {
-      Object result = apiInstance.replaceClusterCustomObjectStatus(group, version, plural, name, body);
+      Object result = apiInstance.replaceClusterCustomObjectStatus(group, version, plural, name, body, dryRun, fieldManager);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomObjectsApi#replaceClusterCustomObjectStatus");
@@ -1691,6 +1923,8 @@ Name | Type | Description  | Notes
  **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
  **body** | **Object**|  |
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
 
 ### Return type
 
@@ -1714,7 +1948,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceNamespacedCustomObject"></a>
 # **replaceNamespacedCustomObject**
-> Object replaceNamespacedCustomObject(group, version, namespace, plural, name, body)
+> Object replaceNamespacedCustomObject(group, version, namespace, plural, name, body, dryRun, fieldManager)
 
 
 
@@ -1748,8 +1982,10 @@ public class Example {
     String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
     String name = "name_example"; // String | the custom object's name
     Object body = null; // Object | The JSON schema of the Resource to replace.
+    String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+    String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
     try {
-      Object result = apiInstance.replaceNamespacedCustomObject(group, version, namespace, plural, name, body);
+      Object result = apiInstance.replaceNamespacedCustomObject(group, version, namespace, plural, name, body, dryRun, fieldManager);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomObjectsApi#replaceNamespacedCustomObject");
@@ -1772,6 +2008,8 @@ Name | Type | Description  | Notes
  **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
  **body** | **Object**| The JSON schema of the Resource to replace. |
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
 
 ### Return type
 
@@ -1794,7 +2032,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceNamespacedCustomObjectScale"></a>
 # **replaceNamespacedCustomObjectScale**
-> Object replaceNamespacedCustomObjectScale(group, version, namespace, plural, name, body)
+> Object replaceNamespacedCustomObjectScale(group, version, namespace, plural, name, body, dryRun, fieldManager)
 
 
 
@@ -1828,8 +2066,10 @@ public class Example {
     String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
     String name = "name_example"; // String | the custom object's name
     Object body = null; // Object | 
+    String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+    String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
     try {
-      Object result = apiInstance.replaceNamespacedCustomObjectScale(group, version, namespace, plural, name, body);
+      Object result = apiInstance.replaceNamespacedCustomObjectScale(group, version, namespace, plural, name, body, dryRun, fieldManager);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomObjectsApi#replaceNamespacedCustomObjectScale");
@@ -1852,6 +2092,8 @@ Name | Type | Description  | Notes
  **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
  **body** | **Object**|  |
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
 
 ### Return type
 
@@ -1875,7 +2117,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceNamespacedCustomObjectStatus"></a>
 # **replaceNamespacedCustomObjectStatus**
-> Object replaceNamespacedCustomObjectStatus(group, version, namespace, plural, name, body)
+> Object replaceNamespacedCustomObjectStatus(group, version, namespace, plural, name, body, dryRun, fieldManager)
 
 
 
@@ -1909,8 +2151,10 @@ public class Example {
     String plural = "plural_example"; // String | the custom resource's plural name. For TPRs this would be lowercase plural kind.
     String name = "name_example"; // String | the custom object's name
     Object body = null; // Object | 
+    String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+    String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
     try {
-      Object result = apiInstance.replaceNamespacedCustomObjectStatus(group, version, namespace, plural, name, body);
+      Object result = apiInstance.replaceNamespacedCustomObjectStatus(group, version, namespace, plural, name, body, dryRun, fieldManager);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomObjectsApi#replaceNamespacedCustomObjectStatus");
@@ -1933,6 +2177,8 @@ Name | Type | Description  | Notes
  **plural** | **String**| the custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. |
  **name** | **String**| the custom object&#39;s name |
  **body** | **Object**|  |
+ **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
+ **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
 
 ### Return type
 

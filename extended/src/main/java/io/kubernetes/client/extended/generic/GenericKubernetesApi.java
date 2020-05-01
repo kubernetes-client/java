@@ -398,10 +398,19 @@ public class GenericKubernetesApi<ApiType, ApiListType> {
                 this.resourcePlural,
                 object,
                 null,
+                createOptions.getDryRun(),
+                createOptions.getFieldManager(),
                 null);
           } else {
             return customObjectsApi.createClusterCustomObjectCall(
-                this.apiGroup, this.apiVersion, this.resourcePlural, object, null, null);
+                this.apiGroup,
+                this.apiVersion,
+                this.resourcePlural,
+                object,
+                null,
+                createOptions.getDryRun(),
+                createOptions.getFieldManager(),
+                null);
           }
         });
   }
@@ -434,6 +443,8 @@ public class GenericKubernetesApi<ApiType, ApiListType> {
                 this.resourcePlural,
                 objectMeta.getName(),
                 object,
+                updateOptions.getDryRun(),
+                updateOptions.getFieldManager(),
                 null);
           } else {
             return customObjectsApi.replaceClusterCustomObjectCall(
@@ -442,6 +453,8 @@ public class GenericKubernetesApi<ApiType, ApiListType> {
                 this.resourcePlural,
                 objectMeta.getName(),
                 object,
+                updateOptions.getDryRun(),
+                updateOptions.getFieldManager(),
                 null);
           }
         });
@@ -466,7 +479,15 @@ public class GenericKubernetesApi<ApiType, ApiListType> {
         apiTypeClass,
         () -> {
           return customObjectsApi.patchClusterCustomObjectCall(
-              this.apiGroup, this.apiVersion, this.resourcePlural, name, patch, null);
+              this.apiGroup,
+              this.apiVersion,
+              this.resourcePlural,
+              name,
+              patch,
+              patchOptions.getDryRun(),
+              patchOptions.getFieldManager(),
+              patchOptions.getForce(),
+              null);
         });
   }
 
@@ -505,6 +526,9 @@ public class GenericKubernetesApi<ApiType, ApiListType> {
                         this.resourcePlural,
                         name,
                         patch,
+                        patchOptions.getDryRun(),
+                        patchOptions.getFieldManager(),
+                        patchOptions.getForce(),
                         null);
                 return tweakCallForCoreV1Group(call);
               },
@@ -544,6 +568,7 @@ public class GenericKubernetesApi<ApiType, ApiListType> {
               null,
               null,
               null,
+              null,
               deleteOptions, // TODO: fill/convert the option
               null);
         });
@@ -575,6 +600,7 @@ public class GenericKubernetesApi<ApiType, ApiListType> {
               namespace,
               this.resourcePlural,
               name,
+              null,
               null,
               null,
               null,
