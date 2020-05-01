@@ -508,7 +508,8 @@ public class GenericKubernetesApi<ApiType, ApiListType> {
                         null);
                 return tweakCallForCoreV1Group(call);
               },
-              patchType);
+              patchType,
+              this.customObjectsApi.getApiClient());
       return new KubernetesApiResponse<ApiType>(object);
     } catch (ApiException e) {
       V1Status status =
@@ -673,6 +674,9 @@ public class GenericKubernetesApi<ApiType, ApiListType> {
         throw new IllegalStateException(e.getCause()); // make this a checked exception?
       }
       V1Status status = apiClient.getJSON().deserialize(e.getResponseBody(), V1Status.class);
+      if (null == status) { // the response body can be something unexpected sometimes..
+        throw new RuntimeException(e.getCause());
+      }
       return new KubernetesApiResponse<>(status, e.getCode());
     }
   }
