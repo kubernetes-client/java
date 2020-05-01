@@ -37,6 +37,7 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -354,6 +355,7 @@ public class Exec {
     private int statusCode = -1;
     private boolean isAlive = true;
     private final Map<Integer, InputStream> input = new HashMap<>();
+    private final CountDownLatch latch = new CountDownLatch(1);
 
     public ExecProcess(final ApiClient apiClient) throws IOException {
       this.streamHandler =
@@ -367,10 +369,13 @@ public class Exec {
                   synchronized (ExecProcess.this) {
                     statusCode = exitCode;
                     isAlive = false;
-                    ExecProcess.this.notifyAll();
                   }
                 }
                 inStream.close();
+                // Stream ID of `3` delivers the status of exec connection from kubelet,
+                // closing the connection upon 0 exit-code.
+                this.close();
+                ExecProcess.this.latch.countDown();
               } else super.handleMessage(stream, inStream);
             }
 
@@ -386,7 +391,7 @@ public class Exec {
                 // code.
                 statusCode = -1975219;
                 isAlive = false;
-                ExecProcess.this.notifyAll();
+                ExecProcess.this.latch.countDown();
               }
             }
 
@@ -396,7 +401,7 @@ public class Exec {
               synchronized (ExecProcess.this) {
                 if (isAlive) {
                   isAlive = false;
-                  ExecProcess.this.notifyAll();
+                  ExecProcess.this.latch.countDown();
                 }
               }
 
@@ -442,18 +447,14 @@ public class Exec {
 
     @Override
     public int waitFor() throws InterruptedException {
-      synchronized (this) {
-        this.wait();
-        return statusCode;
-      }
+      this.latch.await();
+      return statusCode;
     }
 
     @Override
     public boolean waitFor(long timeout, TimeUnit unit) throws InterruptedException {
-      synchronized (this) {
-        this.wait(TimeUnit.MILLISECONDS.convert(timeout, unit));
-        return !isAlive();
-      }
+      this.latch.await(timeout, unit);
+      return !isAlive();
     }
 
     @Override
