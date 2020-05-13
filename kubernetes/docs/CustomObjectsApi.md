@@ -290,7 +290,7 @@ Name | Type | Description  | Notes
 
 
 
-Deletes the specified cluster scoped custom object
+Delete collection of cluster scoped custom objects
 
 ### Example
 ```java
@@ -375,6 +375,8 @@ Name | Type | Description  | Notes
 > Object deleteCollectionNamespacedCustomObject(group, version, namespace, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body)
 
 
+
+Delete collection of namespace scoped custom objects
 
 ### Example
 ```java

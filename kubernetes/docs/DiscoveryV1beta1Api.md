@@ -1,23 +1,23 @@
-# DiscoveryV1alpha1Api
+# DiscoveryV1beta1Api
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createNamespacedEndpointSlice**](DiscoveryV1alpha1Api.md#createNamespacedEndpointSlice) | **POST** /apis/discovery.k8s.io/v1alpha1/namespaces/{namespace}/endpointslices | 
-[**deleteCollectionNamespacedEndpointSlice**](DiscoveryV1alpha1Api.md#deleteCollectionNamespacedEndpointSlice) | **DELETE** /apis/discovery.k8s.io/v1alpha1/namespaces/{namespace}/endpointslices | 
-[**deleteNamespacedEndpointSlice**](DiscoveryV1alpha1Api.md#deleteNamespacedEndpointSlice) | **DELETE** /apis/discovery.k8s.io/v1alpha1/namespaces/{namespace}/endpointslices/{name} | 
-[**getAPIResources**](DiscoveryV1alpha1Api.md#getAPIResources) | **GET** /apis/discovery.k8s.io/v1alpha1/ | 
-[**listEndpointSliceForAllNamespaces**](DiscoveryV1alpha1Api.md#listEndpointSliceForAllNamespaces) | **GET** /apis/discovery.k8s.io/v1alpha1/endpointslices | 
-[**listNamespacedEndpointSlice**](DiscoveryV1alpha1Api.md#listNamespacedEndpointSlice) | **GET** /apis/discovery.k8s.io/v1alpha1/namespaces/{namespace}/endpointslices | 
-[**patchNamespacedEndpointSlice**](DiscoveryV1alpha1Api.md#patchNamespacedEndpointSlice) | **PATCH** /apis/discovery.k8s.io/v1alpha1/namespaces/{namespace}/endpointslices/{name} | 
-[**readNamespacedEndpointSlice**](DiscoveryV1alpha1Api.md#readNamespacedEndpointSlice) | **GET** /apis/discovery.k8s.io/v1alpha1/namespaces/{namespace}/endpointslices/{name} | 
-[**replaceNamespacedEndpointSlice**](DiscoveryV1alpha1Api.md#replaceNamespacedEndpointSlice) | **PUT** /apis/discovery.k8s.io/v1alpha1/namespaces/{namespace}/endpointslices/{name} | 
+[**createNamespacedEndpointSlice**](DiscoveryV1beta1Api.md#createNamespacedEndpointSlice) | **POST** /apis/discovery.k8s.io/v1beta1/namespaces/{namespace}/endpointslices | 
+[**deleteCollectionNamespacedEndpointSlice**](DiscoveryV1beta1Api.md#deleteCollectionNamespacedEndpointSlice) | **DELETE** /apis/discovery.k8s.io/v1beta1/namespaces/{namespace}/endpointslices | 
+[**deleteNamespacedEndpointSlice**](DiscoveryV1beta1Api.md#deleteNamespacedEndpointSlice) | **DELETE** /apis/discovery.k8s.io/v1beta1/namespaces/{namespace}/endpointslices/{name} | 
+[**getAPIResources**](DiscoveryV1beta1Api.md#getAPIResources) | **GET** /apis/discovery.k8s.io/v1beta1/ | 
+[**listEndpointSliceForAllNamespaces**](DiscoveryV1beta1Api.md#listEndpointSliceForAllNamespaces) | **GET** /apis/discovery.k8s.io/v1beta1/endpointslices | 
+[**listNamespacedEndpointSlice**](DiscoveryV1beta1Api.md#listNamespacedEndpointSlice) | **GET** /apis/discovery.k8s.io/v1beta1/namespaces/{namespace}/endpointslices | 
+[**patchNamespacedEndpointSlice**](DiscoveryV1beta1Api.md#patchNamespacedEndpointSlice) | **PATCH** /apis/discovery.k8s.io/v1beta1/namespaces/{namespace}/endpointslices/{name} | 
+[**readNamespacedEndpointSlice**](DiscoveryV1beta1Api.md#readNamespacedEndpointSlice) | **GET** /apis/discovery.k8s.io/v1beta1/namespaces/{namespace}/endpointslices/{name} | 
+[**replaceNamespacedEndpointSlice**](DiscoveryV1beta1Api.md#replaceNamespacedEndpointSlice) | **PUT** /apis/discovery.k8s.io/v1beta1/namespaces/{namespace}/endpointslices/{name} | 
 
 
 <a name="createNamespacedEndpointSlice"></a>
 # **createNamespacedEndpointSlice**
-> V1alpha1EndpointSlice createNamespacedEndpointSlice(namespace, body, pretty, dryRun, fieldManager)
+> V1beta1EndpointSlice createNamespacedEndpointSlice(namespace, body, pretty, dryRun, fieldManager)
 
 
 
@@ -31,7 +31,7 @@ import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.auth.*;
 import io.kubernetes.client.openapi.models.*;
-import io.kubernetes.client.openapi.apis.DiscoveryV1alpha1Api;
+import io.kubernetes.client.openapi.apis.DiscoveryV1beta1Api;
 
 public class Example {
   public static void main(String[] args) {
@@ -44,17 +44,17 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //BearerToken.setApiKeyPrefix("Token");
 
-    DiscoveryV1alpha1Api apiInstance = new DiscoveryV1alpha1Api(defaultClient);
+    DiscoveryV1beta1Api apiInstance = new DiscoveryV1beta1Api(defaultClient);
     String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-    V1alpha1EndpointSlice body = new V1alpha1EndpointSlice(); // V1alpha1EndpointSlice | 
+    V1beta1EndpointSlice body = new V1beta1EndpointSlice(); // V1beta1EndpointSlice | 
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
     String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
     String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
     try {
-      V1alpha1EndpointSlice result = apiInstance.createNamespacedEndpointSlice(namespace, body, pretty, dryRun, fieldManager);
+      V1beta1EndpointSlice result = apiInstance.createNamespacedEndpointSlice(namespace, body, pretty, dryRun, fieldManager);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DiscoveryV1alpha1Api#createNamespacedEndpointSlice");
+      System.err.println("Exception when calling DiscoveryV1beta1Api#createNamespacedEndpointSlice");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -69,14 +69,14 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | [**V1alpha1EndpointSlice**](V1alpha1EndpointSlice.md)|  |
+ **body** | [**V1beta1EndpointSlice**](V1beta1EndpointSlice.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
 
 ### Return type
 
-[**V1alpha1EndpointSlice**](V1alpha1EndpointSlice.md)
+[**V1beta1EndpointSlice**](V1beta1EndpointSlice.md)
 
 ### Authorization
 
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCollectionNamespacedEndpointSlice"></a>
 # **deleteCollectionNamespacedEndpointSlice**
-> V1Status deleteCollectionNamespacedEndpointSlice(namespace, pretty, allowWatchBookmarks, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, timeoutSeconds, watch, body)
+> V1Status deleteCollectionNamespacedEndpointSlice(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, timeoutSeconds, body)
 
 
 
@@ -111,7 +111,7 @@ import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.auth.*;
 import io.kubernetes.client.openapi.models.*;
-import io.kubernetes.client.openapi.apis.DiscoveryV1alpha1Api;
+import io.kubernetes.client.openapi.apis.DiscoveryV1beta1Api;
 
 public class Example {
   public static void main(String[] args) {
@@ -124,10 +124,9 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //BearerToken.setApiKeyPrefix("Token");
 
-    DiscoveryV1alpha1Api apiInstance = new DiscoveryV1alpha1Api(defaultClient);
+    DiscoveryV1beta1Api apiInstance = new DiscoveryV1beta1Api(defaultClient);
     String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
-    Boolean allowWatchBookmarks = true; // Boolean | allowWatchBookmarks requests watch events with type \"BOOKMARK\". Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server's discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored.  This field is beta.
     String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
     String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
     String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
@@ -138,13 +137,12 @@ public class Example {
     String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
     String resourceVersion = "resourceVersion_example"; // String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
     Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
-    Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
     V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
     try {
-      V1Status result = apiInstance.deleteCollectionNamespacedEndpointSlice(namespace, pretty, allowWatchBookmarks, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, timeoutSeconds, watch, body);
+      V1Status result = apiInstance.deleteCollectionNamespacedEndpointSlice(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, timeoutSeconds, body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DiscoveryV1alpha1Api#deleteCollectionNamespacedEndpointSlice");
+      System.err.println("Exception when calling DiscoveryV1beta1Api#deleteCollectionNamespacedEndpointSlice");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -160,7 +158,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **allowWatchBookmarks** | **Boolean**| allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored.  This field is beta. | [optional]
  **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
@@ -171,7 +168,6 @@ Name | Type | Description  | Notes
  **propagationPolicy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. | [optional]
  **resourceVersion** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional]
  **timeoutSeconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional]
- **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional]
  **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  | [optional]
 
 ### Return type
@@ -209,7 +205,7 @@ import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.auth.*;
 import io.kubernetes.client.openapi.models.*;
-import io.kubernetes.client.openapi.apis.DiscoveryV1alpha1Api;
+import io.kubernetes.client.openapi.apis.DiscoveryV1beta1Api;
 
 public class Example {
   public static void main(String[] args) {
@@ -222,7 +218,7 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //BearerToken.setApiKeyPrefix("Token");
 
-    DiscoveryV1alpha1Api apiInstance = new DiscoveryV1alpha1Api(defaultClient);
+    DiscoveryV1beta1Api apiInstance = new DiscoveryV1beta1Api(defaultClient);
     String name = "name_example"; // String | name of the EndpointSlice
     String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
@@ -235,7 +231,7 @@ public class Example {
       V1Status result = apiInstance.deleteNamespacedEndpointSlice(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DiscoveryV1alpha1Api#deleteNamespacedEndpointSlice");
+      System.err.println("Exception when calling DiscoveryV1beta1Api#deleteNamespacedEndpointSlice");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -294,7 +290,7 @@ import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.auth.*;
 import io.kubernetes.client.openapi.models.*;
-import io.kubernetes.client.openapi.apis.DiscoveryV1alpha1Api;
+import io.kubernetes.client.openapi.apis.DiscoveryV1beta1Api;
 
 public class Example {
   public static void main(String[] args) {
@@ -307,12 +303,12 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //BearerToken.setApiKeyPrefix("Token");
 
-    DiscoveryV1alpha1Api apiInstance = new DiscoveryV1alpha1Api(defaultClient);
+    DiscoveryV1beta1Api apiInstance = new DiscoveryV1beta1Api(defaultClient);
     try {
       V1APIResourceList result = apiInstance.getAPIResources();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DiscoveryV1alpha1Api#getAPIResources");
+      System.err.println("Exception when calling DiscoveryV1beta1Api#getAPIResources");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -346,7 +342,7 @@ This endpoint does not need any parameter.
 
 <a name="listEndpointSliceForAllNamespaces"></a>
 # **listEndpointSliceForAllNamespaces**
-> V1alpha1EndpointSliceList listEndpointSliceForAllNamespaces(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch)
+> V1beta1EndpointSliceList listEndpointSliceForAllNamespaces(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -360,7 +356,7 @@ import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.auth.*;
 import io.kubernetes.client.openapi.models.*;
-import io.kubernetes.client.openapi.apis.DiscoveryV1alpha1Api;
+import io.kubernetes.client.openapi.apis.DiscoveryV1beta1Api;
 
 public class Example {
   public static void main(String[] args) {
@@ -373,8 +369,8 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //BearerToken.setApiKeyPrefix("Token");
 
-    DiscoveryV1alpha1Api apiInstance = new DiscoveryV1alpha1Api(defaultClient);
-    Boolean allowWatchBookmarks = true; // Boolean | allowWatchBookmarks requests watch events with type \"BOOKMARK\". Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server's discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored.  This field is beta.
+    DiscoveryV1beta1Api apiInstance = new DiscoveryV1beta1Api(defaultClient);
+    Boolean allowWatchBookmarks = true; // Boolean | allowWatchBookmarks requests watch events with type \"BOOKMARK\". Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server's discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored.
     String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
     String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
     String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
@@ -384,10 +380,10 @@ public class Example {
     Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
     Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
     try {
-      V1alpha1EndpointSliceList result = apiInstance.listEndpointSliceForAllNamespaces(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch);
+      V1beta1EndpointSliceList result = apiInstance.listEndpointSliceForAllNamespaces(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, timeoutSeconds, watch);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DiscoveryV1alpha1Api#listEndpointSliceForAllNamespaces");
+      System.err.println("Exception when calling DiscoveryV1beta1Api#listEndpointSliceForAllNamespaces");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -401,7 +397,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **allowWatchBookmarks** | **Boolean**| allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored.  This field is beta. | [optional]
+ **allowWatchBookmarks** | **Boolean**| allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored. | [optional]
  **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
@@ -413,7 +409,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1alpha1EndpointSliceList**](V1alpha1EndpointSliceList.md)
+[**V1beta1EndpointSliceList**](V1beta1EndpointSliceList.md)
 
 ### Authorization
 
@@ -432,7 +428,7 @@ Name | Type | Description  | Notes
 
 <a name="listNamespacedEndpointSlice"></a>
 # **listNamespacedEndpointSlice**
-> V1alpha1EndpointSliceList listNamespacedEndpointSlice(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
+> V1beta1EndpointSliceList listNamespacedEndpointSlice(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -446,7 +442,7 @@ import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.auth.*;
 import io.kubernetes.client.openapi.models.*;
-import io.kubernetes.client.openapi.apis.DiscoveryV1alpha1Api;
+import io.kubernetes.client.openapi.apis.DiscoveryV1beta1Api;
 
 public class Example {
   public static void main(String[] args) {
@@ -459,10 +455,10 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //BearerToken.setApiKeyPrefix("Token");
 
-    DiscoveryV1alpha1Api apiInstance = new DiscoveryV1alpha1Api(defaultClient);
+    DiscoveryV1beta1Api apiInstance = new DiscoveryV1beta1Api(defaultClient);
     String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
-    Boolean allowWatchBookmarks = true; // Boolean | allowWatchBookmarks requests watch events with type \"BOOKMARK\". Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server's discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored.  This field is beta.
+    Boolean allowWatchBookmarks = true; // Boolean | allowWatchBookmarks requests watch events with type \"BOOKMARK\". Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server's discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored.
     String _continue = "_continue_example"; // String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
     String fieldSelector = "fieldSelector_example"; // String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
     String labelSelector = "labelSelector_example"; // String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
@@ -471,10 +467,10 @@ public class Example {
     Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
     Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
     try {
-      V1alpha1EndpointSliceList result = apiInstance.listNamespacedEndpointSlice(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
+      V1beta1EndpointSliceList result = apiInstance.listNamespacedEndpointSlice(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DiscoveryV1alpha1Api#listNamespacedEndpointSlice");
+      System.err.println("Exception when calling DiscoveryV1beta1Api#listNamespacedEndpointSlice");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -490,7 +486,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
- **allowWatchBookmarks** | **Boolean**| allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored.  This field is beta. | [optional]
+ **allowWatchBookmarks** | **Boolean**| allowWatchBookmarks requests watch events with type \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are returned at any specific interval, nor may they assume the server will send any BOOKMARK event during a session. If this is not a watch, this field is ignored. If the feature gate WatchBookmarks is not enabled in apiserver, this field is ignored. | [optional]
  **_continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional]
  **fieldSelector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional]
  **labelSelector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional]
@@ -501,7 +497,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1alpha1EndpointSliceList**](V1alpha1EndpointSliceList.md)
+[**V1beta1EndpointSliceList**](V1beta1EndpointSliceList.md)
 
 ### Authorization
 
@@ -520,7 +516,7 @@ Name | Type | Description  | Notes
 
 <a name="patchNamespacedEndpointSlice"></a>
 # **patchNamespacedEndpointSlice**
-> V1alpha1EndpointSlice patchNamespacedEndpointSlice(name, namespace, body, pretty, dryRun, fieldManager, force)
+> V1beta1EndpointSlice patchNamespacedEndpointSlice(name, namespace, body, pretty, dryRun, fieldManager, force)
 
 
 
@@ -534,7 +530,7 @@ import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.auth.*;
 import io.kubernetes.client.openapi.models.*;
-import io.kubernetes.client.openapi.apis.DiscoveryV1alpha1Api;
+import io.kubernetes.client.openapi.apis.DiscoveryV1beta1Api;
 
 public class Example {
   public static void main(String[] args) {
@@ -547,7 +543,7 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //BearerToken.setApiKeyPrefix("Token");
 
-    DiscoveryV1alpha1Api apiInstance = new DiscoveryV1alpha1Api(defaultClient);
+    DiscoveryV1beta1Api apiInstance = new DiscoveryV1beta1Api(defaultClient);
     String name = "name_example"; // String | name of the EndpointSlice
     String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
     V1Patch body = new V1Patch(); // V1Patch | 
@@ -556,10 +552,10 @@ public class Example {
     String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
     Boolean force = true; // Boolean | Force is going to \"force\" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
     try {
-      V1alpha1EndpointSlice result = apiInstance.patchNamespacedEndpointSlice(name, namespace, body, pretty, dryRun, fieldManager, force);
+      V1beta1EndpointSlice result = apiInstance.patchNamespacedEndpointSlice(name, namespace, body, pretty, dryRun, fieldManager, force);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DiscoveryV1alpha1Api#patchNamespacedEndpointSlice");
+      System.err.println("Exception when calling DiscoveryV1beta1Api#patchNamespacedEndpointSlice");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -583,7 +579,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1alpha1EndpointSlice**](V1alpha1EndpointSlice.md)
+[**V1beta1EndpointSlice**](V1beta1EndpointSlice.md)
 
 ### Authorization
 
@@ -602,7 +598,7 @@ Name | Type | Description  | Notes
 
 <a name="readNamespacedEndpointSlice"></a>
 # **readNamespacedEndpointSlice**
-> V1alpha1EndpointSlice readNamespacedEndpointSlice(name, namespace, pretty, exact, export)
+> V1beta1EndpointSlice readNamespacedEndpointSlice(name, namespace, pretty, exact, export)
 
 
 
@@ -616,7 +612,7 @@ import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.auth.*;
 import io.kubernetes.client.openapi.models.*;
-import io.kubernetes.client.openapi.apis.DiscoveryV1alpha1Api;
+import io.kubernetes.client.openapi.apis.DiscoveryV1beta1Api;
 
 public class Example {
   public static void main(String[] args) {
@@ -629,17 +625,17 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //BearerToken.setApiKeyPrefix("Token");
 
-    DiscoveryV1alpha1Api apiInstance = new DiscoveryV1alpha1Api(defaultClient);
+    DiscoveryV1beta1Api apiInstance = new DiscoveryV1beta1Api(defaultClient);
     String name = "name_example"; // String | name of the EndpointSlice
     String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
     Boolean exact = true; // Boolean | Should the export be exact.  Exact export maintains cluster-specific fields like 'Namespace'. Deprecated. Planned for removal in 1.18.
     Boolean export = true; // Boolean | Should this value be exported.  Export strips fields that a user can not specify. Deprecated. Planned for removal in 1.18.
     try {
-      V1alpha1EndpointSlice result = apiInstance.readNamespacedEndpointSlice(name, namespace, pretty, exact, export);
+      V1beta1EndpointSlice result = apiInstance.readNamespacedEndpointSlice(name, namespace, pretty, exact, export);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DiscoveryV1alpha1Api#readNamespacedEndpointSlice");
+      System.err.println("Exception when calling DiscoveryV1beta1Api#readNamespacedEndpointSlice");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -661,7 +657,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1alpha1EndpointSlice**](V1alpha1EndpointSlice.md)
+[**V1beta1EndpointSlice**](V1beta1EndpointSlice.md)
 
 ### Authorization
 
@@ -680,7 +676,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceNamespacedEndpointSlice"></a>
 # **replaceNamespacedEndpointSlice**
-> V1alpha1EndpointSlice replaceNamespacedEndpointSlice(name, namespace, body, pretty, dryRun, fieldManager)
+> V1beta1EndpointSlice replaceNamespacedEndpointSlice(name, namespace, body, pretty, dryRun, fieldManager)
 
 
 
@@ -694,7 +690,7 @@ import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.auth.*;
 import io.kubernetes.client.openapi.models.*;
-import io.kubernetes.client.openapi.apis.DiscoveryV1alpha1Api;
+import io.kubernetes.client.openapi.apis.DiscoveryV1beta1Api;
 
 public class Example {
   public static void main(String[] args) {
@@ -707,18 +703,18 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //BearerToken.setApiKeyPrefix("Token");
 
-    DiscoveryV1alpha1Api apiInstance = new DiscoveryV1alpha1Api(defaultClient);
+    DiscoveryV1beta1Api apiInstance = new DiscoveryV1beta1Api(defaultClient);
     String name = "name_example"; // String | name of the EndpointSlice
     String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-    V1alpha1EndpointSlice body = new V1alpha1EndpointSlice(); // V1alpha1EndpointSlice | 
+    V1beta1EndpointSlice body = new V1beta1EndpointSlice(); // V1beta1EndpointSlice | 
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
     String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
     String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
     try {
-      V1alpha1EndpointSlice result = apiInstance.replaceNamespacedEndpointSlice(name, namespace, body, pretty, dryRun, fieldManager);
+      V1beta1EndpointSlice result = apiInstance.replaceNamespacedEndpointSlice(name, namespace, body, pretty, dryRun, fieldManager);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DiscoveryV1alpha1Api#replaceNamespacedEndpointSlice");
+      System.err.println("Exception when calling DiscoveryV1beta1Api#replaceNamespacedEndpointSlice");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -734,14 +730,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the EndpointSlice |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | [**V1alpha1EndpointSlice**](V1alpha1EndpointSlice.md)|  |
+ **body** | [**V1beta1EndpointSlice**](V1beta1EndpointSlice.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
 
 ### Return type
 
-[**V1alpha1EndpointSlice**](V1alpha1EndpointSlice.md)
+[**V1beta1EndpointSlice**](V1beta1EndpointSlice.md)
 
 ### Authorization
 
