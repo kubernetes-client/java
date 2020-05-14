@@ -86,6 +86,7 @@ public class PodLogs {
             container,
             true,
             null,
+            null,
             "false",
             false,
             sinceSeconds,

@@ -260,6 +260,7 @@ public class ExpandedExample {
             namespace,
             null,
             Boolean.FALSE,
+            null,
             Integer.MAX_VALUE,
             null,
             Boolean.FALSE,
