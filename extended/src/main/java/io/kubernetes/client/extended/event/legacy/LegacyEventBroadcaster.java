@@ -83,7 +83,7 @@ public class LegacyEventBroadcaster implements EventBroadcaster {
 
   @Override
   public EventRecorder newRecorder(V1EventSource eventSource) {
-    return new ObjectReferenceResolvingEventRecorder(this.pendingEventQueue);
+    return new ObjectReferenceResolvingEventRecorder(this.pendingEventQueue, eventSource);
   }
 
   @Override
