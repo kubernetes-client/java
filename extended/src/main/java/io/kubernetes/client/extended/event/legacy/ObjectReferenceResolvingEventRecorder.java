@@ -4,6 +4,7 @@ import com.google.common.base.Strings;
 import io.kubernetes.client.extended.event.EventType;
 import io.kubernetes.client.openapi.models.V1Event;
 import io.kubernetes.client.openapi.models.V1EventBuilder;
+import io.kubernetes.client.openapi.models.V1EventSource;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1ObjectMetaBuilder;
 import io.kubernetes.client.openapi.models.V1ObjectReference;
@@ -25,11 +26,14 @@ public class ObjectReferenceResolvingEventRecorder implements EventRecorder {
   private static final Logger logger =
       LoggerFactory.getLogger(ObjectReferenceResolvingEventRecorder.class);
 
-  public ObjectReferenceResolvingEventRecorder(BlockingQueue<V1Event> queue) {
+  public ObjectReferenceResolvingEventRecorder(
+      BlockingQueue<V1Event> queue, V1EventSource eventSource) {
     this.pendingEventQueue = queue;
+    this.eventSource = eventSource;
   }
 
   private BlockingQueue<V1Event> pendingEventQueue;
+  private V1EventSource eventSource;
 
   @Override
   public void event(Object object, EventType t, String reason, String format, String... args) {
@@ -113,6 +117,8 @@ public class ObjectReferenceResolvingEventRecorder implements EventRecorder {
             .withMessage(message)
             .withFirstTimestamp(now)
             .withLastTimestamp(now)
+            .withSource(this.eventSource)
+            .withCount(1)
             .build();
 
     // fire event
