@@ -32,7 +32,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.kubernetes</groupId>
     <artifactId>client-java</artifactId>
-    <version>5.0.0</version>
+    <version>8.0.2</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 ### Gradle users
 
 ```groovy
-compile 'io.kubernetes:client-java:5.0.0'
+compile 'io.kubernetes:client-java:8.0.2'
 ```
 
 ### Others
@@ -56,7 +56,7 @@ mvn package
 
 Then manually install the following JARs:
 
-* target/client-java-api-7.0.0-SNAPSHOT.jar
+* target/client-java-api-8.0.3-SNAPSHOT.jar
 * target/lib/*.jar
 
 ## Example
@@ -178,13 +178,14 @@ All APIs and Models' documentation can be found at the [Generated client's docs]
 
 ## Compatibility
 
-|  client version  | 1.11      | 1.12     | 1.13     |  1.14     |  1.15    |
-|------------------|-----------|----------|----------|-----------|----------|
-|  3.0.0           |  ✓        |  -       |  -       | -         | -        |
-|  4.0.0           |  +        |  ✓       |  -       | -         | -        |
-|  5.0.0           |  +        |  +       |  ✓       | -         | -        |
-|  6.0.1           |  +        |  +       |  +       | ✓         | -        |
-|  7.0.0           |  +        |  +       |  +       | +         | ✓        |
+|  client version  | 1.11      | 1.12     | 1.13     |  1.14     |  1.15    |  1.16    |
+|------------------|-----------|----------|----------|-----------|----------|----------|
+|  3.0.0           |  ✓        |  -       |  -       | -         | -        | -        |
+|  4.0.0           |  +        |  ✓       |  -       | -         | -        | -        |
+|  5.0.0           |  +        |  +       |  ✓       | -         | -        | -        |
+|  6.0.1           |  +        |  +       |  +       | ✓         | -        | -        |
+|  7.0.0           |  +        |  +       |  +       | +         | ✓        | ✓        |
+|  8.0.2           |  +        |  +       |  +       | +         | +        | ✓        |
 
 Key: 
 
