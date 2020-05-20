@@ -32,7 +32,7 @@ import java.util.List;
  * EndpointSliceList represents a list of endpoint slices
  */
 @ApiModel(description = "EndpointSliceList represents a list of endpoint slices")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-04-29T07:27:12.312Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-13T12:44:48.120Z[Etc/UTC]")
 public class V1alpha1EndpointSliceList {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)

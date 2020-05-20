@@ -28,7 +28,7 @@ import java.io.IOException;
  * EndpointPort represents a Port used by an EndpointSlice
  */
 @ApiModel(description = "EndpointPort represents a Port used by an EndpointSlice")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-04-29T07:27:12.312Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-13T12:44:48.120Z[Etc/UTC]")
 public class V1alpha1EndpointPort {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
