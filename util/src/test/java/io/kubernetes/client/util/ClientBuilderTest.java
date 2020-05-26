@@ -21,9 +21,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 import com.google.common.io.Resources;
-import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.openapi.ApiClient;
-import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.util.credentials.Authentication;
 import java.io.File;
 import java.io.IOException;
@@ -175,14 +173,6 @@ public class ClientBuilderTest {
     final ApiClient client =
         new ClientBuilder()
             .setCertificateAuthority(Files.readAllBytes(Paths.get(INVALID_SSL_CA_CERT_PATH)))
-            .build();
-  }
-
-  @Test
-  public void testOverridePatchFormat() throws IOException, ApiException {
-    final ApiClient client =
-        new ClientBuilder()
-            .setOverridePatchFormat(V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH)
             .build();
   }
 
