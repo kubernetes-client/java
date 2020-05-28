@@ -159,6 +159,9 @@ public class ReflectorRunnable<ApiType, ApiListType> implements Runnable {
         case DELETED:
           store.delete(obj);
           break;
+        case BOOKMARK:
+          break;
+          // A `Bookmark` means watch has synced here, just update the resourceVersion
       }
       lastSyncResourceVersion = newResourceVersion;
       if (log.isDebugEnabled()) {

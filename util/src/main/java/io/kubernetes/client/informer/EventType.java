@@ -7,6 +7,8 @@ public enum EventType {
 
   DELETED,
 
+  BOOKMARK,
+
   ERROR;
 
   /**
