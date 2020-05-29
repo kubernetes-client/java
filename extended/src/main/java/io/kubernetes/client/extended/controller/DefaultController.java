@@ -151,7 +151,13 @@ public class DefaultController implements Controller {
       log.debug("Controller {} start reconciling {}..", this.name, request);
 
       // do reconciliation, invoke user customized logic.
-      Result result = this.reconciler.reconcile(request);
+      Result result = null;
+      try {
+        result = this.reconciler.reconcile(request);
+      } catch (Throwable t) {
+        log.error("Reconciler aborted unexpectedly", t);
+        result = new Result(true);
+      }
 
       try {
         // checks whether do a re-queue (on failure)
