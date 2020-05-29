@@ -18,8 +18,8 @@ import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.apis.CustomObjectsApi;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Status;
+import io.kubernetes.client.util.ObjectAccessor;
 import io.kubernetes.client.util.PatchUtils;
-import io.kubernetes.client.util.Reflect;
 import io.kubernetes.client.util.Watch;
 import io.kubernetes.client.util.Watchable;
 import io.kubernetes.client.util.exception.ObjectMetaReflectException;
@@ -379,7 +379,7 @@ public class GenericKubernetesApi<ApiType, ApiListType> {
   public KubernetesApiResponse<ApiType> create(ApiType object, final CreateOptions createOptions) {
     V1ObjectMeta objectMeta;
     try {
-      objectMeta = Reflect.objectMetadata(object);
+      objectMeta = ObjectAccessor.objectMetadata(object);
     } catch (ObjectMetaReflectException e) {
       throw new IllegalArgumentException("fail to extract object metadata");
     }
@@ -425,7 +425,7 @@ public class GenericKubernetesApi<ApiType, ApiListType> {
   public KubernetesApiResponse<ApiType> update(ApiType object, final UpdateOptions updateOptions) {
     V1ObjectMeta objectMeta;
     try {
-      objectMeta = Reflect.objectMetadata(object);
+      objectMeta = ObjectAccessor.objectMetadata(object);
     } catch (ObjectMetaReflectException e) {
       throw new IllegalArgumentException("fail to extract object metadata");
     }

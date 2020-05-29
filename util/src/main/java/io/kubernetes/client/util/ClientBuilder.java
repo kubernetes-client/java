@@ -21,7 +21,6 @@ import static io.kubernetes.client.util.KubeConfig.ENV_HOME;
 import static io.kubernetes.client.util.KubeConfig.KUBECONFIG;
 import static io.kubernetes.client.util.KubeConfig.KUBEDIR;
 
-import com.google.common.base.Strings;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.util.credentials.AccessTokenAuthentication;
 import io.kubernetes.client.util.credentials.Authentication;
@@ -38,10 +37,6 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -52,7 +47,6 @@ public class ClientBuilder {
   private String basePath = Config.DEFAULT_FALLBACK_HOST;
   private byte[] caCertBytes = null;
   private boolean verifyingSsl = true;
-  private String overridePatchFormat;
   private Authentication authentication;
 
   /**
@@ -295,15 +289,6 @@ public class ClientBuilder {
     return this;
   }
 
-  public String overridePatchFormat() {
-    return overridePatchFormat;
-  }
-
-  public ClientBuilder setOverridePatchFormat(String patchFormat) {
-    this.overridePatchFormat = patchFormat;
-    return this;
-  }
-
   public ApiClient build() {
     final ApiClient client = new ApiClient();
 
@@ -333,34 +318,6 @@ public class ClientBuilder {
       client.setSslCaCert(new ByteArrayInputStream(caCertBytes));
     }
 
-    if (!Strings.isNullOrEmpty(overridePatchFormat)) {
-      OkHttpClient withInterceptor =
-          client
-              .getHttpClient()
-              .newBuilder()
-              .addInterceptor(
-                  new Interceptor() {
-                    @Override
-                    public Response intercept(Chain chain) throws IOException {
-                      Request request = chain.request();
-
-                      if ("PATCH".equals(request.method())) {
-
-                        Request newRequest =
-                            request
-                                .newBuilder()
-                                .patch(
-                                    new ProxyContentTypeRequestBody(
-                                        request.body(), overridePatchFormat))
-                                .build();
-                        return chain.proceed(newRequest);
-                      }
-                      return chain.proceed(request);
-                    }
-                  })
-              .build();
-      client.setHttpClient(withInterceptor);
-    }
     return client;
   }
 }
