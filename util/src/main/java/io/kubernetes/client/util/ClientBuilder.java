@@ -12,11 +12,7 @@ limitations under the License.
  */
 package io.kubernetes.client.util;
 
-import static io.kubernetes.client.util.Config.ENV_KUBECONFIG;
-import static io.kubernetes.client.util.Config.ENV_SERVICE_HOST;
-import static io.kubernetes.client.util.Config.ENV_SERVICE_PORT;
-import static io.kubernetes.client.util.Config.SERVICEACCOUNT_CA_PATH;
-import static io.kubernetes.client.util.Config.SERVICEACCOUNT_TOKEN_PATH;
+import static io.kubernetes.client.util.Config.*;
 import static io.kubernetes.client.util.KubeConfig.ENV_HOME;
 import static io.kubernetes.client.util.KubeConfig.KUBECONFIG;
 import static io.kubernetes.client.util.KubeConfig.KUBEDIR;
@@ -31,12 +27,15 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
+import okhttp3.Protocol;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -291,6 +290,10 @@ public class ClientBuilder {
 
   public ApiClient build() {
     final ApiClient client = new ApiClient();
+
+    // defaulting client protocols to HTTP1.1
+    client.setHttpClient(
+        client.getHttpClient().newBuilder().protocols(Arrays.asList(Protocol.HTTP_1_1)).build());
 
     if (basePath != null) {
       if (basePath.endsWith("/")) {
