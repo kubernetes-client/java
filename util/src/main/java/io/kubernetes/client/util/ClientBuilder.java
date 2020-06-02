@@ -26,6 +26,7 @@ import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.util.credentials.AccessTokenAuthentication;
 import io.kubernetes.client.util.credentials.Authentication;
 import io.kubernetes.client.util.credentials.KubeconfigAuthentication;
+import io.kubernetes.client.util.credentials.TokenFileAuthentication;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -197,12 +198,12 @@ public class ClientBuilder {
   }
 
   /**
-   * Creates a builder which is pre-configured from the cluster configuration.
+   * [DEPRECATED] Creates a builder which is pre-configured from the cluster configuration.
    *
    * @return <tt>ClientBuilder</tt> configured from the cluster configuration.
    * @throws IOException if the Service Account Token Path or CA Path is not readable.
    */
-  public static ClientBuilder cluster() throws IOException {
+  public static ClientBuilder oldCluster() throws IOException {
     final ClientBuilder builder = new ClientBuilder();
 
     final String host = System.getenv(ENV_SERVICE_HOST);
@@ -214,6 +215,26 @@ public class ClientBuilder {
             Files.readAllBytes(Paths.get(SERVICEACCOUNT_TOKEN_PATH)), Charset.defaultCharset());
     builder.setCertificateAuthority(Files.readAllBytes(Paths.get(SERVICEACCOUNT_CA_PATH)));
     builder.setAuthentication(new AccessTokenAuthentication(token));
+
+    return builder;
+  }
+
+  /**
+   * Creates a builder which is pre-configured from the cluster configuration.
+   *
+   * @return <tt>ClientBuilder</tt> configured from the cluster configuration where service account
+   *     token will be reloaded.
+   * @throws IOException if the Service Account Token Path or CA Path is not readable.
+   */
+  public static ClientBuilder cluster() throws IOException {
+    final ClientBuilder builder = new ClientBuilder();
+
+    final String host = System.getenv(ENV_SERVICE_HOST);
+    final String port = System.getenv(ENV_SERVICE_PORT);
+    builder.setBasePath(host, port);
+
+    builder.setCertificateAuthority(Files.readAllBytes(Paths.get(SERVICEACCOUNT_CA_PATH)));
+    builder.setAuthentication(new TokenFileAuthentication(SERVICEACCOUNT_TOKEN_PATH));
 
     return builder;
   }
