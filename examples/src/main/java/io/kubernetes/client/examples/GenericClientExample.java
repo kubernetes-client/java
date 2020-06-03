@@ -1,6 +1,7 @@
 package io.kubernetes.client.examples;
 
 import com.google.common.annotations.Beta;
+import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.extended.generic.GenericKubernetesApi;
 import io.kubernetes.client.extended.generic.KubernetesApiResponse;
 import io.kubernetes.client.openapi.ApiClient;
@@ -17,6 +18,7 @@ public class GenericClientExample {
 
   public static void main(String[] args) throws Exception {
 
+    // The following codes demonstrates using generic client to manipulate pods
     V1Pod pod =
         new V1Pod()
             .metadata(new V1ObjectMeta().name("foo").namespace("default"))
@@ -32,6 +34,17 @@ public class GenericClientExample {
       throw new RuntimeException(createResponse.getStatus().toString());
     }
     System.out.println("Created!");
+
+    KubernetesApiResponse<V1Pod> patchResponse =
+        podClient.patch(
+            "default",
+            "foo",
+            V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH,
+            new V1Patch("{\"metadata\":{\"finalizers\":[\"example.io/foo\"]}}"));
+    if (!patchResponse.isSuccess()) {
+      throw new RuntimeException(patchResponse.getStatus().toString());
+    }
+    System.out.println("Patched!");
 
     KubernetesApiResponse<V1Pod> deleteResponse = podClient.delete("default", "foo");
     if (!deleteResponse.isSuccess()) {

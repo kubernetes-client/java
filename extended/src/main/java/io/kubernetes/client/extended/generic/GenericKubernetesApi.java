@@ -1,6 +1,5 @@
 package io.kubernetes.client.extended.generic;
 
-import com.google.common.annotations.Beta;
 import com.google.common.base.Strings;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -40,7 +39,6 @@ import okhttp3.HttpUrl;
  * @param <ApiType> the api type parameter
  * @param <ApiListType> the api list type parameter
  */
-@Beta
 public class GenericKubernetesApi<ApiType, ApiListType> {
 
   // TODO(yue9944882): supports status operations..
