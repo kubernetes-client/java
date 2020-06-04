@@ -104,6 +104,8 @@ We prepared a few examples for common use-cases which are shown below:
   Leader election utilities to help implement HA controllers.
   - ([9.0.0+](https://github.com/kubernetes-client/java/tree/client-java-parent-9.0.0)) [SpringIntegrationControllerExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/SpringControllerExample.java): 
   Building a kubernetes controller based on spring framework's bean injection.
+  - ([9.0.0+](https://github.com/kubernetes-client/java/tree/client-java-parent-9.0.0)) [GenericKubernetesClientExample](https://github.com/kubernetes-client/java/blob/master/extended/src/main/java/io/kubernetes/client/extended/generic/GenericKubernetesApi.java): 
+  Construct a generic client interface for any kubernetes types, including CRDs.
 
 
 __list all pods__:
