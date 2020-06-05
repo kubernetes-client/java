@@ -40,6 +40,9 @@ public class InClusterClientExample {
     //   4. master endpoints(ip, port) from pre-set environment variables
     ApiClient client = ClientBuilder.cluster().build();
 
+    // if you prefer not to refresh service account token, please use:
+    // ApiClient client = ClientBuilder.oldCluster().build();
+
     // set the global default api-client to the in-cluster one from above
     Configuration.setDefaultApiClient(client);
 
