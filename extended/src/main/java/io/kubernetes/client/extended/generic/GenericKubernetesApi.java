@@ -28,7 +28,7 @@ import okhttp3.HttpUrl;
 
 /**
  * The Generic kubernetes api provides a unified client interface for not only the non-core-group
- * built-in resources from kuberntes but also the custom-resources models meet the following
+ * built-in resources from kubernetes but also the custom-resources models meet the following
  * requirements:
  *
  * <p>1. there's a `V1ObjectMeta` field in the model along with its getter/setter. 2. there's a
@@ -42,7 +42,7 @@ import okhttp3.HttpUrl;
 public class GenericKubernetesApi<ApiType, ApiListType> {
 
   // TODO(yue9944882): supports status operations..
-  // TODO(yue9944882): supports generic sub-resoruce operations..
+  // TODO(yue9944882): supports generic sub-resource operations..
   // TODO(yue9944882): supports delete-collections..
 
   private Class<ApiType> apiTypeClass;
