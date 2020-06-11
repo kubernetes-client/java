@@ -10,13 +10,13 @@
 		<groupId>io.kubernetes</groupId>
 		<artifactId>client-java-parent</artifactId>
 		<version>9.0.0-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.google.protobuf</groupId>
 			<artifactId>protobuf-java</artifactId>
-			<version>3.4.0</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -35,10 +35,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	<properties>
-		<java.version>1.7</java.version>
-		<maven.compiler.source>${java.version}</maven.compiler.source>
-		<maven.compiler.target>${java.version}</maven.compiler.target>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
 </project>
