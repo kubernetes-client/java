@@ -17,6 +17,7 @@ import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.models.V1Pod;
+import io.kubernetes.client.util.exception.CopyNotSupportedException;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -93,12 +94,12 @@ public class Copy extends Exec {
   }
 
   public void copyDirectoryFromPod(V1Pod pod, String srcPath, Path destination)
-      throws ApiException, IOException {
+      throws ApiException, IOException, CopyNotSupportedException {
     copyDirectoryFromPod(pod, null, srcPath, destination);
   }
 
   public void copyDirectoryFromPod(V1Pod pod, String container, String srcPath, Path destination)
-      throws ApiException, IOException {
+      throws ApiException, IOException, CopyNotSupportedException {
     copyDirectoryFromPod(
         pod.getMetadata().getNamespace(),
         pod.getMetadata().getName(),
@@ -108,58 +109,58 @@ public class Copy extends Exec {
   }
 
   public void copyDirectoryFromPod(String namespace, String pod, String srcPath, Path destination)
-      throws ApiException, IOException {
+      throws ApiException, IOException, CopyNotSupportedException {
     copyDirectoryFromPod(namespace, pod, null, srcPath, destination);
   }
 
   public void copyDirectoryFromPod(
       String namespace, String pod, String container, String srcPath, Path destination)
-      throws ApiException, IOException {
+      throws ApiException, IOException, CopyNotSupportedException {
     // Test that 'tar' is present in the container?
-    if (isTarPresentInContainer(namespace, pod, container)) {
-      final Process proc =
-          this.exec(
-              namespace,
-              pod,
-              new String[] {"sh", "-c", "tar cz - " + srcPath + " | base64"},
-              container,
-              false,
-              false);
-      try (InputStream is = new Base64InputStream(new BufferedInputStream(proc.getInputStream()));
-          ArchiveInputStream archive =
-              new TarArchiveInputStream(new GzipCompressorInputStream(is))) {
-        for (ArchiveEntry entry = archive.getNextEntry();
-            entry != null;
-            entry = archive.getNextEntry()) {
-          if (!archive.canReadEntryData(entry)) {
-            log.error("Can't read: " + entry);
-            continue;
+    if (!isTarPresentInContainer(namespace, pod, container)) {
+      throw new CopyNotSupportedException("Tar is not present in the target container");
+    }
+    final Process proc =
+        this.exec(
+            namespace,
+            pod,
+            new String[] {"sh", "-c", "tar cz - " + srcPath + " | base64"},
+            container,
+            false,
+            false);
+    try (InputStream is = new Base64InputStream(new BufferedInputStream(proc.getInputStream()));
+        ArchiveInputStream archive = new TarArchiveInputStream(new GzipCompressorInputStream(is))) {
+      for (ArchiveEntry entry = archive.getNextEntry();
+          entry != null;
+          entry = archive.getNextEntry()) {
+        if (!archive.canReadEntryData(entry)) {
+          log.error("Can't read: " + entry);
+          continue;
+        }
+        File f = new File(destination.toFile(), entry.getName());
+        if (entry.isDirectory()) {
+          if (!f.isDirectory() && !f.mkdirs()) {
+            throw new IOException("create directory failed: " + f);
           }
-          File f = new File(destination.toFile(), entry.getName());
-          if (entry.isDirectory()) {
-            if (!f.isDirectory() && !f.mkdirs()) {
-              throw new IOException("create directory failed: " + f);
-            }
-          } else {
-            File parent = f.getParentFile();
-            if (!parent.isDirectory() && !parent.mkdirs()) {
-              throw new IOException("create directory failed: " + parent);
-            }
-            try (OutputStream fs = new FileOutputStream(f)) {
-              ByteStreams.copy(archive, fs);
-              fs.flush();
-            }
+        } else {
+          File parent = f.getParentFile();
+          if (!parent.isDirectory() && !parent.mkdirs()) {
+            throw new IOException("create directory failed: " + parent);
+          }
+          try (OutputStream fs = new FileOutputStream(f)) {
+            ByteStreams.copy(archive, fs);
+            fs.flush();
           }
         }
       }
-      try {
-        int status = proc.waitFor();
-        if (status != 0) {
-          throw new IOException("Copy command failed with status " + status);
-        }
-      } catch (InterruptedException ex) {
-        throw new IOException(ex);
+    }
+    try {
+      int status = proc.waitFor();
+      if (status != 0) {
+        throw new IOException("Copy command failed with status " + status);
       }
+    } catch (InterruptedException ex) {
+      throw new IOException(ex);
     }
   }
 
