@@ -213,8 +213,13 @@ public class Copy extends Exec {
         this.exec(
             namespace, pod, new String[] {"sh", "-c", "tar --version"}, container, false, false);
     // This will work for POSIX based operating systems
-    boolean isTarPresent = proc.exitValue() == 127 ? false : true;
-    proc.destroy();
-    return isTarPresent;
+    try {
+      int status = proc.waitFor();
+      return status == 127 ? false : true;
+    } catch (InterruptedException ex) {
+      throw new IOException(ex);
+    } finally {
+      proc.destroy();
+    }
   }
 }
