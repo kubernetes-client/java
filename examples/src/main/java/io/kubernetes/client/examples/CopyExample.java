@@ -18,6 +18,7 @@ import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.util.Config;
+import io.kubernetes.client.util.exception.CopyNotSupportedException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Paths;
@@ -31,7 +32,8 @@ import java.nio.file.Paths;
  * <p>From inside $REPO_DIR/examples
  */
 public class CopyExample {
-  public static void main(String[] args) throws IOException, ApiException, InterruptedException {
+  public static void main(String[] args)
+      throws IOException, ApiException, InterruptedException, CopyNotSupportedException {
     String podName = "kube-addon-manager-minikube";
     String namespace = "kube-system";
 
