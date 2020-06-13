@@ -17,6 +17,7 @@ import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.models.V1Pod;
+import io.kubernetes.client.util.exception.CopyNotSupportedException;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -93,12 +94,12 @@ public class Copy extends Exec {
   }
 
   public void copyDirectoryFromPod(V1Pod pod, String srcPath, Path destination)
-      throws ApiException, IOException {
+      throws ApiException, IOException, CopyNotSupportedException {
     copyDirectoryFromPod(pod, null, srcPath, destination);
   }
 
   public void copyDirectoryFromPod(V1Pod pod, String container, String srcPath, Path destination)
-      throws ApiException, IOException {
+      throws ApiException, IOException, CopyNotSupportedException {
     copyDirectoryFromPod(
         pod.getMetadata().getNamespace(),
         pod.getMetadata().getName(),
@@ -108,14 +109,17 @@ public class Copy extends Exec {
   }
 
   public void copyDirectoryFromPod(String namespace, String pod, String srcPath, Path destination)
-      throws ApiException, IOException {
+      throws ApiException, IOException, CopyNotSupportedException {
     copyDirectoryFromPod(namespace, pod, null, srcPath, destination);
   }
 
   public void copyDirectoryFromPod(
       String namespace, String pod, String container, String srcPath, Path destination)
-      throws ApiException, IOException {
-    // TODO: Test that 'tar' is present in the container?
+      throws ApiException, IOException, CopyNotSupportedException {
+    // Test that 'tar' is present in the container?
+    if (!isTarPresentInContainer(namespace, pod, container)) {
+      throw new CopyNotSupportedException("Tar is not present in the target container");
+    }
     final Process proc =
         this.exec(
             namespace,
@@ -201,5 +205,21 @@ public class Copy extends Exec {
     }
 
     return;
+  }
+
+  private boolean isTarPresentInContainer(String namespace, String pod, String container)
+      throws ApiException, IOException {
+    final Process proc =
+        this.exec(
+            namespace, pod, new String[] {"sh", "-c", "tar --version"}, container, false, false);
+    // This will work for POSIX based operating systems
+    try {
+      int status = proc.waitFor();
+      return status == 127 ? false : true;
+    } catch (InterruptedException ex) {
+      throw new IOException(ex);
+    } finally {
+      proc.destroy();
+    }
   }
 }
