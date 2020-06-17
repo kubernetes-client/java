@@ -106,7 +106,7 @@ public class ReflectorRunnable<ApiType, ApiListType> implements Runnable {
         }
       }
     } catch (Throwable t) {
-      log.error("{}#Failed to list-watch: {}", apiTypeClass, t);
+      log.error("Failed to list-watch", t);
     }
   }
 
