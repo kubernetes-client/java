@@ -29,7 +29,7 @@ import java.io.IOException;
  * APIServiceSpec contains information for locating and communicating with a server. Only https is supported, though you are able to disable certificate verification.
  */
 @ApiModel(description = "APIServiceSpec contains information for locating and communicating with a server. Only https is supported, though you are able to disable certificate verification.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
 public class V1beta1APIServiceSpec {
   public static final String SERIALIZED_NAME_CA_BUNDLE = "caBundle";
   @SerializedName(SERIALIZED_NAME_CA_BUNDLE)

@@ -15,4 +15,8 @@ Name | Type | Description | Notes
 **scheduling** | [**V1beta1Scheduling**](V1beta1Scheduling.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

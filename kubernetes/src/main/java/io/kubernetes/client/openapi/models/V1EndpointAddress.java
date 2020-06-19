@@ -29,7 +29,7 @@ import java.io.IOException;
  * EndpointAddress is a tuple that describes single IP address.
  */
 @ApiModel(description = "EndpointAddress is a tuple that describes single IP address.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
 public class V1EndpointAddress {
   public static final String SERIALIZED_NAME_HOSTNAME = "hostname";
   @SerializedName(SERIALIZED_NAME_HOSTNAME)

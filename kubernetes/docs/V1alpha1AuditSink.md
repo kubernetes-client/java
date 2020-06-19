@@ -13,4 +13,8 @@ Name | Type | Description | Notes
 **spec** | [**V1alpha1AuditSinkSpec**](V1alpha1AuditSinkSpec.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

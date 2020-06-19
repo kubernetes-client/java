@@ -31,7 +31,7 @@ import java.util.List;
  * CustomResourceConversion describes how to convert different versions of a CR.
  */
 @ApiModel(description = "CustomResourceConversion describes how to convert different versions of a CR.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
 public class V1beta1CustomResourceConversion {
   public static final String SERIALIZED_NAME_CONVERSION_REVIEW_VERSIONS = "conversionReviewVersions";
   @SerializedName(SERIALIZED_NAME_CONVERSION_REVIEW_VERSIONS)

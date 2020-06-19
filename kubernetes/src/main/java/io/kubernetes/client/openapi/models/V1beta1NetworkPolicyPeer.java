@@ -30,7 +30,7 @@ import java.io.IOException;
  * DEPRECATED 1.9 - This group version of NetworkPolicyPeer is deprecated by networking/v1/NetworkPolicyPeer.
  */
 @ApiModel(description = "DEPRECATED 1.9 - This group version of NetworkPolicyPeer is deprecated by networking/v1/NetworkPolicyPeer.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
 public class V1beta1NetworkPolicyPeer {
   public static final String SERIALIZED_NAME_IP_BLOCK = "ipBlock";
   @SerializedName(SERIALIZED_NAME_IP_BLOCK)

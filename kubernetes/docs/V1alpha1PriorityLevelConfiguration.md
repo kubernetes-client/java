@@ -14,4 +14,8 @@ Name | Type | Description | Notes
 **status** | [**V1alpha1PriorityLevelConfigurationStatus**](V1alpha1PriorityLevelConfigurationStatus.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

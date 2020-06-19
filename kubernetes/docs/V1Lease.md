@@ -13,4 +13,8 @@ Name | Type | Description | Notes
 **spec** | [**V1LeaseSpec**](V1LeaseSpec.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

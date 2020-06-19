@@ -14,4 +14,8 @@ Name | Type | Description | Notes
 **status** | [**V1SubjectAccessReviewStatus**](V1SubjectAccessReviewStatus.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

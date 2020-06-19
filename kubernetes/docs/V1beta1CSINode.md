@@ -13,4 +13,8 @@ Name | Type | Description | Notes
 **spec** | [**V1beta1CSINodeSpec**](V1beta1CSINodeSpec.md) |  | 
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

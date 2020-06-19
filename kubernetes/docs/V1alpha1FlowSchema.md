@@ -14,4 +14,8 @@ Name | Type | Description | Notes
 **status** | [**V1alpha1FlowSchemaStatus**](V1alpha1FlowSchemaStatus.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

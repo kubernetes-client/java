@@ -13,4 +13,8 @@ Name | Type | Description | Notes
 **template** | [**V1PodTemplateSpec**](V1PodTemplateSpec.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

@@ -14,4 +14,8 @@ Name | Type | Description | Notes
 **subjects** | [**List&lt;V1Subject&gt;**](V1Subject.md) | Subjects holds references to the objects the role applies to. |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

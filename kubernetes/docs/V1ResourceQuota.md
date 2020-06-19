@@ -14,4 +14,8 @@ Name | Type | Description | Notes
 **status** | [**V1ResourceQuotaStatus**](V1ResourceQuotaStatus.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

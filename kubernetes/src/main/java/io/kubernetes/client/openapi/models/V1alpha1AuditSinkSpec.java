@@ -30,7 +30,7 @@ import java.io.IOException;
  * AuditSinkSpec holds the spec for the audit sink
  */
 @ApiModel(description = "AuditSinkSpec holds the spec for the audit sink")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
 public class V1alpha1AuditSinkSpec {
   public static final String SERIALIZED_NAME_POLICY = "policy";
   @SerializedName(SERIALIZED_NAME_POLICY)

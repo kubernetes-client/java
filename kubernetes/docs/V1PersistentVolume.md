@@ -14,4 +14,8 @@ Name | Type | Description | Notes
 **status** | [**V1PersistentVolumeStatus**](V1PersistentVolumeStatus.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

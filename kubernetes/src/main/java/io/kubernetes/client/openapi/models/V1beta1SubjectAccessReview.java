@@ -31,8 +31,8 @@ import java.io.IOException;
  * SubjectAccessReview checks whether or not a user or group can perform an action.
  */
 @ApiModel(description = "SubjectAccessReview checks whether or not a user or group can perform an action.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
-public class V1beta1SubjectAccessReview {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+public class V1beta1SubjectAccessReview implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
   private String apiVersion;

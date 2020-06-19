@@ -15,4 +15,8 @@ Name | Type | Description | Notes
 **type** | **String** | Used to facilitate programmatic handling of secret data. |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

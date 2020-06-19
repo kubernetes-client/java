@@ -14,4 +14,8 @@ Name | Type | Description | Notes
 **status** | [**V1beta1PodDisruptionBudgetStatus**](V1beta1PodDisruptionBudgetStatus.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

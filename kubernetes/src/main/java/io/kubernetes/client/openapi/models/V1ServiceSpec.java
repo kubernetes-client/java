@@ -34,7 +34,7 @@ import java.util.Map;
  * ServiceSpec describes the attributes that a user creates on a service.
  */
 @ApiModel(description = "ServiceSpec describes the attributes that a user creates on a service.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
 public class V1ServiceSpec {
   public static final String SERIALIZED_NAME_CLUSTER_I_P = "clusterIP";
   @SerializedName(SERIALIZED_NAME_CLUSTER_I_P)

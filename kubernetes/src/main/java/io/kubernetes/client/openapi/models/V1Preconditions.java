@@ -28,7 +28,7 @@ import java.io.IOException;
  * Preconditions must be fulfilled before an operation (update, delete, etc.) is carried out.
  */
 @ApiModel(description = "Preconditions must be fulfilled before an operation (update, delete, etc.) is carried out.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
 public class V1Preconditions {
   public static final String SERIALIZED_NAME_RESOURCE_VERSION = "resourceVersion";
   @SerializedName(SERIALIZED_NAME_RESOURCE_VERSION)

@@ -13,4 +13,8 @@ Name | Type | Description | Notes
 **target** | [**V1ObjectReference**](V1ObjectReference.md) |  | 
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

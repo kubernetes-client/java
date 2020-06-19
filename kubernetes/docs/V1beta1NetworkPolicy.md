@@ -13,4 +13,8 @@ Name | Type | Description | Notes
 **spec** | [**V1beta1NetworkPolicySpec**](V1beta1NetworkPolicySpec.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

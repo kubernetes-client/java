@@ -33,7 +33,7 @@ import java.util.List;
  * IngressSpec describes the Ingress the user wishes to exist.
  */
 @ApiModel(description = "IngressSpec describes the Ingress the user wishes to exist.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
 public class NetworkingV1beta1IngressSpec {
   public static final String SERIALIZED_NAME_BACKEND = "backend";
   @SerializedName(SERIALIZED_NAME_BACKEND)

@@ -28,7 +28,7 @@ import java.io.IOException;
  * FlowDistinguisherMethod specifies the method of a flow distinguisher.
  */
 @ApiModel(description = "FlowDistinguisherMethod specifies the method of a flow distinguisher.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
 public class V1alpha1FlowDistinguisherMethod {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)

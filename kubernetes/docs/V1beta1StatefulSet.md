@@ -14,4 +14,8 @@ Name | Type | Description | Notes
 **status** | [**V1beta1StatefulSetStatus**](V1beta1StatefulSetStatus.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

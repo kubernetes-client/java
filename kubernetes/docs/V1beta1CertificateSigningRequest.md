@@ -14,4 +14,8 @@ Name | Type | Description | Notes
 **status** | [**V1beta1CertificateSigningRequestStatus**](V1beta1CertificateSigningRequestStatus.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

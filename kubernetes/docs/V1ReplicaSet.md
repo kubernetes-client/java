@@ -14,4 +14,8 @@ Name | Type | Description | Notes
 **status** | [**V1ReplicaSetStatus**](V1ReplicaSetStatus.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

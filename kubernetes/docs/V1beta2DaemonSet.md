@@ -14,4 +14,8 @@ Name | Type | Description | Notes
 **status** | [**V1beta2DaemonSetStatus**](V1beta2DaemonSetStatus.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

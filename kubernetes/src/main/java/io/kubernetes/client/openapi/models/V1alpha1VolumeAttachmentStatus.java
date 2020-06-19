@@ -32,7 +32,7 @@ import java.util.Map;
  * VolumeAttachmentStatus is the status of a VolumeAttachment request.
  */
 @ApiModel(description = "VolumeAttachmentStatus is the status of a VolumeAttachment request.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
 public class V1alpha1VolumeAttachmentStatus {
   public static final String SERIALIZED_NAME_ATTACH_ERROR = "attachError";
   @SerializedName(SERIALIZED_NAME_ATTACH_ERROR)

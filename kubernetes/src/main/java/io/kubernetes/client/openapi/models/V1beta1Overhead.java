@@ -32,7 +32,7 @@ import java.util.Map;
  * Overhead structure represents the resource overhead associated with running a pod.
  */
 @ApiModel(description = "Overhead structure represents the resource overhead associated with running a pod.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
 public class V1beta1Overhead {
   public static final String SERIALIZED_NAME_POD_FIXED = "podFixed";
   @SerializedName(SERIALIZED_NAME_POD_FIXED)

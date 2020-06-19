@@ -13,4 +13,8 @@ Name | Type | Description | Notes
 **spec** | [**ExtensionsV1beta1PodSecurityPolicySpec**](ExtensionsV1beta1PodSecurityPolicySpec.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

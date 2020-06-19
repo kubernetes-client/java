@@ -14,4 +14,8 @@ Name | Type | Description | Notes
 **status** | [**V1beta1SubjectRulesReviewStatus**](V1beta1SubjectRulesReviewStatus.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

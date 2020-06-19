@@ -28,7 +28,7 @@ import java.io.IOException;
  * AllowedHostPath defines the host volume conditions that will be enabled by a policy for pods to use. It requires the path prefix to be defined. Deprecated: use AllowedHostPath from policy API Group instead.
  */
 @ApiModel(description = "AllowedHostPath defines the host volume conditions that will be enabled by a policy for pods to use. It requires the path prefix to be defined. Deprecated: use AllowedHostPath from policy API Group instead.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
 public class ExtensionsV1beta1AllowedHostPath {
   public static final String SERIALIZED_NAME_PATH_PREFIX = "pathPrefix";
   @SerializedName(SERIALIZED_NAME_PATH_PREFIX)

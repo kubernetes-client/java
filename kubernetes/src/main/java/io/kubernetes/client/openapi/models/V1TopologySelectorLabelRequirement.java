@@ -30,7 +30,7 @@ import java.util.List;
  * A topology selector requirement is a selector that matches given label. This is an alpha feature and may change in the future.
  */
 @ApiModel(description = "A topology selector requirement is a selector that matches given label. This is an alpha feature and may change in the future.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
 public class V1TopologySelectorLabelRequirement {
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)

@@ -28,7 +28,7 @@ import java.io.IOException;
  * HTTPHeader describes a custom header to be used in HTTP probes
  */
 @ApiModel(description = "HTTPHeader describes a custom header to be used in HTTP probes")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
 public class V1HTTPHeader {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)

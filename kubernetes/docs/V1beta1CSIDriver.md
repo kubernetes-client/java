@@ -13,4 +13,8 @@ Name | Type | Description | Notes
 **spec** | [**V1beta1CSIDriverSpec**](V1beta1CSIDriverSpec.md) |  | 
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

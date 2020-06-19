@@ -14,4 +14,8 @@ Name | Type | Description | Notes
 **status** | [**V2beta1HorizontalPodAutoscalerStatus**](V2beta1HorizontalPodAutoscalerStatus.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

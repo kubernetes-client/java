@@ -13,4 +13,8 @@ Name | Type | Description | Notes
 **spec** | [**V1alpha1PodPresetSpec**](V1alpha1PodPresetSpec.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 
