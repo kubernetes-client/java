@@ -28,7 +28,7 @@ import java.io.IOException;
  * AzureFile represents an Azure File Service mount on the host and bind mount to the pod.
  */
 @ApiModel(description = "AzureFile represents an Azure File Service mount on the host and bind mount to the pod.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
 public class V1AzureFileVolumeSource {
   public static final String SERIALIZED_NAME_READ_ONLY = "readOnly";
   @SerializedName(SERIALIZED_NAME_READ_ONLY)

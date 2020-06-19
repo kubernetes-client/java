@@ -14,4 +14,8 @@ Name | Type | Description | Notes
 **status** | [**AppsV1beta1ScaleStatus**](AppsV1beta1ScaleStatus.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

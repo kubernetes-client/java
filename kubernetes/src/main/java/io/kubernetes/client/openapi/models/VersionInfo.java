@@ -28,7 +28,7 @@ import java.io.IOException;
  * Info contains versioning information. how we&#39;ll want to distribute that information.
  */
 @ApiModel(description = "Info contains versioning information. how we'll want to distribute that information.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
 public class VersionInfo {
   public static final String SERIALIZED_NAME_BUILD_DATE = "buildDate";
   @SerializedName(SERIALIZED_NAME_BUILD_DATE)

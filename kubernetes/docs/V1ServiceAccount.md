@@ -15,4 +15,8 @@ Name | Type | Description | Notes
 **secrets** | [**List&lt;V1ObjectReference&gt;**](V1ObjectReference.md) | Secrets is the list of secrets allowed to be used by pods running using this ServiceAccount. More info: https://kubernetes.io/docs/concepts/configuration/secret |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

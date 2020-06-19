@@ -14,4 +14,8 @@ Name | Type | Description | Notes
 **status** | [**V1NamespaceStatus**](V1NamespaceStatus.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

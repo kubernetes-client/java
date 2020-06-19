@@ -30,7 +30,7 @@ import java.util.List;
  * HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&#39;s hosts file.
  */
 @ApiModel(description = "HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod's hosts file.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
 public class V1HostAlias {
   public static final String SERIALIZED_NAME_HOSTNAMES = "hostnames";
   @SerializedName(SERIALIZED_NAME_HOSTNAMES)

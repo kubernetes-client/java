@@ -31,7 +31,7 @@ import java.util.List;
  * AggregationRule describes how to locate ClusterRoles to aggregate into the ClusterRole
  */
 @ApiModel(description = "AggregationRule describes how to locate ClusterRoles to aggregate into the ClusterRole")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
 public class V1alpha1AggregationRule {
   public static final String SERIALIZED_NAME_CLUSTER_ROLE_SELECTORS = "clusterRoleSelectors";
   @SerializedName(SERIALIZED_NAME_CLUSTER_ROLE_SELECTORS)

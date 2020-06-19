@@ -29,7 +29,7 @@ import java.io.IOException;
  * LimitResponse defines how to handle requests that can not be executed right now.
  */
 @ApiModel(description = "LimitResponse defines how to handle requests that can not be executed right now.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
 public class V1alpha1LimitResponse {
   public static final String SERIALIZED_NAME_QUEUING = "queuing";
   @SerializedName(SERIALIZED_NAME_QUEUING)

@@ -26,4 +26,8 @@ Name | Type | Description | Notes
 **type** | **String** | Type of this event (Normal, Warning), new types could be added in the future |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

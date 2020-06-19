@@ -28,7 +28,7 @@ import java.io.IOException;
  * StatusCause provides more information about an api.Status failure, including cases when multiple errors are encountered.
  */
 @ApiModel(description = "StatusCause provides more information about an api.Status failure, including cases when multiple errors are encountered.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
 public class V1StatusCause {
   public static final String SERIALIZED_NAME_FIELD = "field";
   @SerializedName(SERIALIZED_NAME_FIELD)

@@ -32,8 +32,8 @@ import java.util.List;
  * PodDisruptionBudgetList is a collection of PodDisruptionBudgets.
  */
 @ApiModel(description = "PodDisruptionBudgetList is a collection of PodDisruptionBudgets.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
-public class V1beta1PodDisruptionBudgetList {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+public class V1beta1PodDisruptionBudgetList implements io.kubernetes.client.common.KubernetesListObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
   private String apiVersion;

@@ -14,4 +14,8 @@ Name | Type | Description | Notes
 **rules** | [**List&lt;V1PolicyRule&gt;**](V1PolicyRule.md) | Rules holds all the PolicyRules for this ClusterRole |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

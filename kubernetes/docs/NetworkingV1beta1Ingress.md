@@ -14,4 +14,8 @@ Name | Type | Description | Notes
 **status** | [**NetworkingV1beta1IngressStatus**](NetworkingV1beta1IngressStatus.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

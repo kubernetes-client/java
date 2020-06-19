@@ -13,4 +13,8 @@ Name | Type | Description | Notes
 **spec** | [**V1LimitRangeSpec**](V1LimitRangeSpec.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

@@ -29,7 +29,7 @@ import org.joda.time.DateTime;
  * current status of a horizontal pod autoscaler
  */
 @ApiModel(description = "current status of a horizontal pod autoscaler")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
 public class V1HorizontalPodAutoscalerStatus {
   public static final String SERIALIZED_NAME_CURRENT_C_P_U_UTILIZATION_PERCENTAGE = "currentCPUUtilizationPercentage";
   @SerializedName(SERIALIZED_NAME_CURRENT_C_P_U_UTILIZATION_PERCENTAGE)

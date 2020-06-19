@@ -14,4 +14,8 @@ Name | Type | Description | Notes
 **status** | [**V1beta1CronJobStatus**](V1beta1CronJobStatus.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

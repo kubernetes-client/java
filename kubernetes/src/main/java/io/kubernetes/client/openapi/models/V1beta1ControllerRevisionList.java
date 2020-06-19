@@ -32,8 +32,8 @@ import java.util.List;
  * ControllerRevisionList is a resource containing a list of ControllerRevision objects.
  */
 @ApiModel(description = "ControllerRevisionList is a resource containing a list of ControllerRevision objects.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
-public class V1beta1ControllerRevisionList {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+public class V1beta1ControllerRevisionList implements io.kubernetes.client.common.KubernetesListObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
   private String apiVersion;

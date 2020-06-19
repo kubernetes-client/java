@@ -16,4 +16,8 @@ Name | Type | Description | Notes
 **value** | **Integer** | The value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec. | 
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

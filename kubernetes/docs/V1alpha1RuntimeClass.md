@@ -13,4 +13,8 @@ Name | Type | Description | Notes
 **spec** | [**V1alpha1RuntimeClassSpec**](V1alpha1RuntimeClassSpec.md) |  | 
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

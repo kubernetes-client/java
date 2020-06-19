@@ -31,8 +31,8 @@ import java.io.IOException;
  * APIService represents a server for a particular GroupVersion. Name must be \&quot;version.group\&quot;.
  */
 @ApiModel(description = "APIService represents a server for a particular GroupVersion. Name must be \"version.group\".")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
-public class V1beta1APIService {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+public class V1beta1APIService implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
   private String apiVersion;

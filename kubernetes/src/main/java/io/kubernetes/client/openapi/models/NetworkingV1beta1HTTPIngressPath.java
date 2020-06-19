@@ -29,7 +29,7 @@ import java.io.IOException;
  * HTTPIngressPath associates a path regex with a backend. Incoming urls matching the path are forwarded to the backend.
  */
 @ApiModel(description = "HTTPIngressPath associates a path regex with a backend. Incoming urls matching the path are forwarded to the backend.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
 public class NetworkingV1beta1HTTPIngressPath {
   public static final String SERIALIZED_NAME_BACKEND = "backend";
   @SerializedName(SERIALIZED_NAME_BACKEND)

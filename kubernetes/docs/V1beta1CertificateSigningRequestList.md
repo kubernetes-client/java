@@ -12,4 +12,8 @@ Name | Type | Description | Notes
 **metadata** | [**V1ListMeta**](V1ListMeta.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesListObject
+
 

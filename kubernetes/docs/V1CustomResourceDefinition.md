@@ -14,4 +14,8 @@ Name | Type | Description | Notes
 **status** | [**V1CustomResourceDefinitionStatus**](V1CustomResourceDefinitionStatus.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

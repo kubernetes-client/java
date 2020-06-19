@@ -14,4 +14,8 @@ Name | Type | Description | Notes
 **revision** | **Long** | Revision indicates the revision of the state represented by Data. | 
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

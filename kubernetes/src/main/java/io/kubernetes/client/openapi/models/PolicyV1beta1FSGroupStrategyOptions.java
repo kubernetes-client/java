@@ -31,7 +31,7 @@ import java.util.List;
  * FSGroupStrategyOptions defines the strategy type and options used to create the strategy.
  */
 @ApiModel(description = "FSGroupStrategyOptions defines the strategy type and options used to create the strategy.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
 public class PolicyV1beta1FSGroupStrategyOptions {
   public static final String SERIALIZED_NAME_RANGES = "ranges";
   @SerializedName(SERIALIZED_NAME_RANGES)

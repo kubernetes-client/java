@@ -14,4 +14,8 @@ Name | Type | Description | Notes
 **status** | [**V1alpha1VolumeAttachmentStatus**](V1alpha1VolumeAttachmentStatus.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

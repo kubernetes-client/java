@@ -13,4 +13,8 @@ Name | Type | Description | Notes
 **rules** | [**List&lt;V1beta1PolicyRule&gt;**](V1beta1PolicyRule.md) | Rules holds all the PolicyRules for this Role |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

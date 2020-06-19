@@ -32,7 +32,7 @@ import java.io.IOException;
  * DeploymentSpec is the specification of the desired behavior of the Deployment.
  */
 @ApiModel(description = "DeploymentSpec is the specification of the desired behavior of the Deployment.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T09:13:11.368Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
 public class AppsV1beta1DeploymentSpec {
   public static final String SERIALIZED_NAME_MIN_READY_SECONDS = "minReadySeconds";
   @SerializedName(SERIALIZED_NAME_MIN_READY_SECONDS)

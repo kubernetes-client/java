@@ -13,4 +13,8 @@ Name | Type | Description | Notes
 **webhooks** | [**List&lt;V1beta1ValidatingWebhook&gt;**](V1beta1ValidatingWebhook.md) | Webhooks is a list of webhooks and the affected resources and operations. |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 

@@ -14,4 +14,8 @@ Name | Type | Description | Notes
 **status** | [**V1ServiceStatus**](V1ServiceStatus.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* io.kubernetes.client.common.KubernetesObject
+
 
