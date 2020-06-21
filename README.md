@@ -110,7 +110,7 @@ We prepared a few examples for common use-cases which are shown below:
 
 __list all pods__:
 
-```
+```java
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
@@ -137,7 +137,7 @@ public class Example {
 
 __watch on namespace object__:
 
-```
+```java
 import com.google.gson.reflect.TypeToken;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
