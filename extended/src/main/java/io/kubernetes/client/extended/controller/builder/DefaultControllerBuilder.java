@@ -1,5 +1,6 @@
 package io.kubernetes.client.extended.controller.builder;
 
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.controller.*;
 import io.kubernetes.client.extended.controller.reconciler.Reconciler;
 import io.kubernetes.client.extended.controller.reconciler.Request;
@@ -50,7 +51,7 @@ public class DefaultControllerBuilder {
    * @param controllerWatchGetter the controller watch getter
    * @return the controller builder . controller watch builder
    */
-  public <ApiType> DefaultControllerBuilder watch(
+  public <ApiType extends KubernetesObject> DefaultControllerBuilder watch(
       Function<WorkQueue<Request>, ControllerWatch<ApiType>> controllerWatchGetter) {
     ControllerWatch<ApiType> watch = controllerWatchGetter.apply(this.workQueue);
     Class<ApiType> apiTypeClass = watch.getResourceClass();

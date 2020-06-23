@@ -1,5 +1,6 @@
 package io.kubernetes.client.informer;
 
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.cache.Store;
 import java.util.function.Supplier;
 import org.slf4j.Logger;
@@ -9,7 +10,7 @@ import org.slf4j.LoggerFactory;
  * ResyncRunnable class implements Runnable interface. It calls the resync function of Store
  * interface which is actually always implemented by DeltaFIFO.
  */
-public class ResyncRunnable<ApiType> implements Runnable {
+public class ResyncRunnable<ApiType extends KubernetesObject> implements Runnable {
 
   private static final Logger log = LoggerFactory.getLogger(ResyncRunnable.class);
 

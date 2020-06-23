@@ -1,5 +1,6 @@
 package io.kubernetes.client.spring.extended.controller;
 
+import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.extended.generic.GenericKubernetesApi;
 import io.kubernetes.client.extended.generic.KubernetesApiResponse;
 import io.kubernetes.client.extended.generic.options.ListOptions;
@@ -108,8 +109,8 @@ public class KubernetesInformerFactoryProcessor
       SharedIndexInformer sharedIndexInformer =
           sharedInformerFactory.sharedIndexInformerFor(
               new ListerWatcher() {
-                public Object list(CallGeneratorParams params) throws ApiException {
-                  KubernetesApiResponse resp =
+                public KubernetesListObject list(CallGeneratorParams params) throws ApiException {
+                  KubernetesApiResponse<KubernetesListObject> resp =
                       api.list(
                           new ListOptions() {
                             {

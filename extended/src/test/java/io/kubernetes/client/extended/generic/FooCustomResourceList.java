@@ -1,9 +1,10 @@
 package io.kubernetes.client.extended.generic;
 
+import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.openapi.models.V1ListMeta;
 import java.util.List;
 
-public class FooCustomResourceList {
+public class FooCustomResourceList implements KubernetesListObject {
   private V1ListMeta metadata;
   private List<FooCustomResource> items;
 
@@ -39,5 +40,15 @@ public class FooCustomResourceList {
     int result = metadata != null ? metadata.hashCode() : 0;
     result = 31 * result + (items != null ? items.hashCode() : 0);
     return result;
+  }
+
+  @Override
+  public String getApiVersion() {
+    return "";
+  }
+
+  @Override
+  public String getKind() {
+    return "";
   }
 }

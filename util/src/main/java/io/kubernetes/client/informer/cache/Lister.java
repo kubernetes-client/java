@@ -1,10 +1,11 @@
 package io.kubernetes.client.informer.cache;
 
 import com.google.common.base.Strings;
+import io.kubernetes.client.common.KubernetesObject;
 import java.util.List;
 
 /** Lister interface is used to list cached items from a running informer. */
-public class Lister<ApiType> {
+public class Lister<ApiType extends KubernetesObject> {
 
   private String namespace;
 

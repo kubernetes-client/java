@@ -1,5 +1,6 @@
 package io.kubernetes.client.extended.controller;
 
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.controller.reconciler.Request;
 import io.kubernetes.client.extended.workqueue.WorkQueue;
 import io.kubernetes.client.informer.ResourceEventHandler;
@@ -13,7 +14,8 @@ import java.util.function.Predicate;
  *
  * @param <ApiType> the type parameter
  */
-public class DefaultControllerWatch<ApiType> implements ControllerWatch<ApiType> {
+public class DefaultControllerWatch<ApiType extends KubernetesObject>
+    implements ControllerWatch<ApiType> {
 
   private final WorkQueue<Request> workQueue;
   private final Function<ApiType, Request> workKeyGenerator;

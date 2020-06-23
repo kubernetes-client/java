@@ -1,6 +1,8 @@
 package io.kubernetes.client.informer.cache;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import io.kubernetes.client.common.KubernetesListObject;
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.ListerWatcher;
 import io.kubernetes.client.informer.ResyncRunnable;
 import java.util.Deque;
@@ -15,7 +17,8 @@ import org.slf4j.LoggerFactory;
  * Controller is a java port of k/client-go's informer#Controller. It plumbs reflector and the queue
  * implementation and it runs re-sync function periodically.
  */
-public class Controller<ApiType, ApiListType> {
+public class Controller<
+    ApiType extends KubernetesObject, ApiListType extends KubernetesListObject> {
 
   private static final Logger log = LoggerFactory.getLogger(Controller.class);
 

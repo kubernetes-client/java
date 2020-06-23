@@ -1,5 +1,6 @@
 package io.kubernetes.client.informer.cache;
 
+import io.kubernetes.client.common.KubernetesObject;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.HashMap;
@@ -24,7 +25,7 @@ import org.slf4j.LoggerFactory;
 // NOTE(yue9944882): The DeltaFIFO inherits from a Object queue since that we are
 // actually reading from it as Deltas but writing it as Kubernetes object. this is
 // an issue existing in k/k.
-public class DeltaFIFO<ApiType> implements Store<Object> {
+public class DeltaFIFO<ApiType extends KubernetesObject> implements Store<Object> {
 
   private static final Logger log = LoggerFactory.getLogger(DeltaFIFO.class);
 

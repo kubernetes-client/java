@@ -1,8 +1,9 @@
 package io.kubernetes.client.extended.generic;
 
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 
-public class FooCustomResource {
+public class FooCustomResource implements KubernetesObject {
   private V1ObjectMeta metadata;
 
   public V1ObjectMeta getMetadata() {
@@ -26,5 +27,15 @@ public class FooCustomResource {
   @Override
   public int hashCode() {
     return metadata != null ? metadata.hashCode() : 0;
+  }
+
+  @Override
+  public String getApiVersion() {
+    return "";
+  }
+
+  @Override
+  public String getKind() {
+    return "";
   }
 }

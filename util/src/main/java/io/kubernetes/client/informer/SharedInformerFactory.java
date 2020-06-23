@@ -1,7 +1,8 @@
 package io.kubernetes.client.informer;
 
 import com.google.gson.reflect.TypeToken;
-import io.kubernetes.client.*;
+import io.kubernetes.client.common.KubernetesListObject;
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.impl.DefaultSharedIndexInformer;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
@@ -73,10 +74,11 @@ public class SharedInformerFactory {
    * @param apiListTypeClass the api list type class
    * @return the shared index informer
    */
-  public synchronized <ApiType, ApiListType> SharedIndexInformer<ApiType> sharedIndexInformerFor(
-      CallGenerator callGenerator,
-      Class<ApiType> apiTypeClass,
-      Class<ApiListType> apiListTypeClass) {
+  public synchronized <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
+      SharedIndexInformer<ApiType> sharedIndexInformerFor(
+          CallGenerator callGenerator,
+          Class<ApiType> apiTypeClass,
+          Class<ApiListType> apiListTypeClass) {
     return sharedIndexInformerFor(callGenerator, apiTypeClass, apiListTypeClass, 0);
   }
 
@@ -92,11 +94,12 @@ public class SharedInformerFactory {
    * @param resyncPeriodInMillis the resync period in millis
    * @return the shared index informer
    */
-  public synchronized <ApiType, ApiListType> SharedIndexInformer<ApiType> sharedIndexInformerFor(
-      CallGenerator callGenerator,
-      Class<ApiType> apiTypeClass,
-      Class<ApiListType> apiListTypeClass,
-      long resyncPeriodInMillis) {
+  public synchronized <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
+      SharedIndexInformer<ApiType> sharedIndexInformerFor(
+          CallGenerator callGenerator,
+          Class<ApiType> apiTypeClass,
+          Class<ApiListType> apiListTypeClass,
+          long resyncPeriodInMillis) {
     ListerWatcher<ApiType, ApiListType> listerWatcher =
         listerWatcherFor(callGenerator, apiTypeClass, apiListTypeClass);
     return sharedIndexInformerFor(listerWatcher, apiTypeClass, resyncPeriodInMillis);
@@ -113,10 +116,11 @@ public class SharedInformerFactory {
    * @param resyncPeriodInMillis the resync period in millis
    * @return the shared index informer
    */
-  public synchronized <ApiType, ApiListType> SharedIndexInformer<ApiType> sharedIndexInformerFor(
-      ListerWatcher<ApiType, ApiListType> listerWatcher,
-      Class<ApiType> apiTypeClass,
-      long resyncPeriodInMillis) {
+  public synchronized <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
+      SharedIndexInformer<ApiType> sharedIndexInformerFor(
+          ListerWatcher<ApiType, ApiListType> listerWatcher,
+          Class<ApiType> apiTypeClass,
+          long resyncPeriodInMillis) {
     SharedIndexInformer<ApiType> informer =
         new DefaultSharedIndexInformer<ApiType, ApiListType>(
             apiTypeClass, listerWatcher, resyncPeriodInMillis);
@@ -124,10 +128,11 @@ public class SharedInformerFactory {
     return informer;
   }
 
-  private <ApiType, ApiListType> ListerWatcher<ApiType, ApiListType> listerWatcherFor(
-      CallGenerator callGenerator,
-      Class<ApiType> apiTypeClass,
-      Class<ApiListType> apiListTypeClass) {
+  private <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
+      ListerWatcher<ApiType, ApiListType> listerWatcherFor(
+          CallGenerator callGenerator,
+          Class<ApiType> apiTypeClass,
+          Class<ApiListType> apiListTypeClass) {
     if (apiClient.getHttpClient().readTimeoutMillis() > 0) {
       // set read timeout zero to ensure client doesn't time out
       OkHttpClient httpClient =
@@ -160,8 +165,8 @@ public class SharedInformerFactory {
    * @param apiTypeClass the api type class
    * @return the existing shared index informer
    */
-  public synchronized <ApiType> SharedIndexInformer<ApiType> getExistingSharedIndexInformer(
-      Class<ApiType> apiTypeClass) {
+  public synchronized <ApiType extends KubernetesObject>
+      SharedIndexInformer<ApiType> getExistingSharedIndexInformer(Class<ApiType> apiTypeClass) {
     return this.informers.get(TypeToken.get(apiTypeClass).getType());
   }
 

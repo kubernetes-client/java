@@ -1,6 +1,8 @@
 package io.kubernetes.client.informer;
 
-public interface ResourceEventHandler<ApiType> {
+import io.kubernetes.client.common.KubernetesObject;
+
+public interface ResourceEventHandler<ApiType extends KubernetesObject> {
 
   void onAdd(ApiType obj);
 
