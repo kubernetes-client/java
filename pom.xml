@@ -43,7 +43,7 @@
     <bucket4j.version>4.10.0</bucket4j.version>
     <bouncycastle.version>1.65</bouncycastle.version>
     <apache.commons.lang3.version>3.7</apache.commons.lang3.version>
-    <apache.commons.collections4.version>4.1</apache.commons.collections4.version>
+    <apache.commons.collections4.version>4.4</apache.commons.collections4.version>
     <apache.commons.compress>1.19</apache.commons.compress>
     <common.codec.version>1.11</common.codec.version>
     <spring.boot.version>2.1.0.RELEASE</spring.boot.version>
