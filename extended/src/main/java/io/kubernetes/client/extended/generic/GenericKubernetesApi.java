@@ -4,6 +4,8 @@ import com.google.common.base.Strings;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
+import io.kubernetes.client.common.KubernetesListObject;
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.extended.generic.options.CreateOptions;
 import io.kubernetes.client.extended.generic.options.DeleteOptions;
@@ -39,7 +41,8 @@ import okhttp3.HttpUrl;
  * @param <ApiType> the api type parameter
  * @param <ApiListType> the api list type parameter
  */
-public class GenericKubernetesApi<ApiType, ApiListType> {
+public class GenericKubernetesApi<
+    ApiType extends KubernetesObject, ApiListType extends KubernetesListObject> {
 
   // TODO(yue9944882): supports status operations..
   // TODO(yue9944882): supports generic sub-resource operations..

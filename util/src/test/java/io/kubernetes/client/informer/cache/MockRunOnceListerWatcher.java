@@ -1,12 +1,15 @@
 package io.kubernetes.client.informer.cache;
 
+import io.kubernetes.client.common.KubernetesListObject;
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.ListerWatcher;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.Watch;
 import io.kubernetes.client.util.Watchable;
 
-public class MockRunOnceListerWatcher<ApiType, ApiListType>
+public class MockRunOnceListerWatcher<
+        ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
     implements ListerWatcher<ApiType, ApiListType> {
 
   private ApiListType list;

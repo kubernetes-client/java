@@ -1,5 +1,6 @@
 package io.kubernetes.client.informer.cache;
 
+import io.kubernetes.client.common.KubernetesObject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -12,7 +13,7 @@ import org.joda.time.DateTime;
 /*
  * SharedProcessor class manages all the registered ProcessorListener and distributes notifications.
  */
-public class SharedProcessor<ApiType> {
+public class SharedProcessor<ApiType extends KubernetesObject> {
 
   private ReadWriteLock lock = new ReentrantReadWriteLock();
 

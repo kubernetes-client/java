@@ -1,6 +1,7 @@
 package io.kubernetes.client.extended.controller;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.controller.reconciler.Request;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.util.ObjectAccessor;
@@ -22,7 +23,8 @@ public class Controllers {
    * @param <ApiType> the type parameter
    * @return the function
    */
-  public static <ApiType> Function<ApiType, Request> defaultReflectiveKeyFunc() {
+  public static <ApiType extends KubernetesObject>
+      Function<ApiType, Request> defaultReflectiveKeyFunc() {
     return (ApiType obj) -> {
       try {
         V1ObjectMeta objectMeta = ObjectAccessor.objectMetadata(obj);

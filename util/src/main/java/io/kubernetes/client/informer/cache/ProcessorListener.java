@@ -1,5 +1,6 @@
 package io.kubernetes.client.informer.cache;
 
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.ResourceEventHandler;
 import io.kubernetes.client.informer.exception.BadNotificationException;
 import java.util.concurrent.BlockingQueue;
@@ -12,7 +13,7 @@ import org.slf4j.LoggerFactory;
  * ProcessorListener implements Runnable interface. It's supposed to run in background and actually
  * executes its event handler on notification.
  */
-public class ProcessorListener<ApiType> implements Runnable {
+public class ProcessorListener<ApiType extends KubernetesObject> implements Runnable {
 
   private static final Logger log = LoggerFactory.getLogger(ProcessorListener.class);
 

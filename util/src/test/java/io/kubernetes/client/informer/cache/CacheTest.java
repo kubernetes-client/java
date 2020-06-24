@@ -2,6 +2,7 @@ package io.kubernetes.client.informer.cache;
 
 import static org.junit.Assert.*;
 
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1PodSpec;
@@ -37,12 +38,12 @@ public class CacheTest {
   private static Cache cache =
       new Cache<>(mockIndexName, CacheTest::mockIndexFunc, CacheTest::mockKeyFunc);
 
-  public CacheTest(Object obj, String index) {
+  public CacheTest(KubernetesObject obj, String index) {
     this.obj = obj;
     this.index = index;
   }
 
-  private Object obj;
+  private KubernetesObject obj;
   private String index;
 
   @Parameterized.Parameters

@@ -2,6 +2,7 @@ package io.kubernetes.client.informer.cache;
 
 import static org.junit.Assert.*;
 
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.ResourceEventHandler;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
@@ -48,7 +49,8 @@ public class SharedProcessorTest {
     assertTrue(expectDeleteHandler.isSatisfied());
   }
 
-  private static class ExpectingNoticationHandler<ApiType> extends ProcessorListener<ApiType> {
+  private static class ExpectingNoticationHandler<ApiType extends KubernetesObject>
+      extends ProcessorListener<ApiType> {
 
     public ExpectingNoticationHandler(Notification<ApiType> expectingNotification) {
       this(

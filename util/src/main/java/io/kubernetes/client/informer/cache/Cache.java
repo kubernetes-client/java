@@ -1,5 +1,6 @@
 package io.kubernetes.client.informer.cache;
 
+import io.kubernetes.client.common.KubernetesObject;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -17,7 +18,7 @@ import org.apache.commons.collections4.MapUtils;
  * entries.
  */
 // TODO(yue9944882): Cache is very similar to a Map, replace/inherit w/ Map interface
-public class Cache<ApiType> implements Indexer<ApiType> {
+public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType> {
 
   /** keyFunc defines how to map objects into indices */
   private Function<ApiType, String> keyFunc;
@@ -233,7 +234,7 @@ public class Cache<ApiType> implements Indexer<ApiType> {
    * @return the list
    */
   @Override
-  public List<ApiType> index(String indexName, Object obj) {
+  public List<ApiType> index(String indexName, ApiType obj) {
     lock.lock();
     try {
       if (!this.indexers.containsKey(indexName)) {

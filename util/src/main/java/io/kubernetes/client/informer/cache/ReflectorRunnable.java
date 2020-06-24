@@ -1,5 +1,7 @@
 package io.kubernetes.client.informer.cache;
 
+import io.kubernetes.client.common.KubernetesListObject;
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.EventType;
 import io.kubernetes.client.informer.ListerWatcher;
 import io.kubernetes.client.openapi.models.V1ListMeta;
@@ -13,7 +15,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ReflectorRunnable<ApiType, ApiListType> implements Runnable {
+public class ReflectorRunnable<
+        ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
+    implements Runnable {
 
   private static final Logger log = LoggerFactory.getLogger(ReflectorRunnable.class);
 

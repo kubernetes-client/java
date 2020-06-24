@@ -1,9 +1,11 @@
 package io.kubernetes.client.informer;
 
+import io.kubernetes.client.common.KubernetesObject;
+
 /*
  * SharedInformer defines basic methods of a informer.
  */
-public interface SharedInformer<ApiType> {
+public interface SharedInformer<ApiType extends KubernetesObject> {
 
   /**
    * Add event handler.

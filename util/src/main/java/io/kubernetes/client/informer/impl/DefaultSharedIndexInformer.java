@@ -1,5 +1,7 @@
 package io.kubernetes.client.informer.impl;
 
+import io.kubernetes.client.common.KubernetesListObject;
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.ListerWatcher;
 import io.kubernetes.client.informer.ResourceEventHandler;
 import io.kubernetes.client.informer.SharedIndexInformer;
@@ -18,7 +20,8 @@ import org.apache.commons.lang3.tuple.MutablePair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class DefaultSharedIndexInformer<ApiType, ApiListType>
+public class DefaultSharedIndexInformer<
+        ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
     implements SharedIndexInformer<ApiType> {
 
   private static final Logger log = LoggerFactory.getLogger(DefaultSharedIndexInformer.class);

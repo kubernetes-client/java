@@ -1,5 +1,6 @@
 package io.kubernetes.client.extended.controller;
 
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.ResourceEventHandler;
 import java.time.Duration;
 
@@ -8,7 +9,7 @@ import java.time.Duration;
  *
  * @param <ApiType> the type parameter
  */
-public interface ControllerWatch<ApiType> {
+public interface ControllerWatch<ApiType extends KubernetesObject> {
   /**
    * Gets the watching resource class.
    *

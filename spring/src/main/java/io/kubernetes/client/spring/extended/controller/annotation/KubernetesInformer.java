@@ -1,5 +1,7 @@
 package io.kubernetes.client.spring.extended.controller.annotation;
 
+import io.kubernetes.client.common.KubernetesListObject;
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.openapi.models.V1Namespace;
 import io.kubernetes.client.openapi.models.V1NamespaceList;
 import java.lang.annotation.ElementType;
@@ -21,14 +23,14 @@ public @interface KubernetesInformer {
    *
    * @return the class
    */
-  Class apiTypeClass() default V1Namespace.class;
+  Class<? extends KubernetesObject> apiTypeClass() default V1Namespace.class;
 
   /**
    * Kubernetes api list type class class. e.g. V1NamespaceList.
    *
    * @return the class
    */
-  Class apiListTypeClass() default V1NamespaceList.class;
+  Class<? extends KubernetesListObject> apiListTypeClass() default V1NamespaceList.class;
 
   /**
    * Group-version-resource is a tuple for constructing legal Kubernetes api path. e.g. {"batch",

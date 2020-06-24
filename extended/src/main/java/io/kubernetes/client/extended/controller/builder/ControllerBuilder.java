@@ -1,5 +1,6 @@
 package io.kubernetes.client.extended.controller.builder;
 
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.controller.reconciler.Request;
 import io.kubernetes.client.extended.workqueue.WorkQueue;
 import io.kubernetes.client.informer.SharedInformerFactory;
@@ -33,8 +34,9 @@ public class ControllerBuilder {
    *
    * @return the controller watch builder
    */
-  public static <ApiType> ControllerWatchBuilder<ApiType> controllerWatchBuilder(
-      Class<ApiType> apiTypeClass, WorkQueue<Request> workQueue) {
+  public static <ApiType extends KubernetesObject>
+      ControllerWatchBuilder<ApiType> controllerWatchBuilder(
+          Class<ApiType> apiTypeClass, WorkQueue<Request> workQueue) {
     return new ControllerWatchBuilder(apiTypeClass, workQueue);
   }
 }

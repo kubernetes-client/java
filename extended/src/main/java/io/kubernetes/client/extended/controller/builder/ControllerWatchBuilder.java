@@ -1,5 +1,6 @@
 package io.kubernetes.client.extended.controller.builder;
 
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.controller.Controllers;
 import io.kubernetes.client.extended.controller.DefaultControllerWatch;
 import io.kubernetes.client.extended.controller.reconciler.Request;
@@ -9,7 +10,7 @@ import java.util.function.BiPredicate;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-public class ControllerWatchBuilder<ApiType> {
+public class ControllerWatchBuilder<ApiType extends KubernetesObject> {
 
   private Function<ApiType, Request> workKeyGenerator;
   private WorkQueue<Request> workQueue;
