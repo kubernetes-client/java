@@ -42,7 +42,7 @@
     <junit.version>4.12</junit.version>
     <bucket4j.version>4.10.0</bucket4j.version>
     <bouncycastle.version>1.65</bouncycastle.version>
-    <apache.commons.lang3.version>3.7</apache.commons.lang3.version>
+    <apache.commons.lang3.version>3.10</apache.commons.lang3.version>
     <apache.commons.collections4.version>4.4</apache.commons.collections4.version>
     <apache.commons.compress>1.19</apache.commons.compress>
     <common.codec.version>1.11</common.codec.version>
