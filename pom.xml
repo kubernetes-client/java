@@ -45,7 +45,7 @@
     <apache.commons.lang3.version>3.7</apache.commons.lang3.version>
     <apache.commons.collections4.version>4.4</apache.commons.collections4.version>
     <apache.commons.compress>1.19</apache.commons.compress>
-    <common.codec.version>1.11</common.codec.version>
+    <common.codec.version>1.14</common.codec.version>
     <spring.boot.version>2.3.1.RELEASE</spring.boot.version>
     <spring.version>5.1.2.RELEASE</spring.version>
   </properties>
