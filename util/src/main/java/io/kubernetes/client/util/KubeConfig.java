@@ -395,7 +395,15 @@ public class KubeConfig {
     return null;
   }
 
-  public static byte[] getDataOrFile(final String data, final String file) throws IOException {
+  public byte[] getDataOrFileRelative(final String data, final String path) throws IOException {
+    String resolvedPath = path;
+    if (resolvedPath != null && this.file != null) {
+      resolvedPath = this.file.toPath().getParent().resolve(path).normalize().toString();
+    }
+    return getDataOrFile(data, resolvedPath);
+  }
+
+  private static byte[] getDataOrFile(final String data, final String file) throws IOException {
     if (data != null) {
       return Base64.decodeBase64(data);
     }

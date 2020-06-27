@@ -265,7 +265,7 @@ public class ClientBuilder {
     }
 
     final byte[] caBytes =
-        KubeConfig.getDataOrFile(
+        config.getDataOrFileRelative(
             config.getCertificateAuthorityData(), config.getCertificateAuthorityFile());
     if (caBytes != null) {
       builder.setCertificateAuthority(caBytes);
