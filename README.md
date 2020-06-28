@@ -33,7 +33,6 @@ Add this dependency to your project's POM:
     <groupId>io.kubernetes</groupId>
     <artifactId>client-java</artifactId>
     <version>8.0.2</version>
-    <scope>compile</scope>
 </dependency>
 ```
 
@@ -93,7 +92,7 @@ We prepared a few examples for common use-cases which are shown below:
   Copy files and directories to and from containers, equal to `kubectl cp`.
   - [WebSocketsExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/WebSocketsExample.java): 
   Establish an arbitrary web-socket session to certain resources.
-- __Advanced__:
+- __Advanced__: (NOTE: The following example requires `client-java-extended` module）
   - ([5.0.0+](https://github.com/kubernetes-client/java/tree/client-java-parent-5.0.0)) [InformerExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/InformerExample.java): 
   Build an informer which list-watches resources and reflects the notifications to a local cache.
   - ([5.0.0+](https://github.com/kubernetes-client/java/tree/client-java-parent-5.0.0)) [PagerExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/PagerExample.java): 
