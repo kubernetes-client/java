@@ -7,6 +7,7 @@ import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.util.Config;
 import java.time.Duration;
+import java.util.UUID;
 
 /**
  * A simple example of how to use the Java API
@@ -21,7 +22,11 @@ public class LeaderElectionExample {
     ApiClient client = Config.defaultClient();
     Configuration.setDefaultApiClient(client);
 
-    EndpointsLock lock = new EndpointsLock("kube-system", "leader-election", "foo");
+    // New
+    String appNamespace = "default";
+    String appName = "leader-election-foobar";
+    String lockHolderIdentityName = UUID.randomUUID().toString(); // Anything unique
+    EndpointsLock lock = new EndpointsLock(appNamespace, appName, lockHolderIdentityName);
 
     LeaderElectionConfig leaderElectionConfig =
         new LeaderElectionConfig(
