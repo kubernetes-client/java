@@ -12,6 +12,7 @@ public class ListAccessor {
   private static final String METHOD_NAME_GET_ITEMS = "getItems";
   private static final String METHOD_NAME_GET_LIST_METADATA = "getMetadata";
 
+  @Deprecated // use KubernetesListObject instead
   public static V1ListMeta listMetadata(Object listObj) throws ObjectMetaReflectException {
     try {
       Method mdField = listObj.getClass().getMethod(METHOD_NAME_GET_LIST_METADATA);
@@ -21,6 +22,7 @@ public class ListAccessor {
     }
   }
 
+  @Deprecated // use KubernetesListObject instead
   public static <ApiType> List<ApiType> getItems(Object listObj) throws ObjectMetaReflectException {
     try {
       Method getItemsMethod = listObj.getClass().getMethod(METHOD_NAME_GET_ITEMS);

@@ -28,7 +28,7 @@ public class Controller<
   private long fullResyncPeriod;
 
   /** Queue stores deltas produced by reflector */
-  private DeltaFIFO<ApiType> queue;
+  private DeltaFIFO queue;
 
   private ListerWatcher<ApiType, ApiListType> listerWatcher;
 
@@ -37,7 +37,7 @@ public class Controller<
   private Supplier<Boolean> resyncFunc;
 
   /** how we actually process items from the queue */
-  private Consumer<Deque<MutablePair<DeltaFIFO.DeltaType, Object>>> processFunc;
+  private Consumer<Deque<MutablePair<DeltaFIFO.DeltaType, KubernetesObject>>> processFunc;
 
   private ScheduledExecutorService reflectExecutor;
 
@@ -51,9 +51,9 @@ public class Controller<
 
   public Controller(
       Class<ApiType> apiTypeClass,
-      DeltaFIFO<ApiType> queue,
+      DeltaFIFO queue,
       ListerWatcher<ApiType, ApiListType> listerWatcher,
-      Consumer<Deque<MutablePair<DeltaFIFO.DeltaType, Object>>> processFunc,
+      Consumer<Deque<MutablePair<DeltaFIFO.DeltaType, KubernetesObject>>> processFunc,
       Supplier<Boolean> resyncFunc,
       long fullResyncPeriod) {
     this.queue = queue;
@@ -80,9 +80,9 @@ public class Controller<
 
   public Controller(
       Class<ApiType> apiTypeClass,
-      DeltaFIFO<ApiType> queue,
+      DeltaFIFO queue,
       ListerWatcher<ApiType, ApiListType> listerWatcher,
-      Consumer<Deque<MutablePair<DeltaFIFO.DeltaType, Object>>> popProcessFunc) {
+      Consumer<Deque<MutablePair<DeltaFIFO.DeltaType, KubernetesObject>>> popProcessFunc) {
     this(apiTypeClass, queue, listerWatcher, popProcessFunc, null, 0);
   }
 

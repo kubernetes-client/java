@@ -30,8 +30,7 @@ public class ControllerTest {
 
     V1PodList podList =
         new V1PodList().metadata(new V1ListMeta()).items(Arrays.asList(foo1, foo2, foo3));
-    DeltaFIFO<V1Pod> deltaFIFO =
-        new DeltaFIFO<>(Cache::deletionHandlingMetaNamespaceKeyFunc, new Cache());
+    DeltaFIFO deltaFIFO = new DeltaFIFO(Caches::deletionHandlingMetaNamespaceKeyFunc, new Cache());
 
     AtomicBoolean runOnce = new AtomicBoolean(false);
 

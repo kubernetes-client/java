@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 import com.google.common.collect.Lists;
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
 import java.util.Arrays;
@@ -20,19 +21,18 @@ public class DeltaFIFOTest {
 
   @Test
   public void testDeltaFIFOBasic() throws InterruptedException {
-    Deque<MutablePair<DeltaFIFO.DeltaType, Object>> receivingDeltas = new LinkedList<>();
+    Deque<MutablePair<DeltaFIFO.DeltaType, KubernetesObject>> receivingDeltas = new LinkedList<>();
     V1Pod foo1 = new V1Pod().metadata(new V1ObjectMeta().name("foo1").namespace("default"));
     Cache cache = new Cache();
-    DeltaFIFO<V1Pod> deltaFIFO =
-        new DeltaFIFO<>(Cache::deletionHandlingMetaNamespaceKeyFunc, cache);
+    DeltaFIFO deltaFIFO = new DeltaFIFO(Caches::deletionHandlingMetaNamespaceKeyFunc, cache);
 
-    MutablePair<DeltaFIFO.DeltaType, Object> receivingDelta;
+    MutablePair<DeltaFIFO.DeltaType, KubernetesObject> receivingDelta;
     // basic add operation
     deltaFIFO.add(foo1);
     cache.add(foo1);
     deltaFIFO.pop(
         (deltas) -> {
-          MutablePair<DeltaFIFO.DeltaType, Object> delta = deltas.peekFirst();
+          MutablePair<DeltaFIFO.DeltaType, KubernetesObject> delta = deltas.peekFirst();
           receivingDeltas.add(delta);
         });
     receivingDelta = receivingDeltas.peekFirst();
@@ -45,7 +45,7 @@ public class DeltaFIFOTest {
     cache.update(foo1);
     deltaFIFO.pop(
         (deltas) -> {
-          MutablePair<DeltaFIFO.DeltaType, Object> delta = deltas.peekFirst();
+          MutablePair<DeltaFIFO.DeltaType, KubernetesObject> delta = deltas.peekFirst();
           receivingDeltas.add(delta);
         });
     receivingDelta = receivingDeltas.peekFirst();
@@ -58,7 +58,7 @@ public class DeltaFIFOTest {
     cache.delete(foo1);
     deltaFIFO.pop(
         (deltas) -> {
-          MutablePair<DeltaFIFO.DeltaType, Object> delta = deltas.peekFirst();
+          MutablePair<DeltaFIFO.DeltaType, KubernetesObject> delta = deltas.peekFirst();
           receivingDeltas.add(delta);
         });
     receivingDelta = receivingDeltas.peekFirst();
@@ -71,7 +71,7 @@ public class DeltaFIFOTest {
     cache.replace(Arrays.asList(foo1), "0");
     deltaFIFO.pop(
         (deltas) -> {
-          MutablePair<DeltaFIFO.DeltaType, Object> delta = deltas.peekFirst();
+          MutablePair<DeltaFIFO.DeltaType, KubernetesObject> delta = deltas.peekFirst();
           receivingDeltas.add(delta);
         });
     receivingDelta = receivingDeltas.peekFirst();
@@ -84,47 +84,45 @@ public class DeltaFIFOTest {
   public void testDeltaFIFODedup() {
     V1Pod foo1 = new V1Pod().metadata(new V1ObjectMeta().name("foo1").namespace("default"));
     Cache cache = new Cache();
-    DeltaFIFO<V1Pod> deltaFIFO =
-        new DeltaFIFO<>(Cache::deletionHandlingMetaNamespaceKeyFunc, cache);
-    Deque<MutablePair<DeltaFIFO.DeltaType, Object>> deltas;
+    DeltaFIFO deltaFIFO = new DeltaFIFO(Caches::deletionHandlingMetaNamespaceKeyFunc, cache);
+    Deque<MutablePair<DeltaFIFO.DeltaType, KubernetesObject>> deltas;
 
     // add-delete dedup
     deltaFIFO.add(foo1);
     deltaFIFO.delete(foo1);
-    deltas = deltaFIFO.getItems().get(Cache.deletionHandlingMetaNamespaceKeyFunc(foo1));
+    deltas = deltaFIFO.getItems().get(Caches.deletionHandlingMetaNamespaceKeyFunc(foo1));
     assertEquals(DeltaFIFO.DeltaType.Deleted, deltas.peekLast().getLeft());
     assertEquals(foo1, deltas.peekLast().getRight());
     assertEquals(DeltaFIFO.DeltaType.Added, deltas.peekFirst().getLeft());
     assertEquals(foo1, deltas.peekFirst().getRight());
     assertEquals(2, deltas.size());
-    deltaFIFO.getItems().remove(Cache.deletionHandlingMetaNamespaceKeyFunc(foo1));
+    deltaFIFO.getItems().remove(Caches.deletionHandlingMetaNamespaceKeyFunc(foo1));
 
     // add-delete-delete dedup
     deltaFIFO.add(foo1);
     deltaFIFO.delete(foo1);
     deltaFIFO.delete(foo1);
-    deltas = deltaFIFO.getItems().get(Cache.deletionHandlingMetaNamespaceKeyFunc(foo1));
+    deltas = deltaFIFO.getItems().get(Caches.deletionHandlingMetaNamespaceKeyFunc(foo1));
     assertEquals(DeltaFIFO.DeltaType.Deleted, deltas.peekLast().getLeft());
     assertEquals(foo1, deltas.peekLast().getRight());
     assertEquals(DeltaFIFO.DeltaType.Added, deltas.peekFirst().getLeft());
     assertEquals(foo1, deltas.peekFirst().getRight());
     assertEquals(2, deltas.size());
-    deltaFIFO.getItems().remove(Cache.deletionHandlingMetaNamespaceKeyFunc(foo1));
+    deltaFIFO.getItems().remove(Caches.deletionHandlingMetaNamespaceKeyFunc(foo1));
   }
 
   @Test
   public void testDeltaFIFOResync() {
     V1Pod foo1 = new V1Pod().metadata(new V1ObjectMeta().name("foo1").namespace("default"));
     Cache cache = new Cache();
-    DeltaFIFO<V1Pod> deltaFIFO =
-        new DeltaFIFO<>(Cache::deletionHandlingMetaNamespaceKeyFunc, cache);
+    DeltaFIFO deltaFIFO = new DeltaFIFO(Caches::deletionHandlingMetaNamespaceKeyFunc, cache);
 
     // sync after add
     cache.add(foo1);
     deltaFIFO.resync();
 
-    Deque<MutablePair<DeltaFIFO.DeltaType, Object>> deltas =
-        deltaFIFO.getItems().get(Cache.deletionHandlingMetaNamespaceKeyFunc(foo1));
+    Deque<MutablePair<DeltaFIFO.DeltaType, KubernetesObject>> deltas =
+        deltaFIFO.getItems().get(Caches.deletionHandlingMetaNamespaceKeyFunc(foo1));
 
     assertEquals(1, deltas.size());
     assertEquals(foo1, deltas.peekLast().getRight());
@@ -138,8 +136,7 @@ public class DeltaFIFOTest {
 
     Cache mockCache = mock(Cache.class);
     doReturn(oldPod).when(mockCache).getByKey(Caches.deletionHandlingMetaNamespaceKeyFunc(oldPod));
-    DeltaFIFO<V1Pod> deltaFIFO =
-        new DeltaFIFO<>(Caches::deletionHandlingMetaNamespaceKeyFunc, mockCache);
+    DeltaFIFO deltaFIFO = new DeltaFIFO(Caches::deletionHandlingMetaNamespaceKeyFunc, mockCache);
 
     deltaFIFO.delete(oldPod);
     deltaFIFO.replace(Lists.newArrayList(newPod), "0");

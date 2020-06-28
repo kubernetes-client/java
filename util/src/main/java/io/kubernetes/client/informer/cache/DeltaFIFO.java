@@ -1,6 +1,7 @@
 package io.kubernetes.client.informer.cache;
 
 import io.kubernetes.client.common.KubernetesObject;
+import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.HashMap;
@@ -21,24 +22,24 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 // DeltaFIFO is a java portable of k/client-go's DeltaFIFO
-
-// NOTE(yue9944882): The DeltaFIFO inherits from a Object queue since that we are
-// actually reading from it as Deltas but writing it as Kubernetes object. this is
-// an issue existing in k/k.
-public class DeltaFIFO<ApiType extends KubernetesObject> implements Store<Object> {
+public class DeltaFIFO {
 
   private static final Logger log = LoggerFactory.getLogger(DeltaFIFO.class);
 
-  private Function<ApiType, String> keyFunc;
+  private Function<KubernetesObject, String> keyFunc;
 
-  // Mapping deltas w/ key by calling keyFunc
-  private Map<String, Deque<MutablePair<DeltaType, Object>>> items;
+  // `items` maps keys to Deltas.
+  private Map<String, Deque<MutablePair<DeltaType, KubernetesObject>>> items;
 
-  // an underlying queue storing incoming items' keys
+  // `queue` maintains FIFO order of keys for consumption in Pop().
+  // We maintain the property that keys in the `items` and `queue` are
+  // strictly 1:1 mapping, and that all Deltas in `items` should have
+  // at least one Delta.
   private Deque<String> queue;
 
-  //
-  private Store<ApiType> knownObjects;
+  // knownObjects list keys that are "known" --- affecting Delete(),
+  // Replace(), and Resync()
+  private Store<? extends KubernetesObject> knownObjects;
 
   // populated is true if the first batch of items inserted by Replace() has
   // been populated or Delete/Add/Update was called first.
@@ -60,7 +61,8 @@ public class DeltaFIFO<ApiType extends KubernetesObject> implements Store<Object
    * @param keyFunc the key func
    * @param knownObjects the known objects
    */
-  public DeltaFIFO(Function<ApiType, String> keyFunc, Store knownObjects) {
+  public DeltaFIFO(
+      Function<KubernetesObject, String> keyFunc, Store<? extends KubernetesObject> knownObjects) {
     this.keyFunc = keyFunc;
     this.knownObjects = knownObjects;
     this.items = new HashMap<>();
@@ -73,8 +75,7 @@ public class DeltaFIFO<ApiType extends KubernetesObject> implements Store<Object
    *
    * @param obj the obj
    */
-  @Override
-  public void add(Object obj) {
+  public void add(KubernetesObject obj) {
     lock.writeLock().lock();
     try {
       populated = true;
@@ -89,8 +90,7 @@ public class DeltaFIFO<ApiType extends KubernetesObject> implements Store<Object
    *
    * @param obj the obj
    */
-  @Override
-  public void update(Object obj) {
+  public void update(KubernetesObject obj) {
     lock.writeLock().lock();
     try {
       populated = true;
@@ -105,8 +105,7 @@ public class DeltaFIFO<ApiType extends KubernetesObject> implements Store<Object
    *
    * @param obj the obj
    */
-  @Override
-  public void delete(Object obj) {
+  public void delete(KubernetesObject obj) {
     String id = this.keyOf(obj);
     lock.writeLock().lock();
     try {
@@ -136,26 +135,26 @@ public class DeltaFIFO<ApiType extends KubernetesObject> implements Store<Object
    * @param list the list
    * @param resourceVersion the resource version
    */
-  @Override
-  public void replace(List list, String resourceVersion) {
+  public void replace(List<KubernetesObject> list, String resourceVersion) {
     lock.writeLock().lock();
     try {
       Set<String> keys = new HashSet<>();
-      for (Object obj : list) {
+      for (KubernetesObject obj : list) {
         String key = this.keyOf(obj);
         keys.add(key);
         this.queueActionLocked(DeltaType.Sync, obj);
       }
 
       if (this.knownObjects == null) {
-        for (Map.Entry<String, Deque<MutablePair<DeltaType, Object>>> entry :
+        for (Map.Entry<String, Deque<MutablePair<DeltaType, KubernetesObject>>> entry :
             this.items.entrySet()) {
           if (keys.contains(entry.getKey())) {
             continue;
           }
 
-          Object deletedObj = null;
-          MutablePair<DeltaType, Object> delta = entry.getValue().peekLast(); // get newest
+          KubernetesObject deletedObj = null;
+          MutablePair<DeltaType, KubernetesObject> delta =
+              entry.getValue().peekLast(); // get newest
           if (delta != null) {
             deletedObj = delta.getRight();
           }
@@ -178,7 +177,7 @@ public class DeltaFIFO<ApiType extends KubernetesObject> implements Store<Object
           continue;
         }
 
-        Object deletedObj = this.knownObjects.getByKey(knownKey);
+        KubernetesObject deletedObj = this.knownObjects.getByKey(knownKey);
         if (deletedObj == null) {
           log.warn(
               "Key {} does not exist in known objects store, placing DeleteFinalStateUnknown marker without object",
@@ -186,7 +185,7 @@ public class DeltaFIFO<ApiType extends KubernetesObject> implements Store<Object
         }
         queueDeletion++;
         this.queueActionLocked(
-            DeltaType.Deleted, new DeletedFinalStateUnknown<>(knownKey, deletedObj));
+            DeltaType.Deleted, new DeletedFinalStateUnknown(knownKey, deletedObj));
       }
 
       if (!this.populated) {
@@ -202,7 +201,6 @@ public class DeltaFIFO<ApiType extends KubernetesObject> implements Store<Object
    * Re-sync the delta FIFO. First, It locks the queue to block any more write operation until it
    * finishes processing all the pending items in the queue.
    */
-  @Override
   public void resync() {
     lock.writeLock().lock();
     try {
@@ -224,12 +222,12 @@ public class DeltaFIFO<ApiType extends KubernetesObject> implements Store<Object
    *
    * @return the list
    */
-  @Override
   public List<String> listKeys() {
     lock.readLock().lock();
     try {
       List<String> keyList = new ArrayList<>(items.size());
-      for (Map.Entry<String, Deque<MutablePair<DeltaType, Object>>> entry : items.entrySet()) {
+      for (Map.Entry<String, Deque<MutablePair<DeltaType, KubernetesObject>>> entry :
+          items.entrySet()) {
         keyList.add(entry.getKey());
       }
       return keyList;
@@ -244,8 +242,7 @@ public class DeltaFIFO<ApiType extends KubernetesObject> implements Store<Object
    * @param obj the obj
    * @return the object
    */
-  @Override
-  public Object get(Object obj) {
+  public Deque<MutablePair<DeltaType, KubernetesObject>> get(KubernetesObject obj) {
     String key = this.keyOf(obj);
     return this.getByKey(key);
   }
@@ -256,11 +253,10 @@ public class DeltaFIFO<ApiType extends KubernetesObject> implements Store<Object
    * @param key the key
    * @return the get by key
    */
-  @Override
-  public Deque<MutablePair<DeltaType, Object>> getByKey(String key) {
+  public Deque<MutablePair<DeltaType, KubernetesObject>> getByKey(String key) {
     lock.readLock().lock();
     try {
-      Deque<MutablePair<DeltaType, Object>> deltas = this.items.get(key);
+      Deque<MutablePair<DeltaType, KubernetesObject>> deltas = this.items.get(key);
       if (deltas != null) {
         // returning a shallow copy
         return new LinkedList<>(deltas);
@@ -276,14 +272,15 @@ public class DeltaFIFO<ApiType extends KubernetesObject> implements Store<Object
    *
    * @return the list
    */
-  @Override
-  public List<Object> list() {
+  public List<Deque<MutablePair<DeltaType, KubernetesObject>>> list() {
     lock.readLock().lock();
-    List<Object> objects = new ArrayList<>();
+    List<Deque<MutablePair<DeltaType, KubernetesObject>>> objects = new ArrayList<>();
     try {
       // TODO: make a generic deep copy utility
-      for (Map.Entry<String, Deque<MutablePair<DeltaType, Object>>> entry : items.entrySet()) {
-        Deque<MutablePair<DeltaType, Object>> copiedDeltas = new LinkedList<>(entry.getValue());
+      for (Map.Entry<String, Deque<MutablePair<DeltaType, KubernetesObject>>> entry :
+          items.entrySet()) {
+        Deque<MutablePair<DeltaType, KubernetesObject>> copiedDeltas =
+            new LinkedList<>(entry.getValue());
         objects.add(copiedDeltas);
       }
     } finally {
@@ -299,8 +296,8 @@ public class DeltaFIFO<ApiType extends KubernetesObject> implements Store<Object
    * @return the deltas
    * @throws Exception the exception
    */
-  public Deque<MutablePair<DeltaType, Object>> pop(
-      Consumer<Deque<MutablePair<DeltaType, Object>>> func) throws InterruptedException {
+  public Deque<MutablePair<DeltaType, KubernetesObject>> pop(
+      Consumer<Deque<MutablePair<DeltaType, KubernetesObject>>> func) throws InterruptedException {
     lock.writeLock().lock();
     try {
       while (true) {
@@ -317,7 +314,7 @@ public class DeltaFIFO<ApiType extends KubernetesObject> implements Store<Object
           continue;
         }
 
-        Deque<MutablePair<DeltaType, Object>> deltas = this.items.get(id);
+        Deque<MutablePair<DeltaType, KubernetesObject>> deltas = this.items.get(id);
         this.items.remove(id);
         func.accept(deltas);
         // Don't make any copyDeltas here
@@ -343,21 +340,21 @@ public class DeltaFIFO<ApiType extends KubernetesObject> implements Store<Object
   }
 
   /** queueActionLocked appends to the delta list for the object. Caller must hold the lock. */
-  private void queueActionLocked(DeltaType actionType, Object obj) {
+  private void queueActionLocked(DeltaType actionType, KubernetesObject obj) {
     String id = this.keyOf(obj);
 
-    Deque<MutablePair<DeltaType, Object>> deltas = items.get(id);
+    Deque<MutablePair<DeltaType, KubernetesObject>> deltas = items.get(id);
     if (deltas == null) {
-      Deque<MutablePair<DeltaType, Object>> deltaList = new LinkedList<>();
+      Deque<MutablePair<DeltaType, KubernetesObject>> deltaList = new LinkedList<>();
       deltaList.add(new MutablePair(actionType, obj));
       deltas = new LinkedList<>(deltaList);
     } else {
-      deltas.add(new MutablePair<DeltaType, Object>(actionType, obj));
+      deltas.add(new MutablePair<DeltaType, KubernetesObject>(actionType, obj));
     }
 
     // TODO(yue9944882): Eliminate the force class casting here
-    Deque<MutablePair<DeltaType, Object>> combinedDeltaList =
-        combineDeltas((LinkedList<MutablePair<DeltaType, Object>>) deltas);
+    Deque<MutablePair<DeltaType, KubernetesObject>> combinedDeltaList =
+        combineDeltas((LinkedList<MutablePair<DeltaType, KubernetesObject>>) deltas);
 
     boolean exist = items.containsKey(id);
     if (combinedDeltaList != null && combinedDeltaList.size() > 0) {
@@ -373,10 +370,11 @@ public class DeltaFIFO<ApiType extends KubernetesObject> implements Store<Object
 
   // KeyOf exposes f's keyFunc, but also detects the key of a Deltas object or
   // DeletedFinalStateUnknown objects.
-  private String keyOf(Object obj) {
-    Object innerObj = obj;
+  private String keyOf(KubernetesObject obj) {
+    KubernetesObject innerObj = obj;
     if (obj instanceof Deque) {
-      Deque<MutablePair<DeltaType, Object>> deltas = (Deque<MutablePair<DeltaType, Object>>) obj;
+      Deque<MutablePair<DeltaType, KubernetesObject>> deltas =
+          (Deque<MutablePair<DeltaType, KubernetesObject>>) obj;
       if (deltas.size() == 0) {
         throw new NoSuchElementException("0 length Deltas object; can't get key");
       }
@@ -385,18 +383,18 @@ public class DeltaFIFO<ApiType extends KubernetesObject> implements Store<Object
     if (innerObj instanceof DeletedFinalStateUnknown) {
       return ((DeletedFinalStateUnknown) innerObj).key;
     }
-    return keyFunc.apply((ApiType) innerObj);
+    return keyFunc.apply(innerObj);
   }
 
   /** Add Sync delta. Caller must hold the lock. */
   private void syncKeyLocked(String key) {
-    ApiType obj = this.knownObjects.getByKey(key);
+    KubernetesObject obj = this.knownObjects.getByKey(key);
     if (obj == null) {
       return;
     }
 
     String id = this.keyOf(obj);
-    Deque<MutablePair<DeltaType, Object>> deltas = this.items.get(id);
+    Deque<MutablePair<DeltaType, KubernetesObject>> deltas = this.items.get(id);
     if (deltas != null && !(CollectionUtils.isEmpty(deltas))) {
       return;
     }
@@ -406,17 +404,17 @@ public class DeltaFIFO<ApiType extends KubernetesObject> implements Store<Object
 
   // re-listing and watching can deliver the same update multiple times in any
   // order. This will combine the most recent two deltas if they are the same.
-  private Deque<MutablePair<DeltaType, Object>> combineDeltas(
-      LinkedList<MutablePair<DeltaType, Object>> deltas) {
+  private Deque<MutablePair<DeltaType, KubernetesObject>> combineDeltas(
+      LinkedList<MutablePair<DeltaType, KubernetesObject>> deltas) {
     if (deltas.size() < 2) {
       return deltas;
     }
     int size = deltas.size();
-    MutablePair<DeltaType, Object> d1 = deltas.peekLast();
-    MutablePair<DeltaType, Object> d2 = deltas.get(size - 2);
-    MutablePair<DeltaType, Object> out = isDuplicate(d1, d2);
+    MutablePair<DeltaType, KubernetesObject> d1 = deltas.peekLast();
+    MutablePair<DeltaType, KubernetesObject> d2 = deltas.get(size - 2);
+    MutablePair<DeltaType, KubernetesObject> out = isDuplicate(d1, d2);
     if (out != null) {
-      Deque<MutablePair<DeltaType, Object>> newDeltas = new LinkedList<>();
+      Deque<MutablePair<DeltaType, KubernetesObject>> newDeltas = new LinkedList<>();
       newDeltas.addAll(deltas.subList(0, size - 2));
       newDeltas.add(out);
       return newDeltas;
@@ -431,9 +429,9 @@ public class DeltaFIFO<ApiType extends KubernetesObject> implements Store<Object
    * @param d2 the most one
    * @return the one ought to be kept
    */
-  private MutablePair<DeltaType, Object> isDuplicate(
-      MutablePair<DeltaType, Object> d1, MutablePair<DeltaType, Object> d2) {
-    MutablePair<DeltaType, Object> deletionDelta = isDeletionDup(d1, d2);
+  private MutablePair<DeltaType, KubernetesObject> isDuplicate(
+      MutablePair<DeltaType, KubernetesObject> d1, MutablePair<DeltaType, KubernetesObject> d2) {
+    MutablePair<DeltaType, KubernetesObject> deletionDelta = isDeletionDup(d1, d2);
     if (deletionDelta != null) {
       return deletionDelta;
     }
@@ -447,8 +445,8 @@ public class DeltaFIFO<ApiType extends KubernetesObject> implements Store<Object
    * @param d2 the elder one
    * @return the most one
    */
-  private MutablePair<DeltaType, Object> isDeletionDup(
-      MutablePair<DeltaType, Object> d1, MutablePair<DeltaType, Object> d2) {
+  private MutablePair<DeltaType, KubernetesObject> isDeletionDup(
+      MutablePair<DeltaType, KubernetesObject> d1, MutablePair<DeltaType, KubernetesObject> d2) {
     if (!d1.getLeft().equals(DeltaType.Deleted) || !d2.getLeft().equals(DeltaType.Deleted)) {
       return null;
     }
@@ -460,7 +458,7 @@ public class DeltaFIFO<ApiType extends KubernetesObject> implements Store<Object
   }
 
   // Note: this should only used in test
-  Map<String, Deque<MutablePair<DeltaType, Object>>> getItems() {
+  Map<String, Deque<MutablePair<DeltaType, KubernetesObject>>> getItems() {
     return items;
   }
 
@@ -468,7 +466,8 @@ public class DeltaFIFO<ApiType extends KubernetesObject> implements Store<Object
   // an object was deleted but the watch deletion event was missed. In this
   // case we don't know the final "resting" state of the object, so there's
   // a chance the included `Obj` is stale.
-  public static final class DeletedFinalStateUnknown<ApiType> {
+  public static final class DeletedFinalStateUnknown<ApiType extends KubernetesObject>
+      implements KubernetesObject {
 
     private String key;
     private ApiType obj;
@@ -489,6 +488,21 @@ public class DeltaFIFO<ApiType extends KubernetesObject> implements Store<Object
      */
     public ApiType getObj() {
       return obj;
+    }
+
+    @Override
+    public V1ObjectMeta getMetadata() {
+      return this.obj.getMetadata();
+    }
+
+    @Override
+    public String getApiVersion() {
+      return this.obj.getApiVersion();
+    }
+
+    @Override
+    public String getKind() {
+      return this.obj.getKind();
     }
   }
 

@@ -23,13 +23,6 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
   /** keyFunc defines how to map objects into indices */
   private Function<ApiType, String> keyFunc;
 
-  /**
-   * DEPRECATE: use Caches#NAMESPACE_INDEX instead. TODO: remove after 7.0.0
-   *
-   * <p>NAMESPACE_INDEX is the default index function for caching objects
-   */
-  @Deprecated public static final String NAMESPACE_INDEX = "namespace";
-
   /** indexers stores index functions by their names */
   private Map<String, Function<ApiType, List<String>>> indexers = new HashMap<>();
 
@@ -431,49 +424,5 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
 
   public void setKeyFunc(Function<ApiType, String> keyFunc) {
     this.keyFunc = keyFunc;
-  }
-
-  /**
-   * DEPRECATE: use Caches#deletionHandlingMetaNamespaceKeyFunc instead. TODO: remove after 7.0.0
-   *
-   * <p>deletionHandlingMetaNamespaceKeyFunc checks for DeletedFinalStateUnknown objects before
-   * calling metaNamespaceKeyFunc.
-   *
-   * @param <ApiType> the type parameter
-   * @param object specific object
-   * @return the key
-   */
-  @Deprecated
-  public static <ApiType> String deletionHandlingMetaNamespaceKeyFunc(ApiType object) {
-    return Caches.deletionHandlingMetaNamespaceKeyFunc(object);
-  }
-
-  /**
-   * DEPRECATE: use Caches#metaNamespaceKeyFunc instead. TODO: remove after 7.0.0
-   *
-   * <p>MetaNamespaceKeyFunc is a convenient default KeyFunc which knows how to make keys for API
-   * objects which implement HasMetadata Interface. The key uses the format <namespace>/<name>
-   * unless <namespace> is empty, then it's just <name>.
-   *
-   * @param obj specific object
-   * @return the key
-   */
-  @Deprecated
-  public static String metaNamespaceKeyFunc(Object obj) {
-    return Caches.metaNamespaceKeyFunc(obj);
-  }
-
-  /**
-   * DEPRECATE: use Caches#metaNamespaceIndexFunc instead. TODO: remove after 7.0.0
-   *
-   * <p>metaNamespaceIndexFunc is a default index function that indexes based on an object's
-   * namespace.
-   *
-   * @param obj specific object
-   * @return the indexed value
-   */
-  @Deprecated
-  public static List<String> metaNamespaceIndexFunc(Object obj) {
-    return Caches.metaNamespaceIndexFunc(obj);
   }
 }
