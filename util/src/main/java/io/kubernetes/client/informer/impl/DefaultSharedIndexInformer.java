@@ -48,20 +48,26 @@ public class DefaultSharedIndexInformer<
   private volatile boolean stopped = false;
 
   public DefaultSharedIndexInformer(
-      Class<ApiType> apiTypeClass, ListerWatcher listerWatcher, long resyncPeriod) {
+      Class<ApiType> apiTypeClass,
+      ListerWatcher<ApiType, ApiListType> listerWatcher,
+      long resyncPeriod) {
     this(apiTypeClass, listerWatcher, resyncPeriod, new Cache<>());
   }
 
   public DefaultSharedIndexInformer(
       Class<ApiType> apiTypeClass,
-      ListerWatcher listerWatcher,
+      ListerWatcher<ApiType, ApiListType> listerWatcher,
       long resyncPeriod,
       Cache<ApiType> cache) {
     this(
         apiTypeClass,
         listerWatcher,
         resyncPeriod,
-        new DeltaFIFO<>(cache.getKeyFunc(), cache),
+        // down-casting should be safe here because one delta FIFO instance only serves one resource
+        // type
+        new DeltaFIFO(
+            (Function<KubernetesObject, String>) cache.getKeyFunc(),
+            (Cache<KubernetesObject>) cache),
         cache);
   }
 
@@ -69,7 +75,7 @@ public class DefaultSharedIndexInformer<
       Class<ApiType> apiTypeClass,
       ListerWatcher<ApiType, ApiListType> listerWatcher,
       long resyncPeriod,
-      DeltaFIFO<ApiType> deltaFIFO,
+      DeltaFIFO deltaFIFO,
       Indexer<ApiType> indexer) {
     this.resyncCheckPeriodMillis = resyncPeriod;
     this.defaultEventHandlerResyncPeriod = resyncPeriod;
@@ -193,13 +199,13 @@ public class DefaultSharedIndexInformer<
    *
    * @param deltas deltas
    */
-  private void handleDeltas(Deque<MutablePair<DeltaFIFO.DeltaType, Object>> deltas) {
+  private void handleDeltas(Deque<MutablePair<DeltaFIFO.DeltaType, KubernetesObject>> deltas) {
     if (CollectionUtils.isEmpty(deltas)) {
       return;
     }
 
     // from oldest to newest
-    for (MutablePair<DeltaFIFO.DeltaType, Object> delta : deltas) {
+    for (MutablePair<DeltaFIFO.DeltaType, KubernetesObject> delta : deltas) {
       DeltaFIFO.DeltaType deltaType = delta.getLeft();
       switch (deltaType) {
         case Sync:

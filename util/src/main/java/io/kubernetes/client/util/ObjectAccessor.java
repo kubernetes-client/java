@@ -10,6 +10,7 @@ public class ObjectAccessor {
 
   private static final String METHOD_NAME_GET_METADATA = "getMetadata";
 
+  @Deprecated // use KubernetesObject instead
   public static V1ObjectMeta objectMetadata(Object obj) throws ObjectMetaReflectException {
     try {
       Method mdField = obj.getClass().getMethod(METHOD_NAME_GET_METADATA);
@@ -19,10 +20,12 @@ public class ObjectAccessor {
     }
   }
 
+  @Deprecated // use KubernetesObject instead
   public static String namespace(Object obj) throws ObjectMetaReflectException {
     return objectMetadata(obj).getNamespace();
   }
 
+  @Deprecated // use KubernetesObject instead
   public static String name(Object obj) throws ObjectMetaReflectException {
     return objectMetadata(obj).getName();
   }

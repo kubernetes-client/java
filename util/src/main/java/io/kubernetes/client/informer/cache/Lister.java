@@ -44,6 +44,6 @@ public class Lister<ApiType extends KubernetesObject> {
   }
 
   public Lister<ApiType> namespace(String namespace) {
-    return new Lister<ApiType>(this.indexer, namespace, Cache.NAMESPACE_INDEX);
+    return new Lister<ApiType>(this.indexer, namespace, Caches.NAMESPACE_INDEX);
   }
 }

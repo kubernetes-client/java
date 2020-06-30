@@ -7,7 +7,6 @@ import io.kubernetes.client.informer.ListerWatcher;
 import io.kubernetes.client.openapi.models.V1ListMeta;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.util.*;
-import io.kubernetes.client.util.exception.ObjectMetaReflectException;
 import java.net.ConnectException;
 import java.time.Duration;
 import java.util.*;
@@ -26,13 +25,14 @@ public class ReflectorRunnable<
 
   private ListerWatcher<ApiType, ApiListType> listerWatcher;
 
-  private Store<ApiType> store;
+  private DeltaFIFO store;
 
   private Class<ApiType> apiTypeClass;
 
   private AtomicBoolean isActive = new AtomicBoolean(true);
 
-  public ReflectorRunnable(Class<ApiType> apiTypeClass, ListerWatcher listerWatcher, Store store) {
+  public ReflectorRunnable(
+      Class<ApiType> apiTypeClass, ListerWatcher listerWatcher, DeltaFIFO store) {
     this.listerWatcher = listerWatcher;
     this.store = store;
     this.apiTypeClass = apiTypeClass;
@@ -119,7 +119,8 @@ public class ReflectorRunnable<
   }
 
   private void syncWith(List<ApiType> items, String resourceVersion) {
-    this.store.replace(items, resourceVersion);
+    this.store.replace(
+        (List<KubernetesObject>) items, resourceVersion); // down-casting is safe here
   }
 
   public String getLastSyncResourceVersion() {
@@ -144,13 +145,7 @@ public class ReflectorRunnable<
 
       ApiType obj = item.object;
 
-      V1ObjectMeta meta;
-      try {
-        meta = ObjectAccessor.objectMetadata(obj);
-      } catch (ObjectMetaReflectException e) {
-        log.error("malformed watch event {}", item);
-        continue;
-      }
+      V1ObjectMeta meta = obj.getMetadata();
 
       String newResourceVersion = meta.getResourceVersion();
       switch (eventType) {
