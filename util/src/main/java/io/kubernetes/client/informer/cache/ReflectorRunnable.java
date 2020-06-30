@@ -48,9 +48,9 @@ public class ReflectorRunnable<
 
       ApiListType list = listerWatcher.list(new CallGeneratorParams(Boolean.FALSE, null, null));
 
-      V1ListMeta listMeta = ListAccessor.listMetadata(list);
+      V1ListMeta listMeta = list.getMetadata();
       String resourceVersion = listMeta.getResourceVersion();
-      List<ApiType> items = ListAccessor.getItems(list);
+      List<? extends KubernetesObject> items = list.getItems();
 
       if (log.isDebugEnabled()) {
         log.debug("{}#Extract resourceVersion {} list meta", apiTypeClass, resourceVersion);
@@ -118,7 +118,7 @@ public class ReflectorRunnable<
     isActive.set(false);
   }
 
-  private void syncWith(List<ApiType> items, String resourceVersion) {
+  private void syncWith(List<? extends KubernetesObject> items, String resourceVersion) {
     this.store.replace(
         (List<KubernetesObject>) items, resourceVersion); // down-casting is safe here
   }

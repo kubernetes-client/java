@@ -3,8 +3,6 @@ package io.kubernetes.client.informer.cache;
 import com.google.common.base.Strings;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
-import io.kubernetes.client.util.ObjectAccessor;
-import io.kubernetes.client.util.exception.ObjectMetaReflectException;
 import java.util.Collections;
 import java.util.List;
 
@@ -54,16 +52,11 @@ public class Caches {
    * @param obj specific object
    * @return the indexed value
    */
-  public static List<String> metaNamespaceIndexFunc(Object obj) {
-    try {
-      V1ObjectMeta metadata = ObjectAccessor.objectMetadata(obj);
-      if (metadata == null) {
-        return Collections.emptyList();
-      }
-      return Collections.singletonList(metadata.getNamespace());
-    } catch (ObjectMetaReflectException e) {
-      // NOTE(yue9944882): might want to handle this as a checked exception
-      throw new RuntimeException(e);
+  public static List<String> metaNamespaceIndexFunc(KubernetesObject obj) {
+    V1ObjectMeta metadata = obj.getMetadata();
+    if (metadata == null) {
+      return Collections.emptyList();
     }
+    return Collections.singletonList(metadata.getNamespace());
   }
 }

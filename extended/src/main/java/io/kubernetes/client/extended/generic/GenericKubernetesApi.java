@@ -6,6 +6,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
 import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
+import io.kubernetes.client.common.KubernetesType;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.extended.generic.options.CreateOptions;
 import io.kubernetes.client.extended.generic.options.DeleteOptions;
@@ -19,11 +20,9 @@ import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.apis.CustomObjectsApi;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Status;
-import io.kubernetes.client.util.ObjectAccessor;
 import io.kubernetes.client.util.PatchUtils;
 import io.kubernetes.client.util.Watch;
 import io.kubernetes.client.util.Watchable;
-import io.kubernetes.client.util.exception.ObjectMetaReflectException;
 import java.io.IOException;
 import okhttp3.Call;
 import okhttp3.HttpUrl;
@@ -378,12 +377,7 @@ public class GenericKubernetesApi<
    * @return the kubernetes api response
    */
   public KubernetesApiResponse<ApiType> create(ApiType object, final CreateOptions createOptions) {
-    V1ObjectMeta objectMeta;
-    try {
-      objectMeta = ObjectAccessor.objectMetadata(object);
-    } catch (ObjectMetaReflectException e) {
-      throw new IllegalArgumentException("fail to extract object metadata");
-    }
+    V1ObjectMeta objectMeta = object.getMetadata();
 
     return executeCall(
         customObjectsApi.getApiClient(),
@@ -424,12 +418,7 @@ public class GenericKubernetesApi<
    * @return the kubernetes api response
    */
   public KubernetesApiResponse<ApiType> update(ApiType object, final UpdateOptions updateOptions) {
-    V1ObjectMeta objectMeta;
-    try {
-      objectMeta = ObjectAccessor.objectMetadata(object);
-    } catch (ObjectMetaReflectException e) {
-      throw new IllegalArgumentException("fail to extract object metadata");
-    }
+    V1ObjectMeta objectMeta = object.getMetadata();
     return executeCall(
         customObjectsApi.getApiClient(),
         apiTypeClass,
@@ -674,13 +663,15 @@ public class GenericKubernetesApi<
         TypeToken.getParameterized(Watch.Response.class, apiTypeClass).getType());
   }
 
-  private static <DataType> KubernetesApiResponse<DataType> getKubernetesApiResponse(
-      Class<DataType> dataClass, JsonElement element, Gson gson) {
+  private static <DataType extends KubernetesType>
+      KubernetesApiResponse<DataType> getKubernetesApiResponse(
+          Class<DataType> dataClass, JsonElement element, Gson gson) {
     return getKubernetesApiResponse(dataClass, element, gson, 200);
   }
 
-  private static <DataType> KubernetesApiResponse<DataType> getKubernetesApiResponse(
-      Class<DataType> dataClass, JsonElement element, Gson gson, int httpStatusCode) {
+  private static <DataType extends KubernetesType>
+      KubernetesApiResponse<DataType> getKubernetesApiResponse(
+          Class<DataType> dataClass, JsonElement element, Gson gson, int httpStatusCode) {
     JsonElement kindElement = element.getAsJsonObject().get("kind");
     boolean isStatus = kindElement != null && "Status".equals(kindElement.getAsString());
     if (isStatus) {
@@ -689,7 +680,7 @@ public class GenericKubernetesApi<
     return new KubernetesApiResponse<>(gson.fromJson(element, dataClass));
   }
 
-  private <DataType> KubernetesApiResponse<DataType> executeCall(
+  private <DataType extends KubernetesType> KubernetesApiResponse<DataType> executeCall(
       ApiClient apiClient, Class<DataType> dataClass, CallBuilder callBuilder) {
     try {
       Call call = callBuilder.build();

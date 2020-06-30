@@ -4,8 +4,6 @@ import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.controller.reconciler.Request;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
-import io.kubernetes.client.util.ObjectAccessor;
-import io.kubernetes.client.util.exception.ObjectMetaReflectException;
 import java.util.concurrent.ThreadFactory;
 import java.util.function.Function;
 import org.slf4j.Logger;
@@ -26,13 +24,8 @@ public class Controllers {
   public static <ApiType extends KubernetesObject>
       Function<ApiType, Request> defaultReflectiveKeyFunc() {
     return (ApiType obj) -> {
-      try {
-        V1ObjectMeta objectMeta = ObjectAccessor.objectMetadata(obj);
-        return new Request(objectMeta.getNamespace(), objectMeta.getName());
-      } catch (ObjectMetaReflectException e) {
-        log.error("Fail to access object-meta from {}..", obj.getClass());
-        return null;
-      }
+      V1ObjectMeta objectMeta = obj.getMetadata();
+      return new Request(objectMeta.getNamespace(), objectMeta.getName());
     };
   }
 

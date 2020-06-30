@@ -12,10 +12,10 @@ limitations under the License.
  */
 package io.kubernetes.client.extended.pager;
 
+import io.kubernetes.client.common.KubernetesListObject;
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
-import io.kubernetes.client.util.ListAccessor;
-import io.kubernetes.client.util.exception.ObjectMetaReflectException;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Iterator;
@@ -26,7 +26,8 @@ import okhttp3.Call;
  * Pager encapsulates kubernetes limit/continue-based list pagination into an iterator.
  * Note that pager is thread-safe.
  */
-public class Pager<ApiType, ApiListType> implements Iterable<ApiType> {
+public class Pager<ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
+    implements Iterable<ApiType> {
   private Integer limit;
   private ApiClient client;
   private Type listType;
@@ -136,15 +137,15 @@ public class Pager<ApiType, ApiListType> implements Iterable<ApiType> {
           call = getNextCall(limit, continueToken);
 
           listObjectCurrentPage = executeRequest(call);
-          continueToken = ListAccessor.listMetadata(listObjectCurrentPage).getContinue();
+          continueToken = listObjectCurrentPage.getMetadata().getContinue();
 
           offsetCurrentPage = 0;
-          currentPageSize = ListAccessor.<ApiType>getItems(listObjectCurrentPage).size();
+          currentPageSize = listObjectCurrentPage.getItems().size();
         }
-        return ListAccessor.<ApiType>getItems(listObjectCurrentPage).get(offsetCurrentPage++);
+        return (ApiType) listObjectCurrentPage.getItems().get(offsetCurrentPage++);
       } catch (ApiException e) {
         throw new RuntimeException(e.getResponseBody());
-      } catch (ObjectMetaReflectException | IOException e) {
+      } catch (IOException e) {
         throw new RuntimeException(e);
       }
     }

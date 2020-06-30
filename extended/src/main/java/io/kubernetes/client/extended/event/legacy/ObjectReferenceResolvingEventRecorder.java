@@ -1,6 +1,7 @@
 package io.kubernetes.client.extended.event.legacy;
 
 import com.google.common.base.Strings;
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.event.EventType;
 import io.kubernetes.client.openapi.models.V1Event;
 import io.kubernetes.client.openapi.models.V1EventBuilder;
@@ -9,10 +10,6 @@ import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1ObjectMetaBuilder;
 import io.kubernetes.client.openapi.models.V1ObjectReference;
 import io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder;
-import io.kubernetes.client.util.ObjectAccessor;
-import io.kubernetes.client.util.TypeAccessor;
-import io.kubernetes.client.util.exception.ObjectMetaReflectException;
-import io.kubernetes.client.util.exception.TypeMetaReflectException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.BlockingQueue;
@@ -36,25 +33,31 @@ public class ObjectReferenceResolvingEventRecorder implements EventRecorder {
   private V1EventSource eventSource;
 
   @Override
-  public void event(Object object, EventType t, String reason, String format, String... args) {
+  public void event(
+      KubernetesObject object, EventType t, String reason, String format, String... args) {
     event(object, new HashMap<>(), t, reason, format, args);
   }
 
   @Override
   public void event(
-      Object object,
+      KubernetesObject object,
       Map<String, String> attachedAnnotation,
       EventType t,
       String reason,
       String format,
       String... args) {
-    generateEvent(object, attachedAnnotation, t, reason, String.format(format, args));
+    generateEvent(
+        constructObjectReference(object),
+        attachedAnnotation,
+        t,
+        reason,
+        String.format(format, args));
   }
 
   @Override
   public void event(
       V1ObjectReference ref, EventType t, String reason, String format, String... args) {
-    event((Object) ref, t, reason, format, args);
+    event(ref, new HashMap<>(), t, reason, format, args);
   }
 
   @Override
@@ -65,35 +68,27 @@ public class ObjectReferenceResolvingEventRecorder implements EventRecorder {
       String reason,
       String format,
       String... args) {
-    event((Object) ref, attachedAnnotation, t, reason, format, args);
+    generateEvent(ref, attachedAnnotation, t, reason, String.format(format, args));
+  }
+
+  private V1ObjectReference constructObjectReference(KubernetesObject eventRefObject) {
+    V1ObjectMeta meta = eventRefObject.getMetadata();
+    return new V1ObjectReferenceBuilder()
+        .withApiVersion(eventRefObject.getApiVersion())
+        .withKind(eventRefObject.getKind())
+        .withUid(meta.getUid())
+        .withNamespace(meta.getNamespace())
+        .withName(meta.getName())
+        .withResourceVersion(meta.getResourceVersion())
+        .build();
   }
 
   private void generateEvent(
-      Object eventRefObject,
+      V1ObjectReference eventRef,
       Map<String, String> annotations,
       EventType t,
       String reason,
       String message) {
-    V1ObjectReference eventRef;
-    if (eventRefObject instanceof V1ObjectReference) {
-      eventRef = (V1ObjectReference) eventRefObject;
-    } else {
-      try {
-        V1ObjectMeta meta = ObjectAccessor.objectMetadata(eventRefObject);
-        eventRef =
-            new V1ObjectReferenceBuilder()
-                .withApiVersion(TypeAccessor.apiVersion(eventRefObject))
-                .withKind(TypeAccessor.kind(eventRefObject))
-                .withUid(meta.getUid())
-                .withNamespace(meta.getNamespace())
-                .withName(meta.getName())
-                .withResourceVersion(meta.getResourceVersion())
-                .build();
-      } catch (ObjectMetaReflectException | TypeMetaReflectException e) {
-        logger.error("failed parsing eventRefObject", e);
-        return;
-      }
-    }
 
     // defaulting event namespace for cluster-scoped resources..
     String namespace = eventRef.getNamespace();
