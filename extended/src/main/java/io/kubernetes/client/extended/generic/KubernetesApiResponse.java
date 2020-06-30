@@ -1,8 +1,9 @@
 package io.kubernetes.client.extended.generic;
 
+import io.kubernetes.client.common.KubernetesType;
 import io.kubernetes.client.openapi.models.V1Status;
 
-public class KubernetesApiResponse<DataType> {
+public class KubernetesApiResponse<DataType extends KubernetesType> {
 
   private final DataType object;
   private final V1Status status;
