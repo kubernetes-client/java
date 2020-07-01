@@ -9,6 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.function.Consumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,6 +24,7 @@ public class LeaderElector {
   // internal bookkeeping
   private LeaderElectionRecord observedRecord;
   private long observedTimeMilliSeconds;
+  private final Consumer<Throwable> exceptionHandler;
 
   private ScheduledExecutorService scheduledWorkers =
       Executors.newSingleThreadScheduledExecutor(
@@ -33,6 +35,14 @@ public class LeaderElector {
       Executors.newSingleThreadExecutor(makeThreadFactory("leader-elector-hook-worker-%d"));
 
   public LeaderElector(LeaderElectionConfig config) {
+    this(
+        config,
+        (t) -> {
+          log.error("Unexpected error on acquiring or renewing the lease", t);
+        });
+  }
+
+  public LeaderElector(LeaderElectionConfig config, Consumer<Throwable> exceptionHandler) {
     if (config == null) {
       throw new IllegalArgumentException("Config must be provided.");
     }
@@ -68,6 +78,7 @@ public class LeaderElector {
       throw new IllegalArgumentException(String.join(",", errors));
     }
     this.config = config;
+    this.exceptionHandler = exceptionHandler;
   }
 
   public void run(Runnable startLeadingHook, Runnable stopLeadingHook) {
@@ -110,7 +121,7 @@ public class LeaderElector {
               } catch (CancellationException e) {
                 log.info("Processing tryAcquireOrRenew successfully canceled");
               } catch (Throwable t) {
-                log.error("Error processing tryAcquireOrRenew as {}", t.getMessage());
+                this.exceptionHandler.accept(t);
                 future.cancel(true);
               }
             },

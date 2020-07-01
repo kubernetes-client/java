@@ -6,11 +6,13 @@ import io.kubernetes.client.informer.EventType;
 import io.kubernetes.client.informer.ListerWatcher;
 import io.kubernetes.client.openapi.models.V1ListMeta;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
-import io.kubernetes.client.util.*;
+import io.kubernetes.client.util.CallGeneratorParams;
+import io.kubernetes.client.util.Watchable;
 import java.net.ConnectException;
 import java.time.Duration;
-import java.util.*;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.function.BiConsumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,11 +33,22 @@ public class ReflectorRunnable<
 
   private AtomicBoolean isActive = new AtomicBoolean(true);
 
+  private final BiConsumer<Class<ApiType>, Throwable> exceptionHandler;
+
   public ReflectorRunnable(
       Class<ApiType> apiTypeClass, ListerWatcher listerWatcher, DeltaFIFO store) {
+    this(apiTypeClass, listerWatcher, store, ReflectorRunnable::defaultWatchErrorHandler);
+  }
+
+  public ReflectorRunnable(
+      Class<ApiType> apiTypeClass,
+      ListerWatcher listerWatcher,
+      DeltaFIFO store,
+      BiConsumer<Class<ApiType>, Throwable> exceptionHandler) {
     this.listerWatcher = listerWatcher;
     this.store = store;
     this.apiTypeClass = apiTypeClass;
+    this.exceptionHandler = exceptionHandler;
   }
 
   /**
@@ -43,9 +56,9 @@ public class ReflectorRunnable<
    * resource version to watch.
    */
   public void run() {
-    try {
-      log.info("{}#Start listing and watching...", apiTypeClass);
+    log.info("{}#Start listing and watching...", apiTypeClass);
 
+    try {
       ApiListType list = listerWatcher.list(new CallGeneratorParams(Boolean.FALSE, null, null));
 
       V1ListMeta listMeta = list.getMetadata();
@@ -82,25 +95,27 @@ public class ReflectorRunnable<
                       Long.valueOf(Duration.ofMinutes(5).toMillis()).intValue()));
           watchHandler(watch);
         } catch (Throwable t) {
-          log.info("{}#Watch connection get exception {}", apiTypeClass, t.getMessage());
-          Throwable cause = t.getCause();
-          // If this is "connection refused" error, it means that most likely apiserver is not
-          // responsive.
-          // It doesn't make sense to re-list all objects because most likely we will be able to
-          // restart
-          // watch where we ended.
-          // If that's the case wait and resend watch request.
-          if (cause != null && (cause instanceof ConnectException)) {
-            log.info("{}#Watch get connect exception, retry watch", apiTypeClass);
-            Thread.sleep(1000L);
+          if (isConnectException(t)) {
+            // If this is "connection refused" error, it means that most likely apiserver is not
+            // responsive.
+            // It doesn't make sense to re-list all objects because most likely we will be able to
+            // restart
+            // watch where we ended.
+            // If that's the case wait and resend watch request.
+            log.info("{}#Watch get connect exception, retry watch", this.apiTypeClass);
+            try {
+              Thread.sleep(1000L);
+            } catch (InterruptedException e) {
+              // no-op
+            }
             continue;
           }
           if ((t instanceof RuntimeException)
               && t.getMessage().contains("IO Exception during hasNext")) {
-            log.info("{}#Read timeout retry list and watch", apiTypeClass);
+            log.info("{}#Read timeout retry list and watch", this.apiTypeClass);
             return;
           }
-          log.error("{}#Watch failed as {} unexpected", apiTypeClass, t.getMessage(), t);
+          this.exceptionHandler.accept(apiTypeClass, t);
           return;
         } finally {
           if (watch != null) {
@@ -110,7 +125,7 @@ public class ReflectorRunnable<
         }
       }
     } catch (Throwable t) {
-      log.error("Failed to list-watch", t);
+      this.exceptionHandler.accept(apiTypeClass, t);
     }
   }
 
@@ -167,5 +182,19 @@ public class ReflectorRunnable<
         log.debug("{}#Receiving resourceVersion {}", apiTypeClass, lastSyncResourceVersion);
       }
     }
+  }
+
+  private static <ApiType extends KubernetesObject> void defaultWatchErrorHandler(
+      Class<ApiType> watchingApiTypeClass, Throwable t) {
+    log.error(String.format("%s#Reflector loop failed unexpectedly", watchingApiTypeClass), t);
+  }
+
+  private boolean isConnectException(Throwable t) {
+    if (t instanceof ConnectException) {
+      return true;
+    }
+    // ApiException can nest a ConnectException
+    Throwable cause = t.getCause();
+    return cause instanceof ConnectException;
   }
 }
