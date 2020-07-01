@@ -1,19 +1,27 @@
 package io.kubernetes.client.extended.leaderelection;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
+import io.kubernetes.client.openapi.ApiException;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.Consumer;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 
+@RunWith(MockitoJUnitRunner.class)
 public class LeaderElectionTest {
 
   @Before
@@ -21,6 +29,8 @@ public class LeaderElectionTest {
     MockResourceLock.lock = new ReentrantLock();
     MockResourceLock.leaderRecord = null;
   }
+
+  @Mock private Lock lock;
 
   @Test
   public void testSimpleLeaderElection() throws InterruptedException {
@@ -248,6 +258,28 @@ public class LeaderElectionTest {
           expected[index],
           history.get(index));
     }
+  }
+
+  @Test
+  public void testLeaderElectionCaptureException() throws ApiException, InterruptedException {
+    RuntimeException expectedException = new RuntimeException("noxu");
+    AtomicReference<Throwable> actualException = new AtomicReference<>();
+    when(lock.get()).thenThrow(expectedException);
+    LeaderElectionConfig leaderElectionConfig = new LeaderElectionConfig();
+    leaderElectionConfig.setLock(lock);
+    leaderElectionConfig.setLeaseDuration(Duration.ofMillis(1000));
+    leaderElectionConfig.setRetryPeriod(Duration.ofMillis(200));
+    leaderElectionConfig.setRenewDeadline(Duration.ofMillis(700));
+    LeaderElector leaderElector =
+        new LeaderElector(leaderElectionConfig, (t) -> actualException.set(t));
+
+    ExecutorService leaderElectionWorker = Executors.newFixedThreadPool(1);
+    leaderElectionWorker.submit(
+        () -> {
+          leaderElector.run(() -> {}, () -> {});
+        });
+    Thread.sleep(Duration.ofSeconds(2).toMillis());
+    assertEquals(expectedException, actualException.get().getCause());
   }
 
   public static class MockResourceLock implements Lock {
