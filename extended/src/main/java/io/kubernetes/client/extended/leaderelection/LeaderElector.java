@@ -25,6 +25,11 @@ public class LeaderElector {
   private LeaderElectionRecord observedRecord;
   private long observedTimeMilliSeconds;
   private final Consumer<Throwable> exceptionHandler;
+  // used to implement OnNewLeader(), may lag slightly from the
+  // value observedRecord.HolderIdentity if the transition has
+  // not yet been reported.
+  private String reportedLeader;
+  private Consumer<String> onNewLeaderHook;
 
   private ScheduledExecutorService scheduledWorkers =
       Executors.newSingleThreadScheduledExecutor(
@@ -81,7 +86,27 @@ public class LeaderElector {
     this.exceptionHandler = exceptionHandler;
   }
 
+  /**
+   * Runs the leader election in foreground.
+   *
+   * @param startLeadingHook called when a LeaderElector client starts leading
+   * @param stopLeadingHook called when a LeaderElector client stops leading
+   */
   public void run(Runnable startLeadingHook, Runnable stopLeadingHook) {
+    run(startLeadingHook, stopLeadingHook, null);
+  }
+
+  /**
+   * Runs the leader election in foreground.
+   *
+   * @param startLeadingHook called when a LeaderElector client starts leading
+   * @param stopLeadingHook called when a LeaderElector client stops leading
+   * @param onNewLeaderHook called when the client observes a leader that is not the previously
+   *     observed leader. This includes the first observed leader when the client starts.
+   */
+  public void run(
+      Runnable startLeadingHook, Runnable stopLeadingHook, Consumer<String> onNewLeaderHook) {
+    this.onNewLeaderHook = onNewLeaderHook;
     log.info("Start leader election with lock {}", config.getLock().describe());
     try {
       if (!acquire()) {
@@ -122,7 +147,9 @@ public class LeaderElector {
                 log.info("Processing tryAcquireOrRenew successfully canceled");
               } catch (Throwable t) {
                 this.exceptionHandler.accept(t);
-                future.cancel(true);
+                future.cancel(true); // make sure the acquire work doesn't overlap
+              } finally {
+                maybeReportTransition();
               }
             },
             0,
@@ -160,6 +187,7 @@ public class LeaderElector {
                     // retry until success or interrupted
                     while (!tryAcquireOrRenew()) {
                       Thread.sleep(retryPeriodMillis);
+                      maybeReportTransition();
                     }
                   } catch (InterruptedException e) {
                     return false;
@@ -176,7 +204,7 @@ public class LeaderElector {
           }
           renewResult = false;
         } finally {
-          future.cancel(true);
+          future.cancel(true); // make the lease worker doesn't overlap
         }
         if (renewResult) {
           if (log.isDebugEnabled()) {
@@ -278,6 +306,20 @@ public class LeaderElector {
 
   private boolean isLeader() {
     return this.config.getLock().identity().equals(this.observedRecord.getHolderIdentity());
+  }
+
+  private void maybeReportTransition() {
+    if (this.observedRecord == null) {
+      return;
+    }
+    if (this.observedRecord.getHolderIdentity().equals(this.reportedLeader)) {
+      return;
+    }
+    this.reportedLeader = this.observedRecord.getHolderIdentity();
+
+    if (this.onNewLeaderHook != null) {
+      this.hookWorkers.submit(() -> onNewLeaderHook.accept(this.reportedLeader));
+    }
   }
 
   private ThreadFactory makeThreadFactory(String nameFormat) {

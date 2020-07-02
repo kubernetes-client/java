@@ -7,6 +7,7 @@ import static org.mockito.Mockito.*;
 import io.kubernetes.client.openapi.ApiException;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -280,6 +281,86 @@ public class LeaderElectionTest {
         });
     Thread.sleep(Duration.ofSeconds(2).toMillis());
     assertEquals(expectedException, actualException.get().getCause());
+  }
+
+  @Test
+  public void testLeaderElectionReportLeaderOnStart() throws ApiException, InterruptedException {
+    when(lock.identity()).thenReturn("foo1");
+    when(lock.get())
+        .thenReturn(
+            new LeaderElectionRecord() {
+              {
+                setHolderIdentity("foo2");
+                setAcquireTime(new Date());
+                setRenewTime(new Date());
+                setLeaderTransitions(1);
+                setLeaseDurationSeconds(60);
+              }
+            });
+    List<String> notifications = new ArrayList<>();
+    LeaderElectionConfig leaderElectionConfig = new LeaderElectionConfig();
+    leaderElectionConfig.setLock(lock);
+    leaderElectionConfig.setLeaseDuration(Duration.ofMillis(1000));
+    leaderElectionConfig.setRetryPeriod(Duration.ofMillis(200));
+    leaderElectionConfig.setRenewDeadline(Duration.ofMillis(700));
+    LeaderElector leaderElector = new LeaderElector(leaderElectionConfig);
+    ExecutorService leaderElectionWorker = Executors.newFixedThreadPool(1);
+    leaderElectionWorker.submit(
+        () -> {
+          leaderElector.run(() -> {}, () -> {}, (id) -> notifications.add(id));
+        });
+
+    Thread.sleep(Duration.ofSeconds(2).toMillis());
+
+    when(lock.get())
+        .thenReturn(
+            new LeaderElectionRecord() {
+              {
+                setHolderIdentity("foo3");
+                setAcquireTime(new Date());
+                setRenewTime(new Date());
+                setLeaderTransitions(1);
+                setLeaseDurationSeconds(60);
+              }
+            });
+    Thread.sleep(Duration.ofSeconds(2).toMillis());
+
+    assertEquals(2, notifications.size());
+    assertEquals("foo2", notifications.get(0));
+    assertEquals("foo3", notifications.get(1));
+  }
+
+  @Test
+  public void testLeaderElectionShouldReportLeaderItAcquiresOnStart()
+      throws ApiException, InterruptedException {
+    when(lock.identity()).thenReturn("foo1");
+    when(lock.get())
+        .thenReturn(
+            new LeaderElectionRecord() {
+              {
+                setHolderIdentity("foo1");
+                setAcquireTime(new Date());
+                setRenewTime(new Date());
+                setLeaderTransitions(1);
+                setLeaseDurationSeconds(60);
+              }
+            });
+    List<String> notifications = new ArrayList<>();
+    LeaderElectionConfig leaderElectionConfig = new LeaderElectionConfig();
+    leaderElectionConfig.setLock(lock);
+    leaderElectionConfig.setLeaseDuration(Duration.ofMillis(1000));
+    leaderElectionConfig.setRetryPeriod(Duration.ofMillis(200));
+    leaderElectionConfig.setRenewDeadline(Duration.ofMillis(700));
+    LeaderElector leaderElector = new LeaderElector(leaderElectionConfig);
+    ExecutorService leaderElectionWorker = Executors.newFixedThreadPool(1);
+    leaderElectionWorker.submit(
+        () -> {
+          leaderElector.run(() -> {}, () -> {}, (id) -> notifications.add(id));
+        });
+
+    Thread.sleep(Duration.ofSeconds(2).toMillis());
+    assertEquals(1, notifications.size());
+    assertEquals("foo1", notifications.get(0));
   }
 
   public static class MockResourceLock implements Lock {
