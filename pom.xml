@@ -47,7 +47,7 @@
     <apache.commons.compress>1.20</apache.commons.compress>
     <common.codec.version>1.14</common.codec.version>
     <spring.boot.version>2.3.1.RELEASE</spring.boot.version>
-    <spring.version>5.1.2.RELEASE</spring.version>
+    <spring.version>5.2.7.RELEASE</spring.version>
   </properties>
 
   <licenses>
