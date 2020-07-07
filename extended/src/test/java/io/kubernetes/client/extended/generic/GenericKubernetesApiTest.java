@@ -160,6 +160,9 @@ public class GenericKubernetesApiTest {
             .newBuilder()
             .readTimeout(1, TimeUnit.MILLISECONDS) // timeout everytime
             .build());
+    stubFor(
+        get(urlEqualTo("/apis/batch/v1/namespaces/foo/jobs/test"))
+            .willReturn(aResponse().withFixedDelay(99999).withStatus(200).withBody("")));
     jobClient =
         new GenericKubernetesApi<>(V1Job.class, V1JobList.class, "batch", "v1", "jobs", apiClient);
     try {
