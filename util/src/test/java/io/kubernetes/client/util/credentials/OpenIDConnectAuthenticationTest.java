@@ -37,6 +37,7 @@ public class OpenIDConnectAuthenticationTest {
               .httpsPort(PORT)
               .keystoreType("JKS")
               .keystorePath(OIDC_SERVER_KS_PATH)
+              .keyManagerPassword("changeme")
               .keystorePassword("changeme"));
 
   @Test
