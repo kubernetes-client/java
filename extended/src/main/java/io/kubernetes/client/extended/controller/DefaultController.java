@@ -105,7 +105,11 @@ public class DefaultController implements Controller {
       workerThreadPool.scheduleWithFixedDelay(
           () -> {
             log.debug("Starting controller {} worker {}..", this.name, workerIndex);
-            this.worker();
+            try {
+              this.worker();
+            } catch (Throwable t) {
+              log.error("Unexpected controller loop abortion", t);
+            }
             latch.countDown();
             log.debug("Exiting controller {} worker {}..", this.name, workerIndex);
           },
