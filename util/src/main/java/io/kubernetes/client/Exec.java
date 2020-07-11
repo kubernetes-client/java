@@ -184,7 +184,7 @@ public class Exec {
   public Process exec(
       String namespace, String name, String[] command, String container, boolean stdin, boolean tty)
       throws ApiException, IOException {
-    return newExecutionBuilder(namespace, name, command)
+    return new ExecutionBuilder(namespace, name, command)
         .setContainer(container)
         .setStdin(stdin)
         .setTty(tty)
