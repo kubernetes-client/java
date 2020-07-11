@@ -110,7 +110,7 @@ public class PortForward {
     String path = makePath(namespace, name);
     WebSocketStreamHandler handler = new WebSocketStreamHandler();
     PortForwardResult result = new PortForwardResult(handler, ports);
-    List<Pair> queryParams = new ArrayList<>();
+    List<Pair> queryParams = new ArrayList<>(ports.size());
     for (Integer port : ports) {
       queryParams.add(new Pair("ports", port.toString()));
     }

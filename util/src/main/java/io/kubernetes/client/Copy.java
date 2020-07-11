@@ -203,8 +203,6 @@ public class Copy extends Exec {
     } finally {
       proc.destroy();
     }
-
-    return;
   }
 
   private boolean isTarPresentInContainer(String namespace, String pod, String container)
@@ -215,7 +213,7 @@ public class Copy extends Exec {
     // This will work for POSIX based operating systems
     try {
       int status = proc.waitFor();
-      return status == 127 ? false : true;
+      return status != 127;
     } catch (InterruptedException ex) {
       throw new IOException(ex);
     } finally {
