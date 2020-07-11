@@ -108,18 +108,20 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
    * @param resourceVersion the resource version
    */
   @Override
-  public synchronized void replace(List<ApiType> list, String resourceVersion) {
-    Map<String, ApiType> newItems = new HashMap<>();
-    for (ApiType item : list) {
-      String key = keyFunc.apply(item);
-      newItems.put(key, item);
-    }
-    this.items = newItems;
+  public void replace(List<ApiType> list, String resourceVersion) {
+    synchronized (this) {
+      Map<String, ApiType> newItems = new HashMap<>();
+      for (ApiType item : list) {
+        String key = keyFunc.apply(item);
+        newItems.put(key, item);
+      }
+      this.items = newItems;
 
-    // rebuild any index
-    this.indices = new HashMap<>();
-    for (Map.Entry<String, ApiType> itemEntry : items.entrySet()) {
-      this.updateIndices(null, itemEntry.getValue(), itemEntry.getKey());
+      // rebuild any index
+      this.indices = new HashMap<>();
+      for (Map.Entry<String, ApiType> itemEntry : items.entrySet()) {
+        this.updateIndices(null, itemEntry.getValue(), itemEntry.getKey());
+      }
     }
   }
 
@@ -135,12 +137,14 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
    * @return the list
    */
   @Override
-  public synchronized List<String> listKeys() {
-    List<String> keys = new ArrayList<>(this.items.size());
-    for (Map.Entry<String, ApiType> entry : this.items.entrySet()) {
-      keys.add(entry.getKey());
+  public List<String> listKeys() {
+    synchronized (this) {
+      List<String> keys = new ArrayList<>(this.items.size());
+      for (Map.Entry<String, ApiType> entry : this.items.entrySet()) {
+        keys.add(entry.getKey());
+      }
+      return keys;
     }
-    return keys;
   }
 
   /**
@@ -163,12 +167,14 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
    * @return the list
    */
   @Override
-  public synchronized List<ApiType> list() {
-    List<ApiType> itemList = new ArrayList<>(this.items.size());
-    for (Map.Entry<String, ApiType> entry : this.items.entrySet()) {
-      itemList.add(entry.getValue());
+  public List<ApiType> list() {
+    synchronized (this) {
+      List<ApiType> itemList = new ArrayList<>(this.items.size());
+      for (Map.Entry<String, ApiType> entry : this.items.entrySet()) {
+        itemList.add(entry.getValue());
+      }
+      return itemList;
     }
-    return itemList;
   }
 
   /**
@@ -178,8 +184,10 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
    * @return the get by key
    */
   @Override
-  public synchronized ApiType getByKey(String key) {
-    return this.items.get(key);
+  public ApiType getByKey(String key) {
+    synchronized (this) {
+      return this.items.get(key);
+    }
   }
 
   /**
@@ -190,30 +198,32 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
    * @return the list
    */
   @Override
-  public synchronized List<ApiType> index(String indexName, ApiType obj) {
-    if (!this.indexers.containsKey(indexName)) {
-      throw new IllegalArgumentException(String.format("index %s doesn't exist!", indexName));
-    }
-    Function<ApiType, List<String>> indexFunc = this.indexers.get(indexName);
-    List<String> indexKeys = indexFunc.apply((ApiType) obj);
-    Map<String, Set<String>> index = this.indices.get(indexName);
-    if (MapUtils.isEmpty(index)) {
-      return new ArrayList<>();
-    }
-    Set<String> returnKeySet = new HashSet<>();
-    for (String indexKey : indexKeys) {
-      Set<String> set = index.get(indexKey);
-      if (CollectionUtils.isEmpty(set)) {
-        continue;
+  public List<ApiType> index(String indexName, ApiType obj) {
+    synchronized (this) {
+      if (!this.indexers.containsKey(indexName)) {
+        throw new IllegalArgumentException(String.format("index %s doesn't exist!", indexName));
       }
-      returnKeySet.addAll(set);
-    }
+      Function<ApiType, List<String>> indexFunc = this.indexers.get(indexName);
+      List<String> indexKeys = indexFunc.apply((ApiType) obj);
+      Map<String, Set<String>> index = this.indices.get(indexName);
+      if (MapUtils.isEmpty(index)) {
+        return new ArrayList<>();
+      }
+      Set<String> returnKeySet = new HashSet<>();
+      for (String indexKey : indexKeys) {
+        Set<String> set = index.get(indexKey);
+        if (CollectionUtils.isEmpty(set)) {
+          continue;
+        }
+        returnKeySet.addAll(set);
+      }
 
-    List<ApiType> items = new ArrayList<>(returnKeySet.size());
-    for (String absoluteKey : returnKeySet) {
-      items.add(this.items.get(absoluteKey));
+      List<ApiType> items = new ArrayList<>(returnKeySet.size());
+      for (String absoluteKey : returnKeySet) {
+        items.add(this.items.get(absoluteKey));
+      }
+      return items;
     }
-    return items;
   }
 
   /**
@@ -224,17 +234,19 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
    * @return the list
    */
   @Override
-  public synchronized List<String> indexKeys(String indexName, String indexKey) {
-    if (!this.indexers.containsKey(indexName)) {
-      throw new IllegalArgumentException(String.format("index %s doesn't exist!", indexName));
+  public List<String> indexKeys(String indexName, String indexKey) {
+    synchronized (this) {
+      if (!this.indexers.containsKey(indexName)) {
+        throw new IllegalArgumentException(String.format("index %s doesn't exist!", indexName));
+      }
+      Map<String, Set<String>> index = this.indices.get(indexName);
+      Set<String> set = index.get(indexKey);
+      List<String> keys = new ArrayList<>(set.size());
+      for (String key : set) {
+        keys.add(key);
+      }
+      return keys;
     }
-    Map<String, Set<String>> index = this.indices.get(indexName);
-    Set<String> set = index.get(indexKey);
-    List<String> keys = new ArrayList<>(set.size());
-    for (String key : set) {
-      keys.add(key);
-    }
-    return keys;
   }
 
   /**
@@ -245,20 +257,22 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
    * @return the list
    */
   @Override
-  public synchronized List<ApiType> byIndex(String indexName, String indexKey) {
-    if (!this.indexers.containsKey(indexName)) {
-      throw new IllegalArgumentException(String.format("index %s doesn't exist!", indexName));
+  public List<ApiType> byIndex(String indexName, String indexKey) {
+    synchronized (this) {
+      if (!this.indexers.containsKey(indexName)) {
+        throw new IllegalArgumentException(String.format("index %s doesn't exist!", indexName));
+      }
+      Map<String, Set<String>> index = this.indices.get(indexName);
+      Set<String> set = index.get(indexKey);
+      if (set == null) {
+        return Arrays.asList();
+      }
+      List<ApiType> items = new ArrayList<>(set.size());
+      for (String key : set) {
+        items.add(this.items.get(key));
+      }
+      return items;
     }
-    Map<String, Set<String>> index = this.indices.get(indexName);
-    Set<String> set = index.get(indexKey);
-    if (set == null) {
-      return Arrays.asList();
-    }
-    List<ApiType> items = new ArrayList<>(set.size());
-    for (String key : set) {
-      items.add(this.items.get(key));
-    }
-    return items;
   }
 
   /**
@@ -374,3 +388,4 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
     this.keyFunc = keyFunc;
   }
 }
+
