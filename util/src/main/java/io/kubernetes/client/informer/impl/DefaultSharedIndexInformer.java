@@ -125,6 +125,7 @@ public class DefaultSharedIndexInformer<
           log.warn(
               "DefaultSharedIndexInformer#resyncPeriod {} is smaller than resyncCheckPeriod {} and the informer has already started. Changing it to {}",
               resyncPeriodMillis,
+              resyncCheckPeriodMillis,
               resyncCheckPeriodMillis);
           resyncPeriodMillis = resyncCheckPeriodMillis;
         } else {
