@@ -172,7 +172,7 @@ public class YamlTest {
       assertTrue(
           "Target port for 'intPort' was parsed to a string, integer expected.",
           intPort.getTargetPort().isInteger());
-      assertEquals(1l, (long) intPort.getTargetPort().getIntValue());
+      assertEquals(1L, (long) intPort.getTargetPort().getIntValue());
     } catch (Exception ex) {
       assertNull("Unexpected exception: " + ex.toString(), ex);
     }
