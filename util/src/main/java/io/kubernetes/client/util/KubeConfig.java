@@ -326,7 +326,7 @@ public class KubeConfig {
       JsonElement root;
       try (InputStream is = proc.getInputStream();
           Reader r = new InputStreamReader(is, StandardCharsets.UTF_8)) {
-        root = new JsonParser().parse(r);
+        root = JsonParser.parseReader(r);
       } catch (JsonParseException x) {
         log.error("Failed to parse output of " + command, x);
         return null;
