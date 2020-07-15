@@ -19,8 +19,6 @@ import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.util.Config;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
@@ -48,12 +46,7 @@ public class ExecExample {
 
     String podName = cmd.getOptionValue("p", "nginx-dbddb74b8-s4cx5");
     String namespace = cmd.getOptionValue("n", "default");
-    List<String> commands = new ArrayList<>();
-
     args = cmd.getArgs();
-    for (int i = 0; i < args.length; i++) {
-      commands.add(args[i]);
-    }
 
     ApiClient client = Config.defaultClient();
     Configuration.setDefaultApiClient(client);
@@ -63,14 +56,7 @@ public class ExecExample {
     // final Process proc = exec.exec("default", "nginx-4217019353-k5sn9", new String[]
     //   {"sh", "-c", "echo foo"}, true, tty);
     final Process proc =
-        exec.exec(
-            namespace,
-            podName,
-            commands.isEmpty()
-                ? new String[] {"sh"}
-                : commands.toArray(new String[commands.size()]),
-            true,
-            tty);
+        exec.exec(namespace, podName, args.length == 0 ? new String[] {"sh"} : args, true, tty);
 
     Thread in =
         new Thread(

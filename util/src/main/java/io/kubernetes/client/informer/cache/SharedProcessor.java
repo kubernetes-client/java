@@ -111,7 +111,7 @@ public class SharedProcessor<ApiType extends KubernetesObject> {
     lock.writeLock().lock();
     boolean resyncNeeded = false;
     try {
-      this.syncingListeners = new ArrayList<>();
+      this.syncingListeners = new ArrayList<>(this.listeners.size());
 
       DateTime now = DateTime.now();
       for (ProcessorListener listener : this.listeners) {
