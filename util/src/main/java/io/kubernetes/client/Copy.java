@@ -203,8 +203,6 @@ public class Copy extends Exec {
     } finally {
       proc.destroy();
     }
-
-    return;
   }
 
   private boolean isTarPresentInContainer(String namespace, String pod, String container)

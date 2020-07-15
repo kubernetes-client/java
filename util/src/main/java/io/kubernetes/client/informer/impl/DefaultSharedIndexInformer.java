@@ -253,9 +253,6 @@ public class DefaultSharedIndexInformer<
     if (check == 0) {
       return 0;
     }
-    if (desired < check) {
-      return check;
-    }
-    return desired;
+    return Math.max(desired, check);
   }
 }
