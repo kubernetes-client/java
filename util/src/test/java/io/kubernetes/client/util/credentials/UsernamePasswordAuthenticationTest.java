@@ -1,8 +1,8 @@
 package io.kubernetes.client.util.credentials;
 
 import static io.kubernetes.client.util.TestUtils.getApiKeyAuthFromClient;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
 
 import com.google.common.base.Charsets;
 import io.kubernetes.client.openapi.ApiClient;
