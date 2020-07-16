@@ -1,9 +1,9 @@
 /*
-Copyright 2018 The Kubernetes Authors.
+Copyright 2020 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
-    http://www.apache.org/licenses/LICENSE-2.0
+http://www.apache.org/licenses/LICENSE-2.0
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -66,8 +66,7 @@ public class ExpandedExample {
 
       // List all of the namaspaces and pods
       List<String> nameSpaces = getAllNameSpaces();
-      nameSpaces
-          .stream()
+      nameSpaces.stream()
           .forEach(
               namespace -> {
                 try {
@@ -105,9 +104,7 @@ public class ExpandedExample {
         COREV1_API.listNamespace(
             "true", null, null, null, null, 0, null, Integer.MAX_VALUE, Boolean.FALSE);
     List<String> list =
-        listNamespace
-            .getItems()
-            .stream()
+        listNamespace.getItems().stream()
             .map(v1Namespace -> v1Namespace.getMetadata().getName())
             .collect(Collectors.toList());
     return list;
@@ -123,9 +120,7 @@ public class ExpandedExample {
     V1PodList v1podList =
         COREV1_API.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null);
     List<String> podList =
-        v1podList
-            .getItems()
-            .stream()
+        v1podList.getItems().stream()
             .map(v1Pod -> v1Pod.getMetadata().getName())
             .collect(Collectors.toList());
     return podList;
@@ -174,9 +169,7 @@ public class ExpandedExample {
             TIME_OUT_VALUE,
             Boolean.FALSE);
     List<String> listPods =
-        listNamespacedPod
-            .getItems()
-            .stream()
+        listNamespacedPod.getItems().stream()
             .map(v1pod -> v1pod.getMetadata().getName())
             .collect(Collectors.toList());
     return listPods;
@@ -201,9 +194,7 @@ public class ExpandedExample {
             null,
             TIME_OUT_VALUE,
             Boolean.FALSE);
-    return listNamespacedService
-        .getItems()
-        .stream()
+    return listNamespacedService.getItems().stream()
         .map(v1service -> v1service.getMetadata().getName())
         .collect(Collectors.toList());
   }
@@ -226,8 +217,7 @@ public class ExpandedExample {
     List<ExtensionsV1beta1Deployment> extensionsV1beta1DeploymentItems =
         listNamespacedDeployment.getItems();
     Optional<ExtensionsV1beta1Deployment> findedDeployment =
-        extensionsV1beta1DeploymentItems
-            .stream()
+        extensionsV1beta1DeploymentItems.stream()
             .filter(
                 (ExtensionsV1beta1Deployment deployment) ->
                     deployment.getMetadata().getName().equals(deploymentName))

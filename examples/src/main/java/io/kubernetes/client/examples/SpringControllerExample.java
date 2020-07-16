@@ -1,3 +1,15 @@
+/*
+Copyright 2020 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 package io.kubernetes.client.examples;
 
 import io.kubernetes.client.extended.controller.Controller;
@@ -33,8 +45,10 @@ public class SpringControllerExample {
 
   @Configuration
   @ComponentScan(
-    basePackages = "io.kubernetes.client.spring.extended.controller"
-  ) // Scanning beans under this package is *REQUIRED* for informers/reconciler injections.
+      basePackages = "io.kubernetes.client.spring.extended.controller") // Scanning beans under this
+  // package is
+  // *REQUIRED* for informers/reconciler
+  // injections.
   public static class AppConfig {
 
     @Bean
@@ -76,35 +90,33 @@ public class SpringControllerExample {
 
   @KubernetesInformers({ // Defining what resources is the informer-factory actually watching.
     @KubernetesInformer(
-      apiTypeClass = V1Node.class,
-      apiListTypeClass = V1NodeList.class,
-      groupVersionResource =
-          @GroupVersionResource(apiGroup = "", apiVersion = "v1", resourcePlural = "nodes"),
-      resyncPeriodMillis = 60 * 1000L
-    ),
+        apiTypeClass = V1Node.class,
+        apiListTypeClass = V1NodeList.class,
+        groupVersionResource =
+            @GroupVersionResource(apiGroup = "", apiVersion = "v1", resourcePlural = "nodes"),
+        resyncPeriodMillis = 60 * 1000L),
     @KubernetesInformer(
-      apiTypeClass = V1Pod.class,
-      apiListTypeClass = V1PodList.class,
-      groupVersionResource =
-          @GroupVersionResource(apiGroup = "", apiVersion = "v1", resourcePlural = "pods")
-    ),
+        apiTypeClass = V1Pod.class,
+        apiListTypeClass = V1PodList.class,
+        groupVersionResource =
+            @GroupVersionResource(apiGroup = "", apiVersion = "v1", resourcePlural = "pods")),
   })
   public static class MySharedInformerFactory extends SharedInformerFactory {}
 
-  // As long as a reconciler bean attached `@KubernetesReconciler` detected in the context, we will
+  // As long as a reconciler bean attached `@KubernetesReconciler` detected in the context, we
+  // will
   // be automatically creating a conresponding controller bean implementing {@link
   // io.kubernetes.client.extended.controller.Controller}
   // with the name specified and registering it to the spring bean-factory.
   @KubernetesReconciler(
-    value = "node-printing-controller",
-    watches =
-        @KubernetesReconcilerWatches({
-          @KubernetesReconcilerWatch(
-            apiTypeClass = V1Node.class,
-            resyncPeriodMillis = 60 * 1000L // fully resync every 1 minute
-          ),
-        })
-  )
+      value = "node-printing-controller",
+      watches =
+          @KubernetesReconcilerWatches({
+            @KubernetesReconcilerWatch(
+                apiTypeClass = V1Node.class,
+                resyncPeriodMillis = 60 * 1000L // fully resync every 1 minute
+                ),
+          }))
   public static class NodePrintingReconciler implements Reconciler {
 
     public NodePrintingReconciler(

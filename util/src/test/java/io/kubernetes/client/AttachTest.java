@@ -1,9 +1,9 @@
 /*
-Copyright 2018 The Kubernetes Authors.
+Copyright 2020 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
-    http://www.apache.org/licenses/LICENSE-2.0
+http://www.apache.org/licenses/LICENSE-2.0
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -72,7 +72,8 @@ public class AttachTest {
             .setStdout(true)
             .connect();
 
-    // TODO: Kill this sleep, the trouble is that the test tries to validate before the connection
+    // TODO: Kill this sleep, the trouble is that the test tries to validate before the
+    // connection
     // event has happened
     Thread.sleep(2000);
 

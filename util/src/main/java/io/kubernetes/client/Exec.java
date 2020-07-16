@@ -1,9 +1,9 @@
 /*
-Copyright 2017, 2018 The Kubernetes Authors.
+Copyright 2020 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
-    http://www.apache.org/licenses/LICENSE-2.0
+http://www.apache.org/licenses/LICENSE-2.0
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -372,7 +372,8 @@ public class Exec {
                   }
                 }
                 inStream.close();
-                // Stream ID of `3` delivers the status of exec connection from kubelet,
+                // Stream ID of `3` delivers the status of exec connection from
+                // kubelet,
                 // closing the connection upon 0 exit-code.
                 this.close();
                 ExecProcess.this.latch.countDown();
@@ -382,12 +383,15 @@ public class Exec {
             @Override
             public void failure(Throwable ex) {
               super.failure(ex);
-              // TODO, it's possible we should suppress this error message, but currently there's
-              // no good place to surface the message, and without it, this will be really hard to
+              // TODO, it's possible we should suppress this error message, but
+              // currently there's
+              // no good place to surface the message, and without it, this will be
+              // really hard to
               // debug.
               ex.printStackTrace();
               synchronized (ExecProcess.this) {
-                // Try for a pretty unique error code, so if someone searches they'll find this
+                // Try for a pretty unique error code, so if someone searches
+                // they'll find this
                 // code.
                 statusCode = -1975219;
                 isAlive = false;

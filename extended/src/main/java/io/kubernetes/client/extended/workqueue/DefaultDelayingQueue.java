@@ -1,3 +1,15 @@
+/*
+Copyright 2020 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 package io.kubernetes.client.extended.workqueue;
 
 import com.google.common.primitives.Longs;
@@ -64,7 +76,8 @@ public class DefaultDelayingQueue<T> extends DefaultWorkQueue<T> implements Dela
         if (entry != null) {
           // the delay-queue isn't empty, so we deal with the item in the following logic:
           // 1. check if the item is ready to fire
-          //   a. if ready, remove it from the delay-queue and push it into underlying work-queue
+          //   a. if ready, remove it from the delay-queue and push it into underlying
+          // work-queue
           //   b. if not, refresh the next ready-at time.
           Instant now = Instant.now();
           if (!Duration.between(entry.readyAtMillis, now).isNegative()) {
