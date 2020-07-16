@@ -1,15 +1,15 @@
 /*
-Copyright 2018 The Kubernetes Authors.
+Copyright 2020 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
-    http://www.apache.org/licenses/LICENSE-2.0
+http://www.apache.org/licenses/LICENSE-2.0
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
- */
+*/
 package io.kubernetes.client.util;
 
 import com.google.common.reflect.ClassPath;
@@ -142,8 +142,8 @@ public class Yaml {
   }
 
   /**
-   * Add a mapping from API Group/version/kind to a Class to use when calling <code>load(...)</code>
-   * .
+   * Add a mapping from API Group/version/kind to a Class to use when calling <code>load(...)
+   * </code> .
    *
    * <p>Shouldn't really be needed as most API Group/Version/Kind are loaded dynamically at startup.
    */
@@ -426,7 +426,8 @@ public class Yaml {
     @Override
     protected MappingNode representJavaBean(Set<Property> properties, Object javaBean) {
       MappingNode node = super.representJavaBean(properties, javaBean);
-      // Always set the tag to MAP so that SnakeYaml doesn't print out the class name as a tag.
+      // Always set the tag to MAP so that SnakeYaml doesn't print out the class name as a
+      // tag.
       node.setTag(Tag.MAP);
       // Sort the output of our map so that we put certain keys, such as apiVersion, first.
       Collections.sort(

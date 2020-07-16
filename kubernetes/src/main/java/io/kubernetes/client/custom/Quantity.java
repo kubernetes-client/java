@@ -1,14 +1,24 @@
+/*
+Copyright 2020 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 package io.kubernetes.client.custom;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Objects;
-
 import org.apache.commons.lang3.ObjectUtils;
 
 @JsonAdapter(Quantity.QuantityAdapter.class)
@@ -18,7 +28,9 @@ public class Quantity {
   private Format format;
 
   public enum Format {
-    DECIMAL_EXPONENT(10), DECIMAL_SI(10), BINARY_SI(2);
+    DECIMAL_EXPONENT(10),
+    DECIMAL_SI(10),
+    BINARY_SI(2);
 
     private int base;
 
@@ -60,10 +72,7 @@ public class Quantity {
 
   @Override
   public String toString() {
-    return "Quantity{" +
-           "number=" + number +
-           ", format=" + format +
-           '}';
+    return "Quantity{" + "number=" + number + ", format=" + format + '}';
   }
 
   @Override
@@ -77,8 +86,8 @@ public class Quantity {
 
     Quantity otherQuantity = (Quantity) o;
 
-    return ObjectUtils.compare(this.number, otherQuantity.number) == 0 &&
-           Objects.equals(this.format, otherQuantity.format);
+    return ObjectUtils.compare(this.number, otherQuantity.number) == 0
+        && Objects.equals(this.format, otherQuantity.format);
   }
 
   public static class QuantityAdapter extends TypeAdapter<Quantity> {

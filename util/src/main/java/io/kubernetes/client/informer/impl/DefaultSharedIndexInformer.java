@@ -1,3 +1,15 @@
+/*
+Copyright 2020 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 package io.kubernetes.client.informer.impl;
 
 import io.kubernetes.client.common.KubernetesListObject;
@@ -32,7 +44,8 @@ public class DefaultSharedIndexInformer<
   // shouldResync to check if any of our listeners need a resync.
   private long resyncCheckPeriodMillis;
   // defaultEventHandlerResyncPeriod is the default resync period for any handlers added via
-  // AddEventHandler (i.e. they don't specify one and just want to use the shared informer's default
+  // AddEventHandler (i.e. they don't specify one and just want to use the shared informer's
+  // default
   // value).
   private long defaultEventHandlerResyncPeriod;
 
@@ -63,7 +76,8 @@ public class DefaultSharedIndexInformer<
         apiTypeClass,
         listerWatcher,
         resyncPeriod,
-        // down-casting should be safe here because one delta FIFO instance only serves one resource
+        // down-casting should be safe here because one delta FIFO instance only serves one
+        // resource
         // type
         new DeltaFIFO(
             (Function<KubernetesObject, String>) cache.getKeyFunc(),
@@ -129,8 +143,10 @@ public class DefaultSharedIndexInformer<
               resyncCheckPeriodMillis);
           resyncPeriodMillis = resyncCheckPeriodMillis;
         } else {
-          // if the event handler's resyncPeriod is smaller than the current resyncCheckPeriod,
-          // update resyncCheckPeriod to match resyncPeriod and adjust the resync periods of all
+          // if the event handler's resyncPeriod is smaller than the current
+          // resyncCheckPeriod,
+          // update resyncCheckPeriod to match resyncPeriod and adjust the resync periods
+          // of all
           // the listeners accordingly
           this.resyncCheckPeriodMillis = resyncPeriodMillis;
         }

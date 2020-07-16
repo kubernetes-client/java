@@ -1,3 +1,15 @@
+/*
+Copyright 2020 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 package io.kubernetes.client.examples;
 
 import io.kubernetes.client.extended.controller.Controller;
@@ -37,7 +49,8 @@ public class ControllerExample {
         apiClient.getHttpClient().newBuilder().readTimeout(0, TimeUnit.SECONDS).build();
     apiClient.setHttpClient(httpClient);
 
-    // instantiating an informer-factory, and there should be only one informer-factory globally.
+    // instantiating an informer-factory, and there should be only one informer-factory
+    // globally.
     SharedInformerFactory informerFactory = new SharedInformerFactory();
     // registering node-informer into the informer-factory.
     SharedIndexInformer<V1Node> nodeInformer =
@@ -99,9 +112,8 @@ public class ControllerExample {
             .withReconciler(nodeReconciler) // required, set the actual reconciler
             .withName("node-printing-controller") // optional, set name for controller
             .withWorkerCount(4) // optional, set worker thread count
-            .withReadyFunc(
-                nodeInformer
-                    ::hasSynced) // optional, only starts controller when the cache has synced up
+            .withReadyFunc(nodeInformer::hasSynced) // optional, only starts controller when the
+            // cache has synced up
             .build();
 
     // Use builder library to manage one or multiple controllers.

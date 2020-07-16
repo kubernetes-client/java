@@ -3,14 +3,13 @@ Copyright 2020 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
-    http://www.apache.org/licenses/LICENSE-2.0
+http://www.apache.org/licenses/LICENSE-2.0
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-
 package io.kubernetes.client.util.authenticators;
 
 import io.kubernetes.client.util.KubeConfig;
@@ -84,10 +83,14 @@ public class OpenIDConnectAuthenticator implements Authenticator {
       JsonWebSignature jws = new JsonWebSignature();
       try {
         jws.setCompactSerialization(idToken);
-        // we don't care if its valid or not cryptographicly as the only way to verify is to query
-        // the remote identity provider's configuration url which is the same chanel as the token
-        // request.  If there is a malicious proxy there's no way for the client to know.  Also,
-        // the client doesn't need to trust the, token, only bear it to the server which will verify
+        // we don't care if its valid or not cryptographicly as the only way to verify is to
+        // query
+        // the remote identity provider's configuration url which is the same chanel as the
+        // token
+        // request.  If there is a malicious proxy there's no way for the client to know.
+        // Also,
+        // the client doesn't need to trust the, token, only bear it to the server which
+        // will verify
         // it.
 
         String jwt = jws.getUnverifiedPayload();
@@ -192,7 +195,8 @@ public class OpenIDConnectAuthenticator implements Authenticator {
         https.setSSLSocketFactory(sslContext.getSocketFactory());
       }
 
-      // per https://tools.ietf.org/html/rfc6749#section-2.3 the secret should be a header, not in
+      // per https://tools.ietf.org/html/rfc6749#section-2.3 the secret should be a header,
+      // not in
       // the body
       String credentials =
           Base64.getEncoder()

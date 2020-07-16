@@ -23,5 +23,7 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: ${{ matrix.java }}
+      - name: Verify Format and License
+        run: mvn spotless:check
       - name: Build with Maven
         run: mvn -q test -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
