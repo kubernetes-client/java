@@ -291,7 +291,6 @@ public class GenericKubernetesApi<
     if (Strings.isNullOrEmpty(name)) {
       throw new IllegalArgumentException("invalid namespace");
     }
-    CustomObjectsApi customObjectsApi = new CustomObjectsApi();
     return executeCall(
         customObjectsApi.getApiClient(),
         apiTypeClass,
