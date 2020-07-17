@@ -15,8 +15,8 @@ package io.kubernetes.client.examples;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
-import io.kubernetes.client.openapi.apis.ExtensionsV1beta1Api;
-import io.kubernetes.client.openapi.models.ExtensionsV1beta1Deployment;
+import io.kubernetes.client.openapi.apis.AppsV1Api;
+import io.kubernetes.client.openapi.models.V1Deployment;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.PatchUtils;
 import java.io.IOException;
@@ -46,27 +46,26 @@ public class PatchExample {
   static String strategicMergePatchStr =
       "{\"metadata\":{\"$deleteFromPrimitiveList/finalizers\":[\"example.com/test\"]}}";
   static String jsonDeploymentStr =
-      "{\"kind\":\"Deployment\",\"apiVersion\":\"extensions/v1beta1\",\"metadata\":{\"name\":\"hello-node\",\"finalizers\":[\"example.com/test\"],\"labels\":{\"run\":\"hello-node\"}},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"run\":\"hello-node\"}},\"template\":{\"metadata\":{\"creationTimestamp\":null,\"labels\":{\"run\":\"hello-node\"}},\"spec\":{\"terminationGracePeriodSeconds\":30,\"containers\":[{\"name\":\"hello-node\",\"image\":\"hello-node:v1\",\"ports\":[{\"containerPort\":8080}],\"resources\":{}}]}},\"strategy\":{}},\"status\":{}}";
+      "{\"kind\":\"Deployment\",\"apiVersion\":\"apps/v1\",\"metadata\":{\"name\":\"hello-node\",\"finalizers\":[\"example.com/test\"],\"labels\":{\"run\":\"hello-node\"}},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"run\":\"hello-node\"}},\"template\":{\"metadata\":{\"creationTimestamp\":null,\"labels\":{\"run\":\"hello-node\"}},\"spec\":{\"terminationGracePeriodSeconds\":30,\"containers\":[{\"name\":\"hello-node\",\"image\":\"hello-node:v1\",\"ports\":[{\"containerPort\":8080,\"protocol\":\"TCP\"}],\"resources\":{}}]}},\"strategy\":{}},\"status\":{}}";
   static String applyYamlStr =
-      "{\"kind\":\"Deployment\",\"apiVersion\":\"extensions/v1beta1\",\"metadata\":{\"name\":\"hello-node\",\"finalizers\":[\"example.com/test\"],\"labels\":{\"run\":\"hello-node\"}},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"run\":\"hello-node\"}},\"template\":{\"metadata\":{\"creationTimestamp\":null,\"labels\":{\"run\":\"hello-node\"}},\"spec\":{\"terminationGracePeriodSeconds\":30,\"containers\":[{\"name\":\"hello-node\",\"image\":\"hello-node:v2\",\"ports\":[{\"containerPort\":8080}],\"resources\":{}}]}},\"strategy\":{}},\"status\":{}}";
+      "{\"kind\":\"Deployment\",\"apiVersion\":\"apps/v1\",\"metadata\":{\"name\":\"hello-node\",\"finalizers\":[\"example.com/test\"],\"labels\":{\"run\":\"hello-node\"}},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"run\":\"hello-node\"}},\"template\":{\"metadata\":{\"creationTimestamp\":null,\"labels\":{\"run\":\"hello-node\"}},\"spec\":{\"terminationGracePeriodSeconds\":30,\"containers\":[{\"name\":\"hello-node\",\"image\":\"hello-node:v2\",\"ports\":[{\"containerPort\":8080,\"protocol\":\"TCP\"}],\"resources\":{}}]}},\"strategy\":{}},\"status\":{}}";
 
   public static void main(String[] args) throws IOException {
     try {
-      ExtensionsV1beta1Api api = new ExtensionsV1beta1Api(ClientBuilder.standard().build());
-      ExtensionsV1beta1Deployment body =
+      AppsV1Api api = new AppsV1Api(ClientBuilder.standard().build());
+      V1Deployment body =
           Configuration.getDefaultApiClient()
               .getJSON()
-              .deserialize(jsonDeploymentStr, ExtensionsV1beta1Deployment.class);
+              .deserialize(jsonDeploymentStr, V1Deployment.class);
 
       // create a deployment
-      ExtensionsV1beta1Deployment deploy1 =
-          api.createNamespacedDeployment("default", body, null, null, null);
+      V1Deployment deploy1 = api.createNamespacedDeployment("default", body, null, null, null);
       System.out.println("original deployment" + deploy1);
 
       // json-patch a deployment
-      ExtensionsV1beta1Deployment deploy2 =
+      V1Deployment deploy2 =
           PatchUtils.patch(
-              ExtensionsV1beta1Deployment.class,
+              V1Deployment.class,
               () ->
                   api.patchNamespacedDeploymentCall(
                       "hello-node",
@@ -74,7 +73,7 @@ public class PatchExample {
                       new V1Patch(jsonPatchStr),
                       null,
                       null,
-                      null,
+                      null, // field-manager is optional
                       null,
                       null),
               V1Patch.PATCH_FORMAT_JSON_PATCH,
@@ -82,9 +81,9 @@ public class PatchExample {
       System.out.println("json-patched deployment" + deploy2);
 
       // strategic-merge-patch a deployment
-      ExtensionsV1beta1Deployment deploy3 =
+      V1Deployment deploy3 =
           PatchUtils.patch(
-              ExtensionsV1beta1Deployment.class,
+              V1Deployment.class,
               () ->
                   api.patchNamespacedDeploymentCall(
                       "hello-node",
@@ -92,19 +91,19 @@ public class PatchExample {
                       new V1Patch(strategicMergePatchStr),
                       null,
                       null,
-                      null,
+                      null, // field-manager is optional
                       null,
                       null),
               V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH,
               api.getApiClient());
       System.out.println("strategic-merge-patched deployment" + deploy3);
 
-      // apply-yaml a deployment, server side apply is alpha in kubernetes v1.14,
-      // You need to actively enable the Server Side Apply alpha feature
+      // apply-yaml a deployment, server side apply is available by default after kubernetes v1.16
+      // or opt-in by turning on the feature gate for v1.14 or v1.15.
       // https://kubernetes.io/docs/reference/using-api/api-concepts/#server-side-apply
-      ExtensionsV1beta1Deployment deploy4 =
+      V1Deployment deploy4 =
           PatchUtils.patch(
-              ExtensionsV1beta1Deployment.class,
+              V1Deployment.class,
               () ->
                   api.patchNamespacedDeploymentCall(
                       "hello-node",
@@ -112,8 +111,8 @@ public class PatchExample {
                       new V1Patch(applyYamlStr),
                       null,
                       null,
-                      null,
-                      null,
+                      "example-field-manager", // field-manager is required for server-side apply
+                      true,
                       null),
               V1Patch.PATCH_FORMAT_APPLY_YAML,
               api.getApiClient());
