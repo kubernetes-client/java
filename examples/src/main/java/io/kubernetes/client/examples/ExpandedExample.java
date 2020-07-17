@@ -15,11 +15,11 @@ package io.kubernetes.client.examples;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
+import io.kubernetes.client.openapi.apis.AppsV1Api;
 import io.kubernetes.client.openapi.apis.CoreV1Api;
-import io.kubernetes.client.openapi.apis.ExtensionsV1beta1Api;
-import io.kubernetes.client.openapi.models.ExtensionsV1beta1Deployment;
-import io.kubernetes.client.openapi.models.ExtensionsV1beta1DeploymentList;
-import io.kubernetes.client.openapi.models.ExtensionsV1beta1DeploymentSpec;
+import io.kubernetes.client.openapi.models.V1Deployment;
+import io.kubernetes.client.openapi.models.V1DeploymentList;
+import io.kubernetes.client.openapi.models.V1DeploymentSpec;
 import io.kubernetes.client.openapi.models.V1NamespaceList;
 import io.kubernetes.client.openapi.models.V1PodList;
 import io.kubernetes.client.openapi.models.V1ServiceList;
@@ -208,26 +208,25 @@ public class ExpandedExample {
    */
   public static void scaleDeployment(String deploymentName, int numberOfReplicas)
       throws ApiException {
-    ExtensionsV1beta1Api extensionV1Api = new ExtensionsV1beta1Api();
-    extensionV1Api.setApiClient(COREV1_API.getApiClient());
-    ExtensionsV1beta1DeploymentList listNamespacedDeployment =
-        extensionV1Api.listNamespacedDeployment(
+    AppsV1Api appsV1Api = new AppsV1Api();
+    appsV1Api.setApiClient(COREV1_API.getApiClient());
+    V1DeploymentList listNamespacedDeployment =
+        appsV1Api.listNamespacedDeployment(
             DEFAULT_NAME_SPACE, null, null, null, null, null, null, null, null, Boolean.FALSE);
 
-    List<ExtensionsV1beta1Deployment> extensionsV1beta1DeploymentItems =
-        listNamespacedDeployment.getItems();
-    Optional<ExtensionsV1beta1Deployment> findedDeployment =
-        extensionsV1beta1DeploymentItems.stream()
+    List<V1Deployment> appsV1DeploymentItems = listNamespacedDeployment.getItems();
+    Optional<V1Deployment> findedDeployment =
+        appsV1DeploymentItems.stream()
             .filter(
-                (ExtensionsV1beta1Deployment deployment) ->
+                (V1Deployment deployment) ->
                     deployment.getMetadata().getName().equals(deploymentName))
             .findFirst();
     findedDeployment.ifPresent(
-        (ExtensionsV1beta1Deployment deploy) -> {
+        (V1Deployment deploy) -> {
           try {
-            ExtensionsV1beta1DeploymentSpec newSpec = deploy.getSpec().replicas(numberOfReplicas);
-            ExtensionsV1beta1Deployment newDeploy = deploy.spec(newSpec);
-            extensionV1Api.replaceNamespacedDeployment(
+            V1DeploymentSpec newSpec = deploy.getSpec().replicas(numberOfReplicas);
+            V1Deployment newDeploy = deploy.spec(newSpec);
+            appsV1Api.replaceNamespacedDeployment(
                 deploymentName, DEFAULT_NAME_SPACE, newDeploy, null, null, null);
           } catch (ApiException ex) {
             LOGGER.warn("Scale the pod failed for Deployment:" + deploymentName, ex);
