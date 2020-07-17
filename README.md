@@ -48,8 +48,7 @@ At first generate the JAR by executing:
 
 ```
 git clone --recursive https://github.com/kubernetes-client/java
-cd java
-cd kubernetes
+cd java/kubernetes
 mvn package
 ```
 
