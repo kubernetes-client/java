@@ -14,6 +14,7 @@ package io.kubernetes.client.util.generic;
 
 import io.kubernetes.client.common.KubernetesType;
 import io.kubernetes.client.openapi.models.V1Status;
+import java.util.function.Consumer;
 
 public class KubernetesApiResponse<DataType extends KubernetesType> {
 
@@ -47,5 +48,12 @@ public class KubernetesApiResponse<DataType extends KubernetesType> {
 
   public boolean isSuccess() {
     return this.httpStatusCode < 400;
+  }
+
+  public KubernetesApiResponse<DataType> onFailure(Consumer<V1Status> errorStatusHandler) {
+    if (!isSuccess()) {
+      errorStatusHandler.accept(this.status);
+    }
+    return this;
   }
 }
