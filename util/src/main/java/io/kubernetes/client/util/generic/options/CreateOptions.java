@@ -10,12 +10,11 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-package io.kubernetes.client.extended.generic.options;
+package io.kubernetes.client.util.generic.options;
 
-public class PatchOptions {
+public class CreateOptions {
   private String dryRun;
   private String fieldManager;
-  private Boolean force;
 
   public String getDryRun() {
     return dryRun;
@@ -23,14 +22,6 @@ public class PatchOptions {
 
   public void setDryRun(String dryRun) {
     this.dryRun = dryRun;
-  }
-
-  public Boolean getForce() {
-    return force;
-  }
-
-  public void setForce(Boolean force) {
-    this.force = force;
   }
 
   public String getFieldManager() {
