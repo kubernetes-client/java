@@ -12,10 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.examples;
 
-import com.google.common.annotations.Beta;
 import io.kubernetes.client.custom.V1Patch;
-import io.kubernetes.client.extended.generic.GenericKubernetesApi;
-import io.kubernetes.client.extended.generic.KubernetesApiResponse;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.models.V1Container;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
@@ -23,9 +20,10 @@ import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1PodList;
 import io.kubernetes.client.openapi.models.V1PodSpec;
 import io.kubernetes.client.util.ClientBuilder;
+import io.kubernetes.client.util.generic.GenericKubernetesApi;
+import io.kubernetes.client.util.generic.KubernetesApiResponse;
 import java.util.Arrays;
 
-@Beta
 public class GenericClientExample {
 
   public static void main(String[] args) throws Exception {
