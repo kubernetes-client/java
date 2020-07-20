@@ -14,8 +14,6 @@ package io.kubernetes.client.spring.extended.controller;
 
 import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.extended.generic.GenericKubernetesApi;
-import io.kubernetes.client.extended.generic.KubernetesApiResponse;
-import io.kubernetes.client.extended.generic.options.ListOptions;
 import io.kubernetes.client.informer.ListerWatcher;
 import io.kubernetes.client.informer.SharedIndexInformer;
 import io.kubernetes.client.informer.SharedInformer;
@@ -28,6 +26,8 @@ import io.kubernetes.client.spring.extended.controller.annotation.KubernetesInfo
 import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.Watchable;
+import io.kubernetes.client.util.generic.KubernetesApiResponse;
+import io.kubernetes.client.util.generic.options.ListOptions;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Map;
