@@ -18,6 +18,8 @@ import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.ResourceEventHandler;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
+import java.time.Duration;
+import java.util.concurrent.Executors;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.EnvironmentVariables;
@@ -61,6 +63,45 @@ public class SharedProcessorTest {
     assertTrue(expectDeleteHandler.isSatisfied());
   }
 
+  @Test
+  public void testShutdownGracefully() throws InterruptedException {
+    SharedProcessor<V1Pod> sharedProcessor =
+        new SharedProcessor<>(Executors.newCachedThreadPool(), Duration.ofSeconds(5));
+    TestWorker<V1Pod> quickWorker = new TestWorker<>(null, 0);
+    quickWorker.setTask(
+        () -> {
+          try {
+            // sleep 2s so that it could terminate within timeout(5s)
+            Thread.sleep(2000);
+          } catch (InterruptedException e) {
+          }
+        });
+    long before = System.currentTimeMillis();
+    sharedProcessor.addAndStartListener(quickWorker);
+    sharedProcessor.stop();
+    // the stopping worker properly blocks the processor's stop call
+    assertTrue(System.currentTimeMillis() - before >= 2000);
+
+    sharedProcessor = new SharedProcessor<>(Executors.newCachedThreadPool(), Duration.ofSeconds(5));
+    TestWorker<V1Pod> slowWorker = new TestWorker<>(null, 0);
+    final boolean[] interrupted = {false};
+    slowWorker.setTask(
+        () -> {
+          try {
+            // sleep 10s so that it could be interrupted by shutdownNow()
+            Thread.sleep(10 * 1000);
+          } catch (InterruptedException e) {
+            interrupted[0] = true;
+          }
+        });
+    sharedProcessor.addAndStartListener(slowWorker);
+    sharedProcessor.stop();
+    // make sure the slow worker has set interrupted[0] = true
+    Thread.sleep(1000);
+    // the slow worker is interrupted upon timeout
+    assertTrue(interrupted[0]);
+  }
+
   private static class ExpectingNoticationHandler<ApiType extends KubernetesObject>
       extends ProcessorListener<ApiType> {
 
@@ -97,6 +138,25 @@ public class SharedProcessorTest {
 
     public boolean isSatisfied() {
       return satisfied;
+    }
+  }
+
+  private static class TestWorker<ApiType extends KubernetesObject>
+      extends ProcessorListener<ApiType> {
+
+    private Runnable task;
+
+    public TestWorker(ResourceEventHandler<ApiType> handler, long resyncPeriod) {
+      super(handler, resyncPeriod);
+    }
+
+    public void setTask(Runnable task) {
+      this.task = task;
+    }
+
+    @Override
+    public void run() {
+      this.task.run();
     }
   }
 }
