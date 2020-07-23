@@ -1,0 +1,57 @@
+package io.kubernetes.client.util.version;
+
+import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
+import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.get;
+import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.verify;
+
+import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.models.VersionInfo;
+import io.kubernetes.client.util.ClientBuilder;
+import java.io.IOException;
+import java.io.InputStream;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+
+public class VersionUtilTest {
+
+  private ApiClient client;
+
+  private static final int PORT = 8091;
+  @Rule
+  public WireMockRule wireMockRule = new WireMockRule(PORT);
+
+  @Before
+  public void setup() throws IOException {
+    client = new ClientBuilder().setBasePath("http://localhost:" + PORT).build();
+  }
+  @Test
+  public void testUrl() throws InterruptedException, IOException, ApiException {
+
+    wireMockRule.stubFor(
+        get(urlPathEqualTo("/version/"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withHeader("Content-Type", "application/json")
+                    .withBody("{}")));
+
+    VersionUtil versionUtil = new VersionUtil(client);
+    try{
+      VersionInfo versionInfo = versionUtil.getVersion();
+    }catch (ApiException ex){
+
+    }
+
+    verify(
+        getRequestedFor(
+            urlPathEqualTo("/version/"))
+            .withHeader("Content-Type", equalTo("application/json")));
+  }
+
+}
