@@ -13,10 +13,12 @@ limitations under the License.
 package io.kubernetes.client.informer.cache;
 
 import io.kubernetes.client.common.KubernetesObject;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import org.apache.commons.collections4.CollectionUtils;
@@ -34,15 +36,22 @@ public class SharedProcessor<ApiType extends KubernetesObject> {
 
   private ExecutorService executorService;
 
+  private final Duration timeout;
+
   public SharedProcessor() {
     this(Executors.newCachedThreadPool());
   }
 
   public SharedProcessor(ExecutorService threadPool) {
+    this(threadPool, Duration.ofMinutes(1));
+  }
+
+  public SharedProcessor(ExecutorService threadPool, Duration timeout) {
     this.listeners = new ArrayList<>();
     this.syncingListeners = new ArrayList<>();
 
     this.executorService = threadPool;
+    this.timeout = timeout;
   }
 
   /**
@@ -146,7 +155,16 @@ public class SharedProcessor<ApiType extends KubernetesObject> {
     } finally {
       lock.writeLock().unlock();
     }
-    // TODO(yue9944882): gracefully shutdown listener pool
-    executorService.shutdownNow();
+    // Disable new tasks from being submitted
+    executorService.shutdown();
+    try {
+      // Wait a while for existing tasks to terminate
+      if (!executorService.awaitTermination(timeout.toMillis(), TimeUnit.MILLISECONDS)) {
+        // Cancel currently executing tasks
+        executorService.shutdownNow();
+      }
+    } catch (InterruptedException e) {
+      executorService.shutdownNow();
+    }
   }
 }
