@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/kubernetes-client/java.svg?branch=master)](https://travis-ci.org/kubernetes-client/java)
 [![Client Capabilities](https://img.shields.io/badge/Kubernetes%20client-Silver-blue.svg?style=flat&colorB=C0C0C0&colorA=306CE8)](http://bit.ly/kubernetes-client-capabilities-badge)
 [![Client Support Level](https://img.shields.io/badge/kubernetes%20client-beta-green.svg?style=flat&colorA=306CE8)](http://bit.ly/kubernetes-client-support-badge)
+[![Maven Central](https://img.shields.io/maven-central/v/io.kubernetes/client-java.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.kubernetes%22%20AND%20a:%22client-java%22)
 
 Java client for the [kubernetes](http://kubernetes.io/) API.
 
