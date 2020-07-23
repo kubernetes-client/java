@@ -1,3 +1,15 @@
+/*
+Copyright 2020 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 package io.kubernetes.client.util.version;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
@@ -13,7 +25,6 @@ import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.VersionInfo;
 import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
-import java.io.InputStream;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -23,13 +34,13 @@ public class VersionUtilTest {
   private ApiClient client;
 
   private static final int PORT = 8091;
-  @Rule
-  public WireMockRule wireMockRule = new WireMockRule(PORT);
+  @Rule public WireMockRule wireMockRule = new WireMockRule(PORT);
 
   @Before
   public void setup() throws IOException {
     client = new ClientBuilder().setBasePath("http://localhost:" + PORT).build();
   }
+
   @Test
   public void testUrl() throws InterruptedException, IOException, ApiException {
 
@@ -42,16 +53,14 @@ public class VersionUtilTest {
                     .withBody("{}")));
 
     VersionUtil versionUtil = new VersionUtil(client);
-    try{
+    try {
       VersionInfo versionInfo = versionUtil.getVersion();
-    }catch (ApiException ex){
+    } catch (ApiException ex) {
 
     }
 
     verify(
-        getRequestedFor(
-            urlPathEqualTo("/version/"))
+        getRequestedFor(urlPathEqualTo("/version/"))
             .withHeader("Content-Type", equalTo("application/json")));
   }
-
 }
