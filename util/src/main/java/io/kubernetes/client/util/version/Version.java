@@ -38,8 +38,8 @@ public class Version {
     Response response = null;
     try {
       response = call.execute();
-    } catch (IOException ex) {
-      throw new ApiException(ex);
+    } catch (IOException e) {
+      throw new ApiException(e);
     }
 
     if (!response.isSuccessful()) {

@@ -18,6 +18,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.verify;
+import static org.junit.Assert.assertEquals;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.kubernetes.client.openapi.ApiClient;
@@ -61,6 +62,34 @@ public class VersionTest {
 
     verify(
         getRequestedFor(urlPathEqualTo("/version/"))
-            .withHeader("Content-Type", equalTo("application/json")));
+            .withHeader("Content-Type", equalTo("application/json"))
+            .withHeader("Accept", equalTo("application/json")));
+  }
+
+  @Test
+  public void testFailure() throws InterruptedException, IOException, ApiException {
+
+    wireMockRule.stubFor(
+        get(urlPathEqualTo("/version/"))
+            .willReturn(
+                aResponse()
+                    .withStatus(401)
+                    .withHeader("Content-Type", "application/json")
+                    .withBody("{}")));
+
+    Version versionUtil = new Version(client);
+    boolean thrown = false;
+    try {
+      VersionInfo versionInfo = versionUtil.getVersion();
+    } catch (ApiException ex) {
+      assertEquals(401, ex.getCode());
+      thrown = true;
+    }
+    assertEquals(thrown, true);
+
+    verify(
+        getRequestedFor(urlPathEqualTo("/version/"))
+            .withHeader("Content-Type", equalTo("application/json"))
+            .withHeader("Accept", equalTo("application/json")));
   }
 }
