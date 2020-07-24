@@ -32,14 +32,14 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.kubernetes</groupId>
     <artifactId>client-java</artifactId>
-    <version>8.0.2</version>
+    <version>9.0.0</version>
 </dependency>
 ```
 
 ### Gradle users
 
 ```groovy
-compile 'io.kubernetes:client-java:8.0.2'
+compile 'io.kubernetes:client-java:9.0.0'
 ```
 
 ### Others
@@ -54,7 +54,7 @@ mvn package
 
 Then manually install the following JARs:
 
-* target/client-java-api-8.0.3-SNAPSHOT.jar
+* target/client-java-api-10.0.0-SNAPSHOT.jar
 * target/lib/*.jar
 
 ## Example
@@ -184,8 +184,8 @@ All APIs and Models' documentation can be found at the [Generated client's docs]
 |  5.0.0           |  +        |  ✓       |  -       | -         | -        | -        |
 |  6.0.1           |  +        |  +       |  ✓       | -         | -        | -        |
 |  7.0.0           |  +        |  +       |  +       | ✓         | -        | -        |
-|  8.0.2           |  +        |  +       |  +       | +         | ✓        | ✓        |
-|  9.00           |  +        |  +       |  +       | +         | +        | ✓        |
+|  8.0.2           |  +        |  +       |  +       | +         | ✓        | -        |
+|  9.0.0           |  +        |  +       |  +       | +         | +        | ✓        |
 
 Key: 
 
