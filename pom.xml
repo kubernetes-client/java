@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>client-java-parent</artifactId>
   <groupId>io.kubernetes</groupId>
-  <version>9.0.0-SNAPSHOT</version>
+  <version>10.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Kubernetes Client API</name>
   <url>https://github.com/kubernetes-client/java</url>
@@ -48,6 +48,9 @@
     <common.codec.version>1.14</common.codec.version>
     <spring.boot.version>2.3.1.RELEASE</spring.boot.version>
     <spring.version>5.2.8.RELEASE</spring.version>
+
+    <gpg.keyname>48540ECBBF00A28EACCF04E720FD12AFB0C9EBA9</gpg.keyname>
+    <gpg.passphrase>${env.GPG_PASSPHRASE}</gpg.passphrase>
   </properties>
 
   <licenses>
@@ -302,13 +305,13 @@
         <configuration>
           <formats>
             <format>
-              <trimTrailingWhitespace/>
-              <endWithNewline/>
+              <trimTrailingWhitespace />
+              <endWithNewline />
             </format>
           </formats>
           <java>
-            <removeUnusedImports/> <!-- self-explanatory -->
-            <googleJavaFormat/>
+            <removeUnusedImports /> <!-- self-explanatory -->
+            <googleJavaFormat />
             <licenseHeader>
               <content>
 /*
@@ -345,7 +348,14 @@ limitations under the License.
                 <phase>verify</phase>
                 <goals>
                   <goal>sign</goal>
-                </goals>
+	        </goals>
+		<configuration>
+                  <!-- This is necessary for gpg to not try to use the pinentry programs -->
+                  <gpgArguments>
+                    <arg>--pinentry-mode</arg>
+                    <arg>loopback</arg>
+                  </gpgArguments>
+                </configuration>
               </execution>
             </executions>
           </plugin>
