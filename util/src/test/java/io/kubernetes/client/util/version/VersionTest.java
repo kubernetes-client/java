@@ -29,7 +29,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
-public class VersionUtilTest {
+public class VersionTest {
 
   private ApiClient client;
 
@@ -52,7 +52,7 @@ public class VersionUtilTest {
                     .withHeader("Content-Type", "application/json")
                     .withBody("{}")));
 
-    VersionUtil versionUtil = new VersionUtil(client);
+    Version versionUtil = new Version(client);
     try {
       VersionInfo versionInfo = versionUtil.getVersion();
     } catch (ApiException ex) {

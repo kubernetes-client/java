@@ -21,15 +21,15 @@ import java.io.IOException;
 import okhttp3.Call;
 import okhttp3.Response;
 
-public class VersionUtil {
+public class Version {
 
   private final VersionApi versionApi;
 
-  public VersionUtil() {
+  public Version() {
     this(Configuration.getDefaultApiClient());
   }
 
-  public VersionUtil(ApiClient apiClient) {
+  public Version(ApiClient apiClient) {
     this.versionApi = new VersionApi(apiClient);
   }
 
@@ -39,7 +39,7 @@ public class VersionUtil {
     try {
       response = call.execute();
     } catch (IOException ex) {
-      throw new ApiException("Version request failed");
+      throw new ApiException(ex);
     }
 
     if (!response.isSuccessful()) {
