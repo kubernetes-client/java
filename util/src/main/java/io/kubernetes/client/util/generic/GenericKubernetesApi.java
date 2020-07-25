@@ -15,6 +15,7 @@ package io.kubernetes.client.util.generic;
 import com.google.common.base.Strings;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
@@ -709,9 +710,14 @@ public class GenericKubernetesApi<
       if (e.getCause() instanceof IOException) {
         throw new IllegalStateException(e.getCause()); // make this a checked exception?
       }
-      V1Status status = apiClient.getJSON().deserialize(e.getResponseBody(), V1Status.class);
+      final V1Status status;
+      try {
+        status = apiClient.getJSON().deserialize(e.getResponseBody(), V1Status.class);
+      } catch (JsonSyntaxException jsonEx) {
+        throw new RuntimeException(jsonEx);
+      }
       if (null == status) { // the response body can be something unexpected sometimes..
-        throw new RuntimeException(e.getCause());
+        throw new RuntimeException(e);
       }
       return new KubernetesApiResponse<>(status, e.getCode());
     }
