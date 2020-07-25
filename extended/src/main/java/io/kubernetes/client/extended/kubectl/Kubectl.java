@@ -67,12 +67,37 @@ public class Kubectl {
     return new KubectlVersion(apiClient);
   }
 
+  /*
+   * Equivalent for `kubectl scale`
+   *
+   * @param <ApiType> the target api type
+   * @param apiTypeClass the api type class
+   * @return the kubectl scale operator
+   */
+  public static <ApiType extends KubernetesObject> KubectlScale<ApiType> scale(
+      Class<ApiType> apiTypeClass) {
+    return scale(Configuration.getDefaultApiClient(), apiTypeClass);
+  }
+
+  /**
+   * Equivalent for `kubectl scale`
+   *
+   * @param <ApiType> the target api type
+   * @param apiClient The api client instance
+   * @param apiTypeClass the api type class
+   * @return the kubectl scale operator
+   */
+  public static <ApiType extends KubernetesObject> KubectlScale<ApiType> scale(
+      ApiClient apiClient, Class<ApiType> apiTypeClass) {
+    return new KubectlScale<>(apiClient, apiTypeClass);
+  }
+
   /**
    * Executable executes a kubectl helper.
    *
    * @param <OUTPUT> the type parameter
    */
-  public interface Executable<OUTPUT> {
+  public static interface Executable<OUTPUT> {
 
     /**
      * Run and retrieve the output from the kubectl helpers.

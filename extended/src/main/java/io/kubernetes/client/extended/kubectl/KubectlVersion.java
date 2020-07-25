@@ -19,7 +19,7 @@ import io.kubernetes.client.openapi.models.VersionInfo;
 import io.kubernetes.client.util.version.Version;
 import java.io.IOException;
 
-class KubectlVersion implements Kubectl.Executable<VersionInfo> {
+public class KubectlVersion implements Kubectl.Executable<VersionInfo> {
 
   private final Version version;
 
