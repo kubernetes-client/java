@@ -49,6 +49,25 @@ public class Kubectl {
   }
 
   /**
+   * Equivalence for `kubectl version`.
+   *
+   * @return the kubectl version
+   */
+  public static KubectlVersion version() {
+    return version(Configuration.getDefaultApiClient());
+  }
+
+  /**
+   * Equivalence for `kubectl version`.
+   *
+   * @param apiClient the api client instance
+   * @return the kubectl version
+   */
+  public static KubectlVersion version(ApiClient apiClient) {
+    return new KubectlVersion(apiClient);
+  }
+
+  /**
    * Executable executes a kubectl helper.
    *
    * @param <OUTPUT> the type parameter
