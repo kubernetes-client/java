@@ -51,4 +51,7 @@ fi
 echo ">>> Running java generator from the gen repo"
 "${GEN_ROOT}/openapi/java.sh" "${CLIENT_ROOT}" "${SCRIPT_ROOT}/../settings" 
 
+echo ">>> Running formatter"
+./mvnw spotless:apply
+
 echo ">>> Done."

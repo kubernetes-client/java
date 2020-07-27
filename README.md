@@ -235,11 +235,12 @@ git clone https://github.com/kubernetes-client/gen
 export GEN_ROOT=${PWD}
 ```
 
-Then to update the client:
+Then to update the client and run the formatter:
 
 ```sh
 cd ${HOME}/src/java
 ${GEN_ROOT}/gen/openapi/java.sh kubernetes ./settings
+./mvnw spotless:apply
 ```
 
 This should run through a long-ish build process involving `docker` and eventually result in a new set of
