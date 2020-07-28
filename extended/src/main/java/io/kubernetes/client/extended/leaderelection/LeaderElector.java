@@ -25,7 +25,7 @@ import java.util.function.Consumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class LeaderElector {
+public class LeaderElector implements AutoCloseable {
 
   private static final Logger log = LoggerFactory.getLogger(LeaderElector.class);
 
@@ -43,12 +43,12 @@ public class LeaderElector {
   private String reportedLeader;
   private Consumer<String> onNewLeaderHook;
 
-  private ScheduledExecutorService scheduledWorkers =
+  private final ScheduledExecutorService scheduledWorkers =
       Executors.newSingleThreadScheduledExecutor(
           makeThreadFactory("leader-elector-scheduled-worker-%d"));
-  private ExecutorService leaseWorkers =
+  private final ExecutorService leaseWorkers =
       Executors.newSingleThreadExecutor(makeThreadFactory("leader-elector-lease-worker-%d"));
-  private ExecutorService hookWorkers =
+  private final ExecutorService hookWorkers =
       Executors.newSingleThreadExecutor(makeThreadFactory("leader-elector-hook-worker-%d"));
 
   public LeaderElector(LeaderElectionConfig config) {
@@ -336,5 +336,12 @@ public class LeaderElector {
 
   private ThreadFactory makeThreadFactory(String nameFormat) {
     return new ThreadFactoryBuilder().setDaemon(true).setNameFormat(nameFormat).build();
+  }
+
+  @Override
+  public void close() {
+    scheduledWorkers.shutdownNow();
+    leaseWorkers.shutdownNow();
+    hookWorkers.shutdownNow();
   }
 }
