@@ -43,14 +43,14 @@ public class LeaderElectionExample {
     LeaderElectionConfig leaderElectionConfig =
         new LeaderElectionConfig(
             lock, Duration.ofMillis(10000), Duration.ofMillis(8000), Duration.ofMillis(2000));
-    LeaderElector leaderElector = new LeaderElector(leaderElectionConfig);
-
-    leaderElector.run(
-        () -> {
-          System.out.println("Do something when getting leadership.");
-        },
-        () -> {
-          System.out.println("Do something when losing leadership.");
-        });
+    try (LeaderElector leaderElector = new LeaderElector(leaderElectionConfig)) {
+      leaderElector.run(
+          () -> {
+            System.out.println("Do something when getting leadership.");
+          },
+          () -> {
+            System.out.println("Do something when losing leadership.");
+          });
+    }
   }
 }
