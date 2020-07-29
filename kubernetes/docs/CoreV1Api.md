@@ -6970,7 +6970,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteNamespacedPersistentVolumeClaim"></a>
 # **deleteNamespacedPersistentVolumeClaim**
-> V1Status deleteNamespacedPersistentVolumeClaim(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
+> V1PersistentVolumeClaim deleteNamespacedPersistentVolumeClaim(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
 
 
 
@@ -7007,7 +7007,7 @@ public class Example {
     String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
     V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
     try {
-      V1Status result = apiInstance.deleteNamespacedPersistentVolumeClaim(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+      V1PersistentVolumeClaim result = apiInstance.deleteNamespacedPersistentVolumeClaim(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoreV1Api#deleteNamespacedPersistentVolumeClaim");
@@ -7035,7 +7035,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1Status**](V1Status.md)
+[**V1PersistentVolumeClaim**](V1PersistentVolumeClaim.md)
 
 ### Authorization
 
@@ -7055,7 +7055,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteNamespacedPod"></a>
 # **deleteNamespacedPod**
-> V1Status deleteNamespacedPod(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
+> V1Pod deleteNamespacedPod(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
 
 
 
@@ -7092,7 +7092,7 @@ public class Example {
     String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
     V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
     try {
-      V1Status result = apiInstance.deleteNamespacedPod(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+      V1Pod result = apiInstance.deleteNamespacedPod(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoreV1Api#deleteNamespacedPod");
@@ -7120,7 +7120,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1Status**](V1Status.md)
+[**V1Pod**](V1Pod.md)
 
 ### Authorization
 
@@ -7140,7 +7140,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteNamespacedPodTemplate"></a>
 # **deleteNamespacedPodTemplate**
-> V1Status deleteNamespacedPodTemplate(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
+> V1PodTemplate deleteNamespacedPodTemplate(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
 
 
 
@@ -7177,7 +7177,7 @@ public class Example {
     String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
     V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
     try {
-      V1Status result = apiInstance.deleteNamespacedPodTemplate(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+      V1PodTemplate result = apiInstance.deleteNamespacedPodTemplate(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoreV1Api#deleteNamespacedPodTemplate");
@@ -7205,7 +7205,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1Status**](V1Status.md)
+[**V1PodTemplate**](V1PodTemplate.md)
 
 ### Authorization
 
@@ -7310,7 +7310,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteNamespacedResourceQuota"></a>
 # **deleteNamespacedResourceQuota**
-> V1Status deleteNamespacedResourceQuota(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
+> V1ResourceQuota deleteNamespacedResourceQuota(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
 
 
 
@@ -7347,7 +7347,7 @@ public class Example {
     String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
     V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
     try {
-      V1Status result = apiInstance.deleteNamespacedResourceQuota(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+      V1ResourceQuota result = apiInstance.deleteNamespacedResourceQuota(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoreV1Api#deleteNamespacedResourceQuota");
@@ -7375,7 +7375,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1Status**](V1Status.md)
+[**V1ResourceQuota**](V1ResourceQuota.md)
 
 ### Authorization
 
@@ -7565,7 +7565,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteNamespacedServiceAccount"></a>
 # **deleteNamespacedServiceAccount**
-> V1Status deleteNamespacedServiceAccount(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
+> V1ServiceAccount deleteNamespacedServiceAccount(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
 
 
 
@@ -7602,7 +7602,7 @@ public class Example {
     String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
     V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
     try {
-      V1Status result = apiInstance.deleteNamespacedServiceAccount(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+      V1ServiceAccount result = apiInstance.deleteNamespacedServiceAccount(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoreV1Api#deleteNamespacedServiceAccount");
@@ -7630,7 +7630,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1Status**](V1Status.md)
+[**V1ServiceAccount**](V1ServiceAccount.md)
 
 ### Authorization
 
@@ -7733,7 +7733,7 @@ Name | Type | Description  | Notes
 
 <a name="deletePersistentVolume"></a>
 # **deletePersistentVolume**
-> V1Status deletePersistentVolume(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
+> V1PersistentVolume deletePersistentVolume(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
 
 
 
@@ -7769,7 +7769,7 @@ public class Example {
     String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
     V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
     try {
-      V1Status result = apiInstance.deletePersistentVolume(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+      V1PersistentVolume result = apiInstance.deletePersistentVolume(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoreV1Api#deletePersistentVolume");
@@ -7796,7 +7796,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1Status**](V1Status.md)
+[**V1PersistentVolume**](V1PersistentVolume.md)
 
 ### Authorization
 

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **max** | [**Map&lt;String, Quantity&gt;**](Quantity.md) | Max usage constraints on this kind by resource name. |  [optional]
 **maxLimitRequestRatio** | [**Map&lt;String, Quantity&gt;**](Quantity.md) | MaxLimitRequestRatio if specified, the named resource must have a request and limit that are both non-zero where limit divided by request is less than or equal to the enumerated value; this represents the max burst for the named resource. |  [optional]
 **min** | [**Map&lt;String, Quantity&gt;**](Quantity.md) | Min usage constraints on this kind by resource name. |  [optional]
-**type** | **String** | Type of resource that this limit applies to. |  [optional]
+**type** | **String** | Type of resource that this limit applies to. | 
 
 
 

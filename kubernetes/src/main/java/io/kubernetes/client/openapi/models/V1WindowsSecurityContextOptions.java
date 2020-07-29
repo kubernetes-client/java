@@ -22,7 +22,7 @@ import java.util.Objects;
     description = "WindowsSecurityContextOptions contain Windows-specific options and credentials.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1WindowsSecurityContextOptions {
   public static final String SERIALIZED_NAME_GMSA_CREDENTIAL_SPEC = "gmsaCredentialSpec";
 
@@ -48,15 +48,14 @@ public class V1WindowsSecurityContextOptions {
   /**
    * GMSACredentialSpec is where the GMSA admission webhook
    * (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential
-   * spec named by the GMSACredentialSpecName field. This field is alpha-level and is only honored
-   * by servers that enable the WindowsGMSA feature flag.
+   * spec named by the GMSACredentialSpecName field.
    *
    * @return gmsaCredentialSpec
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "GMSACredentialSpec is where the GMSA admission webhook (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field. This field is alpha-level and is only honored by servers that enable the WindowsGMSA feature flag.")
+          "GMSACredentialSpec is where the GMSA admission webhook (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field.")
   public String getGmsaCredentialSpec() {
     return gmsaCredentialSpec;
   }
@@ -72,15 +71,13 @@ public class V1WindowsSecurityContextOptions {
   }
 
   /**
-   * GMSACredentialSpecName is the name of the GMSA credential spec to use. This field is
-   * alpha-level and is only honored by servers that enable the WindowsGMSA feature flag.
+   * GMSACredentialSpecName is the name of the GMSA credential spec to use.
    *
    * @return gmsaCredentialSpecName
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      value =
-          "GMSACredentialSpecName is the name of the GMSA credential spec to use. This field is alpha-level and is only honored by servers that enable the WindowsGMSA feature flag.")
+      value = "GMSACredentialSpecName is the name of the GMSA credential spec to use.")
   public String getGmsaCredentialSpecName() {
     return gmsaCredentialSpecName;
   }
@@ -99,15 +96,14 @@ public class V1WindowsSecurityContextOptions {
    * The UserName in Windows to run the entrypoint of the container process. Defaults to the user
    * specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in
    * both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes
-   * precedence. This field is beta-level and may be disabled with the WindowsRunAsUserName feature
-   * flag.
+   * precedence.
    *
    * @return runAsUserName
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "The UserName in Windows to run the entrypoint of the container process. Defaults to the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. This field is beta-level and may be disabled with the WindowsRunAsUserName feature flag.")
+          "The UserName in Windows to run the entrypoint of the container process. Defaults to the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.")
   public String getRunAsUserName() {
     return runAsUserName;
   }

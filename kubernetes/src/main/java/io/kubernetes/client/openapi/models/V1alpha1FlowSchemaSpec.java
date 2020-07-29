@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "FlowSchemaSpec describes how the FlowSchema's specification looks like.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1alpha1FlowSchemaSpec {
   public static final String SERIALIZED_NAME_DISTINGUISHER_METHOD = "distinguisherMethod";
 
@@ -77,15 +77,15 @@ public class V1alpha1FlowSchemaSpec {
   /**
    * &#x60;matchingPrecedence&#x60; is used to choose among the FlowSchemas that match a given
    * request. The chosen FlowSchema is among those with the numerically lowest (which we take to be
-   * logically highest) MatchingPrecedence. Each MatchingPrecedence value must be non-negative. Note
-   * that if the precedence is not specified or zero, it will be set to 1000 as default.
+   * logically highest) MatchingPrecedence. Each MatchingPrecedence value must be ranged in
+   * [1,10000]. Note that if the precedence is not specified, it will be set to 1000 as default.
    *
    * @return matchingPrecedence
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "`matchingPrecedence` is used to choose among the FlowSchemas that match a given request. The chosen FlowSchema is among those with the numerically lowest (which we take to be logically highest) MatchingPrecedence.  Each MatchingPrecedence value must be non-negative. Note that if the precedence is not specified or zero, it will be set to 1000 as default.")
+          "`matchingPrecedence` is used to choose among the FlowSchemas that match a given request. The chosen FlowSchema is among those with the numerically lowest (which we take to be logically highest) MatchingPrecedence.  Each MatchingPrecedence value must be ranged in [1,10000]. Note that if the precedence is not specified, it will be set to 1000 as default.")
   public Integer getMatchingPrecedence() {
     return matchingPrecedence;
   }

@@ -28,7 +28,7 @@ import java.util.Objects;
         "Secret holds secret data of a certain type. The total bytes of the values in the Data field must be less than MaxSecretSize bytes.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1Secret implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 
@@ -39,6 +39,11 @@ public class V1Secret implements io.kubernetes.client.common.KubernetesObject {
 
   @SerializedName(SERIALIZED_NAME_DATA)
   private Map<String, byte[]> data = null;
+
+  public static final String SERIALIZED_NAME_IMMUTABLE = "immutable";
+
+  @SerializedName(SERIALIZED_NAME_IMMUTABLE)
+  private Boolean immutable;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
 
@@ -118,6 +123,31 @@ public class V1Secret implements io.kubernetes.client.common.KubernetesObject {
 
   public void setData(Map<String, byte[]> data) {
     this.data = data;
+  }
+
+  public V1Secret immutable(Boolean immutable) {
+
+    this.immutable = immutable;
+    return this;
+  }
+
+  /**
+   * Immutable, if set to true, ensures that data stored in the Secret cannot be updated (only
+   * object metadata can be modified). If not set to true, the field can be modified at any time.
+   * Defaulted to nil. This is an alpha field enabled by ImmutableEphemeralVolumes feature gate.
+   *
+   * @return immutable
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Immutable, if set to true, ensures that data stored in the Secret cannot be updated (only object metadata can be modified). If not set to true, the field can be modified at any time. Defaulted to nil. This is an alpha field enabled by ImmutableEphemeralVolumes feature gate.")
+  public Boolean getImmutable() {
+    return immutable;
+  }
+
+  public void setImmutable(Boolean immutable) {
+    this.immutable = immutable;
   }
 
   public V1Secret kind(String kind) {
@@ -232,6 +262,7 @@ public class V1Secret implements io.kubernetes.client.common.KubernetesObject {
     V1Secret v1Secret = (V1Secret) o;
     return Objects.equals(this.apiVersion, v1Secret.apiVersion)
         && Objects.equals(this.data, v1Secret.data)
+        && Objects.equals(this.immutable, v1Secret.immutable)
         && Objects.equals(this.kind, v1Secret.kind)
         && Objects.equals(this.metadata, v1Secret.metadata)
         && Objects.equals(this.stringData, v1Secret.stringData)
@@ -240,7 +271,7 @@ public class V1Secret implements io.kubernetes.client.common.KubernetesObject {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiVersion, data, kind, metadata, stringData, type);
+    return Objects.hash(apiVersion, data, immutable, kind, metadata, stringData, type);
   }
 
   @Override
@@ -249,6 +280,7 @@ public class V1Secret implements io.kubernetes.client.common.KubernetesObject {
     sb.append("class V1Secret {\n");
     sb.append("    apiVersion: ").append(toIndentedString(apiVersion)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    immutable: ").append(toIndentedString(immutable)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    stringData: ").append(toIndentedString(stringData)).append("\n");

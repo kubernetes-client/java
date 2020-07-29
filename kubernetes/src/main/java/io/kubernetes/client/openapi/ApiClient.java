@@ -103,7 +103,7 @@ public class ApiClient {
     json = new JSON();
 
     // Set default User-Agent.
-    setUserAgent("OpenAPI-Generator/1.0-SNAPSHOT/java");
+    setUserAgent("Kubernetes Java Client/10.0.0-SNAPSHOT");
 
     authentications = new HashMap<String, Authentication>();
   }

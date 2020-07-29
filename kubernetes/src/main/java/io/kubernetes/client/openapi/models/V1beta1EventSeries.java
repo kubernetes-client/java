@@ -27,7 +27,7 @@ import org.joda.time.DateTime;
         "EventSeries contain information on series of events, i.e. thing that was/is happening continuously for some time.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1beta1EventSeries {
   public static final String SERIALIZED_NAME_COUNT = "count";
 

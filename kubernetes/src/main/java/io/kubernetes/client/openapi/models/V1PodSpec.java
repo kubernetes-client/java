@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(description = "PodSpec is a description of a pod.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1PodSpec {
   public static final String SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS = "activeDeadlineSeconds";
 
@@ -1089,15 +1089,15 @@ public class V1PodSpec {
   /**
    * TopologySpreadConstraints describes how a group of pods ought to spread across topology
    * domains. Scheduler will schedule pods in a way which abides by the constraints. This field is
-   * alpha-level and is only honored by clusters that enables the EvenPodsSpread feature. All
-   * topologySpreadConstraints are ANDed.
+   * only honored by clusters that enable the EvenPodsSpread feature. All topologySpreadConstraints
+   * are ANDed.
    *
    * @return topologySpreadConstraints
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "TopologySpreadConstraints describes how a group of pods ought to spread across topology domains. Scheduler will schedule pods in a way which abides by the constraints. This field is alpha-level and is only honored by clusters that enables the EvenPodsSpread feature. All topologySpreadConstraints are ANDed.")
+          "TopologySpreadConstraints describes how a group of pods ought to spread across topology domains. Scheduler will schedule pods in a way which abides by the constraints. This field is only honored by clusters that enable the EvenPodsSpread feature. All topologySpreadConstraints are ANDed.")
   public List<V1TopologySpreadConstraint> getTopologySpreadConstraints() {
     return topologySpreadConstraints;
   }

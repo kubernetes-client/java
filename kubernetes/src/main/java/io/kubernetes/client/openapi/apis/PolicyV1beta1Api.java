@@ -20,13 +20,13 @@ import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.ApiResponse;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.Pair;
-import io.kubernetes.client.openapi.models.PolicyV1beta1PodSecurityPolicy;
-import io.kubernetes.client.openapi.models.PolicyV1beta1PodSecurityPolicyList;
 import io.kubernetes.client.openapi.models.V1APIResourceList;
 import io.kubernetes.client.openapi.models.V1DeleteOptions;
 import io.kubernetes.client.openapi.models.V1Status;
 import io.kubernetes.client.openapi.models.V1beta1PodDisruptionBudget;
 import io.kubernetes.client.openapi.models.V1beta1PodDisruptionBudgetList;
+import io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicy;
+import io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicyList;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -304,7 +304,7 @@ public class PolicyV1beta1Api {
    * </table>
    */
   public okhttp3.Call createPodSecurityPolicyCall(
-      PolicyV1beta1PodSecurityPolicy body,
+      V1beta1PodSecurityPolicy body,
       String pretty,
       String dryRun,
       String fieldManager,
@@ -362,7 +362,7 @@ public class PolicyV1beta1Api {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call createPodSecurityPolicyValidateBeforeCall(
-      PolicyV1beta1PodSecurityPolicy body,
+      V1beta1PodSecurityPolicy body,
       String pretty,
       String dryRun,
       String fieldManager,
@@ -391,7 +391,7 @@ public class PolicyV1beta1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @return PolicyV1beta1PodSecurityPolicy
+   * @return V1beta1PodSecurityPolicy
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -403,10 +403,10 @@ public class PolicyV1beta1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public PolicyV1beta1PodSecurityPolicy createPodSecurityPolicy(
-      PolicyV1beta1PodSecurityPolicy body, String pretty, String dryRun, String fieldManager)
+  public V1beta1PodSecurityPolicy createPodSecurityPolicy(
+      V1beta1PodSecurityPolicy body, String pretty, String dryRun, String fieldManager)
       throws ApiException {
-    ApiResponse<PolicyV1beta1PodSecurityPolicy> localVarResp =
+    ApiResponse<V1beta1PodSecurityPolicy> localVarResp =
         createPodSecurityPolicyWithHttpInfo(body, pretty, dryRun, fieldManager);
     return localVarResp.getData();
   }
@@ -422,7 +422,7 @@ public class PolicyV1beta1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @return ApiResponse&lt;PolicyV1beta1PodSecurityPolicy&gt;
+   * @return ApiResponse&lt;V1beta1PodSecurityPolicy&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -434,12 +434,12 @@ public class PolicyV1beta1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<PolicyV1beta1PodSecurityPolicy> createPodSecurityPolicyWithHttpInfo(
-      PolicyV1beta1PodSecurityPolicy body, String pretty, String dryRun, String fieldManager)
+  public ApiResponse<V1beta1PodSecurityPolicy> createPodSecurityPolicyWithHttpInfo(
+      V1beta1PodSecurityPolicy body, String pretty, String dryRun, String fieldManager)
       throws ApiException {
     okhttp3.Call localVarCall =
         createPodSecurityPolicyValidateBeforeCall(body, pretty, dryRun, fieldManager, null);
-    Type localVarReturnType = new TypeToken<PolicyV1beta1PodSecurityPolicy>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1beta1PodSecurityPolicy>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -467,16 +467,16 @@ public class PolicyV1beta1Api {
    * </table>
    */
   public okhttp3.Call createPodSecurityPolicyAsync(
-      PolicyV1beta1PodSecurityPolicy body,
+      V1beta1PodSecurityPolicy body,
       String pretty,
       String dryRun,
       String fieldManager,
-      final ApiCallback<PolicyV1beta1PodSecurityPolicy> _callback)
+      final ApiCallback<V1beta1PodSecurityPolicy> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         createPodSecurityPolicyValidateBeforeCall(body, pretty, dryRun, fieldManager, _callback);
-    Type localVarReturnType = new TypeToken<PolicyV1beta1PodSecurityPolicy>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1beta1PodSecurityPolicy>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -2079,7 +2079,7 @@ public class PolicyV1beta1Api {
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
    * @param body (optional)
-   * @return V1Status
+   * @return V1beta1PodSecurityPolicy
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -2090,7 +2090,7 @@ public class PolicyV1beta1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1Status deletePodSecurityPolicy(
+  public V1beta1PodSecurityPolicy deletePodSecurityPolicy(
       String name,
       String pretty,
       String dryRun,
@@ -2099,7 +2099,7 @@ public class PolicyV1beta1Api {
       String propagationPolicy,
       V1DeleteOptions body)
       throws ApiException {
-    ApiResponse<V1Status> localVarResp =
+    ApiResponse<V1beta1PodSecurityPolicy> localVarResp =
         deletePodSecurityPolicyWithHttpInfo(
             name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
     return localVarResp.getData();
@@ -2129,7 +2129,7 @@ public class PolicyV1beta1Api {
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
    * @param body (optional)
-   * @return ApiResponse&lt;V1Status&gt;
+   * @return ApiResponse&lt;V1beta1PodSecurityPolicy&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -2140,7 +2140,7 @@ public class PolicyV1beta1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<V1Status> deletePodSecurityPolicyWithHttpInfo(
+  public ApiResponse<V1beta1PodSecurityPolicy> deletePodSecurityPolicyWithHttpInfo(
       String name,
       String pretty,
       String dryRun,
@@ -2159,7 +2159,7 @@ public class PolicyV1beta1Api {
             propagationPolicy,
             body,
             null);
-    Type localVarReturnType = new TypeToken<V1Status>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1beta1PodSecurityPolicy>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -2206,7 +2206,7 @@ public class PolicyV1beta1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       V1DeleteOptions body,
-      final ApiCallback<V1Status> _callback)
+      final ApiCallback<V1beta1PodSecurityPolicy> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
@@ -2219,7 +2219,7 @@ public class PolicyV1beta1Api {
             propagationPolicy,
             body,
             _callback);
-    Type localVarReturnType = new TypeToken<V1Status>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1beta1PodSecurityPolicy>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -3532,7 +3532,7 @@ public class PolicyV1beta1Api {
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
    *     update, and remove notifications. Specify resourceVersion. (optional)
-   * @return PolicyV1beta1PodSecurityPolicyList
+   * @return V1beta1PodSecurityPolicyList
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -3542,7 +3542,7 @@ public class PolicyV1beta1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public PolicyV1beta1PodSecurityPolicyList listPodSecurityPolicy(
+  public V1beta1PodSecurityPolicyList listPodSecurityPolicy(
       String pretty,
       Boolean allowWatchBookmarks,
       String _continue,
@@ -3553,7 +3553,7 @@ public class PolicyV1beta1Api {
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
-    ApiResponse<PolicyV1beta1PodSecurityPolicyList> localVarResp =
+    ApiResponse<V1beta1PodSecurityPolicyList> localVarResp =
         listPodSecurityPolicyWithHttpInfo(
             pretty,
             allowWatchBookmarks,
@@ -3622,7 +3622,7 @@ public class PolicyV1beta1Api {
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
    *     update, and remove notifications. Specify resourceVersion. (optional)
-   * @return ApiResponse&lt;PolicyV1beta1PodSecurityPolicyList&gt;
+   * @return ApiResponse&lt;V1beta1PodSecurityPolicyList&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -3632,7 +3632,7 @@ public class PolicyV1beta1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<PolicyV1beta1PodSecurityPolicyList> listPodSecurityPolicyWithHttpInfo(
+  public ApiResponse<V1beta1PodSecurityPolicyList> listPodSecurityPolicyWithHttpInfo(
       String pretty,
       Boolean allowWatchBookmarks,
       String _continue,
@@ -3655,7 +3655,7 @@ public class PolicyV1beta1Api {
             timeoutSeconds,
             watch,
             null);
-    Type localVarReturnType = new TypeToken<PolicyV1beta1PodSecurityPolicyList>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1beta1PodSecurityPolicyList>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -3734,7 +3734,7 @@ public class PolicyV1beta1Api {
       String resourceVersion,
       Integer timeoutSeconds,
       Boolean watch,
-      final ApiCallback<PolicyV1beta1PodSecurityPolicyList> _callback)
+      final ApiCallback<V1beta1PodSecurityPolicyList> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
@@ -3749,7 +3749,7 @@ public class PolicyV1beta1Api {
             timeoutSeconds,
             watch,
             _callback);
-    Type localVarReturnType = new TypeToken<PolicyV1beta1PodSecurityPolicyList>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1beta1PodSecurityPolicyList>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -4433,7 +4433,7 @@ public class PolicyV1beta1Api {
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
-   * @return PolicyV1beta1PodSecurityPolicy
+   * @return V1beta1PodSecurityPolicy
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -4443,10 +4443,10 @@ public class PolicyV1beta1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public PolicyV1beta1PodSecurityPolicy patchPodSecurityPolicy(
+  public V1beta1PodSecurityPolicy patchPodSecurityPolicy(
       String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force)
       throws ApiException {
-    ApiResponse<PolicyV1beta1PodSecurityPolicy> localVarResp =
+    ApiResponse<V1beta1PodSecurityPolicy> localVarResp =
         patchPodSecurityPolicyWithHttpInfo(name, body, pretty, dryRun, fieldManager, force);
     return localVarResp.getData();
   }
@@ -4468,7 +4468,7 @@ public class PolicyV1beta1Api {
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
-   * @return ApiResponse&lt;PolicyV1beta1PodSecurityPolicy&gt;
+   * @return ApiResponse&lt;V1beta1PodSecurityPolicy&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -4478,13 +4478,13 @@ public class PolicyV1beta1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<PolicyV1beta1PodSecurityPolicy> patchPodSecurityPolicyWithHttpInfo(
+  public ApiResponse<V1beta1PodSecurityPolicy> patchPodSecurityPolicyWithHttpInfo(
       String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force)
       throws ApiException {
     okhttp3.Call localVarCall =
         patchPodSecurityPolicyValidateBeforeCall(
             name, body, pretty, dryRun, fieldManager, force, null);
-    Type localVarReturnType = new TypeToken<PolicyV1beta1PodSecurityPolicy>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1beta1PodSecurityPolicy>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -4522,13 +4522,13 @@ public class PolicyV1beta1Api {
       String dryRun,
       String fieldManager,
       Boolean force,
-      final ApiCallback<PolicyV1beta1PodSecurityPolicy> _callback)
+      final ApiCallback<V1beta1PodSecurityPolicy> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         patchPodSecurityPolicyValidateBeforeCall(
             name, body, pretty, dryRun, fieldManager, force, _callback);
-    Type localVarReturnType = new TypeToken<PolicyV1beta1PodSecurityPolicy>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1beta1PodSecurityPolicy>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -4998,7 +4998,7 @@ public class PolicyV1beta1Api {
    *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
    * @param export Should this value be exported. Export strips fields that a user can not specify.
    *     Deprecated. Planned for removal in 1.18. (optional)
-   * @return PolicyV1beta1PodSecurityPolicy
+   * @return V1beta1PodSecurityPolicy
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -5008,9 +5008,9 @@ public class PolicyV1beta1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public PolicyV1beta1PodSecurityPolicy readPodSecurityPolicy(
+  public V1beta1PodSecurityPolicy readPodSecurityPolicy(
       String name, String pretty, Boolean exact, Boolean export) throws ApiException {
-    ApiResponse<PolicyV1beta1PodSecurityPolicy> localVarResp =
+    ApiResponse<V1beta1PodSecurityPolicy> localVarResp =
         readPodSecurityPolicyWithHttpInfo(name, pretty, exact, export);
     return localVarResp.getData();
   }
@@ -5024,7 +5024,7 @@ public class PolicyV1beta1Api {
    *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
    * @param export Should this value be exported. Export strips fields that a user can not specify.
    *     Deprecated. Planned for removal in 1.18. (optional)
-   * @return ApiResponse&lt;PolicyV1beta1PodSecurityPolicy&gt;
+   * @return ApiResponse&lt;V1beta1PodSecurityPolicy&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -5034,11 +5034,11 @@ public class PolicyV1beta1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<PolicyV1beta1PodSecurityPolicy> readPodSecurityPolicyWithHttpInfo(
+  public ApiResponse<V1beta1PodSecurityPolicy> readPodSecurityPolicyWithHttpInfo(
       String name, String pretty, Boolean exact, Boolean export) throws ApiException {
     okhttp3.Call localVarCall =
         readPodSecurityPolicyValidateBeforeCall(name, pretty, exact, export, null);
-    Type localVarReturnType = new TypeToken<PolicyV1beta1PodSecurityPolicy>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1beta1PodSecurityPolicy>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -5066,12 +5066,12 @@ public class PolicyV1beta1Api {
       String pretty,
       Boolean exact,
       Boolean export,
-      final ApiCallback<PolicyV1beta1PodSecurityPolicy> _callback)
+      final ApiCallback<V1beta1PodSecurityPolicy> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         readPodSecurityPolicyValidateBeforeCall(name, pretty, exact, export, _callback);
-    Type localVarReturnType = new TypeToken<PolicyV1beta1PodSecurityPolicy>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1beta1PodSecurityPolicy>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -5581,7 +5581,7 @@ public class PolicyV1beta1Api {
    */
   public okhttp3.Call replacePodSecurityPolicyCall(
       String name,
-      PolicyV1beta1PodSecurityPolicy body,
+      V1beta1PodSecurityPolicy body,
       String pretty,
       String dryRun,
       String fieldManager,
@@ -5642,7 +5642,7 @@ public class PolicyV1beta1Api {
   @SuppressWarnings("rawtypes")
   private okhttp3.Call replacePodSecurityPolicyValidateBeforeCall(
       String name,
-      PolicyV1beta1PodSecurityPolicy body,
+      V1beta1PodSecurityPolicy body,
       String pretty,
       String dryRun,
       String fieldManager,
@@ -5678,7 +5678,7 @@ public class PolicyV1beta1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @return PolicyV1beta1PodSecurityPolicy
+   * @return V1beta1PodSecurityPolicy
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -5689,14 +5689,10 @@ public class PolicyV1beta1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public PolicyV1beta1PodSecurityPolicy replacePodSecurityPolicy(
-      String name,
-      PolicyV1beta1PodSecurityPolicy body,
-      String pretty,
-      String dryRun,
-      String fieldManager)
+  public V1beta1PodSecurityPolicy replacePodSecurityPolicy(
+      String name, V1beta1PodSecurityPolicy body, String pretty, String dryRun, String fieldManager)
       throws ApiException {
-    ApiResponse<PolicyV1beta1PodSecurityPolicy> localVarResp =
+    ApiResponse<V1beta1PodSecurityPolicy> localVarResp =
         replacePodSecurityPolicyWithHttpInfo(name, body, pretty, dryRun, fieldManager);
     return localVarResp.getData();
   }
@@ -5713,7 +5709,7 @@ public class PolicyV1beta1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @return ApiResponse&lt;PolicyV1beta1PodSecurityPolicy&gt;
+   * @return ApiResponse&lt;V1beta1PodSecurityPolicy&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -5724,16 +5720,12 @@ public class PolicyV1beta1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<PolicyV1beta1PodSecurityPolicy> replacePodSecurityPolicyWithHttpInfo(
-      String name,
-      PolicyV1beta1PodSecurityPolicy body,
-      String pretty,
-      String dryRun,
-      String fieldManager)
+  public ApiResponse<V1beta1PodSecurityPolicy> replacePodSecurityPolicyWithHttpInfo(
+      String name, V1beta1PodSecurityPolicy body, String pretty, String dryRun, String fieldManager)
       throws ApiException {
     okhttp3.Call localVarCall =
         replacePodSecurityPolicyValidateBeforeCall(name, body, pretty, dryRun, fieldManager, null);
-    Type localVarReturnType = new TypeToken<PolicyV1beta1PodSecurityPolicy>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1beta1PodSecurityPolicy>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -5762,17 +5754,17 @@ public class PolicyV1beta1Api {
    */
   public okhttp3.Call replacePodSecurityPolicyAsync(
       String name,
-      PolicyV1beta1PodSecurityPolicy body,
+      V1beta1PodSecurityPolicy body,
       String pretty,
       String dryRun,
       String fieldManager,
-      final ApiCallback<PolicyV1beta1PodSecurityPolicy> _callback)
+      final ApiCallback<V1beta1PodSecurityPolicy> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         replacePodSecurityPolicyValidateBeforeCall(
             name, body, pretty, dryRun, fieldManager, _callback);
-    Type localVarReturnType = new TypeToken<PolicyV1beta1PodSecurityPolicy>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1beta1PodSecurityPolicy>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }

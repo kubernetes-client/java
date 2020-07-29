@@ -21,7 +21,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import com.google.common.io.Resources;
-import io.kubernetes.client.openapi.models.AppsV1beta1Deployment;
+import io.kubernetes.client.openapi.models.V1Deployment;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1Secret;
@@ -62,7 +62,7 @@ public class YamlTest {
         "batch/v2alpha1",
         "autoscaling/v2beta1",
         "rbac.authorization.k8s.io/v1alpha1",
-        "apps/v1beta2",
+        "apps/v1",
         "apiregistration.k8s.io/v1beta1",
         "extensions/v1beta1",
         "apps/v1beta1"
@@ -76,7 +76,7 @@ public class YamlTest {
         "V1beta2Deployment",
         "V1beta1APIService",
         "ExtensionsV1beta1Scale",
-        "AppsV1beta1Deployment"
+        "V1Deployment"
       };
   private static final String input =
       "kind: " + "XXXX" + "\n" + "apiVersion: " + "YYYY" + "\n" + "metadata:\n" + "  name: foo";
@@ -135,8 +135,8 @@ public class YamlTest {
         assertEquals("v1", svc.getApiVersion());
         assertEquals("Service", svc.getKind());
         assertEquals("mock", svc.getMetadata().getName());
-      } else if (type.equals("AppsV1beta1Deployment")) {
-        AppsV1beta1Deployment deploy = (AppsV1beta1Deployment) object;
+      } else if (type.equals("V1Deployment")) {
+        V1Deployment deploy = (V1Deployment) object;
         assertEquals("apps/v1beta1", deploy.getApiVersion());
         assertEquals("Deployment", deploy.getKind());
         assertEquals("helloworld", deploy.getMetadata().getName());

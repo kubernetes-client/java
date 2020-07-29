@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(description = "PersistentVolumeSpec is the specification of a persistent volume.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1PersistentVolumeSpec {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
 
@@ -822,15 +822,14 @@ public class V1PersistentVolumeSpec {
 
   /**
    * volumeMode defines if a volume is intended to be used with a formatted filesystem or to remain
-   * in raw block state. Value of Filesystem is implied when not included in spec. This is a beta
-   * feature.
+   * in raw block state. Value of Filesystem is implied when not included in spec.
    *
    * @return volumeMode
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "volumeMode defines if a volume is intended to be used with a formatted filesystem or to remain in raw block state. Value of Filesystem is implied when not included in spec. This is a beta feature.")
+          "volumeMode defines if a volume is intended to be used with a formatted filesystem or to remain in raw block state. Value of Filesystem is implied when not included in spec.")
   public String getVolumeMode() {
     return volumeMode;
   }

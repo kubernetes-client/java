@@ -22,8 +22,13 @@ import java.util.Objects;
 @ApiModel(description = "IngressBackend describes all endpoints for a given service and port.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class NetworkingV1beta1IngressBackend {
+  public static final String SERIALIZED_NAME_RESOURCE = "resource";
+
+  @SerializedName(SERIALIZED_NAME_RESOURCE)
+  private V1TypedLocalObjectReference resource;
+
   public static final String SERIALIZED_NAME_SERVICE_NAME = "serviceName";
 
   @SerializedName(SERIALIZED_NAME_SERVICE_NAME)
@@ -33,6 +38,27 @@ public class NetworkingV1beta1IngressBackend {
 
   @SerializedName(SERIALIZED_NAME_SERVICE_PORT)
   private IntOrString servicePort;
+
+  public NetworkingV1beta1IngressBackend resource(V1TypedLocalObjectReference resource) {
+
+    this.resource = resource;
+    return this;
+  }
+
+  /**
+   * Get resource
+   *
+   * @return resource
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1TypedLocalObjectReference getResource() {
+    return resource;
+  }
+
+  public void setResource(V1TypedLocalObjectReference resource) {
+    this.resource = resource;
+  }
 
   public NetworkingV1beta1IngressBackend serviceName(String serviceName) {
 
@@ -45,7 +71,8 @@ public class NetworkingV1beta1IngressBackend {
    *
    * @return serviceName
    */
-  @ApiModelProperty(required = true, value = "Specifies the name of the referenced service.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies the name of the referenced service.")
   public String getServiceName() {
     return serviceName;
   }
@@ -67,8 +94,8 @@ public class NetworkingV1beta1IngressBackend {
    *
    * @return servicePort
    */
+  @javax.annotation.Nullable
   @ApiModelProperty(
-      required = true,
       value =
           "IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.")
   public IntOrString getServicePort() {
@@ -89,19 +116,21 @@ public class NetworkingV1beta1IngressBackend {
     }
     NetworkingV1beta1IngressBackend networkingV1beta1IngressBackend =
         (NetworkingV1beta1IngressBackend) o;
-    return Objects.equals(this.serviceName, networkingV1beta1IngressBackend.serviceName)
+    return Objects.equals(this.resource, networkingV1beta1IngressBackend.resource)
+        && Objects.equals(this.serviceName, networkingV1beta1IngressBackend.serviceName)
         && Objects.equals(this.servicePort, networkingV1beta1IngressBackend.servicePort);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(serviceName, servicePort);
+    return Objects.hash(resource, serviceName, servicePort);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class NetworkingV1beta1IngressBackend {\n");
+    sb.append("    resource: ").append(toIndentedString(resource)).append("\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
     sb.append("    servicePort: ").append(toIndentedString(servicePort)).append("\n");
     sb.append("}");

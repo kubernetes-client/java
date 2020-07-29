@@ -28,7 +28,7 @@ import java.util.Objects;
         "PolicyRule holds information that describes a policy rule, but does not contain information about who the rule applies to or which namespace the rule applies to.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1alpha1PolicyRule {
   public static final String SERIALIZED_NAME_API_GROUPS = "apiGroups";
 
@@ -104,18 +104,17 @@ public class V1alpha1PolicyRule {
 
   /**
    * NonResourceURLs is a set of partial urls that a user should have access to. *s are allowed, but
-   * only as the full, final step in the path This name is intentionally different than the internal
-   * type so that the DefaultConvert works nicely and because the ordering may be different. Since
-   * non-resource URLs are not namespaced, this field is only applicable for ClusterRoles referenced
-   * from a ClusterRoleBinding. Rules can either apply to API resources (such as \&quot;pods\&quot;
-   * or \&quot;secrets\&quot;) or non-resource URL paths (such as \&quot;/api\&quot;), but not both.
+   * only as the full, final step in the path Since non-resource URLs are not namespaced, this field
+   * is only applicable for ClusterRoles referenced from a ClusterRoleBinding. Rules can either
+   * apply to API resources (such as \&quot;pods\&quot; or \&quot;secrets\&quot;) or non-resource
+   * URL paths (such as \&quot;/api\&quot;), but not both.
    *
    * @return nonResourceURLs
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path This name is intentionally different than the internal type so that the DefaultConvert works nicely and because the ordering may be different. Since non-resource URLs are not namespaced, this field is only applicable for ClusterRoles referenced from a ClusterRoleBinding. Rules can either apply to API resources (such as \"pods\" or \"secrets\") or non-resource URL paths (such as \"/api\"),  but not both.")
+          "NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path Since non-resource URLs are not namespaced, this field is only applicable for ClusterRoles referenced from a ClusterRoleBinding. Rules can either apply to API resources (such as \"pods\" or \"secrets\") or non-resource URL paths (such as \"/api\"),  but not both.")
   public List<String> getNonResourceURLs() {
     return nonResourceURLs;
   }

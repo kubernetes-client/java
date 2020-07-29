@@ -28,7 +28,7 @@ import java.util.Objects;
         "PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1PersistentVolumeClaimSpec {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
 
@@ -192,14 +192,14 @@ public class V1PersistentVolumeClaimSpec {
 
   /**
    * volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied
-   * when not included in claim spec. This is a beta feature.
+   * when not included in claim spec.
    *
    * @return volumeMode
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec. This is a beta feature.")
+          "volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.")
   public String getVolumeMode() {
     return volumeMode;
   }

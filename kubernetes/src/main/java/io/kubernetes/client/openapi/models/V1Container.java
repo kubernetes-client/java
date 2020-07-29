@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "A single application container that you want to run within a pod.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1Container {
   public static final String SERIALIZED_NAME_ARGS = "args";
 
@@ -656,14 +656,13 @@ public class V1Container {
   }
 
   /**
-   * volumeDevices is the list of block devices to be used by the container. This is a beta feature.
+   * volumeDevices is the list of block devices to be used by the container.
    *
    * @return volumeDevices
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      value =
-          "volumeDevices is the list of block devices to be used by the container. This is a beta feature.")
+      value = "volumeDevices is the list of block devices to be used by the container.")
   public List<V1VolumeDevice> getVolumeDevices() {
     return volumeDevices;
   }

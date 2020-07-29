@@ -27,7 +27,7 @@ import org.joda.time.DateTime;
         "The node this Taint is attached to has the \"effect\" on any pod that does not tolerate the Taint.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1Taint {
   public static final String SERIALIZED_NAME_EFFECT = "effect";
 
@@ -124,12 +124,12 @@ public class V1Taint {
   }
 
   /**
-   * Required. The taint value corresponding to the taint key.
+   * The taint value corresponding to the taint key.
    *
    * @return value
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required. The taint value corresponding to the taint key.")
+  @ApiModelProperty(value = "The taint value corresponding to the taint key.")
   public String getValue() {
     return value;
   }

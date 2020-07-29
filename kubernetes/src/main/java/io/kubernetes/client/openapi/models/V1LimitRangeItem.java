@@ -26,7 +26,7 @@ import java.util.Objects;
         "LimitRangeItem defines a min/max usage limit for any resource that matches on kind.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1LimitRangeItem {
   public static final String SERIALIZED_NAME_DEFAULT = "default";
 
@@ -224,8 +224,7 @@ public class V1LimitRangeItem {
    *
    * @return type
    */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type of resource that this limit applies to.")
+  @ApiModelProperty(required = true, value = "Type of resource that this limit applies to.")
   public String getType() {
     return type;
   }

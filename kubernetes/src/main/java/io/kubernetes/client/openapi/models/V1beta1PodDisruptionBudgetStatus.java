@@ -29,7 +29,7 @@ import org.joda.time.DateTime;
         "PodDisruptionBudgetStatus represents information about the status of a PodDisruptionBudget. Status may trail the actual state of a system.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1beta1PodDisruptionBudgetStatus {
   public static final String SERIALIZED_NAME_CURRENT_HEALTHY = "currentHealthy";
 
@@ -192,7 +192,7 @@ public class V1beta1PodDisruptionBudgetStatus {
   }
 
   /**
-   * Most recent generation observed when updating this PDB status. PodDisruptionsAllowed and other
+   * Most recent generation observed when updating this PDB status. DisruptionsAllowed and other
    * status information is valid only if observedGeneration equals to PDB&#39;s object generation.
    *
    * @return observedGeneration
@@ -200,7 +200,7 @@ public class V1beta1PodDisruptionBudgetStatus {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Most recent generation observed when updating this PDB status. PodDisruptionsAllowed and other status information is valid only if observedGeneration equals to PDB's object generation.")
+          "Most recent generation observed when updating this PDB status. DisruptionsAllowed and other status information is valid only if observedGeneration equals to PDB's object generation.")
   public Long getObservedGeneration() {
     return observedGeneration;
   }

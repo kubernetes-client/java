@@ -953,7 +953,7 @@ public class StorageV1alpha1Api {
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
    * @param body (optional)
-   * @return V1Status
+   * @return V1alpha1VolumeAttachment
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -964,7 +964,7 @@ public class StorageV1alpha1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1Status deleteVolumeAttachment(
+  public V1alpha1VolumeAttachment deleteVolumeAttachment(
       String name,
       String pretty,
       String dryRun,
@@ -973,7 +973,7 @@ public class StorageV1alpha1Api {
       String propagationPolicy,
       V1DeleteOptions body)
       throws ApiException {
-    ApiResponse<V1Status> localVarResp =
+    ApiResponse<V1alpha1VolumeAttachment> localVarResp =
         deleteVolumeAttachmentWithHttpInfo(
             name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
     return localVarResp.getData();
@@ -1003,7 +1003,7 @@ public class StorageV1alpha1Api {
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
    * @param body (optional)
-   * @return ApiResponse&lt;V1Status&gt;
+   * @return ApiResponse&lt;V1alpha1VolumeAttachment&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -1014,7 +1014,7 @@ public class StorageV1alpha1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<V1Status> deleteVolumeAttachmentWithHttpInfo(
+  public ApiResponse<V1alpha1VolumeAttachment> deleteVolumeAttachmentWithHttpInfo(
       String name,
       String pretty,
       String dryRun,
@@ -1033,7 +1033,7 @@ public class StorageV1alpha1Api {
             propagationPolicy,
             body,
             null);
-    Type localVarReturnType = new TypeToken<V1Status>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1alpha1VolumeAttachment>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -1080,7 +1080,7 @@ public class StorageV1alpha1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       V1DeleteOptions body,
-      final ApiCallback<V1Status> _callback)
+      final ApiCallback<V1alpha1VolumeAttachment> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
@@ -1093,7 +1093,7 @@ public class StorageV1alpha1Api {
             propagationPolicy,
             body,
             _callback);
-    Type localVarReturnType = new TypeToken<V1Status>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1alpha1VolumeAttachment>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }

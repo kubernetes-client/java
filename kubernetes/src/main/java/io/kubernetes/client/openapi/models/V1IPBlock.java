@@ -20,16 +20,17 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * IPBlock describes a particular CIDR (Ex. \&quot;192.168.1.1/24\&quot;) that is allowed to the
- * pods matched by a NetworkPolicySpec&#39;s podSelector. The except entry describes CIDRs that
- * should not be included within this rule.
+ * IPBlock describes a particular CIDR (Ex.
+ * \&quot;192.168.1.1/24\&quot;,\&quot;2001:db9::/64\&quot;) that is allowed to the pods matched by
+ * a NetworkPolicySpec&#39;s podSelector. The except entry describes CIDRs that should not be
+ * included within this rule.
  */
 @ApiModel(
     description =
-        "IPBlock describes a particular CIDR (Ex. \"192.168.1.1/24\") that is allowed to the pods matched by a NetworkPolicySpec's podSelector. The except entry describes CIDRs that should not be included within this rule.")
+        "IPBlock describes a particular CIDR (Ex. \"192.168.1.1/24\",\"2001:db9::/64\") that is allowed to the pods matched by a NetworkPolicySpec's podSelector. The except entry describes CIDRs that should not be included within this rule.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1IPBlock {
   public static final String SERIALIZED_NAME_CIDR = "cidr";
 
@@ -48,13 +49,15 @@ public class V1IPBlock {
   }
 
   /**
-   * CIDR is a string representing the IP Block Valid examples are \&quot;192.168.1.1/24\&quot;
+   * CIDR is a string representing the IP Block Valid examples are \&quot;192.168.1.1/24\&quot; or
+   * \&quot;2001:db9::/64\&quot;
    *
    * @return cidr
    */
   @ApiModelProperty(
       required = true,
-      value = "CIDR is a string representing the IP Block Valid examples are \"192.168.1.1/24\"")
+      value =
+          "CIDR is a string representing the IP Block Valid examples are \"192.168.1.1/24\" or \"2001:db9::/64\"")
   public String getCidr() {
     return cidr;
   }
@@ -79,14 +82,15 @@ public class V1IPBlock {
 
   /**
    * Except is a slice of CIDRs that should not be included within an IP Block Valid examples are
-   * \&quot;192.168.1.1/24\&quot; Except values will be rejected if they are outside the CIDR range
+   * \&quot;192.168.1.1/24\&quot; or \&quot;2001:db9::/64\&quot; Except values will be rejected if
+   * they are outside the CIDR range
    *
    * @return except
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Except is a slice of CIDRs that should not be included within an IP Block Valid examples are \"192.168.1.1/24\" Except values will be rejected if they are outside the CIDR range")
+          "Except is a slice of CIDRs that should not be included within an IP Block Valid examples are \"192.168.1.1/24\" or \"2001:db9::/64\" Except values will be rejected if they are outside the CIDR range")
   public List<String> getExcept() {
     return except;
   }

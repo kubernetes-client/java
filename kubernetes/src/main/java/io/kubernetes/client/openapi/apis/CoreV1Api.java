@@ -21466,7 +21466,7 @@ public class CoreV1Api {
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
    * @param body (optional)
-   * @return V1Status
+   * @return V1PersistentVolumeClaim
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -21477,7 +21477,7 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1Status deleteNamespacedPersistentVolumeClaim(
+  public V1PersistentVolumeClaim deleteNamespacedPersistentVolumeClaim(
       String name,
       String namespace,
       String pretty,
@@ -21487,7 +21487,7 @@ public class CoreV1Api {
       String propagationPolicy,
       V1DeleteOptions body)
       throws ApiException {
-    ApiResponse<V1Status> localVarResp =
+    ApiResponse<V1PersistentVolumeClaim> localVarResp =
         deleteNamespacedPersistentVolumeClaimWithHttpInfo(
             name,
             namespace,
@@ -21525,7 +21525,7 @@ public class CoreV1Api {
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
    * @param body (optional)
-   * @return ApiResponse&lt;V1Status&gt;
+   * @return ApiResponse&lt;V1PersistentVolumeClaim&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -21536,7 +21536,7 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<V1Status> deleteNamespacedPersistentVolumeClaimWithHttpInfo(
+  public ApiResponse<V1PersistentVolumeClaim> deleteNamespacedPersistentVolumeClaimWithHttpInfo(
       String name,
       String namespace,
       String pretty,
@@ -21557,7 +21557,7 @@ public class CoreV1Api {
             propagationPolicy,
             body,
             null);
-    Type localVarReturnType = new TypeToken<V1Status>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1PersistentVolumeClaim>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -21606,7 +21606,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       V1DeleteOptions body,
-      final ApiCallback<V1Status> _callback)
+      final ApiCallback<V1PersistentVolumeClaim> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
@@ -21620,7 +21620,7 @@ public class CoreV1Api {
             propagationPolicy,
             body,
             _callback);
-    Type localVarReturnType = new TypeToken<V1Status>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1PersistentVolumeClaim>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -21800,7 +21800,7 @@ public class CoreV1Api {
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
    * @param body (optional)
-   * @return V1Status
+   * @return V1Pod
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -21811,7 +21811,7 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1Status deleteNamespacedPod(
+  public V1Pod deleteNamespacedPod(
       String name,
       String namespace,
       String pretty,
@@ -21821,7 +21821,7 @@ public class CoreV1Api {
       String propagationPolicy,
       V1DeleteOptions body)
       throws ApiException {
-    ApiResponse<V1Status> localVarResp =
+    ApiResponse<V1Pod> localVarResp =
         deleteNamespacedPodWithHttpInfo(
             name,
             namespace,
@@ -21859,7 +21859,7 @@ public class CoreV1Api {
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
    * @param body (optional)
-   * @return ApiResponse&lt;V1Status&gt;
+   * @return ApiResponse&lt;V1Pod&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -21870,7 +21870,7 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<V1Status> deleteNamespacedPodWithHttpInfo(
+  public ApiResponse<V1Pod> deleteNamespacedPodWithHttpInfo(
       String name,
       String namespace,
       String pretty,
@@ -21891,7 +21891,7 @@ public class CoreV1Api {
             propagationPolicy,
             body,
             null);
-    Type localVarReturnType = new TypeToken<V1Status>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1Pod>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -21940,7 +21940,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       V1DeleteOptions body,
-      final ApiCallback<V1Status> _callback)
+      final ApiCallback<V1Pod> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
@@ -21954,7 +21954,7 @@ public class CoreV1Api {
             propagationPolicy,
             body,
             _callback);
-    Type localVarReturnType = new TypeToken<V1Status>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1Pod>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -22134,7 +22134,7 @@ public class CoreV1Api {
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
    * @param body (optional)
-   * @return V1Status
+   * @return V1PodTemplate
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -22145,7 +22145,7 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1Status deleteNamespacedPodTemplate(
+  public V1PodTemplate deleteNamespacedPodTemplate(
       String name,
       String namespace,
       String pretty,
@@ -22155,7 +22155,7 @@ public class CoreV1Api {
       String propagationPolicy,
       V1DeleteOptions body)
       throws ApiException {
-    ApiResponse<V1Status> localVarResp =
+    ApiResponse<V1PodTemplate> localVarResp =
         deleteNamespacedPodTemplateWithHttpInfo(
             name,
             namespace,
@@ -22193,7 +22193,7 @@ public class CoreV1Api {
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
    * @param body (optional)
-   * @return ApiResponse&lt;V1Status&gt;
+   * @return ApiResponse&lt;V1PodTemplate&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -22204,7 +22204,7 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<V1Status> deleteNamespacedPodTemplateWithHttpInfo(
+  public ApiResponse<V1PodTemplate> deleteNamespacedPodTemplateWithHttpInfo(
       String name,
       String namespace,
       String pretty,
@@ -22225,7 +22225,7 @@ public class CoreV1Api {
             propagationPolicy,
             body,
             null);
-    Type localVarReturnType = new TypeToken<V1Status>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1PodTemplate>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -22274,7 +22274,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       V1DeleteOptions body,
-      final ApiCallback<V1Status> _callback)
+      final ApiCallback<V1PodTemplate> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
@@ -22288,7 +22288,7 @@ public class CoreV1Api {
             propagationPolicy,
             body,
             _callback);
-    Type localVarReturnType = new TypeToken<V1Status>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1PodTemplate>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -22802,7 +22802,7 @@ public class CoreV1Api {
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
    * @param body (optional)
-   * @return V1Status
+   * @return V1ResourceQuota
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -22813,7 +22813,7 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1Status deleteNamespacedResourceQuota(
+  public V1ResourceQuota deleteNamespacedResourceQuota(
       String name,
       String namespace,
       String pretty,
@@ -22823,7 +22823,7 @@ public class CoreV1Api {
       String propagationPolicy,
       V1DeleteOptions body)
       throws ApiException {
-    ApiResponse<V1Status> localVarResp =
+    ApiResponse<V1ResourceQuota> localVarResp =
         deleteNamespacedResourceQuotaWithHttpInfo(
             name,
             namespace,
@@ -22861,7 +22861,7 @@ public class CoreV1Api {
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
    * @param body (optional)
-   * @return ApiResponse&lt;V1Status&gt;
+   * @return ApiResponse&lt;V1ResourceQuota&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -22872,7 +22872,7 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<V1Status> deleteNamespacedResourceQuotaWithHttpInfo(
+  public ApiResponse<V1ResourceQuota> deleteNamespacedResourceQuotaWithHttpInfo(
       String name,
       String namespace,
       String pretty,
@@ -22893,7 +22893,7 @@ public class CoreV1Api {
             propagationPolicy,
             body,
             null);
-    Type localVarReturnType = new TypeToken<V1Status>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1ResourceQuota>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -22942,7 +22942,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       V1DeleteOptions body,
-      final ApiCallback<V1Status> _callback)
+      final ApiCallback<V1ResourceQuota> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
@@ -22956,7 +22956,7 @@ public class CoreV1Api {
             propagationPolicy,
             body,
             _callback);
-    Type localVarReturnType = new TypeToken<V1Status>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1ResourceQuota>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -23804,7 +23804,7 @@ public class CoreV1Api {
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
    * @param body (optional)
-   * @return V1Status
+   * @return V1ServiceAccount
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -23815,7 +23815,7 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1Status deleteNamespacedServiceAccount(
+  public V1ServiceAccount deleteNamespacedServiceAccount(
       String name,
       String namespace,
       String pretty,
@@ -23825,7 +23825,7 @@ public class CoreV1Api {
       String propagationPolicy,
       V1DeleteOptions body)
       throws ApiException {
-    ApiResponse<V1Status> localVarResp =
+    ApiResponse<V1ServiceAccount> localVarResp =
         deleteNamespacedServiceAccountWithHttpInfo(
             name,
             namespace,
@@ -23863,7 +23863,7 @@ public class CoreV1Api {
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
    * @param body (optional)
-   * @return ApiResponse&lt;V1Status&gt;
+   * @return ApiResponse&lt;V1ServiceAccount&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -23874,7 +23874,7 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<V1Status> deleteNamespacedServiceAccountWithHttpInfo(
+  public ApiResponse<V1ServiceAccount> deleteNamespacedServiceAccountWithHttpInfo(
       String name,
       String namespace,
       String pretty,
@@ -23895,7 +23895,7 @@ public class CoreV1Api {
             propagationPolicy,
             body,
             null);
-    Type localVarReturnType = new TypeToken<V1Status>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1ServiceAccount>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -23944,7 +23944,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       V1DeleteOptions body,
-      final ApiCallback<V1Status> _callback)
+      final ApiCallback<V1ServiceAccount> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
@@ -23958,7 +23958,7 @@ public class CoreV1Api {
             propagationPolicy,
             body,
             _callback);
-    Type localVarReturnType = new TypeToken<V1Status>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1ServiceAccount>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -24432,7 +24432,7 @@ public class CoreV1Api {
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
    * @param body (optional)
-   * @return V1Status
+   * @return V1PersistentVolume
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -24443,7 +24443,7 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1Status deletePersistentVolume(
+  public V1PersistentVolume deletePersistentVolume(
       String name,
       String pretty,
       String dryRun,
@@ -24452,7 +24452,7 @@ public class CoreV1Api {
       String propagationPolicy,
       V1DeleteOptions body)
       throws ApiException {
-    ApiResponse<V1Status> localVarResp =
+    ApiResponse<V1PersistentVolume> localVarResp =
         deletePersistentVolumeWithHttpInfo(
             name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
     return localVarResp.getData();
@@ -24482,7 +24482,7 @@ public class CoreV1Api {
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
    * @param body (optional)
-   * @return ApiResponse&lt;V1Status&gt;
+   * @return ApiResponse&lt;V1PersistentVolume&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -24493,7 +24493,7 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<V1Status> deletePersistentVolumeWithHttpInfo(
+  public ApiResponse<V1PersistentVolume> deletePersistentVolumeWithHttpInfo(
       String name,
       String pretty,
       String dryRun,
@@ -24512,7 +24512,7 @@ public class CoreV1Api {
             propagationPolicy,
             body,
             null);
-    Type localVarReturnType = new TypeToken<V1Status>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1PersistentVolume>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -24559,7 +24559,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       V1DeleteOptions body,
-      final ApiCallback<V1Status> _callback)
+      final ApiCallback<V1PersistentVolume> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
@@ -24572,7 +24572,7 @@ public class CoreV1Api {
             propagationPolicy,
             body,
             _callback);
-    Type localVarReturnType = new TypeToken<V1Status>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1PersistentVolume>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }

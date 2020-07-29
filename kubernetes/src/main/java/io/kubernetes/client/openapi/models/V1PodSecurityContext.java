@@ -29,12 +29,17 @@ import java.util.Objects;
         "PodSecurityContext holds pod-level security attributes and common container settings. Some fields are also present in container.securityContext.  Field values of container.securityContext take precedence over field values of PodSecurityContext.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1PodSecurityContext {
   public static final String SERIALIZED_NAME_FS_GROUP = "fsGroup";
 
   @SerializedName(SERIALIZED_NAME_FS_GROUP)
   private Long fsGroup;
+
+  public static final String SERIALIZED_NAME_FS_GROUP_CHANGE_POLICY = "fsGroupChangePolicy";
+
+  @SerializedName(SERIALIZED_NAME_FS_GROUP_CHANGE_POLICY)
+  private String fsGroupChangePolicy;
 
   public static final String SERIALIZED_NAME_RUN_AS_GROUP = "runAsGroup";
 
@@ -96,6 +101,33 @@ public class V1PodSecurityContext {
 
   public void setFsGroup(Long fsGroup) {
     this.fsGroup = fsGroup;
+  }
+
+  public V1PodSecurityContext fsGroupChangePolicy(String fsGroupChangePolicy) {
+
+    this.fsGroupChangePolicy = fsGroupChangePolicy;
+    return this;
+  }
+
+  /**
+   * fsGroupChangePolicy defines behavior of changing ownership and permission of the volume before
+   * being exposed inside Pod. This field will only apply to volume types which support fsGroup
+   * based ownership(and permissions). It will have no effect on ephemeral volume types such as:
+   * secret, configmaps and emptydir. Valid values are \&quot;OnRootMismatch\&quot; and
+   * \&quot;Always\&quot;. If not specified defaults to \&quot;Always\&quot;.
+   *
+   * @return fsGroupChangePolicy
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "fsGroupChangePolicy defines behavior of changing ownership and permission of the volume before being exposed inside Pod. This field will only apply to volume types which support fsGroup based ownership(and permissions). It will have no effect on ephemeral volume types such as: secret, configmaps and emptydir. Valid values are \"OnRootMismatch\" and \"Always\". If not specified defaults to \"Always\".")
+  public String getFsGroupChangePolicy() {
+    return fsGroupChangePolicy;
+  }
+
+  public void setFsGroupChangePolicy(String fsGroupChangePolicy) {
+    this.fsGroupChangePolicy = fsGroupChangePolicy;
   }
 
   public V1PodSecurityContext runAsGroup(Long runAsGroup) {
@@ -291,6 +323,7 @@ public class V1PodSecurityContext {
     }
     V1PodSecurityContext v1PodSecurityContext = (V1PodSecurityContext) o;
     return Objects.equals(this.fsGroup, v1PodSecurityContext.fsGroup)
+        && Objects.equals(this.fsGroupChangePolicy, v1PodSecurityContext.fsGroupChangePolicy)
         && Objects.equals(this.runAsGroup, v1PodSecurityContext.runAsGroup)
         && Objects.equals(this.runAsNonRoot, v1PodSecurityContext.runAsNonRoot)
         && Objects.equals(this.runAsUser, v1PodSecurityContext.runAsUser)
@@ -304,6 +337,7 @@ public class V1PodSecurityContext {
   public int hashCode() {
     return Objects.hash(
         fsGroup,
+        fsGroupChangePolicy,
         runAsGroup,
         runAsNonRoot,
         runAsUser,
@@ -318,6 +352,9 @@ public class V1PodSecurityContext {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1PodSecurityContext {\n");
     sb.append("    fsGroup: ").append(toIndentedString(fsGroup)).append("\n");
+    sb.append("    fsGroupChangePolicy: ")
+        .append(toIndentedString(fsGroupChangePolicy))
+        .append("\n");
     sb.append("    runAsGroup: ").append(toIndentedString(runAsGroup)).append("\n");
     sb.append("    runAsNonRoot: ").append(toIndentedString(runAsNonRoot)).append("\n");
     sb.append("    runAsUser: ").append(toIndentedString(runAsUser)).append("\n");

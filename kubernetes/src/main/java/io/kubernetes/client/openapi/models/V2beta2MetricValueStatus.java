@@ -22,7 +22,7 @@ import java.util.Objects;
 @ApiModel(description = "MetricValueStatus holds the current value for a metric")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V2beta2MetricValueStatus {
   public static final String SERIALIZED_NAME_AVERAGE_UTILIZATION = "averageUtilization";
 
