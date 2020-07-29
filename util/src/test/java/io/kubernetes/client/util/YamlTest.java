@@ -54,7 +54,6 @@ public class YamlTest {
         "Deployment",
         "APIService",
         "Scale",
-        "Deployment"
       };
   private static final String[] apiVersions =
       new String[] {
@@ -64,8 +63,7 @@ public class YamlTest {
         "rbac.authorization.k8s.io/v1alpha1",
         "apps/v1",
         "apiregistration.k8s.io/v1beta1",
-        "extensions/v1beta1",
-        "apps/v1beta1"
+        "apps/v1",
       };
   private static final String[] classNames =
       new String[] {
@@ -73,10 +71,9 @@ public class YamlTest {
         "V2alpha1CronJob",
         "V2beta1HorizontalPodAutoscaler",
         "V1alpha1ClusterRole",
-        "V1beta2Deployment",
+        "V1Deployment",
         "V1beta1APIService",
-        "ExtensionsV1beta1Scale",
-        "V1Deployment"
+        "V1Scale",
       };
   private static final String input =
       "kind: " + "XXXX" + "\n" + "apiVersion: " + "YYYY" + "\n" + "metadata:\n" + "  name: foo";
@@ -137,7 +134,7 @@ public class YamlTest {
         assertEquals("mock", svc.getMetadata().getName());
       } else if (type.equals("V1Deployment")) {
         V1Deployment deploy = (V1Deployment) object;
-        assertEquals("apps/v1beta1", deploy.getApiVersion());
+        assertEquals("apps/v1", deploy.getApiVersion());
         assertEquals("Deployment", deploy.getKind());
         assertEquals("helloworld", deploy.getMetadata().getName());
       } else if (type.equals("V1Secret")) {
