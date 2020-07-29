@@ -12,6 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.spring.extended.controller;
 
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.controller.Controller;
 import io.kubernetes.client.extended.controller.ControllerManager;
 import io.kubernetes.client.extended.controller.builder.ControllerBuilder;
@@ -20,6 +21,7 @@ import io.kubernetes.client.extended.controller.reconciler.Reconciler;
 import io.kubernetes.client.extended.controller.reconciler.Request;
 import io.kubernetes.client.extended.workqueue.DefaultRateLimitingQueue;
 import io.kubernetes.client.extended.workqueue.RateLimitingQueue;
+import io.kubernetes.client.extended.workqueue.WorkQueue;
 import io.kubernetes.client.informer.SharedInformerFactory;
 import io.kubernetes.client.spring.extended.controller.annotation.*;
 import java.lang.reflect.InvocationTargetException;
@@ -99,7 +101,20 @@ public class KubernetesReconcilerProcessor implements BeanFactoryPostProcessor, 
     List<ReadyFuncAdaptor> readyFuncs = getReadyFuncs(r);
     for (KubernetesReconcilerWatch watch : watches.value()) {
       try {
-        Function<?, Request> workQueueKeyFunc = watch.workQueueKeyFunc().newInstance();
+
+        Function<? extends KubernetesObject, Request> workQueueKeyFunc;
+        try {
+          workQueueKeyFunc =
+              watch.workQueueKeyFunc().getConstructor(WorkQueue.class).newInstance(workQueue);
+        } catch (NoSuchMethodException e) {
+          workQueueKeyFunc = watch.workQueueKeyFunc().newInstance();
+        } catch (InvocationTargetException e) {
+          throw new BeanCreationException(
+              "Failed instantiating controller watch: " + e.getMessage());
+        }
+
+        final Function<? extends KubernetesObject, Request> finalWorkQueueKeyFunc =
+            workQueueKeyFunc;
         builder =
             builder.watch(
                 (q) -> {
@@ -107,7 +122,7 @@ public class KubernetesReconcilerProcessor implements BeanFactoryPostProcessor, 
                       .withOnAddFilter(addFilters.get(watch.apiTypeClass()))
                       .withOnUpdateFilter(updateFilters.get(watch.apiTypeClass()))
                       .withOnDeleteFilter(deleteFilters.get(watch.apiTypeClass()))
-                      .withWorkQueueKeyFunc(workQueueKeyFunc)
+                      .withWorkQueueKeyFunc(finalWorkQueueKeyFunc)
                       .withResyncPeriod(Duration.ofMillis(watch.resyncPeriodMillis()))
                       .build();
                 });

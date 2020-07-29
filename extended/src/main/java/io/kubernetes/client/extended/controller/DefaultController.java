@@ -199,6 +199,15 @@ public class DefaultController implements Controller {
     }
   }
 
+  public RateLimitingQueue<Request> getWorkQueue() {
+    return workQueue;
+  }
+
+  public DefaultController setWorkQueue(RateLimitingQueue<Request> workQueue) {
+    this.workQueue = workQueue;
+    return this;
+  }
+
   public String getName() {
     return name;
   }

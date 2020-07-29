@@ -12,24 +12,41 @@ limitations under the License.
 */
 package io.kubernetes.client.spring.extended.controller;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.controller.Controller;
+import io.kubernetes.client.extended.controller.DefaultController;
 import io.kubernetes.client.extended.controller.reconciler.Reconciler;
 import io.kubernetes.client.extended.controller.reconciler.Request;
 import io.kubernetes.client.extended.controller.reconciler.Result;
+import io.kubernetes.client.extended.workqueue.WorkQueue;
 import io.kubernetes.client.informer.SharedInformer;
+import io.kubernetes.client.informer.SharedInformerFactory;
+import io.kubernetes.client.informer.cache.DeltaFIFO;
 import io.kubernetes.client.informer.cache.Lister;
+import io.kubernetes.client.informer.impl.DefaultSharedIndexInformer;
+import io.kubernetes.client.openapi.models.V1ConfigMap;
+import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
-import io.kubernetes.client.spring.extended.controller.annotation.*;
+import io.kubernetes.client.openapi.models.V1PodList;
 import io.kubernetes.client.spring.extended.controller.annotation.AddWatchEventFilter;
 import io.kubernetes.client.spring.extended.controller.annotation.DeleteWatchEventFilter;
+import io.kubernetes.client.spring.extended.controller.annotation.KubernetesReconciler;
+import io.kubernetes.client.spring.extended.controller.annotation.KubernetesReconcilerReadyFunc;
+import io.kubernetes.client.spring.extended.controller.annotation.KubernetesReconcilerWatch;
+import io.kubernetes.client.spring.extended.controller.annotation.KubernetesReconcilerWatches;
 import io.kubernetes.client.spring.extended.controller.annotation.UpdateWatchEventFilter;
+import java.util.LinkedList;
+import java.util.function.Function;
+import javax.annotation.Resource;
+import org.apache.commons.lang3.tuple.MutablePair;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
@@ -47,8 +64,12 @@ public class KubernetesReconcilerCreatorTest {
   static class TestConfig {
 
     @Bean
-    public TestReconciler podReconciler() {
-      return new TestReconciler();
+    public TestReconciler podReconciler(
+        SharedInformer<V1Pod> podInformer,
+        Lister<V1Pod> podLister,
+        SharedInformer<V1ConfigMap> configMapInformer,
+        Lister<V1ConfigMap> configMapLister) {
+      return new TestReconciler(podInformer, podLister, configMapLister);
     }
   }
 
@@ -58,20 +79,32 @@ public class KubernetesReconcilerCreatorTest {
           @KubernetesReconcilerWatches({
             @KubernetesReconcilerWatch(
                 apiTypeClass = V1Pod.class,
+                workQueueKeyFunc = CustomWorkQueueKeyFunc.class,
                 resyncPeriodMillis = 60 * 1000L // resync every 60s
                 )
           }))
   static class TestReconciler implements Reconciler {
 
-    private int observedPodCount;
+    private Request receivedRequest;
 
-    @Autowired private SharedInformer<V1Pod> podInformer;
+    public TestReconciler(
+        SharedInformer<V1Pod> podInformer,
+        Lister<V1Pod> podLister,
+        Lister<V1ConfigMap> configMapLister) {
+      this.podInformer = podInformer;
+      this.podLister = podLister;
+      this.configMapLister = configMapLister;
+    }
 
-    @Autowired private Lister<V1Pod> podLister;
+    private final SharedInformer<V1Pod> podInformer;
+
+    private final Lister<V1Pod> podLister;
+
+    private final Lister<V1ConfigMap> configMapLister;
 
     @Override
     public Result reconcile(Request request) {
-      observedPodCount = podLister.list().size();
+      receivedRequest = request;
       return new Result(false);
     }
 
@@ -96,10 +129,53 @@ public class KubernetesReconcilerCreatorTest {
     }
   }
 
-  @Autowired private Controller testController;
+  @Resource(name = "test-reconcile")
+  private Controller testController;
+
+  @Resource private TestReconciler testReconciler;
+
+  @Resource private SharedInformerFactory sharedInformerFactory;
+
+  public static class CustomWorkQueueKeyFunc implements Function<KubernetesObject, Request> {
+
+    public CustomWorkQueueKeyFunc(WorkQueue<Request> workQueue) {
+      this.workQueue = workQueue;
+    }
+
+    private final WorkQueue<Request> workQueue;
+
+    @Override
+    public Request apply(KubernetesObject item) {
+      workQueue.add(new Request("foo"));
+      return null;
+    }
+  }
 
   @Test
-  public void testSimplePodController() {
+  public void testSimplePodController() throws InterruptedException {
     assertNotNull(testController);
+    assertNotNull(testReconciler);
+
+    sharedInformerFactory.startAllRegisteredInformers();
+
+    ((DefaultSharedIndexInformer<V1Pod, V1PodList>) testReconciler.podInformer)
+        .handleDeltas(
+            new LinkedList<MutablePair<DeltaFIFO.DeltaType, KubernetesObject>>() {
+              {
+                add(
+                    new MutablePair<>(
+                        DeltaFIFO.DeltaType.Added,
+                        new V1Pod().metadata(new V1ObjectMeta().namespace("a").name("b"))));
+              }
+            });
+
+    Thread.sleep(500);
+
+    WorkQueue<Request> workQueue = ((DefaultController) testController).getWorkQueue();
+    assertEquals(1, workQueue.length());
+    if (workQueue.length() != 1) {
+      fail();
+    }
+    assertEquals("foo", workQueue.get().getName());
   }
 }

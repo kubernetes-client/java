@@ -38,9 +38,14 @@ public @interface KubernetesReconcilerWatch {
    * Work queue key func class maps the source resource of the watch event to a standard reconciler
    * request.
    *
+   * <p>Optionally you can declare the constructor of the class to receive a {@link
+   * io.kubernetes.client.extended.workqueue.WorkQueue} in the parameter in order to customize the
+   * work-queue key-func.
+   *
    * @return the class
    */
-  Class<? extends Function<?, Request>> workQueueKeyFunc() default DefaultReflectiveKeyFunc.class;
+  Class<? extends Function<? extends KubernetesObject, Request>> workQueueKeyFunc() default
+      DefaultReflectiveKeyFunc.class;
 
   /**
    * Resync period in milliseconds .
