@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.lang.StringUtils;
 
-class KubectlLabel<ApiType extends KubernetesObject> implements Kubectl.Executable<ApiType> {
+public class KubectlLabel<ApiType extends KubernetesObject> implements Kubectl.Executable<ApiType> {
 
   private final ApiClient apiClient;
   private final Class<ApiType> apiTypeClass;
