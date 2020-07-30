@@ -94,14 +94,20 @@ public class DefaultControllerWatch<ApiType extends KubernetesObject>
       @Override
       public void onAdd(ApiType obj) {
         if (onAddFilterPredicate == null || onAddFilterPredicate.test(obj)) {
-          workQueue.add(workKeyGenerator.apply(obj));
+          Request req = workKeyGenerator.apply(obj);
+          if (null != req) {
+            workQueue.add(req);
+          }
         }
       }
 
       @Override
       public void onUpdate(ApiType oldObj, ApiType newObj) {
         if (onUpdateFilterPredicate == null || onUpdateFilterPredicate.test(oldObj, newObj)) {
-          workQueue.add(workKeyGenerator.apply(newObj));
+          Request req = workKeyGenerator.apply(newObj);
+          if (null != req) {
+            workQueue.add(req);
+          }
         }
       }
 
@@ -109,7 +115,10 @@ public class DefaultControllerWatch<ApiType extends KubernetesObject>
       public void onDelete(ApiType obj, boolean deletedFinalStateUnknown) {
         if (onDeleteFilterPredicate == null
             || onDeleteFilterPredicate.test(obj, deletedFinalStateUnknown)) {
-          workQueue.add(workKeyGenerator.apply(obj));
+          Request req = workKeyGenerator.apply(obj);
+          if (null != req) {
+            workQueue.add(req);
+          }
         }
       }
     };

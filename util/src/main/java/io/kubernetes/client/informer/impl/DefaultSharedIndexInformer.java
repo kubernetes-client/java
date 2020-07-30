@@ -216,7 +216,7 @@ public class DefaultSharedIndexInformer<
    *
    * @param deltas deltas
    */
-  private void handleDeltas(Deque<MutablePair<DeltaFIFO.DeltaType, KubernetesObject>> deltas) {
+  public void handleDeltas(Deque<MutablePair<DeltaFIFO.DeltaType, KubernetesObject>> deltas) {
     if (CollectionUtils.isEmpty(deltas)) {
       return;
     }
