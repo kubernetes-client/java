@@ -25,7 +25,7 @@ import java.util.Objects;
         "CustomResourceDefinitionStatus indicates the state of the CustomResourceDefinition")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1beta1CustomResourceDefinitionStatus {
   public static final String SERIALIZED_NAME_ACCEPTED_NAMES = "acceptedNames";
 
@@ -40,7 +40,7 @@ public class V1beta1CustomResourceDefinitionStatus {
   public static final String SERIALIZED_NAME_STORED_VERSIONS = "storedVersions";
 
   @SerializedName(SERIALIZED_NAME_STORED_VERSIONS)
-  private List<String> storedVersions = new ArrayList<String>();
+  private List<String> storedVersions = null;
 
   public V1beta1CustomResourceDefinitionStatus acceptedNames(
       V1beta1CustomResourceDefinitionNames acceptedNames) {
@@ -54,7 +54,8 @@ public class V1beta1CustomResourceDefinitionStatus {
    *
    * @return acceptedNames
    */
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1beta1CustomResourceDefinitionNames getAcceptedNames() {
     return acceptedNames;
   }
@@ -102,6 +103,9 @@ public class V1beta1CustomResourceDefinitionStatus {
   }
 
   public V1beta1CustomResourceDefinitionStatus addStoredVersionsItem(String storedVersionsItem) {
+    if (this.storedVersions == null) {
+      this.storedVersions = new ArrayList<String>();
+    }
     this.storedVersions.add(storedVersionsItem);
     return this;
   }
@@ -115,8 +119,8 @@ public class V1beta1CustomResourceDefinitionStatus {
    *
    * @return storedVersions
    */
+  @javax.annotation.Nullable
   @ApiModelProperty(
-      required = true,
       value =
           "storedVersions lists all versions of CustomResources that were ever persisted. Tracking these versions allows a migration path for stored versions in etcd. The field is mutable so a migration controller can finish a migration to another version (ensuring no old objects are left in storage), and then remove the rest of the versions from this list. Versions may not be removed from `spec.versions` while they exist in this list.")
   public List<String> getStoredVersions() {

@@ -17,7 +17,7 @@ import java.util.Map;
 
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class ApiException extends Exception {
   private int code = 0;
   private Map<String, List<String>> responseHeaders = null;

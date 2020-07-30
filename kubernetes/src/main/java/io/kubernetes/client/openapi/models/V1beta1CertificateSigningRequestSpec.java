@@ -31,7 +31,7 @@ import java.util.Objects;
         "This information is immutable after the request is created. Only the Request and Usages fields can be set on creation, other fields are derived by Kubernetes and cannot be modified by users.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1beta1CertificateSigningRequestSpec {
   public static final String SERIALIZED_NAME_EXTRA = "extra";
 
@@ -47,6 +47,11 @@ public class V1beta1CertificateSigningRequestSpec {
 
   @SerializedName(SERIALIZED_NAME_REQUEST)
   private byte[] request;
+
+  public static final String SERIALIZED_NAME_SIGNER_NAME = "signerName";
+
+  @SerializedName(SERIALIZED_NAME_SIGNER_NAME)
+  private String signerName;
 
   public static final String SERIALIZED_NAME_UID = "uid";
 
@@ -143,6 +148,35 @@ public class V1beta1CertificateSigningRequestSpec {
     this.request = request;
   }
 
+  public V1beta1CertificateSigningRequestSpec signerName(String signerName) {
+
+    this.signerName = signerName;
+    return this;
+  }
+
+  /**
+   * Requested signer for the request. It is a qualified name in the form:
+   * &#x60;scope-hostname.io/name&#x60;. If empty, it will be defaulted: 1. If it&#39;s a kubelet
+   * client certificate, it is assigned \&quot;kubernetes.io/kube-apiserver-client-kubelet\&quot;.
+   * 2. If it&#39;s a kubelet serving certificate, it is assigned
+   * \&quot;kubernetes.io/kubelet-serving\&quot;. 3. Otherwise, it is assigned
+   * \&quot;kubernetes.io/legacy-unknown\&quot;. Distribution of trust for signers happens out of
+   * band. You can select on this field using &#x60;spec.signerName&#x60;.
+   *
+   * @return signerName
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Requested signer for the request. It is a qualified name in the form: `scope-hostname.io/name`. If empty, it will be defaulted:  1. If it's a kubelet client certificate, it is assigned     \"kubernetes.io/kube-apiserver-client-kubelet\".  2. If it's a kubelet serving certificate, it is assigned     \"kubernetes.io/kubelet-serving\".  3. Otherwise, it is assigned \"kubernetes.io/legacy-unknown\". Distribution of trust for signers happens out of band. You can select on this field using `spec.signerName`.")
+  public String getSignerName() {
+    return signerName;
+  }
+
+  public void setSignerName(String signerName) {
+    this.signerName = signerName;
+  }
+
   public V1beta1CertificateSigningRequestSpec uid(String uid) {
 
     this.uid = uid;
@@ -233,6 +267,7 @@ public class V1beta1CertificateSigningRequestSpec {
     return Objects.equals(this.extra, v1beta1CertificateSigningRequestSpec.extra)
         && Objects.equals(this.groups, v1beta1CertificateSigningRequestSpec.groups)
         && Arrays.equals(this.request, v1beta1CertificateSigningRequestSpec.request)
+        && Objects.equals(this.signerName, v1beta1CertificateSigningRequestSpec.signerName)
         && Objects.equals(this.uid, v1beta1CertificateSigningRequestSpec.uid)
         && Objects.equals(this.usages, v1beta1CertificateSigningRequestSpec.usages)
         && Objects.equals(this.username, v1beta1CertificateSigningRequestSpec.username);
@@ -240,7 +275,7 @@ public class V1beta1CertificateSigningRequestSpec {
 
   @Override
   public int hashCode() {
-    return Objects.hash(extra, groups, Arrays.hashCode(request), uid, usages, username);
+    return Objects.hash(extra, groups, Arrays.hashCode(request), signerName, uid, usages, username);
   }
 
   @Override
@@ -250,6 +285,7 @@ public class V1beta1CertificateSigningRequestSpec {
     sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
     sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
     sb.append("    request: ").append(toIndentedString(request)).append("\n");
+    sb.append("    signerName: ").append(toIndentedString(signerName)).append("\n");
     sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
     sb.append("    usages: ").append(toIndentedString(usages)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");

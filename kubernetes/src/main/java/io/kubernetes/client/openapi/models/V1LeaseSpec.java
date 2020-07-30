@@ -22,7 +22,7 @@ import org.joda.time.DateTime;
 @ApiModel(description = "LeaseSpec is a specification of a Lease.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1LeaseSpec {
   public static final String SERIALIZED_NAME_ACQUIRE_TIME = "acquireTime";
 

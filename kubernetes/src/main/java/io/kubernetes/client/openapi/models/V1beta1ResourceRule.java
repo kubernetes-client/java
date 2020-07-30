@@ -28,7 +28,7 @@ import java.util.Objects;
         "ResourceRule is the list of actions the subject is allowed to perform on resources. The list ordering isn't significant, may contain duplicates, and possibly be incomplete.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1beta1ResourceRule {
   public static final String SERIALIZED_NAME_API_GROUPS = "apiGroups";
 

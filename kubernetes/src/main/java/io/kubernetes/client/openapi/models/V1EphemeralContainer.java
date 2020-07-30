@@ -33,7 +33,7 @@ import java.util.Objects;
         "An EphemeralContainer is a container that may be added temporarily to an existing pod for user-initiated activities such as debugging. Ephemeral containers have no resource or scheduling guarantees, and they will not be restarted when they exit or when a pod is removed or restarted. If an ephemeral container causes a pod to exceed its resource allocation, the pod may be evicted. Ephemeral containers may not be added by directly updating the pod spec. They must be added via the pod's ephemeralcontainers subresource, and they will appear in the pod spec once added. This is an alpha feature enabled by the EphemeralContainers feature flag.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1EphemeralContainer {
   public static final String SERIALIZED_NAME_ARGS = "args";
 
@@ -688,14 +688,13 @@ public class V1EphemeralContainer {
   }
 
   /**
-   * volumeDevices is the list of block devices to be used by the container. This is a beta feature.
+   * volumeDevices is the list of block devices to be used by the container.
    *
    * @return volumeDevices
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      value =
-          "volumeDevices is the list of block devices to be used by the container. This is a beta feature.")
+      value = "volumeDevices is the list of block devices to be used by the container.")
   public List<V1VolumeDevice> getVolumeDevices() {
     return volumeDevices;
   }

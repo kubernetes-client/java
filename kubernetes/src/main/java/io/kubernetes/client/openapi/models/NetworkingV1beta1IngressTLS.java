@@ -24,7 +24,7 @@ import java.util.Objects;
     description = "IngressTLS describes the transport layer security associated with an Ingress.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class NetworkingV1beta1IngressTLS {
   public static final String SERIALIZED_NAME_HOSTS = "hosts";
 
@@ -76,8 +76,8 @@ public class NetworkingV1beta1IngressTLS {
   }
 
   /**
-   * SecretName is the name of the secret used to terminate SSL traffic on 443. Field is left
-   * optional to allow SSL routing based on SNI hostname alone. If the SNI host in a listener
+   * SecretName is the name of the secret used to terminate TLS traffic on port 443. Field is left
+   * optional to allow TLS routing based on SNI hostname alone. If the SNI host in a listener
    * conflicts with the \&quot;Host\&quot; header field used by an IngressRule, the SNI host is used
    * for termination and value of the Host header is used for routing.
    *
@@ -86,7 +86,7 @@ public class NetworkingV1beta1IngressTLS {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "SecretName is the name of the secret used to terminate SSL traffic on 443. Field is left optional to allow SSL routing based on SNI hostname alone. If the SNI host in a listener conflicts with the \"Host\" header field used by an IngressRule, the SNI host is used for termination and value of the Host header is used for routing.")
+          "SecretName is the name of the secret used to terminate TLS traffic on port 443. Field is left optional to allow TLS routing based on SNI hostname alone. If the SNI host in a listener conflicts with the \"Host\" header field used by an IngressRule, the SNI host is used for termination and value of the Host header is used for routing.")
   public String getSecretName() {
     return secretName;
   }

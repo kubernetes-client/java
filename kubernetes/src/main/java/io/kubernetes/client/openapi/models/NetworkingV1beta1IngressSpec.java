@@ -23,12 +23,17 @@ import java.util.Objects;
 @ApiModel(description = "IngressSpec describes the Ingress the user wishes to exist.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class NetworkingV1beta1IngressSpec {
   public static final String SERIALIZED_NAME_BACKEND = "backend";
 
   @SerializedName(SERIALIZED_NAME_BACKEND)
   private NetworkingV1beta1IngressBackend backend;
+
+  public static final String SERIALIZED_NAME_INGRESS_CLASS_NAME = "ingressClassName";
+
+  @SerializedName(SERIALIZED_NAME_INGRESS_CLASS_NAME)
+  private String ingressClassName;
 
   public static final String SERIALIZED_NAME_RULES = "rules";
 
@@ -59,6 +64,36 @@ public class NetworkingV1beta1IngressSpec {
 
   public void setBackend(NetworkingV1beta1IngressBackend backend) {
     this.backend = backend;
+  }
+
+  public NetworkingV1beta1IngressSpec ingressClassName(String ingressClassName) {
+
+    this.ingressClassName = ingressClassName;
+    return this;
+  }
+
+  /**
+   * IngressClassName is the name of the IngressClass cluster resource. The associated IngressClass
+   * defines which controller will implement the resource. This replaces the deprecated
+   * &#x60;kubernetes.io/ingress.class&#x60; annotation. For backwards compatibility, when that
+   * annotation is set, it must be given precedence over this field. The controller may emit a
+   * warning if the field and annotation have different values. Implementations of this API should
+   * ignore Ingresses without a class specified. An IngressClass resource may be marked as default,
+   * which can be used to set a default value for this field. For more information, refer to the
+   * IngressClass documentation.
+   *
+   * @return ingressClassName
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "IngressClassName is the name of the IngressClass cluster resource. The associated IngressClass defines which controller will implement the resource. This replaces the deprecated `kubernetes.io/ingress.class` annotation. For backwards compatibility, when that annotation is set, it must be given precedence over this field. The controller may emit a warning if the field and annotation have different values. Implementations of this API should ignore Ingresses without a class specified. An IngressClass resource may be marked as default, which can be used to set a default value for this field. For more information, refer to the IngressClass documentation.")
+  public String getIngressClassName() {
+    return ingressClassName;
+  }
+
+  public void setIngressClassName(String ingressClassName) {
+    this.ingressClassName = ingressClassName;
   }
 
   public NetworkingV1beta1IngressSpec rules(List<NetworkingV1beta1IngressRule> rules) {
@@ -137,13 +172,14 @@ public class NetworkingV1beta1IngressSpec {
     }
     NetworkingV1beta1IngressSpec networkingV1beta1IngressSpec = (NetworkingV1beta1IngressSpec) o;
     return Objects.equals(this.backend, networkingV1beta1IngressSpec.backend)
+        && Objects.equals(this.ingressClassName, networkingV1beta1IngressSpec.ingressClassName)
         && Objects.equals(this.rules, networkingV1beta1IngressSpec.rules)
         && Objects.equals(this.tls, networkingV1beta1IngressSpec.tls);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backend, rules, tls);
+    return Objects.hash(backend, ingressClassName, rules, tls);
   }
 
   @Override
@@ -151,6 +187,7 @@ public class NetworkingV1beta1IngressSpec {
     StringBuilder sb = new StringBuilder();
     sb.append("class NetworkingV1beta1IngressSpec {\n");
     sb.append("    backend: ").append(toIndentedString(backend)).append("\n");
+    sb.append("    ingressClassName: ").append(toIndentedString(ingressClassName)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
     sb.append("    tls: ").append(toIndentedString(tls)).append("\n");
     sb.append("}");

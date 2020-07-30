@@ -26,7 +26,7 @@ import java.util.Objects;
         "Subject matches the originator of a request, as identified by the request authentication system. There are three ways of matching an originator; by user, group, or service account.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class FlowcontrolV1alpha1Subject {
   public static final String SERIALIZED_NAME_GROUP = "group";
 

@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteVolumeAttachment"></a>
 # **deleteVolumeAttachment**
-> V1Status deleteVolumeAttachment(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
+> V1alpha1VolumeAttachment deleteVolumeAttachment(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
 
 
 
@@ -222,7 +222,7 @@ public class Example {
     String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
     V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
     try {
-      V1Status result = apiInstance.deleteVolumeAttachment(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+      V1alpha1VolumeAttachment result = apiInstance.deleteVolumeAttachment(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling StorageV1alpha1Api#deleteVolumeAttachment");
@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1Status**](V1Status.md)
+[**V1alpha1VolumeAttachment**](V1alpha1VolumeAttachment.md)
 
 ### Authorization
 

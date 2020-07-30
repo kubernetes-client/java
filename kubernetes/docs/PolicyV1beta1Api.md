@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 <a name="createPodSecurityPolicy"></a>
 # **createPodSecurityPolicy**
-> PolicyV1beta1PodSecurityPolicy createPodSecurityPolicy(body, pretty, dryRun, fieldManager)
+> V1beta1PodSecurityPolicy createPodSecurityPolicy(body, pretty, dryRun, fieldManager)
 
 
 
@@ -135,12 +135,12 @@ public class Example {
     //BearerToken.setApiKeyPrefix("Token");
 
     PolicyV1beta1Api apiInstance = new PolicyV1beta1Api(defaultClient);
-    PolicyV1beta1PodSecurityPolicy body = new PolicyV1beta1PodSecurityPolicy(); // PolicyV1beta1PodSecurityPolicy | 
+    V1beta1PodSecurityPolicy body = new V1beta1PodSecurityPolicy(); // V1beta1PodSecurityPolicy | 
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
     String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
     String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
     try {
-      PolicyV1beta1PodSecurityPolicy result = apiInstance.createPodSecurityPolicy(body, pretty, dryRun, fieldManager);
+      V1beta1PodSecurityPolicy result = apiInstance.createPodSecurityPolicy(body, pretty, dryRun, fieldManager);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PolicyV1beta1Api#createPodSecurityPolicy");
@@ -157,14 +157,14 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**PolicyV1beta1PodSecurityPolicy**](PolicyV1beta1PodSecurityPolicy.md)|  |
+ **body** | [**V1beta1PodSecurityPolicy**](V1beta1PodSecurityPolicy.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
 
 ### Return type
 
-[**PolicyV1beta1PodSecurityPolicy**](PolicyV1beta1PodSecurityPolicy.md)
+[**V1beta1PodSecurityPolicy**](V1beta1PodSecurityPolicy.md)
 
 ### Authorization
 
@@ -456,7 +456,7 @@ Name | Type | Description  | Notes
 
 <a name="deletePodSecurityPolicy"></a>
 # **deletePodSecurityPolicy**
-> V1Status deletePodSecurityPolicy(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
+> V1beta1PodSecurityPolicy deletePodSecurityPolicy(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
 
 
 
@@ -492,7 +492,7 @@ public class Example {
     String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
     V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
     try {
-      V1Status result = apiInstance.deletePodSecurityPolicy(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+      V1beta1PodSecurityPolicy result = apiInstance.deletePodSecurityPolicy(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PolicyV1beta1Api#deletePodSecurityPolicy");
@@ -519,7 +519,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1Status**](V1Status.md)
+[**V1beta1PodSecurityPolicy**](V1beta1PodSecurityPolicy.md)
 
 ### Authorization
 
@@ -779,7 +779,7 @@ Name | Type | Description  | Notes
 
 <a name="listPodSecurityPolicy"></a>
 # **listPodSecurityPolicy**
-> PolicyV1beta1PodSecurityPolicyList listPodSecurityPolicy(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
+> V1beta1PodSecurityPolicyList listPodSecurityPolicy(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch)
 
 
 
@@ -817,7 +817,7 @@ public class Example {
     Integer timeoutSeconds = 56; // Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
     Boolean watch = true; // Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
     try {
-      PolicyV1beta1PodSecurityPolicyList result = apiInstance.listPodSecurityPolicy(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
+      V1beta1PodSecurityPolicyList result = apiInstance.listPodSecurityPolicy(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, timeoutSeconds, watch);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PolicyV1beta1Api#listPodSecurityPolicy");
@@ -846,7 +846,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PolicyV1beta1PodSecurityPolicyList**](PolicyV1beta1PodSecurityPolicyList.md)
+[**V1beta1PodSecurityPolicyList**](V1beta1PodSecurityPolicyList.md)
 
 ### Authorization
 
@@ -1029,7 +1029,7 @@ Name | Type | Description  | Notes
 
 <a name="patchPodSecurityPolicy"></a>
 # **patchPodSecurityPolicy**
-> PolicyV1beta1PodSecurityPolicy patchPodSecurityPolicy(name, body, pretty, dryRun, fieldManager, force)
+> V1beta1PodSecurityPolicy patchPodSecurityPolicy(name, body, pretty, dryRun, fieldManager, force)
 
 
 
@@ -1064,7 +1064,7 @@ public class Example {
     String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
     Boolean force = true; // Boolean | Force is going to \"force\" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
     try {
-      PolicyV1beta1PodSecurityPolicy result = apiInstance.patchPodSecurityPolicy(name, body, pretty, dryRun, fieldManager, force);
+      V1beta1PodSecurityPolicy result = apiInstance.patchPodSecurityPolicy(name, body, pretty, dryRun, fieldManager, force);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PolicyV1beta1Api#patchPodSecurityPolicy");
@@ -1090,7 +1090,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PolicyV1beta1PodSecurityPolicy**](PolicyV1beta1PodSecurityPolicy.md)
+[**V1beta1PodSecurityPolicy**](V1beta1PodSecurityPolicy.md)
 
 ### Authorization
 
@@ -1261,7 +1261,7 @@ Name | Type | Description  | Notes
 
 <a name="readPodSecurityPolicy"></a>
 # **readPodSecurityPolicy**
-> PolicyV1beta1PodSecurityPolicy readPodSecurityPolicy(name, pretty, exact, export)
+> V1beta1PodSecurityPolicy readPodSecurityPolicy(name, pretty, exact, export)
 
 
 
@@ -1294,7 +1294,7 @@ public class Example {
     Boolean exact = true; // Boolean | Should the export be exact.  Exact export maintains cluster-specific fields like 'Namespace'. Deprecated. Planned for removal in 1.18.
     Boolean export = true; // Boolean | Should this value be exported.  Export strips fields that a user can not specify. Deprecated. Planned for removal in 1.18.
     try {
-      PolicyV1beta1PodSecurityPolicy result = apiInstance.readPodSecurityPolicy(name, pretty, exact, export);
+      V1beta1PodSecurityPolicy result = apiInstance.readPodSecurityPolicy(name, pretty, exact, export);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PolicyV1beta1Api#readPodSecurityPolicy");
@@ -1318,7 +1318,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PolicyV1beta1PodSecurityPolicy**](PolicyV1beta1PodSecurityPolicy.md)
+[**V1beta1PodSecurityPolicy**](V1beta1PodSecurityPolicy.md)
 
 ### Authorization
 
@@ -1499,7 +1499,7 @@ Name | Type | Description  | Notes
 
 <a name="replacePodSecurityPolicy"></a>
 # **replacePodSecurityPolicy**
-> PolicyV1beta1PodSecurityPolicy replacePodSecurityPolicy(name, body, pretty, dryRun, fieldManager)
+> V1beta1PodSecurityPolicy replacePodSecurityPolicy(name, body, pretty, dryRun, fieldManager)
 
 
 
@@ -1528,12 +1528,12 @@ public class Example {
 
     PolicyV1beta1Api apiInstance = new PolicyV1beta1Api(defaultClient);
     String name = "name_example"; // String | name of the PodSecurityPolicy
-    PolicyV1beta1PodSecurityPolicy body = new PolicyV1beta1PodSecurityPolicy(); // PolicyV1beta1PodSecurityPolicy | 
+    V1beta1PodSecurityPolicy body = new V1beta1PodSecurityPolicy(); // V1beta1PodSecurityPolicy | 
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
     String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
     String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
     try {
-      PolicyV1beta1PodSecurityPolicy result = apiInstance.replacePodSecurityPolicy(name, body, pretty, dryRun, fieldManager);
+      V1beta1PodSecurityPolicy result = apiInstance.replacePodSecurityPolicy(name, body, pretty, dryRun, fieldManager);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PolicyV1beta1Api#replacePodSecurityPolicy");
@@ -1551,14 +1551,14 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the PodSecurityPolicy |
- **body** | [**PolicyV1beta1PodSecurityPolicy**](PolicyV1beta1PodSecurityPolicy.md)|  |
+ **body** | [**V1beta1PodSecurityPolicy**](V1beta1PodSecurityPolicy.md)|  |
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
 
 ### Return type
 
-[**PolicyV1beta1PodSecurityPolicy**](PolicyV1beta1PodSecurityPolicy.md)
+[**V1beta1PodSecurityPolicy**](V1beta1PodSecurityPolicy.md)
 
 ### Authorization
 

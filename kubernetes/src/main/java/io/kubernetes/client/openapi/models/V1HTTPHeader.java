@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(description = "HTTPHeader describes a custom header to be used in HTTP probes")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1HTTPHeader {
   public static final String SERIALIZED_NAME_NAME = "name";
 

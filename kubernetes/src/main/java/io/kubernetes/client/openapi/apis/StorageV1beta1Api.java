@@ -1015,7 +1015,7 @@ public class StorageV1beta1Api {
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
    * @param body (optional)
-   * @return V1Status
+   * @return V1beta1CSIDriver
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -1026,7 +1026,7 @@ public class StorageV1beta1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1Status deleteCSIDriver(
+  public V1beta1CSIDriver deleteCSIDriver(
       String name,
       String pretty,
       String dryRun,
@@ -1035,7 +1035,7 @@ public class StorageV1beta1Api {
       String propagationPolicy,
       V1DeleteOptions body)
       throws ApiException {
-    ApiResponse<V1Status> localVarResp =
+    ApiResponse<V1beta1CSIDriver> localVarResp =
         deleteCSIDriverWithHttpInfo(
             name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
     return localVarResp.getData();
@@ -1065,7 +1065,7 @@ public class StorageV1beta1Api {
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
    * @param body (optional)
-   * @return ApiResponse&lt;V1Status&gt;
+   * @return ApiResponse&lt;V1beta1CSIDriver&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -1076,7 +1076,7 @@ public class StorageV1beta1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<V1Status> deleteCSIDriverWithHttpInfo(
+  public ApiResponse<V1beta1CSIDriver> deleteCSIDriverWithHttpInfo(
       String name,
       String pretty,
       String dryRun,
@@ -1095,7 +1095,7 @@ public class StorageV1beta1Api {
             propagationPolicy,
             body,
             null);
-    Type localVarReturnType = new TypeToken<V1Status>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1beta1CSIDriver>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -1142,7 +1142,7 @@ public class StorageV1beta1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       V1DeleteOptions body,
-      final ApiCallback<V1Status> _callback)
+      final ApiCallback<V1beta1CSIDriver> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
@@ -1155,7 +1155,7 @@ public class StorageV1beta1Api {
             propagationPolicy,
             body,
             _callback);
-    Type localVarReturnType = new TypeToken<V1Status>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1beta1CSIDriver>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -1322,7 +1322,7 @@ public class StorageV1beta1Api {
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
    * @param body (optional)
-   * @return V1Status
+   * @return V1beta1CSINode
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -1333,7 +1333,7 @@ public class StorageV1beta1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1Status deleteCSINode(
+  public V1beta1CSINode deleteCSINode(
       String name,
       String pretty,
       String dryRun,
@@ -1342,7 +1342,7 @@ public class StorageV1beta1Api {
       String propagationPolicy,
       V1DeleteOptions body)
       throws ApiException {
-    ApiResponse<V1Status> localVarResp =
+    ApiResponse<V1beta1CSINode> localVarResp =
         deleteCSINodeWithHttpInfo(
             name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
     return localVarResp.getData();
@@ -1372,7 +1372,7 @@ public class StorageV1beta1Api {
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
    * @param body (optional)
-   * @return ApiResponse&lt;V1Status&gt;
+   * @return ApiResponse&lt;V1beta1CSINode&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -1383,7 +1383,7 @@ public class StorageV1beta1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<V1Status> deleteCSINodeWithHttpInfo(
+  public ApiResponse<V1beta1CSINode> deleteCSINodeWithHttpInfo(
       String name,
       String pretty,
       String dryRun,
@@ -1402,7 +1402,7 @@ public class StorageV1beta1Api {
             propagationPolicy,
             body,
             null);
-    Type localVarReturnType = new TypeToken<V1Status>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1beta1CSINode>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -1449,7 +1449,7 @@ public class StorageV1beta1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       V1DeleteOptions body,
-      final ApiCallback<V1Status> _callback)
+      final ApiCallback<V1beta1CSINode> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
@@ -1462,7 +1462,7 @@ public class StorageV1beta1Api {
             propagationPolicy,
             body,
             _callback);
-    Type localVarReturnType = new TypeToken<V1Status>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1beta1CSINode>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -3789,7 +3789,7 @@ public class StorageV1beta1Api {
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
    * @param body (optional)
-   * @return V1Status
+   * @return V1beta1StorageClass
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -3800,7 +3800,7 @@ public class StorageV1beta1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1Status deleteStorageClass(
+  public V1beta1StorageClass deleteStorageClass(
       String name,
       String pretty,
       String dryRun,
@@ -3809,7 +3809,7 @@ public class StorageV1beta1Api {
       String propagationPolicy,
       V1DeleteOptions body)
       throws ApiException {
-    ApiResponse<V1Status> localVarResp =
+    ApiResponse<V1beta1StorageClass> localVarResp =
         deleteStorageClassWithHttpInfo(
             name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
     return localVarResp.getData();
@@ -3839,7 +3839,7 @@ public class StorageV1beta1Api {
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
    * @param body (optional)
-   * @return ApiResponse&lt;V1Status&gt;
+   * @return ApiResponse&lt;V1beta1StorageClass&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -3850,7 +3850,7 @@ public class StorageV1beta1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<V1Status> deleteStorageClassWithHttpInfo(
+  public ApiResponse<V1beta1StorageClass> deleteStorageClassWithHttpInfo(
       String name,
       String pretty,
       String dryRun,
@@ -3869,7 +3869,7 @@ public class StorageV1beta1Api {
             propagationPolicy,
             body,
             null);
-    Type localVarReturnType = new TypeToken<V1Status>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1beta1StorageClass>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -3916,7 +3916,7 @@ public class StorageV1beta1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       V1DeleteOptions body,
-      final ApiCallback<V1Status> _callback)
+      final ApiCallback<V1beta1StorageClass> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
@@ -3929,7 +3929,7 @@ public class StorageV1beta1Api {
             propagationPolicy,
             body,
             _callback);
-    Type localVarReturnType = new TypeToken<V1Status>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1beta1StorageClass>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -4096,7 +4096,7 @@ public class StorageV1beta1Api {
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
    * @param body (optional)
-   * @return V1Status
+   * @return V1beta1VolumeAttachment
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -4107,7 +4107,7 @@ public class StorageV1beta1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1Status deleteVolumeAttachment(
+  public V1beta1VolumeAttachment deleteVolumeAttachment(
       String name,
       String pretty,
       String dryRun,
@@ -4116,7 +4116,7 @@ public class StorageV1beta1Api {
       String propagationPolicy,
       V1DeleteOptions body)
       throws ApiException {
-    ApiResponse<V1Status> localVarResp =
+    ApiResponse<V1beta1VolumeAttachment> localVarResp =
         deleteVolumeAttachmentWithHttpInfo(
             name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
     return localVarResp.getData();
@@ -4146,7 +4146,7 @@ public class StorageV1beta1Api {
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
    * @param body (optional)
-   * @return ApiResponse&lt;V1Status&gt;
+   * @return ApiResponse&lt;V1beta1VolumeAttachment&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -4157,7 +4157,7 @@ public class StorageV1beta1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<V1Status> deleteVolumeAttachmentWithHttpInfo(
+  public ApiResponse<V1beta1VolumeAttachment> deleteVolumeAttachmentWithHttpInfo(
       String name,
       String pretty,
       String dryRun,
@@ -4176,7 +4176,7 @@ public class StorageV1beta1Api {
             propagationPolicy,
             body,
             null);
-    Type localVarReturnType = new TypeToken<V1Status>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1beta1VolumeAttachment>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -4223,7 +4223,7 @@ public class StorageV1beta1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       V1DeleteOptions body,
-      final ApiCallback<V1Status> _callback)
+      final ApiCallback<V1beta1VolumeAttachment> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
@@ -4236,7 +4236,7 @@ public class StorageV1beta1Api {
             propagationPolicy,
             body,
             _callback);
-    Type localVarReturnType = new TypeToken<V1Status>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1beta1VolumeAttachment>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }

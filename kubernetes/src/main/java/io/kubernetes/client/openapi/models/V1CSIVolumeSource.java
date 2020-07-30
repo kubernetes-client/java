@@ -25,7 +25,7 @@ import java.util.Objects;
         "Represents a source location of a volume to mount, managed by an external CSI driver")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1CSIVolumeSource {
   public static final String SERIALIZED_NAME_DRIVER = "driver";
 

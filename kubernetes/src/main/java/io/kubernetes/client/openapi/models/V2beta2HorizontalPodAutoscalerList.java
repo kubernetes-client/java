@@ -24,7 +24,7 @@ import java.util.Objects;
     description = "HorizontalPodAutoscalerList is a list of horizontal pod autoscaler objects.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V2beta2HorizontalPodAutoscalerList
     implements io.kubernetes.client.common.KubernetesListObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";

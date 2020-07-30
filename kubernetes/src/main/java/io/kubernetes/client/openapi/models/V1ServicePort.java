@@ -22,8 +22,13 @@ import java.util.Objects;
 @ApiModel(description = "ServicePort contains information on service's port.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1ServicePort {
+  public static final String SERIALIZED_NAME_APP_PROTOCOL = "appProtocol";
+
+  @SerializedName(SERIALIZED_NAME_APP_PROTOCOL)
+  private String appProtocol;
+
   public static final String SERIALIZED_NAME_NAME = "name";
 
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -48,6 +53,33 @@ public class V1ServicePort {
 
   @SerializedName(SERIALIZED_NAME_TARGET_PORT)
   private IntOrString targetPort;
+
+  public V1ServicePort appProtocol(String appProtocol) {
+
+    this.appProtocol = appProtocol;
+    return this;
+  }
+
+  /**
+   * The application protocol for this port. This field follows standard Kubernetes label syntax.
+   * Un-prefixed names are reserved for IANA standard service names (as per RFC-6335 and
+   * http://www.iana.org/assignments/service-names). Non-standard protocols should use prefixed
+   * names such as mycompany.com/my-custom-protocol. Field can be enabled with ServiceAppProtocol
+   * feature gate.
+   *
+   * @return appProtocol
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "The application protocol for this port. This field follows standard Kubernetes label syntax. Un-prefixed names are reserved for IANA standard service names (as per RFC-6335 and http://www.iana.org/assignments/service-names). Non-standard protocols should use prefixed names such as mycompany.com/my-custom-protocol. Field can be enabled with ServiceAppProtocol feature gate.")
+  public String getAppProtocol() {
+    return appProtocol;
+  }
+
+  public void setAppProtocol(String appProtocol) {
+    this.appProtocol = appProtocol;
+  }
 
   public V1ServicePort name(String name) {
 
@@ -180,7 +212,8 @@ public class V1ServicePort {
       return false;
     }
     V1ServicePort v1ServicePort = (V1ServicePort) o;
-    return Objects.equals(this.name, v1ServicePort.name)
+    return Objects.equals(this.appProtocol, v1ServicePort.appProtocol)
+        && Objects.equals(this.name, v1ServicePort.name)
         && Objects.equals(this.nodePort, v1ServicePort.nodePort)
         && Objects.equals(this.port, v1ServicePort.port)
         && Objects.equals(this.protocol, v1ServicePort.protocol)
@@ -189,13 +222,14 @@ public class V1ServicePort {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, nodePort, port, protocol, targetPort);
+    return Objects.hash(appProtocol, name, nodePort, port, protocol, targetPort);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1ServicePort {\n");
+    sb.append("    appProtocol: ").append(toIndentedString(appProtocol)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodePort: ").append(toIndentedString(nodePort)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");

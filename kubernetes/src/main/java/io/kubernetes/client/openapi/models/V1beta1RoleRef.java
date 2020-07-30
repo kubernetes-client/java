@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(description = "RoleRef contains information that points to the role being used")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1beta1RoleRef {
   public static final String SERIALIZED_NAME_API_GROUP = "apiGroup";
 

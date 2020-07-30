@@ -26,7 +26,7 @@ import java.util.Objects;
         "SecretReference represents a Secret Reference. It has enough information to retrieve secret in any namespace")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1SecretReference {
   public static final String SERIALIZED_NAME_NAME = "name";
 

@@ -25,7 +25,7 @@ import java.util.Objects;
         "APIGroup contains the name, the supported versions, and the preferred version of a group.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1APIGroup {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 

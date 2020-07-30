@@ -27,7 +27,7 @@ import java.util.Objects;
         "APIServiceSpec contains information for locating and communicating with a server. Only https is supported, though you are able to disable certificate verification.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1beta1APIServiceSpec {
   public static final String SERIALIZED_NAME_CA_BUNDLE = "caBundle";
 
@@ -173,7 +173,8 @@ public class V1beta1APIServiceSpec {
    *
    * @return service
    */
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
   public ApiregistrationV1beta1ServiceReference getService() {
     return service;
   }

@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCSIDriver"></a>
 # **deleteCSIDriver**
-> V1Status deleteCSIDriver(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
+> V1beta1CSIDriver deleteCSIDriver(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
 
 
 
@@ -385,7 +385,7 @@ public class Example {
     String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
     V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
     try {
-      V1Status result = apiInstance.deleteCSIDriver(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+      V1beta1CSIDriver result = apiInstance.deleteCSIDriver(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling StorageV1beta1Api#deleteCSIDriver");
@@ -412,7 +412,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1Status**](V1Status.md)
+[**V1beta1CSIDriver**](V1beta1CSIDriver.md)
 
 ### Authorization
 
@@ -432,7 +432,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCSINode"></a>
 # **deleteCSINode**
-> V1Status deleteCSINode(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
+> V1beta1CSINode deleteCSINode(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
 
 
 
@@ -468,7 +468,7 @@ public class Example {
     String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
     V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
     try {
-      V1Status result = apiInstance.deleteCSINode(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+      V1beta1CSINode result = apiInstance.deleteCSINode(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling StorageV1beta1Api#deleteCSINode");
@@ -495,7 +495,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1Status**](V1Status.md)
+[**V1beta1CSINode**](V1beta1CSINode.md)
 
 ### Authorization
 
@@ -883,7 +883,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteStorageClass"></a>
 # **deleteStorageClass**
-> V1Status deleteStorageClass(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
+> V1beta1StorageClass deleteStorageClass(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
 
 
 
@@ -919,7 +919,7 @@ public class Example {
     String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
     V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
     try {
-      V1Status result = apiInstance.deleteStorageClass(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+      V1beta1StorageClass result = apiInstance.deleteStorageClass(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling StorageV1beta1Api#deleteStorageClass");
@@ -946,7 +946,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1Status**](V1Status.md)
+[**V1beta1StorageClass**](V1beta1StorageClass.md)
 
 ### Authorization
 
@@ -966,7 +966,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteVolumeAttachment"></a>
 # **deleteVolumeAttachment**
-> V1Status deleteVolumeAttachment(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
+> V1beta1VolumeAttachment deleteVolumeAttachment(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body)
 
 
 
@@ -1002,7 +1002,7 @@ public class Example {
     String propagationPolicy = "propagationPolicy_example"; // String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
     V1DeleteOptions body = new V1DeleteOptions(); // V1DeleteOptions | 
     try {
-      V1Status result = apiInstance.deleteVolumeAttachment(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
+      V1beta1VolumeAttachment result = apiInstance.deleteVolumeAttachment(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling StorageV1beta1Api#deleteVolumeAttachment");
@@ -1029,7 +1029,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1Status**](V1Status.md)
+[**V1beta1VolumeAttachment**](V1beta1VolumeAttachment.md)
 
 ### Authorization
 

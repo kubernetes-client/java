@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(description = "EndpointPort represents a Port used by an EndpointSlice")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1beta1EndpointPort {
   public static final String SERIALIZED_NAME_APP_PROTOCOL = "appProtocol";
 
@@ -53,14 +53,14 @@ public class V1beta1EndpointPort {
    * The application protocol for this port. This field follows standard Kubernetes label syntax.
    * Un-prefixed names are reserved for IANA standard service names (as per RFC-6335 and
    * http://www.iana.org/assignments/service-names). Non-standard protocols should use prefixed
-   * names. Default is empty string.
+   * names such as mycompany.com/my-custom-protocol.
    *
    * @return appProtocol
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "The application protocol for this port. This field follows standard Kubernetes label syntax. Un-prefixed names are reserved for IANA standard service names (as per RFC-6335 and http://www.iana.org/assignments/service-names). Non-standard protocols should use prefixed names. Default is empty string.")
+          "The application protocol for this port. This field follows standard Kubernetes label syntax. Un-prefixed names are reserved for IANA standard service names (as per RFC-6335 and http://www.iana.org/assignments/service-names). Non-standard protocols should use prefixed names such as mycompany.com/my-custom-protocol.")
   public String getAppProtocol() {
     return appProtocol;
   }

@@ -28,7 +28,7 @@ import java.util.Objects;
         "APIResourceList is a list of APIResource, it is used to expose the name of the resources supported in a specific group and version, and if the resource is namespaced.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1APIResourceList {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 

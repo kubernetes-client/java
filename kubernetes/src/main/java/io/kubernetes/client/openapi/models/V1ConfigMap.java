@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "ConfigMap holds configuration data for pods to consume.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1ConfigMap implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 
@@ -39,6 +39,11 @@ public class V1ConfigMap implements io.kubernetes.client.common.KubernetesObject
 
   @SerializedName(SERIALIZED_NAME_DATA)
   private Map<String, String> data = null;
+
+  public static final String SERIALIZED_NAME_IMMUTABLE = "immutable";
+
+  @SerializedName(SERIALIZED_NAME_IMMUTABLE)
+  private Boolean immutable;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
 
@@ -145,6 +150,31 @@ public class V1ConfigMap implements io.kubernetes.client.common.KubernetesObject
     this.data = data;
   }
 
+  public V1ConfigMap immutable(Boolean immutable) {
+
+    this.immutable = immutable;
+    return this;
+  }
+
+  /**
+   * Immutable, if set to true, ensures that data stored in the ConfigMap cannot be updated (only
+   * object metadata can be modified). If not set to true, the field can be modified at any time.
+   * Defaulted to nil. This is an alpha field enabled by ImmutableEphemeralVolumes feature gate.
+   *
+   * @return immutable
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Immutable, if set to true, ensures that data stored in the ConfigMap cannot be updated (only object metadata can be modified). If not set to true, the field can be modified at any time. Defaulted to nil. This is an alpha field enabled by ImmutableEphemeralVolumes feature gate.")
+  public Boolean getImmutable() {
+    return immutable;
+  }
+
+  public void setImmutable(Boolean immutable) {
+    this.immutable = immutable;
+  }
+
   public V1ConfigMap kind(String kind) {
 
     this.kind = kind;
@@ -204,13 +234,14 @@ public class V1ConfigMap implements io.kubernetes.client.common.KubernetesObject
     return Objects.equals(this.apiVersion, v1ConfigMap.apiVersion)
         && Objects.equals(this.binaryData, v1ConfigMap.binaryData)
         && Objects.equals(this.data, v1ConfigMap.data)
+        && Objects.equals(this.immutable, v1ConfigMap.immutable)
         && Objects.equals(this.kind, v1ConfigMap.kind)
         && Objects.equals(this.metadata, v1ConfigMap.metadata);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiVersion, binaryData, data, kind, metadata);
+    return Objects.hash(apiVersion, binaryData, data, immutable, kind, metadata);
   }
 
   @Override
@@ -220,6 +251,7 @@ public class V1ConfigMap implements io.kubernetes.client.common.KubernetesObject
     sb.append("    apiVersion: ").append(toIndentedString(apiVersion)).append("\n");
     sb.append("    binaryData: ").append(toIndentedString(binaryData)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    immutable: ").append(toIndentedString(immutable)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("}");

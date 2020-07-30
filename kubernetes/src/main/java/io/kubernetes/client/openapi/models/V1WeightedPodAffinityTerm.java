@@ -26,7 +26,7 @@ import java.util.Objects;
         "The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s)")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1WeightedPodAffinityTerm {
   public static final String SERIALIZED_NAME_POD_AFFINITY_TERM = "podAffinityTerm";
 

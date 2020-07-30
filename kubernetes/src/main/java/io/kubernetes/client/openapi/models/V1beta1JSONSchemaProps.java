@@ -27,7 +27,7 @@ import java.util.Objects;
         "JSONSchemaProps is a JSON-Schema following Specification Draft 4 (http://json-schema.org/).")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1beta1JSONSchemaProps {
   public static final String SERIALIZED_NAME_$_REF = "$ref";
 
@@ -1216,14 +1216,15 @@ public class V1beta1JSONSchemaProps {
    * by specifying the keys used as the index of the map. This tag MUST only be used on lists that
    * have the \&quot;x-kubernetes-list-type\&quot; extension set to \&quot;map\&quot;. Also, the
    * values specified for this attribute must be a scalar typed field of the child structure (no
-   * nesting is supported).
+   * nesting is supported). The properties specified must either be required or have a default
+   * value, to ensure those properties are present for all list items.
    *
    * @return xKubernetesListMapKeys
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type `map` by specifying the keys used as the index of the map.  This tag MUST only be used on lists that have the \"x-kubernetes-list-type\" extension set to \"map\". Also, the values specified for this attribute must be a scalar typed field of the child structure (no nesting is supported).")
+          "x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type `map` by specifying the keys used as the index of the map.  This tag MUST only be used on lists that have the \"x-kubernetes-list-type\" extension set to \"map\". Also, the values specified for this attribute must be a scalar typed field of the child structure (no nesting is supported).  The properties specified must either be required or have a default value, to ensure those properties are present for all list items.")
   public List<String> getxKubernetesListMapKeys() {
     return xKubernetesListMapKeys;
   }

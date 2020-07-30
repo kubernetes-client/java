@@ -27,8 +27,13 @@ import java.util.Objects;
         "HorizontalPodAutoscalerSpec describes the desired functionality of the HorizontalPodAutoscaler.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V2beta2HorizontalPodAutoscalerSpec {
+  public static final String SERIALIZED_NAME_BEHAVIOR = "behavior";
+
+  @SerializedName(SERIALIZED_NAME_BEHAVIOR)
+  private V2beta2HorizontalPodAutoscalerBehavior behavior;
+
   public static final String SERIALIZED_NAME_MAX_REPLICAS = "maxReplicas";
 
   @SerializedName(SERIALIZED_NAME_MAX_REPLICAS)
@@ -48,6 +53,28 @@ public class V2beta2HorizontalPodAutoscalerSpec {
 
   @SerializedName(SERIALIZED_NAME_SCALE_TARGET_REF)
   private V2beta2CrossVersionObjectReference scaleTargetRef;
+
+  public V2beta2HorizontalPodAutoscalerSpec behavior(
+      V2beta2HorizontalPodAutoscalerBehavior behavior) {
+
+    this.behavior = behavior;
+    return this;
+  }
+
+  /**
+   * Get behavior
+   *
+   * @return behavior
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V2beta2HorizontalPodAutoscalerBehavior getBehavior() {
+    return behavior;
+  }
+
+  public void setBehavior(V2beta2HorizontalPodAutoscalerBehavior behavior) {
+    this.behavior = behavior;
+  }
 
   public V2beta2HorizontalPodAutoscalerSpec maxReplicas(Integer maxReplicas) {
 
@@ -166,7 +193,8 @@ public class V2beta2HorizontalPodAutoscalerSpec {
     }
     V2beta2HorizontalPodAutoscalerSpec v2beta2HorizontalPodAutoscalerSpec =
         (V2beta2HorizontalPodAutoscalerSpec) o;
-    return Objects.equals(this.maxReplicas, v2beta2HorizontalPodAutoscalerSpec.maxReplicas)
+    return Objects.equals(this.behavior, v2beta2HorizontalPodAutoscalerSpec.behavior)
+        && Objects.equals(this.maxReplicas, v2beta2HorizontalPodAutoscalerSpec.maxReplicas)
         && Objects.equals(this.metrics, v2beta2HorizontalPodAutoscalerSpec.metrics)
         && Objects.equals(this.minReplicas, v2beta2HorizontalPodAutoscalerSpec.minReplicas)
         && Objects.equals(this.scaleTargetRef, v2beta2HorizontalPodAutoscalerSpec.scaleTargetRef);
@@ -174,13 +202,14 @@ public class V2beta2HorizontalPodAutoscalerSpec {
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxReplicas, metrics, minReplicas, scaleTargetRef);
+    return Objects.hash(behavior, maxReplicas, metrics, minReplicas, scaleTargetRef);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V2beta2HorizontalPodAutoscalerSpec {\n");
+    sb.append("    behavior: ").append(toIndentedString(behavior)).append("\n");
     sb.append("    maxReplicas: ").append(toIndentedString(maxReplicas)).append("\n");
     sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    minReplicas: ").append(toIndentedString(minReplicas)).append("\n");

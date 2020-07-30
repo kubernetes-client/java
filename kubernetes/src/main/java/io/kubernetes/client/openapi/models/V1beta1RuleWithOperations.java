@@ -28,7 +28,7 @@ import java.util.Objects;
         "RuleWithOperations is a tuple of Operations and Resources. It is recommended to make sure that all the tuple expansions are valid.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1beta1RuleWithOperations {
   public static final String SERIALIZED_NAME_API_GROUPS = "apiGroups";
 

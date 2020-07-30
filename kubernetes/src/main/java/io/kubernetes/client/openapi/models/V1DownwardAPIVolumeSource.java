@@ -28,7 +28,7 @@ import java.util.Objects;
         "DownwardAPIVolumeSource represents a volume containing downward API info. Downward API volumes support ownership management and SELinux relabeling.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1DownwardAPIVolumeSource {
   public static final String SERIALIZED_NAME_DEFAULT_MODE = "defaultMode";
 

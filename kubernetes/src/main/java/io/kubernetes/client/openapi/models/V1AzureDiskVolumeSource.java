@@ -23,7 +23,7 @@ import java.util.Objects;
         "AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-06-19T10:47:33.387Z[Etc/UTC]")
+    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
 public class V1AzureDiskVolumeSource {
   public static final String SERIALIZED_NAME_CACHING_MODE = "cachingMode";
 
