@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.examples;
 
+import static io.kubernetes.client.extended.kubectl.Kubectl.exec;
 import static io.kubernetes.client.extended.kubectl.Kubectl.label;
 import static io.kubernetes.client.extended.kubectl.Kubectl.scale;
 import static io.kubernetes.client.extended.kubectl.Kubectl.version;
 
 import io.kubernetes.client.common.KubernetesObject;
+import io.kubernetes.client.extended.kubectl.KubectlExec;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.models.V1Deployment;
@@ -25,6 +27,7 @@ import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1ReplicationController;
 import io.kubernetes.client.openapi.models.V1Service;
 import io.kubernetes.client.util.Config;
+import java.util.Arrays;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Option;
@@ -68,6 +71,7 @@ public class KubectlExample {
     Options options = new Options();
     options.addOption(new Option("n", "namespace", true, "The namespace for the resource"));
     options.addOption(new Option("r", "replicas", true, "The number of replicas to scale to"));
+    options.addOption(new Option("c", "container", true, "The container in a pod to connect to"));
     DefaultParser parser = new DefaultParser();
     CommandLine cli = parser.parse(options, args);
 
@@ -104,6 +108,13 @@ public class KubectlExample {
         }
         label(client, clazz).namespace(ns).name(name).addLabel(labelKey, labelValue);
         System.exit(0);
+      case "exec":
+        name = args[1];
+        String[] command = Arrays.copyOfRange(args, 1, args.length);
+        KubectlExec e =
+            exec(client).namespace(ns).name(name).container(cli.getOptionValue("c", ""));
+        e.execute();
+        System.exit(e.exitCode());
       default:
         System.out.println("Unknown verb: " + verb);
         System.exit(-1);

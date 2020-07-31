@@ -22,29 +22,15 @@ import io.kubernetes.client.openapi.models.V1Deployment;
 import io.kubernetes.client.openapi.models.V1ReplicaSet;
 import io.kubernetes.client.util.PatchUtils;
 
-public class KubectlScale<ApiType extends KubernetesObject> implements Kubectl.Executable<ApiType> {
-  private final ApiClient apiClient;
-  private final Class<ApiType> apiTypeClass;
+public class KubectlScale<ApiType extends KubernetesObject>
+    extends Kubectl.ResourceBuilder<KubectlScale<ApiType>> implements Kubectl.Executable<ApiType> {
   private final AppsV1Api api;
-  private String namespace;
-  private String name;
   private int replicas;
 
   KubectlScale(ApiClient client, Class<ApiType> apiTypeClass) {
-    this.apiClient = client;
-    this.apiTypeClass = apiTypeClass;
+    super(client, apiTypeClass);
     this.api = new AppsV1Api(client);
     this.replicas = -1;
-  }
-
-  public KubectlScale<ApiType> name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  public KubectlScale<ApiType> namespace(String namespace) {
-    this.namespace = namespace;
-    return this;
   }
 
   public KubectlScale<ApiType> replicas(int replicas) {
@@ -62,7 +48,7 @@ public class KubectlScale<ApiType extends KubernetesObject> implements Kubectl.E
     try {
       if (apiTypeClass.equals(V1Deployment.class)) {
         return PatchUtils.patch(
-            apiTypeClass,
+            (Class<ApiType>) apiTypeClass,
             () ->
                 api.patchNamespacedDeploymentCall(
                     name,
@@ -77,7 +63,7 @@ public class KubectlScale<ApiType extends KubernetesObject> implements Kubectl.E
             this.apiClient);
       } else if (apiTypeClass.equals(V1ReplicaSet.class)) {
         return PatchUtils.patch(
-            apiTypeClass,
+            (Class<ApiType>) apiTypeClass,
             () ->
                 api.patchNamespacedReplicaSetCall(
                     name, namespace, new V1Patch(jsonPatchStr), null, null, null, null, null),

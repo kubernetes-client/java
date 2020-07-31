@@ -71,12 +71,9 @@ public class KubectlScaleTest {
                 aResponse()
                     .withStatus(200)
                     .withBody("{\"metadata\":{\"name\":\"foo\",\"namespace\":\"default\"}}")));
-    V1ReplicaSet scaled =
-        Kubectl.scale(apiClient, V1ReplicaSet.class)
-            .name("foo")
-            .namespace("default")
-            .replicas(4)
-            .execute();
+    KubectlScale<V1ReplicaSet> s =
+        Kubectl.scale(apiClient, V1ReplicaSet.class).replicas(4).name("foo").namespace("default");
+    V1ReplicaSet scaled = s.execute();
     wireMockRule.verify(
         1,
         patchRequestedFor(urlPathEqualTo("/apis/apps/v1/namespaces/default/replicasets/foo"))
