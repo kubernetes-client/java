@@ -49,6 +49,31 @@ public class Kubectl {
   }
 
   /**
+   * Equivalence for `kubectl annotate`.
+   *
+   * @param <ApiType> the target api type
+   * @param apiTypeClass the api type class
+   * @return the kubectl annotation
+   */
+  public static <ApiType extends KubernetesObject> KubectlAnnotate<ApiType> annotate(
+      Class<ApiType> apiTypeClass) {
+    return annotate(Configuration.getDefaultApiClient(), apiTypeClass);
+  }
+
+  /**
+   * Equivalence for `kubectl annotate`.
+   *
+   * @param <ApiType> the target api type
+   * @param apiClient the api client instance
+   * @param apiTypeClass the api type class
+   * @return the kubectl annotation
+   */
+  public static <ApiType extends KubernetesObject> KubectlAnnotate<ApiType> annotate(
+      ApiClient apiClient, Class<ApiType> apiTypeClass) {
+    return new KubectlAnnotate<>(apiClient, apiTypeClass);
+  }
+
+  /**
    * Equivalence for `kubectl version`.
    *
    * @return the kubectl version
