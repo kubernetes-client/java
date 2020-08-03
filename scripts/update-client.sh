@@ -21,20 +21,22 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+readonly ERROR_MAVEN_NOT_INSTALLED=80
+
 if ! which mvn > /dev/null 2>&1; then
-  echo "Maven is not installed."
-  exit
+  echo "Maven is not installed." >&2
+  exit ${ERROR_MAVEN_NOT_INSTALLED}
 fi
 
 SCRIPT_ROOT=$(dirname "${BASH_SOURCE}")
 CLIENT_ROOT="${SCRIPT_ROOT}/../kubernetes"
 
 pushd "${SCRIPT_ROOT}" > /dev/null
-SCRIPT_ROOT=`pwd`
+SCRIPT_ROOT=$(pwd)
 popd > /dev/null
 
 pushd "${CLIENT_ROOT}" > /dev/null
-CLIENT_ROOT=`pwd`
+CLIENT_ROOT=$(pwd)
 popd > /dev/null
 
 TEMP_FOLDER=$(mktemp -d)
