@@ -105,7 +105,6 @@ public class Kubectl {
   /**
    * Equivalent for `kubectl exec`
    *
-   * @param apiClient The api client instance
    * @return the kubectl exec operator
    */
   public static KubectlExec exec() {
@@ -128,13 +127,14 @@ public class Kubectl {
     OUTPUT execute() throws KubectlException;
   }
 
-  abstract static class ResourceBuilder<T extends ResourceBuilder<T>> {
+  abstract static class ResourceBuilder<
+      ApiType extends KubernetesObject, T extends ResourceBuilder<ApiType, T>> {
     final ApiClient apiClient;
-    final Class<?> apiTypeClass;
+    final Class<ApiType> apiTypeClass;
     String namespace;
     String name;
 
-    ResourceBuilder(ApiClient client, Class<?> apiTypeClass) {
+    ResourceBuilder(ApiClient client, Class<ApiType> apiTypeClass) {
       this.apiClient = client;
       this.apiTypeClass = apiTypeClass;
     }
@@ -150,11 +150,12 @@ public class Kubectl {
     }
   }
 
-  abstract static class ResourceAndContainerBuilder<T extends ResourceAndContainerBuilder<T>>
-      extends ResourceBuilder<T> {
+  abstract static class ResourceAndContainerBuilder<
+          ApiType extends KubernetesObject, T extends ResourceAndContainerBuilder<ApiType, T>>
+      extends ResourceBuilder<ApiType, T> {
     String container;
 
-    ResourceAndContainerBuilder(ApiClient client, Class<?> apiTypeClass) {
+    ResourceAndContainerBuilder(ApiClient client, Class<ApiType> apiTypeClass) {
       super(client, apiTypeClass);
     }
 

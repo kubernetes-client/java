@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-public class KubectlExec extends Kubectl.ResourceAndContainerBuilder<KubectlExec>
+public class KubectlExec extends Kubectl.ResourceAndContainerBuilder<V1Pod, KubectlExec>
     implements Kubectl.Executable<V1Pod> {
   private String[] command;
   private boolean stdin;

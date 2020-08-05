@@ -23,7 +23,8 @@ import io.kubernetes.client.openapi.models.V1ReplicaSet;
 import io.kubernetes.client.util.PatchUtils;
 
 public class KubectlScale<ApiType extends KubernetesObject>
-    extends Kubectl.ResourceBuilder<KubectlScale<ApiType>> implements Kubectl.Executable<ApiType> {
+    extends Kubectl.ResourceBuilder<ApiType, KubectlScale<ApiType>>
+    implements Kubectl.Executable<ApiType> {
   private final AppsV1Api api;
   private int replicas;
 
