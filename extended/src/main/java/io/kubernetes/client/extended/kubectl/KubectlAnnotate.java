@@ -24,6 +24,7 @@ import java.util.Map;
 import org.apache.commons.lang.StringUtils;
 
 public class KubectlAnnotate<ApiType extends KubernetesObject>
+    extends Kubectl.ResourceBuilder<KubectlAnnotate<ApiType>>
     implements Kubectl.Executable<ApiType> {
 
   private final ApiClient apiClient;
@@ -34,10 +35,8 @@ public class KubectlAnnotate<ApiType extends KubernetesObject>
   private String apiVersion;
   private String resourceNamePlural;
 
-  private String namespace;
-  private String name;
-
   KubectlAnnotate(ApiClient apiClient, Class<ApiType> apiTypeClass) {
+    super(apiClient, apiTypeClass);
     this.addingAnnotations = new HashMap<>();
     this.apiTypeClass = apiTypeClass;
     this.apiClient = apiClient;
@@ -55,16 +54,6 @@ public class KubectlAnnotate<ApiType extends KubernetesObject>
 
   public KubectlAnnotate<ApiType> resourceNamePlural(String resourceNamePlural) {
     this.resourceNamePlural = resourceNamePlural;
-    return this;
-  }
-
-  public KubectlAnnotate<ApiType> namespace(String namespace) {
-    this.namespace = namespace;
-    return this;
-  }
-
-  public KubectlAnnotate<ApiType> name(String name) {
-    this.name = name;
     return this;
   }
 
