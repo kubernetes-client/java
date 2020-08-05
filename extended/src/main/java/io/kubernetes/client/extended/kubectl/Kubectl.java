@@ -93,6 +93,26 @@ public class Kubectl {
   }
 
   /**
+   * Equivalent for `kubectl exec`
+   *
+   * @param apiClient The api client instance
+   * @return the kubectl exec operator
+   */
+  public static KubectlExec exec(ApiClient apiClient) {
+    return new KubectlExec(apiClient);
+  }
+
+  /**
+   * Equivalent for `kubectl exec`
+   *
+   * @param apiClient The api client instance
+   * @return the kubectl exec operator
+   */
+  public static KubectlExec exec() {
+    return exec(Configuration.getDefaultApiClient());
+  }
+
+  /**
    * Executable executes a kubectl helper.
    *
    * @param <OUTPUT> the type parameter
@@ -106,5 +126,41 @@ public class Kubectl {
      * @throws KubectlException the kubectl exception
      */
     OUTPUT execute() throws KubectlException;
+  }
+
+  abstract static class ResourceBuilder<T extends ResourceBuilder<T>> {
+    final ApiClient apiClient;
+    final Class<?> apiTypeClass;
+    String namespace;
+    String name;
+
+    ResourceBuilder(ApiClient client, Class<?> apiTypeClass) {
+      this.apiClient = client;
+      this.apiTypeClass = apiTypeClass;
+    }
+
+    public T name(String name) {
+      this.name = name;
+      return (T) this;
+    }
+
+    public T namespace(String namespace) {
+      this.namespace = namespace;
+      return (T) this;
+    }
+  }
+
+  abstract static class ResourceAndContainerBuilder<T extends ResourceAndContainerBuilder<T>>
+      extends ResourceBuilder<T> {
+    String container;
+
+    ResourceAndContainerBuilder(ApiClient client, Class<?> apiTypeClass) {
+      super(client, apiTypeClass);
+    }
+
+    public T container(String container) {
+      this.container = container;
+      return (T) this;
+    }
   }
 }

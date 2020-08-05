@@ -23,23 +23,16 @@ import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.lang.StringUtils;
 
-public class KubectlLabel<ApiType extends KubernetesObject> implements Kubectl.Executable<ApiType> {
-
-  private final ApiClient apiClient;
-  private final Class<ApiType> apiTypeClass;
+public class KubectlLabel<ApiType extends KubernetesObject>
+    extends Kubectl.ResourceBuilder<KubectlLabel<ApiType>> implements Kubectl.Executable<ApiType> {
   private final Map<String, String> addingLabels;
-
   private String apiGroup;
   private String apiVersion;
   private String resourceNamePlural;
 
-  private String namespace;
-  private String name;
-
   KubectlLabel(ApiClient apiClient, Class<ApiType> apiTypeClass) {
+    super(apiClient, apiTypeClass);
     this.addingLabels = new HashMap<>();
-    this.apiTypeClass = apiTypeClass;
-    this.apiClient = apiClient;
   }
 
   public KubectlLabel<ApiType> apiGroup(String apiGroup) {
@@ -57,16 +50,6 @@ public class KubectlLabel<ApiType extends KubernetesObject> implements Kubectl.E
     return this;
   }
 
-  public KubectlLabel<ApiType> namespace(String namespace) {
-    this.namespace = namespace;
-    return this;
-  }
-
-  public KubectlLabel<ApiType> name(String name) {
-    this.name = name;
-    return this;
-  }
-
   public KubectlLabel<ApiType> addLabel(String key, String value) {
     this.addingLabels.put(key, value);
     return this;
@@ -81,7 +64,7 @@ public class KubectlLabel<ApiType extends KubernetesObject> implements Kubectl.E
     verifyArguments();
     GenericKubernetesApi<ApiType, KubernetesListObject> api =
         new GenericKubernetesApi<>(
-            apiTypeClass,
+            (Class<ApiType>) apiTypeClass,
             KubernetesListObject.class,
             apiGroup,
             apiVersion,
