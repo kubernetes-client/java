@@ -137,6 +137,25 @@ public class Kubectl {
   }
 
   /**
+   * Equivalent for `kubectl log`
+   *
+   * @param apiClient The api client instance
+   * @return the kubectl log operator
+   */
+  public static KubectlLog log(ApiClient apiClient) {
+    return new KubectlLog(apiClient);
+  }
+
+  /**
+   * Equivalent for `kubectl log`
+   *
+   * @return the kubectl log operator
+   */
+  public static KubectlLog log() {
+    return log(Configuration.getDefaultApiClient());
+  }
+
+  /**
    * Executable executes a kubectl helper.
    *
    * @param <OUTPUT> the type parameter
