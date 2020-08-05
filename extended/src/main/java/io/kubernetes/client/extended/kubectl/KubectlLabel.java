@@ -24,7 +24,8 @@ import java.util.Map;
 import org.apache.commons.lang.StringUtils;
 
 public class KubectlLabel<ApiType extends KubernetesObject>
-    extends Kubectl.ResourceBuilder<KubectlLabel<ApiType>> implements Kubectl.Executable<ApiType> {
+    extends Kubectl.ResourceBuilder<ApiType, KubectlLabel<ApiType>>
+    implements Kubectl.Executable<ApiType> {
   private final Map<String, String> addingLabels;
   private String apiGroup;
   private String apiVersion;
@@ -64,7 +65,7 @@ public class KubectlLabel<ApiType extends KubernetesObject>
     verifyArguments();
     GenericKubernetesApi<ApiType, KubernetesListObject> api =
         new GenericKubernetesApi<>(
-            (Class<ApiType>) apiTypeClass,
+            apiTypeClass,
             KubernetesListObject.class,
             apiGroup,
             apiVersion,
