@@ -110,11 +110,14 @@ public class KubectlExample {
         System.exit(0);
       case "exec":
         name = args[1];
-        String[] command = Arrays.copyOfRange(args, 1, args.length);
+        String[] command = Arrays.copyOfRange(args, 2, args.length);
         KubectlExec e =
-            exec(client).namespace(ns).name(name).container(cli.getOptionValue("c", ""));
-        e.execute();
-        System.exit(e.exitCode());
+            exec(client)
+                .namespace(ns)
+                .name(name)
+                .command(command)
+                .container(cli.getOptionValue("c", ""));
+        System.exit(e.execute());
       default:
         System.out.println("Unknown verb: " + verb);
         System.exit(-1);

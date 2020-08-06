@@ -24,7 +24,7 @@ import java.util.Map;
 import org.apache.commons.lang.StringUtils;
 
 public class KubectlAnnotate<ApiType extends KubernetesObject>
-    extends Kubectl.ResourceBuilder<KubectlAnnotate<ApiType>>
+    extends Kubectl.ResourceBuilder<ApiType, KubectlAnnotate<ApiType>>
     implements Kubectl.Executable<ApiType> {
 
   private final ApiClient apiClient;

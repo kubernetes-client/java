@@ -24,11 +24,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public class KubectlExec extends Kubectl.ResourceAndContainerBuilder<V1Pod, KubectlExec>
-    implements Kubectl.Executable<V1Pod> {
+    implements Kubectl.Executable<Integer> {
   private String[] command;
   private boolean stdin;
   private boolean tty;
-  private int result;
 
   KubectlExec(ApiClient client) {
     super(client, V1Pod.class);
@@ -49,12 +48,8 @@ public class KubectlExec extends Kubectl.ResourceAndContainerBuilder<V1Pod, Kube
     return this;
   }
 
-  public int exitCode() {
-    return result;
-  }
-
   @Override
-  public V1Pod execute() throws KubectlException {
+  public Integer execute() throws KubectlException {
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name(name).namespace(namespace));
 
     Exec exec = new Exec(apiClient);
@@ -65,11 +60,10 @@ public class KubectlExec extends Kubectl.ResourceAndContainerBuilder<V1Pod, Kube
       if (stdin) {
         copyAsync(System.in, proc.getOutputStream());
       }
-      this.result = proc.waitFor();
+      return proc.waitFor();
     } catch (InterruptedException | ApiException | IOException ex) {
       throw new KubectlException(ex);
     }
-    return pod;
   }
 
   private static void copyAsync(InputStream in, OutputStream out) {
