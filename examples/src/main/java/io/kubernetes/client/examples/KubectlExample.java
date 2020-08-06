@@ -21,7 +21,6 @@ import static io.kubernetes.client.extended.kubectl.Kubectl.version;
 import com.google.common.io.ByteStreams;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.kubectl.KubectlExec;
-import io.kubernetes.client.extended.kubectl.KubectlLog;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.models.V1Deployment;
@@ -87,9 +86,9 @@ public class KubectlExample {
     switch (verb) {
       case "log":
         name = args[1];
-        KubectlLog log = log();
-        log.name(name).namespace(ns).container(cli.getOptionValue("c", "")).execute();
-        ByteStreams.copy(log.stream(), System.out);
+        ByteStreams.copy(
+            log().name(name).namespace(ns).container(cli.getOptionValue("c", "")).execute(),
+            System.out);
         System.exit(0);
       case "scale":
         kind = args[1];

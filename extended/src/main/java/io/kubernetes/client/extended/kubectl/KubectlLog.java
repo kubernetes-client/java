@@ -12,48 +12,47 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.kubectl;
 
+import static com.google.common.base.Strings.isNullOrEmpty;
+
 import io.kubernetes.client.PodLogs;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
-import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
 import java.io.IOException;
 import java.io.InputStream;
 
 public class KubectlLog extends Kubectl.ResourceAndContainerBuilder<V1Pod, KubectlLog>
-    implements Kubectl.Executable<V1Pod> {
+    implements Kubectl.Executable<InputStream> {
   private InputStream result;
 
   KubectlLog(ApiClient client) {
     super(client, V1Pod.class);
   }
 
-  public InputStream stream() {
-    return result;
-  }
-
   @Override
-  public V1Pod execute() throws KubectlException {
+  public InputStream execute() throws KubectlException {
     validate();
-    V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name(name).namespace(namespace));
 
     PodLogs logs = new PodLogs(apiClient);
     String ns = (this.namespace == null ? "default" : this.namespace);
     try {
-      result = logs.streamNamespacedPodLog(this.name, ns, this.container);
+      return logs.streamNamespacedPodLog(this.name, ns, this.container);
     } catch (ApiException | IOException ex) {
       throw new KubectlException(ex);
     }
-    return pod;
   }
 
   private void validate() throws KubectlException {
-    if (name == null || name.length() == 0) {
-      throw new KubectlException("missing name!");
+    StringBuilder msg = new StringBuilder();
+    if (isNullOrEmpty(name)) {
+      msg.append("missing name! ");
     }
-    if (container == null || name.length() == 0) {
-      throw new KubectlException("missing container!");
+    if (isNullOrEmpty(container)) {
+      msg.append("missing container!");
+    }
+    if (msg.length() > 0) {
+      throw new KubectlException(msg.toString());
     }
   }
 }
