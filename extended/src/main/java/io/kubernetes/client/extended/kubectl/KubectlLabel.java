@@ -26,38 +26,17 @@ import org.apache.commons.lang.StringUtils;
 public class KubectlLabel<ApiType extends KubernetesObject>
     extends Kubectl.ResourceBuilder<ApiType, KubectlLabel<ApiType>>
     implements Kubectl.Executable<ApiType> {
+
   private final Map<String, String> addingLabels;
-  private String apiGroup;
-  private String apiVersion;
-  private String resourceNamePlural;
 
   KubectlLabel(ApiClient apiClient, Class<ApiType> apiTypeClass) {
     super(apiClient, apiTypeClass);
     this.addingLabels = new HashMap<>();
   }
 
-  public KubectlLabel<ApiType> apiGroup(String apiGroup) {
-    this.apiGroup = apiGroup;
-    return this;
-  }
-
-  public KubectlLabel<ApiType> apiVersion(String apiVersion) {
-    this.apiVersion = apiVersion;
-    return this;
-  }
-
-  public KubectlLabel<ApiType> resourceNamePlural(String resourceNamePlural) {
-    this.resourceNamePlural = resourceNamePlural;
-    return this;
-  }
-
   public KubectlLabel<ApiType> addLabel(String key, String value) {
     this.addingLabels.put(key, value);
     return this;
-  }
-
-  private boolean isNamespaced() {
-    return !StringUtils.isEmpty(namespace);
   }
 
   @Override
@@ -95,6 +74,10 @@ public class KubectlLabel<ApiType extends KubernetesObject>
     } catch (Throwable t) {
       throw new KubectlException(t);
     }
+  }
+
+  public boolean isNamespaced() {
+    return !StringUtils.isEmpty(namespace);
   }
 
   private void verifyArguments() throws KubectlException {
