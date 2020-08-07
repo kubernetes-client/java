@@ -15,12 +15,14 @@ package io.kubernetes.client.examples;
 import static io.kubernetes.client.extended.kubectl.Kubectl.exec;
 import static io.kubernetes.client.extended.kubectl.Kubectl.label;
 import static io.kubernetes.client.extended.kubectl.Kubectl.log;
+import static io.kubernetes.client.extended.kubectl.Kubectl.portforward;
 import static io.kubernetes.client.extended.kubectl.Kubectl.scale;
 import static io.kubernetes.client.extended.kubectl.Kubectl.version;
 
 import com.google.common.io.ByteStreams;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.kubectl.KubectlExec;
+import io.kubernetes.client.extended.kubectl.KubectlPortForward;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.models.V1Deployment;
@@ -84,10 +86,21 @@ public class KubectlExample {
     String name = null;
 
     switch (verb) {
+      case "portforward":
+        name = args[1];
+        KubectlPortForward forward = portforward(client).name(name).namespace(ns);
+        for (int i = 2; i < args.length; i++) {
+          String port = args[i];
+          String[] ports = port.split(":");
+          System.out.println("Forwarding " + ns + "/" + name + " " + ports[0] + "->" + ports[1]);
+          forward.ports(Integer.parseInt(ports[0]), Integer.parseInt(ports[1]));
+        }
+        forward.execute();
+        System.exit(0);
       case "log":
         name = args[1];
         ByteStreams.copy(
-            log().name(name).namespace(ns).container(cli.getOptionValue("c", "")).execute(),
+            log(client).name(name).namespace(ns).container(cli.getOptionValue("c", "")).execute(),
             System.out);
         System.exit(0);
       case "scale":

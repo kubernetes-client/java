@@ -114,7 +114,15 @@ public class PortForward {
       queryParams.add(new Pair("ports", port.toString()));
     }
     WebSockets.stream(path, "GET", queryParams, apiClient, handler);
-
+    try {
+      handler.waitForInitialized();
+    } catch (InterruptedException ex) {
+      throw new ApiException(ex);
+    }
+    Throwable err = handler.getError();
+    if (err != null) {
+      throw new ApiException(err);
+    }
     // Wait for streams to start.
     result.init();
 

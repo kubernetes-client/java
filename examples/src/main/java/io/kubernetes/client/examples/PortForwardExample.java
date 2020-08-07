@@ -41,12 +41,13 @@ public class PortForwardExample {
 
     PortForward forward = new PortForward();
     List<Integer> ports = new ArrayList<>();
-    ports.add(8080);
-    ports.add(80);
+    int localPort = 8080;
+    int targetPort = 8080;
+    ports.add(targetPort);
     final PortForward.PortForwardResult result =
-        forward.forward("default", "nginx-d5dc44cf7-x7475", ports);
-
-    ServerSocket ss = new ServerSocket(8080);
+        forward.forward("default", "camera-viz-7949dbf7c6-lpxkd", ports);
+    System.out.println("Forwarding!");
+    ServerSocket ss = new ServerSocket(localPort);
 
     final Socket s = ss.accept();
     System.out.println("Connected!");
@@ -55,7 +56,7 @@ public class PortForwardExample {
             new Runnable() {
               public void run() {
                 try {
-                  ByteStreams.copy(result.getInputStream(80), s.getOutputStream());
+                  ByteStreams.copy(result.getInputStream(targetPort), s.getOutputStream());
                 } catch (IOException ex) {
                   ex.printStackTrace();
                 } catch (Exception ex) {
@@ -69,7 +70,7 @@ public class PortForwardExample {
             new Runnable() {
               public void run() {
                 try {
-                  ByteStreams.copy(s.getInputStream(), result.getOutboundStream(80));
+                  ByteStreams.copy(s.getInputStream(), result.getOutboundStream(targetPort));
                 } catch (IOException ex) {
                   ex.printStackTrace();
                 } catch (Exception ex) {

@@ -155,6 +155,14 @@ public class Kubectl {
     return log(Configuration.getDefaultApiClient());
   }
 
+  public static KubectlPortForward portforward() {
+    return portforward(Configuration.getDefaultApiClient());
+  }
+
+  public static KubectlPortForward portforward(ApiClient apiClient) {
+    return new KubectlPortForward(apiClient);
+  }
+
   /**
    * Executable executes a kubectl helper.
    *

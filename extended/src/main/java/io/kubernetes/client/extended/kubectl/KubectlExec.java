@@ -66,8 +66,9 @@ public class KubectlExec extends Kubectl.ResourceAndContainerBuilder<V1Pod, Kube
     }
   }
 
-  private static void copyAsync(InputStream in, OutputStream out) {
-    new Thread(
+  protected static Thread copyAsync(InputStream in, OutputStream out) {
+    Thread t =
+        new Thread(
             new Runnable() {
               public void run() {
                 try {
@@ -76,7 +77,8 @@ public class KubectlExec extends Kubectl.ResourceAndContainerBuilder<V1Pod, Kube
                   ex.printStackTrace();
                 }
               }
-            })
-        .start();
+            });
+    t.start();
+    return t;
   }
 }

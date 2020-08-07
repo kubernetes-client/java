@@ -55,6 +55,13 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
     CLOSED
   };
 
+  public synchronized void waitForInitialized() throws InterruptedException {
+    if (state != State.UNINITIALIZED) {
+      return;
+    }
+    this.wait();
+  }
+
   @Override
   public synchronized void open(String protocol, WebSocket socket) {
     if (state != State.UNINITIALIZED) throw new IllegalStateException();
@@ -137,6 +144,7 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
         }
       }
     }
+    notifyAll();
   }
 
   /**
