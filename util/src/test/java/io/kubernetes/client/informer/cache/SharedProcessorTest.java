@@ -67,22 +67,6 @@ public class SharedProcessorTest {
   public void testShutdownGracefully() throws InterruptedException {
     SharedProcessor<V1Pod> sharedProcessor =
         new SharedProcessor<>(Executors.newCachedThreadPool(), Duration.ofSeconds(5));
-    TestWorker<V1Pod> quickWorker = new TestWorker<>(null, 0);
-    quickWorker.setTask(
-        () -> {
-          try {
-            // sleep 2s so that it could terminate within timeout(5s)
-            Thread.sleep(2000);
-          } catch (InterruptedException e) {
-          }
-        });
-    long before = System.currentTimeMillis();
-    sharedProcessor.addAndStartListener(quickWorker);
-    sharedProcessor.stop();
-    // the stopping worker properly blocks the processor's stop call
-    assertTrue(System.currentTimeMillis() - before >= 2000);
-
-    sharedProcessor = new SharedProcessor<>(Executors.newCachedThreadPool(), Duration.ofSeconds(5));
     TestWorker<V1Pod> slowWorker = new TestWorker<>(null, 0);
     final boolean[] interrupted = {false};
     slowWorker.setTask(

@@ -23,11 +23,15 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import org.apache.commons.collections4.CollectionUtils;
 import org.joda.time.DateTime;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /*
  * SharedProcessor class manages all the registered ProcessorListener and distributes notifications.
  */
 public class SharedProcessor<ApiType extends KubernetesObject> {
+
+  private static final Logger log = LoggerFactory.getLogger(SharedProcessor.class);
 
   private ReadWriteLock lock = new ReentrantReadWriteLock();
 
@@ -155,16 +159,16 @@ public class SharedProcessor<ApiType extends KubernetesObject> {
     } finally {
       lock.writeLock().unlock();
     }
-    // Disable new tasks from being submitted
-    executorService.shutdown();
+    // Interrupts running listeners by signalling InterruptedException
+    executorService.shutdownNow();
     try {
-      // Wait a while for existing tasks to terminate
+      // Hold until all the listeners exits
       if (!executorService.awaitTermination(timeout.toMillis(), TimeUnit.MILLISECONDS)) {
-        // Cancel currently executing tasks
-        executorService.shutdownNow();
+        log.warn(
+            "SharedProcessors wasn't gracefully terminated, there can be listener thread leakage");
       }
     } catch (InterruptedException e) {
-      executorService.shutdownNow();
+      log.error("Graceful shutdown process of SharedProcessors was interrupted");
     }
   }
 }
