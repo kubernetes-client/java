@@ -662,9 +662,10 @@ public class GenericKubernetesApi<
       throw new IllegalArgumentException("invalid namespace");
     }
     Call call =
-        customObjectsApi.listClusterCustomObjectCall(
+        customObjectsApi.listNamespacedCustomObjectCall(
             this.apiGroup,
             this.apiVersion,
+            namespace,
             this.resourcePlural,
             null,
             listOptions.getContinue(),
