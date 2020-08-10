@@ -177,6 +177,9 @@ public class Kubectl {
     final Class<ApiType> apiTypeClass;
     String namespace;
     String name;
+    String apiGroup;
+    String apiVersion;
+    String resourceNamePlural;
 
     ResourceBuilder(ApiClient client, Class<ApiType> apiTypeClass) {
       this.apiClient = client;
@@ -190,6 +193,21 @@ public class Kubectl {
 
     public T namespace(String namespace) {
       this.namespace = namespace;
+      return (T) this;
+    }
+
+    public T apiGroup(String apiGroup) {
+      this.apiGroup = apiGroup;
+      return (T) this;
+    }
+
+    public T apiVersion(String apiVersion) {
+      this.apiVersion = apiVersion;
+      return (T) this;
+    }
+
+    public T resourceNamePlural(String resourceNamePlural) {
+      this.resourceNamePlural = resourceNamePlural;
       return (T) this;
     }
   }

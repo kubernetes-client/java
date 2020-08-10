@@ -27,43 +27,16 @@ public class KubectlAnnotate<ApiType extends KubernetesObject>
     extends Kubectl.ResourceBuilder<ApiType, KubectlAnnotate<ApiType>>
     implements Kubectl.Executable<ApiType> {
 
-  private final ApiClient apiClient;
-  private final Class<ApiType> apiTypeClass;
   private final Map<String, String> addingAnnotations;
-
-  private String apiGroup;
-  private String apiVersion;
-  private String resourceNamePlural;
 
   KubectlAnnotate(ApiClient apiClient, Class<ApiType> apiTypeClass) {
     super(apiClient, apiTypeClass);
     this.addingAnnotations = new HashMap<>();
-    this.apiTypeClass = apiTypeClass;
-    this.apiClient = apiClient;
-  }
-
-  public KubectlAnnotate<ApiType> apiGroup(String apiGroup) {
-    this.apiGroup = apiGroup;
-    return this;
-  }
-
-  public KubectlAnnotate<ApiType> apiVersion(String apiVersion) {
-    this.apiVersion = apiVersion;
-    return this;
-  }
-
-  public KubectlAnnotate<ApiType> resourceNamePlural(String resourceNamePlural) {
-    this.resourceNamePlural = resourceNamePlural;
-    return this;
   }
 
   public KubectlAnnotate<ApiType> addAnnotation(String key, String value) {
     this.addingAnnotations.put(key, value);
     return this;
-  }
-
-  private boolean isNamespaced() {
-    return !StringUtils.isEmpty(namespace);
   }
 
   @Override
@@ -101,6 +74,10 @@ public class KubectlAnnotate<ApiType extends KubernetesObject>
     } catch (Throwable t) {
       throw new KubectlException(t);
     }
+  }
+
+  public boolean isNamespaced() {
+    return !StringUtils.isEmpty(namespace);
   }
 
   private void verifyArguments() throws KubectlException {
