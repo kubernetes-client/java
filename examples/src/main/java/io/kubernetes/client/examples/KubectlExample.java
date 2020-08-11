@@ -12,6 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.examples;
 
+import static io.kubernetes.client.extended.kubectl.Kubectl.apiResources;
 import static io.kubernetes.client.extended.kubectl.Kubectl.exec;
 import static io.kubernetes.client.extended.kubectl.Kubectl.label;
 import static io.kubernetes.client.extended.kubectl.Kubectl.log;
@@ -139,6 +140,14 @@ public class KubectlExample {
                 .command(command)
                 .container(cli.getOptionValue("c", ""));
         System.exit(e.execute());
+      case "api-resources":
+        apiResources(client).execute().stream()
+            .forEach(
+                r ->
+                    System.out.printf(
+                        "%s\t\t%s\t\t%s\t\t%s\n",
+                        r.getResourcePlural(), r.getGroup(), r.getKind(), r.getNamespaced()));
+        System.exit(0);
       default:
         System.out.println("Unknown verb: " + verb);
         System.exit(-1);
