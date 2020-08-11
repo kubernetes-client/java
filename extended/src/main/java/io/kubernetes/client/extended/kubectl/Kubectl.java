@@ -163,6 +163,14 @@ public class Kubectl {
     return new KubectlPortForward(apiClient);
   }
 
+  public static KubectlApiResources apiResources() {
+    return apiResources(Configuration.getDefaultApiClient());
+  }
+
+  public static KubectlApiResources apiResources(ApiClient apiClient) {
+    return new KubectlApiResources(apiClient);
+  }
+
   /**
    * Executable executes a kubectl helper.
    *
