@@ -22,6 +22,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.verify;
 import static io.kubernetes.client.ExecTest.makeStream;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThrows;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.kubernetes.client.PortForward.PortForwardResult;
@@ -77,7 +78,11 @@ public class PortForwardTest {
     int portNumber = 8080;
     List<Integer> ports = new ArrayList<>();
     ports.add(portNumber);
-    forward.forward(pod, ports);
+    assertThrows(
+        ApiException.class,
+        () -> {
+          forward.forward(pod, ports);
+        });
 
     // TODO: Kill this sleep, the trouble is that the test tries to validate before the
     // connection
