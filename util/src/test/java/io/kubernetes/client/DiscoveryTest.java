@@ -18,10 +18,13 @@ import static org.junit.Assert.*;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.models.V1APIResource;
+import io.kubernetes.client.openapi.models.V1APIResourceList;
 import io.kubernetes.client.openapi.models.V1APIVersions;
 import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Set;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -55,5 +58,45 @@ public class DiscoveryTest {
     V1APIVersions versions = discovery.versionDiscovery("/foo");
     verify(1, getRequestedFor(urlPathEqualTo("/foo")));
     assertEquals(2, versions.getVersions().size());
+  }
+
+  @Test
+  public void testGroupResourcesByName() {
+    Discovery discovery = new Discovery(apiClient);
+    Set<Discovery.APIResource> discoveredResources =
+        discovery.groupResourcesByName(
+            "foo",
+            Arrays.asList("v1", "v2"),
+            "v1",
+            new V1APIResourceList()
+                .resources(
+                    Arrays.asList(
+                        new V1APIResource()
+                            .name("meows")
+                            .kind("Meow")
+                            .namespaced(true)
+                            .singularName("meow"),
+                        new V1APIResource()
+                            .name("meows/mouse")
+                            .kind("MeowMouse")
+                            .namespaced(true)
+                            .singularName(""),
+                        new V1APIResource()
+                            .name("zigs")
+                            .kind("Zig")
+                            .namespaced(false)
+                            .singularName("zig"))));
+    assertEquals(2, discoveredResources.size());
+
+    Discovery.APIResource meow =
+        discoveredResources.stream()
+            .filter(r -> r.getResourcePlural().equals("meows"))
+            .findFirst()
+            .get();
+    assertEquals(1, meow.getSubResources().size());
+    assertEquals("meows", meow.getResourcePlural());
+    assertEquals("meow", meow.getResourceSingular());
+    assertEquals(true, meow.getNamespaced());
+    assertEquals("mouse", meow.getSubResources().get(0));
   }
 }

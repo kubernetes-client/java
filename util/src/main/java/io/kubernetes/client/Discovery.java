@@ -28,6 +28,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import okhttp3.Call;
@@ -68,27 +69,18 @@ public class Discovery {
       String group, List<String> versions, String preferredVersion, String path)
       throws ApiException {
     V1APIResourceList resourceList = resourceDiscovery(path);
-    return sort(group, versions, preferredVersion, resourceList);
+    return groupResourcesByName(group, versions, preferredVersion, resourceList);
   }
 
-  private Set<APIResource> sort(
-      String group, List<String> versions, String preferredVersion, V1APIResourceList resourceList)
-      throws ApiException {
-    Map<String, Set<String>> subResources = new HashMap<>();
+  public Set<APIResource> groupResourcesByName(
+      String group,
+      List<String> versions,
+      String preferredVersion,
+      V1APIResourceList resourceList) {
+    // parse raw discovery responses to APIResource for better readability
     Set<APIResource> resources =
         resourceList.getResources().stream()
-            .filter(
-                r -> {
-                  boolean isSubResource = r.getName().contains("/");
-                  if (isSubResource) {
-                    String[] parts = r.getName().split("/", 2);
-                    if (!subResources.containsKey(parts[0])) {
-                      subResources.put(parts[0], new HashSet<>());
-                    }
-                    subResources.get(parts[0]).add(parts[1]);
-                  }
-                  return !isSubResource;
-                })
+            .filter(r -> !getSubResourceNameIfPossible(r.getName()).isPresent())
             .map(
                 r ->
                     new APIResource(
@@ -100,6 +92,9 @@ public class Discovery {
                         r.getName(),
                         r.getSingularName()))
             .collect(Collectors.toSet());
+
+    // wiring up connections between major-resource and sub-resources
+    Map<String, Set<String>> subResources = manageRelationFromResourceToSubResources(resourceList);
     resources.stream()
         .forEach(
             r -> {
@@ -108,6 +103,37 @@ public class Discovery {
               }
             });
     return resources;
+  }
+
+  private Map<String, Set<String>> manageRelationFromResourceToSubResources(
+      V1APIResourceList resourceList) {
+    Map<String, Set<String>> subResources = new HashMap<>();
+    resourceList.getResources().stream()
+        .forEach(r -> subResources.put(r.getName(), new HashSet<>()));
+    resourceList.getResources().stream()
+        .forEach(
+            r -> {
+              getSubResourceNameIfPossible(r.getName())
+                  .ifPresent(
+                      subResourceName -> {
+                        subResources.get(getMajorResourceName(r.getName())).add(subResourceName);
+                      });
+            });
+    return subResources;
+  }
+
+  private String getMajorResourceName(String discoveredResourceName) {
+    String[] parts = discoveredResourceName.split("/", 2);
+    return parts[0];
+  }
+
+  private Optional<String> getSubResourceNameIfPossible(String discoveredResourceName) {
+    boolean isSubResource = discoveredResourceName.contains("/");
+    if (!isSubResource) {
+      return Optional.empty();
+    }
+    String[] parts = discoveredResourceName.split("/", 2);
+    return Optional.of(parts[1]);
   }
 
   public V1APIVersions legacyCoreApi() throws ApiException {
