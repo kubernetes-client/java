@@ -24,6 +24,25 @@ import io.kubernetes.client.openapi.Configuration;
 public class Kubectl {
 
   /**
+   * Equivalence for `kubectl cp`.
+   *
+   * @return the kubectl copy
+   */
+  public static KubectlCopy copy() {
+    return copy(Configuration.getDefaultApiClient());
+  }
+
+  /**
+   * Equivalence for `kubectl cp`.
+   *
+   * @param apiClient the api client instance
+   * @return the kubectl copy
+   */
+  public static KubectlCopy copy(ApiClient apiClient) {
+    return new KubectlCopy(apiClient);
+  }
+
+  /**
    * Equivalence for `kubectl label`.
    *
    * @param <ApiType> the target api type
