@@ -19,8 +19,11 @@ import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.google.gson.Gson;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.*;
 import io.kubernetes.client.util.ClientBuilder;
+import io.kubernetes.client.util.Watchable;
+import io.kubernetes.client.util.generic.options.ListOptions;
 import java.io.IOException;
 import java.net.SocketTimeoutException;
 import java.util.concurrent.TimeUnit;
@@ -161,6 +164,20 @@ public class GenericKubernetesApiTest {
     assertEquals(foo1, jobPatchResp.getObject());
     assertNull(jobPatchResp.getStatus());
     verify(1, patchRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1")));
+  }
+
+  @Test
+  public void watchNamespacedJobReturningObject() throws ApiException {
+    V1JobList jobList = new V1JobList().kind("JobList").metadata(new V1ListMeta());
+
+    stubFor(
+        get(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs"))
+            .willReturn(aResponse().withStatus(200).withBody(new Gson().toJson(jobList))));
+    Watchable<V1Job> jobListWatch = jobClient.watch("default", new ListOptions());
+    verify(
+        1,
+        getRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs"))
+            .withQueryParam("watch", equalTo("true")));
   }
 
   @Test
