@@ -94,7 +94,7 @@ public class CopyTest {
   }
 
   @Test
-  public void testCopyFileToPod() throws IOException, ApiException, InterruptedException {
+  public void testCopyFileToPod() throws IOException, InterruptedException {
 
     File testFile = File.createTempFile("testfile", null);
     testFile.deleteOnExit();
@@ -119,6 +119,52 @@ public class CopyTest {
                 try {
                   copy.copyFileToPod(
                       namespace, podName, "", testFile.toPath(), Paths.get("/copied-testfile"));
+                } catch (IOException | ApiException ex) {
+                  ex.printStackTrace();
+                }
+              }
+            });
+    t.start();
+    Thread.sleep(2000);
+    t.interrupt();
+
+    verify(
+        getRequestedFor(
+                urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
+            .withQueryParam("stdin", equalTo("true"))
+            .withQueryParam("stdout", equalTo("true"))
+            .withQueryParam("stderr", equalTo("true"))
+            .withQueryParam("tty", equalTo("false"))
+            .withQueryParam("command", equalTo("sh"))
+            .withQueryParam("command", equalTo("-c"))
+            .withQueryParam("command", equalTo("base64 -d | tar -xmf - -C /")));
+  }
+
+  @Test
+  public void testCopyBinaryDataToPod() throws InterruptedException {
+
+    byte[] testSrc = new byte[0];
+
+    Copy copy = new Copy(client);
+
+    wireMockRule.stubFor(
+        get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
+            .willReturn(
+                aResponse()
+                    .withStatus(404)
+                    .withHeader("Content-Type", "application/json")
+                    .withBody("{}")));
+
+    // When attempting to write to the process outputstream in copyFileToPod, the
+    // WebSocketStreamHandler is in a wait state because no websocket is created by mock, which
+    // blocks the main thread. So here we execute the method in a thread.
+    Thread t =
+        new Thread(
+            new Runnable() {
+              public void run() {
+                try {
+                  copy.copyFileToPod(
+                      namespace, podName, "", testSrc, Paths.get("/copied-binarydata"));
                 } catch (IOException | ApiException ex) {
                   ex.printStackTrace();
                 }
