@@ -23,6 +23,20 @@ import io.kubernetes.client.openapi.Configuration;
  */
 public class Kubectl {
 
+  /** Equivalence for `kubectl taint`. */
+  public static KubectlTaint taint() {
+    return taint(Configuration.getDefaultApiClient());
+  }
+
+  /**
+   * Equivalence for `kubectl taint`
+   *
+   * @param apiClient The client to use
+   */
+  public static KubectlTaint taint(ApiClient apiClient) {
+    return new KubectlTaint(apiClient);
+  }
+
   /**
    * Equivalence for `kubectl cp`.
    *
