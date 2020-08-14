@@ -46,7 +46,7 @@
     <apache.commons.collections4.version>4.4</apache.commons.collections4.version>
     <apache.commons.compress>1.20</apache.commons.compress>
     <common.codec.version>1.14</common.codec.version>
-    <spring.boot.version>2.3.2.RELEASE</spring.boot.version>
+    <spring.boot.version>2.3.3.RELEASE</spring.boot.version>
     <spring.version>5.2.8.RELEASE</spring.version>
 
     <gpg.keyname>48540ECBBF00A28EACCF04E720FD12AFB0C9EBA9</gpg.keyname>
