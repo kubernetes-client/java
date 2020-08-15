@@ -14,6 +14,8 @@ package io.kubernetes.client;
 
 import io.kubernetes.client.custom.NodeMetrics;
 import io.kubernetes.client.custom.NodeMetricsList;
+import io.kubernetes.client.custom.PodMetrics;
+import io.kubernetes.client.custom.PodMetricsList;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
@@ -64,5 +66,12 @@ public class Metrics {
             "nodes",
             apiClient);
     return metricsClient.list().getObject();
+  }
+
+  public PodMetricsList getPodMetrics(String namespace) throws ApiException {
+    GenericKubernetesApi<PodMetrics, PodMetricsList> metricsClient =
+        new GenericKubernetesApi<>(
+            PodMetrics.class, PodMetricsList.class, "metrics.k8s.io", "v1beta1", "pods", apiClient);
+    return metricsClient.list(namespace).getObject();
   }
 }
