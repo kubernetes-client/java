@@ -19,6 +19,7 @@ import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.util.exception.CopyNotSupportedException;
 import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -179,15 +180,7 @@ public class Copy extends Exec {
       throws ApiException, IOException {
 
     // Run decoding and extracting processes
-    String parentPath = destPath.getParent() != null ? destPath.getParent().toString() : ".";
-    final Process proc =
-        this.exec(
-            namespace,
-            pod,
-            new String[] {"sh", "-c", "base64 -d | tar -xmf - -C " + parentPath},
-            container,
-            true,
-            false);
+    final Process proc = execCopyToPod(namespace, pod, container, destPath);
 
     // Send encoded archive output stream
     File srcFile = new File(srcPath.toUri());
@@ -203,6 +196,39 @@ public class Copy extends Exec {
     } finally {
       proc.destroy();
     }
+  }
+
+  public void copyFileToPod(
+      String namespace, String pod, String container, byte[] src, Path destPath)
+      throws ApiException, IOException {
+
+    // Run decoding and extracting processes
+    final Process proc = execCopyToPod(namespace, pod, container, destPath);
+
+    try (ArchiveOutputStream archiveOutputStream =
+        new TarArchiveOutputStream(new Base64OutputStream(proc.getOutputStream(), true, 0, null))) {
+
+      ArchiveEntry tarEntry = new TarArchiveEntry(new File(destPath.getFileName().toString()));
+      ((TarArchiveEntry) tarEntry).setSize(src.length);
+
+      archiveOutputStream.putArchiveEntry(tarEntry);
+      ByteStreams.copy(new ByteArrayInputStream(src), archiveOutputStream);
+      archiveOutputStream.closeArchiveEntry();
+    } finally {
+      proc.destroy();
+    }
+  }
+
+  private Process execCopyToPod(String namespace, String pod, String container, Path destPath)
+      throws ApiException, IOException {
+    String parentPath = destPath.getParent() != null ? destPath.getParent().toString() : ".";
+    return this.exec(
+        namespace,
+        pod,
+        new String[] {"sh", "-c", "base64 -d | tar -xmf - -C " + parentPath},
+        container,
+        true,
+        false);
   }
 
   private boolean isTarPresentInContainer(String namespace, String pod, String container)
