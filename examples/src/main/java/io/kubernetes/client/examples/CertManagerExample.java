@@ -22,8 +22,8 @@ import io.kubernetes.client.util.generic.GenericKubernetesApi;
 import java.io.IOException;
 
 /**
- * This sample creates a self signed issuer "self-signed-issuer" in default namespace
- * on a Kubernetes cluster where cert-manager is installed
+ * This sample creates a self signed issuer "self-signed-issuer" in default namespace on a
+ * Kubernetes cluster where cert-manager is installed
  */
 public class CertManagerExample {
   public static void main(String[] args) throws IOException {
