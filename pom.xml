@@ -15,6 +15,7 @@
     <module>proto</module>
     <module>extended</module>
     <module>spring</module>
+    <module>client-java-contrib/cert-manager</module>
   </modules>
 
   <scm>
