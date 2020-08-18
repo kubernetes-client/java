@@ -62,7 +62,7 @@ public class ProcessorListener<ApiType extends KubernetesObject> implements Runn
                 (ApiType) notification.getOldObj(), (ApiType) notification.getNewObj());
           } catch (Throwable t) {
             // Catch all exceptions here so that listeners won't quit unexpectedly
-            log.error("failed invoking UPDATE event handler: {}", t.getMessage());
+            log.error("failed invoking UPDATE event handler: {}", t);
             continue;
           }
         } else if (obj instanceof AddNotification) {
@@ -71,7 +71,7 @@ public class ProcessorListener<ApiType extends KubernetesObject> implements Runn
             this.handler.onAdd((ApiType) notification.getNewObj());
           } catch (Throwable t) {
             // Catch all exceptions here so that listeners won't quit unexpectedly
-            log.error("failed invoking ADD event handler: {}", t.getMessage());
+            log.error("failed invoking ADD event handler: {}", t);
             continue;
           }
         } else if (obj instanceof DeleteNotification) {
@@ -85,14 +85,14 @@ public class ProcessorListener<ApiType extends KubernetesObject> implements Runn
             }
           } catch (Throwable t) {
             // Catch all exceptions here so that listeners won't quit unexpectedly
-            log.error("failed invoking DELETE event handler: {}", t.getMessage());
+            log.error("failed invoking DELETE event handler: {}", t);
             continue;
           }
         } else {
           throw new BadNotificationException("unrecognized notification");
         }
       } catch (InterruptedException e) {
-        log.error("processor interrupted: {}", e.getMessage());
+        log.error("processor interrupted: {}", e);
         return;
       }
     }
