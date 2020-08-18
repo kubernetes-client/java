@@ -95,8 +95,8 @@ public class SharedInformerFactory {
   }
 
   /**
-   * Constructs and returns a shared index informer w/ resync period specified. And the informer
-   * cache will be overwritten.
+   * Constructs and returns a shared index informer w/ resync period specified. But the informer
+   * cache will not be overwritten i.e. only the first registered informer will be kept.
    *
    * @param <ApiType> the type parameter
    * @param <ApiListType> the type parameter
@@ -118,8 +118,9 @@ public class SharedInformerFactory {
   }
 
   /**
-   * Constructs and returns a shared index informer by specifying lister-watcher. And the informer
-   * cache will be overwritten on multiple call w/ the the same apiTypeClass.
+   * Constructs and returns a shared index informer by specifying lister-watcher. But the informer
+   * cache will not be overwritten on multiple call w/ the the same apiTypeClass i.e. only the first
+   * registered informer will be kept.
    *
    * @param <ApiType> the type parameter
    * @param <ApiListType> the type parameter
