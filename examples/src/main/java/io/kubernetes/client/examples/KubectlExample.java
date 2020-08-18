@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.examples;
 
 import static io.kubernetes.client.extended.kubectl.Kubectl.apiResources;
+import static io.kubernetes.client.extended.kubectl.Kubectl.copy;
 import static io.kubernetes.client.extended.kubectl.Kubectl.exec;
 import static io.kubernetes.client.extended.kubectl.Kubectl.label;
 import static io.kubernetes.client.extended.kubectl.Kubectl.log;
@@ -43,7 +44,7 @@ import org.apache.commons.cli.ParseException;
  * A Java equivalent for the kubectl command line tool. Not nearly as complete.
  *
  * <p>Easiest way to run this: mvn exec:java
- * -Dexec.mainClass="io.kubernetes.client.examples.KubectlExample"
+ * -Dexec.mainClass="io.kubernetes.client.examples.KubectlExample" -Dexec.args="log some-pod"
  *
  * <p>From inside $REPO_DIR/examples
  */
@@ -87,6 +88,37 @@ public class KubectlExample {
     String name = null;
 
     switch (verb) {
+      case "cp":
+        String from = args[1];
+        String to = args[2];
+        if (from.indexOf(":") != -1) {
+          String[] parts = from.split(":");
+          name = parts[0];
+          from = parts[1];
+          copy(client)
+              .namespace(ns)
+              .name(name)
+              .container(cli.getOptionValue("c", ""))
+              .fromPod(from)
+              .to(to)
+              .execute();
+        } else if (to.indexOf(":") != -1) {
+          String[] parts = to.split(":");
+          name = parts[0];
+          to = parts[1];
+          copy(client)
+              .namespace(ns)
+              .name(name)
+              .container(cli.getOptionValue("c", ""))
+              .from(from)
+              .toPod(to)
+              .execute();
+        } else {
+          System.err.println("Missing pod name for copy.");
+          System.exit(-1);
+        }
+        System.out.println("Copied " + from + " -> " + to);
+        System.exit(0);
       case "portforward":
         name = args[1];
         KubectlPortForward forward = portforward(client).name(name).namespace(ns);
