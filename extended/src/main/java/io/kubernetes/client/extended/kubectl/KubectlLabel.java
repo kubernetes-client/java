@@ -15,7 +15,6 @@ package io.kubernetes.client.extended.kubectl;
 import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
-import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
 import io.kubernetes.client.util.generic.KubernetesApiResponse;
 import io.kubernetes.client.util.labels.Labels;
@@ -29,8 +28,8 @@ public class KubectlLabel<ApiType extends KubernetesObject>
 
   private final Map<String, String> addingLabels;
 
-  KubectlLabel(ApiClient apiClient, Class<ApiType> apiTypeClass) {
-    super(apiClient, apiTypeClass);
+  KubectlLabel(Class<ApiType> apiTypeClass) {
+    super(apiTypeClass);
     this.addingLabels = new HashMap<>();
   }
 

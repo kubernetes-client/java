@@ -15,7 +15,6 @@ package io.kubernetes.client.extended.kubectl;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
-import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.apis.AppsV1Api;
 import io.kubernetes.client.openapi.models.V1Deployment;
@@ -25,12 +24,10 @@ import io.kubernetes.client.util.PatchUtils;
 public class KubectlScale<ApiType extends KubernetesObject>
     extends Kubectl.ResourceBuilder<ApiType, KubectlScale<ApiType>>
     implements Kubectl.Executable<ApiType> {
-  private final AppsV1Api api;
   private int replicas;
 
-  KubectlScale(ApiClient client, Class<ApiType> apiTypeClass) {
-    super(client, apiTypeClass);
-    this.api = new AppsV1Api(client);
+  KubectlScale(Class<ApiType> apiTypeClass) {
+    super(apiTypeClass);
     this.replicas = -1;
   }
 
@@ -46,10 +43,11 @@ public class KubectlScale<ApiType extends KubernetesObject>
     String jsonPatchStr =
         String.format("[{\"op\":\"replace\",\"path\":\"/spec/replicas\",\"value\":%d}]", replicas);
 
+    AppsV1Api api = new AppsV1Api(this.apiClient);
     try {
       if (apiTypeClass.equals(V1Deployment.class)) {
         return PatchUtils.patch(
-            (Class<ApiType>) apiTypeClass,
+            apiTypeClass,
             () ->
                 api.patchNamespacedDeploymentCall(
                     name,
@@ -64,7 +62,7 @@ public class KubectlScale<ApiType extends KubernetesObject>
             this.apiClient);
       } else if (apiTypeClass.equals(V1ReplicaSet.class)) {
         return PatchUtils.patch(
-            (Class<ApiType>) apiTypeClass,
+            apiTypeClass,
             () ->
                 api.patchNamespacedReplicaSetCall(
                     name, namespace, new V1Patch(jsonPatchStr), null, null, null, null, null),

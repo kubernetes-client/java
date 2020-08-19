@@ -16,7 +16,6 @@ import static io.kubernetes.client.extended.kubectl.KubectlExec.copyAsync;
 
 import io.kubernetes.client.PortForward;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
-import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1Pod;
 import java.io.IOException;
@@ -34,8 +33,8 @@ public class KubectlPortForward
   List<Integer> targetPorts;
   boolean running;
 
-  KubectlPortForward(ApiClient client) {
-    super(client, V1Pod.class);
+  KubectlPortForward() {
+    super(V1Pod.class);
 
     localPorts = new ArrayList<>();
     targetPorts = new ArrayList<>();
