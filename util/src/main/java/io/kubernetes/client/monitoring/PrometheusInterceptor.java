@@ -12,39 +12,85 @@ limitations under the License.
 */
 package io.kubernetes.client.monitoring;
 
+import com.google.common.base.Strings;
+import io.kubernetes.client.apimachinery.KubernetesRequestDigest;
 import io.prometheus.client.Counter;
 import io.prometheus.client.Histogram;
+import io.prometheus.client.SimpleTimer;
 import java.io.IOException;
 import okhttp3.Interceptor;
+import okhttp3.Request;
 import okhttp3.Response;
 
 public class PrometheusInterceptor implements Interceptor {
+
   static final String PREFIX = "k8s_java";
+
   static final Counter requests =
       Counter.build().name(PREFIX + "_requests_total").help("Total requests").register();
+
   static final Counter codes =
       Counter.build()
           .name(PREFIX + "_response_code_total")
           .help("Response code total")
           .labelNames("code")
           .register();
-  static final Histogram latency =
+
+  static final Histogram resourceRequestLatencyHistogram =
       Histogram.build()
-          .name(PREFIX + "_request_latency_seconds")
-          .help("Request latency (seconds)")
+          .name(PREFIX + "_resource_request_latency_seconds")
+          .help("Kubernetes resource request latency (seconds)")
+          .labelNames(
+              "http_response_code",
+              "api_group",
+              "api_version",
+              "resource",
+              "subresource",
+              "api_verb",
+              "namespace")
+          .register();
+
+  static final Histogram nonResourceRequestLatencyHistogram =
+      Histogram.build()
+          .name(PREFIX + "_non_resource_request_latency_seconds")
+          .help("Kubernetes non-resource request latency (seconds)")
+          .labelNames("http_response_code", "non_resource_url_path")
           .register();
 
   @Override
   public Response intercept(Interceptor.Chain chain) throws IOException {
     requests.inc();
-    Histogram.Timer timer = latency.startTimer();
+    Request request = chain.request();
+    KubernetesRequestDigest requestDigest = KubernetesRequestDigest.parse(request);
+    SimpleTimer timer = new SimpleTimer();
 
+    final double timecost;
+    final Response response;
     try {
-      Response response = chain.proceed(chain.request());
-      codes.labels(Integer.toString(response.code())).inc();
-      return response;
+      response = chain.proceed(chain.request());
     } finally {
-      timer.observeDuration();
+      timecost = timer.elapsedSeconds();
     }
+
+    codes.labels(Integer.toString(response.code())).inc();
+    ;
+
+    if (requestDigest.isNonResourceRequest()) {
+      nonResourceRequestLatencyHistogram
+          .labels(Integer.toString(response.code()), requestDigest.getUrlPath())
+          .observe(timecost);
+    } else {
+      resourceRequestLatencyHistogram
+          .labels(
+              Integer.toString(response.code()),
+              Strings.nullToEmpty(requestDigest.getResourceMeta().getApiGroup()),
+              Strings.nullToEmpty(requestDigest.getResourceMeta().getApiVersion()),
+              Strings.nullToEmpty(requestDigest.getResourceMeta().getResource()),
+              Strings.nullToEmpty(requestDigest.getResourceMeta().getSubResource()),
+              requestDigest.getVerb().value(),
+              Strings.nullToEmpty(requestDigest.getResourceMeta().getNamespace()))
+          .observe(timecost);
+    }
+    return response;
   }
 }

@@ -15,14 +15,10 @@
         <dependency>
             <groupId>io.prometheus</groupId>
             <artifactId>simpleclient</artifactId>
-            <version>0.9.0</version>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>io.prometheus</groupId>
             <artifactId>simpleclient_httpserver</artifactId>
-            <version>0.9.0</version>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>io.kubernetes</groupId>
