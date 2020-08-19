@@ -80,7 +80,7 @@ public class ConfigmapTest {
               @Override
               public void run() {
                 try {
-                  configmap.createFromFile(namespace, configmapName, Paths.get(tempFile.getPath()));
+                  configmap.create(namespace, configmapName, Paths.get(tempFile.getPath()));
                 } catch (IOException | ApiException | CreateConfigmapException e) {
                   e.printStackTrace();
                 }
@@ -120,7 +120,7 @@ public class ConfigmapTest {
               @Override
               public void run() {
                 try {
-                  configmap.createFromStream(namespace, configmapName, inputStream);
+                  configmap.create(namespace, configmapName, inputStream);
                 } catch (IOException | ApiException | CreateConfigmapException e) {
                   e.printStackTrace();
                 }
@@ -156,7 +156,7 @@ public class ConfigmapTest {
               @Override
               public void run() {
                 try {
-                  configmap.createFromString(namespace, configmapName, "foo=bar");
+                  configmap.create(namespace, configmapName, "foo=bar");
                 } catch (IOException | ApiException | CreateConfigmapException e) {
                   e.printStackTrace();
                 }
@@ -197,7 +197,7 @@ public class ConfigmapTest {
               @Override
               public void run() {
                 try {
-                  configmap.createFromReader(namespace, configmapName, reader);
+                  configmap.create(namespace, configmapName, reader);
                 } catch (IOException | ApiException | CreateConfigmapException e) {
                   e.printStackTrace();
                 }
@@ -223,7 +223,7 @@ public class ConfigmapTest {
 
     boolean thrown = false;
     try {
-      configmap.createFromFile(namespace, configmapName, Paths.get(tempFile.getPath()));
+      configmap.create(namespace, configmapName, Paths.get(tempFile.getPath()));
     } catch (CreateConfigmapException ex) {
       thrown = true;
     }
@@ -238,7 +238,7 @@ public class ConfigmapTest {
 
     boolean thrown = false;
     try {
-      configmap.createFromFile(namespace, null, Paths.get(tempFile.getPath()));
+      configmap.create(namespace, null, Paths.get(tempFile.getPath()));
     } catch (CreateConfigmapException ex) {
       thrown = true;
     }
@@ -266,7 +266,7 @@ public class ConfigmapTest {
               @Override
               public void run() {
                 try {
-                  configmap.createFromFile(namespace, configmapName, Paths.get(tempFile.getPath()));
+                  configmap.create(namespace, configmapName, Paths.get(tempFile.getPath()));
                 } catch (IOException | ApiException | CreateConfigmapException e) {
                   e.printStackTrace();
                 }

@@ -72,12 +72,12 @@ public class Configmap {
    * @throws CreateConfigmapException
    * @throws ApiException
    */
-  public void createFromFile(String namespace, String name, Path file)
+  public void create(String namespace, String name, Path file)
       throws IOException, CreateConfigmapException, ApiException {
     if (Files.isRegularFile(file)) {
       try (BufferedReader bufferedReader =
           new BufferedReader(new FileReader(String.valueOf(file)))) {
-        createFromReader(namespace, name, bufferedReader);
+        create(namespace, name, bufferedReader);
       }
     } else {
       throw new CreateConfigmapException("Target path is a directory");
@@ -94,9 +94,9 @@ public class Configmap {
    * @throws CreateConfigmapException
    * @throws ApiException
    */
-  public void createFromStream(String namespace, String name, InputStream stream)
+  public void create(String namespace, String name, InputStream stream)
       throws IOException, CreateConfigmapException, ApiException {
-    createFromReader(namespace, name, new InputStreamReader(stream));
+    create(namespace, name, new InputStreamReader(stream));
   }
 
   /**
@@ -109,9 +109,9 @@ public class Configmap {
    * @throws CreateConfigmapException
    * @throws ApiException
    */
-  public void createFromString(String namespace, String name, String value)
+  public void create(String namespace, String name, String value)
       throws IOException, CreateConfigmapException, ApiException {
-    createFromReader(namespace, name, new StringReader(value));
+    create(namespace, name, new StringReader(value));
   }
 
   /**
@@ -124,7 +124,7 @@ public class Configmap {
    * @throws CreateConfigmapException
    * @throws ApiException
    */
-  public void createFromReader(String namespace, String name, Reader reader)
+  public void create(String namespace, String name, Reader reader)
       throws IOException, CreateConfigmapException, ApiException {
     if (reader != null) {
       if (name != null && !name.isEmpty()) {
