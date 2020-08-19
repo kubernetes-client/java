@@ -47,7 +47,7 @@
 		</dependency>
 		<dependency>
 			<groupId>io.kubernetes</groupId>
-			<artifactId>cert-manager</artifactId>
+			<artifactId>client-java-cert-manager-models</artifactId>
 			<version>0.16.1-SNAPSHOT</version>
 		</dependency>
 		<!-- test dependencies -->

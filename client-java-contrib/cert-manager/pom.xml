@@ -1,7 +1,7 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>cert-manager</artifactId>
+    <artifactId>client-java-cert-manager-models</artifactId>
     <name>cert-manager-models</name>
     <url>https://github.com/kubernetes-client/java</url>
     <parent>

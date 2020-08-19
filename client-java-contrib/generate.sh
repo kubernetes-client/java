@@ -49,6 +49,21 @@ kubectl apply -f "${CRD_URL}"
 sleep 5
 kubectl get --raw="/openapi/v2" > /tmp/swagger
 
+echo "Verifying CRD installation.."
+kubectl get crd -o name \
+  | while read L
+    do
+      if [[ $(kubectl get $L -o jsonpath='{.status.conditions[?(@.type=="NonStructuralSchema")].status}') == "True" ]]; then
+        echo "$L failed publishing openapi schema because it's attached non-structral-schema condition."
+        exit 1
+      fi
+      if [[ $(kubectl get $L -o jsonpath='{.preserveUnknownFields}') == "true" ]]; then
+        echo "$L failed publishing openapi schema because it explicitly disabled unknown fields pruning."
+        exit 1
+      fi
+      echo "$L successfully installed"
+    done
+
 # destroy the KinD cluster
 kind delete cluster
 
