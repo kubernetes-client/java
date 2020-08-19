@@ -15,7 +15,6 @@ package io.kubernetes.client.extended.kubectl;
 import com.google.common.io.ByteStreams;
 import io.kubernetes.client.Exec;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
-import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
@@ -29,8 +28,8 @@ public class KubectlExec extends Kubectl.ResourceAndContainerBuilder<V1Pod, Kube
   private boolean stdin;
   private boolean tty;
 
-  KubectlExec(ApiClient client) {
-    super(client, V1Pod.class);
+  KubectlExec() {
+    super(V1Pod.class);
   }
 
   public KubectlExec command(String[] command) {

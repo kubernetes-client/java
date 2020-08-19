@@ -13,24 +13,19 @@ limitations under the License.
 package io.kubernetes.client.extended.kubectl;
 
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
-import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.VersionInfo;
 import io.kubernetes.client.util.version.Version;
 import java.io.IOException;
 
-public class KubectlVersion implements Kubectl.Executable<VersionInfo> {
-
-  private final Version version;
-
-  KubectlVersion(ApiClient apiClient) {
-    this.version = new Version(apiClient);
-  }
+public class KubectlVersion extends Kubectl.ApiClientBuilder<KubectlVersion>
+    implements Kubectl.Executable<VersionInfo> {
 
   @Override
   public VersionInfo execute() throws KubectlException {
+    Version version = new Version(apiClient);
     try {
-      return this.version.getVersion();
+      return version.getVersion();
     } catch (ApiException | IOException e) {
       throw new KubectlException(e);
     }

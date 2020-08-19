@@ -14,22 +14,17 @@ package io.kubernetes.client.extended.kubectl;
 
 import io.kubernetes.client.Discovery;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
-import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import java.util.Set;
 
-public class KubectlApiResources implements Kubectl.Executable<Set<Discovery.APIResource>> {
-
-  private final Discovery discovery;
-
-  KubectlApiResources(ApiClient apiClient) {
-    this.discovery = new Discovery(apiClient);
-  }
+public class KubectlApiResources extends Kubectl.ApiClientBuilder<KubectlApiResources>
+    implements Kubectl.Executable<Set<Discovery.APIResource>> {
 
   @Override
   public Set<Discovery.APIResource> execute() throws KubectlException {
+    Discovery discovery = new Discovery(this.apiClient);
     try {
-      return this.discovery.findAll();
+      return discovery.findAll();
     } catch (ApiException e) {
       throw new KubectlException(e);
     }

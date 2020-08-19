@@ -16,7 +16,6 @@ import static com.google.common.base.Strings.isNullOrEmpty;
 
 import io.kubernetes.client.Copy;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
-import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.util.exception.CopyNotSupportedException;
@@ -30,8 +29,8 @@ public class KubectlCopy extends Kubectl.ResourceAndContainerBuilder<V1Pod, Kube
   private Boolean toPod;
   private boolean dir;
 
-  KubectlCopy(ApiClient client) {
-    super(client, V1Pod.class);
+  KubectlCopy() {
+    super(V1Pod.class);
     this.toPod = null;
   }
 

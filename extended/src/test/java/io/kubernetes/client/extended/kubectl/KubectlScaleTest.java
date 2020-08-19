@@ -50,7 +50,8 @@ public class KubectlScaleTest {
                     .withStatus(200)
                     .withBody("{\"metadata\":{\"name\":\"foo\",\"namespace\":\"default\"}}")));
     V1Deployment scaled =
-        Kubectl.scale(apiClient, V1Deployment.class)
+        Kubectl.scale(V1Deployment.class)
+            .apiClient(apiClient)
             .name("foo")
             .namespace("default")
             .replicas(2)
@@ -71,9 +72,13 @@ public class KubectlScaleTest {
                 aResponse()
                     .withStatus(200)
                     .withBody("{\"metadata\":{\"name\":\"foo\",\"namespace\":\"default\"}}")));
-    KubectlScale<V1ReplicaSet> s =
-        Kubectl.scale(apiClient, V1ReplicaSet.class).replicas(4).name("foo").namespace("default");
-    V1ReplicaSet scaled = s.execute();
+    V1ReplicaSet scaled =
+        Kubectl.scale(V1ReplicaSet.class)
+            .apiClient(apiClient)
+            .replicas(4)
+            .name("foo")
+            .namespace("default")
+            .execute();
     wireMockRule.verify(
         1,
         patchRequestedFor(urlPathEqualTo("/apis/apps/v1/namespaces/default/replicasets/foo"))
@@ -88,7 +93,8 @@ public class KubectlScaleTest {
         KubectlException.class,
         () -> {
           V1Pod scaled =
-              Kubectl.scale(apiClient, V1Pod.class)
+              Kubectl.scale(V1Pod.class)
+                  .apiClient(apiClient)
                   .name("foo")
                   .namespace("default")
                   .replicas(2)

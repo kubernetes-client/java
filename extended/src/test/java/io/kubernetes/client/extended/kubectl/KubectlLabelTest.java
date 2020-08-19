@@ -54,7 +54,8 @@ public class KubectlLabelTest {
                     .withStatus(200)
                     .withBody("{\"metadata\":{\"name\":\"foo\",\"namespace\":\"default\"}}")));
     V1Pod labelledPod =
-        Kubectl.label(apiClient, V1Pod.class)
+        Kubectl.label(V1Pod.class)
+            .apiClient(apiClient)
             .apiGroup("")
             .apiVersion("v1")
             .resourceNamePlural("pods")
@@ -83,7 +84,8 @@ public class KubectlLabelTest {
     assertThrows(
         KubectlException.class,
         () -> {
-          Kubectl.label(apiClient, V1Pod.class)
+          Kubectl.label(V1Pod.class)
+              .apiClient(apiClient)
               .apiGroup("")
               .apiVersion("v1")
               .resourceNamePlural("pods")
@@ -106,7 +108,8 @@ public class KubectlLabelTest {
         put(urlPathEqualTo("/api/v1/nodes/foo"))
             .willReturn(aResponse().withStatus(200).withBody("{\"metadata\":{\"name\":\"foo\"}}")));
     V1Node labelledNode =
-        Kubectl.label(apiClient, V1Node.class)
+        Kubectl.label(V1Node.class)
+            .apiClient(apiClient)
             .apiGroup("")
             .apiVersion("v1")
             .resourceNamePlural("nodes")
@@ -131,7 +134,8 @@ public class KubectlLabelTest {
     assertThrows(
         KubectlException.class,
         () -> {
-          Kubectl.label(apiClient, V1Node.class)
+          Kubectl.label(V1Node.class)
+              .apiClient(apiClient)
               .apiGroup("")
               .apiVersion("v1")
               .resourceNamePlural("nodes")
@@ -149,7 +153,8 @@ public class KubectlLabelTest {
     assertThrows(
         KubectlException.class,
         () -> {
-          Kubectl.label(apiClient, V1Node.class)
+          Kubectl.label(V1Node.class)
+              .apiClient(apiClient)
               // .apiGroup("")  # missing apiGroup
               .apiVersion("v1")
               .resourceNamePlural("nodes")
@@ -161,7 +166,8 @@ public class KubectlLabelTest {
     assertThrows(
         KubectlException.class,
         () -> {
-          Kubectl.label(apiClient, V1Node.class)
+          Kubectl.label(V1Node.class)
+              .apiClient(apiClient)
               .apiGroup("")
               // .apiVersion("v1") # missing apiVersion
               .resourceNamePlural("nodes")
@@ -173,7 +179,8 @@ public class KubectlLabelTest {
     assertThrows(
         KubectlException.class,
         () -> {
-          Kubectl.label(apiClient, V1Node.class)
+          Kubectl.label(V1Node.class)
+              .apiClient(apiClient)
               .apiGroup("")
               .apiVersion("v1")
               // .resourceNamePlural("nodes") # missing resourceNamePlural
@@ -185,7 +192,8 @@ public class KubectlLabelTest {
     assertThrows(
         KubectlException.class,
         () -> {
-          Kubectl.label(apiClient, V1Node.class)
+          Kubectl.label(V1Node.class)
+              .apiClient(apiClient)
               .apiGroup("")
               .apiVersion("v1")
               .resourceNamePlural("nodes")
