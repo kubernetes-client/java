@@ -19,6 +19,7 @@ import static io.kubernetes.client.extended.kubectl.Kubectl.label;
 import static io.kubernetes.client.extended.kubectl.Kubectl.log;
 import static io.kubernetes.client.extended.kubectl.Kubectl.portforward;
 import static io.kubernetes.client.extended.kubectl.Kubectl.scale;
+import static io.kubernetes.client.extended.kubectl.Kubectl.taint;
 import static io.kubernetes.client.extended.kubectl.Kubectl.version;
 
 import com.google.common.io.ByteStreams;
@@ -118,6 +119,39 @@ public class KubectlExample {
           System.exit(-1);
         }
         System.out.println("Copied " + from + " -> " + to);
+        System.exit(0);
+      case "taint":
+        name = args[1];
+        String taintSpec = args[2];
+        boolean remove = taintSpec.endsWith("-");
+        int ix = taintSpec.indexOf("=");
+        int ix2 = taintSpec.indexOf(":");
+
+        if (remove) {
+          taintSpec = taintSpec.substring(0, taintSpec.length() - 2);
+          String key = ix == -1 ? taintSpec : taintSpec.substring(0, ix);
+          String effect = ix == -1 ? null : taintSpec.substring(ix + 1);
+
+          if (effect == null) {
+            taint(client).name(name).removeTaint(key).execute();
+          } else {
+            taint(client).name(name).removeTaint(key, effect).execute();
+          }
+          System.exit(0);
+        }
+        if (ix2 == -1) {
+          System.err.println("key:effect or key=value:effect is required.");
+          System.exit(-1);
+        }
+        String key = taintSpec.substring(0, ix == -1 ? ix2 : ix);
+        String value = ix == -1 ? null : taintSpec.substring(ix + 1, ix2);
+        String effect = taintSpec.substring(ix2 + 1);
+
+        if (value == null) {
+          taint(client).name(name).addTaint(key, effect).execute();
+        } else {
+          taint(client).name(name).addTaint(key, value, effect).execute();
+        }
         System.exit(0);
       case "portforward":
         name = args[1];
