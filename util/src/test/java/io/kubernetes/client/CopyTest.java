@@ -26,6 +26,7 @@ import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.util.ClientBuilder;
+import io.kubernetes.client.util.exception.CopyNotSupportedException;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,6 +34,7 @@ import java.nio.file.Paths;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TemporaryFolder;
 
 /** Tests for the Copy helper class */
 public class CopyTest {
@@ -44,6 +46,7 @@ public class CopyTest {
 
   private static final int PORT = 8089;
   @Rule public WireMockRule wireMockRule = new WireMockRule(PORT);
+  @Rule public TemporaryFolder folder = new TemporaryFolder();
 
   @Before
   public void setup() throws IOException {
@@ -184,5 +187,52 @@ public class CopyTest {
             .withQueryParam("command", equalTo("sh"))
             .withQueryParam("command", equalTo("-c"))
             .withQueryParam("command", equalTo("base64 -d | tar -xmf - -C /")));
+  }
+
+  public void testCopyDirectoryFromPod() throws IOException, ApiException, InterruptedException {
+
+    // Create a temp directory
+    File tempFolder = folder.newFolder("destinationFolder");
+
+    Copy copy = new Copy(client);
+
+    wireMockRule.stubFor(
+        get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
+            .willReturn(
+                aResponse()
+                    .withStatus(404)
+                    .withHeader("Content-Type", "application/json")
+                    .withBody("{}")));
+
+    Thread t =
+        new Thread(
+            new Runnable() {
+              public void run() {
+                try {
+                  copy.copyDirectoryFromPod(
+                      namespace,
+                      podName,
+                      "",
+                      tempFolder.toPath().toString(),
+                      Paths.get("/copied-testDir"));
+                } catch (IOException | ApiException | CopyNotSupportedException ex) {
+                  ex.printStackTrace();
+                }
+              }
+            });
+    t.start();
+    Thread.sleep(2000);
+    t.interrupt();
+
+    verify(
+        getRequestedFor(
+                urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
+            .withQueryParam("stdin", equalTo("false"))
+            .withQueryParam("stdout", equalTo("true"))
+            .withQueryParam("stderr", equalTo("true"))
+            .withQueryParam("tty", equalTo("false"))
+            .withQueryParam("command", equalTo("sh"))
+            .withQueryParam("command", equalTo("-c"))
+            .withQueryParam("command", equalTo("tar --version")));
   }
 }
