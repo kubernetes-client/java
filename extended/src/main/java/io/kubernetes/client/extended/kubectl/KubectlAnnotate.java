@@ -15,7 +15,6 @@ package io.kubernetes.client.extended.kubectl;
 import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
-import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.util.annotations.Annotations;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
 import io.kubernetes.client.util.generic.KubernetesApiResponse;
@@ -29,8 +28,8 @@ public class KubectlAnnotate<ApiType extends KubernetesObject>
 
   private final Map<String, String> addingAnnotations;
 
-  KubectlAnnotate(ApiClient apiClient, Class<ApiType> apiTypeClass) {
-    super(apiClient, apiTypeClass);
+  KubectlAnnotate(Class<ApiType> apiTypeClass) {
+    super(apiTypeClass);
     this.addingAnnotations = new HashMap<>();
   }
 

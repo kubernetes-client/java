@@ -25,16 +25,7 @@ public class Kubectl {
 
   /** Equivalence for `kubectl taint`. */
   public static KubectlTaint taint() {
-    return taint(Configuration.getDefaultApiClient());
-  }
-
-  /**
-   * Equivalence for `kubectl taint`
-   *
-   * @param apiClient The client to use
-   */
-  public static KubectlTaint taint(ApiClient apiClient) {
-    return new KubectlTaint(apiClient);
+    return new KubectlTaint();
   }
 
   /**
@@ -43,17 +34,7 @@ public class Kubectl {
    * @return the kubectl copy
    */
   public static KubectlCopy copy() {
-    return copy(Configuration.getDefaultApiClient());
-  }
-
-  /**
-   * Equivalence for `kubectl cp`.
-   *
-   * @param apiClient the api client instance
-   * @return the kubectl copy
-   */
-  public static KubectlCopy copy(ApiClient apiClient) {
-    return new KubectlCopy(apiClient);
+    return new KubectlCopy();
   }
 
   /**
@@ -65,20 +46,7 @@ public class Kubectl {
    */
   public static <ApiType extends KubernetesObject> KubectlLabel<ApiType> label(
       Class<ApiType> apiTypeClass) {
-    return label(Configuration.getDefaultApiClient(), apiTypeClass);
-  }
-
-  /**
-   * Equivalence for `kubectl label`.
-   *
-   * @param <ApiType> the target api type
-   * @param apiClient the api client instance
-   * @param apiTypeClass the api type class
-   * @return the kubectl label
-   */
-  public static <ApiType extends KubernetesObject> KubectlLabel<ApiType> label(
-      ApiClient apiClient, Class<ApiType> apiTypeClass) {
-    return new KubectlLabel<>(apiClient, apiTypeClass);
+    return new KubectlLabel<>(apiTypeClass);
   }
 
   /**
@@ -90,20 +58,7 @@ public class Kubectl {
    */
   public static <ApiType extends KubernetesObject> KubectlAnnotate<ApiType> annotate(
       Class<ApiType> apiTypeClass) {
-    return annotate(Configuration.getDefaultApiClient(), apiTypeClass);
-  }
-
-  /**
-   * Equivalence for `kubectl annotate`.
-   *
-   * @param <ApiType> the target api type
-   * @param apiClient the api client instance
-   * @param apiTypeClass the api type class
-   * @return the kubectl annotation
-   */
-  public static <ApiType extends KubernetesObject> KubectlAnnotate<ApiType> annotate(
-      ApiClient apiClient, Class<ApiType> apiTypeClass) {
-    return new KubectlAnnotate<>(apiClient, apiTypeClass);
+    return new KubectlAnnotate<>(apiTypeClass);
   }
 
   /**
@@ -112,17 +67,7 @@ public class Kubectl {
    * @return the kubectl version
    */
   public static KubectlVersion version() {
-    return version(Configuration.getDefaultApiClient());
-  }
-
-  /**
-   * Equivalence for `kubectl version`.
-   *
-   * @param apiClient the api client instance
-   * @return the kubectl version
-   */
-  public static KubectlVersion version(ApiClient apiClient) {
-    return new KubectlVersion(apiClient);
+    return new KubectlVersion();
   }
 
   /*
@@ -134,30 +79,7 @@ public class Kubectl {
    */
   public static <ApiType extends KubernetesObject> KubectlScale<ApiType> scale(
       Class<ApiType> apiTypeClass) {
-    return scale(Configuration.getDefaultApiClient(), apiTypeClass);
-  }
-
-  /**
-   * Equivalent for `kubectl scale`
-   *
-   * @param <ApiType> the target api type
-   * @param apiClient The api client instance
-   * @param apiTypeClass the api type class
-   * @return the kubectl scale operator
-   */
-  public static <ApiType extends KubernetesObject> KubectlScale<ApiType> scale(
-      ApiClient apiClient, Class<ApiType> apiTypeClass) {
-    return new KubectlScale<>(apiClient, apiTypeClass);
-  }
-
-  /**
-   * Equivalent for `kubectl exec`
-   *
-   * @param apiClient The api client instance
-   * @return the kubectl exec operator
-   */
-  public static KubectlExec exec(ApiClient apiClient) {
-    return new KubectlExec(apiClient);
+    return new KubectlScale<>(apiTypeClass);
   }
 
   /**
@@ -166,17 +88,7 @@ public class Kubectl {
    * @return the kubectl exec operator
    */
   public static KubectlExec exec() {
-    return exec(Configuration.getDefaultApiClient());
-  }
-
-  /**
-   * Equivalent for `kubectl log`
-   *
-   * @param apiClient The api client instance
-   * @return the kubectl log operator
-   */
-  public static KubectlLog log(ApiClient apiClient) {
-    return new KubectlLog(apiClient);
+    return new KubectlExec();
   }
 
   /**
@@ -185,23 +97,15 @@ public class Kubectl {
    * @return the kubectl log operator
    */
   public static KubectlLog log() {
-    return log(Configuration.getDefaultApiClient());
+    return new KubectlLog();
   }
 
   public static KubectlPortForward portforward() {
-    return portforward(Configuration.getDefaultApiClient());
-  }
-
-  public static KubectlPortForward portforward(ApiClient apiClient) {
-    return new KubectlPortForward(apiClient);
+    return new KubectlPortForward();
   }
 
   public static KubectlApiResources apiResources() {
-    return apiResources(Configuration.getDefaultApiClient());
-  }
-
-  public static KubectlApiResources apiResources(ApiClient apiClient) {
-    return new KubectlApiResources(apiClient);
+    return new KubectlApiResources();
   }
 
   /**
@@ -220,9 +124,19 @@ public class Kubectl {
     OUTPUT execute() throws KubectlException;
   }
 
+  abstract static class ApiClientBuilder<T extends ApiClientBuilder> {
+
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+
+    public T apiClient(ApiClient apiClient) {
+      this.apiClient = apiClient;
+      return (T) this;
+    }
+  }
+
   abstract static class ResourceBuilder<
-      ApiType extends KubernetesObject, T extends ResourceBuilder<ApiType, T>> {
-    final ApiClient apiClient;
+          ApiType extends KubernetesObject, T extends ResourceBuilder<ApiType, T>>
+      extends ApiClientBuilder<T> {
     final Class<ApiType> apiTypeClass;
     String namespace;
     String name;
@@ -230,8 +144,7 @@ public class Kubectl {
     String apiVersion;
     String resourceNamePlural;
 
-    ResourceBuilder(ApiClient client, Class<ApiType> apiTypeClass) {
-      this.apiClient = client;
+    ResourceBuilder(Class<ApiType> apiTypeClass) {
       this.apiTypeClass = apiTypeClass;
     }
 
@@ -266,8 +179,8 @@ public class Kubectl {
       extends ResourceBuilder<ApiType, T> {
     String container;
 
-    ResourceAndContainerBuilder(ApiClient client, Class<ApiType> apiTypeClass) {
-      super(client, apiTypeClass);
+    ResourceAndContainerBuilder(Class<ApiType> apiTypeClass) {
+      super(apiTypeClass);
     }
 
     public T container(String container) {

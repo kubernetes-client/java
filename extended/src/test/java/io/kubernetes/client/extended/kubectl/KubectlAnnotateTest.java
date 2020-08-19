@@ -53,7 +53,8 @@ public class KubectlAnnotateTest {
                     .withStatus(200)
                     .withBody("{\"metadata\":{\"name\":\"foo\",\"namespace\":\"default\"}}")));
     V1Pod annotatedPod =
-        Kubectl.annotate(apiClient, V1Pod.class)
+        Kubectl.annotate(V1Pod.class)
+            .apiClient(apiClient)
             .apiGroup("")
             .apiVersion("v1")
             .resourceNamePlural("pods")
@@ -82,7 +83,8 @@ public class KubectlAnnotateTest {
     assertThrows(
         KubectlException.class,
         () -> {
-          Kubectl.annotate(apiClient, V1Pod.class)
+          Kubectl.annotate(V1Pod.class)
+              .apiClient(apiClient)
               .apiGroup("")
               .apiVersion("v1")
               .resourceNamePlural("pods")
@@ -105,7 +107,8 @@ public class KubectlAnnotateTest {
         put(urlPathEqualTo("/api/v1/nodes/foo"))
             .willReturn(aResponse().withStatus(200).withBody("{\"metadata\":{\"name\":\"foo\"}}")));
     V1Node annotatedNode =
-        Kubectl.annotate(apiClient, V1Node.class)
+        Kubectl.annotate(V1Node.class)
+            .apiClient(apiClient)
             .apiGroup("")
             .apiVersion("v1")
             .resourceNamePlural("nodes")
@@ -130,7 +133,8 @@ public class KubectlAnnotateTest {
     assertThrows(
         KubectlException.class,
         () -> {
-          Kubectl.annotate(apiClient, V1Node.class)
+          Kubectl.annotate(V1Node.class)
+              .apiClient(apiClient)
               .apiGroup("")
               .apiVersion("v1")
               .resourceNamePlural("nodes")
@@ -148,7 +152,8 @@ public class KubectlAnnotateTest {
     assertThrows(
         KubectlException.class,
         () -> {
-          Kubectl.annotate(apiClient, V1Node.class)
+          Kubectl.annotate(V1Node.class)
+              .apiClient(apiClient)
               // .apiGroup("")  # missing apiGroup
               .apiVersion("v1")
               .resourceNamePlural("nodes")
@@ -160,7 +165,8 @@ public class KubectlAnnotateTest {
     assertThrows(
         KubectlException.class,
         () -> {
-          Kubectl.annotate(apiClient, V1Node.class)
+          Kubectl.annotate(V1Node.class)
+              .apiClient(apiClient)
               .apiGroup("")
               // .apiVersion("v1") # missing apiVersion
               .resourceNamePlural("nodes")
@@ -172,7 +178,8 @@ public class KubectlAnnotateTest {
     assertThrows(
         KubectlException.class,
         () -> {
-          Kubectl.annotate(apiClient, V1Node.class)
+          Kubectl.annotate(V1Node.class)
+              .apiClient(apiClient)
               .apiGroup("")
               .apiVersion("v1")
               // .resourceNamePlural("nodes") # missing resourceNamePlural
@@ -184,7 +191,8 @@ public class KubectlAnnotateTest {
     assertThrows(
         KubectlException.class,
         () -> {
-          Kubectl.annotate(apiClient, V1Node.class)
+          Kubectl.annotate(V1Node.class)
+              .apiClient(apiClient)
               .apiGroup("")
               .apiVersion("v1")
               .resourceNamePlural("nodes")

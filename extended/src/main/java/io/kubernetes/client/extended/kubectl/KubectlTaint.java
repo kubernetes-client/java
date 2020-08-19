@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.extended.kubectl;
 
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
-import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.apis.CoreV1Api;
 import io.kubernetes.client.openapi.models.V1Node;
@@ -32,8 +31,8 @@ public class KubectlTaint extends Kubectl.ResourceBuilder<V1Node, KubectlTaint>
   private final Map<String, Pair<String, String>> addingTaints;
   private final Map<String, String> removeTaints;
 
-  KubectlTaint(ApiClient apiClient) {
-    super(apiClient, V1Node.class);
+  KubectlTaint() {
+    super(V1Node.class);
     this.addingTaints = new HashMap<>();
     this.removeTaints = new HashMap<>();
   }

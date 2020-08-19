@@ -16,7 +16,6 @@ import static com.google.common.base.Strings.isNullOrEmpty;
 
 import io.kubernetes.client.PodLogs;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
-import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1Pod;
 import java.io.IOException;
@@ -24,10 +23,9 @@ import java.io.InputStream;
 
 public class KubectlLog extends Kubectl.ResourceAndContainerBuilder<V1Pod, KubectlLog>
     implements Kubectl.Executable<InputStream> {
-  private InputStream result;
 
-  KubectlLog(ApiClient client) {
-    super(client, V1Pod.class);
+  KubectlLog() {
+    super(V1Pod.class);
   }
 
   @Override

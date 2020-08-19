@@ -96,7 +96,8 @@ public class KubectlExample {
           String[] parts = from.split(":");
           name = parts[0];
           from = parts[1];
-          copy(client)
+          copy()
+              .apiClient(client)
               .namespace(ns)
               .name(name)
               .container(cli.getOptionValue("c", ""))
@@ -107,7 +108,8 @@ public class KubectlExample {
           String[] parts = to.split(":");
           name = parts[0];
           to = parts[1];
-          copy(client)
+          copy()
+              .apiClient(client)
               .namespace(ns)
               .name(name)
               .container(cli.getOptionValue("c", ""))
@@ -133,9 +135,9 @@ public class KubectlExample {
           String effect = ix == -1 ? null : taintSpec.substring(ix + 1);
 
           if (effect == null) {
-            taint(client).name(name).removeTaint(key).execute();
+            taint().apiClient(client).name(name).removeTaint(key).execute();
           } else {
-            taint(client).name(name).removeTaint(key, effect).execute();
+            taint().apiClient(client).name(name).removeTaint(key, effect).execute();
           }
           System.exit(0);
         }
@@ -148,14 +150,14 @@ public class KubectlExample {
         String effect = taintSpec.substring(ix2 + 1);
 
         if (value == null) {
-          taint(client).name(name).addTaint(key, effect).execute();
+          taint().apiClient(client).name(name).addTaint(key, effect).execute();
         } else {
-          taint(client).name(name).addTaint(key, value, effect).execute();
+          taint().apiClient(client).name(name).addTaint(key, value, effect).execute();
         }
         System.exit(0);
       case "portforward":
         name = args[1];
-        KubectlPortForward forward = portforward(client).name(name).namespace(ns);
+        KubectlPortForward forward = portforward().apiClient(client).name(name).namespace(ns);
         for (int i = 2; i < args.length; i++) {
           String port = args[i];
           String[] ports = port.split(":");
@@ -167,7 +169,12 @@ public class KubectlExample {
       case "log":
         name = args[1];
         ByteStreams.copy(
-            log(client).name(name).namespace(ns).container(cli.getOptionValue("c", "")).execute(),
+            log()
+                .apiClient(client)
+                .name(name)
+                .namespace(ns)
+                .container(cli.getOptionValue("c", ""))
+                .execute(),
             System.out);
         System.exit(0);
       case "scale":
@@ -178,11 +185,16 @@ public class KubectlExample {
           System.exit(-3);
         }
         int replicas = Integer.parseInt(cli.getOptionValue("r"));
-        scale(client, getClassForKind(kind)).namespace(ns).name(name).replicas(replicas).execute();
+        scale(getClassForKind(kind))
+            .apiClient(client)
+            .namespace(ns)
+            .name(name)
+            .replicas(replicas)
+            .execute();
         System.out.println("Deployment scaled.");
         System.exit(0);
       case "version":
-        System.out.println(version(client));
+        System.out.println(version().apiClient(client));
         System.exit(0);
       case "label":
         kind = args[1];
@@ -194,20 +206,21 @@ public class KubectlExample {
           System.err.println("Unknown kind: " + kind);
           System.exit(-2);
         }
-        label(client, clazz).namespace(ns).name(name).addLabel(labelKey, labelValue);
+        label(clazz).apiClient(client).namespace(ns).name(name).addLabel(labelKey, labelValue);
         System.exit(0);
       case "exec":
         name = args[1];
         String[] command = Arrays.copyOfRange(args, 2, args.length);
         KubectlExec e =
-            exec(client)
+            exec()
+                .apiClient(client)
                 .namespace(ns)
                 .name(name)
                 .command(command)
                 .container(cli.getOptionValue("c", ""));
         System.exit(e.execute());
       case "api-resources":
-        apiResources(client).execute().stream()
+        apiResources().apiClient(client).execute().stream()
             .forEach(
                 r ->
                     System.out.printf(
