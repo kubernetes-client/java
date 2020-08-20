@@ -12,7 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import com.google.common.reflect.ClassPath;
 import io.kubernetes.client.custom.IntOrString;
 import io.kubernetes.client.custom.Quantity;
 import java.io.File;
@@ -24,14 +23,11 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import okio.ByteString;
-import org.apache.commons.lang3.tuple.MutablePair;
-import org.apache.commons.lang3.tuple.Pair;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.slf4j.Logger;
@@ -48,108 +44,8 @@ import org.yaml.snakeyaml.representer.Represent;
 import org.yaml.snakeyaml.representer.Representer;
 
 public class Yaml {
-  private static Map<String, Class<?>> classes = new HashMap<>();
-  private static Map<String, String> apiGroups = new HashMap<>();
-  private static List<String> apiVersions = new ArrayList<>();
 
   static final Logger logger = LoggerFactory.getLogger(Yaml.class);
-
-  private static void initApiGroupMap() {
-    apiGroups.put("Admissionregistration", "admissionregistration.k8s.io");
-    apiGroups.put("Apiextensions", "apiextensions.k8s.io");
-    apiGroups.put("Apiregistration", "apiregistration.k8s.io");
-    apiGroups.put("Apps", "apps");
-    apiGroups.put("Authentication", "authentication.k8s.io");
-    apiGroups.put("Authorization", "authorization.k8s.io");
-    apiGroups.put("Autoscaling", "autoscaling");
-    apiGroups.put("Extensions", "extensions");
-    apiGroups.put("Batch", "batch");
-    apiGroups.put("Certificates", "certificates.k8s.io");
-    apiGroups.put("Networking", "networking.k8s.io");
-    apiGroups.put("Policy", "policy");
-    apiGroups.put("RbacAuthorization", "rbac.authorization.k8s.io");
-    apiGroups.put("Scheduling", "scheduling.k8s.io");
-    apiGroups.put("Settings", "settings.k8s.io");
-    apiGroups.put("Storage", "storage.k8s.io");
-  }
-
-  private static void initApiVersionList() {
-    // Order important
-    apiVersions.add("V2beta1");
-    apiVersions.add("V2beta2");
-    apiVersions.add("V2alpha1");
-    apiVersions.add("V1beta2");
-    apiVersions.add("V1beta1");
-    apiVersions.add("V1alpha1");
-    apiVersions.add("V1");
-  }
-
-  private static Pair<String, String> getApiGroup(String name) {
-    MutablePair<String, String> parts = new MutablePair<>();
-    for (Map.Entry<String, String> entry : apiGroups.entrySet()) {
-      if (name.startsWith(entry.getKey())) {
-        parts.left = entry.getValue();
-        parts.right = name.substring(entry.getKey().length());
-        break;
-      }
-    }
-    if (parts.left == null) parts.right = name;
-
-    return parts;
-  }
-
-  private static Pair<String, String> getApiVersion(String name) {
-    MutablePair<String, String> parts = new MutablePair<>();
-    for (String version : apiVersions) {
-      if (name.startsWith(version)) {
-        parts.left = version.toLowerCase();
-        parts.right = name.substring(version.length());
-        break;
-      }
-    }
-    if (parts.left == null) parts.right = name;
-
-    return parts;
-  }
-
-  private static void initModelMap() throws IOException {
-    initApiGroupMap();
-    initApiVersionList();
-
-    ClassPath cp = ClassPath.from(Yaml.class.getClassLoader());
-    Set<ClassPath.ClassInfo> allClasses =
-        cp.getTopLevelClasses("io.kubernetes.client.openapi.models");
-
-    for (ClassPath.ClassInfo clazz : allClasses) {
-      String modelName = "";
-      Pair<String, String> nameParts = getApiGroup(clazz.getSimpleName());
-      modelName += nameParts.getLeft() == null ? "" : nameParts.getLeft() + "/";
-
-      nameParts = getApiVersion(nameParts.getRight());
-      modelName += nameParts.getLeft() == null ? "" : nameParts.getLeft() + "/";
-      modelName += nameParts.getRight();
-
-      classes.put(modelName, clazz.load());
-    }
-  }
-
-  static {
-    try {
-      initModelMap();
-    } catch (Exception ex) {
-      logger.error("Unexpected exception while loading classes: " + ex);
-    }
-  }
-
-  /**
-   * Add a mapping from API Group/version/kind to a Class to use when calling <code>load(...)
-   * </code> .
-   *
-   * <p>Shouldn't really be needed as most API Group/Version/Kind are loaded dynamically at startup.
-   */
-  public static void addModelMap(String apiGroupVersion, String kind, Class<?> clazz) {
-    classes.put(apiGroupVersion + "/" + kind, clazz);
-  }
 
   /**
    * Load an API object from a YAML string representation. Returns a concrete typed object (e.g.
@@ -480,13 +376,7 @@ public class Yaml {
       throw new IOException("Missing apiVersion in YAML file!");
     }
 
-    Class<?> clazz = (Class<?>) classes.get(apiVersion + "/" + kind);
-    if (clazz == null) {
-      // Attempt to detect class from version and kind alone
-      if (apiVersion.contains("/")) {
-        clazz = (Class<?>) classes.get(apiVersion.split("/")[1] + "/" + kind);
-      }
-    }
+    Class<?> clazz = ModelMapper.getApiTypeClass(apiVersion, kind);
     if (clazz == null) {
       throw new IOException(
           "Unknown apiVersionKind: "
@@ -494,8 +384,13 @@ public class Yaml {
               + "/"
               + kind
               + " known kinds are: "
-              + classes.toString());
+              + ModelMapper.getAllKnownClasses());
     }
     return loadAs(new StringReader(getSnakeYaml().dump(data)), clazz);
+  }
+
+  @Deprecated
+  public static void addModelMap(String apiGroupVersion, String kind, Class<?> clazz) {
+    ModelMapper.addModelMap(apiGroupVersion, kind, clazz);
   }
 }
