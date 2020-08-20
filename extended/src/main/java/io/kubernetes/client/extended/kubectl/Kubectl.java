@@ -23,6 +23,18 @@ import io.kubernetes.client.openapi.Configuration;
  */
 public class Kubectl {
 
+  /**
+   * Equivalent for `kubectl top`
+   *
+   * @param apiTypeClass Must be either V1Pod.class or V1Node.class
+   * @return the kubectl top implementation
+   */
+  public static <ApiType extends KubernetesObject, MetricsType>
+      KubectlTop<ApiType, MetricsType> top(
+          Class<ApiType> apiTypeClass, Class<MetricsType> metricsTypeClass) {
+    return new KubectlTop<ApiType, MetricsType>(apiTypeClass);
+  }
+
   /** Equivalence for `kubectl taint`. */
   public static KubectlTaint taint() {
     return new KubectlTaint();
