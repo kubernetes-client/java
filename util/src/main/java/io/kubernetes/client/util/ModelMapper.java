@@ -12,8 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.reflect.ClassPath;
+import io.kubernetes.client.Discovery;
+import io.kubernetes.client.common.KubernetesListObject;
+import io.kubernetes.client.common.KubernetesObject;
+import io.kubernetes.client.openapi.ApiException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,11 +36,13 @@ import org.slf4j.LoggerFactory;
  */
 public class ModelMapper {
 
-  private static Map<String, Class<?>> classes = new HashMap<>();
-  private static Map<String, String> apiGroups = new HashMap<>();
-  private static List<String> apiVersions = new ArrayList<>();
-
   private static final Logger logger = LoggerFactory.getLogger(ModelMapper.class);
+
+  private static Map<GroupVersionKind, Class<?>> classes = new HashMap<>();
+  // Model's api-group prefix to kubernetes api-group
+  private static Map<String, String> apiGroups = new HashMap<>();
+  // Model's api-version midfix to kubernetes api-version
+  private static List<String> apiVersions = new ArrayList<>();
 
   static {
     try {
@@ -46,28 +53,112 @@ public class ModelMapper {
   }
 
   /**
-   * Add a mapping from API Group/version/kind to a Class to use when calling <code>load(...)
-   * </code> .
+   * Registering concrete model classes by its apiGroupVersion (e.g. "apps/v1") and kind (e.g.
+   * "Deployment").
    *
-   * <p>Shouldn't really be needed as most API Group/Version/Kind are loaded dynamically at startup.
+   * <p>Note that the the so-called apiGroupVersion equals to the "apiVersion" in the kubenretes
+   * resource yamls.
    */
   public static void addModelMap(String apiGroupVersion, String kind, Class<?> clazz) {
-    classes.put(apiGroupVersion + "/" + kind, clazz);
+    String[] parts = apiGroupVersion.split("/");
+    if (parts.length == 1) {
+      String version = apiGroupVersion;
+      addModelMap("", version, kind, clazz);
+    }
+    addModelMap(parts[0], parts[1], kind, clazz);
   }
 
-  public static Class<?> getApiTypeClass(String apiVersion, String kind) {
-    Class<?> clazz = (Class<?>) classes.get(apiVersion + "/" + kind);
-    if (clazz == null) {
-      // Attempt to detect class from version and kind alone
-      if (apiVersion.contains("/")) {
-        clazz = (Class<?>) classes.get(apiVersion.split("/")[1] + "/" + kind);
+  /**
+   * Registering concrete model classes by its group, version and kind (e.g. "apps", "v1",
+   * "Deployment")
+   *
+   * @param group the group
+   * @param version the version
+   * @param kind the kind
+   * @param clazz the clazz
+   */
+  public static void addModelMap(String group, String version, String kind, Class<?> clazz) {
+    classes.put(new GroupVersionKind(group, version, kind), clazz);
+  }
+
+  /**
+   * Gets the model classes by given apiGroupVersion (e.g. "apps/v1") and kind (e.g. "Deployment").
+   *
+   * @param apiGroupVersion the api version
+   * @param kind the kind
+   * @return the api type class
+   */
+  public static Class<?> getApiTypeClass(String apiGroupVersion, String kind) {
+    String[] parts = apiGroupVersion.split("/");
+    if (parts.length == 1) {
+      // legacy group
+      return getApiTypeClass("", apiGroupVersion, kind);
+    }
+    return getApiTypeClass(parts[0], parts[1], kind);
+  }
+
+  /**
+   * Gets the model classes by given group, version and kind (e.g. "apps", ""v1", "Deployment").
+   *
+   * @param group the group
+   * @param version the version
+   * @param kind the kind
+   * @return the api type class
+   */
+  public static Class<?> getApiTypeClass(String group, String version, String kind) {
+    Class<?> clazz = classes.get(new GroupVersionKind(group, version, kind));
+    if (clazz != null) {
+      return clazz;
+    }
+    return classes.get(new GroupVersionKind(null, version, kind));
+  }
+
+  /**
+   * Returns all the registered model classes.
+   *
+   * @return the all known classes
+   */
+  public static Map<GroupVersionKind, Class<?>> getAllKnownClasses() {
+    return ImmutableMap.copyOf(classes);
+  }
+
+  /**
+   * Gets the GVK by the given model class.
+   *
+   * <p>Note: This method will run a loop over the registered models, consider use {@link
+   * ModelMapper#getAllKnownClasses} and build your own index for faster queries.
+   *
+   * @param clazz the clazz
+   * @return the group version kind by class
+   */
+  public static GroupVersionKind getGroupVersionKindByClass(Class<?> clazz) {
+    return classes.entrySet().stream()
+        .filter(e -> clazz.equals(e.getValue()))
+        .map(e -> e.getKey())
+        .findFirst()
+        .get();
+  }
+
+  /**
+   * Refreshes the model mapping by syncing up w/the api discovery info from the kubernetes
+   * apiserver.
+   *
+   * @param discovery the discovery
+   * @throws ApiException the api exception
+   */
+  public static void refresh(Discovery discovery) throws ApiException {
+    // TODO(yue9944882): integration test it
+    for (Discovery.APIResource apiResource : discovery.findAll()) {
+      for (String version : apiResource.getVersions()) {
+        Class<?> clazz = getApiTypeClass(apiResource.getGroup(), version, apiResource.getKind());
+        if (clazz == null) {
+          continue;
+        }
+        // sync up w/ the latest api discovery
+        classes.remove(getGroupVersionKindByClass(clazz));
+        addModelMap(apiResource.getGroup(), version, apiResource.getKind(), clazz);
       }
     }
-    return clazz;
-  }
-
-  public static Map<String, Class<?>> getAllKnownClasses() {
-    return ImmutableMap.copyOf(classes);
   }
 
   private static void initApiGroupMap() {
@@ -87,6 +178,7 @@ public class ModelMapper {
     apiGroups.put("Scheduling", "scheduling.k8s.io");
     apiGroups.put("Settings", "settings.k8s.io");
     apiGroups.put("Storage", "storage.k8s.io");
+    apiGroups.put("FlowControl", "flowcontrol.apiserver.k8s.io");
   }
 
   private static void initApiVersionList() {
@@ -100,20 +192,6 @@ public class ModelMapper {
     apiVersions.add("V1");
   }
 
-  private static Pair<String, String> getApiVersion(String name) {
-    MutablePair<String, String> parts = new MutablePair<>();
-    for (String version : apiVersions) {
-      if (name.startsWith(version)) {
-        parts.left = version.toLowerCase();
-        parts.right = name.substring(version.length());
-        break;
-      }
-    }
-    if (parts.left == null) parts.right = name;
-
-    return parts;
-  }
-
   private static void initModelMap() throws IOException {
     initApiGroupMap();
     initApiVersionList();
@@ -122,29 +200,80 @@ public class ModelMapper {
     Set<ClassPath.ClassInfo> allClasses =
         cp.getTopLevelClasses("io.kubernetes.client.openapi.models");
 
-    for (ClassPath.ClassInfo clazz : allClasses) {
-      String modelName = "";
-      Pair<String, String> nameParts = getApiGroup(clazz.getSimpleName());
-      modelName += nameParts.getLeft() == null ? "" : nameParts.getLeft() + "/";
+    for (ClassPath.ClassInfo classInfo : allClasses) {
+      Class clazz = classInfo.load();
+      if (!KubernetesObject.class.isAssignableFrom(clazz)
+          && !KubernetesListObject.class.isAssignableFrom(clazz)) {
+        continue;
+      }
 
-      nameParts = getApiVersion(nameParts.getRight());
-      modelName += nameParts.getLeft() == null ? "" : nameParts.getLeft() + "/";
-      modelName += nameParts.getRight();
+      Pair<String, String> groupAndOther = getApiGroup(clazz.getSimpleName());
+      Pair<String, String> versionAndOther = getApiVersion(groupAndOther.getRight());
 
-      classes.put(modelName, clazz.load());
+      String group = groupAndOther.getLeft();
+      String version = versionAndOther.getLeft();
+      String kind = versionAndOther.getRight();
+
+      classes.put(new GroupVersionKind(group, version, kind), clazz);
     }
   }
 
   private static Pair<String, String> getApiGroup(String name) {
-    MutablePair<String, String> parts = new MutablePair<>();
-    for (Map.Entry<String, String> entry : apiGroups.entrySet()) {
-      if (name.startsWith(entry.getKey())) {
-        parts.left = entry.getValue();
-        parts.right = name.substring(entry.getKey().length());
-        break;
-      }
+    return apiGroups.entrySet().stream()
+        .filter(e -> name.startsWith(e.getKey()))
+        .map(e -> new MutablePair(e.getValue(), name.substring(e.getKey().length())))
+        .findFirst()
+        .orElse(new MutablePair(null, name));
+  }
+
+  private static Pair<String, String> getApiVersion(String name) {
+    return apiVersions.stream()
+        .filter(v -> name.startsWith(v))
+        .map(v -> new MutablePair(v.toLowerCase(), name.substring(v.length())))
+        .findFirst()
+        .orElse(new MutablePair(null, name));
+  }
+
+  public static class GroupVersionKind {
+
+    public GroupVersionKind(String group, String version, String kind) {
+      this.group = group;
+      this.version = version;
+      this.kind = kind;
     }
-    if (parts.left == null) parts.right = name;
-    return parts;
+
+    private String group;
+    private String version;
+    private String kind;
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) return true;
+      if (o == null || getClass() != o.getClass()) return false;
+      GroupVersionKind that = (GroupVersionKind) o;
+      return Objects.equal(group, that.group)
+          && Objects.equal(version, that.version)
+          && Objects.equal(kind, that.kind);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hashCode(group, version, kind);
+    }
+
+    @Override
+    public String toString() {
+      return "GroupVersionKind{"
+          + "group='"
+          + group
+          + '\''
+          + ", version='"
+          + version
+          + '\''
+          + ", kind='"
+          + kind
+          + '\''
+          + '}';
+    }
   }
 }
