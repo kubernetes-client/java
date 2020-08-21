@@ -20,10 +20,14 @@ import static io.kubernetes.client.extended.kubectl.Kubectl.log;
 import static io.kubernetes.client.extended.kubectl.Kubectl.portforward;
 import static io.kubernetes.client.extended.kubectl.Kubectl.scale;
 import static io.kubernetes.client.extended.kubectl.Kubectl.taint;
+import static io.kubernetes.client.extended.kubectl.Kubectl.top;
 import static io.kubernetes.client.extended.kubectl.Kubectl.version;
+import static io.kubernetes.client.extended.kubectl.KubectlTop.podMetricSum;
 
 import com.google.common.io.ByteStreams;
 import io.kubernetes.client.common.KubernetesObject;
+import io.kubernetes.client.custom.NodeMetrics;
+import io.kubernetes.client.custom.PodMetrics;
 import io.kubernetes.client.extended.kubectl.KubectlExec;
 import io.kubernetes.client.extended.kubectl.KubectlPortForward;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
@@ -35,11 +39,13 @@ import io.kubernetes.client.openapi.models.V1ReplicationController;
 import io.kubernetes.client.openapi.models.V1Service;
 import io.kubernetes.client.util.Config;
 import java.util.Arrays;
+import java.util.List;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
+import org.apache.commons.lang3.tuple.Pair;
 
 /**
  * A Java equivalent for the kubectl command line tool. Not nearly as complete.
@@ -71,6 +77,15 @@ public class KubectlExample {
     return null;
   }
 
+  private static final String PADDING = "                              ";
+
+  private static String pad(String value) {
+    while (value.length() < PADDING.length()) {
+      value += " ";
+    }
+    return value;
+  }
+
   public static void main(String[] args)
       throws java.io.IOException, KubectlException, ParseException {
     ApiClient client = Config.defaultClient();
@@ -89,6 +104,44 @@ public class KubectlExample {
     String name = null;
 
     switch (verb) {
+      case "top":
+        String what = args[1];
+        switch (what) {
+          case "nodes":
+          case "node":
+            List<Pair<V1Node, NodeMetrics>> nodes =
+                top(V1Node.class, NodeMetrics.class).apiClient(client).metric("cpu").execute();
+            System.out.println(pad("Node") + "\tCPU\t\tMemory");
+            for (Pair<V1Node, NodeMetrics> node : nodes) {
+              System.out.println(
+                  pad(node.getLeft().getMetadata().getName())
+                      + "\t"
+                      + node.getRight().getUsage().get("cpu").getNumber()
+                      + "\t"
+                      + node.getRight().getUsage().get("memory").getNumber());
+            }
+            System.exit(0);
+          case "pods":
+          case "pod":
+            List<Pair<V1Pod, PodMetrics>> pods =
+                top(V1Pod.class, PodMetrics.class)
+                    .apiClient(client)
+                    .namespace(ns)
+                    .metric("cpu")
+                    .execute();
+            System.out.println(pad("Pod") + "\tCPU\t\tMemory");
+            for (Pair<V1Pod, PodMetrics> pod : pods) {
+              System.out.println(
+                  pad(pod.getLeft().getMetadata().getName())
+                      + "\t"
+                      + podMetricSum(pod.getRight(), "cpu")
+                      + "\t"
+                      + podMetricSum(pod.getRight(), "memory"));
+            }
+            System.exit(0);
+        }
+        System.err.println("Unknown top argument: " + what);
+        System.exit(-1);
       case "cp":
         String from = args[1];
         String to = args[2];
