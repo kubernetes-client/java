@@ -23,6 +23,16 @@ import io.kubernetes.client.openapi.Configuration;
  */
 public class Kubectl {
 
+  /** Equivalent for `kubectl cordon` */
+  public static KubectlCordon cordon() {
+    return new KubectlCordon(true);
+  }
+
+  /** Equivalent for `kubectl uncordon` */
+  public static KubectlCordon uncordon() {
+    return new KubectlCordon(false);
+  }
+
   /**
    * Equivalent for `kubectl top`
    *
