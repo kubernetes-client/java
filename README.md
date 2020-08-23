@@ -181,9 +181,9 @@ All APIs and Models' documentation can be found at the [Generated client's docs]
 
 |  client version  | 1.12      | 1.13     | 1.14     |  1.15     |  1.16    |  1.17    |
 |------------------|-----------|----------|----------|-----------|----------|----------|
-|  4.0.0           |  ✓        |  -       |  -       | -         | -        | -        |
-|  5.0.0           |  +        |  ✓       |  -       | -         | -        | -        |
-|  6.0.1           |  +        |  +       |  ✓       | -         | -        | -        |
+|  4.0.0           |  ✓        |  -       |  -       | x         | x        | x        |
+|  5.0.0           |  +        |  ✓       |  -       | -         | x        | x        |
+|  6.0.1           |  +        |  +       |  ✓       | -         | -        | x        |
 |  7.0.0           |  +        |  +       |  +       | ✓         | -        | -        |
 |  8.0.2           |  +        |  +       |  +       | +         | ✓        | -        |
 |  9.0.0           |  +        |  +       |  +       | +         | +        | ✓        |
@@ -196,6 +196,10 @@ Key:
   Kubernetes cluster, but everything they have in common will work.
 * `-` The Kubernetes cluster has features the java-client library can't use
   (additional API objects, etc).
+* `x` The Kubernetes cluster has no guarantees to support the API client of
+  this version, as it only promises _n_-2 version support. It is not tested,
+  and operations using API versions that have been deprecated and removed in
+  later server versions won't function correctly.
 
 See the [CHANGELOG](./CHANGELOG.md) for a detailed description of changes
 between java-client versions.
