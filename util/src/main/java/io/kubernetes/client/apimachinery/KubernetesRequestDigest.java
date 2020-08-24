@@ -102,17 +102,23 @@ public class KubernetesRequestDigest {
     }
 
     String groupVersion;
-    if (Strings.isNullOrEmpty(resourceMeta.getApiGroup())) { // core resource
+    if (Strings.isNullOrEmpty(resourceMeta.getGroupVersionResource().getGroup())) { // core resource
       groupVersion = "";
     } else { // regular resource
-      groupVersion = resourceMeta.getApiGroup() + "/" + resourceMeta.getApiVersion();
+      groupVersion =
+          resourceMeta.getGroupVersionResource().getGroup()
+              + "/"
+              + resourceMeta.getGroupVersionResource().getVersion();
     }
 
     String targetResourceName;
     if (Strings.isNullOrEmpty(resourceMeta.getSubResource())) {
-      targetResourceName = resourceMeta.getResource();
+      targetResourceName = resourceMeta.getGroupVersionResource().getResource();
     } else { // subresource
-      targetResourceName = resourceMeta.getResource() + "/" + resourceMeta.getSubResource();
+      targetResourceName =
+          resourceMeta.getGroupVersionResource().getResource()
+              + "/"
+              + resourceMeta.getSubResource();
     }
 
     return new StringBuilder()

@@ -42,8 +42,8 @@ public class PrometheusInterceptor implements Interceptor {
           .help("Kubernetes resource request latency (seconds)")
           .labelNames(
               "http_response_code",
-              "api_group",
-              "api_version",
+              "group",
+              "version",
               "resource",
               "subresource",
               "api_verb",
@@ -73,7 +73,6 @@ public class PrometheusInterceptor implements Interceptor {
     }
 
     codes.labels(Integer.toString(response.code())).inc();
-    ;
 
     if (requestDigest.isNonResourceRequest()) {
       nonResourceRequestLatencyHistogram
@@ -83,9 +82,12 @@ public class PrometheusInterceptor implements Interceptor {
       resourceRequestLatencyHistogram
           .labels(
               Integer.toString(response.code()),
-              Strings.nullToEmpty(requestDigest.getResourceMeta().getApiGroup()),
-              Strings.nullToEmpty(requestDigest.getResourceMeta().getApiVersion()),
-              Strings.nullToEmpty(requestDigest.getResourceMeta().getResource()),
+              Strings.nullToEmpty(
+                  requestDigest.getResourceMeta().getGroupVersionResource().getGroup()),
+              Strings.nullToEmpty(
+                  requestDigest.getResourceMeta().getGroupVersionResource().getVersion()),
+              Strings.nullToEmpty(
+                  requestDigest.getResourceMeta().getGroupVersionResource().getResource()),
               Strings.nullToEmpty(requestDigest.getResourceMeta().getSubResource()),
               requestDigest.getVerb().value(),
               Strings.nullToEmpty(requestDigest.getResourceMeta().getNamespace()))

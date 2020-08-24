@@ -33,9 +33,7 @@ public class KubernetesResource {
     }
     KubernetesResource resource =
         new KubernetesResource(
-            "",
-            "v1",
-            matcher.group("resource"),
+            new GroupVersionResource("", "v1", matcher.group("resource")),
             matcher.group("subresource"),
             matcher.group("namespace"),
             matcher.group("name"));
@@ -50,48 +48,29 @@ public class KubernetesResource {
     }
     KubernetesResource resource =
         new KubernetesResource(
-            matcher.group("group"),
-            matcher.group("version"),
-            matcher.group("resource"),
+            new GroupVersionResource(
+                matcher.group("group"), matcher.group("version"), matcher.group("resource")),
             matcher.group("subresource"),
             matcher.group("namespace"),
             matcher.group("name"));
     return resource;
   }
 
-  KubernetesResource(
-      String apiGroup,
-      String apiVersion,
-      String resource,
-      String subResource,
-      String namespace,
-      String name) {
-    this.apiGroup = apiGroup;
-    this.apiVersion = apiVersion;
-    this.resource = resource;
+  KubernetesResource(GroupVersionResource gvr, String subResource, String namespace, String name) {
+    this.groupVersionResource = gvr;
     this.subResource = subResource;
     this.namespace = namespace;
     this.name = name;
   }
 
-  private final String apiGroup;
-  private final String apiVersion;
-  private final String resource;
+  private final GroupVersionResource groupVersionResource;
   private final String subResource;
 
   private final String namespace;
   private final String name;
 
-  public String getApiGroup() {
-    return apiGroup;
-  }
-
-  public String getApiVersion() {
-    return apiVersion;
-  }
-
-  public String getResource() {
-    return resource;
+  public GroupVersionResource getGroupVersionResource() {
+    return groupVersionResource;
   }
 
   public String getSubResource() {
