@@ -1,0 +1,96 @@
+/*
+Copyright 2020 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+package io.kubernetes.client.extended.kubectl;
+
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static org.junit.Assert.assertNotNull;
+
+import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.google.common.io.Resources;
+import io.kubernetes.client.extended.kubectl.exception.KubectlException;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.models.V1ConfigMap;
+import io.kubernetes.client.openapi.models.V1ObjectMeta;
+import io.kubernetes.client.util.ClientBuilder;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+
+public class KubectlCreateTest {
+
+  private static final String DISCOVERY_API = Resources.getResource("discovery-api.json").getPath();
+
+  private static final String DISCOVERY_APIV1 =
+      Resources.getResource("discovery-api-v1.json").getPath();
+
+  private static final String DISCOVERY_APIS =
+      Resources.getResource("discovery-apis.json").getPath();
+
+  private ApiClient apiClient;
+
+  @Rule public WireMockRule wireMockRule = new WireMockRule(8384);
+
+  @Before
+  public void setup() throws IOException {
+    apiClient = new ClientBuilder().setBasePath("http://localhost:" + 8384).build();
+  }
+
+  @Test
+  public void testCreateConfigMap() throws KubectlException, IOException {
+    wireMockRule.stubFor(
+        post(urlPathEqualTo("/api/v1/namespaces/foo/configmaps"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody("{\"metadata\":{\"name\":\"bar\",\"namespace\":\"foo\"}}")));
+    wireMockRule.stubFor(
+        get(urlPathEqualTo("/api"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(new String(Files.readAllBytes(Paths.get(DISCOVERY_API))))));
+    wireMockRule.stubFor(
+        get(urlPathEqualTo("/apis"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(new String(Files.readAllBytes(Paths.get(DISCOVERY_APIS))))));
+    wireMockRule.stubFor(
+        get(urlPathEqualTo("/api/v1"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(new String(Files.readAllBytes(Paths.get(DISCOVERY_APIV1))))));
+
+    V1ConfigMap configMap =
+        (V1ConfigMap)
+            Kubectl.create()
+                .apiClient(apiClient)
+                .load(
+                    new V1ConfigMap()
+                        .metadata(new V1ObjectMeta().namespace("foo").name("bar"))
+                        .data(
+                            new HashMap<String, String>() {
+                              {
+                                put("key1", "value1");
+                              }
+                            }))
+                .execute();
+    wireMockRule.verify(1, postRequestedFor(urlPathEqualTo("/api/v1/namespaces/foo/configmaps")));
+    assertNotNull(configMap);
+  }
+}

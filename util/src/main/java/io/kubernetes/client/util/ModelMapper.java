@@ -147,8 +147,18 @@ public class ModelMapper {
    * @throws ApiException the api exception
    */
   public static void refresh(Discovery discovery) throws ApiException {
-    // TODO(yue9944882): integration test it
-    for (Discovery.APIResource apiResource : discovery.findAll()) {
+    refresh(discovery.findAll());
+  }
+
+  /**
+   * Refreshes the model mapping by syncing up w/the api discovery info from the kubernetes
+   * apiserver.
+   *
+   * @param apiResources the api resources
+   * @throws ApiException the api exception
+   */
+  public static void refresh(Set<Discovery.APIResource> apiResources) throws ApiException {
+    for (Discovery.APIResource apiResource : apiResources) {
       for (String version : apiResource.getVersions()) {
         Class<?> clazz = getApiTypeClass(apiResource.getGroup(), version, apiResource.getKind());
         if (clazz == null) {
@@ -242,9 +252,21 @@ public class ModelMapper {
       this.kind = kind;
     }
 
-    private String group;
-    private String version;
-    private String kind;
+    private final String group;
+    private final String version;
+    private final String kind;
+
+    public String getGroup() {
+      return group;
+    }
+
+    public String getVersion() {
+      return version;
+    }
+
+    public String getKind() {
+      return kind;
+    }
 
     @Override
     public boolean equals(Object o) {

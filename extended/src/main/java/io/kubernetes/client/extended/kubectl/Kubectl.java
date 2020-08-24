@@ -24,6 +24,15 @@ import io.kubernetes.client.openapi.Configuration;
 public class Kubectl {
 
   /**
+   * Equivalent for `kubectl create`
+   *
+   * @return the kubectl create
+   */
+  public static KubectlCreate create() {
+    return new KubectlCreate();
+  }
+
+  /**
    * Equivalent for `kubectl top`
    *
    * @param apiTypeClass Must be either V1Pod.class or V1Node.class
