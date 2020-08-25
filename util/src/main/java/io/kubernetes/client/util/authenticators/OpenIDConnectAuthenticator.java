@@ -129,7 +129,8 @@ public class OpenIDConnectAuthenticator implements Authenticator {
       try {
         ks = java.security.KeyStore.getInstance("PKCS12");
         ks.load(null, alias.toCharArray());
-        ByteArrayInputStream bais = new ByteArrayInputStream(pemCert.getBytes("UTF-8"));
+        ByteArrayInputStream bais =
+            new ByteArrayInputStream(pemCert.getBytes(StandardCharsets.UTF_8));
         CertificateFactory cf = CertificateFactory.getInstance("X.509");
         Collection<? extends java.security.cert.Certificate> c = cf.generateCertificates(bais);
 
@@ -206,7 +207,7 @@ public class OpenIDConnectAuthenticator implements Authenticator {
                       .append(':')
                       .append(clientSecret)
                       .toString()
-                      .getBytes("UTF-8"));
+                      .getBytes(StandardCharsets.UTF_8));
       https.setRequestProperty(
           "Authorization", new StringBuilder().append("Basic ").append(credentials).toString());
       https.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
@@ -219,7 +220,7 @@ public class OpenIDConnectAuthenticator implements Authenticator {
               .append("&grant_type=refresh_token")
               .toString();
       OutputStream ou = https.getOutputStream();
-      ou.write(urlData.getBytes("UTF-8"));
+      ou.write(urlData.getBytes(StandardCharsets.UTF_8));
       ou.flush();
       ou.close();
 
