@@ -16,6 +16,7 @@
     <module>extended</module>
     <module>spring</module>
     <module>client-java-contrib/cert-manager</module>
+    <module>e2e</module>
   </modules>
 
   <scm>
@@ -50,6 +51,8 @@
     <spring.boot.version>2.3.3.RELEASE</spring.boot.version>
     <spring.version>5.2.8.RELEASE</spring.version>
     <prometheus.client.version>0.9.0</prometheus.client.version>
+
+    <e2e.skip>true</e2e.skip>
 
     <gpg.keyname>48540ECBBF00A28EACCF04E720FD12AFB0C9EBA9</gpg.keyname>
     <gpg.passphrase>${env.GPG_PASSPHRASE}</gpg.passphrase>
@@ -289,6 +292,11 @@
           <artifactId>maven-deploy-plugin</artifactId>
           <version>2.8.2</version>
         </plugin>
+        <plugin>
+          <groupId>org.codehaus.gmavenplus</groupId>
+          <artifactId>gmavenplus-plugin</artifactId>
+          <version>1.5</version>
+        </plugin>
       </plugins>
     </pluginManagement>
     <plugins>
@@ -334,10 +342,11 @@
           <java>
             <removeUnusedImports /> <!-- self-explanatory -->
             <googleJavaFormat />
-            <licenseHeader>
-              <content>
+          </java>
+          <licenseHeader>
+            <content>
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright $YEAR The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -348,9 +357,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-              </content>
-            </licenseHeader>
-          </java>
+            </content>
+            <delimiter>package </delimiter>
+          </licenseHeader>
         </configuration>
       </plugin>
     </plugins>
