@@ -162,10 +162,7 @@ public class Watch<T> implements Watchable<T>, Closeable {
         break;
       }
     }
-    if ("Status".equals(kind) && "v1".equals(apiVersion)) {
-      return true;
-    }
-    return false;
+    return "Status".equals(kind) && "v1".equals(apiVersion);
   }
 
   protected Response<T> parseLine(String line) throws IOException {

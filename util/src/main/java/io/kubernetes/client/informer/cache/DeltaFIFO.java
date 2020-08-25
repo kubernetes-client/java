@@ -443,11 +443,7 @@ public class DeltaFIFO {
    */
   private MutablePair<DeltaType, KubernetesObject> isDuplicate(
       MutablePair<DeltaType, KubernetesObject> d1, MutablePair<DeltaType, KubernetesObject> d2) {
-    MutablePair<DeltaType, KubernetesObject> deletionDelta = isDeletionDup(d1, d2);
-    if (deletionDelta != null) {
-      return deletionDelta;
-    }
-    return null;
+    return isDeletionDup(d1, d2);
   }
 
   /**

@@ -295,13 +295,9 @@ public class GenericKubernetesApi<
     return executeCall(
         customObjectsApi.getApiClient(),
         apiTypeClass,
-        () -> {
-          Call call =
-              customObjectsApi.getClusterCustomObjectCall(
-                  this.apiGroup, this.apiVersion, this.resourcePlural, name, null);
-
-          return call;
-        });
+        () ->
+            customObjectsApi.getClusterCustomObjectCall(
+                this.apiGroup, this.apiVersion, this.resourcePlural, name, null));
   }
 
   /**

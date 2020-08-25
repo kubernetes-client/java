@@ -281,9 +281,8 @@ public class OpenIDConnectAuthenticator implements Authenticator {
       String json = scanner.useDelimiter("\\A").next();
 
       JSONObject wellKnownJson = (JSONObject) new JSONParser().parse(json);
-      String tokenUrl = (String) wellKnownJson.get("token_endpoint");
 
-      return tokenUrl;
+      return (String) wellKnownJson.get("token_endpoint");
 
     } catch (IOException | ParseException e) {
       throw new RuntimeException("Could not refresh", e);

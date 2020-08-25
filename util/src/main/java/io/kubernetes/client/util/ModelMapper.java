@@ -62,8 +62,7 @@ public class ModelMapper {
   public static void addModelMap(String apiGroupVersion, String kind, Class<?> clazz) {
     String[] parts = apiGroupVersion.split("/");
     if (parts.length == 1) {
-      String version = apiGroupVersion;
-      addModelMap("", version, kind, clazz);
+      addModelMap("", apiGroupVersion, kind, clazz);
     }
     addModelMap(parts[0], parts[1], kind, clazz);
   }

@@ -12,6 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
+import io.kubernetes.client.common.KubernetesType;
 import io.kubernetes.client.custom.IntOrString;
 import io.kubernetes.client.custom.Quantity;
 import java.io.File;
@@ -201,7 +202,7 @@ public class Yaml {
    * @param data The list of YAML API objects
    * @return A String representing the list of YAML API objects.
    */
-  public static String dumpAll(Iterator<? extends Object> data) {
+  public static String dumpAll(Iterator<? extends KubernetesType> data) {
     return getSnakeYaml().dumpAll(data);
   }
 
@@ -211,7 +212,7 @@ public class Yaml {
    * @param data The list of YAML API objects.
    * @param output The writer to output the YAML String to.
    */
-  public static void dumpAll(Iterator<? extends Object> data, Writer output) {
+  public static void dumpAll(Iterator<? extends KubernetesType> data, Writer output) {
     getSnakeYaml().dumpAll(data, output);
   }
 
