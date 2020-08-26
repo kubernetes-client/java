@@ -49,6 +49,7 @@
     <common.codec.version>1.14</common.codec.version>
     <spring.boot.version>2.3.3.RELEASE</spring.boot.version>
     <spring.version>5.2.8.RELEASE</spring.version>
+    <prometheus.client.version>0.9.0</prometheus.client.version>
 
     <gpg.keyname>48540ECBBF00A28EACCF04E720FD12AFB0C9EBA9</gpg.keyname>
     <gpg.passphrase>${env.GPG_PASSPHRASE}</gpg.passphrase>
@@ -153,6 +154,18 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-autoconfigure</artifactId>
         <version>${spring.boot.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.prometheus</groupId>
+        <artifactId>simpleclient</artifactId>
+        <version>${prometheus.client.version}</version>
+        <optional>true</optional>
+      </dependency>
+      <dependency>
+        <groupId>io.prometheus</groupId>
+        <artifactId>simpleclient_httpserver</artifactId>
+        <version>${prometheus.client.version}</version>
+        <optional>true</optional>
       </dependency>
 
 
