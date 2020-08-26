@@ -21,6 +21,7 @@ import com.google.common.io.Resources;
 import io.kubernetes.client.util.TestUtils;
 import io.kubernetes.client.util.authenticators.OpenIDConnectAuthenticator;
 import java.io.FileInputStream;
+import java.nio.charset.StandardCharsets;
 import java.security.KeyStore;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
@@ -183,7 +184,8 @@ public class OpenIDConnectAuthenticationTest {
     config.put(
         OpenIDConnectAuthenticator.OIDC_IDP_CERT_DATA,
         Base64.encodeBase64String(
-            exportCert((X509Certificate) serverKs.getCertificate("mykey")).getBytes("UTF-8")));
+            exportCert((X509Certificate) serverKs.getCertificate("mykey"))
+                .getBytes(StandardCharsets.UTF_8)));
 
     Map<String, Object> respMap = oidcAuth.refresh(config);
 
@@ -237,7 +239,8 @@ public class OpenIDConnectAuthenticationTest {
     config.put(
         OpenIDConnectAuthenticator.OIDC_IDP_CERT_DATA,
         Base64.encodeBase64String(
-            exportCert((X509Certificate) serverKs.getCertificate("mykey")).getBytes("UTF-8")));
+            exportCert((X509Certificate) serverKs.getCertificate("mykey"))
+                .getBytes(StandardCharsets.UTF_8)));
 
     Map<String, Object> respMap = oidcAuth.refresh(config);
   }
