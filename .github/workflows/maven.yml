@@ -37,3 +37,20 @@ jobs:
           graalvm-version: '19.3.0.java8'
       - name: Build with Maven
         run: mvn -q test -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+  e2e:
+    runs-on: ubuntu-latest
+    name: End-to-End Test Against Real Cluster
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create k8s Kind Cluster
+        uses: helm/kind-action@v1.0.0
+      - name: Run E2E with Maven
+        run: |
+          mvn clean install \
+          -q \
+          -Dmaven.test.skip=true
+          cd e2e
+          mvn test \
+            -B \
+            -De2e.skip=false \
+            -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
