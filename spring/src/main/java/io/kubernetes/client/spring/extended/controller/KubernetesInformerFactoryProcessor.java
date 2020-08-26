@@ -12,22 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.spring.extended.controller;
 
-import io.kubernetes.client.common.KubernetesListObject;
-import io.kubernetes.client.informer.ListerWatcher;
 import io.kubernetes.client.informer.SharedIndexInformer;
 import io.kubernetes.client.informer.SharedInformer;
 import io.kubernetes.client.informer.SharedInformerFactory;
 import io.kubernetes.client.informer.cache.Lister;
 import io.kubernetes.client.openapi.ApiClient;
-import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.spring.extended.controller.annotation.KubernetesInformer;
 import io.kubernetes.client.spring.extended.controller.annotation.KubernetesInformers;
-import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.ClientBuilder;
-import io.kubernetes.client.util.Watchable;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
-import io.kubernetes.client.util.generic.KubernetesApiResponse;
-import io.kubernetes.client.util.generic.options.ListOptions;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Map;
@@ -120,29 +113,7 @@ public class KubernetesInformerFactoryProcessor
               apiClient);
       SharedIndexInformer sharedIndexInformer =
           sharedInformerFactory.sharedIndexInformerFor(
-              new ListerWatcher() {
-                public KubernetesListObject list(CallGeneratorParams params) throws ApiException {
-                  KubernetesApiResponse<KubernetesListObject> resp =
-                      api.list(
-                          new ListOptions() {
-                            {
-                              setResourceVersion(params.resourceVersion);
-                              setTimeoutSeconds(params.timeoutSeconds);
-                            }
-                          });
-                  if (!resp.isSuccess()) {
-                    throw new ApiException(resp.getHttpStatusCode(), resp.getStatus().getMessage());
-                  }
-                  return resp.getObject();
-                }
-
-                public Watchable watch(CallGeneratorParams params) throws ApiException {
-                  return api.watch();
-                }
-              },
-              kubernetesInformer.apiTypeClass(),
-              kubernetesInformer.resyncPeriodMillis());
-
+              api, kubernetesInformer.apiTypeClass(), kubernetesInformer.resyncPeriodMillis());
       ResolvableType informerType =
           ResolvableType.forClassWithGenerics(
               SharedInformer.class, kubernetesInformer.apiTypeClass());
