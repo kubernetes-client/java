@@ -67,7 +67,7 @@
                     <execution>
                         <!-- Without joint compilation - no dependencies between Java and Groovy (inheritance)-->
                         <goals>
-                            <goal>testCompile</goal>
+                            <goal>compileTests</goal>
                         </goals>
                     </execution>
                 </executions>
