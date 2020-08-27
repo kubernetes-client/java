@@ -80,7 +80,7 @@ public class KubectlCreateTest {
         (V1ConfigMap)
             Kubectl.create()
                 .apiClient(apiClient)
-                .load(
+                .resource(
                     new V1ConfigMap()
                         .metadata(new V1ObjectMeta().namespace("foo").name("bar"))
                         .data(

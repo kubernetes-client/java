@@ -12,9 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import io.kubernetes.client.Discovery;
+import io.kubernetes.client.apimachinery.GroupVersionKind;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1Deployment;
 import io.kubernetes.client.openapi.models.V1Pod;
@@ -28,8 +31,7 @@ public class ModelMapperTest {
 
   @Test
   public void testPrebuiltModelMapping() {
-
-    Map<ModelMapper.GroupVersionKind, Class<?>> maps = ModelMapper.getAllKnownClasses();
+    Map<GroupVersionKind, Class<?>> maps = ModelMapper.getAllKnownClasses();
     assertTrue(maps.size() > 0);
 
     assertEquals(V1Pod.class, ModelMapper.getApiTypeClass("", "v1", "Pod"));
@@ -69,17 +71,17 @@ public class ModelMapperTest {
   @Test
   public void testGetClassByKind() {
     assertEquals(
-        new ModelMapper.GroupVersionKind(null, "v1", "Pod"),
+        new GroupVersionKind(null, "v1", "Pod"),
         ModelMapper.getGroupVersionKindByClass(V1Pod.class));
 
     assertEquals(
-        new ModelMapper.GroupVersionKind(null, "v1", "Pod"),
+        new GroupVersionKind(null, "v1", "Pod"),
         ModelMapper.getGroupVersionKindByClass(V1Pod.class));
     assertEquals(
-        new ModelMapper.GroupVersionKind(null, "v1", "Deployment"),
+        new GroupVersionKind(null, "v1", "Deployment"),
         ModelMapper.getGroupVersionKindByClass(V1Deployment.class));
     assertEquals(
-        new ModelMapper.GroupVersionKind(null, "v1beta1", "CustomResourceDefinition"),
+        new GroupVersionKind(null, "v1beta1", "CustomResourceDefinition"),
         ModelMapper.getGroupVersionKindByClass(V1beta1CustomResourceDefinition.class));
   }
 
@@ -91,14 +93,12 @@ public class ModelMapperTest {
     ModelMapper.refresh(discovery);
 
     assertEquals(
-        new ModelMapper.GroupVersionKind("", "v1", "Pod"),
-        ModelMapper.getGroupVersionKindByClass(V1Pod.class));
+        new GroupVersionKind("", "v1", "Pod"), ModelMapper.getGroupVersionKindByClass(V1Pod.class));
     assertEquals(
-        new ModelMapper.GroupVersionKind("apps", "v1", "Deployment"),
+        new GroupVersionKind("apps", "v1", "Deployment"),
         ModelMapper.getGroupVersionKindByClass(V1Deployment.class));
     assertEquals(
-        new ModelMapper.GroupVersionKind(
-            "apiextensions.k8s.io", "v1beta1", "CustomResourceDefinition"),
+        new GroupVersionKind("apiextensions.k8s.io", "v1beta1", "CustomResourceDefinition"),
         ModelMapper.getGroupVersionKindByClass(V1beta1CustomResourceDefinition.class));
   }
 }
