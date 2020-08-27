@@ -53,7 +53,7 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
     UNINITIALIZED,
     OPEN,
     CLOSED
-  };
+  }
 
   public synchronized void waitForInitialized() throws InterruptedException {
     if (state != State.UNINITIALIZED) {

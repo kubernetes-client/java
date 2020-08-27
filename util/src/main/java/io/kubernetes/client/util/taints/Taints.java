@@ -34,7 +34,7 @@ public class Taints {
         return "NoExcute";
       }
     }
-  };
+  }
 
   public static V1Taint findTaint(V1Node node, String key, Effect effect) {
     for (V1Taint taint : node.getSpec().getTaints()) {

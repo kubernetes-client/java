@@ -27,7 +27,7 @@ public class TestUtils {
     Now,
     Future,
     Past
-  };
+  }
 
   public static ApiKeyAuth getApiKeyAuthFromClient(ApiClient client) {
     return (ApiKeyAuth) client.getAuthentications().get("BearerToken");

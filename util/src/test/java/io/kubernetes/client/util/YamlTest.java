@@ -21,6 +21,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import com.google.common.io.Resources;
+import io.kubernetes.client.common.KubernetesType;
 import io.kubernetes.client.openapi.models.V1Deployment;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
@@ -33,6 +34,7 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.lang.reflect.Method;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
 
@@ -125,6 +127,7 @@ public class YamlTest {
   @Test
   public void testLoadAllFile() throws Exception {
     List<Object> list = Yaml.loadAll(new File(TEST_YAML_FILE_PATH));
+    List<KubernetesType> k8ObjectList = new ArrayList<>();
     for (Object object : list) {
       String type = object.getClass().getSimpleName();
       if (type.equals("V1Service")) {
@@ -132,22 +135,25 @@ public class YamlTest {
         assertEquals("v1", svc.getApiVersion());
         assertEquals("Service", svc.getKind());
         assertEquals("mock", svc.getMetadata().getName());
+        k8ObjectList.add(svc);
       } else if (type.equals("V1Deployment")) {
         V1Deployment deploy = (V1Deployment) object;
         assertEquals("apps/v1", deploy.getApiVersion());
         assertEquals("Deployment", deploy.getKind());
         assertEquals("helloworld", deploy.getMetadata().getName());
+        k8ObjectList.add(deploy);
       } else if (type.equals("V1Secret")) {
         V1Secret secret = (V1Secret) object;
         assertEquals("Secret", secret.getKind());
         assertEquals("secret", secret.getMetadata().getName());
         assertEquals("Opaque", secret.getType());
         assertEquals("hello", new String(secret.getData().get("secret-data"), UTF_8));
+        k8ObjectList.add(secret);
       } else {
         throw new Exception("some thing wrong happened");
       }
     }
-    String result = Yaml.dumpAll(list.iterator());
+    String result = Yaml.dumpAll(k8ObjectList.iterator());
     String expected = Resources.toString(EXPECTED_YAML_FILE, UTF_8);
     assertThat(result, equalTo(expected));
   }
