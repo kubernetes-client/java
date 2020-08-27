@@ -12,10 +12,10 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.reflect.ClassPath;
 import io.kubernetes.client.Discovery;
+import io.kubernetes.client.apimachinery.GroupVersionKind;
 import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.openapi.ApiException;
@@ -142,12 +142,26 @@ public class ModelMapper {
    * Refreshes the model mapping by syncing up w/the api discovery info from the kubernetes
    * apiserver.
    *
+   * <p>Note: if model mappings can be incomplete if this method is never called.
+   *
    * @param discovery the discovery
    * @throws ApiException the api exception
    */
   public static void refresh(Discovery discovery) throws ApiException {
-    // TODO(yue9944882): integration test it
-    for (Discovery.APIResource apiResource : discovery.findAll()) {
+    refresh(discovery.findAll());
+  }
+
+  /**
+   * Refreshes the model mapping by syncing up w/the api discovery info from the kubernetes
+   * apiserver.
+   *
+   * <p>Note: if model mappings can be incomplete if this method is never called.
+   *
+   * @param apiResources the api resources
+   * @throws ApiException the api exception
+   */
+  public static void refresh(Set<Discovery.APIResource> apiResources) {
+    for (Discovery.APIResource apiResource : apiResources) {
       for (String version : apiResource.getVersions()) {
         Class<?> clazz = getApiTypeClass(apiResource.getGroup(), version, apiResource.getKind());
         if (clazz == null) {
@@ -231,48 +245,5 @@ public class ModelMapper {
         .map(v -> new MutablePair(v.toLowerCase(), name.substring(v.length())))
         .findFirst()
         .orElse(new MutablePair(null, name));
-  }
-
-  public static class GroupVersionKind {
-
-    public GroupVersionKind(String group, String version, String kind) {
-      this.group = group;
-      this.version = version;
-      this.kind = kind;
-    }
-
-    private String group;
-    private String version;
-    private String kind;
-
-    @Override
-    public boolean equals(Object o) {
-      if (this == o) return true;
-      if (o == null || getClass() != o.getClass()) return false;
-      GroupVersionKind that = (GroupVersionKind) o;
-      return Objects.equal(group, that.group)
-          && Objects.equal(version, that.version)
-          && Objects.equal(kind, that.kind);
-    }
-
-    @Override
-    public int hashCode() {
-      return Objects.hashCode(group, version, kind);
-    }
-
-    @Override
-    public String toString() {
-      return "GroupVersionKind{"
-          + "group='"
-          + group
-          + '\''
-          + ", version='"
-          + version
-          + '\''
-          + ", kind='"
-          + kind
-          + '\''
-          + '}';
-    }
   }
 }

@@ -394,34 +394,45 @@ public class GenericKubernetesApi<
   public KubernetesApiResponse<ApiType> create(ApiType object, final CreateOptions createOptions) {
     V1ObjectMeta objectMeta = object.getMetadata();
 
+    boolean isNamespaced = !Strings.isNullOrEmpty(objectMeta.getNamespace());
+    if (isNamespaced) {
+      return create(objectMeta.getNamespace(), object, createOptions);
+    }
+
     return executeCall(
         customObjectsApi.getApiClient(),
         apiTypeClass,
         () -> {
           // TODO(yue9944882): judge namespaced object via api discovery
-          boolean isNamespaced = !Strings.isNullOrEmpty(objectMeta.getNamespace());
-          if (isNamespaced) {
-            return customObjectsApi.createNamespacedCustomObjectCall(
-                this.apiGroup,
-                this.apiVersion,
-                objectMeta.getNamespace(),
-                this.resourcePlural,
-                object,
-                null,
-                createOptions.getDryRun(),
-                createOptions.getFieldManager(),
-                null);
-          } else {
-            return customObjectsApi.createClusterCustomObjectCall(
-                this.apiGroup,
-                this.apiVersion,
-                this.resourcePlural,
-                object,
-                null,
-                createOptions.getDryRun(),
-                createOptions.getFieldManager(),
-                null);
-          }
+          return customObjectsApi.createClusterCustomObjectCall(
+              this.apiGroup,
+              this.apiVersion,
+              this.resourcePlural,
+              object,
+              null,
+              createOptions.getDryRun(),
+              createOptions.getFieldManager(),
+              null);
+        });
+  }
+
+  public KubernetesApiResponse<ApiType> create(
+      String namespace, ApiType object, final CreateOptions createOptions) {
+    return executeCall(
+        customObjectsApi.getApiClient(),
+        apiTypeClass,
+        () -> {
+          // TODO(yue9944882): judge namespaced object via api discovery
+          return customObjectsApi.createNamespacedCustomObjectCall(
+              this.apiGroup,
+              this.apiVersion,
+              namespace,
+              this.resourcePlural,
+              object,
+              null,
+              createOptions.getDryRun(),
+              createOptions.getFieldManager(),
+              null);
         });
   }
 

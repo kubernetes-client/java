@@ -34,6 +34,15 @@ public class Kubectl {
   }
 
   /**
+   * Equivalent for `kubectl create`
+   *
+   * @return the kubectl create
+   */
+  public static KubectlCreate create() {
+    return new KubectlCreate();
+  }
+
+  /**
    * Equivalent for `kubectl top`
    *
    * @param apiTypeClass Must be either V1Pod.class or V1Node.class
@@ -146,8 +155,17 @@ public class Kubectl {
     OUTPUT execute() throws KubectlException;
   }
 
-  abstract static class ApiClientBuilder<T extends ApiClientBuilder> {
+  abstract static class NamespacedApiClientBuilder<T extends NamespacedApiClientBuilder>
+      extends ApiClientBuilder<T> {
+    String namespace;
 
+    public T namespace(String namespace) {
+      this.namespace = namespace;
+      return (T) this;
+    }
+  }
+
+  abstract static class ApiClientBuilder<T extends ApiClientBuilder> {
     ApiClient apiClient = Configuration.getDefaultApiClient();
 
     public T apiClient(ApiClient apiClient) {
@@ -158,9 +176,8 @@ public class Kubectl {
 
   abstract static class ResourceBuilder<
           ApiType extends KubernetesObject, T extends ResourceBuilder<ApiType, T>>
-      extends ApiClientBuilder<T> {
+      extends NamespacedApiClientBuilder<T> {
     final Class<ApiType> apiTypeClass;
-    String namespace;
     String name;
     String apiGroup;
     String apiVersion;
@@ -172,11 +189,6 @@ public class Kubectl {
 
     public T name(String name) {
       this.name = name;
-      return (T) this;
-    }
-
-    public T namespace(String namespace) {
-      this.namespace = namespace;
       return (T) this;
     }
 
