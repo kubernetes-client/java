@@ -15,6 +15,7 @@ package io.kubernetes.client.examples;
 import static io.kubernetes.client.extended.kubectl.Kubectl.apiResources;
 import static io.kubernetes.client.extended.kubectl.Kubectl.copy;
 import static io.kubernetes.client.extended.kubectl.Kubectl.cordon;
+import static io.kubernetes.client.extended.kubectl.Kubectl.drain;
 import static io.kubernetes.client.extended.kubectl.Kubectl.exec;
 import static io.kubernetes.client.extended.kubectl.Kubectl.label;
 import static io.kubernetes.client.extended.kubectl.Kubectl.log;
@@ -106,6 +107,11 @@ public class KubectlExample {
     String name = null;
 
     switch (verb) {
+      case "drain":
+        name = args[1];
+        drain().apiClient(client).name(name).execute();
+        System.out.println("Node drained");
+        System.exit(0);
       case "cordon":
         name = args[1];
         cordon().apiClient(client).name(name).execute();

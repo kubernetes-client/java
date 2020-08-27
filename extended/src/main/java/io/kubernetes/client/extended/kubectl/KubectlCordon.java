@@ -36,8 +36,11 @@ public class KubectlCordon extends Kubectl.ResourceAndContainerBuilder<V1Node, K
 
   @Override
   public V1Node execute() throws KubectlException {
+    return performCordon(new CoreV1Api(apiClient));
+  }
+
+  protected V1Node performCordon(CoreV1Api api) throws KubectlException {
     String patch = this.cordon ? CORDON_PATCH_STR : UNCORDON_PATCH_STR;
-    CoreV1Api api = new CoreV1Api(apiClient);
 
     try {
       return PatchUtils.patch(

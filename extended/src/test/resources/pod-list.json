@@ -1,0 +1,99 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "name": "mssql-75b8b44f6b-znftp",
+                "namespace": "mssql"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "ACCEPT_EULA",
+                                "value": "Y"
+                            },
+                            {
+                                "name": "MSSQL_PID",
+                                "value": "Developer"
+                            }
+                        ],
+                        "image": "mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04",
+                        "name": "mssql",
+                        "ports": [
+                            {
+                                "containerPort": 1433,
+                                "name": "mssql",
+                                "protocol": "TCP"
+                            }
+                        ]
+                    }
+                ],
+                "nodeName": "node1"
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2020-08-04T05:54:27Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2020-08-04T05:54:28Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2020-08-04T05:54:28Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2020-08-04T05:54:27Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://940b61bd991a001f1c2800ccb7a3dcd23afef494fd8542adbf13e5c508b0a039",
+                        "image": "mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04",
+                        "imageID": "docker-pullable://mcr.microsoft.com/mssql/server@sha256:a4c896f11c73fd6eecaab1b96eb256c6bc0bdc06a79bdf836eed47ba56cdff13",
+                        "lastState": {},
+                        "name": "mssql",
+                        "ready": true,
+                        "restartCount": 0,
+                        "started": true,
+                        "state": {
+                            "running": {
+                                "startedAt": "2020-08-04T05:54:28Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "10.10.0.101",
+                "phase": "Running",
+                "podIP": "10.244.1.65",
+                "podIPs": [
+                    {
+                        "ip": "10.244.1.65"
+                    }
+                ],
+                "qosClass": "Burstable",
+                "startTime": "2020-08-04T05:54:27Z"
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": "",
+        "selfLink": ""
+    }
+}
