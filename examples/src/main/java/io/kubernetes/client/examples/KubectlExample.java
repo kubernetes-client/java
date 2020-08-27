@@ -14,6 +14,7 @@ package io.kubernetes.client.examples;
 
 import static io.kubernetes.client.extended.kubectl.Kubectl.apiResources;
 import static io.kubernetes.client.extended.kubectl.Kubectl.copy;
+import static io.kubernetes.client.extended.kubectl.Kubectl.cordon;
 import static io.kubernetes.client.extended.kubectl.Kubectl.exec;
 import static io.kubernetes.client.extended.kubectl.Kubectl.label;
 import static io.kubernetes.client.extended.kubectl.Kubectl.log;
@@ -21,6 +22,7 @@ import static io.kubernetes.client.extended.kubectl.Kubectl.portforward;
 import static io.kubernetes.client.extended.kubectl.Kubectl.scale;
 import static io.kubernetes.client.extended.kubectl.Kubectl.taint;
 import static io.kubernetes.client.extended.kubectl.Kubectl.top;
+import static io.kubernetes.client.extended.kubectl.Kubectl.uncordon;
 import static io.kubernetes.client.extended.kubectl.Kubectl.version;
 import static io.kubernetes.client.extended.kubectl.KubectlTop.podMetricSum;
 
@@ -104,6 +106,16 @@ public class KubectlExample {
     String name = null;
 
     switch (verb) {
+      case "cordon":
+        name = args[1];
+        cordon().apiClient(client).name(name).execute();
+        System.out.println("Node cordoned");
+        System.exit(0);
+      case "uncordon":
+        name = args[1];
+        uncordon().apiClient(client).name(name).execute();
+        System.out.println("Node uncordoned");
+        System.exit(0);
       case "top":
         String what = args[1];
         switch (what) {
