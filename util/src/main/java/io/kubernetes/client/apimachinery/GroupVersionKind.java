@@ -14,24 +14,13 @@ package io.kubernetes.client.apimachinery;
 
 import com.google.common.base.Objects;
 
-public class GroupVersionKind {
+public class GroupVersionKind extends GroupVersion {
 
-  private final String group;
-  private final String version;
   private final String kind;
 
   public GroupVersionKind(String group, String version, String kind) {
-    this.group = group;
-    this.version = version;
+    super(group, version);
     this.kind = kind;
-  }
-
-  public String getGroup() {
-    return group;
-  }
-
-  public String getVersion() {
-    return version;
   }
 
   public String getKind() {
@@ -42,14 +31,13 @@ public class GroupVersionKind {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     GroupVersionKind that = (GroupVersionKind) o;
-    return Objects.equal(group, that.group)
-        && Objects.equal(version, that.version)
-        && Objects.equal(kind, that.kind);
+    return Objects.equal(kind, that.kind);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hashCode(group, version, kind);
+    return Objects.hashCode(super.hashCode(), kind);
   }
 }

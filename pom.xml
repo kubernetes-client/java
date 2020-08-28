@@ -215,6 +215,11 @@
         <version>${spring.version}</version>
         <scope>test</scope>
       </dependency>
+      <dependency>
+        <groupId>com.flipkart.zjsonpatch</groupId>
+        <artifactId>zjsonpatch</artifactId>
+        <version>0.4.4</version>
+      </dependency>
 
     </dependencies>
   </dependencyManagement>

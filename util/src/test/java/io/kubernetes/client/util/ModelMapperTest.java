@@ -91,6 +91,7 @@ public class ModelMapperTest {
     // TODO(yue9944882): move this to an integration test
     Discovery discovery = new Discovery(ClientBuilder.defaultClient());
     ModelMapper.refresh(discovery);
+    ModelMapper.refresh(discovery);
 
     assertEquals(
         new GroupVersionKind("", "v1", "Pod"), ModelMapper.getGroupVersionKindByClass(V1Pod.class));

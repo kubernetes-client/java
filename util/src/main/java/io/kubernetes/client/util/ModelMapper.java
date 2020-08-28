@@ -20,11 +20,8 @@ import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.openapi.ApiException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.time.Duration;
+import java.util.*;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.slf4j.Logger;
@@ -38,7 +35,14 @@ public class ModelMapper {
 
   private static final Logger logger = LoggerFactory.getLogger(ModelMapper.class);
 
+  public static final Duration DEFAULT_DISCOVERY_REFRESH_INTERVAL = Duration.ofMinutes(30);
+
   private static Map<GroupVersionKind, Class<?>> classes = new HashMap<>();
+
+  private static Set<Discovery.APIResource> lastAPIDiscovery = new HashSet<>();
+
+  private static volatile long nextRefreshTimeMillis = System.currentTimeMillis();
+
   // Model's api-group prefix to kubernetes api-group
   private static Map<String, String> apiGroups = new HashMap<>();
   // Model's api-version midfix to kubernetes api-version
@@ -138,6 +142,9 @@ public class ModelMapper {
         .get();
   }
 
+  public static Set<Discovery.APIResource> refresh(Discovery discovery) throws ApiException {
+    return refresh(discovery, DEFAULT_DISCOVERY_REFRESH_INTERVAL);
+  }
   /**
    * Refreshes the model mapping by syncing up w/the api discovery info from the kubernetes
    * apiserver.
@@ -145,22 +152,18 @@ public class ModelMapper {
    * <p>Note: if model mappings can be incomplete if this method is never called.
    *
    * @param discovery the discovery
+   * @return the api-discovery set
    * @throws ApiException the api exception
    */
-  public static void refresh(Discovery discovery) throws ApiException {
-    refresh(discovery.findAll());
-  }
+  public static Set<Discovery.APIResource> refresh(Discovery discovery, Duration refreshInterval)
+      throws ApiException {
+    long nowMillis = System.currentTimeMillis();
+    if (nowMillis < nextRefreshTimeMillis) {
+      return lastAPIDiscovery;
+    }
 
-  /**
-   * Refreshes the model mapping by syncing up w/the api discovery info from the kubernetes
-   * apiserver.
-   *
-   * <p>Note: if model mappings can be incomplete if this method is never called.
-   *
-   * @param apiResources the api resources
-   * @throws ApiException the api exception
-   */
-  public static void refresh(Set<Discovery.APIResource> apiResources) {
+    Set<Discovery.APIResource> apiResources = discovery.findAll();
+
     for (Discovery.APIResource apiResource : apiResources) {
       for (String version : apiResource.getVersions()) {
         Class<?> clazz = getApiTypeClass(apiResource.getGroup(), version, apiResource.getKind());
@@ -172,6 +175,10 @@ public class ModelMapper {
         addModelMap(apiResource.getGroup(), version, apiResource.getKind(), clazz);
       }
     }
+
+    lastAPIDiscovery = apiResources;
+    nextRefreshTimeMillis = refreshInterval.toMillis() + nowMillis;
+    return lastAPIDiscovery;
   }
 
   private static void initApiGroupMap() {

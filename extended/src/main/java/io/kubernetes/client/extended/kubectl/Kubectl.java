@@ -12,10 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.kubectl;
 
+import io.kubernetes.client.Discovery;
+import io.kubernetes.client.apimachinery.GroupVersionKind;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
+import io.kubernetes.client.util.ModelMapper;
+import java.util.Optional;
+import java.util.Set;
 
 /**
  * Kubectl provides a set of helper functions that has the same functionalities as corresponding
@@ -42,6 +48,14 @@ public class Kubectl {
     return new KubectlCreate();
   }
 
+  /**
+   * Equivalent for `kubectl apply`
+   *
+   * @return the kubectl create
+   */
+  public static KubectlApply apply() {
+    return new KubectlApply();
+  }
   /**
    * Equivalent for `kubectl top`
    *
@@ -167,6 +181,26 @@ public class Kubectl {
 
   abstract static class ApiClientBuilder<T extends ApiClientBuilder> {
     ApiClient apiClient = Configuration.getDefaultApiClient();
+
+    protected Discovery.APIResource recognize(KubernetesObject object)
+        throws KubectlException, ApiException {
+      Discovery discovery = new Discovery(apiClient);
+
+      Set<Discovery.APIResource> apiResources = ModelMapper.refresh(discovery);
+
+      GroupVersionKind gvk = ModelMapper.getGroupVersionKindByClass(object.getClass());
+
+      Optional<Discovery.APIResource> apiResource =
+          apiResources.stream()
+              .filter(r -> r.getKind().equals(gvk.getKind()) && r.getGroup().equals(gvk.getGroup()))
+              .findFirst();
+      if (!apiResource.isPresent()) {
+        throw new KubectlException(
+            "Cannot recognize such kubernetes resource from api-discovery: " + gvk.toString());
+      }
+
+      return apiResource.get();
+    }
 
     public T apiClient(ApiClient apiClient) {
       this.apiClient = apiClient;
