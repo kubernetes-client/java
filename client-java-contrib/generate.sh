@@ -17,7 +17,7 @@
 # This script orchestrates the code generation procedure. It is executed inside a crdgen
 # container in order to minimize the environment dependencies on the host, being Docker only.
 
-CRD_URL=${CRD_URL:-}
+CRD_URLS=${CRD_URLS:-}
 OUTPUT_DIR=${OUTPUT_DIR:-}
 KUBERNETES_CRD_GROUP_PREFIX=${KUBERNETES_CRD_GROUP_PREFIX:-}
 PACKAGE_NAME=${PACKAGE_NAME:-}
@@ -32,7 +32,7 @@ print_usage() {
 
 while getopts 'u:n:p:o:' flag; do
   case "${flag}" in
-    u) CRD_URL="${OPTARG}" ;;
+    u) CRD_URLS+=("${OPTARG}") ;;
     n) KUBERNETES_CRD_GROUP_PREFIX="${OPTARG}" ;;
     p) PACKAGE_NAME="${OPTARG}" ;;
     o) OUTPUT_DIR="${OPTARG}" ;;
@@ -45,7 +45,10 @@ done
 kind create cluster
 
 # install CRDs to the KinD cluster and dump the swagger spec
-kubectl apply -f "${CRD_URL}"
+for url in "${CRD_URLS[@]}"; do
+  kubectl apply -f "$url"
+done
+
 sleep 5
 kubectl get --raw="/openapi/v2" > /tmp/swagger
 
