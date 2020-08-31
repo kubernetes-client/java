@@ -254,7 +254,7 @@ public class Attach {
       return handler.getInputStream(1);
     }
 
-    public InputStream getErrorStream() throws IOException {
+    public InputStream getErrorStream() {
       return handler.getInputStream(2);
     }
 

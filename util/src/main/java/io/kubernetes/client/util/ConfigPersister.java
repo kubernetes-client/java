@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public interface ConfigPersister {
-  public void save(
+  void save(
       ArrayList<Object> contexts,
       ArrayList<Object> clusters,
       ArrayList<Object> users,

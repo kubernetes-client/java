@@ -18,7 +18,7 @@ import io.kubernetes.client.openapi.models.V1Taint;
 import java.util.Iterator;
 
 public class Taints {
-  public static enum Effect {
+  public enum Effect {
     NO_SCHEDULE {
       public String toString() {
         return "NoSchedule";
