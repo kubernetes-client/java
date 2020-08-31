@@ -60,6 +60,11 @@
 			<artifactId>client-java-cert-manager-models</artifactId>
 			<version>0.16.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>io.kubernetes</groupId>
+			<artifactId>client-java-prometheus-operator-models</artifactId>
+			<version>0.38.1-SNAPSHOT</version>
+		</dependency>
 		<!-- test dependencies -->
 		<dependency>
 			<groupId>junit</groupId>
