@@ -167,11 +167,15 @@ public class WatchExample {
 }
 ```
 
-More examples can be found in [examples](examples/) folder. To run examples, run this command:
+More examples can be found in [examples](examples) folder. To run examples, run this command:
 
 ```shell
 mvn exec:java -Dexec.mainClass="io.kubernetes.client.examples.Example"
 ```
+## Model Classes from Popular CRDs
+The project also provides model classes generated from some frequently used open source projects as separate maven dependencies. Please refer to the following to see their respective documentation.
+* [cert-manager](client-java-contrib/cert-manager)
+* [prometheus operator](client-java-contrib/prometheus-operator)
 
 ## Documentation
 
