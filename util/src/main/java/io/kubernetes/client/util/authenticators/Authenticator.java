@@ -23,7 +23,7 @@ public interface Authenticator {
    * Return the name of this authenticator, this should be the value that is also in a kubeconfig
    * file.
    */
-  public String getName();
+  String getName();
 
   /**
    * Get a token from this authenticator.
@@ -31,11 +31,11 @@ public interface Authenticator {
    * @param config The configuration information for this authenticator
    * @return The new token, null of no such token can be found/generated
    */
-  public String getToken(Map<String, Object> config);
+  String getToken(Map<String, Object> config);
 
   /** Determine if this config is expired */
-  public boolean isExpired(Map<String, Object> config);
+  boolean isExpired(Map<String, Object> config);
 
   /** Refresh an expired token with a new fresh one. */
-  public Map<String, Object> refresh(Map<String, Object> config);
+  Map<String, Object> refresh(Map<String, Object> config);
 }

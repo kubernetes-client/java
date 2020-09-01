@@ -49,7 +49,7 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
 
   private State state = State.UNINITIALIZED;
 
-  private static enum State {
+  private enum State {
     UNINITIALIZED,
     OPEN,
     CLOSED
