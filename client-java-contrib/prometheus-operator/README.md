@@ -1,4 +1,4 @@
-# Cert-Manager Model Classes
+# Prometheus Operator Model Classes
 This module contains the Java model classes generated from the release version of [prometheus operator](https://github.com/prometheus-operator/prometheus-operator) CRDs.
 
 It makes it possible to CRUD custom resources defined by `prometheus operator` in a strong-typed manner in your Java application, such as create a prometheus instance, write a prometheus rule, etc.
@@ -13,7 +13,7 @@ To use this library, include the following maven dependency
 ```
 Please refer to the [PromOpExample](../../examples/src/main/java/io/kubernetes/client/examples/PromOpExample.java), which demonstrates how to create a minimal prometheus instance with the model class and Kubernetes Java client generic API.
 ## Compatibility
-Artifact Version|Cert-Manager Release Version|CRD Source
+Artifact Version|Prometheus Operator Release Version|CRD Source
 ----------------|----------------------------|----------
 0.38.1-SNAPSHOT|0.38.1|[Here](https://github.com/prometheus-operator/prometheus-operator/tree/master/example/prometheus-operator-crd)
 ## Code Generation
