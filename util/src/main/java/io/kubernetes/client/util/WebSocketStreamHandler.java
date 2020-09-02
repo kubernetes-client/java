@@ -94,6 +94,7 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
     try {
       OutputStream out = getSocketInputOutputStream(stream);
       ByteStreams.copy(inStream, out);
+      out.flush();
     } finally {
       inStream.close();
     }
