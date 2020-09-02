@@ -16,9 +16,6 @@
 # This script generates the model classes from a released version of cert-manager CRDs
 # under src/main/java/io/cert/manager/models.
 
-# build the crdgen image which includes all the toolchains needed for code generation
-docker build .. -t crdgen
-
 # a crdgen container is run in a way that:
 #   1. it has access to the docker daemon on the host so that it is able to create sibling container on the host
 #   2. it runs on the host network so that it is able to communicate with the KinD cluster it launched on the host
@@ -28,7 +25,8 @@ docker run \
   -v "$(pwd)":"$(pwd)" \
   -ti \
   --network host \
-  crdgen /generate.sh \
+  docker.pkg.github.com/kubernetes-client/java/crd-model-gen:v1.0.0 \
+  /generate.sh \
   -u https://github.com/jetstack/cert-manager/releases/download/v0.16.1/cert-manager.crds.yaml \
   -n io.cert-manager \
   -p io.cert.manager \
