@@ -22,6 +22,10 @@ import io.kubernetes.client.openapi.Configuration;
  * kubectl commands.
  */
 public class Kubectl {
+  /** Equivalent for `kubectl drain` */
+  public static KubectlDrain drain() {
+    return new KubectlDrain();
+  }
 
   /** Equivalent for `kubectl cordon` */
   public static KubectlCordon cordon() {
