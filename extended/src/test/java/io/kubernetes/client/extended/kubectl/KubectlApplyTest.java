@@ -13,10 +13,13 @@ limitations under the License.
 package io.kubernetes.client.extended.kubectl;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import static org.junit.Assert.assertNotNull;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
+import static org.junit.Assert.*;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.matching.EqualToPattern;
 import com.google.common.io.Resources;
+import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.models.V1ConfigMap;
@@ -30,7 +33,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
-public class KubectlCreateTest {
+public class KubectlApplyTest {
 
   private static final String DISCOVERY_API = Resources.getResource("discovery-api.json").getPath();
 
@@ -50,9 +53,10 @@ public class KubectlCreateTest {
   }
 
   @Test
-  public void testCreateConfigMap() throws KubectlException, IOException {
+  public void testApplyConfigMap() throws KubectlException, IOException {
     wireMockRule.stubFor(
-        post(urlPathEqualTo("/api/v1/namespaces/foo/configmaps"))
+        patch(urlPathEqualTo("/api/v1/namespaces/foo/configmaps/bar"))
+            .withHeader("Content-Type", new EqualToPattern(V1Patch.PATCH_FORMAT_APPLY_YAML))
             .willReturn(
                 aResponse()
                     .withStatus(200)
@@ -78,7 +82,7 @@ public class KubectlCreateTest {
 
     V1ConfigMap configMap =
         (V1ConfigMap)
-            Kubectl.create()
+            Kubectl.apply()
                 .apiClient(apiClient)
                 .resource(
                     new V1ConfigMap()
@@ -91,7 +95,8 @@ public class KubectlCreateTest {
                               }
                             }))
                 .execute();
-    wireMockRule.verify(1, postRequestedFor(urlPathEqualTo("/api/v1/namespaces/foo/configmaps")));
+    wireMockRule.verify(
+        1, patchRequestedFor(urlPathEqualTo("/api/v1/namespaces/foo/configmaps/bar")));
     assertNotNull(configMap);
   }
 }

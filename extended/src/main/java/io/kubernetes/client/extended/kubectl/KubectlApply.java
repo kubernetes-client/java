@@ -17,27 +17,56 @@ import io.kubernetes.client.Discovery;
 import io.kubernetes.client.apimachinery.GroupVersion;
 import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
+import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.util.Namespaces;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
 import io.kubernetes.client.util.generic.KubernetesApiResponse;
-import io.kubernetes.client.util.generic.options.CreateOptions;
+import io.kubernetes.client.util.generic.options.PatchOptions;
 
-public class KubectlCreate extends Kubectl.NamespacedApiClientBuilder<KubectlCreate>
+public class KubectlApply extends Kubectl.NamespacedApiClientBuilder<KubectlApply>
     implements Kubectl.Executable<KubernetesObject> {
 
-  KubectlCreate() {}
-
   private KubernetesObject targetObj;
+  private String fieldManager;
+  private boolean forceConflict;
 
-  public KubectlCreate resource(KubernetesObject obj) {
+  public static final String DEFAULT_FIELD_MANAGER = "kubernetes-java-kubectl-apply";
+
+  KubectlApply() {
+    this.forceConflict = false;
+    this.fieldManager = DEFAULT_FIELD_MANAGER;
+  }
+
+  public KubectlApply fieldManager(String fieldManager) {
+    this.fieldManager = fieldManager;
+    return this;
+  }
+
+  public KubectlApply forceConflict(boolean isForceConflict) {
+    this.forceConflict = isForceConflict;
+    return this;
+  }
+
+  public KubectlApply resource(KubernetesObject obj) {
     this.targetObj = obj;
     return this;
   }
 
+  private void validate() throws KubectlException {
+    if (Strings.isNullOrEmpty(fieldManager)) {
+      throw new KubectlException("Field-manager must not be empty for server-side-apply");
+    }
+  }
+
   @Override
   public KubernetesObject execute() throws KubectlException {
+    validate();
+    return executeServerSideApply();
+  }
+
+  private KubernetesObject executeServerSideApply() throws KubectlException {
     try {
       Discovery.APIResource apiResource = recognize(this.targetObj);
       GroupVersion gv = GroupVersion.parse(this.targetObj);
@@ -50,6 +79,11 @@ public class KubectlCreate extends Kubectl.NamespacedApiClientBuilder<KubectlCre
               gv.getVersion(),
               apiResource.getResourcePlural(),
               apiClient);
+
+      PatchOptions patchOptions = new PatchOptions();
+      patchOptions.setForce(this.forceConflict);
+      patchOptions.setFieldManager(this.fieldManager);
+
       if (apiResource.getNamespaced()) {
         String targetNamespace =
             namespace != null
@@ -59,11 +93,20 @@ public class KubectlCreate extends Kubectl.NamespacedApiClientBuilder<KubectlCre
                     : targetObj.getMetadata().getNamespace();
 
         KubernetesApiResponse<KubernetesObject> response =
-            api.create(targetNamespace, targetObj, new CreateOptions());
+            api.patch(
+                targetNamespace,
+                targetObj.getMetadata().getName(),
+                V1Patch.PATCH_FORMAT_APPLY_YAML,
+                new V1Patch(apiClient.getJSON().serialize(targetObj)),
+                patchOptions);
         return response.getObject();
       } else {
         KubernetesApiResponse<KubernetesObject> response =
-            api.create(targetObj, new CreateOptions());
+            api.patch(
+                targetObj.getMetadata().getName(),
+                V1Patch.PATCH_FORMAT_APPLY_YAML,
+                new V1Patch(apiClient.getJSON().serialize(targetObj)),
+                patchOptions);
         return response.getObject();
       }
     } catch (ApiException e) {

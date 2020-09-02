@@ -490,21 +490,35 @@ public class GenericKubernetesApi<
     if (Strings.isNullOrEmpty(name)) {
       throw new IllegalArgumentException("invalid name");
     }
-    return executeCall(
-        customObjectsApi.getApiClient(),
-        apiTypeClass,
-        () -> {
-          return customObjectsApi.patchClusterCustomObjectCall(
-              this.apiGroup,
-              this.apiVersion,
-              this.resourcePlural,
-              name,
-              patch,
-              patchOptions.getDryRun(),
-              patchOptions.getFieldManager(),
-              patchOptions.getForce(),
-              null);
-        });
+    try {
+      ApiType object =
+          PatchUtils.patch(
+              apiTypeClass,
+              () -> {
+                Call call =
+                    customObjectsApi.patchClusterCustomObjectCall(
+                        this.apiGroup,
+                        this.apiVersion,
+                        this.resourcePlural,
+                        name,
+                        patch,
+                        patchOptions.getDryRun(),
+                        patchOptions.getFieldManager(),
+                        patchOptions.getForce(),
+                        null);
+                return tweakCallForCoreV1Group(call);
+              },
+              patchType,
+              this.customObjectsApi.getApiClient());
+      return new KubernetesApiResponse<ApiType>(object);
+    } catch (ApiException e) {
+      V1Status status =
+          customObjectsApi
+              .getApiClient()
+              .getJSON()
+              .deserialize(e.getResponseBody(), V1Status.class);
+      return new KubernetesApiResponse<>(status, e.getCode());
+    }
   }
 
   /**
