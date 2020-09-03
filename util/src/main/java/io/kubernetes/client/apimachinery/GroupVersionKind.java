@@ -20,6 +20,9 @@ public class GroupVersionKind extends GroupVersion {
 
   public GroupVersionKind(String group, String version, String kind) {
     super(group, version);
+    if (kind == null) {
+      throw new IllegalArgumentException("kind must not be null");
+    }
     this.kind = kind;
   }
 

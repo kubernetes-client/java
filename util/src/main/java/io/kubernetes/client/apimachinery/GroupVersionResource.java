@@ -12,24 +12,32 @@ limitations under the License.
 */
 package io.kubernetes.client.apimachinery;
 
-public class GroupVersionResource {
+import com.google.common.base.Objects;
 
-  private final String group;
-  private final String version;
+public class GroupVersionResource extends GroupVersion {
+
   private final String resource;
 
   public GroupVersionResource(String group, String version, String resource) {
-    this.group = group;
-    this.version = version;
+    super(group, version);
+    if (resource == null) {
+      throw new IllegalArgumentException("resource must not be null");
+    }
     this.resource = resource;
   }
 
-  public String getGroup() {
-    return group;
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
+    GroupVersionResource that = (GroupVersionResource) o;
+    return Objects.equal(resource, that.resource);
   }
 
-  public String getVersion() {
-    return version;
+  @Override
+  public int hashCode() {
+    return Objects.hashCode(super.hashCode(), resource);
   }
 
   public String getResource() {
