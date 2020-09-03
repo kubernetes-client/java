@@ -31,6 +31,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Paths;
+import java.util.concurrent.Semaphore;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -70,6 +71,8 @@ public class CopyTest {
                     .withHeader("Content-Type", "application/json")
                     .withBody("{}")));
 
+    final Semaphore s = new Semaphore(1);
+    s.acquire();
     Thread t =
         new Thread(
             new Runnable() {
@@ -79,12 +82,13 @@ public class CopyTest {
                   InputStream is = copy.copyFileFromPod(pod, "container", "/some/path/to/file");
                 } catch (IOException | ApiException e) {
                   e.printStackTrace();
+                } finally {
+                  s.release();
                 }
               }
             });
     t.start();
-    Thread.sleep(2000);
-    t.interrupt();
+    s.acquire();
 
     verify(
         getRequestedFor(
