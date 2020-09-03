@@ -20,6 +20,7 @@ import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.apis.CoreV1Api;
 import io.kubernetes.client.openapi.models.V1Endpoints;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
+import java.net.HttpURLConnection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
@@ -93,8 +94,12 @@ public class EndpointsLock implements Lock {
           coreV1Client.createNamespacedEndpoints(namespace, endpoints, null, null, null);
       endpointsRefer.set(createdendpoints);
       return true;
-    } catch (Throwable t) {
-      log.error("failed to create leader election record as {}", t.getMessage());
+    } catch (ApiException e) {
+      if (e.getCode() == HttpURLConnection.HTTP_CONFLICT) {
+        log.debug("received {} when creating endpoints lock", e.getCode(), e);
+      } else {
+        log.error("received {} when creating endpoints lock", e.getCode(), e);
+      }
       return false;
     }
   }
@@ -113,8 +118,12 @@ public class EndpointsLock implements Lock {
           coreV1Client.replaceNamespacedEndpoints(name, namespace, endpoints, null, null, null);
       endpointsRefer.set(replacedEndpoints);
       return true;
-    } catch (Throwable t) {
-      log.error("failed to update leader election record as {}", t.getMessage());
+    } catch (ApiException e) {
+      if (e.getCode() == HttpURLConnection.HTTP_CONFLICT) {
+        log.debug("received {} when updating endpoints lock", e.getCode(), e);
+      } else {
+        log.error("received {} when updating endpoints lock", e.getCode(), e);
+      }
       return false;
     }
   }
