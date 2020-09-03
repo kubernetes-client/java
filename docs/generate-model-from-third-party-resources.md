@@ -5,7 +5,42 @@ Alternatively, without this automatic code-generation process, you can always ma
 models for CRDs by implementing [KubernetesObject](https://github.com/kubernetes-client/java/blob/master/kubernetes/src/main/java/io/kubernetes/client/common/KubernetesObject.java) 
 and [KubernetesListObject](https://github.com/kubernetes-client/java/blob/master/kubernetes/src/main/java/io/kubernetes/client/common/KubernetesListObject.java) interfaces.
 
-### Example Commands For remote CRD manifests
+### Setup Environment
+
+1. Make there's an active docker daemon service working on your host, run `docker ps` to check it if
+it's correctly setup.
+
+2. Generating your access token in [https://github.com/settings/tokens](https://github.com/settings/tokens) 
+and grants it package-read privilege. And save your token into a local file `~/TOKEN.txt`.
+
+3. Login to github docker registry by running:
+
+```bash
+# TODO: replace USERNAME w/ your github alias
+cat ~/TOKEN.txt | docker login https://docker.pkg.github.com -u USERNAME --password-stdin 
+```
+
+### Code-generator Image
+
+##### Usage
+
+Basically the code-generator container works by automatically provisioning a kubernetes cluster on
+your local docker daemon and applies your CRDs onto the cluster. After verifying all the CRDs are
+correctly installed, we will download the OpenAPI schemas and generate a minimal java project which 
+contains the generated class models for your CRDs.
+
+To make code-generator container work, you're required to mount both the `docker.sock` and corresponding 
+host path to the container so that it can connect to the docker service and save the generated project
+to your host path. There're also a few configuration items to adjust the code-generation behavior: 
+
+```bash
+-u: <CRD's download URL or file path, use it multiple times to read multiple CRDs>
+-n: <the target CRD group name, which is in the reverse order of ".spec.group">
+-p: <output package name for the generated java classes>
+-o: <output path of the generated project>
+```
+
+##### Example Commands For remote CRD manifests
 
 Run the following commands and it will download and generate the java models for you. Note that 
 a docker daemon service is required on the host.
@@ -27,12 +62,12 @@ docker run \
 ```
 
 
-### Example Commands For local CRD manifests
+##### Example Commands For local CRD manifests
 
-First of all, you're required to download/place your CRD manifests into a single YAML file or under 
-one directory. In the following example, we're manually downloading the manifests to directory 
-`/tmp/crds/`. And similar to code-generation from the remote manifests, we need to mount the crd 
-file/directory into the code-generation container to make it work.
+First of all, make sure the CRD manifest present on your local host paths. In the following example, 
+we're manually downloading the manifests to directory `/tmp/crds/`. And similar to code-generation 
+from the remote manifests, we need to mount the crd file/directory into the code-generation container 
+to make it work.
 
 ```bash
 # Downloading 
