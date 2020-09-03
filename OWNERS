@@ -1,11 +1,11 @@
 # See the OWNERS docs at https://go.k8s.io/owners
 
 approvers:
-- mbohlool
 - brendandburns 
 - yue9944882
 reviewer:
-- mbohlool
 - brendandburns
 - yue9944882
+emeritus_approvers:
+- mbohlool # 9/2/2020
 
