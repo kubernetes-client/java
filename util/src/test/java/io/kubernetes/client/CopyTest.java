@@ -18,6 +18,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.verify;
+import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.github.tomakehurst.wiremock.matching.AnythingPattern;
@@ -29,9 +30,7 @@ import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.exception.CopyNotSupportedException;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Paths;
-import java.util.concurrent.Semaphore;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -45,13 +44,12 @@ public class CopyTest {
 
   private ApiClient client;
 
-  private static final int PORT = 8089;
-  @Rule public WireMockRule wireMockRule = new WireMockRule(PORT);
+  @Rule public WireMockRule wireMockRule = new WireMockRule(wireMockConfig().dynamicPort());
   @Rule public TemporaryFolder folder = new TemporaryFolder();
 
   @Before
   public void setup() throws IOException {
-    client = new ClientBuilder().setBasePath("http://localhost:" + PORT).build();
+    client = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
 
     namespace = "default";
     podName = "apod";
@@ -71,24 +69,11 @@ public class CopyTest {
                     .withHeader("Content-Type", "application/json")
                     .withBody("{}")));
 
-    final Semaphore s = new Semaphore(1);
-    s.acquire();
-    Thread t =
-        new Thread(
-            new Runnable() {
-              @Override
-              public void run() {
-                try {
-                  InputStream is = copy.copyFileFromPod(pod, "container", "/some/path/to/file");
-                } catch (IOException | ApiException e) {
-                  e.printStackTrace();
-                } finally {
-                  s.release();
-                }
-              }
-            });
-    t.start();
-    s.acquire();
+    try {
+      copy.copyFileFromPod(pod, "container", "/some/path/to/file");
+    } catch (IOException | ApiException e) {
+      e.printStackTrace();
+    }
 
     verify(
         getRequestedFor(
