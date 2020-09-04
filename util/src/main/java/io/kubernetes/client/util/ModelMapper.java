@@ -53,8 +53,10 @@ public class ModelMapper {
   // Model's api-version midfix to kubernetes api-version
   private static List<String> preBuiltApiVersions = new ArrayList<>();
 
+  // TODO(yue9944882): make the map bi-directional
   private static Map<GroupVersionKind, Class<?>> classesByGVK = new ConcurrentHashMap<>();
 
+  // TODO(yue9944882): make the map bi-directional
   private static Map<GroupVersionResource, Class<?>> classesByGVR = new ConcurrentHashMap<>();
 
   private static Set<Discovery.APIResource> lastAPIDiscovery = new HashSet<>();

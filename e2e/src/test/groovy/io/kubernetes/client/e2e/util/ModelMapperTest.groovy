@@ -24,14 +24,13 @@ import spock.lang.Specification
 
 class ModelMapperTest extends Specification {
 
-    def "api-disocvery should work"() {
+    def "api-discovery should work"() {
         given:
         def apiClient = ClientBuilder.defaultClient();
         def discovery = new Discovery(apiClient)
         ModelMapper.refresh(discovery);
 
         expect:
-
         new GroupVersionKind("", "v1", "Pod") == ModelMapper.getGroupVersionKindByClass(V1Pod.class)
         new GroupVersionResource("", "v1", "pods") == ModelMapper.getGroupVersionResourceByClass(V1Pod.class)
 
