@@ -38,6 +38,12 @@ public class GroupVersion {
   }
 
   public GroupVersion(String group, String version) {
+    if (group == null) {
+      throw new IllegalArgumentException("group must not be null");
+    }
+    if (version == null) {
+      throw new IllegalArgumentException("version must not be null");
+    }
     this.group = group;
     this.version = version;
   }

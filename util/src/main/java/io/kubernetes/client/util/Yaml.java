@@ -380,12 +380,7 @@ public class Yaml {
     Class<?> clazz = ModelMapper.getApiTypeClass(apiVersion, kind);
     if (clazz == null) {
       throw new IOException(
-          "Unknown apiVersionKind: "
-              + apiVersion
-              + "/"
-              + kind
-              + " known kinds are: "
-              + ModelMapper.getAllKnownClasses());
+          "Unknown apiVersionKind " + apiVersion + "/" + kind + " is it registered?");
     }
     return loadAs(new StringReader(getSnakeYaml().dump(data)), clazz);
   }
