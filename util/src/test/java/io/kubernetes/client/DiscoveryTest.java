@@ -12,8 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import static org.junit.Assert.*;
+import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
+import static com.github.tomakehurst.wiremock.client.WireMock.get;
+import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.verify;
+import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
+import static org.junit.Assert.assertEquals;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.kubernetes.client.openapi.ApiClient;
@@ -33,13 +38,11 @@ public class DiscoveryTest {
 
   private ApiClient apiClient;
 
-  private static final int PORT = 8089;
-
-  @Rule public WireMockRule wireMockRule = new WireMockRule(PORT);
+  @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort());
 
   @Before
   public void setup() throws IOException {
-    apiClient = new ClientBuilder().setBasePath("http://localhost:" + PORT).build();
+    apiClient = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
   }
 
   @Test

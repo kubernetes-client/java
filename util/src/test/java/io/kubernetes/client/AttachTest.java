@@ -19,6 +19,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.verify;
+import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.kubernetes.client.Attach.AttachResult;
@@ -38,12 +39,11 @@ public class AttachTest {
 
   private ApiClient client;
 
-  private static final int PORT = 8089;
-  @Rule public WireMockRule wireMockRule = new WireMockRule(PORT);
+  @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort());
 
   @Before
   public void setup() throws IOException {
-    client = new ClientBuilder().setBasePath("http://localhost:" + PORT).build();
+    client = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
 
     namespace = "default";
     podName = "apod";
