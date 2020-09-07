@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.informer.impl;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static org.junit.Assert.*;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
@@ -43,12 +44,11 @@ public class DefaultSharedIndexInformerTest {
 
   private ApiClient client;
 
-  private static final int PORT = 8089;
-  @Rule public WireMockRule wireMockRule = new WireMockRule(PORT);
+  @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort());
 
   @Before
   public void setup() throws IOException {
-    client = new ClientBuilder().setBasePath("http://localhost:" + PORT).build();
+    client = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
 
     namespace = "default";
     podName = "apod";
