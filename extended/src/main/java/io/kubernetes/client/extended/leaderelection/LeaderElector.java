@@ -173,7 +173,7 @@ public class LeaderElector implements AutoCloseable {
         Thread.sleep(retryPeriodMillis);
       }
     } catch (InterruptedException e) {
-      log.error("LeaderElection acquire loop gets interrupted {}", e.getMessage());
+      log.error("LeaderElection acquire loop gets interrupted", e);
       return false;
     } finally {
       scheduledFuture.cancel(true);
@@ -228,7 +228,7 @@ public class LeaderElector implements AutoCloseable {
         }
       }
     } catch (InterruptedException e) {
-      log.error("LeaderElection renew loop gets interrupted {}", e.getMessage());
+      log.error("LeaderElection renew loop gets interrupted", e);
     }
   }
 
@@ -249,7 +249,7 @@ public class LeaderElector implements AutoCloseable {
       oldLeaderElectionRecord = lock.get();
     } catch (ApiException e) {
       if (e.getCode() != HttpURLConnection.HTTP_NOT_FOUND) {
-        log.error("Error retrieving resource lock {} as {}", lock.describe(), e.getMessage());
+        log.error("Error retrieving resource lock {}", lock.describe(), e);
         return false;
       }
 
