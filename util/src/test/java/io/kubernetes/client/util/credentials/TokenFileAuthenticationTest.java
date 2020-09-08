@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.util.credentials;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 
 import com.github.tomakehurst.wiremock.client.WireMock;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
@@ -35,12 +36,12 @@ public class TokenFileAuthenticationTest {
   private static final int PORT = 8089;
   private TokenFileAuthentication auth;
 
-  @Rule public WireMockRule wireMockRule = new WireMockRule(PORT);
+  @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort());
 
   @Before
   public void setup() throws IOException {
     final ApiClient client = new ApiClient();
-    client.setBasePath("http://localhost:" + PORT);
+    client.setBasePath("http://localhost:" + wireMockRule.port());
     this.auth = new TokenFileAuthentication(SERVICEACCOUNT_TOKEN1_PATH);
     this.auth.provide(client);
     Configuration.setDefaultApiClient(client);

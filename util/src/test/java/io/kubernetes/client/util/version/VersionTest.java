@@ -18,6 +18,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.verify;
+import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static org.junit.Assert.assertEquals;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
@@ -34,12 +35,11 @@ public class VersionTest {
 
   private ApiClient client;
 
-  private static final int PORT = 8091;
-  @Rule public WireMockRule wireMockRule = new WireMockRule(PORT);
+  @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort());
 
   @Before
   public void setup() throws IOException {
-    client = new ClientBuilder().setBasePath("http://localhost:" + PORT).build();
+    client = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
   }
 
   @Test
