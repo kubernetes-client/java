@@ -54,17 +54,18 @@ public class ModelMapperTest {
   }
 
   @Test
-  public void testGetClassByKind() {
+  public void testPreBuiltGetClassByKind() {
     assertEquals(
-        new GroupVersionKind("", "v1", "Pod"), ModelMapper.getGroupVersionKindByClass(V1Pod.class));
-
+        new GroupVersionKind("", "v1", "Pod"),
+        ModelMapper.preBuiltGetGroupVersionKindByClass(V1Pod.class));
     assertEquals(
-        new GroupVersionKind("", "v1", "Pod"), ModelMapper.getGroupVersionKindByClass(V1Pod.class));
+        new GroupVersionKind("", "v1", "Pod"),
+        ModelMapper.preBuiltGetGroupVersionKindByClass(V1Pod.class));
     assertEquals(
         new GroupVersionKind("", "v1", "Deployment"),
-        ModelMapper.getGroupVersionKindByClass(V1Deployment.class));
+        ModelMapper.preBuiltGetGroupVersionKindByClass(V1Deployment.class));
     assertEquals(
         new GroupVersionKind("", "v1beta1", "CustomResourceDefinition"),
-        ModelMapper.getGroupVersionKindByClass(V1beta1CustomResourceDefinition.class));
+        ModelMapper.preBuiltGetGroupVersionKindByClass(V1beta1CustomResourceDefinition.class));
   }
 }

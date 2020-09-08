@@ -53,11 +53,12 @@ public class ModelMapper {
   // Model's api-version midfix to kubernetes api-version
   private static List<String> preBuiltApiVersions = new ArrayList<>();
 
-  private static Map<GroupVersionKind, Class<?>> classesByGVK = new ConcurrentHashMap<>();
-  private static Map<GroupVersionResource, Class<?>> classesByGVR = new ConcurrentHashMap<>();
+  private static BiDirectionalMap<GroupVersionKind, Class<?>> classesByGVK =
+      new BiDirectionalMap<>();
 
-  private static Map<Class<?>, GroupVersionKind> gvkByClasses = new ConcurrentHashMap<>();
-  private static Map<Class<?>, GroupVersionResource> gvrByClasses = new ConcurrentHashMap<>();
+  private static BiDirectionalMap<GroupVersionResource, Class<?>> classesByGVR =
+      new BiDirectionalMap<>();
+
   private static Map<Class<?>, Boolean> isNamespacedByClasses = new ConcurrentHashMap<>();
 
   private static Set<Discovery.APIResource> lastAPIDiscovery = new HashSet<>();
@@ -116,11 +117,8 @@ public class ModelMapper {
   public static void addModelMap(
       String group, String version, String kind, String resourceNamePlural, Class<?> clazz) {
     // TODO(yue9944882): consistency between bi-directional maps
-    classesByGVK.put(new GroupVersionKind(group, version, kind), clazz);
-    gvkByClasses.put(clazz, new GroupVersionKind(group, version, kind));
-
-    classesByGVR.put(new GroupVersionResource(group, version, resourceNamePlural), clazz);
-    gvrByClasses.put(clazz, new GroupVersionResource(group, version, resourceNamePlural));
+    classesByGVK.add(new GroupVersionKind(group, version, kind), clazz);
+    classesByGVR.add(new GroupVersionResource(group, version, resourceNamePlural), clazz);
   }
 
   /**
@@ -176,7 +174,7 @@ public class ModelMapper {
    * @return the api type class
    */
   public static Class<?> getApiTypeClass(String group, String version, String kind) {
-    Class<?> clazz = classesByGVK.get(new GroupVersionKind(group, version, kind));
+    Class<?> clazz = classesByGVK.getByK(new GroupVersionKind(group, version, kind));
     if (clazz != null) {
       return clazz;
     }
@@ -190,7 +188,7 @@ public class ModelMapper {
    * @return the group version kind by class
    */
   public static GroupVersionKind getGroupVersionKindByClass(Class<?> clazz) {
-    return gvkByClasses.get(clazz);
+    return classesByGVK.getByV(clazz);
   }
 
   /**
@@ -200,7 +198,7 @@ public class ModelMapper {
    * @return the group version kind by class
    */
   public static GroupVersionResource getGroupVersionResourceByClass(Class<?> clazz) {
-    return gvrByClasses.get(clazz);
+    return classesByGVR.getByV(clazz);
   }
 
   /**
@@ -363,5 +361,23 @@ public class ModelMapper {
         .map(v -> new MutablePair(v.toLowerCase(), name.substring(v.length())))
         .findFirst()
         .orElse(new MutablePair(null, name));
+  }
+
+  static class BiDirectionalMap<K, V> {
+    private Map<K, V> kvMap = new HashMap<>();
+    private Map<V, K> vkMap = new HashMap<>();
+
+    synchronized void add(K k, V v) {
+      kvMap.put(k, v);
+      vkMap.put(v, k);
+    }
+
+    synchronized V getByK(K k) {
+      return kvMap.get(k);
+    }
+
+    synchronized K getByV(V v) {
+      return vkMap.get(v);
+    }
   }
 }
