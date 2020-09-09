@@ -13,13 +13,12 @@ limitations under the License.
 package io.kubernetes.client.extended.kubectl;
 
 import com.google.common.base.Strings;
-import io.kubernetes.client.Discovery;
-import io.kubernetes.client.apimachinery.GroupVersion;
 import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.util.ModelMapper;
 import io.kubernetes.client.util.Namespaces;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
 import io.kubernetes.client.util.generic.KubernetesApiResponse;
@@ -67,50 +66,55 @@ public class KubectlApply extends Kubectl.NamespacedApiClientBuilder<KubectlAppl
   }
 
   private KubernetesObject executeServerSideApply() throws KubectlException {
-    try {
-      Discovery.APIResource apiResource = recognize(this.targetObj);
-      GroupVersion gv = GroupVersion.parse(this.targetObj);
+    refreshDiscovery();
 
-      GenericKubernetesApi<KubernetesObject, KubernetesListObject> api =
-          new GenericKubernetesApi(
-              targetObj.getClass(),
-              KubernetesListObject.class,
-              gv.getGroup(),
-              gv.getVersion(),
-              apiResource.getResourcePlural(),
-              apiClient);
+    GenericKubernetesApi<KubernetesObject, KubernetesListObject> api =
+        (GenericKubernetesApi<KubernetesObject, KubernetesListObject>)
+            getGenericApi(this.targetObj.getClass());
 
-      PatchOptions patchOptions = new PatchOptions();
-      patchOptions.setForce(this.forceConflict);
-      patchOptions.setFieldManager(this.fieldManager);
+    PatchOptions patchOptions = new PatchOptions();
+    patchOptions.setForce(this.forceConflict);
+    patchOptions.setFieldManager(this.fieldManager);
 
-      if (apiResource.getNamespaced()) {
-        String targetNamespace =
-            namespace != null
-                ? namespace
-                : Strings.isNullOrEmpty(targetObj.getMetadata().getNamespace())
-                    ? Namespaces.NAMESPACE_DEFAULT
-                    : targetObj.getMetadata().getNamespace();
+    if (ModelMapper.isNamespaced(this.targetObj.getClass())) {
+      String targetNamespace =
+          namespace != null
+              ? namespace
+              : Strings.isNullOrEmpty(targetObj.getMetadata().getNamespace())
+                  ? Namespaces.NAMESPACE_DEFAULT
+                  : targetObj.getMetadata().getNamespace();
 
-        KubernetesApiResponse<KubernetesObject> response =
-            api.patch(
+      KubernetesApiResponse<KubernetesObject> response = null;
+      try {
+        return api.patch(
                 targetNamespace,
                 targetObj.getMetadata().getName(),
                 V1Patch.PATCH_FORMAT_APPLY_YAML,
                 new V1Patch(apiClient.getJSON().serialize(targetObj)),
-                patchOptions);
-        return response.getObject();
-      } else {
-        KubernetesApiResponse<KubernetesObject> response =
-            api.patch(
+                patchOptions)
+            .onFailure(
+                errorStatus -> {
+                  throw new ApiException(errorStatus.toString());
+                })
+            .getObject();
+      } catch (ApiException e) {
+        throw new KubectlException(e);
+      }
+    } else {
+      try {
+        return api.patch(
                 targetObj.getMetadata().getName(),
                 V1Patch.PATCH_FORMAT_APPLY_YAML,
                 new V1Patch(apiClient.getJSON().serialize(targetObj)),
-                patchOptions);
-        return response.getObject();
+                patchOptions)
+            .onFailure(
+                errorStatus -> {
+                  throw new ApiException(errorStatus.toString());
+                })
+            .getObject();
+      } catch (ApiException e) {
+        throw new KubectlException(e);
       }
-    } catch (ApiException e) {
-      throw new KubectlException(e);
     }
   }
 }

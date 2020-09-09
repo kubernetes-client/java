@@ -27,6 +27,7 @@ import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.models.V1Node;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.util.ClientBuilder;
+import io.kubernetes.client.util.ModelMapper;
 import java.io.IOException;
 import org.junit.Before;
 import org.junit.Rule;
@@ -40,6 +41,8 @@ public class KubectlLabelTest {
 
   @Before
   public void setup() throws IOException {
+    ModelMapper.addModelMap("", "v1", "Pod", "pods", true, V1Pod.class);
+    ModelMapper.addModelMap("", "v1", "Node", "nodes", false, V1Node.class);
     apiClient = new ClientBuilder().setBasePath("http://localhost:" + 8384).build();
   }
 
@@ -60,9 +63,7 @@ public class KubectlLabelTest {
     V1Pod labelledPod =
         Kubectl.label(V1Pod.class)
             .apiClient(apiClient)
-            .apiGroup("")
-            .apiVersion("v1")
-            .resourceNamePlural("pods")
+            .skipDiscovery()
             .namespace("default")
             .name("foo")
             .addLabel("k1", "v1")
@@ -90,9 +91,7 @@ public class KubectlLabelTest {
         () -> {
           Kubectl.label(V1Pod.class)
               .apiClient(apiClient)
-              .apiGroup("")
-              .apiVersion("v1")
-              .resourceNamePlural("pods")
+              .skipDiscovery()
               .namespace("default")
               .name("foo")
               .addLabel("k1", "v1")
@@ -114,9 +113,7 @@ public class KubectlLabelTest {
     V1Node labelledNode =
         Kubectl.label(V1Node.class)
             .apiClient(apiClient)
-            .apiGroup("")
-            .apiVersion("v1")
-            .resourceNamePlural("nodes")
+            .skipDiscovery()
             .name("foo")
             .addLabel("k1", "v1")
             .addLabel("k2", "v2")
@@ -140,9 +137,7 @@ public class KubectlLabelTest {
         () -> {
           Kubectl.label(V1Node.class)
               .apiClient(apiClient)
-              .apiGroup("")
-              .apiVersion("v1")
-              .resourceNamePlural("nodes")
+              .skipDiscovery()
               .name("foo")
               .addLabel("k1", "v1")
               .addLabel("k2", "v2")
@@ -154,53 +149,13 @@ public class KubectlLabelTest {
 
   @Test
   public void testMissingArgumentsShouldFail() throws KubectlException {
+
     assertThrows(
         KubectlException.class,
         () -> {
           Kubectl.label(V1Node.class)
               .apiClient(apiClient)
-              // .apiGroup("")  # missing apiGroup
-              .apiVersion("v1")
-              .resourceNamePlural("nodes")
-              .name("foo")
-              .addLabel("k1", "v1")
-              .addLabel("k2", "v2")
-              .execute();
-        });
-    assertThrows(
-        KubectlException.class,
-        () -> {
-          Kubectl.label(V1Node.class)
-              .apiClient(apiClient)
-              .apiGroup("")
-              // .apiVersion("v1") # missing apiVersion
-              .resourceNamePlural("nodes")
-              .name("foo")
-              .addLabel("k1", "v1")
-              .addLabel("k2", "v2")
-              .execute();
-        });
-    assertThrows(
-        KubectlException.class,
-        () -> {
-          Kubectl.label(V1Node.class)
-              .apiClient(apiClient)
-              .apiGroup("")
-              .apiVersion("v1")
-              // .resourceNamePlural("nodes") # missing resourceNamePlural
-              .name("foo")
-              .addLabel("k1", "v1")
-              .addLabel("k2", "v2")
-              .execute();
-        });
-    assertThrows(
-        KubectlException.class,
-        () -> {
-          Kubectl.label(V1Node.class)
-              .apiClient(apiClient)
-              .apiGroup("")
-              .apiVersion("v1")
-              .resourceNamePlural("nodes")
+              .skipDiscovery()
               // .name("foo") # missing name
               .addLabel("k1", "v1")
               .addLabel("k2", "v2")

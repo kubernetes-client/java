@@ -12,11 +12,10 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.kubectl;
 
-import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
-import io.kubernetes.client.util.generic.GenericKubernetesApi;
-import io.kubernetes.client.util.generic.KubernetesApiResponse;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.util.ModelMapper;
 import io.kubernetes.client.util.labels.Labels;
 import java.util.HashMap;
 import java.util.Map;
@@ -41,54 +40,62 @@ public class KubectlLabel<ApiType extends KubernetesObject>
   @Override
   public ApiType execute() throws KubectlException {
     verifyArguments();
-    GenericKubernetesApi<ApiType, KubernetesListObject> api =
-        new GenericKubernetesApi<>(
-            apiTypeClass,
-            KubernetesListObject.class,
-            apiGroup,
-            apiVersion,
-            resourceNamePlural,
-            apiClient);
+    refreshDiscovery();
+
+    final ApiType currentObj;
+    if (isNamespaced(apiTypeClass)) {
+      try {
+        currentObj =
+            getGenericApi()
+                .get(namespace, name)
+                .onFailure(
+                    errorStatus -> {
+                      throw new ApiException(errorStatus.toString());
+                    })
+                .getObject();
+      } catch (ApiException e) {
+        throw new KubectlException(e);
+      }
+    } else {
+      try {
+        currentObj =
+            getGenericApi()
+                .get(name)
+                .onFailure(
+                    errorStatus -> {
+                      throw new ApiException(errorStatus.toString());
+                    })
+                .getObject();
+      } catch (ApiException e) {
+        throw new KubectlException(e);
+      }
+    }
+
+    Labels.addLabels(currentObj, addingLabels);
 
     try {
-      final KubernetesApiResponse<ApiType> getResponse;
-      if (isNamespaced()) {
-        getResponse = api.get(namespace, name);
-      } else {
-        getResponse = api.get(name);
-      }
-      if (!getResponse.isSuccess()) {
-        throw new KubectlException(getResponse.getStatus());
-      }
-      ApiType obj = getResponse.getObject();
-
-      Labels.addLabels(obj, addingLabels);
-
-      final KubernetesApiResponse<ApiType> updateResponse;
-      updateResponse = api.update(obj);
-      if (!updateResponse.isSuccess()) {
-        throw new KubectlException(updateResponse.getStatus());
-      }
-      return updateResponse.getObject();
-    } catch (Throwable t) {
-      throw new KubectlException(t);
+      return getGenericApi()
+          .update(currentObj)
+          .onFailure(
+              errorStatus -> {
+                throw new ApiException(errorStatus.toString());
+              })
+          .getObject();
+    } catch (ApiException e) {
+      throw new KubectlException(e);
     }
   }
 
-  public boolean isNamespaced() {
-    return !StringUtils.isEmpty(namespace);
+  public boolean isNamespaced(Class<ApiType> apiTypeClass) {
+    Boolean isNamespaced = ModelMapper.isNamespaced(apiTypeClass);
+    if (isNamespaced == null) { // unknown
+      return false;
+    }
+
+    return isNamespaced || !StringUtils.isEmpty(namespace);
   }
 
   private void verifyArguments() throws KubectlException {
-    if (null == apiGroup) {
-      throw new KubectlException("missing apiGroup argument");
-    }
-    if (null == apiVersion) {
-      throw new KubectlException("missing apiVersion argument");
-    }
-    if (null == resourceNamePlural) {
-      throw new KubectlException("missing resourceNamePlural argument");
-    }
     if (null == name) {
       throw new KubectlException("missing name argument");
     }

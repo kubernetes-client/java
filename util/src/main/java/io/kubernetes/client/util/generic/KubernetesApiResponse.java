@@ -13,8 +13,8 @@ limitations under the License.
 package io.kubernetes.client.util.generic;
 
 import io.kubernetes.client.common.KubernetesType;
+import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1Status;
-import java.util.function.Consumer;
 
 public class KubernetesApiResponse<DataType extends KubernetesType> {
 
@@ -50,10 +50,15 @@ public class KubernetesApiResponse<DataType extends KubernetesType> {
     return this.httpStatusCode < 400;
   }
 
-  public KubernetesApiResponse<DataType> onFailure(Consumer<V1Status> errorStatusHandler) {
+  public KubernetesApiResponse<DataType> onFailure(ErrorStatusHandler errorStatusHandler)
+      throws ApiException {
     if (!isSuccess()) {
-      errorStatusHandler.accept(this.status);
+      errorStatusHandler.handle(this.status);
     }
     return this;
+  }
+
+  public interface ErrorStatusHandler {
+    void handle(V1Status errorStatus) throws ApiException;
   }
 }

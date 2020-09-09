@@ -15,9 +15,7 @@ package io.kubernetes.client.extended.kubectl;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiException;
-import io.kubernetes.client.openapi.apis.CoreV1Api;
 import io.kubernetes.client.openapi.models.V1Node;
-import io.kubernetes.client.util.PatchUtils;
 
 public class KubectlCordon extends Kubectl.ResourceAndContainerBuilder<V1Node, KubectlCordon>
     implements Kubectl.Executable<V1Node> {
@@ -36,28 +34,21 @@ public class KubectlCordon extends Kubectl.ResourceAndContainerBuilder<V1Node, K
 
   @Override
   public V1Node execute() throws KubectlException {
-    return performCordon(new CoreV1Api(apiClient));
+    return performCordon();
   }
 
-  protected V1Node performCordon(CoreV1Api api) throws KubectlException {
+  protected V1Node performCordon() throws KubectlException {
     String patch = this.cordon ? CORDON_PATCH_STR : UNCORDON_PATCH_STR;
-
     try {
-      return PatchUtils.patch(
-          V1Node.class,
-          () ->
-              api.patchNodeCall(
-                  name,
-                  new V1Patch(patch),
-                  null,
-                  null,
-                  null, // field-manager is optional
-                  null,
-                  null),
-          V1Patch.PATCH_FORMAT_JSON_PATCH,
-          apiClient);
-    } catch (ApiException ex) {
-      throw new KubectlException(ex);
+      return getGenericApi()
+          .patch(name, V1Patch.PATCH_FORMAT_JSON_PATCH, new V1Patch(patch))
+          .onFailure(
+              errorStatus -> {
+                throw new ApiException(errorStatus.toString());
+              })
+          .getObject();
+    } catch (ApiException e) {
+      throw new KubectlException(e);
     }
   }
 }

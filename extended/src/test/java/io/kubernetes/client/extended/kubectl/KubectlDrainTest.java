@@ -29,7 +29,9 @@ import com.google.common.io.Resources;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.models.V1Node;
+import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.util.ClientBuilder;
+import io.kubernetes.client.util.ModelMapper;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -47,6 +49,8 @@ public class KubectlDrainTest {
 
   @Before
   public void setup() throws IOException {
+    ModelMapper.addModelMap("", "v1", "Pod", "pods", true, V1Pod.class);
+    ModelMapper.addModelMap("", "v1", "Node", "nodes", false, V1Node.class);
     apiClient = new ClientBuilder().setBasePath("http://localhost:" + 8384).build();
   }
 

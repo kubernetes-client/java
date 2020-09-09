@@ -13,15 +13,15 @@ limitations under the License.
 package io.kubernetes.client.extended.kubectl;
 
 import io.kubernetes.client.Discovery;
-import io.kubernetes.client.apimachinery.GroupVersionKind;
+import io.kubernetes.client.apimachinery.GroupVersionResource;
+import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.util.ModelMapper;
-import java.util.Optional;
-import java.util.Set;
+import io.kubernetes.client.util.generic.GenericKubernetesApi;
 
 /**
  * Kubectl provides a set of helper functions that has the same functionalities as corresponding
@@ -185,29 +185,42 @@ public class Kubectl {
 
   abstract static class ApiClientBuilder<T extends ApiClientBuilder> {
     ApiClient apiClient = Configuration.getDefaultApiClient();
+    boolean skipDiscovery = false;
 
-    protected Discovery.APIResource recognize(KubernetesObject object)
-        throws KubectlException, ApiException {
-      Discovery discovery = new Discovery(apiClient);
-
-      Set<Discovery.APIResource> apiResources = ModelMapper.refresh(discovery);
-
-      GroupVersionKind gvk = ModelMapper.getGroupVersionKindByClass(object.getClass());
-
-      Optional<Discovery.APIResource> apiResource =
-          apiResources.stream()
-              .filter(r -> r.getKind().equals(gvk.getKind()) && r.getGroup().equals(gvk.getGroup()))
-              .findFirst();
-      if (!apiResource.isPresent()) {
-        throw new KubectlException(
-            "Cannot recognize such kubernetes resource from api-discovery: " + gvk.toString());
+    protected void refreshDiscovery() throws KubectlException {
+      if (skipDiscovery) {
+        return;
       }
+      try {
+        ModelMapper.refresh(new Discovery(apiClient));
+      } catch (ApiException e) {
+        throw new KubectlException(e);
+      }
+    }
 
-      return apiResource.get();
+    protected GenericKubernetesApi<? extends KubernetesObject, KubernetesListObject> getGenericApi(
+        Class<? extends KubernetesObject> apiTypeClass) {
+      GroupVersionResource groupVersionResource =
+          ModelMapper.getGroupVersionResourceByClass(apiTypeClass);
+
+      GenericKubernetesApi<? extends KubernetesObject, KubernetesListObject> api =
+          new GenericKubernetesApi<>(
+              apiTypeClass,
+              KubernetesListObject.class,
+              groupVersionResource.getGroup(),
+              groupVersionResource.getVersion(),
+              groupVersionResource.getResource(),
+              apiClient);
+      return api;
     }
 
     public T apiClient(ApiClient apiClient) {
       this.apiClient = apiClient;
+      return (T) this;
+    }
+
+    public T skipDiscovery() {
+      this.skipDiscovery = true;
       return (T) this;
     }
   }
@@ -217,9 +230,6 @@ public class Kubectl {
       extends NamespacedApiClientBuilder<T> {
     final Class<ApiType> apiTypeClass;
     String name;
-    String apiGroup;
-    String apiVersion;
-    String resourceNamePlural;
 
     ResourceBuilder(Class<ApiType> apiTypeClass) {
       this.apiTypeClass = apiTypeClass;
@@ -230,19 +240,19 @@ public class Kubectl {
       return (T) this;
     }
 
-    public T apiGroup(String apiGroup) {
-      this.apiGroup = apiGroup;
-      return (T) this;
-    }
+    protected GenericKubernetesApi<ApiType, KubernetesListObject> getGenericApi() {
+      GroupVersionResource groupVersionResource =
+          ModelMapper.getGroupVersionResourceByClass(apiTypeClass);
 
-    public T apiVersion(String apiVersion) {
-      this.apiVersion = apiVersion;
-      return (T) this;
-    }
-
-    public T resourceNamePlural(String resourceNamePlural) {
-      this.resourceNamePlural = resourceNamePlural;
-      return (T) this;
+      GenericKubernetesApi<ApiType, KubernetesListObject> api =
+          new GenericKubernetesApi<>(
+              apiTypeClass,
+              KubernetesListObject.class,
+              groupVersionResource.getGroup(),
+              groupVersionResource.getVersion(),
+              groupVersionResource.getResource(),
+              apiClient);
+      return api;
     }
   }
 
