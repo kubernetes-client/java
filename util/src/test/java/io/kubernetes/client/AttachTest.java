@@ -16,9 +16,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
-import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
-import static com.github.tomakehurst.wiremock.client.WireMock.verify;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
@@ -54,7 +52,7 @@ public class AttachTest {
   public void testUrl() throws IOException, ApiException, InterruptedException {
     Attach attach = new Attach(client);
 
-    stubFor(
+    wireMockRule.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/attach"))
             .willReturn(
                 aResponse()
@@ -81,7 +79,7 @@ public class AttachTest {
     res2.close();
     res3.close();
 
-    verify(
+    wireMockRule.verify(
         getRequestedFor(
                 urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/attach"))
             .withQueryParam("stdin", equalTo("false"))
@@ -90,7 +88,7 @@ public class AttachTest {
             .withQueryParam("tty", equalTo("false"))
             .withQueryParam("container", equalTo(container)));
 
-    verify(
+    wireMockRule.verify(
         getRequestedFor(
                 urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/attach"))
             .withQueryParam("stdin", equalTo("true"))
@@ -98,7 +96,7 @@ public class AttachTest {
             .withQueryParam("stderr", equalTo("false"))
             .withQueryParam("tty", equalTo("false")));
 
-    verify(
+    wireMockRule.verify(
         getRequestedFor(
                 urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/attach"))
             .withQueryParam("stdin", equalTo("false"))

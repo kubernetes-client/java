@@ -16,9 +16,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
-import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
-import static com.github.tomakehurst.wiremock.client.WireMock.verify;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static org.junit.Assert.assertEquals;
 
@@ -67,7 +65,7 @@ public class PodLogsTest {
                 new V1PodSpec()
                     .containers(Arrays.asList(new V1Container().name(container).image("nginx"))));
 
-    stubFor(
+    wireMockRule.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/log"))
             .willReturn(
                 aResponse()
@@ -84,7 +82,7 @@ public class PodLogsTest {
       thrown = true;
     }
     assertEquals(thrown, true);
-    verify(
+    wireMockRule.verify(
         getRequestedFor(
                 urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/log"))
             .withQueryParam("container", equalTo(container))
@@ -105,7 +103,7 @@ public class PodLogsTest {
 
     String content = "this is some\n content for \n various logs \n done";
 
-    stubFor(
+    wireMockRule.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/log"))
             .willReturn(
                 aResponse()
@@ -116,7 +114,7 @@ public class PodLogsTest {
     PodLogs logs = new PodLogs(client);
     InputStream is = logs.streamNamespacedPodLog(pod);
 
-    verify(
+    wireMockRule.verify(
         getRequestedFor(
                 urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/log"))
             .withQueryParam("container", equalTo(container))
