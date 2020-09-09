@@ -16,9 +16,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
-import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
-import static com.github.tomakehurst.wiremock.client.WireMock.verify;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static org.junit.Assert.assertEquals;
 
@@ -134,7 +132,7 @@ public class ExecTest {
 
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name(podName).namespace(namespace));
 
-    stubFor(
+    wireMockRule.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
             .willReturn(
                 aResponse()
@@ -152,7 +150,7 @@ public class ExecTest {
         .execute()
         .waitFor();
 
-    verify(
+    wireMockRule.verify(
         getRequestedFor(
                 urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
             .withQueryParam("stdin", equalTo("true"))
@@ -162,7 +160,7 @@ public class ExecTest {
             .withQueryParam("tty", equalTo("false"))
             .withQueryParam("command", equalTo("cmd")));
 
-    verify(
+    wireMockRule.verify(
         getRequestedFor(
                 urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
             .withQueryParam("stdin", equalTo("false"))

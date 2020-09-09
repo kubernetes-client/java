@@ -16,9 +16,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
-import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
-import static com.github.tomakehurst.wiremock.client.WireMock.verify;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static io.kubernetes.client.ExecTest.makeStream;
 import static org.junit.Assert.assertEquals;
@@ -65,7 +63,7 @@ public class PortForwardTest {
 
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name(podName).namespace(namespace));
 
-    stubFor(
+    wireMockRule.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/portforward"))
             .willReturn(
                 aResponse()
@@ -87,7 +85,7 @@ public class PortForwardTest {
     // event has happened
     Thread.sleep(2000);
 
-    verify(
+    wireMockRule.verify(
         getRequestedFor(
                 urlPathEqualTo(
                     "/api/v1/namespaces/" + namespace + "/pods/" + podName + "/portforward"))

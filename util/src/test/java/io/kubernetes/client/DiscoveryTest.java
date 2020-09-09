@@ -16,7 +16,6 @@ import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
-import static com.github.tomakehurst.wiremock.client.WireMock.verify;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static org.junit.Assert.assertEquals;
 
@@ -59,7 +58,7 @@ public class DiscoveryTest {
                             .serialize(new V1APIVersions().versions(Arrays.asList("v1", "v2"))))));
     Discovery discovery = new Discovery(apiClient);
     V1APIVersions versions = discovery.versionDiscovery("/foo");
-    verify(1, getRequestedFor(urlPathEqualTo("/foo")));
+    wireMockRule.verify(1, getRequestedFor(urlPathEqualTo("/foo")));
     assertEquals(2, versions.getVersions().size());
   }
 
