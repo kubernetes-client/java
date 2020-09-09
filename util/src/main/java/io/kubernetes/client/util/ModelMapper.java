@@ -53,11 +53,13 @@ public class ModelMapper {
   // Model's api-version midfix to kubernetes api-version
   private static List<String> preBuiltApiVersions = new ArrayList<>();
 
-  // TODO(yue9944882): make the map bi-directional
-  private static Map<GroupVersionKind, Class<?>> classesByGVK = new ConcurrentHashMap<>();
+  private static BiDirectionalMap<GroupVersionKind, Class<?>> classesByGVK =
+      new BiDirectionalMap<>();
 
-  // TODO(yue9944882): make the map bi-directional
-  private static Map<GroupVersionResource, Class<?>> classesByGVR = new ConcurrentHashMap<>();
+  private static BiDirectionalMap<GroupVersionResource, Class<?>> classesByGVR =
+      new BiDirectionalMap<>();
+
+  private static Map<Class<?>, Boolean> isNamespacedByClasses = new ConcurrentHashMap<>();
 
   private static Set<Discovery.APIResource> lastAPIDiscovery = new HashSet<>();
 
@@ -114,8 +116,31 @@ public class ModelMapper {
    */
   public static void addModelMap(
       String group, String version, String kind, String resourceNamePlural, Class<?> clazz) {
-    classesByGVK.put(new GroupVersionKind(group, version, kind), clazz);
-    classesByGVR.put(new GroupVersionResource(group, version, resourceNamePlural), clazz);
+    // TODO(yue9944882): consistency between bi-directional maps
+    classesByGVK.add(new GroupVersionKind(group, version, kind), clazz);
+    classesByGVR.add(new GroupVersionResource(group, version, resourceNamePlural), clazz);
+  }
+
+  /**
+   * Registering concrete model classes by its group, version, kind and isNamespaced (e.g. "apps",
+   * "v1", "Deployment", true).
+   *
+   * @param group the group
+   * @param version the version
+   * @param kind the kind
+   * @param resourceNamePlural the resource name plural
+   * @param isNamespacedResource the is namespaced resource
+   * @param clazz the clazz
+   */
+  public static void addModelMap(
+      String group,
+      String version,
+      String kind,
+      String resourceNamePlural,
+      Boolean isNamespacedResource,
+      Class<?> clazz) {
+    addModelMap(group, version, kind, resourceNamePlural, clazz);
+    isNamespacedByClasses.put(clazz, isNamespacedResource);
   }
 
   /**
@@ -149,7 +174,7 @@ public class ModelMapper {
    * @return the api type class
    */
   public static Class<?> getApiTypeClass(String group, String version, String kind) {
-    Class<?> clazz = classesByGVK.get(new GroupVersionKind(group, version, kind));
+    Class<?> clazz = classesByGVK.getByK(new GroupVersionKind(group, version, kind));
     if (clazz != null) {
       return clazz;
     }
@@ -163,11 +188,7 @@ public class ModelMapper {
    * @return the group version kind by class
    */
   public static GroupVersionKind getGroupVersionKindByClass(Class<?> clazz) {
-    return classesByGVK.entrySet().stream()
-        .filter(e -> clazz.equals(e.getValue()))
-        .map(e -> e.getKey())
-        .findFirst()
-        .orElse(preBuiltGetGroupVersionKindByClass(clazz));
+    return classesByGVK.getByV(clazz);
   }
 
   /**
@@ -177,13 +198,18 @@ public class ModelMapper {
    * @return the group version kind by class
    */
   public static GroupVersionResource getGroupVersionResourceByClass(Class<?> clazz) {
-    return classesByGVR.entrySet().stream()
-        .filter(e -> clazz.equals(e.getValue()))
-        .map(e -> e.getKey())
-        .findFirst()
-        .get();
+    return classesByGVR.getByV(clazz);
   }
 
+  /**
+   * Refreshes the model mapping by syncing up w/the api discovery info from the kubernetes
+   * apiserver. These mapping will be cached for {@link
+   * ModelMapper#DEFAULT_DISCOVERY_REFRESH_INTERVAL}.
+   *
+   * @param discovery the discovery
+   * @return the set
+   * @throws ApiException the api exception
+   */
   public static Set<Discovery.APIResource> refresh(Discovery discovery) throws ApiException {
     return refresh(discovery, DEFAULT_DISCOVERY_REFRESH_INTERVAL);
   }
@@ -220,6 +246,7 @@ public class ModelMapper {
             version,
             apiResource.getKind(),
             apiResource.getResourcePlural(),
+            apiResource.getNamespaced(),
             clazz);
       }
     }
@@ -251,6 +278,16 @@ public class ModelMapper {
         .map(e -> e.getKey())
         .findFirst()
         .get();
+  }
+
+  /**
+   * Checks whether the class is connected with a namespaced kubernetes resource.
+   *
+   * @param clazz the clazz
+   * @return the boolean
+   */
+  public static Boolean isNamespaced(Class<?> clazz) {
+    return isNamespacedByClasses.get(clazz);
   }
 
   private static void initApiGroupMap() {
@@ -324,5 +361,23 @@ public class ModelMapper {
         .map(v -> new MutablePair(v.toLowerCase(), name.substring(v.length())))
         .findFirst()
         .orElse(new MutablePair(null, name));
+  }
+
+  static class BiDirectionalMap<K, V> {
+    private Map<K, V> kvMap = new HashMap<>();
+    private Map<V, K> vkMap = new HashMap<>();
+
+    synchronized void add(K k, V v) {
+      kvMap.put(k, v);
+      vkMap.put(v, k);
+    }
+
+    synchronized V getByK(K k) {
+      return kvMap.get(k);
+    }
+
+    synchronized K getByV(V v) {
+      return vkMap.get(v);
+    }
   }
 }
