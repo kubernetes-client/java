@@ -60,7 +60,7 @@ kubectl get crd -o name \
         echo "$L failed publishing openapi schema because it's attached non-structral-schema condition."
         exit 1
       fi
-      if [[ $(kubectl get $L -o jsonpath='{.preserveUnknownFields}') == "true" ]]; then
+      if [[ $(kubectl get $L -o jsonpath='{.spec.preserveUnknownFields}') == "true" ]]; then
         echo "$L failed publishing openapi schema because it explicitly disabled unknown fields pruning."
         exit 1
       fi
