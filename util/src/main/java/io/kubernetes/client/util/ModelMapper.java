@@ -14,6 +14,7 @@ package io.kubernetes.client.util;
 
 import com.google.common.base.Strings;
 import com.google.common.reflect.ClassPath;
+import com.google.common.util.concurrent.Striped;
 import io.kubernetes.client.Discovery;
 import io.kubernetes.client.apimachinery.GroupVersionKind;
 import io.kubernetes.client.apimachinery.GroupVersionResource;
@@ -29,6 +30,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.locks.ReadWriteLock;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.slf4j.Logger;
@@ -366,18 +368,41 @@ public class ModelMapper {
   static class BiDirectionalMap<K, V> {
     private Map<K, V> kvMap = new HashMap<>();
     private Map<V, K> vkMap = new HashMap<>();
+    private Striped<ReadWriteLock> lock =
+        Striped.readWriteLock(Runtime.getRuntime().availableProcessors() * 4);
 
-    synchronized void add(K k, V v) {
-      kvMap.put(k, v);
-      vkMap.put(v, k);
+    void add(K k, V v) {
+      ReadWriteLock keyLock = lock.get(k);
+      ReadWriteLock valueLock = lock.get(v);
+      keyLock.writeLock().lock();
+      valueLock.writeLock().lock();
+      try {
+        kvMap.put(k, v);
+        vkMap.put(v, k);
+      } finally {
+        keyLock.writeLock().unlock();
+        valueLock.writeLock().unlock();
+      }
     }
 
-    synchronized V getByK(K k) {
-      return kvMap.get(k);
+    V getByK(K k) {
+      ReadWriteLock l = lock.get(k);
+      l.readLock().lock();
+      try {
+        return kvMap.get(k);
+      } finally {
+        l.readLock().unlock();
+      }
     }
 
-    synchronized K getByV(V v) {
-      return vkMap.get(v);
+    K getByV(V v) {
+      ReadWriteLock l = lock.get(v);
+      l.readLock().lock();
+      try {
+        return vkMap.get(v);
+      } finally {
+        l.readLock().unlock();
+      }
     }
   }
 }
