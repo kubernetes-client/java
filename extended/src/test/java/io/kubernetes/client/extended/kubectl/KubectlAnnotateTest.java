@@ -22,6 +22,7 @@ import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.models.V1Node;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.util.ClientBuilder;
+import io.kubernetes.client.util.ModelMapper;
 import java.io.IOException;
 import org.junit.Before;
 import org.junit.Rule;
@@ -35,6 +36,8 @@ public class KubectlAnnotateTest {
 
   @Before
   public void setup() throws IOException {
+    ModelMapper.addModelMap("", "v1", "Pod", "pods", true, V1Pod.class);
+    ModelMapper.addModelMap("", "v1", "Node", "nodes", false, V1Node.class);
     apiClient = new ClientBuilder().setBasePath("http://localhost:" + 8384).build();
   }
 
@@ -55,9 +58,7 @@ public class KubectlAnnotateTest {
     V1Pod annotatedPod =
         Kubectl.annotate(V1Pod.class)
             .apiClient(apiClient)
-            .apiGroup("")
-            .apiVersion("v1")
-            .resourceNamePlural("pods")
+            .skipDiscovery()
             .namespace("default")
             .name("foo")
             .addAnnotation("k1", "v1")
@@ -85,9 +86,7 @@ public class KubectlAnnotateTest {
         () -> {
           Kubectl.annotate(V1Pod.class)
               .apiClient(apiClient)
-              .apiGroup("")
-              .apiVersion("v1")
-              .resourceNamePlural("pods")
+              .skipDiscovery()
               .namespace("default")
               .name("foo")
               .addAnnotation("k1", "v1")
@@ -109,9 +108,7 @@ public class KubectlAnnotateTest {
     V1Node annotatedNode =
         Kubectl.annotate(V1Node.class)
             .apiClient(apiClient)
-            .apiGroup("")
-            .apiVersion("v1")
-            .resourceNamePlural("nodes")
+            .skipDiscovery()
             .name("foo")
             .addAnnotation("k1", "v1")
             .addAnnotation("k2", "v2")
@@ -135,9 +132,7 @@ public class KubectlAnnotateTest {
         () -> {
           Kubectl.annotate(V1Node.class)
               .apiClient(apiClient)
-              .apiGroup("")
-              .apiVersion("v1")
-              .resourceNamePlural("nodes")
+              .skipDiscovery()
               .name("foo")
               .addAnnotation("k1", "v1")
               .addAnnotation("k2", "v2")
@@ -154,48 +149,7 @@ public class KubectlAnnotateTest {
         () -> {
           Kubectl.annotate(V1Node.class)
               .apiClient(apiClient)
-              // .apiGroup("")  # missing apiGroup
-              .apiVersion("v1")
-              .resourceNamePlural("nodes")
-              .name("foo")
-              .addAnnotation("k1", "v1")
-              .addAnnotation("k2", "v2")
-              .execute();
-        });
-    assertThrows(
-        KubectlException.class,
-        () -> {
-          Kubectl.annotate(V1Node.class)
-              .apiClient(apiClient)
-              .apiGroup("")
-              // .apiVersion("v1") # missing apiVersion
-              .resourceNamePlural("nodes")
-              .name("foo")
-              .addAnnotation("k1", "v1")
-              .addAnnotation("k2", "v2")
-              .execute();
-        });
-    assertThrows(
-        KubectlException.class,
-        () -> {
-          Kubectl.annotate(V1Node.class)
-              .apiClient(apiClient)
-              .apiGroup("")
-              .apiVersion("v1")
-              // .resourceNamePlural("nodes") # missing resourceNamePlural
-              .name("foo")
-              .addAnnotation("k1", "v1")
-              .addAnnotation("k2", "v2")
-              .execute();
-        });
-    assertThrows(
-        KubectlException.class,
-        () -> {
-          Kubectl.annotate(V1Node.class)
-              .apiClient(apiClient)
-              .apiGroup("")
-              .apiVersion("v1")
-              .resourceNamePlural("nodes")
+              .skipDiscovery()
               // .name("foo") # missing name
               .addAnnotation("k1", "v1")
               .addAnnotation("k2", "v2")

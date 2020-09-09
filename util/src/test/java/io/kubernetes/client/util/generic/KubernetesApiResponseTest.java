@@ -24,6 +24,7 @@ import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.*;
 import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
@@ -45,7 +46,7 @@ public class KubernetesApiResponseTest {
   }
 
   @Test
-  public void testErrorStatusHandler() {
+  public void testErrorStatusHandler() throws ApiException {
     V1Status forbiddenStatus = new V1Status().code(403).message("Forbidden");
     wireMockRule.stubFor(
         delete(urlEqualTo("/api/v1/namespaces/default/pods/foo"))

@@ -59,7 +59,7 @@ public class KubectlDrain extends KubectlCordon {
 
   private V1Node doDrain() throws KubectlException, ApiException, IOException {
     CoreV1Api api = new CoreV1Api(apiClient);
-    V1Node node = performCordon(api);
+    V1Node node = performCordon();
 
     V1PodList allPods =
         api.listPodForAllNamespaces(
