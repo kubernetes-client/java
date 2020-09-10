@@ -53,7 +53,7 @@ docker run \
   -v "$(pwd)":"$(pwd)" \
   -ti \
   --network host \
-  docker.pkg.github.com/kubernetes-client/java/crd-model-gen:v1.0.0 \
+  docker.pkg.github.com/kubernetes-client/java/crd-model-gen:v1.0.1 \
   /generate.sh \
   -u https://gist.githubusercontent.com/yue9944882/266fee8e95c2f15a93778263633e72ed/raw/be12c13379eeed13d2532cb65da61fffb19ee3e7/crontab-crd.yaml \
   -n com.example.stable \
@@ -84,7 +84,7 @@ docker run \
   -v "$(pwd)":"$(pwd)" \
   -ti \
   --network host \
-  docker.pkg.github.com/kubernetes-client/java/crd-model-gen:v1.0.0 \
+  docker.pkg.github.com/kubernetes-client/java/crd-model-gen:v1.0.1 \
   /generate.sh \
   -u $LOCAL_MANIFEST_FILE \
   -n com.example.stable \
