@@ -24,7 +24,6 @@ import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.Watch;
 import io.kubernetes.client.util.Watchable;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
-import io.kubernetes.client.util.generic.KubernetesApiResponse;
 import io.kubernetes.client.util.generic.options.ListOptions;
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -205,18 +204,19 @@ public class SharedInformerFactory {
     }
     return new ListerWatcher<ApiType, ApiListType>() {
       public ApiListType list(CallGeneratorParams params) throws ApiException {
-        KubernetesApiResponse<ApiListType> resp =
-            genericKubernetesApi.list(
+        return genericKubernetesApi
+            .list(
                 new ListOptions() {
                   {
                     setResourceVersion(params.resourceVersion);
                     setTimeoutSeconds(params.timeoutSeconds);
                   }
-                });
-        if (!resp.isSuccess()) {
-          throw new ApiException(resp.getHttpStatusCode(), resp.getStatus().getMessage());
-        }
-        return resp.getObject();
+                })
+            .onFailure(
+                errorStatus -> {
+                  throw new ApiException(errorStatus.toString());
+                })
+            .getObject();
       }
 
       public Watchable<ApiType> watch(CallGeneratorParams params) throws ApiException {
