@@ -18,7 +18,10 @@ class KubectlCreateTest extends Specification {
                         .metadata(new V1ObjectMeta().name("create-foo")))
                 .execute()
         expect:
-        createdNamespace != null
+        Kubectl.get(V1Namespace.class)
+                .apiClient(apiClient)
+                .name("create-foo")
+                .execute() != null
     }
 
 }

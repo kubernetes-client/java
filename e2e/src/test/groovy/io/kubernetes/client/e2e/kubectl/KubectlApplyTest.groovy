@@ -20,7 +20,10 @@ class KubectlApplyTest extends Specification {
                         .metadata(new V1ObjectMeta().name("apply-foo")))
                 .execute()
         expect:
-        appliedNamespace != null
+        Kubectl.get(V1Namespace.class)
+                .apiClient(apiClient)
+                .name("apply-foo")
+                .execute() != null
     }
 
 }
