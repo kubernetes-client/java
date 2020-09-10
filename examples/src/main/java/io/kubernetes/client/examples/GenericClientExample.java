@@ -14,6 +14,7 @@ package io.kubernetes.client.examples;
 
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1Container;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
@@ -45,7 +46,7 @@ public class GenericClientExample {
             .onFailure(
                 errorStatus -> {
                   System.out.println("Not Created!");
-                  throw new RuntimeException(errorStatus.toString());
+                  throw new ApiException(errorStatus.toString());
                 })
             .getObject();
     System.out.println("Created!");
@@ -60,7 +61,7 @@ public class GenericClientExample {
             .onFailure(
                 errorStatus -> {
                   System.out.println("Not Patched!");
-                  throw new RuntimeException(errorStatus.toString());
+                  throw new ApiException(errorStatus.toString());
                 })
             .getObject();
     System.out.println("Patched!");
@@ -71,7 +72,7 @@ public class GenericClientExample {
             .onFailure(
                 errorStatus -> {
                   System.out.println("Not Deleted!");
-                  throw new RuntimeException(errorStatus.toString());
+                  throw new ApiException(errorStatus.toString());
                 })
             .getObject();
     if (deletedPod != null) {
