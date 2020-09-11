@@ -29,6 +29,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -443,7 +444,15 @@ public class DeltaFIFO {
    */
   private MutablePair<DeltaType, KubernetesObject> isDuplicate(
       MutablePair<DeltaType, KubernetesObject> d1, MutablePair<DeltaType, KubernetesObject> d2) {
-    return isDeletionDup(d1, d2);
+    MutablePair<DeltaType, KubernetesObject> deletionDelta = isDeletionDup(d1, d2);
+    if (deletionDelta != null) {
+      return deletionDelta;
+    }
+    if (d1.getLeft() != DeltaType.Deleted && d2.getLeft() != DeltaType.Deleted &&
+            StringUtils.equals(d1.getRight().getMetadata().getResourceVersion(), d2.getRight().getMetadata().getResourceVersion())) {
+      return d1;
+    }
+    return null;
   }
 
   /**

@@ -20,6 +20,7 @@ import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Deque;
 import java.util.LinkedList;
 import org.apache.commons.lang3.tuple.MutablePair;
@@ -94,7 +95,7 @@ public class DeltaFIFOTest {
 
   @Test
   public void testDeltaFIFODedup() {
-    V1Pod foo1 = new V1Pod().metadata(new V1ObjectMeta().name("foo1").namespace("default"));
+    V1Pod foo1 = new V1Pod().metadata(new V1ObjectMeta().name("foo1").namespace("default").resourceVersion("ver"));
     Cache cache = new Cache();
     DeltaFIFO deltaFIFO = new DeltaFIFO(Caches::deletionHandlingMetaNamespaceKeyFunc, cache);
     Deque<MutablePair<DeltaFIFO.DeltaType, KubernetesObject>> deltas;
@@ -121,6 +122,12 @@ public class DeltaFIFOTest {
     assertEquals(foo1, deltas.peekFirst().getRight());
     assertEquals(2, deltas.size());
     deltaFIFO.getItems().remove(Caches.deletionHandlingMetaNamespaceKeyFunc(foo1));
+
+    // add-sync dedupe
+    deltaFIFO.add(foo1);
+    deltaFIFO.replace(Collections.singletonList(foo1), foo1.getMetadata().getResourceVersion());
+    deltas = deltaFIFO.getItems().get(Caches.deletionHandlingMetaNamespaceKeyFunc(foo1));
+    assertEquals(1, deltas.size());
   }
 
   @Test
