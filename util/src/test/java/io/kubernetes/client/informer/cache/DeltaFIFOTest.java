@@ -95,7 +95,9 @@ public class DeltaFIFOTest {
 
   @Test
   public void testDeltaFIFODedup() {
-    V1Pod foo1 = new V1Pod().metadata(new V1ObjectMeta().name("foo1").namespace("default").resourceVersion("ver"));
+    V1Pod foo1 =
+        new V1Pod()
+            .metadata(new V1ObjectMeta().name("foo1").namespace("default").resourceVersion("ver"));
     Cache cache = new Cache();
     DeltaFIFO deltaFIFO = new DeltaFIFO(Caches::deletionHandlingMetaNamespaceKeyFunc, cache);
     Deque<MutablePair<DeltaFIFO.DeltaType, KubernetesObject>> deltas;
