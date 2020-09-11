@@ -15,6 +15,7 @@ package io.kubernetes.client.examples;
 import static io.kubernetes.client.extended.kubectl.Kubectl.apiResources;
 import static io.kubernetes.client.extended.kubectl.Kubectl.copy;
 import static io.kubernetes.client.extended.kubectl.Kubectl.cordon;
+import static io.kubernetes.client.extended.kubectl.Kubectl.delete;
 import static io.kubernetes.client.extended.kubectl.Kubectl.drain;
 import static io.kubernetes.client.extended.kubectl.Kubectl.exec;
 import static io.kubernetes.client.extended.kubectl.Kubectl.label;
@@ -107,7 +108,10 @@ public class KubectlExample {
     String name = null;
 
     switch (verb) {
-        // TODO: add support for create and replace here.
+      case "delete":
+        kind = args[1];
+        name = args[2];
+        delete(getClassForKind(kind)).namespace(ns).name(name).execute();
       case "drain":
         name = args[1];
         drain().apiClient(client).name(name).execute();

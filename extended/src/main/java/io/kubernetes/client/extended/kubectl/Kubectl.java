@@ -52,6 +52,11 @@ public class Kubectl {
     return new KubectlCreate();
   }
 
+  public static <ApiType extends KubernetesObject> KubectlDelete<ApiType> delete(
+      Class<ApiType> clazz) {
+    return new KubectlDelete<ApiType>(clazz);
+  }
+
   public static <ApiType extends KubernetesObject> KubectlReplace<ApiType> replace(
       Class<ApiType> clazz) {
     return new KubectlReplace<ApiType>(clazz);
