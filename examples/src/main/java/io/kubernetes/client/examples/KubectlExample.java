@@ -107,6 +107,7 @@ public class KubectlExample {
     String name = null;
 
     switch (verb) {
+        // TODO: add support for create and replace here.
       case "drain":
         name = args[1];
         drain().apiClient(client).name(name).execute();
