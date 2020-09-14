@@ -22,6 +22,7 @@ import io.kubernetes.client.openapi.models.V1Pod;
 import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.List;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.junit.Rule;
 import org.junit.Test;
@@ -164,5 +165,40 @@ public class DeltaFIFOTest {
           assertEquals(DeltaFIFO.DeltaType.Sync, deltas.getFirst().getLeft());
           assertEquals(newPod, deltas.getFirst().getRight());
         });
+  }
+
+  @Test
+  public void testSyncObjectWithIdenticalListThenPopShouldWork() throws InterruptedException {
+    Cache cache = new Cache();
+    DeltaFIFO deltaFIFO = new DeltaFIFO(Caches::deletionHandlingMetaNamespaceKeyFunc, cache);
+    String rv = "1234";
+    List<KubernetesObject> pods1 =
+        Arrays.asList(
+            new V1Pod()
+                .metadata(new V1ObjectMeta().namespace("default").name("foo1").resourceVersion(rv)),
+            new V1Pod()
+                .metadata(
+                    new V1ObjectMeta().namespace("default").name("foo2").resourceVersion(rv)));
+    deltaFIFO.replace(pods1, "");
+
+    List<KubernetesObject> pods2 =
+        Arrays.asList(
+            new V1Pod()
+                .metadata(new V1ObjectMeta().namespace("default").name("foo1").resourceVersion(rv)),
+            new V1Pod()
+                .metadata(
+                    new V1ObjectMeta().namespace("default").name("foo2").resourceVersion(rv)));
+    deltaFIFO.replace(pods2, "");
+
+    deltaFIFO.pop(
+        deltas -> {
+          assertEquals(2, deltas.size());
+        });
+    deltaFIFO.pop(
+        deltas -> {
+          assertEquals(2, deltas.size());
+        });
+
+    assertEquals(0, deltaFIFO.listKeys().size());
   }
 }
