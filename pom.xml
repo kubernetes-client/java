@@ -38,7 +38,7 @@
     <maven-plugin-version>1.0.0</maven-plugin-version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <snakeyaml.version>1.26</snakeyaml.version>
+    <snakeyaml.version>1.27</snakeyaml.version>
     <slf4j.version>1.7.30</slf4j.version>
     <guava.version>29.0-jre</guava.version>
     <protobuf.version>3.13.0</protobuf.version>
