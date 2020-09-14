@@ -447,7 +447,8 @@ public class DeltaFIFO {
     MutablePair<DeltaType, KubernetesObject> deletionDelta = isDeletionDup(d1, d2);
 
     // TODO: remove this after the cause of memory leakage is confirmed
-    // Squashing deltas w/ the same resource version, note that is a temporary fix that eases memory intensity.
+    // Squashing deltas w/ the same resource version, note that is a temporary fix that eases memory
+    // intensity.
     if (deletionDelta != null) {
       return deletionDelta;
     }
