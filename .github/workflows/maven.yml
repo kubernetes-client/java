@@ -63,3 +63,29 @@ jobs:
             -B \
             -De2e.skip=false \
             -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+  codegen:
+    runs-on: ubuntu-latest
+    services:
+      registry:
+        image: registry:2
+        ports:
+          - 5000:5000
+    name: CRD Java Models Code Generation
+    steps:
+      - name: Publish to Registry
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: kubernetes-client/java/crd-model-gen
+          tags: gh-action-tmp
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          workdir: client-java-contrib
+          no_push: true
+      - name: Run Code-gen for Cert-Manager
+        working-directory: ${{ github.workspace }}/client-java-contrib/cert-manager
+        run: IMAGE_TAG=gh-action-tmp ./update.sh
+      - name: Run Code-gen for Prometheus-Operator
+        working-directory: ${{ github.workspace }}/client-java-contrib/prometheus-operator
+        run: IMAGE_TAG=gh-action-tmp ./update.sh
+

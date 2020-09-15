@@ -16,6 +16,9 @@
 # This script generates the model classes from a released version of cert-manager CRDs
 # under src/main/java/io/cert/manager/models.
 
+IMAGE_NAME=${IMAGE_NAME:docker.pkg.github.com/kubernetes-client/java/crd-model-gen}
+IMAGE_TAG=${IMAGE_TAG:v1.0.2}
+
 # a crdgen container is run in a way that:
 #   1. it has access to the docker daemon on the host so that it is able to create sibling container on the host
 #   2. it runs on the host network so that it is able to communicate with the KinD cluster it launched on the host
@@ -23,9 +26,8 @@ docker run \
   --rm \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v "$(pwd)":"$(pwd)" \
-  -ti \
   --network host \
-  docker.pkg.github.com/kubernetes-client/java/crd-model-gen:v1.0.1 \
+  ${IMAGE_NAME}:${IMAGE_TAG} \
   /generate.sh \
   -u https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.38.1/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagers.yaml \
   -u https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.38.1/example/prometheus-operator-crd/monitoring.coreos.com_thanosrulers.yaml \

@@ -41,12 +41,16 @@ while getopts 'u:n:p:o:' flag; do
   esac
 done
 
+set -e
+
 # create a KinD cluster on the host
 kind create cluster
 
 # install CRDs to the KinD cluster and dump the swagger spec
 for url in "${CRD_URLS[@]}"; do
-  kubectl apply -f "$url"
+  if [[ ! -z $url ]]; then
+    kubectl apply -f "$url"
+  fi
 done
 
 sleep 5
@@ -58,10 +62,12 @@ kubectl get crd -o name \
     do
       if [[ $(kubectl get $L -o jsonpath='{.status.conditions[?(@.type=="NonStructuralSchema")].status}') == "True" ]]; then
         echo "$L failed publishing openapi schema because it's attached non-structral-schema condition."
+        kind delete cluster
         exit 1
       fi
       if [[ $(kubectl get $L -o jsonpath='{.spec.preserveUnknownFields}') == "true" ]]; then
         echo "$L failed publishing openapi schema because it explicitly disabled unknown fields pruning."
+        kind delete cluster
         exit 1
       fi
       echo "$L successfully installed"
