@@ -52,22 +52,14 @@ public class KubectlCreate<ApiType extends KubernetesObject>
                   : targetObj.getMetadata().getNamespace();
       try {
         return api.create(targetNamespace, targetObj, new CreateOptions())
-            .onFailure(
-                errorStatus -> {
-                  throw new ApiException(errorStatus.toString());
-                })
+            .throwsApiException()
             .getObject();
       } catch (ApiException e) {
         throw new KubectlException(e);
       }
     } else {
       try {
-        return api.create(targetObj, new CreateOptions())
-            .onFailure(
-                errorStatus -> {
-                  throw new ApiException(errorStatus.toString());
-                })
-            .getObject();
+        return api.create(targetObj, new CreateOptions()).throwsApiException().getObject();
       } catch (ApiException e) {
         throw new KubectlException(e);
       }

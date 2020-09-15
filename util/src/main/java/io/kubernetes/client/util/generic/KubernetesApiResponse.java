@@ -50,6 +50,27 @@ public class KubernetesApiResponse<DataType extends KubernetesType> {
     return this.httpStatusCode < 400;
   }
 
+  /**
+   * Throws api exception kubernetes api response on failure. This is the recommended approach to
+   * deal with errors returned from server.
+   *
+   * @return the kubernetes api response
+   * @throws ApiException the api exception
+   */
+  public KubernetesApiResponse<DataType> throwsApiException() throws ApiException {
+    return onFailure(
+        errorStatus -> {
+          throw new ApiException(errorStatus.toString());
+        });
+  }
+
+  /**
+   * Calling errorStatusHandler upon errors from server..
+   *
+   * @param errorStatusHandler the error status handler
+   * @return the kubernetes api response
+   * @throws ApiException the api exception
+   */
   public KubernetesApiResponse<DataType> onFailure(ErrorStatusHandler errorStatusHandler)
       throws ApiException {
     if (!isSuccess()) {

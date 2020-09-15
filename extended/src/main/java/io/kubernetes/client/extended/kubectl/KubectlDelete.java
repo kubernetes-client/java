@@ -33,25 +33,13 @@ public class KubectlDelete<ApiType extends KubernetesObject>
 
     if (isNamespaced(apiTypeClass)) {
       try {
-        return getGenericApi()
-            .delete(namespace, name)
-            .onFailure(
-                errorStatus -> {
-                  throw new ApiException(errorStatus.toString());
-                })
-            .getObject();
+        return getGenericApi().delete(namespace, name).throwsApiException().getObject();
       } catch (ApiException e) {
         throw new KubectlException(e);
       }
     } else {
       try {
-        return getGenericApi()
-            .delete(name)
-            .onFailure(
-                errorStatus -> {
-                  throw new ApiException(errorStatus.toString());
-                })
-            .getObject();
+        return getGenericApi().delete(name).throwsApiException().getObject();
       } catch (ApiException e) {
         throw new KubectlException(e);
       }

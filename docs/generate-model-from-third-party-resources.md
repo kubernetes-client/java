@@ -122,8 +122,9 @@ customObjectsApi.createNamespacedCustomObject(
 // alternatively use generic kubernetes api, the generic api is aimed to address the drawbacks
 // from the CustomObjectsApi.
 GenericKubernetesApi<V1CronTab, V1CronTabList> crontabClient =
-    new GenericKubernetesApi<>(V1CronTab.class, V1CronTabList.class, "com.example.stable", "v1", "crontabs", apiClient);
-KubernetesApiResponse<V1CronTab> createResponse = crontabClient.create(crontab);
+    new GenericKubernetesApi<>(V1CronTab.class, V1CronTabList.class, "com.example.stable", "v1", "crontabs", apiClient)
+        .create(crontab)
+        .throwsApiException();
 ```
 
 

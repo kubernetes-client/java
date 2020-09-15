@@ -46,25 +46,13 @@ public class KubectlReplace<ApiType extends KubernetesObject>
 
     if (isNamespaced(apiTypeClass)) {
       try {
-        return getGenericApi()
-            .update(updateObject, options)
-            .onFailure(
-                errorStatus -> {
-                  throw new ApiException(errorStatus.toString());
-                })
-            .getObject();
+        return getGenericApi().update(updateObject, options).throwsApiException().getObject();
       } catch (ApiException e) {
         throw new KubectlException(e);
       }
     } else {
       try {
-        return getGenericApi()
-            .update(updateObject, options)
-            .onFailure(
-                errorStatus -> {
-                  throw new ApiException(errorStatus.toString());
-                })
-            .getObject();
+        return getGenericApi().update(updateObject, options).throwsApiException().getObject();
       } catch (ApiException e) {
         throw new KubectlException(e);
       }

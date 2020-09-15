@@ -46,27 +46,13 @@ public class KubectlAnnotate<ApiType extends KubernetesObject>
     final ApiType currentObj;
     if (isNamespaced(apiTypeClass)) {
       try {
-        currentObj =
-            getGenericApi()
-                .get(namespace, name)
-                .onFailure(
-                    errorStatus -> {
-                      throw new ApiException(errorStatus.toString());
-                    })
-                .getObject();
+        currentObj = getGenericApi().get(namespace, name).throwsApiException().getObject();
       } catch (ApiException e) {
         throw new KubectlException(e);
       }
     } else {
       try {
-        currentObj =
-            getGenericApi()
-                .get(name)
-                .onFailure(
-                    errorStatus -> {
-                      throw new ApiException(errorStatus.toString());
-                    })
-                .getObject();
+        currentObj = getGenericApi().get(name).throwsApiException().getObject();
       } catch (ApiException e) {
         throw new KubectlException(e);
       }
@@ -76,13 +62,7 @@ public class KubectlAnnotate<ApiType extends KubernetesObject>
 
     final KubernetesApiResponse<ApiType> updateResponse;
     try {
-      return getGenericApi()
-          .update(currentObj)
-          .onFailure(
-              errorStatus -> {
-                throw new ApiException(errorStatus.toString());
-              })
-          .getObject();
+      return getGenericApi().update(currentObj).throwsApiException().getObject();
     } catch (ApiException e) {
       throw new KubectlException(e);
     }

@@ -14,7 +14,6 @@ package io.kubernetes.client.examples;
 
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.openapi.ApiClient;
-import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1Container;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
@@ -40,15 +39,7 @@ public class GenericClientExample {
     GenericKubernetesApi<V1Pod, V1PodList> podClient =
         new GenericKubernetesApi<>(V1Pod.class, V1PodList.class, "", "v1", "pods", apiClient);
 
-    V1Pod latestPod =
-        podClient
-            .create(pod)
-            .onFailure(
-                errorStatus -> {
-                  System.out.println("Not Created!");
-                  throw new ApiException(errorStatus.toString());
-                })
-            .getObject();
+    V1Pod latestPod = podClient.create(pod).throwsApiException().getObject();
     System.out.println("Created!");
 
     V1Pod patchedPod =
@@ -58,23 +49,11 @@ public class GenericClientExample {
                 "foo",
                 V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH,
                 new V1Patch("{\"metadata\":{\"finalizers\":[\"example.io/foo\"]}}"))
-            .onFailure(
-                errorStatus -> {
-                  System.out.println("Not Patched!");
-                  throw new ApiException(errorStatus.toString());
-                })
+            .throwsApiException()
             .getObject();
     System.out.println("Patched!");
 
-    V1Pod deletedPod =
-        podClient
-            .delete("default", "foo")
-            .onFailure(
-                errorStatus -> {
-                  System.out.println("Not Deleted!");
-                  throw new ApiException(errorStatus.toString());
-                })
-            .getObject();
+    V1Pod deletedPod = podClient.delete("default", "foo").throwsApiException().getObject();
     if (deletedPod != null) {
       System.out.println(
           "Received after-deletion status of the requested object, will be deleting in background!");
