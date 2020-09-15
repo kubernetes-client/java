@@ -10,6 +10,17 @@ on:
     branches: [ master ]
 
 jobs:
+  verify-format:
+    runs-on: ubuntu-latest
+    name: Verify Source Format
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 8.0.x
+      - name: Verify Format and License
+        run: mvn spotless:check
   build:
     runs-on: ubuntu-latest
     name: Java ${{ matrix.java }} Maven Test
@@ -23,8 +34,6 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: ${{ matrix.java }}
-      - name: Verify Format and License
-        run: mvn spotless:check
       - name: Build with Maven
         run: mvn -q test -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
   build-graalvm:
