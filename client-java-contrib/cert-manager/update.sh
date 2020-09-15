@@ -25,7 +25,7 @@ docker run \
   -v "$(pwd)":"$(pwd)" \
   -ti \
   --network host \
-  docker.pkg.github.com/kubernetes-client/java/crd-model-gen:v1.0.1 \
+  docker.pkg.github.com/kubernetes-client/java/crd-model-gen:v1.0.2 \
   /generate.sh \
   -u https://github.com/jetstack/cert-manager/releases/download/v0.16.1/cert-manager.crds.yaml \
   -n io.cert-manager \

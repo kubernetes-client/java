@@ -25,7 +25,7 @@ docker run \
   -v "$(pwd)":"$(pwd)" \
   -ti \
   --network host \
-  docker.pkg.github.com/kubernetes-client/java/crd-model-gen:v1.0.1 \
+  docker.pkg.github.com/kubernetes-client/java/crd-model-gen:v1.0.2 \
   /generate.sh \
   -u https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.38.1/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagers.yaml \
   -u https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.38.1/example/prometheus-operator-crd/monitoring.coreos.com_thanosrulers.yaml \
