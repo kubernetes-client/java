@@ -22,25 +22,26 @@ import io.kubernetes.client.util.Namespaces;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
 import io.kubernetes.client.util.generic.options.CreateOptions;
 
-public class KubectlCreate extends Kubectl.NamespacedApiClientBuilder<KubectlCreate>
-    implements Kubectl.Executable<KubernetesObject> {
+public class KubectlCreate<ApiType extends KubernetesObject>
+    extends Kubectl.ResourceBuilder<ApiType, KubectlCreate<ApiType>>
+    implements Kubectl.Executable<ApiType> {
 
-  KubectlCreate() {}
+  KubectlCreate(Class<ApiType> apiTypeClass) {
+    super(apiTypeClass);
+  }
 
-  private KubernetesObject targetObj;
+  private ApiType targetObj;
 
-  public KubectlCreate resource(KubernetesObject obj) {
+  public KubectlCreate<ApiType> resource(ApiType obj) {
     this.targetObj = obj;
     return this;
   }
 
   @Override
-  public KubernetesObject execute() throws KubectlException {
+  public ApiType execute() throws KubectlException {
     refreshDiscovery();
 
-    GenericKubernetesApi<KubernetesObject, KubernetesListObject> api =
-        (GenericKubernetesApi<KubernetesObject, KubernetesListObject>)
-            getGenericApi(this.targetObj.getClass());
+    GenericKubernetesApi<ApiType, KubernetesListObject> api = getGenericApi();
 
     if (ModelMapper.isNamespaced(this.targetObj.getClass())) {
       String targetNamespace =

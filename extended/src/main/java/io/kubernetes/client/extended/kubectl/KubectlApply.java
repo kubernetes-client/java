@@ -24,31 +24,33 @@ import io.kubernetes.client.util.generic.GenericKubernetesApi;
 import io.kubernetes.client.util.generic.KubernetesApiResponse;
 import io.kubernetes.client.util.generic.options.PatchOptions;
 
-public class KubectlApply extends Kubectl.NamespacedApiClientBuilder<KubectlApply>
-    implements Kubectl.Executable<KubernetesObject> {
+public class KubectlApply<ApiType extends KubernetesObject>
+    extends Kubectl.ResourceBuilder<ApiType, KubectlApply<ApiType>>
+    implements Kubectl.Executable<ApiType> {
 
-  private KubernetesObject targetObj;
+  private ApiType targetObj;
   private String fieldManager;
   private boolean forceConflict;
 
   public static final String DEFAULT_FIELD_MANAGER = "kubernetes-java-kubectl-apply";
 
-  KubectlApply() {
+  KubectlApply(Class<ApiType> apiTypeClass) {
+    super(apiTypeClass);
     this.forceConflict = false;
     this.fieldManager = DEFAULT_FIELD_MANAGER;
   }
 
-  public KubectlApply fieldManager(String fieldManager) {
+  public KubectlApply<ApiType> fieldManager(String fieldManager) {
     this.fieldManager = fieldManager;
     return this;
   }
 
-  public KubectlApply forceConflict(boolean isForceConflict) {
+  public KubectlApply<ApiType> forceConflict(boolean isForceConflict) {
     this.forceConflict = isForceConflict;
     return this;
   }
 
-  public KubectlApply resource(KubernetesObject obj) {
+  public KubectlApply<ApiType> resource(ApiType obj) {
     this.targetObj = obj;
     return this;
   }
@@ -60,17 +62,15 @@ public class KubectlApply extends Kubectl.NamespacedApiClientBuilder<KubectlAppl
   }
 
   @Override
-  public KubernetesObject execute() throws KubectlException {
+  public ApiType execute() throws KubectlException {
     validate();
     return executeServerSideApply();
   }
 
-  private KubernetesObject executeServerSideApply() throws KubectlException {
+  private ApiType executeServerSideApply() throws KubectlException {
     refreshDiscovery();
 
-    GenericKubernetesApi<KubernetesObject, KubernetesListObject> api =
-        (GenericKubernetesApi<KubernetesObject, KubernetesListObject>)
-            getGenericApi(this.targetObj.getClass());
+    GenericKubernetesApi<ApiType, KubernetesListObject> api = getGenericApi();
 
     PatchOptions patchOptions = new PatchOptions();
     patchOptions.setForce(this.forceConflict);

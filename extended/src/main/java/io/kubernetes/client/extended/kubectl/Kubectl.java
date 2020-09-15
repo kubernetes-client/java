@@ -35,6 +35,30 @@ public class Kubectl {
     return new KubectlGet<>(apiTypeClass);
   }
 
+  /** Equivalent for `kubectl create` */
+  public static <ApiType extends KubernetesObject> KubectlCreate<ApiType> create(
+      Class<ApiType> clazz) {
+    return new KubectlCreate<>(clazz);
+  }
+
+  /** Equivalent for `kubectl delete` */
+  public static <ApiType extends KubernetesObject> KubectlDelete<ApiType> delete(
+      Class<ApiType> clazz) {
+    return new KubectlDelete<>(clazz);
+  }
+
+  /** Equivalent for `kubectl replace` */
+  public static <ApiType extends KubernetesObject> KubectlReplace<ApiType> replace(
+      Class<ApiType> clazz) {
+    return new KubectlReplace<>(clazz);
+  }
+
+  /** Equivalent for `kubectl apply` */
+  public static <ApiType extends KubernetesObject> KubectlApply<ApiType> apply(
+      Class<ApiType> clazz) {
+    return new KubectlApply(clazz);
+  }
+
   /** Equivalent for `kubectl drain` */
   public static KubectlDrain drain() {
     return new KubectlDrain();
@@ -48,34 +72,6 @@ public class Kubectl {
   /** Equivalent for `kubectl uncordon` */
   public static KubectlCordon uncordon() {
     return new KubectlCordon(false);
-  }
-
-  /**
-   * Equivalent for `kubectl create`
-   *
-   * @return the kubectl create
-   */
-  public static KubectlCreate create() {
-    return new KubectlCreate();
-  }
-
-  public static <ApiType extends KubernetesObject> KubectlDelete<ApiType> delete(
-      Class<ApiType> clazz) {
-    return new KubectlDelete<ApiType>(clazz);
-  }
-
-  public static <ApiType extends KubernetesObject> KubectlReplace<ApiType> replace(
-      Class<ApiType> clazz) {
-    return new KubectlReplace<ApiType>(clazz);
-  }
-
-  /**
-   * Equivalent for `kubectl apply`
-   *
-   * @return the kubectl create
-   */
-  public static KubectlApply apply() {
-    return new KubectlApply();
   }
 
   /**
