@@ -168,6 +168,18 @@ public class Kubectl {
   }
 
   /**
+   * Equivalent for `Kubectl patch`
+   *
+   * @param apiTypeClass
+   * @param <ApiType>
+   * @return
+   */
+  public static <ApiType extends KubernetesObject> KubectlPatch<ApiType> patch(
+      Class<ApiType> apiTypeClass) {
+    return new KubectlPatch<>(apiTypeClass);
+  }
+
+  /**
    * Executable executes a kubectl helper.
    *
    * @param <OUTPUT> the type parameter
