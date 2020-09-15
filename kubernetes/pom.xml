@@ -214,7 +214,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>${junit-version}</version>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -229,7 +229,6 @@
     <gsonfire-version>1.8.4</gsonfire-version>
     <jodatime-version>2.10.6</jodatime-version>
     <maven-plugin-version>1.0.0</maven-plugin-version>
-    <junit-version>4.13</junit-version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 </project>
