@@ -213,10 +213,7 @@ public class SharedInformerFactory {
                     setTimeoutSeconds(params.timeoutSeconds);
                   }
                 })
-            .onFailure(
-                errorStatus -> {
-                  throw new ApiException(errorStatus.toString());
-                })
+            .throwsApiException()
             .getObject();
       }
 

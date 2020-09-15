@@ -15,13 +15,14 @@ package io.kubernetes.client.examples;
 import com.coreos.monitoring.models.V1Prometheus;
 import com.coreos.monitoring.models.V1PrometheusList;
 import com.coreos.monitoring.models.V1PrometheusSpec;
+import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
 import java.io.IOException;
 
 public class PromOpExample {
-  public static void main(String[] args) throws IOException {
+  public static void main(String[] args) throws IOException, ApiException {
     GenericKubernetesApi<V1Prometheus, V1PrometheusList> prometheusApi =
         new GenericKubernetesApi<>(
             V1Prometheus.class,
@@ -30,11 +31,13 @@ public class PromOpExample {
             "v1",
             "prometheuses",
             ClientBuilder.defaultClient());
-    prometheusApi.create(
-        new V1Prometheus()
-            .metadata(new V1ObjectMeta().namespace("default").name("my-prometheus"))
-            .kind("Prometheus")
-            .apiVersion("monitoring.coreos.com/v1")
-            .spec(new V1PrometheusSpec()));
+    prometheusApi
+        .create(
+            new V1Prometheus()
+                .metadata(new V1ObjectMeta().namespace("default").name("my-prometheus"))
+                .kind("Prometheus")
+                .apiVersion("monitoring.coreos.com/v1")
+                .spec(new V1PrometheusSpec()))
+        .throwsApiException();
   }
 }

@@ -64,23 +64,10 @@ public class KubectlGet<ApiType extends KubernetesObject>
     try {
       if (isNamespaced()) {
         return (List<ApiType>)
-            api.list(namespace, listOptions)
-                .onFailure(
-                    errorStatus -> {
-                      throw new ApiException(errorStatus.toString());
-                    })
-                .getObject()
-                .getItems();
+            api.list(namespace, listOptions).throwsApiException().getObject().getItems();
 
       } else {
-        return (List<ApiType>)
-            api.list(listOptions)
-                .onFailure(
-                    errorStatus -> {
-                      throw new ApiException(errorStatus.toString());
-                    })
-                .getObject()
-                .getItems();
+        return (List<ApiType>) api.list(listOptions).throwsApiException().getObject().getItems();
       }
     } catch (ApiException e) {
       throw new KubectlException(e);
@@ -113,19 +100,11 @@ public class KubectlGet<ApiType extends KubernetesObject>
       try {
         if (isNamespaced()) {
           return api.get(KubectlGetSingle.this.namespace, KubectlGetSingle.this.name)
-              .onFailure(
-                  errorStatus -> {
-                    throw new ApiException(errorStatus.toString());
-                  })
+              .throwsApiException()
               .getObject();
 
         } else {
-          return api.get(KubectlGetSingle.this.name)
-              .onFailure(
-                  errorStatus -> {
-                    throw new ApiException(errorStatus.toString());
-                  })
-              .getObject();
+          return api.get(KubectlGetSingle.this.name).throwsApiException().getObject();
         }
       } catch (ApiException e) {
         throw new KubectlException(e);

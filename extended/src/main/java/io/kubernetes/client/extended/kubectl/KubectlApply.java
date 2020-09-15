@@ -92,10 +92,7 @@ public class KubectlApply extends Kubectl.NamespacedApiClientBuilder<KubectlAppl
                 V1Patch.PATCH_FORMAT_APPLY_YAML,
                 new V1Patch(apiClient.getJSON().serialize(targetObj)),
                 patchOptions)
-            .onFailure(
-                errorStatus -> {
-                  throw new ApiException(errorStatus.toString());
-                })
+            .throwsApiException()
             .getObject();
       } catch (ApiException e) {
         throw new KubectlException(e);
@@ -107,10 +104,7 @@ public class KubectlApply extends Kubectl.NamespacedApiClientBuilder<KubectlAppl
                 V1Patch.PATCH_FORMAT_APPLY_YAML,
                 new V1Patch(apiClient.getJSON().serialize(targetObj)),
                 patchOptions)
-            .onFailure(
-                errorStatus -> {
-                  throw new ApiException(errorStatus.toString());
-                })
+            .throwsApiException()
             .getObject();
       } catch (ApiException e) {
         throw new KubectlException(e);

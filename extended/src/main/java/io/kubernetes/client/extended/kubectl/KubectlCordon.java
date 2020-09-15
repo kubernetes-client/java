@@ -42,10 +42,7 @@ public class KubectlCordon extends Kubectl.ResourceAndContainerBuilder<V1Node, K
     try {
       return getGenericApi()
           .patch(name, V1Patch.PATCH_FORMAT_JSON_PATCH, new V1Patch(patch))
-          .onFailure(
-              errorStatus -> {
-                throw new ApiException(errorStatus.toString());
-              })
+          .throwsApiException()
           .getObject();
     } catch (ApiException e) {
       throw new KubectlException(e);
