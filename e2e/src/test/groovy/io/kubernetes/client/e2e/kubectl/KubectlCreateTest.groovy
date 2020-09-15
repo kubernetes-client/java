@@ -11,7 +11,7 @@ class KubectlCreateTest extends Specification {
     def "Kubectl create namespace should work"() {
         given:
         def apiClient = ClientBuilder.defaultClient();
-        def createdNamespace = Kubectl.create()
+        def createdNamespace = Kubectl.create(V1Namespace.class)
                 .apiClient(apiClient)
                 .resource(new V1Namespace()
                         .apiVersion("v1")

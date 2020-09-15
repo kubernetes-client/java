@@ -78,7 +78,7 @@ public class KubectlCreateTest {
 
     V1ConfigMap configMap =
         (V1ConfigMap)
-            Kubectl.create()
+            Kubectl.create(V1ConfigMap.class)
                 .apiClient(apiClient)
                 .resource(
                     new V1ConfigMap()

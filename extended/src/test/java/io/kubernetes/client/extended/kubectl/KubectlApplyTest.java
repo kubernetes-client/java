@@ -81,20 +81,19 @@ public class KubectlApplyTest {
                     .withBody(new String(Files.readAllBytes(Paths.get(DISCOVERY_APIV1))))));
 
     V1ConfigMap configMap =
-        (V1ConfigMap)
-            Kubectl.apply()
-                .apiClient(apiClient)
-                .resource(
-                    new V1ConfigMap()
-                        .apiVersion("v1")
-                        .metadata(new V1ObjectMeta().namespace("foo").name("bar"))
-                        .data(
-                            new HashMap<String, String>() {
-                              {
-                                put("key1", "value1");
-                              }
-                            }))
-                .execute();
+        Kubectl.apply(V1ConfigMap.class)
+            .apiClient(apiClient)
+            .resource(
+                new V1ConfigMap()
+                    .apiVersion("v1")
+                    .metadata(new V1ObjectMeta().namespace("foo").name("bar"))
+                    .data(
+                        new HashMap<String, String>() {
+                          {
+                            put("key1", "value1");
+                          }
+                        }))
+            .execute();
     wireMockRule.verify(
         1, patchRequestedFor(urlPathEqualTo("/api/v1/namespaces/foo/configmaps/bar")));
     assertNotNull(configMap);

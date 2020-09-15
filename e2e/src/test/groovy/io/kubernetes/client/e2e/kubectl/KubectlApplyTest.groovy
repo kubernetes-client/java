@@ -12,7 +12,7 @@ class KubectlApplyTest extends Specification {
         given:
         def apiClient = ClientBuilder.defaultClient();
         apiClient.setDebugging(true)
-        def appliedNamespace = Kubectl.apply()
+        def appliedNamespace = Kubectl.apply(V1Namespace.class)
                 .apiClient(apiClient)
                 .resource(new V1Namespace()
                         .apiVersion("v1")
