@@ -31,9 +31,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
 import okhttp3.Call;
-import okhttp3.OkHttpClient;
 import org.apache.commons.collections4.MapUtils;
 
 /** SharedInformerFactory class constructs and caches informers for api types. */
@@ -49,7 +47,7 @@ public class SharedInformerFactory {
 
   /** Constructor w/ default thread pool. */
   public SharedInformerFactory() {
-    this(Configuration.getDefaultApiClient(), Executors.newCachedThreadPool());
+    this(Configuration.getDefaultApiClient().setReadTimeout(0), Executors.newCachedThreadPool());
   }
 
   /** Constructor w/ api client specified and default thread pool. */
@@ -63,7 +61,7 @@ public class SharedInformerFactory {
    * @param threadPool specified thread pool
    */
   public SharedInformerFactory(ExecutorService threadPool) {
-    this(Configuration.getDefaultApiClient(), threadPool);
+    this(Configuration.getDefaultApiClient().setReadTimeout(0), threadPool);
   }
 
   /**
@@ -73,6 +71,10 @@ public class SharedInformerFactory {
    * @param threadPool specified thread pool
    */
   public SharedInformerFactory(ApiClient client, ExecutorService threadPool) {
+    if (client.getReadTimeout() != 0) {
+      throw new IllegalArgumentException("read timeout of ApiClient must be zero");
+    }
+
     apiClient = client;
     informerExecutor = threadPool;
     informers = new HashMap<>();
@@ -169,11 +171,9 @@ public class SharedInformerFactory {
           CallGenerator callGenerator,
           Class<ApiType> apiTypeClass,
           Class<ApiListType> apiListTypeClass) {
-    if (apiClient.getHttpClient().readTimeoutMillis() > 0) {
+    if (apiClient.getReadTimeout() > 0) {
       // set read timeout zero to ensure client doesn't time out
-      OkHttpClient httpClient =
-          apiClient.getHttpClient().newBuilder().readTimeout(0, TimeUnit.MILLISECONDS).build();
-      apiClient.setHttpClient(httpClient);
+      apiClient.setReadTimeout(0);
     }
     return new ListerWatcher<ApiType, ApiListType>() {
       @Override
@@ -185,6 +185,8 @@ public class SharedInformerFactory {
       @Override
       public Watch<ApiType> watch(CallGeneratorParams params) throws ApiException {
         Call call = callGenerator.generate(params);
+        // bind call with private http client to make sure read timeout is zero.
+        call = apiClient.getHttpClient().newCall(call.request());
         return Watch.createWatch(
             apiClient,
             call,
@@ -196,12 +198,11 @@ public class SharedInformerFactory {
   private <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
       ListerWatcher<ApiType, ApiListType> listerWatcherFor(
           GenericKubernetesApi<ApiType, ApiListType> genericKubernetesApi) {
-    if (apiClient.getHttpClient().readTimeoutMillis() > 0) {
+    if (apiClient.getReadTimeout() > 0) {
       // set read timeout zero to ensure client doesn't time out
-      OkHttpClient httpClient =
-          apiClient.getHttpClient().newBuilder().readTimeout(0, TimeUnit.MILLISECONDS).build();
-      apiClient.setHttpClient(httpClient);
+      apiClient.setReadTimeout(0);
     }
+    // TODO: it seems read timeout is determined by genericKubernetesApi instead of above apiClient.
     return new ListerWatcher<ApiType, ApiListType>() {
       public ApiListType list(CallGeneratorParams params) throws ApiException {
         return genericKubernetesApi
