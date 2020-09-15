@@ -28,6 +28,13 @@ import io.kubernetes.client.util.generic.GenericKubernetesApi;
  * kubectl commands.
  */
 public class Kubectl {
+
+  /** Equivalent for `kubectl get` */
+  public static <ApiType extends KubernetesObject> KubectlGet<ApiType> get(
+      Class<ApiType> apiTypeClass) {
+    return new KubectlGet<>(apiTypeClass);
+  }
+
   /** Equivalent for `kubectl drain` */
   public static KubectlDrain drain() {
     return new KubectlDrain();
@@ -70,6 +77,7 @@ public class Kubectl {
   public static KubectlApply apply() {
     return new KubectlApply();
   }
+
   /**
    * Equivalent for `kubectl top`
    *
@@ -220,15 +228,38 @@ public class Kubectl {
       }
     }
 
-    protected GenericKubernetesApi<? extends KubernetesObject, KubernetesListObject> getGenericApi(
-        Class<? extends KubernetesObject> apiTypeClass) {
+    protected <ApiType extends KubernetesObject>
+        GenericKubernetesApi<ApiType, ? extends KubernetesListObject> getGenericApi(
+            Class<ApiType> apiTypeClass) throws KubectlException {
+
+      // load list type class dynamically from class-loader
+      String apiListTypeClassName = apiTypeClass.getName() + "List";
+      try {
+        Class<? extends KubernetesListObject> apiTypeListClass;
+        apiTypeListClass =
+            (Class<? extends KubernetesListObject>)
+                apiTypeClass.getClassLoader().loadClass(apiListTypeClassName);
+        return getGenericApi(apiTypeClass, apiTypeListClass);
+      } catch (ClassNotFoundException e) {
+        throw new KubectlException(
+            new StringBuilder()
+                .append("No such api list type class ")
+                .append(apiListTypeClassName)
+                .append(", consider explicitly load the class by apiListTypeClass()?")
+                .toString());
+      }
+    }
+
+    protected <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
+        GenericKubernetesApi<ApiType, ApiListType> getGenericApi(
+            Class<ApiType> apiTypeClass, Class<ApiListType> apiListTypeClass) {
       GroupVersionResource groupVersionResource =
           ModelMapper.getGroupVersionResourceByClass(apiTypeClass);
 
-      GenericKubernetesApi<? extends KubernetesObject, KubernetesListObject> api =
+      GenericKubernetesApi<ApiType, ApiListType> api =
           new GenericKubernetesApi<>(
               apiTypeClass,
-              KubernetesListObject.class,
+              apiListTypeClass,
               groupVersionResource.getGroup(),
               groupVersionResource.getVersion(),
               groupVersionResource.getResource(),
@@ -263,18 +294,7 @@ public class Kubectl {
     }
 
     protected GenericKubernetesApi<ApiType, KubernetesListObject> getGenericApi() {
-      GroupVersionResource groupVersionResource =
-          ModelMapper.getGroupVersionResourceByClass(apiTypeClass);
-
-      GenericKubernetesApi<ApiType, KubernetesListObject> api =
-          new GenericKubernetesApi<>(
-              apiTypeClass,
-              KubernetesListObject.class,
-              groupVersionResource.getGroup(),
-              groupVersionResource.getVersion(),
-              groupVersionResource.getResource(),
-              apiClient);
-      return api;
+      return getGenericApi(apiTypeClass, KubernetesListObject.class);
     }
   }
 
