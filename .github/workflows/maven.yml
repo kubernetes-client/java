@@ -72,6 +72,7 @@ jobs:
           - 5000:5000
     name: CRD Java Models Code Generation
     steps:
+      - uses: actions/checkout@v2
       - name: Publish to Registry
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
