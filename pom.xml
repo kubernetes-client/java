@@ -49,7 +49,7 @@
     <apache.commons.collections4.version>4.4</apache.commons.collections4.version>
     <apache.commons.compress>1.20</apache.commons.compress>
     <common.codec.version>1.15</common.codec.version>
-    <spring.boot.version>2.3.3.RELEASE</spring.boot.version>
+    <spring.boot.version>2.3.4.RELEASE</spring.boot.version>
     <spring.version>5.2.9.RELEASE</spring.version>
     <prometheus.client.version>0.9.0</prometheus.client.version>
 
