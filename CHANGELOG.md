@@ -1,3 +1,19 @@
+# 10.0.0
+* Kubernetes spec to `v1.18.x`
+* Implementation of `kubectl` equivalent utilities
+* Custom resource definitions for common add-on APIs
+* Prometheus instrumentation
+* Metrics support
+* Bug fixes
+
+# 9.0.2
+* Kubernetes spec to `v1.17.x`
+* Bug fixes
+
+# 8.0.2
+* Kubernetes spec to `v1.16.x`
+* Bug fixes
+
 # 7.0.0
 Changes since 6.0.1
 
