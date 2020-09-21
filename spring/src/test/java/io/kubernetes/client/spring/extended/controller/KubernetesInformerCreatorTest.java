@@ -70,6 +70,11 @@ public class KubernetesInformerCreatorTest {
       return new TestSharedInformerFactory();
     }
 
+    @Bean
+    public KubernetesInformerConfigurer kubernetesInformerConfigurer(ApiClient apiClient) {
+      return new KubernetesInformerConfigurer(apiClient);
+    }
+
     @KubernetesInformers({
       @KubernetesInformer(
           apiTypeClass = V1Pod.class,

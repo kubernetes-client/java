@@ -71,6 +71,12 @@ public class KubernetesReconcilerCreatorTest {
         Lister<V1ConfigMap> configMapLister) {
       return new TestReconciler(podInformer, podLister, configMapLister);
     }
+
+    @Bean
+    public KubernetesReconcilerConfigurer kubernetesReconcilerConfigurer(
+        SharedInformerFactory sharedInformerFactory) {
+      return new KubernetesReconcilerConfigurer(sharedInformerFactory);
+    }
   }
 
   @KubernetesReconciler(
