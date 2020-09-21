@@ -65,6 +65,12 @@ public class KubernetesReconcilerProcessor implements BeanFactoryPostProcessor, 
 
   private ExecutorService controllerManagerDaemon = Executors.newSingleThreadExecutor();
 
+  private SharedInformerFactory sharedInformerFactory;
+
+  public KubernetesReconcilerProcessor(SharedInformerFactory sharedInformerFactory) {
+    this.sharedInformerFactory = sharedInformerFactory;
+  }
+
   @Override
   public int getOrder() {
     return KubernetesInformerFactoryProcessor.ORDER + 1;
@@ -73,14 +79,16 @@ public class KubernetesReconcilerProcessor implements BeanFactoryPostProcessor, 
   @Override
   public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory)
       throws BeansException {
-    SharedInformerFactory sharedInformerFactory = beanFactory.getBean(SharedInformerFactory.class);
+    if (this.sharedInformerFactory == null) {
+      this.sharedInformerFactory = beanFactory.getBean(SharedInformerFactory.class);
+    }
     String[] names = beanFactory.getBeanNamesForType(Reconciler.class);
     for (String name : names) {
       Reconciler reconciler = (Reconciler) beanFactory.getBean(name);
       KubernetesReconciler kubernetesReconciler =
           reconciler.getClass().getAnnotation(KubernetesReconciler.class);
       String reconcilerName = kubernetesReconciler.value();
-      Controller controller = buildController(sharedInformerFactory, reconciler);
+      Controller controller = buildController(this.sharedInformerFactory, reconciler);
       beanFactory.registerSingleton(reconcilerName, controller);
     }
   }

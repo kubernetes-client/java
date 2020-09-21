@@ -24,6 +24,8 @@ import io.kubernetes.client.openapi.models.V1Node;
 import io.kubernetes.client.openapi.models.V1NodeList;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1PodList;
+import io.kubernetes.client.spring.extended.controller.KubernetesInformerConfigurer;
+import io.kubernetes.client.spring.extended.controller.KubernetesReconcilerConfigurer;
 import io.kubernetes.client.spring.extended.controller.annotation.*;
 import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
@@ -33,7 +35,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @SpringBootApplication
@@ -44,11 +45,6 @@ public class SpringControllerExample {
   }
 
   @Configuration
-  @ComponentScan(
-      basePackages = "io.kubernetes.client.spring.extended.controller") // Scanning beans under this
-  // package is
-  // *REQUIRED* for informers/reconciler
-  // injections.
   public static class AppConfig {
 
     @Bean
@@ -62,6 +58,21 @@ public class SpringControllerExample {
         System.out.println("running controller..");
         nodePrintingController.run();
       };
+    }
+
+    // *REQUIRED*
+    // Configurer components that registers informers to the informer-factory in the context.
+    @Bean
+    public KubernetesInformerConfigurer kubernetesInformerConfigurer(ApiClient apiClient) {
+      return new KubernetesInformerConfigurer(apiClient);
+    }
+
+    // *REQUIRED*
+    // Configurer components that registers reconciler to the controller-manager in the context.
+    @Bean
+    public KubernetesReconcilerConfigurer kubernetesReconcilerConfigurer(
+        SharedInformerFactory sharedInformerFactory) {
+      return new KubernetesReconcilerConfigurer(sharedInformerFactory);
     }
 
     // *OPTIONAL*

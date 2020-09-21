@@ -57,6 +57,12 @@ public class KubernetesInformerFactoryProcessor
 
   private BeanDefinitionRegistry beanDefinitionRegistry;
 
+  private ApiClient apiClient = null;
+
+  public KubernetesInformerFactoryProcessor(ApiClient apiClient) {
+    this.apiClient = apiClient;
+  }
+
   @Override
   public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory)
       throws BeansException {
@@ -80,20 +86,22 @@ public class KubernetesInformerFactoryProcessor
       return;
     }
 
-    ApiClient apiClient;
-    try {
-      apiClient = beanFactory.getBean(ApiClient.class);
-    } catch (NoSuchBeanDefinitionException e) {
-      log.info("No ApiClient bean found, falling-back to default initialization..");
+    if (this.apiClient == null) {
       try {
-        apiClient = ClientBuilder.standard().build();
-      } catch (IOException ex) {
-        log.error("failed initializing ApiClient", ex);
-        return;
+        this.apiClient = beanFactory.getBean(ApiClient.class);
+      } catch (NoSuchBeanDefinitionException e) {
+        log.info("No ApiClient bean found, falling-back to default initialization..");
+        try {
+          this.apiClient = ClientBuilder.standard().build();
+        } catch (IOException ex) {
+          log.error("failed initializing ApiClient", ex);
+          return;
+        }
       }
     }
-    apiClient.setHttpClient(
-        apiClient.getHttpClient().newBuilder().readTimeout(Duration.ZERO).build());
+
+    this.apiClient.setHttpClient(
+        this.apiClient.getHttpClient().newBuilder().readTimeout(Duration.ZERO).build());
 
     SharedInformerFactory sharedInformerFactory = beanFactory.getBean(SharedInformerFactory.class);
     KubernetesInformers kubernetesInformers =
