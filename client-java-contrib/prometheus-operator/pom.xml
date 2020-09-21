@@ -9,7 +9,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>client-java-prometheus-operator-models</artifactId>
-    <version>10.0.1-SNAPSHOT</version>
+    <version>0.38.1-SNAPSHOT</version>
     <dependencies>
         <dependency>
             <groupId>io.kubernetes</groupId>
@@ -18,4 +18,16 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
