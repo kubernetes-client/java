@@ -23,7 +23,7 @@ public class KubectlReplace<ApiType extends KubernetesObject>
     extends Kubectl.ResourceBuilder<ApiType, KubectlReplace<ApiType>>
     implements Kubectl.Executable<ApiType> {
   ApiType updateObject;
-  UpdateOptions options;
+  UpdateOptions options = new UpdateOptions();
 
   KubectlReplace(Class<ApiType> apiTypeClass) {
     super(apiTypeClass);
@@ -69,9 +69,6 @@ public class KubectlReplace<ApiType extends KubernetesObject>
   }
 
   private void verifyArguments() throws KubectlException {
-    if (null == name) {
-      throw new KubectlException("missing name argument");
-    }
     if (null == updateObject) {
       throw new KubectlException("missing new resource");
     }
