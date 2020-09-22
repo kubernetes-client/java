@@ -301,7 +301,7 @@
         <plugin>
           <groupId>org.codehaus.gmavenplus</groupId>
           <artifactId>gmavenplus-plugin</artifactId>
-          <version>1.10.0</version>
+          <version>1.10.1</version>
         </plugin>
       </plugins>
     </pluginManagement>
