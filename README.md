@@ -33,14 +33,14 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.kubernetes</groupId>
     <artifactId>client-java</artifactId>
-    <version>9.0.0</version>
+    <version>10.0.0</version>
 </dependency>
 ```
 
 ### Gradle users
 
 ```groovy
-compile 'io.kubernetes:client-java:9.0.0'
+compile 'io.kubernetes:client-java:10.0.0'
 ```
 
 ### Others
@@ -55,8 +55,19 @@ mvn package
 
 Then manually install the following JARs:
 
-* target/client-java-api-10.0.0-SNAPSHOT.jar
+* target/client-java-api-10.0.1-SNAPSHOT.jar
 * target/lib/*.jar
+
+## Known Issues
+
+##### 1. Exception on deleting resources: "java.lang.IllegalStateException: Expected a string but was BEGIN_OBJECT..."
+
+This is happening because openapi schema from kubernetes upstream doesn't match its implementation due to 
+the limitation of openapi v2 schema expression [#86](https://github.com/kubernetes-client/java/issues/86). 
+Consider either catch and ignore the JsonSyntaxException or do the deletion in the following form:
+
+- Use Kubectl equivalence, see examples [here](https://github.com/kubernetes-client/java/blob/6fa3525189d9e50d9b07016155642ddf59990905/e2e/src/test/groovy/io/kubernetes/client/e2e/kubectl/KubectlNamespaceTest.groovy#L69-L72)
+- Use generic kubernetes api, see examples [here](https://github.com/kubernetes-client/java/blob/6fa3525189d9e50d9b07016155642ddf59990905/examples/src/main/java/io/kubernetes/client/examples/GenericClientExample.java#L56)
 
 ## Example
 
@@ -103,7 +114,7 @@ We prepared a few examples for common use-cases which are shown below:
   Leader election utilities to help implement HA controllers.
   - ([9.0.0+](https://github.com/kubernetes-client/java/tree/client-java-parent-9.0.0)) [SpringIntegrationControllerExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/SpringControllerExample.java): 
   Building a kubernetes controller based on spring framework's bean injection.
-  - ([9.0.0+](https://github.com/kubernetes-client/java/tree/client-java-parent-9.0.0)) [GenericKubernetesClientExample](https://github.com/kubernetes-client/java/blob/master/extended/src/main/java/io/kubernetes/client/extended/generic/GenericKubernetesApi.java): 
+  - ([9.0.0+](https://github.com/kubernetes-client/java/tree/client-java-parent-9.0.0)) [GenericKubernetesClientExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/GenericClientExample.java): 
   Construct a generic client interface for any kubernetes types, including CRDs.
 
 
