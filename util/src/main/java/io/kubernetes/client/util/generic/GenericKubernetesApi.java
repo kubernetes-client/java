@@ -718,7 +718,7 @@ public class GenericKubernetesApi<
     if (isStatus) {
       return new KubernetesApiResponse<>(gson.fromJson(element, V1Status.class), httpStatusCode);
     }
-    return new KubernetesApiResponse<>(gson.fromJson(element, dataClass));
+    return new KubernetesApiResponse<>(gson.fromJson(element, dataClass), httpStatusCode);
   }
 
   private <DataType extends KubernetesType> KubernetesApiResponse<DataType> executeCall(
