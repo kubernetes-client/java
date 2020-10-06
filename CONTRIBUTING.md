@@ -14,7 +14,7 @@ We'd love to accept your patches! Before we can accept them you need to sign Clo
 ## Reporting an issue
 If you have any problem with the package or any suggestions, please file an [issue](https://github.com/kubernetes-client/java/issues).
 
-## Contributing a Patch
+## How to contribute?
 1. Submit an issue describing your proposed change to the repo.
 2. Fork this repo, develop and test your code changes.
 3. Submit a pull request.
