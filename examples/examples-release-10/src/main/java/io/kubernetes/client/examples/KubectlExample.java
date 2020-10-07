@@ -21,6 +21,7 @@ import static io.kubernetes.client.extended.kubectl.Kubectl.exec;
 import static io.kubernetes.client.extended.kubectl.Kubectl.label;
 import static io.kubernetes.client.extended.kubectl.Kubectl.log;
 import static io.kubernetes.client.extended.kubectl.Kubectl.portforward;
+import static io.kubernetes.client.extended.kubectl.Kubectl.rollout;
 import static io.kubernetes.client.extended.kubectl.Kubectl.scale;
 import static io.kubernetes.client.extended.kubectl.Kubectl.taint;
 import static io.kubernetes.client.extended.kubectl.Kubectl.top;
@@ -36,11 +37,13 @@ import io.kubernetes.client.extended.kubectl.KubectlExec;
 import io.kubernetes.client.extended.kubectl.KubectlPortForward;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.models.V1DaemonSet;
 import io.kubernetes.client.openapi.models.V1Deployment;
 import io.kubernetes.client.openapi.models.V1Node;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1ReplicationController;
 import io.kubernetes.client.openapi.models.V1Service;
+import io.kubernetes.client.openapi.models.V1StatefulSet;
 import io.kubernetes.client.util.Config;
 import java.util.Arrays;
 import java.util.List;
@@ -77,6 +80,12 @@ public class KubectlExample {
       case "replicationcontroller":
       case "replicationcontrollers":
         return V1ReplicationController.class;
+      case "statefulset":
+      case "statefulsets":
+        return V1StatefulSet.class;
+      case "daemonset":
+      case "daemonsets":
+        return V1DaemonSet.class;
     }
     return null;
   }
@@ -302,6 +311,18 @@ public class KubectlExample {
                     System.out.printf(
                         "%s\t\t%s\t\t%s\t\t%s\n",
                         r.getResourcePlural(), r.getGroup(), r.getKind(), r.getNamespaced()));
+        System.exit(0);
+      case "rollout":
+        String action = args[1];
+        kind = args[2];
+        name = args[3];
+        String namespace = args[4];
+        rollout(getClassForKind(kind))
+            .apiClient(client)
+            .name(name)
+            .namespace(namespace)
+            .history()
+            .execute();
         System.exit(0);
       default:
         System.out.println("Unknown verb: " + verb);

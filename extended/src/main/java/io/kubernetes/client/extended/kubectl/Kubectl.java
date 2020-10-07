@@ -184,6 +184,18 @@ public class Kubectl {
   }
 
   /**
+   * Equivalent for `Kubectl rollout`
+   *
+   * @param apiTypeClass
+   * @param <ApiType>
+   * @return
+   */
+  public static <ApiType extends KubernetesObject> KubectlRollout<ApiType> rollout(
+      Class<ApiType> apiTypeClass) {
+    return new KubectlRollout<>(apiTypeClass);
+  }
+
+  /**
    * Executable executes a kubectl helper.
    *
    * @param <OUTPUT> the type parameter
