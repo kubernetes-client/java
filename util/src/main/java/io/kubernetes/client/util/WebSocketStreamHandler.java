@@ -241,10 +241,20 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
           }
         }
       }
-      byte[] buffer = new byte[length + 1];
-      buffer[0] = stream;
-      System.arraycopy(b, offset, buffer, 1, length);
-      WebSocketStreamHandler.this.socket.send(ByteString.of(buffer));
+      int bytesWritten = 0;
+      int remaining = length;
+      while (bytesWritten < length) {
+        // OkHTTP3 Web Sockets limits buffer size to 16MiB, so cap buffer at 15MiB
+        int bufferSize = Math.min(remaining, 15 * 1024 * 1024);
+        byte[] buffer = new byte[bufferSize + 1];
+        buffer[0] = stream;
+        System.arraycopy(b, offset + bytesWritten, buffer, 1, bufferSize);
+        if (!WebSocketStreamHandler.this.socket.send(ByteString.of(buffer))) {
+          throw new IOException("WebSocket has closed.");
+        }
+        bytesWritten += bufferSize;
+        remaining -= bytesWritten;
+      }
     }
   }
 }
