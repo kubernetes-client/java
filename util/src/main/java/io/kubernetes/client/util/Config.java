@@ -32,6 +32,7 @@ public class Config {
   public static final String SERVICEACCOUNT_ROOT = "/var/run/secrets/kubernetes.io/serviceaccount";
   public static final String SERVICEACCOUNT_CA_PATH = SERVICEACCOUNT_ROOT + "/ca.crt";
   public static final String SERVICEACCOUNT_TOKEN_PATH = SERVICEACCOUNT_ROOT + "/token";
+  public static final String SERVICEACCOUNT_NAMESPACE_PATH = SERVICEACCOUNT_ROOT + "/namespace";
   public static final String ENV_KUBECONFIG = "KUBECONFIG";
   public static final String ENV_SERVICE_HOST = "KUBERNETES_SERVICE_HOST";
   public static final String ENV_SERVICE_PORT = "KUBERNETES_SERVICE_PORT";
