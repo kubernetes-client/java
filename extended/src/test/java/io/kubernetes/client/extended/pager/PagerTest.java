@@ -19,7 +19,10 @@ import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.verify;
-import static org.junit.Assert.*;
+import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.fail;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.google.common.io.Resources;
@@ -31,6 +34,7 @@ import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Iterator;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -42,6 +46,8 @@ import org.junit.Test;
 public class PagerTest {
 
   private ApiClient client;
+  private static final String LIST_PAGE0_FILE_PATH =
+      Resources.getResource("namespace-list-pager0.json").getPath();
   private static final String LIST_PAGE1_FILE_PATH =
       Resources.getResource("namespace-list-pager1.json").getPath();
   private static final String LIST_PAGE2_FILE_PATH =
@@ -50,12 +56,41 @@ public class PagerTest {
       Resources.getResource("status-400.json").getPath();
   private static final String STATUS_BAD_TOKEN_FILE_PATH =
       Resources.getResource("bad-token-status.json").getPath();
-  private static final int PORT = 8087;
-  @Rule public WireMockRule wireMockRule = new WireMockRule(PORT);
+  @Rule public WireMockRule wireMockRule = new WireMockRule(wireMockConfig().dynamicPort());
 
   @Before
   public void setup() throws IOException {
-    client = new ClientBuilder().setBasePath("http://localhost:" + PORT).build();
+    client = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
+  }
+
+  @Test
+  public void testIteratorForEmptyList() throws IOException {
+    String namespaceListPage0Str = new String(Files.readAllBytes(Paths.get(LIST_PAGE0_FILE_PATH)));
+    CoreV1Api api = new CoreV1Api(client);
+
+    stubFor(
+        get(urlPathEqualTo("/api/v1/namespaces"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withHeader("Content-Type", "application/json")
+                    .withBody(namespaceListPage0Str)));
+
+    Pager<V1Namespace, V1NamespaceList> pager =
+        new Pager<V1Namespace, V1NamespaceList>(
+            (Pager.PagerParams param) -> {
+              try {
+                return api.listNamespaceCall(
+                    null, null, null, null, null, null, null, null, null, null);
+              } catch (Exception e) {
+                throw new RuntimeException(e);
+              }
+            },
+            client,
+            1,
+            V1NamespaceList.class);
+    Iterator<V1Namespace> it = pager.iterator();
+    assertFalse("Iterator should be empty.", it.hasNext());
   }
 
   @Test

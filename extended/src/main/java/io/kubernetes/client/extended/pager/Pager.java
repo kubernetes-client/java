@@ -59,7 +59,9 @@ public class Pager<ApiType extends KubernetesObject, ApiListType extends Kuberne
    */
   @Override
   public Iterator<ApiType> iterator() {
-    return new PagerIterator();
+    PagerIterator it = new PagerIterator();
+    it.makeCall();
+    return it;
   }
 
   /** returns next list call by setting continue variable and limit */
@@ -117,11 +119,31 @@ public class Pager<ApiType extends KubernetesObject, ApiListType extends Kuberne
      */
     @Override
     public boolean hasNext() {
+      if (listObjectCurrentPage.getItems() == null
+          || listObjectCurrentPage.getItems().size() == 0) {
+        return false;
+      }
       if (!started) {
         started = true;
         return Boolean.TRUE;
       }
       return !(continueToken == null && offsetCurrentPage >= currentPageSize);
+    }
+
+    protected void makeCall() {
+      try {
+        call = getNextCall(limit, continueToken);
+
+        listObjectCurrentPage = executeRequest(call);
+        continueToken = listObjectCurrentPage.getMetadata().getContinue();
+
+        offsetCurrentPage = 0;
+        currentPageSize = listObjectCurrentPage.getItems().size();
+      } catch (ApiException e) {
+        throw new RuntimeException(e.getResponseBody());
+      } catch (IOException e) {
+        throw new RuntimeException(e);
+      }
     }
 
     /**
@@ -131,23 +153,10 @@ public class Pager<ApiType extends KubernetesObject, ApiListType extends Kuberne
      */
     @Override
     public ApiType next() {
-      try {
-        if (offsetCurrentPage >= currentPageSize) {
-
-          call = getNextCall(limit, continueToken);
-
-          listObjectCurrentPage = executeRequest(call);
-          continueToken = listObjectCurrentPage.getMetadata().getContinue();
-
-          offsetCurrentPage = 0;
-          currentPageSize = listObjectCurrentPage.getItems().size();
-        }
-        return (ApiType) listObjectCurrentPage.getItems().get(offsetCurrentPage++);
-      } catch (ApiException e) {
-        throw new RuntimeException(e.getResponseBody());
-      } catch (IOException e) {
-        throw new RuntimeException(e);
+      if (offsetCurrentPage >= currentPageSize) {
+        makeCall();
       }
+      return (ApiType) listObjectCurrentPage.getItems().get(offsetCurrentPage++);
     }
   }
 }
