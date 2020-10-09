@@ -12,20 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import io.kubernetes.client.util.WebSocketStreamHandler;
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.charset.Charset;
 import okhttp3.Request;
 import okhttp3.WebSocket;
-import okio.BufferedSink;
 import okio.ByteString;
-import okio.Okio;
 import org.junit.Test;
 
 public class WebsocketStreamHandlerTest {
@@ -59,34 +58,99 @@ public class WebsocketStreamHandlerTest {
     assertTrue(mockWebSocket.closed);
   }
 
+  @Test
+  public void testHandlerSendingData() throws IOException {
+    int testStreamId = 0;
+    byte testData = 1;
+    byte[] testDatas =
+        new byte[] {(byte) testStreamId, testData, testData}; // first byte stands for stream id,
+    ByteArrayInputStream testBytesInputStream = new ByteArrayInputStream(testDatas);
+
+    WebSocketStreamHandler handler = new WebSocketStreamHandler();
+    MockWebSocket mockWebSocket = new MockWebSocket();
+
+    handler.open(testProtocol, mockWebSocket);
+
+    OutputStream outputStream = handler.getOutputStream(testStreamId);
+
+    byte[] bytes = "This is a test string".getBytes("UTF-8");
+    byte[] output = new byte[bytes.length + 1];
+    output[0] = 0;
+    for (int i = 0; i < bytes.length; i++) {
+      output[i + 1] = bytes[i];
+    }
+    outputStream.write(bytes);
+    outputStream.flush();
+
+    assertArrayEquals(output, mockWebSocket.data);
+  }
+
+  @Test
+  public void testHandlerSendingLargeData() throws IOException {
+    int testStreamId = 0;
+    byte testData = 1;
+    byte[] testDatas =
+        new byte[] {(byte) testStreamId, testData, testData}; // first byte stands for stream id,
+    ByteArrayInputStream testBytesInputStream = new ByteArrayInputStream(testDatas);
+
+    WebSocketStreamHandler handler = new WebSocketStreamHandler();
+    MockWebSocket mockWebSocket = new MockWebSocket();
+
+    handler.open(testProtocol, mockWebSocket);
+
+    OutputStream outputStream = handler.getOutputStream(testStreamId);
+
+    byte[] bytes = new byte[20 * 1024 * 1024];
+    byte[] output = new byte[bytes.length + 2];
+
+    for (int i = 0; i < bytes.length; i++) {
+      bytes[i] = (byte) i;
+    }
+    // First stream header
+    output[0] = 0;
+    for (int i = 0; i < 15 * 1024 * 1024; i++) {
+      output[i + 1] = bytes[i];
+    }
+    // Second stream header
+    output[15 * 1024 * 1024 + 1] = 0;
+    for (int i = 15 * 1024 * 1024; i < bytes.length; i++) {
+      output[i + 2] = bytes[i];
+    }
+    outputStream.write(bytes);
+    outputStream.flush();
+
+    assertArrayEquals(output, mockWebSocket.data);
+  }
+
   private class MockWebSocket implements WebSocket {
-    private byte[] data;
+    byte[] data;
     private boolean closed = false;
+
+    private byte[] append(byte[] one, byte[] two) {
+      if (one == null || one.length == 0) {
+        return two;
+      }
+
+      byte[] result = new byte[one.length + two.length];
+      for (int i = 0; i < one.length; i++) {
+        result[i] = one[i];
+      }
+      for (int i = 0; i < two.length; i++) {
+        result[i + one.length] = two[i];
+      }
+      return result;
+    }
 
     @Override
     public boolean send(String s) {
-      ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-      BufferedSink sink = Okio.buffer(Okio.sink(outputStream));
-      try {
-        sink.writeString(s, Charset.defaultCharset());
-      } catch (IOException e) {
-        throw new RuntimeException(e);
-      }
-      this.data = outputStream.toByteArray();
+      this.data = append(data, s.getBytes(Charset.defaultCharset()));
       return true;
     }
 
     @Override
     public boolean send(ByteString byteString) {
-      ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-      BufferedSink sink = Okio.buffer(Okio.sink(outputStream));
-      try {
-        sink.write(byteString);
-      } catch (IOException e) {
-        throw new RuntimeException(e);
-      }
-      this.data = outputStream.toByteArray();
-      return false;
+      this.data = append(data, byteString.toByteArray());
+      return true;
     }
 
     @Override
