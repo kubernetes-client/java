@@ -217,6 +217,24 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
     }
 
     @Override
+    public void flush() throws IOException {
+      if (state == State.CLOSED) {
+        throw new IOException("Socket is closed!");
+      }
+      int i = 0;
+      while (WebSocketStreamHandler.this.socket.queueSize() > 0) {
+        try {
+          Thread.sleep(100);
+        } catch (InterruptedException ex) {
+        }
+        // Wait a maximum of 10 seconds.
+        if (i++ > 100) {
+          throw new IOException("Timed out waiting for web-socket to flush.");
+        }
+      }
+    }
+
+    @Override
     public void write(int b) throws IOException {
       write(new byte[] {(byte) b});
     }
