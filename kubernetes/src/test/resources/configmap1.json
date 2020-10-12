@@ -1,0 +1,10 @@
+{
+  "apiVersion": "v1",
+  "binaryData": {
+    "foo": "MTIzNAo="
+  },
+  "kind": "ConfigMap",
+  "metadata": {
+    "name": "test-binary"
+  }
+}

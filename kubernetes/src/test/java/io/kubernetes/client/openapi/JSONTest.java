@@ -15,10 +15,17 @@ package io.kubernetes.client.openapi;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
+import com.google.common.io.Resources;
+import io.kubernetes.client.openapi.models.V1ConfigMap;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import okio.ByteString;
 import org.junit.Test;
 
 public class JSONTest {
+
+  private static final String CONFIGMAP1_PATH = Resources.getResource("configmap1.json").getPath();
 
   @Test
   public void testSerializeByteArray() {
@@ -35,5 +42,13 @@ public class JSONTest {
     // Check encoded string correctly
     final String decodedText = new String(byteStr.toByteArray());
     assertThat(decodedText, is(plainText));
+  }
+
+  @Test
+  public void testSerializeBinaryConfigMap() throws IOException {
+    String configmap1Json = new String(Files.readAllBytes(Paths.get(CONFIGMAP1_PATH)));
+    final JSON json = new JSON();
+    V1ConfigMap cm1 = json.deserialize(configmap1Json, V1ConfigMap.class);
+    assertNotNull(cm1);
   }
 }
