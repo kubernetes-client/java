@@ -16,13 +16,10 @@ import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.delete;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.*;
@@ -65,15 +62,12 @@ public class KubernetesApiResponseTest {
 
   @Test
   public void testNotDeserializableResponse() {
+    String message = "-foobar";
     wireMockRule.stubFor(
         get(urlEqualTo("/api/v1/namespaces/default/pods/foo"))
-            .willReturn(aResponse().withStatus(403).withBody("-foobar")));
-    try {
-      podClient.get("default", "foo");
-    } catch (RuntimeException e) {
-      assertTrue(JsonSyntaxException.class.equals(e.getCause().getClass()));
-      return;
-    }
-    fail("no exception thrown");
+            .willReturn(aResponse().withStatus(403).withBody(message)));
+    KubernetesApiResponse response = podClient.get("default", "foo");
+    assertFalse(response.isSuccess());
+    assertEquals(response.getStatus().getMessage(), message);
   }
 }

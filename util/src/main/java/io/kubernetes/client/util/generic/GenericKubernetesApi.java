@@ -736,9 +736,12 @@ public class GenericKubernetesApi<
       try {
         status = apiClient.getJSON().deserialize(e.getResponseBody(), V1Status.class);
       } catch (JsonSyntaxException jsonEx) {
-        throw new RuntimeException(jsonEx);
+        // craft a status object
+        return new KubernetesApiResponse<>(
+            new V1Status().code(e.getCode()).message(e.getResponseBody()), e.getCode());
       }
       if (null == status) { // the response body can be something unexpected sometimes..
+        // this line should never reach?
         throw new RuntimeException(e);
       }
       return new KubernetesApiResponse<>(status, e.getCode());
