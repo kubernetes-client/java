@@ -17,7 +17,7 @@
 # under src/main/java/io/cert/manager/models.
 
 DEFAULT_IMAGE_NAME=docker.pkg.github.com/kubernetes-client/java/crd-model-gen
-DEFAULT_IMAGE_TAG=v1.0.2
+DEFAULT_IMAGE_TAG=v1.0.3
 IMAGE_NAME=${IMAGE_NAME:=$DEFAULT_IMAGE_NAME}
 IMAGE_TAG=${IMAGE_TAG:=$DEFAULT_IMAGE_TAG}
 

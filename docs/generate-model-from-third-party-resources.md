@@ -7,6 +7,10 @@ and [KubernetesListObject](https://github.com/kubernetes-client/java/blob/master
 
 ### Setup Environment
 
+__Note__: You can skip this section by replacing image prefix `docker.pkg.github.com/kubernetes-client/java/..`
+to `ghcr.io/yue9944882/..` which is a mirror repository allows anonymous access. `docker.pkg.github.com/kubernetes-client/java/..`
+will require docker-login due to `kubernetes-client` permission limit.
+
 1. Make there's an active docker daemon service working on your host, run `docker ps` to check it if
 it's correctly setup.
 
@@ -53,7 +57,7 @@ docker run \
   -v "$(pwd)":"$(pwd)" \
   -ti \
   --network host \
-  docker.pkg.github.com/kubernetes-client/java/crd-model-gen:v1.0.2 \
+  docker.pkg.github.com/kubernetes-client/java/crd-model-gen:v1.0.3 \
   /generate.sh \
   -u https://gist.githubusercontent.com/yue9944882/266fee8e95c2f15a93778263633e72ed/raw/be12c13379eeed13d2532cb65da61fffb19ee3e7/crontab-crd.yaml \
   -n com.example.stable \
@@ -84,7 +88,7 @@ docker run \
   -v "$(pwd)":"$(pwd)" \
   -ti \
   --network host \
-  docker.pkg.github.com/kubernetes-client/java/crd-model-gen:v1.0.2 \
+  docker.pkg.github.com/kubernetes-client/java/crd-model-gen:v1.0.3 \
   /generate.sh \
   -u $LOCAL_MANIFEST_FILE \
   -n com.example.stable \
