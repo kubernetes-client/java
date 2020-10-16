@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.extended.kubectl.rollout;
 
 import io.kubernetes.client.common.KubernetesObject;
+import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.extended.kubectl.rollout.response.RolloutHistory;
 import java.io.InputStream;
 import java.util.Set;
@@ -23,11 +24,11 @@ public interface RolloutAction<ApiType extends KubernetesObject> {
 
   public ApiType undo();
 
-  public ApiType pause();
+  public ApiType pause() throws KubectlException;
 
-  public ApiType restart();
+  public ApiType restart() throws KubectlException;
 
-  public ApiType resume();
+  public ApiType resume() throws KubectlException;
 
   public InputStream status();
 }
