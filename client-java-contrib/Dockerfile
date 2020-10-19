@@ -8,7 +8,9 @@ RUN apk add --no-cache git bash && \
     chmod +x /usr/bin/kubectl && \
     git clone https://github.com/kubernetes-client/gen.git
 
+COPY Dockerfile.gen gen/openapi/openapi-generator/Dockerfile
 COPY generate.sh generate.sh
+
 RUN chmod +x generate.sh
 
 WORKDIR gen/openapi
