@@ -20,6 +20,7 @@ import io.kubernetes.client.openapi.models.V1ListMeta;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.Watchable;
+import java.io.IOException;
 import java.net.ConnectException;
 import java.time.Duration;
 import java.util.List;
@@ -88,10 +89,8 @@ public class ReflectorRunnable<
       }
       while (true) {
         if (!isActive.get()) {
-          if (watch != null) {
-            watch.close();
-            return;
-          }
+          closeWatch();
+          return;
         }
 
         try {
@@ -99,13 +98,21 @@ public class ReflectorRunnable<
             log.debug(
                 "{}#Start watch with resource version {}", apiTypeClass, lastSyncResourceVersion);
           }
-          watch =
+          Watchable<ApiType> newWatch =
               listerWatcher.watch(
                   new CallGeneratorParams(
                       Boolean.TRUE,
                       lastSyncResourceVersion,
                       Long.valueOf(Duration.ofMinutes(5).toMillis()).intValue()));
-          watchHandler(watch);
+
+          synchronized (this) {
+            if (!isActive.get()) {
+              newWatch.close();
+              continue;
+            }
+            watch = newWatch;
+          }
+          watchHandler(newWatch);
         } catch (Throwable t) {
           if (isConnectException(t)) {
             // If this is "connection refused" error, it means that most likely
@@ -132,10 +139,7 @@ public class ReflectorRunnable<
           this.exceptionHandler.accept(apiTypeClass, t);
           return;
         } finally {
-          if (watch != null) {
-            watch.close();
-            watch = null;
-          }
+          closeWatch();
         }
       }
     } catch (Throwable t) {
@@ -144,7 +148,19 @@ public class ReflectorRunnable<
   }
 
   public void stop() {
-    isActive.set(false);
+    try {
+      isActive.set(false);
+      closeWatch();
+    } catch (Throwable t) {
+      this.exceptionHandler.accept(apiTypeClass, t);
+    }
+  }
+
+  private synchronized void closeWatch() throws IOException {
+    if (watch != null) {
+      watch.close();
+      watch = null;
+    }
   }
 
   private void syncWith(List<? extends KubernetesObject> items, String resourceVersion) {
