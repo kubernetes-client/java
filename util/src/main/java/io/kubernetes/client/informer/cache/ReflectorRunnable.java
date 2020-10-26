@@ -103,7 +103,7 @@ public class ReflectorRunnable<
                   new CallGeneratorParams(
                       Boolean.TRUE,
                       lastSyncResourceVersion,
-                      Long.valueOf(Duration.ofMinutes(5).toMillis()).intValue()));
+                      Long.valueOf(Duration.ofMinutes(5).getSeconds()).intValue()));
 
           synchronized (this) {
             if (!isActive.get()) {
