@@ -35,7 +35,8 @@ public class KubeConfigFileClientExample {
   public static void main(String[] args) throws IOException, ApiException {
 
     // file path to your KubeConfig
-    String kubeConfigPath = "~/.kube/config";
+
+    String kubeConfigPath = System.getenv("HOME") + "/.kube/config";
 
     // loading the out-of-cluster config, a kubeconfig from file-system
     ApiClient client =
