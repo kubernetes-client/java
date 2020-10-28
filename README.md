@@ -113,7 +113,7 @@ We prepared a few examples for common use-cases which are shown below:
   - ([6.0.0+](https://github.com/kubernetes-client/java/tree/client-java-parent-6.0.0)) [LeaderElectionExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/LeaderElectionExample.java): 
   Leader election utilities to help implement HA controllers.
   - ([9.0.0+](https://github.com/kubernetes-client/java/tree/client-java-parent-9.0.0)) [SpringIntegrationControllerExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/SpringControllerExample.java): 
-  Building a kubernetes controller based on spring framework's bean injection.
+  Building a kubernetes controller based on spring framework's bean injection, see additional documentation [here](./docs/java-controller-tutorial-rewrite-rs-controller.md).
   - ([9.0.0+](https://github.com/kubernetes-client/java/tree/client-java-parent-9.0.0)) [GenericKubernetesClientExample](https://github.com/kubernetes-client/java/blob/master/examples/src/main/java/io/kubernetes/client/examples/GenericClientExample.java): 
   Construct a generic client interface for any kubernetes types, including CRDs.
 
