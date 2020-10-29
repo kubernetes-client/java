@@ -25,13 +25,11 @@ import io.kubernetes.client.openapi.models.V1NodeList;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1PodList;
 import io.kubernetes.client.spring.extended.controller.KubernetesInformerConfigurer;
-import io.kubernetes.client.spring.extended.controller.KubernetesReconcilerConfigurer;
 import io.kubernetes.client.spring.extended.controller.annotation.*;
 import io.kubernetes.client.spring.extended.controller.factory.KubernetesControllerFactory;
 import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
 import java.time.Duration;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -132,14 +130,11 @@ public class SpringControllerFactoryBeanExample {
 
     @Value("${namespace}")
     private String namespace;
-    @Autowired
-    private SharedInformer<V1Node> nodeInformer;
-    @Autowired
-    private SharedInformer<V1Pod> podInformer;
-    @Autowired
-    private Lister<V1Node> nodeLister;
-    @Autowired
-    private Lister<V1Pod> podLister;
+
+    @Autowired private SharedInformer<V1Node> nodeInformer;
+    @Autowired private SharedInformer<V1Pod> podInformer;
+    @Autowired private Lister<V1Node> nodeLister;
+    @Autowired private Lister<V1Pod> podLister;
 
     // *OPTIONAL*
     // If you feed like hold the controller from running util some condition..
@@ -152,10 +147,11 @@ public class SpringControllerFactoryBeanExample {
     public Result reconcile(Request request) {
       V1Node node = nodeLister.get(request.getName());
 
-      System.out.println("get all pods in namespace "+namespace);
+      System.out.println("get all pods in namespace " + namespace);
       podLister.namespace(namespace).list().stream()
-      .map(pod->pod.getMetadata().getName()).forEach(System.out::println);
-      
+          .map(pod -> pod.getMetadata().getName())
+          .forEach(System.out::println);
+
       System.out.println("triggered reconciling " + node.getMetadata().getName());
       return new Result(false);
     }

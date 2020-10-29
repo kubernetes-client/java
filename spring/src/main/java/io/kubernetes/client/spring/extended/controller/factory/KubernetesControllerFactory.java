@@ -14,7 +14,6 @@ package io.kubernetes.client.spring.extended.controller.factory;
 
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.controller.Controller;
-import io.kubernetes.client.extended.controller.ControllerManager;
 import io.kubernetes.client.extended.controller.builder.ControllerBuilder;
 import io.kubernetes.client.extended.controller.builder.DefaultControllerBuilder;
 import io.kubernetes.client.extended.controller.reconciler.Reconciler;
@@ -33,8 +32,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.function.BiPredicate;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -44,12 +41,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanCreationException;
-import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.FactoryBean;
-import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
-import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
-import org.springframework.core.Ordered;
-import org.springframework.stereotype.Component;
 
 /**
  * Scans and processes {@link
@@ -62,19 +54,19 @@ public class KubernetesControllerFactory implements FactoryBean<Controller> {
 
   private static final Logger log = LoggerFactory.getLogger(KubernetesControllerFactory.class);
 
-
   private SharedInformerFactory sharedInformerFactory;
-  
+
   private Reconciler reconciler;
 
-  public KubernetesControllerFactory(SharedInformerFactory sharedInformerFactory, Reconciler reconciler) {
+  public KubernetesControllerFactory(
+      SharedInformerFactory sharedInformerFactory, Reconciler reconciler) {
     this.sharedInformerFactory = sharedInformerFactory;
     this.reconciler = reconciler;
   }
 
   @Override
   public Controller getObject() throws BeansException {
-      return buildController(this.sharedInformerFactory, reconciler);
+    return buildController(this.sharedInformerFactory, reconciler);
   }
 
   private Controller buildController(SharedInformerFactory sharedInformerFactory, Reconciler r)
@@ -301,8 +293,8 @@ public class KubernetesControllerFactory implements FactoryBean<Controller> {
     }
   }
 
-@Override
-public Class<?> getObjectType() {
-	return Controller.class;
-}
+  @Override
+  public Class<?> getObjectType() {
+    return Controller.class;
+  }
 }

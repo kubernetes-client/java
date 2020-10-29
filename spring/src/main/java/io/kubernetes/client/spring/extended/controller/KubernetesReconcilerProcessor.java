@@ -12,40 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.spring.extended.controller;
 
-import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.controller.Controller;
 import io.kubernetes.client.extended.controller.ControllerManager;
-import io.kubernetes.client.extended.controller.builder.ControllerBuilder;
-import io.kubernetes.client.extended.controller.builder.DefaultControllerBuilder;
 import io.kubernetes.client.extended.controller.reconciler.Reconciler;
-import io.kubernetes.client.extended.controller.reconciler.Request;
-import io.kubernetes.client.extended.workqueue.DefaultRateLimitingQueue;
-import io.kubernetes.client.extended.workqueue.RateLimitingQueue;
-import io.kubernetes.client.extended.workqueue.WorkQueue;
 import io.kubernetes.client.informer.SharedInformerFactory;
 import io.kubernetes.client.spring.extended.controller.annotation.*;
 import io.kubernetes.client.spring.extended.controller.factory.KubernetesControllerFactory;
-
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.time.Duration;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.function.BiPredicate;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.core.Ordered;
@@ -90,9 +67,10 @@ public class KubernetesReconcilerProcessor implements BeanFactoryPostProcessor, 
       KubernetesReconciler kubernetesReconciler =
           reconciler.getClass().getAnnotation(KubernetesReconciler.class);
       String reconcilerName = kubernetesReconciler.value();
-      
-      KubernetesControllerFactory controllerFactory = new KubernetesControllerFactory(sharedInformerFactory, reconciler);
-      
+
+      KubernetesControllerFactory controllerFactory =
+          new KubernetesControllerFactory(sharedInformerFactory, reconciler);
+
       Controller controller = controllerFactory.getObject();
       beanFactory.registerSingleton(reconcilerName, controller);
     }
