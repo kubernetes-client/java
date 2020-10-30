@@ -10,7 +10,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-package io.kubernetes.client.examples.springfactorybean;
+package io.kubernetes.client.examples;
 
 import io.kubernetes.client.extended.controller.Controller;
 import io.kubernetes.client.extended.controller.reconciler.Reconciler;
@@ -41,10 +41,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 @SpringBootApplication
-public class SpringControllerFactoryBeanExample {
+public class SpringControllerExample {
 
   public static void main(String[] args) {
-    SpringApplication.run(SpringControllerFactoryBeanExample.class, args);
+    SpringApplication.run(SpringControllerExample.class, args);
   }
 
   @Configuration
