@@ -1,9 +1,9 @@
 #Kubectl Equivalence in Java
 
-__TL;DR__: Get used to kubectl? Now our kubernetes Java client library has releases a set of 
+__TL;DR__: Used to kubectl? Now our kubernetes Java client library has released a set of 
 helpful client utilities which has the similar input argument interface as the kubectl binary.
 Especially the developers who're already familiar with kubectl commands, after reading this 
-document, you will know how to program to operate kubernetes as neat as kubectl.
+document, you will know how to build programs that interact with Kubernetes as easily as kubectl.
 
 
 ### What is Java Kubectl
@@ -26,7 +26,7 @@ your project.
 
 #### (Optional) Setting a Global Client-Config
 
-Kubectl static helpers doesn't know its client-config (or kubeconfig if the name makes more sense to 
+Kubectl static helpers don't know its client-config (or kubeconfig if the name makes more sense to 
 you) unless you set it when your application starts. You can either specifies the client-config upon 
 invoking kubectl helpers or simply set a global config at the start of your application:
 
@@ -34,12 +34,14 @@ invoking kubectl helpers or simply set a global config at the start of your appl
 Configuration.setDefaultApiClient(ClientBuilder.defaultClient());
 ```
 
+This will create a client on either a client, or a container in Kubernetes.
+
 ### Manifest of Supported Commands 
 
 
 #### Kubectl get
 
-You can either query single resource or list multiple resources using the `Kubectl#get` helper depending
+You can either query a single resource or list multiple resources using the `Kubectl#get` helper depending
 on whether you're passing `name()` in the flow. Here is a few illustrative examples for querying pod 
 resources:
 
@@ -61,7 +63,7 @@ List<V1Pod> pods = Kubectl.get(V1Pod.class)
 #### Kubectl create
 
 Currently the `Kubectl#create` helper only accepts a desired instance of resource object, you need to do the 
-deserialization from the source or manually craft an instance of the resource.
+deserialization of a resource object or manually craft an instance of the resource.
 
 ```java
 // kubectl create -f <file>
@@ -97,8 +99,8 @@ V1Pod patchedPod = Kubectl.patch(V1Pod.class)
 
 #### Kubectl apply
 
-Note that for now only server-side apply supported, so your apiserver version is required to
-be greater than 1.18.0. `Kubectl#apply` works the same as `kubectl apply --server-side=true`.
+Note that for now only server-side apply is supported, so your apiserver version is required to
+be greater than or equal to 1.18.0. `Kubectl#apply` works the same as `kubectl apply --server-side=true`.
 
 ```java
 // kubectl apply --server-side=true --field-manager=java-kubectl --force-conflict=true -f <file>
