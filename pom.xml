@@ -53,7 +53,7 @@
     <okhttp3.version>3.14.9</okhttp3.version>
     <swagger-core.version>1.6.2</swagger-core.version>
     <sundrio.version>0.22.1</sundrio.version>
-    <gsonfire.version>1.8.4</gsonfire.version>
+    <gsonfire.version>1.8.5</gsonfire.version>
     <apache.commons.lang3.version>3.11</apache.commons.lang3.version>
     <apache.commons.collections4.version>4.4</apache.commons.collections4.version>
     <apache.commons.compress>1.20</apache.commons.compress>
