@@ -213,9 +213,22 @@ public class KubernetesControllerFactory implements FactoryBean<Controller> {
     return readyFuncs;
   }
 
+  private static boolean invokePredicate(
+      String name, Object target, Method method, Object... args) {
+    try {
+      return (boolean) method.invoke(target, args);
+    } catch (IllegalAccessException e) {
+      log.error("ignoring invalid {} method signature {} ", name, method, e);
+      return true;
+    } catch (InvocationTargetException e) {
+      log.error("{} {} failed", name, method, e);
+      return false;
+    }
+  }
+
   private static class AddFilterAdaptor implements Predicate {
-    private Method method;
-    private Object target;
+    private final Method method;
+    private final Object target;
 
     private AddFilterAdaptor(Object target, Method method) {
       this.method = method;
@@ -224,18 +237,13 @@ public class KubernetesControllerFactory implements FactoryBean<Controller> {
 
     @Override
     public boolean test(Object addedObj) {
-      try {
-        return (boolean) method.invoke(target, addedObj);
-      } catch (IllegalAccessException | InvocationTargetException e) {
-        log.error("invalid EventAddFilter method signature", e);
-        return true;
-      }
+      return invokePredicate("ADD-EventFilter", target, method, addedObj);
     }
   }
 
   private static class UpdateFilterAdaptor implements BiPredicate {
-    private Method method;
-    private Object target;
+    private final Method method;
+    private final Object target;
 
     private UpdateFilterAdaptor(Object target, Method method) {
       this.method = method;
@@ -244,18 +252,13 @@ public class KubernetesControllerFactory implements FactoryBean<Controller> {
 
     @Override
     public boolean test(Object oldObj, Object newObj) {
-      try {
-        return (boolean) method.invoke(target, oldObj, newObj);
-      } catch (IllegalAccessException | InvocationTargetException e) {
-        log.error("invalid EventUpdateFilter method signature", e);
-        return true;
-      }
+      return invokePredicate("UPDATE-EventFilter", target, method, oldObj, newObj);
     }
   }
 
   private static class DeleteFilterAdaptor implements BiPredicate {
-    private Method method;
-    private Object target;
+    private final Method method;
+    private final Object target;
 
     private DeleteFilterAdaptor(Object target, Method method) {
       this.method = method;
@@ -264,18 +267,13 @@ public class KubernetesControllerFactory implements FactoryBean<Controller> {
 
     @Override
     public boolean test(Object deleteObj, Object cacheStatusUnknown) {
-      try {
-        return (boolean) method.invoke(target, deleteObj, cacheStatusUnknown);
-      } catch (IllegalAccessException | InvocationTargetException e) {
-        log.error("invalid EventDeleteFilter method signature", e);
-        return true;
-      }
+      return invokePredicate("DELETE-EventFilter", target, method, deleteObj, cacheStatusUnknown);
     }
   }
 
   private static class ReadyFuncAdaptor implements Supplier<Boolean> {
-    private Method method;
-    private Object target;
+    private final Method method;
+    private final Object target;
 
     private ReadyFuncAdaptor(Object target, Method method) {
       this.method = method;
@@ -284,12 +282,7 @@ public class KubernetesControllerFactory implements FactoryBean<Controller> {
 
     @Override
     public Boolean get() {
-      try {
-        return (boolean) method.invoke(target);
-      } catch (IllegalAccessException | InvocationTargetException e) {
-        log.error("invalid ReadyFunc method signature", e);
-        return false;
-      }
+      return invokePredicate("READY-Func", target, method);
     }
   }
 
