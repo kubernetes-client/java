@@ -12,17 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.kubectl;
 
-import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.custom.V1Patch;
+import io.kubernetes.client.util.ModelMapper;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
 
 public class KubectlPatch<ApiType extends KubernetesObject>
     extends Kubectl.ResourceBuilder<ApiType, KubectlPatch<ApiType>>
     implements Kubectl.Executable<ApiType> {
 
-  private Class<ApiType> apiTypeClass;
-  private Class<KubernetesListObject> apiListTypeClass;
+  private String patchType;
   private V1Patch patchContent;
 
   KubectlPatch(Class<ApiType> apiTypeClass) {
@@ -34,9 +33,18 @@ public class KubectlPatch<ApiType extends KubernetesObject>
     return this;
   }
 
+  public KubectlPatch patchType(String patchType) {
+    this.patchType = patchType;
+    return this;
+  }
+
   @Override
   public ApiType execute() {
     GenericKubernetesApi genericKubernetesApi = getGenericApi();
-    return (ApiType) genericKubernetesApi.patch(namespace, name, patchContent);
+    if (ModelMapper.isNamespaced(apiTypeClass)) {
+      return (ApiType) genericKubernetesApi.patch(namespace, name, patchType, patchContent);
+    } else {
+      return (ApiType) genericKubernetesApi.patch(name, patchType, patchContent);
+    }
   }
 }
