@@ -29,7 +29,7 @@
         <dependency>
             <groupId>org.spockframework</groupId>
             <artifactId>spock-core</artifactId>
-            <version>2.0-M3-groovy-3.0</version>
+            <version>2.0-M4-groovy-3.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
