@@ -76,6 +76,18 @@
 			<artifactId>wiremock</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!--for spring controller example-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>${spring.boot.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+			<version>${spring.boot.version}</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>

@@ -27,6 +27,7 @@ import io.kubernetes.client.openapi.models.V1PodList;
 import io.kubernetes.client.spring.extended.controller.KubernetesInformerConfigurer;
 import io.kubernetes.client.spring.extended.controller.annotation.*;
 import io.kubernetes.client.spring.extended.controller.factory.KubernetesControllerFactory;
+import io.kubernetes.client.spring.extended.controller.metrics.PrometheusScrapeEndpoint;
 import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
 import java.time.Duration;
@@ -93,6 +94,14 @@ public class SpringControllerExample {
     @Bean("sharedInformerFactory")
     public SharedInformerFactory sharedInformerFactory() {
       return new MySharedInformerFactory();
+    }
+
+    // *OPTIONAL*
+    // Enabling prometheus scraping endpoint at `/actuator/prometheus`
+    // SHOULD set `management.endpoints.web.exposure.include=prometheus` property.
+    @Bean
+    public PrometheusScrapeEndpoint prometheusScrapeEndpoint() {
+      return new PrometheusScrapeEndpoint();
     }
   }
 
