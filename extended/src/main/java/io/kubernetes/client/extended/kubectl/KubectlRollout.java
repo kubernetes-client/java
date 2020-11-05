@@ -111,14 +111,19 @@ public class KubectlRollout<ApiType extends KubernetesObject>
 
   private Rollout<? extends KubernetesObject> getRollout() throws KubectlException {
     GenericKubernetesApi api = getGenericApi(apiTypeClass);
+    Rollout<? extends KubernetesObject> rollout = null;
     if (apiTypeClass.equals(V1DaemonSet.class)) {
-      return new DaemonSetRollout(api, name, namespace);
+      rollout = new DaemonSetRollout(api, name, namespace);
     } else if (apiTypeClass.equals(V1Deployment.class)) {
-      return new DeploymentRollout(api, name, namespace);
+      rollout = new DeploymentRollout(api, name, namespace);
     } else if (apiTypeClass.equals(V1StatefulSet.class)) {
-      return new StatefulSetRollout(api, name, namespace);
+      rollout = new StatefulSetRollout(api, name, namespace);
     }
-    throw new KubectlException("Unsupported class for rollout: " + apiTypeClass);
+    if (rollout == null) {
+      throw new KubectlException("Unsupported class for rollout: " + apiTypeClass);
+    }
+    rollout.withApiClient(apiClient);
+    return rollout;
   }
 
   private void validateAction() throws KubectlException {

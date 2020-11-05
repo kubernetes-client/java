@@ -12,23 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.kubectl.rollout.response;
 
-import io.kubernetes.client.common.KubernetesObject;
+import io.kubernetes.client.openapi.models.V1PodTemplateSpec;
 
-public class RolloutHistory<ApiType extends KubernetesObject> {
+public class RolloutHistory {
 
-  private String revision;
-  private ApiType resource;
+  private V1PodTemplateSpec resource;
 
-  RolloutHistory(String revision, ApiType k8sResource) {
-    this.revision = revision;
+  public RolloutHistory(V1PodTemplateSpec k8sResource) {
     this.resource = k8sResource;
   }
 
-  public String getRevision() {
-    return revision;
-  }
-
-  public ApiType getResource() {
+  public V1PodTemplateSpec getResource() {
     return resource;
   }
 }

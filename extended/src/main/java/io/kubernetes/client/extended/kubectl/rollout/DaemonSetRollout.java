@@ -12,15 +12,26 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.kubectl.rollout;
 
+import com.google.gson.Gson;
+import com.google.gson.internal.LinkedTreeMap;
 import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.extended.kubectl.rollout.response.RolloutHistory;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.apis.AppsV1Api;
+import io.kubernetes.client.openapi.models.V1ControllerRevision;
+import io.kubernetes.client.openapi.models.V1ControllerRevisionList;
 import io.kubernetes.client.openapi.models.V1DaemonSet;
+import io.kubernetes.client.openapi.models.V1ObjectMeta;
+import io.kubernetes.client.openapi.models.V1OwnerReference;
+import io.kubernetes.client.openapi.models.V1PodTemplateSpec;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
 import io.kubernetes.client.util.generic.KubernetesApiResponse;
 import java.io.InputStream;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class DaemonSetRollout extends Rollout<V1DaemonSet> {
 
@@ -32,8 +43,37 @@ public class DaemonSetRollout extends Rollout<V1DaemonSet> {
   }
 
   @Override
-  public Set<RolloutHistory<V1DaemonSet>> history() {
-    return null;
+  public Map<Long, RolloutHistory> history() throws KubectlException {
+    validate();
+    V1DaemonSet daemonSet = getResource();
+    String labelSelector =
+        daemonSet.getSpec().getSelector().getMatchLabels().entrySet().stream()
+            .map(
+                each -> {
+                  return each.getKey() + "=" + each.getValue();
+                })
+            .collect(Collectors.joining(","));
+    AppsV1Api appsV1Api = new AppsV1Api(getApiClient());
+    Map<Long, RolloutHistory> historyInfo = new HashMap<>();
+    try {
+      V1ControllerRevisionList controllerRevisionList =
+          appsV1Api.listNamespacedControllerRevision(
+              getNamespace(), "true", null, null, null, labelSelector, null, null, null, null);
+      if (controllerRevisionList != null && controllerRevisionList.getItems() != null) {
+        for (V1ControllerRevision each : controllerRevisionList.getItems()) {
+          V1OwnerReference ownerReference = getControllerRefernce(each.getMetadata());
+          if (ownerReference != null
+              && ownerReference.getUid().equals(daemonSet.getMetadata().getUid())) {
+            RolloutHistory rolloutHistory =
+                new RolloutHistory(unmarshal((LinkedTreeMap) each.getData()));
+            historyInfo.put(each.getRevision(), rolloutHistory);
+          }
+        }
+      }
+    } catch (ApiException e) {
+      throw new KubectlException("Error while fetching Controller Revisions");
+    }
+    return historyInfo;
   }
 
   @Override
@@ -71,5 +111,22 @@ public class DaemonSetRollout extends Rollout<V1DaemonSet> {
   @Override
   public KubernetesObject pause() throws KubectlException {
     throw new KubectlException("Unsupported Operation on DaemonSets");
+  }
+
+  private V1OwnerReference getControllerRefernce(V1ObjectMeta meta) {
+    for (V1OwnerReference ref : meta.getOwnerReferences()) {
+      if (ref.getController()) {
+        return ref;
+      }
+    }
+    return null;
+  }
+
+  private V1PodTemplateSpec unmarshal(LinkedTreeMap data) {
+    Object templateObj = ((LinkedTreeMap) data.get("spec")).get("template");
+    Gson gson = new Gson();
+    V1PodTemplateSpec podTemplateSpec =
+        gson.fromJson(gson.toJsonTree(templateObj), V1PodTemplateSpec.class);
+    return podTemplateSpec;
   }
 }

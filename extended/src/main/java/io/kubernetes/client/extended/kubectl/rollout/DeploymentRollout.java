@@ -16,15 +16,22 @@ import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.extended.kubectl.rollout.response.RolloutHistory;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.apis.AppsV1Api;
 import io.kubernetes.client.openapi.models.V1Deployment;
+import io.kubernetes.client.openapi.models.V1ReplicaSet;
+import io.kubernetes.client.openapi.models.V1ReplicaSetList;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
 import io.kubernetes.client.util.generic.KubernetesApiResponse;
 import java.io.InputStream;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class DeploymentRollout extends Rollout<V1Deployment> {
 
   private static final String PAUSE_PATCH = "{\"spec\":{\"paused\":%s}}";
+  private static final String REVISION_ANNOTATION = "deployment.kubernetes.io/revision";
 
   public DeploymentRollout(
       GenericKubernetesApi<V1Deployment, ? extends KubernetesListObject> api, String name) {
@@ -39,8 +46,37 @@ public class DeploymentRollout extends Rollout<V1Deployment> {
   }
 
   @Override
-  public Set<RolloutHistory<V1Deployment>> history() {
-    return null;
+  public Map<Long, RolloutHistory> history() throws KubectlException {
+    validate();
+    V1Deployment deployment = getResource();
+    String labelSelector =
+        deployment.getSpec().getSelector().getMatchLabels().entrySet().stream()
+            .map(
+                each -> {
+                  return each.getKey() + "=" + each.getValue();
+                })
+            .collect(Collectors.joining(","));
+    AppsV1Api appsV1Api = new AppsV1Api(getApiClient());
+    Map<Long, RolloutHistory> historyInfo = new HashMap<>();
+    try {
+      V1ReplicaSetList replicaSetList =
+          appsV1Api.listNamespacedReplicaSet(
+              getNamespace(), "true", false, null, null, labelSelector, null, null, null, null);
+      if (replicaSetList != null && replicaSetList.getItems() != null) {
+        for (V1ReplicaSet each : replicaSetList.getItems()) {
+          String revision =
+              each.getMetadata().getAnnotations().getOrDefault(REVISION_ANNOTATION, null);
+          if (revision != null) {
+            RolloutHistory rolloutHistory = new RolloutHistory(each.getSpec().getTemplate());
+            historyInfo.put(Long.parseLong(revision), rolloutHistory);
+          }
+        }
+        ;
+      }
+    } catch (ApiException e) {
+      throw new KubectlException("Error while fetching replicasets");
+    }
+    return historyInfo;
   }
 
   @Override

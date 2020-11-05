@@ -16,11 +16,11 @@ import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.extended.kubectl.rollout.response.RolloutHistory;
 import java.io.InputStream;
-import java.util.Set;
+import java.util.Map;
 
 public interface RolloutAction<ApiType extends KubernetesObject> {
 
-  public Set<RolloutHistory<ApiType>> history();
+  public Map<Long, RolloutHistory> history() throws KubectlException;
 
   public ApiType undo();
 

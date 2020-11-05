@@ -19,6 +19,7 @@ import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
+import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
 import io.kubernetes.client.util.generic.KubernetesApiResponse;
 import java.text.SimpleDateFormat;
@@ -29,6 +30,8 @@ public abstract class Rollout<ApiType extends KubernetesObject> implements Rollo
   private String name;
   private String namespace;
   private GenericKubernetesApi<ApiType, ? extends KubernetesListObject> api;
+  private ApiClient apiClient;
+
   private static final String RESTART_PATCH_TEMPLATE =
       "{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"kubectl.kubernetes.io/restartedAt\":%s}}}}}";
   private static final String RESTART_ANNOTATION_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
@@ -58,6 +61,10 @@ public abstract class Rollout<ApiType extends KubernetesObject> implements Rollo
     return api;
   }
 
+  public void withApiClient(ApiClient apiClient) {
+    this.apiClient = apiClient;
+  }
+
   protected void validate() throws KubectlException {
     StringBuilder msg = new StringBuilder();
     if (isNullOrEmpty(name)) {
@@ -77,8 +84,12 @@ public abstract class Rollout<ApiType extends KubernetesObject> implements Rollo
     KubernetesApiResponse<ApiType> apiResource = getApi().get(getNamespace(), getName());
     if (isNull(apiResource) || isNull(apiResource.getObject())) {
       throw new KubectlException(
-          "Resource " + getName() + " does not exist in namespace" + getNamespace());
+          "Resource " + getName() + " does not exist in namespace " + getNamespace());
     }
     return apiResource.getObject();
+  }
+
+  protected ApiClient getApiClient() {
+    return this.apiClient;
   }
 }
