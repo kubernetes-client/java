@@ -17,6 +17,9 @@ import io.kubernetes.client.extended.controller.reconciler.Request;
 import io.kubernetes.client.extended.controller.reconciler.Result;
 import io.kubernetes.client.extended.wait.Wait;
 import io.kubernetes.client.extended.workqueue.RateLimitingQueue;
+import io.prometheus.client.CollectorRegistry;
+import io.prometheus.client.Counter;
+import io.prometheus.client.Gauge;
 import java.time.Duration;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -36,13 +39,22 @@ import org.slf4j.LoggerFactory;
 public class DefaultController implements Controller {
   private static final Logger log = LoggerFactory.getLogger(DefaultController.class);
 
-  private Reconciler reconciler;
-  private String name;
+  private static Gauge gaugeWorkQueueLength =
+      Gauge.build("controller_work_queue_length", "Current length of the controller's work-queue")
+          .labelNames("name")
+          .register();
+  private static Counter counterControllerReconcile =
+      Counter.build("controller_reconcile_count_total", "Total count of controller reconciliation")
+          .labelNames("name", "requeue")
+          .register();
+
+  private final Reconciler reconciler;
+  private final String name;
+  private final RateLimitingQueue<Request> workQueue;
+  private final Supplier<Boolean>[] readyFuncs;
+
   private int workerCount;
   private ScheduledExecutorService workerThreadPool;
-
-  private RateLimitingQueue<Request> workQueue;
-  private Supplier<Boolean>[] readyFuncs;
 
   private Duration readyTimeout;
   private Duration readyCheckInternal;
@@ -50,14 +62,35 @@ public class DefaultController implements Controller {
   /**
    * Instantiates a new Default controller.
    *
+   * @param name the name
    * @param reconciler the reconciler
    * @param workQueue the work queue
    * @param readyFuncs the ready funcs
    */
   public DefaultController(
+      String name,
       Reconciler reconciler,
       RateLimitingQueue<Request> workQueue,
       Supplier<Boolean>... readyFuncs) {
+    this(name, reconciler, workQueue, null, readyFuncs);
+  }
+
+  /**
+   * Instantiates a new Default controller.
+   *
+   * @param name the name
+   * @param reconciler the reconciler
+   * @param workQueue the work queue
+   * @param collectorRegistry the collector registry
+   * @param readyFuncs the ready funcs
+   */
+  public DefaultController(
+      String name,
+      Reconciler reconciler,
+      RateLimitingQueue<Request> workQueue,
+      CollectorRegistry collectorRegistry,
+      Supplier<Boolean>... readyFuncs) {
+    this.name = name;
     this.reconciler = reconciler;
     this.workQueue = workQueue;
     this.readyFuncs = readyFuncs;
@@ -149,6 +182,7 @@ public class DefaultController implements Controller {
   private void worker() {
     // taking tasks from work-queue in a loop
     while (!workQueue.isShuttingDown()) {
+      gaugeWorkQueueLength.labels(name).set(workQueue.length());
       Request request = null;
       try {
         request = workQueue.get();
@@ -173,6 +207,8 @@ public class DefaultController implements Controller {
       } catch (Throwable t) {
         log.error("Reconciler aborted unexpectedly", t);
         result = new Result(true);
+      } finally {
+        counterControllerReconcile.labels(this.name, Boolean.toString(result.isRequeue())).inc();
       }
 
       try {
@@ -194,6 +230,7 @@ public class DefaultController implements Controller {
         }
       } finally {
         workQueue.done(request);
+        gaugeWorkQueueLength.labels(name).set(workQueue.length());
         log.debug("Controller {} finished reconciling {}..", this.name, request);
       }
     }
@@ -203,17 +240,8 @@ public class DefaultController implements Controller {
     return workQueue;
   }
 
-  public DefaultController setWorkQueue(RateLimitingQueue<Request> workQueue) {
-    this.workQueue = workQueue;
-    return this;
-  }
-
   public String getName() {
     return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
   }
 
   public int getWorkerCount() {
@@ -234,10 +262,6 @@ public class DefaultController implements Controller {
 
   public Reconciler getReconciler() {
     return reconciler;
-  }
-
-  public void setReconciler(Reconciler reconciler) {
-    this.reconciler = reconciler;
   }
 
   public Duration getReadyTimeout() {

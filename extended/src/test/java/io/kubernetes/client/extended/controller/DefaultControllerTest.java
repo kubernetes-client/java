@@ -61,7 +61,7 @@ public class DefaultControllerTest {
   @Test
   public void testStartingStoppingController() throws InterruptedException {
 
-    DefaultController testController = new DefaultController(mockReconciler, workQueue);
+    DefaultController testController = new DefaultController("", mockReconciler, workQueue);
 
     testController.setWorkerCount(1);
     testController.setWorkerThreadPool(Executors.newScheduledThreadPool(1));
@@ -96,7 +96,7 @@ public class DefaultControllerTest {
 
     AtomicBoolean ready = new AtomicBoolean(false);
     DefaultController testController =
-        new DefaultController(mockReconciler, workQueue, () -> ready.get());
+        new DefaultController("", mockReconciler, workQueue, () -> ready.get());
     testController.setWorkerCount(1);
     testController.setWorkerThreadPool(Executors.newScheduledThreadPool(1));
     testController.setReadyCheckInternal(Duration.ofMillis(100));
@@ -122,6 +122,7 @@ public class DefaultControllerTest {
     List<Request> finishedRequests = new ArrayList<>();
     DefaultController testController =
         new DefaultController(
+            "",
             new Reconciler() {
               @Override
               public Result reconcile(Request request) {

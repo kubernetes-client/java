@@ -169,6 +169,12 @@
         <version>${spring.boot.version}</version>
       </dependency>
       <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-actuator</artifactId>
+        <version>${spring.boot.version}</version>
+        <optional>true</optional>
+      </dependency>
+      <dependency>
         <groupId>io.prometheus</groupId>
         <artifactId>simpleclient</artifactId>
         <version>${prometheus.client.version}</version>

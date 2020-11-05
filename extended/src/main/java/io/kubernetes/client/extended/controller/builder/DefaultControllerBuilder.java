@@ -149,15 +149,15 @@ public class DefaultControllerBuilder {
 
     DefaultController controller =
         new DefaultController(
-            this.reconciler, this.workQueue, this.readyFuncs.stream().toArray(Supplier[]::new));
+            this.controllerName,
+            this.reconciler,
+            this.workQueue,
+            this.readyFuncs.stream().toArray(Supplier[]::new));
 
-    controller.setName(this.controllerName);
     controller.setWorkerCount(this.workerCount);
     controller.setWorkerThreadPool(
         Executors.newScheduledThreadPool(
             this.workerCount, Controllers.namedControllerThreadFactory(this.controllerName)));
-
-    controller.setReconciler(this.reconciler);
 
     return controller;
   }
