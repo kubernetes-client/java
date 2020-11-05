@@ -248,10 +248,13 @@ public class Kubectl {
 
     protected <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
         GenericKubernetesApi<ApiType, ApiListType> getGenericApi(
-            Class<ApiType> apiTypeClass, Class<ApiListType> apiListTypeClass) {
+            Class<ApiType> apiTypeClass, Class<ApiListType> apiListTypeClass)
+            throws KubectlException {
       GroupVersionResource groupVersionResource =
           ModelMapper.getGroupVersionResourceByClass(apiTypeClass);
-
+      if (groupVersionResource == null) {
+        throw new KubectlException("Unexpected unknown resource type: " + apiTypeClass);
+      }
       GenericKubernetesApi<ApiType, ApiListType> api =
           new GenericKubernetesApi<>(
               apiTypeClass,
@@ -289,7 +292,8 @@ public class Kubectl {
       return (T) this;
     }
 
-    protected GenericKubernetesApi<ApiType, KubernetesListObject> getGenericApi() {
+    protected GenericKubernetesApi<ApiType, KubernetesListObject> getGenericApi()
+        throws KubectlException {
       return getGenericApi(apiTypeClass, KubernetesListObject.class);
     }
   }
