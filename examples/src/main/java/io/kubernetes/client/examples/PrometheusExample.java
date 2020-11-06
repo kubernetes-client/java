@@ -47,7 +47,7 @@ public class PrometheusExample {
     while (true) {
       // A request that should return 200
       V1PodList list =
-          api.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null);
+          api.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null, null);
       // A request that should return 404
       try {
         V1Pod pod = api.readNamespacedPod("foo", "bar", null, null, null);

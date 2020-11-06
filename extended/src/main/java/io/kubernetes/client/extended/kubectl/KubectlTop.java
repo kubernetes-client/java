@@ -98,7 +98,7 @@ public class KubectlTop<ApiType extends KubernetesObject, MetricsType>
   private List<Pair<ApiType, MetricsType>> topNodes(
       CoreV1Api api, ApiClient apiClient, String metricName)
       throws KubectlException, ApiException, IOException {
-    V1NodeList nodes = api.listNode(null, null, null, null, null, null, null, null, null);
+    V1NodeList nodes = api.listNode(null, null, null, null, null, null, null, null, null, null);
     NodeMetricsList metrics = new Metrics(apiClient).getNodeMetrics();
     List<V1Node> items = nodes.getItems();
     Collections.sort(
@@ -151,7 +151,8 @@ public class KubectlTop<ApiType extends KubernetesObject, MetricsType>
       CoreV1Api api, ApiClient apiClient, String metricName)
       throws KubectlException, ApiException, IOException {
     V1PodList pods =
-        api.listNamespacedPod(namespace, null, null, null, null, null, null, null, null, null);
+        api.listNamespacedPod(
+            namespace, null, null, null, null, null, null, null, null, null, null);
     PodMetricsList metrics = new Metrics(apiClient).getPodMetrics(namespace);
     List<V1Pod> items = pods.getItems();
     Collections.sort(

@@ -103,6 +103,7 @@ public class DefaultSharedIndexInformerTest {
                     null,
                     null,
                     params.resourceVersion,
+                    null,
                     params.timeoutSeconds,
                     params.watch,
                     null);
@@ -198,6 +199,7 @@ public class DefaultSharedIndexInformerTest {
                     null,
                     null,
                     params.resourceVersion,
+                    null,
                     params.timeoutSeconds,
                     params.watch,
                     null);
@@ -284,6 +286,7 @@ public class DefaultSharedIndexInformerTest {
                     null,
                     null,
                     params.resourceVersion,
+                    null,
                     params.timeoutSeconds,
                     params.watch,
                     null);
@@ -345,6 +348,7 @@ public class DefaultSharedIndexInformerTest {
                     null,
                     null,
                     params.resourceVersion,
+                    null,
                     params.timeoutSeconds,
                     params.watch,
                     null);

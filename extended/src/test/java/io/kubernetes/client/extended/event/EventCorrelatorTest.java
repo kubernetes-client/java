@@ -21,8 +21,8 @@ import io.kubernetes.client.extended.event.legacy.EventAggregator;
 import io.kubernetes.client.extended.event.legacy.EventCorrelator;
 import io.kubernetes.client.extended.event.legacy.EventSpamFilter;
 import io.kubernetes.client.extended.event.legacy.EventUtils;
-import io.kubernetes.client.openapi.models.V1Event;
-import io.kubernetes.client.openapi.models.V1EventBuilder;
+import io.kubernetes.client.openapi.models.CoreV1Event;
+import io.kubernetes.client.openapi.models.CoreV1EventBuilder;
 import io.kubernetes.client.openapi.models.V1EventSource;
 import io.kubernetes.client.openapi.models.V1EventSourceBuilder;
 import io.kubernetes.client.openapi.models.V1ObjectMetaBuilder;
@@ -45,13 +45,13 @@ import org.junit.runners.Parameterized.Parameters;
 public class EventCorrelatorTest {
 
   @Parameter(0)
-  public V1Event[] previousEvents;
+  public CoreV1Event[] previousEvents;
 
   @Parameter(1)
-  public V1Event newEvent;
+  public CoreV1Event newEvent;
 
   @Parameter(2)
-  public V1Event expectedEvent;
+  public CoreV1Event expectedEvent;
 
   @Parameter(3)
   public Boolean expectedSkip;
@@ -66,8 +66,8 @@ public class EventCorrelatorTest {
             .withNamespace("default")
             .build();
     V1EventSource source = new V1EventSourceBuilder().withComponent("foo").withHost("bar").build();
-    V1Event firstEvent =
-        new V1EventBuilder()
+    CoreV1Event firstEvent =
+        new CoreV1EventBuilder()
             .withMetadata(new V1ObjectMetaBuilder().withName("").withNamespace("").build())
             .withSource(source)
             .withInvolvedObject(podRef)
@@ -75,8 +75,8 @@ public class EventCorrelatorTest {
             .withCount(1)
             .withMessage("am a first")
             .build();
-    V1Event duplicatedEvent =
-        new V1EventBuilder()
+    CoreV1Event duplicatedEvent =
+        new CoreV1EventBuilder()
             .withMetadata(new V1ObjectMetaBuilder().withName("").withNamespace("").build())
             .withSource(source)
             .withInvolvedObject(podRef)
@@ -84,8 +84,8 @@ public class EventCorrelatorTest {
             .withCount(1)
             .withMessage("am a dup")
             .build();
-    V1Event similarEvent =
-        new V1EventBuilder()
+    CoreV1Event similarEvent =
+        new CoreV1EventBuilder()
             .withMetadata(new V1ObjectMetaBuilder().withName("").withNamespace("").build())
             .withSource(source)
             .withInvolvedObject(podRef)
@@ -93,8 +93,8 @@ public class EventCorrelatorTest {
             .withCount(1)
             .withMessage("am a similar")
             .build();
-    V1Event aggregateEvent =
-        new V1EventBuilder()
+    CoreV1Event aggregateEvent =
+        new CoreV1EventBuilder()
             .withMetadata(new V1ObjectMetaBuilder().withName("").withNamespace("").build())
             .withSource(source)
             .withInvolvedObject(podRef)
@@ -106,11 +106,11 @@ public class EventCorrelatorTest {
         new Object[][] {
           {
             // create a single event should work
-            new V1Event[] {}, deepCopy(firstEvent), deepCopy(firstEvent).count(1), false,
+            new CoreV1Event[] {}, deepCopy(firstEvent), deepCopy(firstEvent).count(1), false,
           },
           {
             // the same event should just count
-            new V1Event[] {
+            new CoreV1Event[] {
               deepCopy(duplicatedEvent),
             },
             deepCopy(duplicatedEvent),
@@ -158,11 +158,11 @@ public class EventCorrelatorTest {
   @Test
   public void testEventCorrelate() throws InterruptedException {
     EventCorrelator correlator = new EventCorrelator();
-    for (V1Event event : previousEvents) {
+    for (CoreV1Event event : previousEvents) {
       DateTime now = DateTime.now();
       event.setFirstTimestamp(now);
       event.setLastTimestamp(now);
-      Optional<MutablePair<V1Event, V1Patch>> result = correlator.correlate(event);
+      Optional<MutablePair<CoreV1Event, V1Patch>> result = correlator.correlate(event);
       if (!result.isPresent()) {
         correlator.updateState(event);
       }
@@ -171,18 +171,18 @@ public class EventCorrelatorTest {
     DateTime now = DateTime.now();
     newEvent.setFirstTimestamp(now);
     newEvent.setLastTimestamp(now);
-    Optional<MutablePair<V1Event, V1Patch>> result = correlator.correlate(newEvent);
+    Optional<MutablePair<CoreV1Event, V1Patch>> result = correlator.correlate(newEvent);
 
     assertEquals(expectedSkip, !result.isPresent());
     if (!expectedSkip) {
-      V1Event correlatedEvent = result.get().getLeft();
+      CoreV1Event correlatedEvent = result.get().getLeft();
       correlatedEvent.setMetadata(new V1ObjectMetaBuilder().withName("").withNamespace("").build());
       validateEvent(expectedEvent, correlatedEvent);
     }
   }
 
-  private void validateEvent(V1Event expectedEvent, V1Event actualEvent) {
-    V1Event recvEvent = new V1EventBuilder(actualEvent).build();
+  private void validateEvent(CoreV1Event expectedEvent, CoreV1Event actualEvent) {
+    CoreV1Event recvEvent = new CoreV1EventBuilder(actualEvent).build();
     assertNotEquals(0, recvEvent.getFirstTimestamp().getMillis());
     assertNotEquals(0, recvEvent.getLastTimestamp().getMillis());
     if (actualEvent.getFirstTimestamp().equals(actualEvent.getLastTimestamp())) {
@@ -205,24 +205,24 @@ public class EventCorrelatorTest {
     assertEquals(expectedEvent, recvEvent);
   }
 
-  private static V1Event deepCopy(V1Event event) {
-    return new V1EventBuilder(event).build();
+  private static CoreV1Event deepCopy(CoreV1Event event) {
+    return new CoreV1EventBuilder(event).build();
   }
 
-  private static V1Event[] deepCopyFor(V1Event event, int count) {
-    List<V1Event> events = new ArrayList<>();
+  private static CoreV1Event[] deepCopyFor(CoreV1Event event, int count) {
+    List<CoreV1Event> events = new ArrayList<>();
     for (int i = 0; i < count; i++) {
-      events.add(new V1EventBuilder(event).build());
+      events.add(new CoreV1EventBuilder(event).build());
     }
-    return events.stream().toArray(V1Event[]::new);
+    return events.stream().toArray(CoreV1Event[]::new);
   }
 
-  private static V1Event[] deepCopyWithSimilarMessageFor(
-      V1Event event, String messagePrefix, int count) {
-    List<V1Event> events = new ArrayList<>();
+  private static CoreV1Event[] deepCopyWithSimilarMessageFor(
+      CoreV1Event event, String messagePrefix, int count) {
+    List<CoreV1Event> events = new ArrayList<>();
     for (int i = 0; i < count; i++) {
-      events.add(new V1EventBuilder(event).withMessage(messagePrefix + "-" + i).build());
+      events.add(new CoreV1EventBuilder(event).withMessage(messagePrefix + "-" + i).build());
     }
-    return events.stream().toArray(V1Event[]::new);
+    return events.stream().toArray(CoreV1Event[]::new);
   }
 }

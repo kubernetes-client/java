@@ -81,7 +81,7 @@ public class PagerTest {
             (Pager.PagerParams param) -> {
               try {
                 return api.listNamespaceCall(
-                    null, null, null, null, null, null, null, null, null, null);
+                    null, null, null, null, null, null, null, null, null, null, null);
               } catch (Exception e) {
                 throw new RuntimeException(e);
               }
@@ -132,6 +132,7 @@ public class PagerTest {
                     null,
                     null,
                     param.getLimit(),
+                    null,
                     null,
                     null,
                     null,
@@ -196,6 +197,7 @@ public class PagerTest {
                     null,
                     null,
                     null,
+                    null,
                     null);
               } catch (Exception e) {
                 throw new RuntimeException(e);
@@ -244,6 +246,7 @@ public class PagerTest {
                     "metadata.name=default",
                     null,
                     param.getLimit(),
+                    null,
                     null,
                     null,
                     null,

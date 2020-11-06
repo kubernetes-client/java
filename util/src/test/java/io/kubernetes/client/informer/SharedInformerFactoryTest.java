@@ -33,6 +33,7 @@ public class SharedInformerFactoryTest {
               null,
               null,
               params.resourceVersion,
+              null,
               params.timeoutSeconds,
               params.watch,
               null);

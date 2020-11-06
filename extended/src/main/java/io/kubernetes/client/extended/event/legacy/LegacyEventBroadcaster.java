@@ -15,8 +15,8 @@ package io.kubernetes.client.extended.event.legacy;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.apis.CoreV1Api;
-import io.kubernetes.client.openapi.models.V1Event;
-import io.kubernetes.client.openapi.models.V1EventBuilder;
+import io.kubernetes.client.openapi.models.CoreV1Event;
+import io.kubernetes.client.openapi.models.CoreV1EventBuilder;
 import io.kubernetes.client.openapi.models.V1EventSource;
 import io.kubernetes.client.util.PatchUtils;
 import java.net.HttpURLConnection;
@@ -42,13 +42,13 @@ public class LegacyEventBroadcaster implements EventBroadcaster {
         new EventCorrelator(),
         new EventSink() {
           @Override
-          public V1Event create(V1Event event) throws ApiException {
+          public CoreV1Event create(CoreV1Event event) throws ApiException {
             return coreV1Api.createNamespacedEvent(
                 event.getMetadata().getNamespace(), event, null, null, null);
           }
 
           @Override
-          public V1Event update(V1Event event) throws ApiException {
+          public CoreV1Event update(CoreV1Event event) throws ApiException {
             return coreV1Api.replaceNamespacedEvent(
                 event.getMetadata().getName(),
                 event.getMetadata().getNamespace(),
@@ -59,9 +59,9 @@ public class LegacyEventBroadcaster implements EventBroadcaster {
           }
 
           @Override
-          public V1Event patch(V1Event event, V1Patch patch) throws ApiException {
+          public CoreV1Event patch(CoreV1Event event, V1Patch patch) throws ApiException {
             return PatchUtils.patch(
-                V1Event.class,
+                CoreV1Event.class,
                 () ->
                     coreV1Api.patchNamespacedEventCall(
                         event.getMetadata().getName(),
@@ -86,7 +86,7 @@ public class LegacyEventBroadcaster implements EventBroadcaster {
     this.eventSink = sink;
   }
 
-  private BlockingQueue<V1Event> pendingEventQueue;
+  private BlockingQueue<CoreV1Event> pendingEventQueue;
   private ExecutorService eventProcessingWorker;
   private EventSink eventSink;
   private EventCorrelator eventCorrelator;
@@ -104,7 +104,7 @@ public class LegacyEventBroadcaster implements EventBroadcaster {
         () -> {
           while (!this.shuttingDown) {
             try {
-              V1Event event = pendingEventQueue.poll(100, TimeUnit.MILLISECONDS);
+              CoreV1Event event = pendingEventQueue.poll(100, TimeUnit.MILLISECONDS);
               if (event != null) {
                 recordToSink(event);
               }
@@ -121,13 +121,14 @@ public class LegacyEventBroadcaster implements EventBroadcaster {
     this.shuttingDown = true;
   }
 
-  private void recordToSink(V1Event event) throws InterruptedException {
-    Optional<MutablePair<V1Event, V1Patch>> eventAndPatch = this.eventCorrelator.correlate(event);
+  private void recordToSink(CoreV1Event event) throws InterruptedException {
+    Optional<MutablePair<CoreV1Event, V1Patch>> eventAndPatch =
+        this.eventCorrelator.correlate(event);
     if (!eventAndPatch.isPresent()) {
       // skip
       return;
     }
-    V1Event recordingEvent = eventAndPatch.get().getLeft();
+    CoreV1Event recordingEvent = eventAndPatch.get().getLeft();
     V1Patch patch = eventAndPatch.get().getRight();
     for (int retries = 0; retries < maxTriesPerEvent; retries++) {
       if (recordEvent(recordingEvent, patch, event.getCount() > 1)) {
@@ -137,15 +138,15 @@ public class LegacyEventBroadcaster implements EventBroadcaster {
     }
   }
 
-  private boolean recordEvent(V1Event event, V1Patch patch, boolean updateExistingEvent) {
-    V1Event newEvent = null;
+  private boolean recordEvent(CoreV1Event event, V1Patch patch, boolean updateExistingEvent) {
+    CoreV1Event newEvent = null;
     try {
       if (updateExistingEvent) {
         try {
           newEvent = this.eventSink.patch(event, patch);
         } catch (ApiException patchException) {
           if (patchException.getCode() == HttpURLConnection.HTTP_NOT_FOUND) { // not found
-            event = new V1EventBuilder(event).build();
+            event = new CoreV1EventBuilder(event).build();
             event.getMetadata().setResourceVersion("");
             updateExistingEvent = false;
           }

@@ -39,7 +39,8 @@ public class WatchExample {
     Watch<V1Namespace> watch =
         Watch.createWatch(
             client,
-            api.listNamespaceCall(null, null, null, null, null, 5, null, null, Boolean.TRUE, null),
+            api.listNamespaceCall(
+                null, null, null, null, null, 5, null, null, null, Boolean.TRUE, null),
             new TypeToken<Watch.Response<V1Namespace>>() {}.getType());
 
     try {

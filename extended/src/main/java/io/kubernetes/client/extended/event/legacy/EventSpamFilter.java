@@ -19,7 +19,7 @@ import io.github.bucket4j.Bucket4j;
 import io.github.bucket4j.Refill;
 import io.github.bucket4j.local.LocalBucket;
 import io.github.bucket4j.local.SynchronizationStrategy;
-import io.kubernetes.client.openapi.models.V1Event;
+import io.kubernetes.client.openapi.models.CoreV1Event;
 import java.time.Duration;
 import java.util.concurrent.ExecutionException;
 import java.util.function.Function;
@@ -30,7 +30,7 @@ public class EventSpamFilter {
   public static final int DEFAULT_TOKEN_BUCKET_REFILLING_TOKEN = 1;
   public static final int DEFAULT_TOKEN_BUCKET_CAPACITY = 25;
 
-  public EventSpamFilter(int maxLRUCacheEntries, Function<V1Event, String> spamKeyFunc) {
+  public EventSpamFilter(int maxLRUCacheEntries, Function<CoreV1Event, String> spamKeyFunc) {
     this(
         maxLRUCacheEntries,
         spamKeyFunc,
@@ -41,7 +41,7 @@ public class EventSpamFilter {
 
   public EventSpamFilter(
       int maxLRUCacheEntries,
-      Function<V1Event, String> spamKeyFunc,
+      Function<CoreV1Event, String> spamKeyFunc,
       long tokenBucketCapacity,
       Duration refillingPeriod,
       long refillingTokensPerPeriod) {
@@ -56,9 +56,9 @@ public class EventSpamFilter {
   private final long refillingTokensPerPeriod;
   private final Duration refillingPeriod;
   private Cache<String, SpamRecord> spamRecordCache;
-  private Function<V1Event, String> spamKeyFunc;
+  private Function<CoreV1Event, String> spamKeyFunc;
 
-  public boolean filter(V1Event event) {
+  public boolean filter(CoreV1Event event) {
     String spamKey = spamKeyFunc.apply(event);
     SpamRecord record;
     try {

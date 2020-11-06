@@ -15,8 +15,8 @@ package io.kubernetes.client.extended.event.legacy;
 import com.google.common.base.Strings;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.event.EventType;
-import io.kubernetes.client.openapi.models.V1Event;
-import io.kubernetes.client.openapi.models.V1EventBuilder;
+import io.kubernetes.client.openapi.models.CoreV1Event;
+import io.kubernetes.client.openapi.models.CoreV1EventBuilder;
 import io.kubernetes.client.openapi.models.V1EventSource;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1ObjectMetaBuilder;
@@ -36,12 +36,12 @@ public class ObjectReferenceResolvingEventRecorder implements EventRecorder {
       LoggerFactory.getLogger(ObjectReferenceResolvingEventRecorder.class);
 
   public ObjectReferenceResolvingEventRecorder(
-      BlockingQueue<V1Event> queue, V1EventSource eventSource) {
+      BlockingQueue<CoreV1Event> queue, V1EventSource eventSource) {
     this.pendingEventQueue = queue;
     this.eventSource = eventSource;
   }
 
-  private BlockingQueue<V1Event> pendingEventQueue;
+  private BlockingQueue<CoreV1Event> pendingEventQueue;
   private V1EventSource eventSource;
 
   @Override
@@ -110,8 +110,8 @@ public class ObjectReferenceResolvingEventRecorder implements EventRecorder {
 
     // build event
     DateTime now = DateTime.now();
-    V1Event event =
-        new V1EventBuilder()
+    CoreV1Event event =
+        new CoreV1EventBuilder()
             .withMetadata(
                 new V1ObjectMetaBuilder()
                     .withName(EventUtils.generateName(eventRef.getName(), now))

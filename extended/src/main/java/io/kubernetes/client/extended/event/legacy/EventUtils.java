@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.event.legacy;
 
-import io.kubernetes.client.openapi.models.V1Event;
+import io.kubernetes.client.openapi.models.CoreV1Event;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.joda.time.DateTime;
@@ -23,11 +23,11 @@ public class EventUtils {
     return referencedObjectName + "." + RandomStringUtils.randomAlphanumeric(12);
   }
 
-  public static String getAggregatedMessageByReason(V1Event event) {
+  public static String getAggregatedMessageByReason(CoreV1Event event) {
     return "(combined from similar events): " + event.getMessage();
   }
 
-  public static MutablePair<String, String> getAggregatedAndLocalKeyByReason(V1Event event) {
+  public static MutablePair<String, String> getAggregatedAndLocalKeyByReason(CoreV1Event event) {
     return new MutablePair<String, String>(
         String.join(
             "",
@@ -43,7 +43,7 @@ public class EventUtils {
         event.getMessage());
   }
 
-  public static String getEventKey(V1Event event) {
+  public static String getEventKey(CoreV1Event event) {
     return String.join(
         "",
         event.getSource().getComponent(),
@@ -59,7 +59,7 @@ public class EventUtils {
         event.getMessage());
   }
 
-  public static String getSpamKey(V1Event event) {
+  public static String getSpamKey(CoreV1Event event) {
     return String.join(
         "",
         event.getSource().getComponent(),

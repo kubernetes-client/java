@@ -15,8 +15,8 @@ package io.kubernetes.client.extended.event.legacy;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import io.kubernetes.client.fluent.Function;
-import io.kubernetes.client.openapi.models.V1Event;
-import io.kubernetes.client.openapi.models.V1EventBuilder;
+import io.kubernetes.client.openapi.models.CoreV1Event;
+import io.kubernetes.client.openapi.models.CoreV1EventBuilder;
 import io.kubernetes.client.openapi.models.V1ObjectMetaBuilder;
 import java.util.HashSet;
 import java.util.Objects;
@@ -33,8 +33,8 @@ public class EventAggregator {
 
   public EventAggregator(
       int maxLRUCacheEntries,
-      Function<V1Event, MutablePair<String, String>> keyFunc,
-      Function<V1Event, String> messageFunc) {
+      Function<CoreV1Event, MutablePair<String, String>> keyFunc,
+      Function<CoreV1Event, String> messageFunc) {
     this.keyFunc = keyFunc;
     this.messageFunc = messageFunc;
     this.maxEvents = DEFAULT_MAX_EVENT_LOCAL_KEYS;
@@ -46,12 +46,12 @@ public class EventAggregator {
   }
 
   private Cache<String, AggregatedRecord> spammingCache;
-  private Function<V1Event, MutablePair<String, String>> keyFunc;
-  private Function<V1Event, String> messageFunc;
+  private Function<CoreV1Event, MutablePair<String, String>> keyFunc;
+  private Function<CoreV1Event, String> messageFunc;
 
   private final int maxEvents;
 
-  public synchronized MutablePair<V1Event, String> aggregate(V1Event event) {
+  public synchronized MutablePair<CoreV1Event, String> aggregate(CoreV1Event event) {
     DateTime now = DateTime.now();
 
     MutablePair<String, String> aggregatedKeys = keyFunc.apply(event);
@@ -72,8 +72,8 @@ public class EventAggregator {
       return new MutablePair<>(event, EventUtils.getEventKey(event));
     }
     record.localKeys.remove(record.localKeys.stream().findAny().get()); // remove any keys
-    V1Event aggregatedEvent =
-        new V1EventBuilder(event)
+    CoreV1Event aggregatedEvent =
+        new CoreV1EventBuilder(event)
             .withMetadata(
                 new V1ObjectMetaBuilder()
                     .withName(EventUtils.generateName(event.getInvolvedObject().getName(), now))

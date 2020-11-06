@@ -72,7 +72,7 @@ public class ModelMapper {
     try {
       initModelMap();
     } catch (Exception ex) {
-      logger.error("Unexpected exception while loading classes: " + ex);
+      logger.error("Unexpected exception while loading classes", ex);
     }
   }
 
@@ -300,16 +300,18 @@ public class ModelMapper {
     preBuiltApiGroups.put("Authentication", "authentication.k8s.io");
     preBuiltApiGroups.put("Authorization", "authorization.k8s.io");
     preBuiltApiGroups.put("Autoscaling", "autoscaling");
-    preBuiltApiGroups.put("Extensions", "extensions");
     preBuiltApiGroups.put("Batch", "batch");
     preBuiltApiGroups.put("Certificates", "certificates.k8s.io");
+    preBuiltApiGroups.put("Core", "");
+    preBuiltApiGroups.put("Extensions", "extensions");
+    preBuiltApiGroups.put("Events", "events.k8s.io");
+    preBuiltApiGroups.put("FlowControl", "flowcontrol.apiserver.k8s.io");
     preBuiltApiGroups.put("Networking", "networking.k8s.io");
     preBuiltApiGroups.put("Policy", "policy");
     preBuiltApiGroups.put("RbacAuthorization", "rbac.authorization.k8s.io");
     preBuiltApiGroups.put("Scheduling", "scheduling.k8s.io");
     preBuiltApiGroups.put("Settings", "settings.k8s.io");
     preBuiltApiGroups.put("Storage", "storage.k8s.io");
-    preBuiltApiGroups.put("FlowControl", "flowcontrol.apiserver.k8s.io");
   }
 
   private static void initApiVersionList() {
