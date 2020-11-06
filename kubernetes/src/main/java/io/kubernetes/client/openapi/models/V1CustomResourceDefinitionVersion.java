@@ -23,13 +23,23 @@ import java.util.Objects;
 @ApiModel(description = "CustomResourceDefinitionVersion describes a version for CRD.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1CustomResourceDefinitionVersion {
   public static final String SERIALIZED_NAME_ADDITIONAL_PRINTER_COLUMNS =
       "additionalPrinterColumns";
 
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_PRINTER_COLUMNS)
   private List<V1CustomResourceColumnDefinition> additionalPrinterColumns = null;
+
+  public static final String SERIALIZED_NAME_DEPRECATED = "deprecated";
+
+  @SerializedName(SERIALIZED_NAME_DEPRECATED)
+  private Boolean deprecated;
+
+  public static final String SERIALIZED_NAME_DEPRECATION_WARNING = "deprecationWarning";
+
+  @SerializedName(SERIALIZED_NAME_DEPRECATION_WARNING)
+  private String deprecationWarning;
 
   public static final String SERIALIZED_NAME_NAME = "name";
 
@@ -91,6 +101,56 @@ public class V1CustomResourceDefinitionVersion {
   public void setAdditionalPrinterColumns(
       List<V1CustomResourceColumnDefinition> additionalPrinterColumns) {
     this.additionalPrinterColumns = additionalPrinterColumns;
+  }
+
+  public V1CustomResourceDefinitionVersion deprecated(Boolean deprecated) {
+
+    this.deprecated = deprecated;
+    return this;
+  }
+
+  /**
+   * deprecated indicates this version of the custom resource API is deprecated. When set to true,
+   * API requests to this version receive a warning header in the server response. Defaults to
+   * false.
+   *
+   * @return deprecated
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "deprecated indicates this version of the custom resource API is deprecated. When set to true, API requests to this version receive a warning header in the server response. Defaults to false.")
+  public Boolean getDeprecated() {
+    return deprecated;
+  }
+
+  public void setDeprecated(Boolean deprecated) {
+    this.deprecated = deprecated;
+  }
+
+  public V1CustomResourceDefinitionVersion deprecationWarning(String deprecationWarning) {
+
+    this.deprecationWarning = deprecationWarning;
+    return this;
+  }
+
+  /**
+   * deprecationWarning overrides the default warning returned to API clients. May only be set when
+   * &#x60;deprecated&#x60; is true. The default warning indicates this version is deprecated and
+   * recommends use of the newest served version of equal or greater stability, if one exists.
+   *
+   * @return deprecationWarning
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "deprecationWarning overrides the default warning returned to API clients. May only be set when `deprecated` is true. The default warning indicates this version is deprecated and recommends use of the newest served version of equal or greater stability, if one exists.")
+  public String getDeprecationWarning() {
+    return deprecationWarning;
+  }
+
+  public void setDeprecationWarning(String deprecationWarning) {
+    this.deprecationWarning = deprecationWarning;
   }
 
   public V1CustomResourceDefinitionVersion name(String name) {
@@ -218,6 +278,9 @@ public class V1CustomResourceDefinitionVersion {
     return Objects.equals(
             this.additionalPrinterColumns,
             v1CustomResourceDefinitionVersion.additionalPrinterColumns)
+        && Objects.equals(this.deprecated, v1CustomResourceDefinitionVersion.deprecated)
+        && Objects.equals(
+            this.deprecationWarning, v1CustomResourceDefinitionVersion.deprecationWarning)
         && Objects.equals(this.name, v1CustomResourceDefinitionVersion.name)
         && Objects.equals(this.schema, v1CustomResourceDefinitionVersion.schema)
         && Objects.equals(this.served, v1CustomResourceDefinitionVersion.served)
@@ -227,7 +290,15 @@ public class V1CustomResourceDefinitionVersion {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalPrinterColumns, name, schema, served, storage, subresources);
+    return Objects.hash(
+        additionalPrinterColumns,
+        deprecated,
+        deprecationWarning,
+        name,
+        schema,
+        served,
+        storage,
+        subresources);
   }
 
   @Override
@@ -237,6 +308,8 @@ public class V1CustomResourceDefinitionVersion {
     sb.append("    additionalPrinterColumns: ")
         .append(toIndentedString(additionalPrinterColumns))
         .append("\n");
+    sb.append("    deprecated: ").append(toIndentedString(deprecated)).append("\n");
+    sb.append("    deprecationWarning: ").append(toIndentedString(deprecationWarning)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    schema: ").append(toIndentedString(schema)).append("\n");
     sb.append("    served: ").append(toIndentedString(served)).append("\n");

@@ -27,7 +27,7 @@ import java.util.Objects;
         "ExternalMetricStatus indicates the current value of a global metric not associated with any Kubernetes object.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V2beta1ExternalMetricStatus {
   public static final String SERIALIZED_NAME_CURRENT_AVERAGE_VALUE = "currentAverageValue";
 

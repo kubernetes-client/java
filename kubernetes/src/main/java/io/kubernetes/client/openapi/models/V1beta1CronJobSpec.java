@@ -23,7 +23,7 @@ import java.util.Objects;
         "CronJobSpec describes how the job execution will look like and when it will actually run.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1beta1CronJobSpec {
   public static final String SERIALIZED_NAME_CONCURRENCY_POLICY = "concurrencyPolicy";
 

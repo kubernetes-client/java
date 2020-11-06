@@ -23,17 +23,27 @@ import java.util.Objects;
 @ApiModel(description = "CSIDriverSpec is the specification of a CSIDriver.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1CSIDriverSpec {
   public static final String SERIALIZED_NAME_ATTACH_REQUIRED = "attachRequired";
 
   @SerializedName(SERIALIZED_NAME_ATTACH_REQUIRED)
   private Boolean attachRequired;
 
+  public static final String SERIALIZED_NAME_FS_GROUP_POLICY = "fsGroupPolicy";
+
+  @SerializedName(SERIALIZED_NAME_FS_GROUP_POLICY)
+  private String fsGroupPolicy;
+
   public static final String SERIALIZED_NAME_POD_INFO_ON_MOUNT = "podInfoOnMount";
 
   @SerializedName(SERIALIZED_NAME_POD_INFO_ON_MOUNT)
   private Boolean podInfoOnMount;
+
+  public static final String SERIALIZED_NAME_STORAGE_CAPACITY = "storageCapacity";
+
+  @SerializedName(SERIALIZED_NAME_STORAGE_CAPACITY)
+  private Boolean storageCapacity;
 
   public static final String SERIALIZED_NAME_VOLUME_LIFECYCLE_MODES = "volumeLifecycleModes";
 
@@ -68,6 +78,32 @@ public class V1CSIDriverSpec {
 
   public void setAttachRequired(Boolean attachRequired) {
     this.attachRequired = attachRequired;
+  }
+
+  public V1CSIDriverSpec fsGroupPolicy(String fsGroupPolicy) {
+
+    this.fsGroupPolicy = fsGroupPolicy;
+    return this;
+  }
+
+  /**
+   * Defines if the underlying volume supports changing ownership and permission of the volume
+   * before being mounted. Refer to the specific FSGroupPolicy values for additional details. This
+   * field is alpha-level, and is only honored by servers that enable the CSIVolumeFSGroupPolicy
+   * feature gate.
+   *
+   * @return fsGroupPolicy
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Defines if the underlying volume supports changing ownership and permission of the volume before being mounted. Refer to the specific FSGroupPolicy values for additional details. This field is alpha-level, and is only honored by servers that enable the CSIVolumeFSGroupPolicy feature gate.")
+  public String getFsGroupPolicy() {
+    return fsGroupPolicy;
+  }
+
+  public void setFsGroupPolicy(String fsGroupPolicy) {
+    this.fsGroupPolicy = fsGroupPolicy;
   }
 
   public V1CSIDriverSpec podInfoOnMount(Boolean podInfoOnMount) {
@@ -108,6 +144,36 @@ public class V1CSIDriverSpec {
 
   public void setPodInfoOnMount(Boolean podInfoOnMount) {
     this.podInfoOnMount = podInfoOnMount;
+  }
+
+  public V1CSIDriverSpec storageCapacity(Boolean storageCapacity) {
+
+    this.storageCapacity = storageCapacity;
+    return this;
+  }
+
+  /**
+   * If set to true, storageCapacity indicates that the CSI volume driver wants pod scheduling to
+   * consider the storage capacity that the driver deployment will report by creating
+   * CSIStorageCapacity objects with capacity information. The check can be enabled immediately when
+   * deploying a driver. In that case, provisioning new volumes with late binding will pause until
+   * the driver deployment has published some suitable CSIStorageCapacity object. Alternatively, the
+   * driver can be deployed with the field unset or false and it can be flipped later when storage
+   * capacity information has been published. This is an alpha field and only available when the
+   * CSIStorageCapacity feature is enabled. The default is false.
+   *
+   * @return storageCapacity
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "If set to true, storageCapacity indicates that the CSI volume driver wants pod scheduling to consider the storage capacity that the driver deployment will report by creating CSIStorageCapacity objects with capacity information.  The check can be enabled immediately when deploying a driver. In that case, provisioning new volumes with late binding will pause until the driver deployment has published some suitable CSIStorageCapacity object.  Alternatively, the driver can be deployed with the field unset or false and it can be flipped later when storage capacity information has been published.  This is an alpha field and only available when the CSIStorageCapacity feature is enabled. The default is false.")
+  public Boolean getStorageCapacity() {
+    return storageCapacity;
+  }
+
+  public void setStorageCapacity(Boolean storageCapacity) {
+    this.storageCapacity = storageCapacity;
   }
 
   public V1CSIDriverSpec volumeLifecycleModes(List<String> volumeLifecycleModes) {
@@ -159,13 +225,16 @@ public class V1CSIDriverSpec {
     }
     V1CSIDriverSpec v1CSIDriverSpec = (V1CSIDriverSpec) o;
     return Objects.equals(this.attachRequired, v1CSIDriverSpec.attachRequired)
+        && Objects.equals(this.fsGroupPolicy, v1CSIDriverSpec.fsGroupPolicy)
         && Objects.equals(this.podInfoOnMount, v1CSIDriverSpec.podInfoOnMount)
+        && Objects.equals(this.storageCapacity, v1CSIDriverSpec.storageCapacity)
         && Objects.equals(this.volumeLifecycleModes, v1CSIDriverSpec.volumeLifecycleModes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachRequired, podInfoOnMount, volumeLifecycleModes);
+    return Objects.hash(
+        attachRequired, fsGroupPolicy, podInfoOnMount, storageCapacity, volumeLifecycleModes);
   }
 
   @Override
@@ -173,7 +242,9 @@ public class V1CSIDriverSpec {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1CSIDriverSpec {\n");
     sb.append("    attachRequired: ").append(toIndentedString(attachRequired)).append("\n");
+    sb.append("    fsGroupPolicy: ").append(toIndentedString(fsGroupPolicy)).append("\n");
     sb.append("    podInfoOnMount: ").append(toIndentedString(podInfoOnMount)).append("\n");
+    sb.append("    storageCapacity: ").append(toIndentedString(storageCapacity)).append("\n");
     sb.append("    volumeLifecycleModes: ")
         .append(toIndentedString(volumeLifecycleModes))
         .append("\n");

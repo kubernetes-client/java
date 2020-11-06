@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(description = "ServiceStatus represents the current status of a service.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1ServiceStatus {
   public static final String SERIALIZED_NAME_LOAD_BALANCER = "loadBalancer";
 

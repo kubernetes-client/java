@@ -28,7 +28,7 @@ import java.util.Objects;
         "FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1FlexVolumeSource {
   public static final String SERIALIZED_NAME_DRIVER = "driver";
 

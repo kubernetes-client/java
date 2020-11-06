@@ -27,7 +27,7 @@ import java.util.Objects;
         "DEPRECATED - This group version of PriorityClass is deprecated by scheduling.k8s.io/v1/PriorityClass. PriorityClass defines mapping from a priority class name to the priority integer value. The value can be any valid integer.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1alpha1PriorityClass implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 
@@ -196,15 +196,15 @@ public class V1alpha1PriorityClass implements io.kubernetes.client.common.Kubern
 
   /**
    * PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never,
-   * PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and
-   * is only honored by servers that enable the NonPreemptingPriority feature.
+   * PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is beta-level,
+   * gated by the NonPreemptingPriority feature-gate.
    *
    * @return preemptionPolicy
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.")
+          "PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is beta-level, gated by the NonPreemptingPriority feature-gate.")
   public String getPreemptionPolicy() {
     return preemptionPolicy;
   }

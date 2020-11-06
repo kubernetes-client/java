@@ -28,7 +28,7 @@ import java.util.Objects;
         "PolicyRule holds information that describes a policy rule, but does not contain information about who the rule applies to or which namespace the rule applies to.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1beta1PolicyRule {
   public static final String SERIALIZED_NAME_API_GROUPS = "apiGroups";
 

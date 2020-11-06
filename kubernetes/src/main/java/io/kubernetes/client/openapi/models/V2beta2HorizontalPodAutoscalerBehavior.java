@@ -26,7 +26,7 @@ import java.util.Objects;
         "HorizontalPodAutoscalerBehavior configures the scaling behavior of the target in both Up and Down directions (scaleUp and scaleDown fields respectively).")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V2beta2HorizontalPodAutoscalerBehavior {
   public static final String SERIALIZED_NAME_SCALE_DOWN = "scaleDown";
 

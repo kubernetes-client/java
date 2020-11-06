@@ -27,7 +27,7 @@ import java.util.Objects;
         "SecurityContext holds security configuration that will be applied to a container. Some fields are present in both SecurityContext and PodSecurityContext.  When both are set, the values in SecurityContext take precedence.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1SecurityContext {
   public static final String SERIALIZED_NAME_ALLOW_PRIVILEGE_ESCALATION =
       "allowPrivilegeEscalation";
@@ -74,6 +74,11 @@ public class V1SecurityContext {
 
   @SerializedName(SERIALIZED_NAME_SE_LINUX_OPTIONS)
   private V1SELinuxOptions seLinuxOptions;
+
+  public static final String SERIALIZED_NAME_SECCOMP_PROFILE = "seccompProfile";
+
+  @SerializedName(SERIALIZED_NAME_SECCOMP_PROFILE)
+  private V1SeccompProfile seccompProfile;
 
   public static final String SERIALIZED_NAME_WINDOWS_OPTIONS = "windowsOptions";
 
@@ -296,6 +301,27 @@ public class V1SecurityContext {
     this.seLinuxOptions = seLinuxOptions;
   }
 
+  public V1SecurityContext seccompProfile(V1SeccompProfile seccompProfile) {
+
+    this.seccompProfile = seccompProfile;
+    return this;
+  }
+
+  /**
+   * Get seccompProfile
+   *
+   * @return seccompProfile
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1SeccompProfile getSeccompProfile() {
+    return seccompProfile;
+  }
+
+  public void setSeccompProfile(V1SeccompProfile seccompProfile) {
+    this.seccompProfile = seccompProfile;
+  }
+
   public V1SecurityContext windowsOptions(V1WindowsSecurityContextOptions windowsOptions) {
 
     this.windowsOptions = windowsOptions;
@@ -335,6 +361,7 @@ public class V1SecurityContext {
         && Objects.equals(this.runAsNonRoot, v1SecurityContext.runAsNonRoot)
         && Objects.equals(this.runAsUser, v1SecurityContext.runAsUser)
         && Objects.equals(this.seLinuxOptions, v1SecurityContext.seLinuxOptions)
+        && Objects.equals(this.seccompProfile, v1SecurityContext.seccompProfile)
         && Objects.equals(this.windowsOptions, v1SecurityContext.windowsOptions);
   }
 
@@ -350,6 +377,7 @@ public class V1SecurityContext {
         runAsNonRoot,
         runAsUser,
         seLinuxOptions,
+        seccompProfile,
         windowsOptions);
   }
 
@@ -370,6 +398,7 @@ public class V1SecurityContext {
     sb.append("    runAsNonRoot: ").append(toIndentedString(runAsNonRoot)).append("\n");
     sb.append("    runAsUser: ").append(toIndentedString(runAsUser)).append("\n");
     sb.append("    seLinuxOptions: ").append(toIndentedString(seLinuxOptions)).append("\n");
+    sb.append("    seccompProfile: ").append(toIndentedString(seccompProfile)).append("\n");
     sb.append("    windowsOptions: ").append(toIndentedString(windowsOptions)).append("\n");
     sb.append("}");
     return sb.toString();

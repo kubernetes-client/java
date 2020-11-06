@@ -25,7 +25,7 @@ import java.util.Objects;
 @ApiModel(description = "Endpoint represents a single logical \"backend\" implementing a service.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1beta1Endpoint {
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
 

@@ -27,7 +27,7 @@ import org.joda.time.DateTime;
         "HorizontalPodAutoscalerCondition describes the state of a HorizontalPodAutoscaler at a certain point.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V2beta2HorizontalPodAutoscalerCondition {
   public static final String SERIALIZED_NAME_LAST_TRANSITION_TIME = "lastTransitionTime";
 

@@ -19,13 +19,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** Status of all the conditions for the component as a list of ComponentStatus objects. */
+/**
+ * Status of all the conditions for the component as a list of ComponentStatus objects. Deprecated:
+ * This API is deprecated in v1.19+
+ */
 @ApiModel(
     description =
-        "Status of all the conditions for the component as a list of ComponentStatus objects.")
+        "Status of all the conditions for the component as a list of ComponentStatus objects. Deprecated: This API is deprecated in v1.19+")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1ComponentStatusList implements io.kubernetes.client.common.KubernetesListObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 

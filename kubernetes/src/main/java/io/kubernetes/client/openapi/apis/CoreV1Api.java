@@ -20,6 +20,8 @@ import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.ApiResponse;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.Pair;
+import io.kubernetes.client.openapi.models.CoreV1Event;
+import io.kubernetes.client.openapi.models.CoreV1EventList;
 import io.kubernetes.client.openapi.models.V1APIResourceList;
 import io.kubernetes.client.openapi.models.V1Binding;
 import io.kubernetes.client.openapi.models.V1ComponentStatus;
@@ -29,8 +31,6 @@ import io.kubernetes.client.openapi.models.V1ConfigMapList;
 import io.kubernetes.client.openapi.models.V1DeleteOptions;
 import io.kubernetes.client.openapi.models.V1Endpoints;
 import io.kubernetes.client.openapi.models.V1EndpointsList;
-import io.kubernetes.client.openapi.models.V1Event;
-import io.kubernetes.client.openapi.models.V1EventList;
 import io.kubernetes.client.openapi.models.V1LimitRange;
 import io.kubernetes.client.openapi.models.V1LimitRangeList;
 import io.kubernetes.client.openapi.models.V1Namespace;
@@ -9092,7 +9092,7 @@ public class CoreV1Api {
    */
   public okhttp3.Call createNamespacedEventCall(
       String namespace,
-      V1Event body,
+      CoreV1Event body,
       String pretty,
       String dryRun,
       String fieldManager,
@@ -9154,7 +9154,7 @@ public class CoreV1Api {
   @SuppressWarnings("rawtypes")
   private okhttp3.Call createNamespacedEventValidateBeforeCall(
       String namespace,
-      V1Event body,
+      CoreV1Event body,
       String pretty,
       String dryRun,
       String fieldManager,
@@ -9190,7 +9190,7 @@ public class CoreV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @return V1Event
+   * @return CoreV1Event
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -9202,10 +9202,10 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1Event createNamespacedEvent(
-      String namespace, V1Event body, String pretty, String dryRun, String fieldManager)
+  public CoreV1Event createNamespacedEvent(
+      String namespace, CoreV1Event body, String pretty, String dryRun, String fieldManager)
       throws ApiException {
-    ApiResponse<V1Event> localVarResp =
+    ApiResponse<CoreV1Event> localVarResp =
         createNamespacedEventWithHttpInfo(namespace, body, pretty, dryRun, fieldManager);
     return localVarResp.getData();
   }
@@ -9222,7 +9222,7 @@ public class CoreV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @return ApiResponse&lt;V1Event&gt;
+   * @return ApiResponse&lt;CoreV1Event&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -9234,13 +9234,13 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<V1Event> createNamespacedEventWithHttpInfo(
-      String namespace, V1Event body, String pretty, String dryRun, String fieldManager)
+  public ApiResponse<CoreV1Event> createNamespacedEventWithHttpInfo(
+      String namespace, CoreV1Event body, String pretty, String dryRun, String fieldManager)
       throws ApiException {
     okhttp3.Call localVarCall =
         createNamespacedEventValidateBeforeCall(
             namespace, body, pretty, dryRun, fieldManager, null);
-    Type localVarReturnType = new TypeToken<V1Event>() {}.getType();
+    Type localVarReturnType = new TypeToken<CoreV1Event>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -9270,17 +9270,17 @@ public class CoreV1Api {
    */
   public okhttp3.Call createNamespacedEventAsync(
       String namespace,
-      V1Event body,
+      CoreV1Event body,
       String pretty,
       String dryRun,
       String fieldManager,
-      final ApiCallback<V1Event> _callback)
+      final ApiCallback<CoreV1Event> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         createNamespacedEventValidateBeforeCall(
             namespace, body, pretty, dryRun, fieldManager, _callback);
-    Type localVarReturnType = new TypeToken<V1Event>() {}.getType();
+    Type localVarReturnType = new TypeToken<CoreV1Event>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -12443,12 +12443,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -12474,6 +12477,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -12532,6 +12536,11 @@ public class CoreV1Api {
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
     }
 
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
+    }
+
     if (timeoutSeconds != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
@@ -12581,6 +12590,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -12605,6 +12615,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -12669,12 +12680,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -12700,6 +12714,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -12716,6 +12731,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body);
     return localVarResp.getData();
@@ -12779,12 +12795,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -12810,6 +12829,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -12826,6 +12846,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             null);
@@ -12891,12 +12912,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -12922,6 +12946,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback<V1Status> _callback)
@@ -12940,6 +12965,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -13005,12 +13031,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -13036,6 +13065,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -13094,6 +13124,11 @@ public class CoreV1Api {
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
     }
 
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
+    }
+
     if (timeoutSeconds != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
@@ -13143,6 +13178,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -13167,6 +13203,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -13231,12 +13268,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -13262,6 +13302,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -13278,6 +13319,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body);
     return localVarResp.getData();
@@ -13341,12 +13383,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -13372,6 +13417,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -13388,6 +13434,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             null);
@@ -13453,12 +13500,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -13484,6 +13534,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback<V1Status> _callback)
@@ -13502,6 +13553,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -13567,12 +13619,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -13598,6 +13653,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -13656,6 +13712,11 @@ public class CoreV1Api {
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
     }
 
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
+    }
+
     if (timeoutSeconds != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
@@ -13705,6 +13766,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -13729,6 +13791,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -13793,12 +13856,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -13824,6 +13890,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -13840,6 +13907,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body);
     return localVarResp.getData();
@@ -13903,12 +13971,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -13934,6 +14005,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -13950,6 +14022,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             null);
@@ -14015,12 +14088,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -14046,6 +14122,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback<V1Status> _callback)
@@ -14064,6 +14141,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -14129,12 +14207,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -14160,6 +14241,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -14218,6 +14300,11 @@ public class CoreV1Api {
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
     }
 
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
+    }
+
     if (timeoutSeconds != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
@@ -14267,6 +14354,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -14291,6 +14379,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -14355,12 +14444,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -14386,6 +14478,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -14402,6 +14495,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body);
     return localVarResp.getData();
@@ -14465,12 +14559,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -14496,6 +14593,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -14512,6 +14610,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             null);
@@ -14577,12 +14676,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -14608,6 +14710,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback<V1Status> _callback)
@@ -14626,6 +14729,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -14691,12 +14795,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -14722,6 +14829,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -14780,6 +14888,11 @@ public class CoreV1Api {
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
     }
 
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
+    }
+
     if (timeoutSeconds != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
@@ -14829,6 +14942,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -14853,6 +14967,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -14917,12 +15032,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -14948,6 +15066,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -14964,6 +15083,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body);
     return localVarResp.getData();
@@ -15027,12 +15147,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -15058,6 +15181,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -15074,6 +15198,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             null);
@@ -15139,12 +15264,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -15170,6 +15298,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback<V1Status> _callback)
@@ -15188,6 +15317,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -15253,12 +15383,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -15284,6 +15417,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -15342,6 +15476,11 @@ public class CoreV1Api {
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
     }
 
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
+    }
+
     if (timeoutSeconds != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
@@ -15391,6 +15530,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -15415,6 +15555,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -15479,12 +15620,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -15510,6 +15654,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -15526,6 +15671,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body);
     return localVarResp.getData();
@@ -15589,12 +15735,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -15620,6 +15769,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -15636,6 +15786,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             null);
@@ -15701,12 +15852,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -15732,6 +15886,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback<V1Status> _callback)
@@ -15750,6 +15905,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -15815,12 +15971,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -15846,6 +16005,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -15904,6 +16064,11 @@ public class CoreV1Api {
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
     }
 
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
+    }
+
     if (timeoutSeconds != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
@@ -15953,6 +16118,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -15977,6 +16143,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -16041,12 +16208,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -16072,6 +16242,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -16088,6 +16259,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body);
     return localVarResp.getData();
@@ -16151,12 +16323,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -16182,6 +16357,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -16198,6 +16374,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             null);
@@ -16263,12 +16440,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -16294,6 +16474,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback<V1Status> _callback)
@@ -16312,6 +16493,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -16377,12 +16559,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -16408,6 +16593,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -16466,6 +16652,11 @@ public class CoreV1Api {
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
     }
 
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
+    }
+
     if (timeoutSeconds != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
@@ -16515,6 +16706,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -16539,6 +16731,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -16603,12 +16796,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -16634,6 +16830,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -16650,6 +16847,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body);
     return localVarResp.getData();
@@ -16713,12 +16911,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -16744,6 +16945,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -16760,6 +16962,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             null);
@@ -16825,12 +17028,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -16856,6 +17062,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback<V1Status> _callback)
@@ -16874,6 +17081,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -16939,12 +17147,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -16970,6 +17181,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -17028,6 +17240,11 @@ public class CoreV1Api {
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
     }
 
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
+    }
+
     if (timeoutSeconds != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
@@ -17077,6 +17294,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -17101,6 +17319,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -17165,12 +17384,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -17196,6 +17418,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -17212,6 +17435,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body);
     return localVarResp.getData();
@@ -17275,12 +17499,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -17306,6 +17533,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -17322,6 +17550,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             null);
@@ -17387,12 +17616,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -17418,6 +17650,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback<V1Status> _callback)
@@ -17436,6 +17669,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -17501,12 +17735,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -17532,6 +17769,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -17590,6 +17828,11 @@ public class CoreV1Api {
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
     }
 
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
+    }
+
     if (timeoutSeconds != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
@@ -17639,6 +17882,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -17663,6 +17907,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -17727,12 +17972,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -17758,6 +18006,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -17774,6 +18023,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body);
     return localVarResp.getData();
@@ -17837,12 +18087,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -17868,6 +18121,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -17884,6 +18138,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             null);
@@ -17949,12 +18204,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -17980,6 +18238,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback<V1Status> _callback)
@@ -17998,6 +18257,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -18063,12 +18323,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -18094,6 +18357,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -18152,6 +18416,11 @@ public class CoreV1Api {
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
     }
 
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
+    }
+
     if (timeoutSeconds != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
@@ -18201,6 +18470,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -18225,6 +18495,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -18289,12 +18560,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -18320,6 +18594,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -18336,6 +18611,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body);
     return localVarResp.getData();
@@ -18399,12 +18675,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -18430,6 +18709,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -18446,6 +18726,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             null);
@@ -18511,12 +18792,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -18542,6 +18826,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback<V1Status> _callback)
@@ -18560,6 +18845,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -18624,12 +18910,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -18654,6 +18943,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -18709,6 +18999,11 @@ public class CoreV1Api {
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
     }
 
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
+    }
+
     if (timeoutSeconds != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
@@ -18757,6 +19052,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -18774,6 +19070,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -18837,12 +19134,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -18867,6 +19167,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -18882,6 +19183,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body);
     return localVarResp.getData();
@@ -18944,12 +19246,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -18974,6 +19279,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -18989,6 +19295,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             null);
@@ -19053,12 +19360,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -19083,6 +19393,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback<V1Status> _callback)
@@ -19100,6 +19411,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -19164,12 +19476,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -19194,6 +19509,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -19249,6 +19565,11 @@ public class CoreV1Api {
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
     }
 
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
+    }
+
     if (timeoutSeconds != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
@@ -19297,6 +19618,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -19314,6 +19636,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -19377,12 +19700,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -19407,6 +19733,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -19422,6 +19749,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body);
     return localVarResp.getData();
@@ -19484,12 +19812,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -19514,6 +19845,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -19529,6 +19861,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             null);
@@ -19593,12 +19926,15 @@ public class CoreV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -19623,6 +19959,7 @@ public class CoreV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback<V1Status> _callback)
@@ -19640,6 +19977,7 @@ public class CoreV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -24739,12 +25077,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -24767,6 +25108,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -24806,6 +25148,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -24861,6 +25208,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -24875,6 +25223,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -24926,12 +25275,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -24954,6 +25306,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -24966,6 +25319,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -25016,12 +25370,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -25044,6 +25401,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -25056,6 +25414,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -25108,12 +25467,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -25136,6 +25498,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1ComponentStatusList> _callback)
@@ -25150,6 +25513,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -25202,12 +25566,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -25230,6 +25597,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -25269,6 +25637,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -25324,6 +25697,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -25338,6 +25712,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -25389,12 +25764,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -25417,6 +25795,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -25429,6 +25808,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -25479,12 +25859,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -25507,6 +25890,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -25519,6 +25903,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -25571,12 +25956,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -25599,6 +25987,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1ConfigMapList> _callback)
@@ -25613,6 +26002,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -25665,12 +26055,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -25693,6 +26086,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -25732,6 +26126,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -25787,6 +26186,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -25801,6 +26201,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -25852,12 +26253,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -25880,6 +26284,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -25892,6 +26297,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -25942,12 +26348,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -25970,6 +26379,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -25982,6 +26392,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -26034,12 +26445,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -26062,6 +26476,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1EndpointsList> _callback)
@@ -26076,6 +26491,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -26128,12 +26544,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -26156,6 +26575,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -26195,6 +26615,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -26250,6 +26675,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -26264,6 +26690,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -26315,17 +26742,20 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
    *     update, and remove notifications. Specify resourceVersion. (optional)
-   * @return V1EventList
+   * @return CoreV1EventList
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -26335,7 +26765,7 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1EventList listEventForAllNamespaces(
+  public CoreV1EventList listEventForAllNamespaces(
       Boolean allowWatchBookmarks,
       String _continue,
       String fieldSelector,
@@ -26343,10 +26773,11 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
-    ApiResponse<V1EventList> localVarResp =
+    ApiResponse<CoreV1EventList> localVarResp =
         listEventForAllNamespacesWithHttpInfo(
             allowWatchBookmarks,
             _continue,
@@ -26355,6 +26786,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -26405,17 +26837,20 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
    *     update, and remove notifications. Specify resourceVersion. (optional)
-   * @return ApiResponse&lt;V1EventList&gt;
+   * @return ApiResponse&lt;CoreV1EventList&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -26425,7 +26860,7 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<V1EventList> listEventForAllNamespacesWithHttpInfo(
+  public ApiResponse<CoreV1EventList> listEventForAllNamespacesWithHttpInfo(
       Boolean allowWatchBookmarks,
       String _continue,
       String fieldSelector,
@@ -26433,6 +26868,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -26445,10 +26881,11 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
-    Type localVarReturnType = new TypeToken<V1EventList>() {}.getType();
+    Type localVarReturnType = new TypeToken<CoreV1EventList>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -26497,12 +26934,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -26525,9 +26965,10 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
-      final ApiCallback<V1EventList> _callback)
+      final ApiCallback<CoreV1EventList> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
@@ -26539,10 +26980,11 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
-    Type localVarReturnType = new TypeToken<V1EventList>() {}.getType();
+    Type localVarReturnType = new TypeToken<CoreV1EventList>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -26591,12 +27033,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -26619,6 +27064,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -26658,6 +27104,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -26713,6 +27164,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -26727,6 +27179,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -26778,12 +27231,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -26806,6 +27262,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -26818,6 +27275,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -26868,12 +27326,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -26896,6 +27357,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -26908,6 +27370,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -26960,12 +27423,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -26988,6 +27454,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1LimitRangeList> _callback)
@@ -27002,6 +27469,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -27054,12 +27522,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -27082,6 +27553,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -27121,6 +27593,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -27176,6 +27653,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -27190,6 +27668,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -27241,12 +27720,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -27269,6 +27751,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -27281,6 +27764,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -27331,12 +27815,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -27359,6 +27846,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -27371,6 +27859,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -27423,12 +27912,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -27451,6 +27943,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1NamespaceList> _callback)
@@ -27465,6 +27958,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -27518,12 +28012,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -27547,6 +28044,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -27589,6 +28087,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -27645,6 +28148,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -27666,6 +28170,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -27718,12 +28223,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -27747,6 +28255,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -27760,6 +28269,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -27811,12 +28321,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -27840,6 +28353,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -27853,6 +28367,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -27906,12 +28421,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -27935,6 +28453,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1ConfigMapList> _callback)
@@ -27950,6 +28469,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -28003,12 +28523,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -28032,6 +28555,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -28074,6 +28598,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -28130,6 +28659,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -28151,6 +28681,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -28203,12 +28734,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -28232,6 +28766,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -28245,6 +28780,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -28296,12 +28832,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -28325,6 +28864,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -28338,6 +28878,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -28391,12 +28932,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -28420,6 +28964,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1EndpointsList> _callback)
@@ -28435,6 +28980,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -28488,12 +29034,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -28517,6 +29066,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -28559,6 +29109,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -28615,6 +29170,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -28636,6 +29192,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -28688,17 +29245,20 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
    *     update, and remove notifications. Specify resourceVersion. (optional)
-   * @return V1EventList
+   * @return CoreV1EventList
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -28708,7 +29268,7 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1EventList listNamespacedEvent(
+  public CoreV1EventList listNamespacedEvent(
       String namespace,
       String pretty,
       Boolean allowWatchBookmarks,
@@ -28717,10 +29277,11 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
-    ApiResponse<V1EventList> localVarResp =
+    ApiResponse<CoreV1EventList> localVarResp =
         listNamespacedEventWithHttpInfo(
             namespace,
             pretty,
@@ -28730,6 +29291,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -28781,17 +29343,20 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
    *     update, and remove notifications. Specify resourceVersion. (optional)
-   * @return ApiResponse&lt;V1EventList&gt;
+   * @return ApiResponse&lt;CoreV1EventList&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -28801,7 +29366,7 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<V1EventList> listNamespacedEventWithHttpInfo(
+  public ApiResponse<CoreV1EventList> listNamespacedEventWithHttpInfo(
       String namespace,
       String pretty,
       Boolean allowWatchBookmarks,
@@ -28810,6 +29375,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -28823,10 +29389,11 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
-    Type localVarReturnType = new TypeToken<V1EventList>() {}.getType();
+    Type localVarReturnType = new TypeToken<CoreV1EventList>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -28876,12 +29443,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -28905,9 +29475,10 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
-      final ApiCallback<V1EventList> _callback)
+      final ApiCallback<CoreV1EventList> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
@@ -28920,10 +29491,11 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
-    Type localVarReturnType = new TypeToken<V1EventList>() {}.getType();
+    Type localVarReturnType = new TypeToken<CoreV1EventList>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -28973,12 +29545,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -29002,6 +29577,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -29044,6 +29620,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -29100,6 +29681,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -29121,6 +29703,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -29173,12 +29756,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -29202,6 +29788,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -29215,6 +29802,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -29266,12 +29854,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -29295,6 +29886,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -29308,6 +29900,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -29361,12 +29954,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -29390,6 +29986,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1LimitRangeList> _callback)
@@ -29405,6 +30002,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -29458,12 +30056,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -29487,6 +30088,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -29529,6 +30131,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -29585,6 +30192,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -29606,6 +30214,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -29658,12 +30267,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -29687,6 +30299,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -29700,6 +30313,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -29751,12 +30365,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -29780,6 +30397,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -29793,6 +30411,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -29846,12 +30465,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -29875,6 +30497,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1PersistentVolumeClaimList> _callback)
@@ -29890,6 +30513,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -29943,12 +30567,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -29972,6 +30599,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -30014,6 +30642,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -30070,6 +30703,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -30091,6 +30725,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -30143,12 +30778,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -30172,6 +30810,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -30185,6 +30824,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -30236,12 +30876,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -30265,6 +30908,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -30278,6 +30922,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -30331,12 +30976,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -30360,6 +31008,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1PodList> _callback)
@@ -30375,6 +31024,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -30428,12 +31078,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -30457,6 +31110,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -30499,6 +31153,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -30555,6 +31214,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -30576,6 +31236,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -30628,12 +31289,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -30657,6 +31321,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -30670,6 +31335,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -30721,12 +31387,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -30750,6 +31419,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -30763,6 +31433,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -30816,12 +31487,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -30845,6 +31519,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1PodTemplateList> _callback)
@@ -30860,6 +31535,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -30913,12 +31589,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -30942,6 +31621,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -30984,6 +31664,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -31040,6 +31725,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -31061,6 +31747,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -31113,12 +31800,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -31142,6 +31832,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -31155,6 +31846,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -31206,12 +31898,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -31235,6 +31930,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -31248,6 +31944,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -31301,12 +31998,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -31330,6 +32030,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1ReplicationControllerList> _callback)
@@ -31345,6 +32046,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -31398,12 +32100,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -31427,6 +32132,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -31469,6 +32175,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -31525,6 +32236,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -31546,6 +32258,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -31598,12 +32311,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -31627,6 +32343,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -31640,6 +32357,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -31691,12 +32409,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -31720,6 +32441,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -31733,6 +32455,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -31786,12 +32509,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -31815,6 +32541,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1ResourceQuotaList> _callback)
@@ -31830,6 +32557,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -31883,12 +32611,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -31912,6 +32643,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -31954,6 +32686,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -32010,6 +32747,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -32031,6 +32769,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -32083,12 +32822,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -32112,6 +32854,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -32125,6 +32868,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -32176,12 +32920,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -32205,6 +32952,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -32218,6 +32966,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -32271,12 +33020,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -32300,6 +33052,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1SecretList> _callback)
@@ -32315,6 +33068,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -32368,12 +33122,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -32397,6 +33154,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -32439,6 +33197,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -32495,6 +33258,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -32516,6 +33280,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -32568,12 +33333,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -32597,6 +33365,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -32610,6 +33379,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -32661,12 +33431,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -32690,6 +33463,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -32703,6 +33477,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -32756,12 +33531,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -32785,6 +33563,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1ServiceList> _callback)
@@ -32800,6 +33579,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -32853,12 +33633,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -32882,6 +33665,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -32924,6 +33708,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -32980,6 +33769,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -33001,6 +33791,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -33053,12 +33844,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -33082,6 +33876,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -33095,6 +33890,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -33146,12 +33942,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -33175,6 +33974,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -33188,6 +33988,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -33241,12 +34042,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -33270,6 +34074,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1ServiceAccountList> _callback)
@@ -33285,6 +34090,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -33337,12 +34143,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -33365,6 +34174,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -33404,6 +34214,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -33459,6 +34274,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -33473,6 +34289,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -33524,12 +34341,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -33552,6 +34372,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -33564,6 +34385,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -33614,12 +34436,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -33642,6 +34467,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -33654,6 +34480,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -33706,12 +34533,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -33734,6 +34564,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1NodeList> _callback)
@@ -33748,6 +34579,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -33800,12 +34632,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -33828,6 +34663,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -33867,6 +34703,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -33922,6 +34763,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -33936,6 +34778,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -33987,12 +34830,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -34015,6 +34861,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -34027,6 +34874,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -34077,12 +34925,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -34105,6 +34956,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -34117,6 +34969,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -34169,12 +35022,15 @@ public class CoreV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -34197,6 +35053,7 @@ public class CoreV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1PersistentVolumeList> _callback)
@@ -34211,6 +35068,7 @@ public class CoreV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -34263,12 +35121,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -34291,6 +35152,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -34330,6 +35192,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -34385,6 +35252,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -34399,6 +35267,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -34450,12 +35319,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -34478,6 +35350,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -34490,6 +35363,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -34540,12 +35414,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -34569,6 +35446,7 @@ public class CoreV1Api {
           Integer limit,
           String pretty,
           String resourceVersion,
+          String resourceVersionMatch,
           Integer timeoutSeconds,
           Boolean watch)
           throws ApiException {
@@ -34581,6 +35459,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -34633,12 +35512,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -34661,6 +35543,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1PersistentVolumeClaimList> _callback)
@@ -34675,6 +35558,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -34727,12 +35611,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -34755,6 +35642,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -34794,6 +35682,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -34849,6 +35742,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -34863,6 +35757,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -34914,12 +35809,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -34942,6 +35840,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -34954,6 +35853,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -35004,12 +35904,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -35032,6 +35935,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -35044,6 +35948,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -35096,12 +36001,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -35124,6 +36032,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1PodList> _callback)
@@ -35138,6 +36047,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -35190,12 +36100,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -35218,6 +36131,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -35257,6 +36171,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -35312,6 +36231,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -35326,6 +36246,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -35377,12 +36298,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -35405,6 +36329,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -35417,6 +36342,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -35467,12 +36393,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -35495,6 +36424,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -35507,6 +36437,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -35559,12 +36490,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -35587,6 +36521,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1PodTemplateList> _callback)
@@ -35601,6 +36536,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -35653,12 +36589,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -35681,6 +36620,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -35720,6 +36660,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -35775,6 +36720,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -35789,6 +36735,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -35840,12 +36787,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -35868,6 +36818,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -35880,6 +36831,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -35930,12 +36882,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -35959,6 +36914,7 @@ public class CoreV1Api {
           Integer limit,
           String pretty,
           String resourceVersion,
+          String resourceVersionMatch,
           Integer timeoutSeconds,
           Boolean watch)
           throws ApiException {
@@ -35971,6 +36927,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -36023,12 +36980,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -36051,6 +37011,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1ReplicationControllerList> _callback)
@@ -36065,6 +37026,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -36117,12 +37079,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -36145,6 +37110,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -36184,6 +37150,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -36239,6 +37210,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -36253,6 +37225,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -36304,12 +37277,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -36332,6 +37308,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -36344,6 +37321,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -36394,12 +37372,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -36422,6 +37403,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -36434,6 +37416,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -36486,12 +37469,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -36514,6 +37500,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1ResourceQuotaList> _callback)
@@ -36528,6 +37515,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -36580,12 +37568,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -36608,6 +37599,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -36647,6 +37639,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -36702,6 +37699,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -36716,6 +37714,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -36767,12 +37766,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -36795,6 +37797,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -36807,6 +37810,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -36857,12 +37861,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -36885,6 +37892,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -36897,6 +37905,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -36949,12 +37958,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -36977,6 +37989,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1SecretList> _callback)
@@ -36991,6 +38004,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -37043,12 +38057,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -37071,6 +38088,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -37110,6 +38128,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -37165,6 +38188,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -37179,6 +38203,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -37230,12 +38255,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -37258,6 +38286,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -37270,6 +38299,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -37320,12 +38350,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -37348,6 +38381,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -37360,6 +38394,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -37412,12 +38447,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -37440,6 +38478,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1ServiceAccountList> _callback)
@@ -37454,6 +38493,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -37506,12 +38546,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -37534,6 +38577,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -37573,6 +38617,11 @@ public class CoreV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -37628,6 +38677,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -37642,6 +38692,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -37693,12 +38744,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -37721,6 +38775,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -37733,6 +38788,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -37783,12 +38839,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -37811,6 +38870,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -37823,6 +38883,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -37875,12 +38936,15 @@ public class CoreV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -37903,6 +38967,7 @@ public class CoreV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1ServiceList> _callback)
@@ -37917,6 +38982,7 @@ public class CoreV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -39095,7 +40161,7 @@ public class CoreV1Api {
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
-   * @return V1Event
+   * @return CoreV1Event
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -39105,7 +40171,7 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1Event patchNamespacedEvent(
+  public CoreV1Event patchNamespacedEvent(
       String name,
       String namespace,
       V1Patch body,
@@ -39114,7 +40180,7 @@ public class CoreV1Api {
       String fieldManager,
       Boolean force)
       throws ApiException {
-    ApiResponse<V1Event> localVarResp =
+    ApiResponse<CoreV1Event> localVarResp =
         patchNamespacedEventWithHttpInfo(
             name, namespace, body, pretty, dryRun, fieldManager, force);
     return localVarResp.getData();
@@ -39138,7 +40204,7 @@ public class CoreV1Api {
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
-   * @return ApiResponse&lt;V1Event&gt;
+   * @return ApiResponse&lt;CoreV1Event&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -39148,7 +40214,7 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<V1Event> patchNamespacedEventWithHttpInfo(
+  public ApiResponse<CoreV1Event> patchNamespacedEventWithHttpInfo(
       String name,
       String namespace,
       V1Patch body,
@@ -39160,7 +40226,7 @@ public class CoreV1Api {
     okhttp3.Call localVarCall =
         patchNamespacedEventValidateBeforeCall(
             name, namespace, body, pretty, dryRun, fieldManager, force, null);
-    Type localVarReturnType = new TypeToken<V1Event>() {}.getType();
+    Type localVarReturnType = new TypeToken<CoreV1Event>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -39200,13 +40266,13 @@ public class CoreV1Api {
       String dryRun,
       String fieldManager,
       Boolean force,
-      final ApiCallback<V1Event> _callback)
+      final ApiCallback<CoreV1Event> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         patchNamespacedEventValidateBeforeCall(
             name, namespace, body, pretty, dryRun, fieldManager, force, _callback);
-    Type localVarReturnType = new TypeToken<V1Event>() {}.getType();
+    Type localVarReturnType = new TypeToken<CoreV1Event>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -45178,7 +46244,7 @@ public class CoreV1Api {
    *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
    * @param export Should this value be exported. Export strips fields that a user can not specify.
    *     Deprecated. Planned for removal in 1.18. (optional)
-   * @return V1Event
+   * @return CoreV1Event
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -45188,10 +46254,10 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1Event readNamespacedEvent(
+  public CoreV1Event readNamespacedEvent(
       String name, String namespace, String pretty, Boolean exact, Boolean export)
       throws ApiException {
-    ApiResponse<V1Event> localVarResp =
+    ApiResponse<CoreV1Event> localVarResp =
         readNamespacedEventWithHttpInfo(name, namespace, pretty, exact, export);
     return localVarResp.getData();
   }
@@ -45206,7 +46272,7 @@ public class CoreV1Api {
    *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
    * @param export Should this value be exported. Export strips fields that a user can not specify.
    *     Deprecated. Planned for removal in 1.18. (optional)
-   * @return ApiResponse&lt;V1Event&gt;
+   * @return ApiResponse&lt;CoreV1Event&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -45216,12 +46282,12 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<V1Event> readNamespacedEventWithHttpInfo(
+  public ApiResponse<CoreV1Event> readNamespacedEventWithHttpInfo(
       String name, String namespace, String pretty, Boolean exact, Boolean export)
       throws ApiException {
     okhttp3.Call localVarCall =
         readNamespacedEventValidateBeforeCall(name, namespace, pretty, exact, export, null);
-    Type localVarReturnType = new TypeToken<V1Event>() {}.getType();
+    Type localVarReturnType = new TypeToken<CoreV1Event>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -45251,12 +46317,12 @@ public class CoreV1Api {
       String pretty,
       Boolean exact,
       Boolean export,
-      final ApiCallback<V1Event> _callback)
+      final ApiCallback<CoreV1Event> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         readNamespacedEventValidateBeforeCall(name, namespace, pretty, exact, export, _callback);
-    Type localVarReturnType = new TypeToken<V1Event>() {}.getType();
+    Type localVarReturnType = new TypeToken<CoreV1Event>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -50206,7 +51272,7 @@ public class CoreV1Api {
   public okhttp3.Call replaceNamespacedEventCall(
       String name,
       String namespace,
-      V1Event body,
+      CoreV1Event body,
       String pretty,
       String dryRun,
       String fieldManager,
@@ -50270,7 +51336,7 @@ public class CoreV1Api {
   private okhttp3.Call replaceNamespacedEventValidateBeforeCall(
       String name,
       String namespace,
-      V1Event body,
+      CoreV1Event body,
       String pretty,
       String dryRun,
       String fieldManager,
@@ -50313,7 +51379,7 @@ public class CoreV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @return V1Event
+   * @return CoreV1Event
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -50324,15 +51390,15 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1Event replaceNamespacedEvent(
+  public CoreV1Event replaceNamespacedEvent(
       String name,
       String namespace,
-      V1Event body,
+      CoreV1Event body,
       String pretty,
       String dryRun,
       String fieldManager)
       throws ApiException {
-    ApiResponse<V1Event> localVarResp =
+    ApiResponse<CoreV1Event> localVarResp =
         replaceNamespacedEventWithHttpInfo(name, namespace, body, pretty, dryRun, fieldManager);
     return localVarResp.getData();
   }
@@ -50350,7 +51416,7 @@ public class CoreV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @return ApiResponse&lt;V1Event&gt;
+   * @return ApiResponse&lt;CoreV1Event&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -50361,10 +51427,10 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<V1Event> replaceNamespacedEventWithHttpInfo(
+  public ApiResponse<CoreV1Event> replaceNamespacedEventWithHttpInfo(
       String name,
       String namespace,
-      V1Event body,
+      CoreV1Event body,
       String pretty,
       String dryRun,
       String fieldManager)
@@ -50372,7 +51438,7 @@ public class CoreV1Api {
     okhttp3.Call localVarCall =
         replaceNamespacedEventValidateBeforeCall(
             name, namespace, body, pretty, dryRun, fieldManager, null);
-    Type localVarReturnType = new TypeToken<V1Event>() {}.getType();
+    Type localVarReturnType = new TypeToken<CoreV1Event>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -50403,17 +51469,17 @@ public class CoreV1Api {
   public okhttp3.Call replaceNamespacedEventAsync(
       String name,
       String namespace,
-      V1Event body,
+      CoreV1Event body,
       String pretty,
       String dryRun,
       String fieldManager,
-      final ApiCallback<V1Event> _callback)
+      final ApiCallback<CoreV1Event> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         replaceNamespacedEventValidateBeforeCall(
             name, namespace, body, pretty, dryRun, fieldManager, _callback);
-    Type localVarReturnType = new TypeToken<V1Event>() {}.getType();
+    Type localVarReturnType = new TypeToken<CoreV1Event>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }

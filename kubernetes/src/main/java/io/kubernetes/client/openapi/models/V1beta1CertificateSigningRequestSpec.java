@@ -31,7 +31,7 @@ import java.util.Objects;
         "This information is immutable after the request is created. Only the Request and Usages fields can be set on creation, other fields are derived by Kubernetes and cannot be modified by users.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1beta1CertificateSigningRequestSpec {
   public static final String SERIALIZED_NAME_EXTRA = "extra";
 
@@ -216,14 +216,22 @@ public class V1beta1CertificateSigningRequestSpec {
   /**
    * allowedUsages specifies a set of usage contexts the key will be valid for. See:
    * https://tools.ietf.org/html/rfc5280#section-4.2.1.3
-   * https://tools.ietf.org/html/rfc5280#section-4.2.1.12
+   * https://tools.ietf.org/html/rfc5280#section-4.2.1.12 Valid values are: \&quot;signing\&quot;,
+   * \&quot;digital signature\&quot;, \&quot;content commitment\&quot;, \&quot;key
+   * encipherment\&quot;, \&quot;key agreement\&quot;, \&quot;data encipherment\&quot;, \&quot;cert
+   * sign\&quot;, \&quot;crl sign\&quot;, \&quot;encipher only\&quot;, \&quot;decipher only\&quot;,
+   * \&quot;any\&quot;, \&quot;server auth\&quot;, \&quot;client auth\&quot;, \&quot;code
+   * signing\&quot;, \&quot;email protection\&quot;, \&quot;s/mime\&quot;, \&quot;ipsec end
+   * system\&quot;, \&quot;ipsec tunnel\&quot;, \&quot;ipsec user\&quot;,
+   * \&quot;timestamping\&quot;, \&quot;ocsp signing\&quot;, \&quot;microsoft sgc\&quot;,
+   * \&quot;netscape sgc\&quot;
    *
    * @return usages
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "allowedUsages specifies a set of usage contexts the key will be valid for. See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3      https://tools.ietf.org/html/rfc5280#section-4.2.1.12")
+          "allowedUsages specifies a set of usage contexts the key will be valid for. See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3      https://tools.ietf.org/html/rfc5280#section-4.2.1.12 Valid values are:  \"signing\",  \"digital signature\",  \"content commitment\",  \"key encipherment\",  \"key agreement\",  \"data encipherment\",  \"cert sign\",  \"crl sign\",  \"encipher only\",  \"decipher only\",  \"any\",  \"server auth\",  \"client auth\",  \"code signing\",  \"email protection\",  \"s/mime\",  \"ipsec end system\",  \"ipsec tunnel\",  \"ipsec user\",  \"timestamping\",  \"ocsp signing\",  \"microsoft sgc\",  \"netscape sgc\"")
   public List<String> getUsages() {
     return usages;
   }

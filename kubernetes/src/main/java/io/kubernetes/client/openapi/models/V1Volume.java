@@ -23,7 +23,7 @@ import java.util.Objects;
         "Volume represents a named volume in a pod that may be accessed by any container in the pod.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1Volume {
   public static final String SERIALIZED_NAME_AWS_ELASTIC_BLOCK_STORE = "awsElasticBlockStore";
 
@@ -69,6 +69,11 @@ public class V1Volume {
 
   @SerializedName(SERIALIZED_NAME_EMPTY_DIR)
   private V1EmptyDirVolumeSource emptyDir;
+
+  public static final String SERIALIZED_NAME_EPHEMERAL = "ephemeral";
+
+  @SerializedName(SERIALIZED_NAME_EPHEMERAL)
+  private V1EphemeralVolumeSource ephemeral;
 
   public static final String SERIALIZED_NAME_FC = "fc";
 
@@ -357,6 +362,27 @@ public class V1Volume {
 
   public void setEmptyDir(V1EmptyDirVolumeSource emptyDir) {
     this.emptyDir = emptyDir;
+  }
+
+  public V1Volume ephemeral(V1EphemeralVolumeSource ephemeral) {
+
+    this.ephemeral = ephemeral;
+    return this;
+  }
+
+  /**
+   * Get ephemeral
+   *
+   * @return ephemeral
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1EphemeralVolumeSource getEphemeral() {
+    return ephemeral;
+  }
+
+  public void setEphemeral(V1EphemeralVolumeSource ephemeral) {
+    this.ephemeral = ephemeral;
   }
 
   public V1Volume fc(V1FCVolumeSource fc) {
@@ -800,6 +826,7 @@ public class V1Volume {
         && Objects.equals(this.csi, v1Volume.csi)
         && Objects.equals(this.downwardAPI, v1Volume.downwardAPI)
         && Objects.equals(this.emptyDir, v1Volume.emptyDir)
+        && Objects.equals(this.ephemeral, v1Volume.ephemeral)
         && Objects.equals(this.fc, v1Volume.fc)
         && Objects.equals(this.flexVolume, v1Volume.flexVolume)
         && Objects.equals(this.flocker, v1Volume.flocker)
@@ -834,6 +861,7 @@ public class V1Volume {
         csi,
         downwardAPI,
         emptyDir,
+        ephemeral,
         fc,
         flexVolume,
         flocker,
@@ -871,6 +899,7 @@ public class V1Volume {
     sb.append("    csi: ").append(toIndentedString(csi)).append("\n");
     sb.append("    downwardAPI: ").append(toIndentedString(downwardAPI)).append("\n");
     sb.append("    emptyDir: ").append(toIndentedString(emptyDir)).append("\n");
+    sb.append("    ephemeral: ").append(toIndentedString(ephemeral)).append("\n");
     sb.append("    fc: ").append(toIndentedString(fc)).append("\n");
     sb.append("    flexVolume: ").append(toIndentedString(flexVolume)).append("\n");
     sb.append("    flocker: ").append(toIndentedString(flocker)).append("\n");
