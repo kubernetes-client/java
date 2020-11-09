@@ -65,7 +65,7 @@ public class KubectlDrainTest {
         get(urlPathEqualTo("/api/v1/pods"))
             .withQueryParam("fieldSelector", equalTo("spec.nodeName=node1"))
             .willReturn(aResponse().withStatus(200).withBody("{}")));
-    V1Node node = new KubectlDrain().apiClient(apiClient).name("node1").execute();
+    V1Node node = new KubectlDrain().skipDiscovery().apiClient(apiClient).name("node1").execute();
     wireMockRule.verify(1, patchRequestedFor(urlPathEqualTo("/api/v1/nodes/node1")));
     wireMockRule.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/pods")));
     assertEquals("node1", node.getMetadata().getName());
@@ -92,7 +92,7 @@ public class KubectlDrainTest {
         get(urlPathEqualTo("/api/v1/namespaces/mssql/pods/mssql-75b8b44f6b-znftp"))
             .willReturn(aResponse().withStatus(404).withBody("{}")));
 
-    V1Node node = new KubectlDrain().apiClient(apiClient).name("node1").execute();
+    V1Node node = new KubectlDrain().skipDiscovery().apiClient(apiClient).name("node1").execute();
     wireMockRule.verify(1, patchRequestedFor(urlPathEqualTo("/api/v1/nodes/node1")));
     wireMockRule.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/pods")));
     wireMockRule.verify(
