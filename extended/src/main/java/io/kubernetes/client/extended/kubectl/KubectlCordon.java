@@ -17,7 +17,7 @@ import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1Node;
 
-public class KubectlCordon extends Kubectl.ResourceAndContainerBuilder<V1Node, KubectlCordon>
+public class KubectlCordon extends Kubectl.ResourceBuilder<V1Node, KubectlCordon>
     implements Kubectl.Executable<V1Node> {
 
   static final String CORDON_PATCH_STR =
