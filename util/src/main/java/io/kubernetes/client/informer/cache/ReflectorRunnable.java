@@ -12,6 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.informer.cache;
 
+import com.google.common.base.Strings;
 import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.EventType;
@@ -72,7 +73,9 @@ public class ReflectorRunnable<
     log.info("{}#Start listing and watching...", apiTypeClass);
 
     try {
-      ApiListType list = listerWatcher.list(new CallGeneratorParams(Boolean.FALSE, null, null));
+      ApiListType list =
+          listerWatcher.list(
+              new CallGeneratorParams(Boolean.FALSE, getRelistResourceVersion(), null));
 
       V1ListMeta listMeta = list.getMetadata();
       String resourceVersion = listMeta.getResourceVersion();
@@ -169,6 +172,13 @@ public class ReflectorRunnable<
   }
 
   public String getLastSyncResourceVersion() {
+    return lastSyncResourceVersion;
+  }
+
+  private String getRelistResourceVersion() {
+    if (Strings.isNullOrEmpty(lastSyncResourceVersion)) {
+      return "0";
+    }
     return lastSyncResourceVersion;
   }
 

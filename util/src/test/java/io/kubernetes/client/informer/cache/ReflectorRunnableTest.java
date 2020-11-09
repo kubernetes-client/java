@@ -12,8 +12,11 @@ limitations under the License.
 */
 package io.kubernetes.client.informer.cache;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import io.kubernetes.client.informer.EventType;
 import io.kubernetes.client.informer.ListerWatcher;
@@ -25,7 +28,10 @@ import io.kubernetes.client.openapi.models.V1Status;
 import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.Watch;
 import io.kubernetes.client.util.Watchable;
+import java.time.Duration;
 import java.util.concurrent.atomic.AtomicReference;
+import org.awaitility.Awaitility;
+import org.hamcrest.core.IsEqual;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.EnvironmentVariables;
@@ -43,7 +49,7 @@ public class ReflectorRunnableTest {
   @Mock private ListerWatcher<V1Pod, V1PodList> listerWatcher;
 
   @Test
-  public void testReflectorRunOnce() throws InterruptedException, ApiException {
+  public void testReflectorRunOnce() throws ApiException {
     String mockResourceVersion = "1000";
     when(listerWatcher.list(any()))
         .thenReturn(
@@ -51,7 +57,7 @@ public class ReflectorRunnableTest {
     when(listerWatcher.watch(any()))
         .then(
             (v) -> {
-              Thread.sleep(999999L); // block forever
+              Awaitility.await().forever(); // block forever
               return null;
             });
     ReflectorRunnable<V1Pod, V1PodList> reflectorRunnable =
@@ -61,17 +67,17 @@ public class ReflectorRunnableTest {
       Thread thread = new Thread(reflectorRunnable::run);
       thread.setDaemon(true);
       thread.start();
-
-      // sleep 1s for starting list-watch
-      Thread.sleep(1000);
-
-      verify(deltaFIFO, times(1)).replace(any(), any());
-      verify(deltaFIFO, never()).add(any());
-      verify(listerWatcher, times(1)).list(any());
-      verify(listerWatcher, times(1)).watch(any());
+      Awaitility.await()
+          .atMost(Duration.ofSeconds(1))
+          .pollInterval(Duration.ofMillis(100))
+          .until(() -> mockResourceVersion.equals(reflectorRunnable.getLastSyncResourceVersion()));
     } finally {
       reflectorRunnable.stop();
     }
+    verify(deltaFIFO, times(1)).replace(any(), any());
+    verify(deltaFIFO, never()).add(any());
+    verify(listerWatcher, times(1)).list(any());
+    verify(listerWatcher, times(1)).watch(any());
   }
 
   @Test
@@ -98,18 +104,17 @@ public class ReflectorRunnableTest {
       Thread thread = new Thread(reflectorRunnable::run);
       thread.setDaemon(true);
       thread.start();
-
-      Thread.sleep(1000);
-
-      assertTrue(((MockWatch<V1Pod>) watch).isClosed());
+      Awaitility.await()
+          .atMost(Duration.ofSeconds(1))
+          .pollInterval(Duration.ofMillis(100))
+          .until(() -> ((MockWatch<V1Pod>) watch).isClosed());
     } finally {
       reflectorRunnable.stop();
     }
   }
 
   @Test
-  public void testReflectorRunnableCaptureListException()
-      throws ApiException, InterruptedException {
+  public void testReflectorRunnableCaptureListException() throws ApiException {
     RuntimeException expectedException = new RuntimeException("noxu");
     AtomicReference<Throwable> actualException = new AtomicReference<>();
     when(listerWatcher.list(any())).thenThrow(expectedException);
@@ -125,16 +130,17 @@ public class ReflectorRunnableTest {
       Thread thread = new Thread(reflectorRunnable::run);
       thread.setDaemon(true);
       thread.start();
-      Thread.sleep(1000);
+      Awaitility.await()
+          .atMost(Duration.ofSeconds(1))
+          .pollInterval(Duration.ofMillis(100))
+          .untilAtomic(actualException, new IsEqual<>(expectedException));
     } finally {
       reflectorRunnable.stop();
     }
-    assertEquals(expectedException, actualException.get());
   }
 
   @Test
-  public void testReflectorRunnableCaptureWatchException()
-      throws ApiException, InterruptedException {
+  public void testReflectorRunnableCaptureWatchException() throws ApiException {
     RuntimeException expectedException = new RuntimeException("noxu");
     AtomicReference<Throwable> actualException = new AtomicReference<>();
     when(listerWatcher.list(any())).thenReturn(new V1PodList().metadata(new V1ListMeta()));
@@ -151,10 +157,62 @@ public class ReflectorRunnableTest {
       Thread thread = new Thread(reflectorRunnable::run);
       thread.setDaemon(true);
       thread.start();
-      Thread.sleep(1000);
+      Awaitility.await()
+          .atMost(Duration.ofSeconds(1))
+          .pollInterval(Duration.ofMillis(100))
+          .untilAtomic(actualException, new IsEqual<>(expectedException));
     } finally {
       reflectorRunnable.stop();
     }
-    assertEquals(expectedException, actualException.get());
+  }
+
+  @Test
+  public void testReflectorRelistShouldHonorLastSyncResourceVersion() {
+    String expectedResourceVersion = "999";
+    AtomicReference<String> requestedResourceVersion = new AtomicReference<>();
+    ReflectorRunnable<V1Pod, V1PodList> reflectorRunnable =
+        new ReflectorRunnable<>(
+            V1Pod.class,
+            new ListerWatcher<V1Pod, V1PodList>() {
+              @Override
+              public V1PodList list(CallGeneratorParams params) throws ApiException {
+                requestedResourceVersion.set(params.resourceVersion);
+                return new V1PodList()
+                    .metadata(new V1ListMeta().resourceVersion(expectedResourceVersion));
+              }
+
+              @Override
+              public Watchable<V1Pod> watch(CallGeneratorParams params) throws ApiException {
+                throw new ApiException("HTTP GONE");
+              }
+            },
+            deltaFIFO);
+
+    // run the reflector twice, and check the requesting resource version at the second time.
+    // first run
+    try {
+      Thread thread = new Thread(reflectorRunnable::run);
+      thread.setDaemon(true);
+      thread.start();
+      Awaitility.await()
+          .atMost(Duration.ofSeconds(1))
+          .pollInterval(Duration.ofMillis(100))
+          .until(
+              () -> expectedResourceVersion.equals(reflectorRunnable.getLastSyncResourceVersion()));
+    } finally {
+      reflectorRunnable.stop();
+    }
+    // second run
+    try {
+      Thread thread = new Thread(reflectorRunnable::run);
+      thread.setDaemon(true);
+      thread.start();
+      Awaitility.await()
+          .atMost(Duration.ofSeconds(1))
+          .pollInterval(Duration.ofMillis(100))
+          .untilAtomic(requestedResourceVersion, new IsEqual<>(expectedResourceVersion));
+    } finally {
+      reflectorRunnable.stop();
+    }
   }
 }
