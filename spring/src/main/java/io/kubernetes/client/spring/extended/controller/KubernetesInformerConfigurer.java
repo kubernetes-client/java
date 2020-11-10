@@ -12,6 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.spring.extended.controller;
 
+import io.kubernetes.client.informer.SharedInformerFactory;
 import io.kubernetes.client.openapi.ApiClient;
 import org.springframework.beans.factory.FactoryBean;
 
@@ -23,14 +24,17 @@ public class KubernetesInformerConfigurer
     implements FactoryBean<KubernetesInformerFactoryProcessor> {
 
   private final ApiClient apiClient;
+  private final SharedInformerFactory sharedInformerFactory;
 
-  public KubernetesInformerConfigurer(ApiClient apiClient) {
+  public KubernetesInformerConfigurer(
+      ApiClient apiClient, SharedInformerFactory sharedInformerFactory) {
     this.apiClient = apiClient;
+    this.sharedInformerFactory = sharedInformerFactory;
   }
 
   @Override
   public KubernetesInformerFactoryProcessor getObject() throws Exception {
-    return new KubernetesInformerFactoryProcessor(apiClient);
+    return new KubernetesInformerFactoryProcessor(apiClient, sharedInformerFactory);
   }
 
   @Override

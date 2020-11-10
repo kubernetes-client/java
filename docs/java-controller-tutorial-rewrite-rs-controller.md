@@ -46,11 +46,33 @@ plugins are present in the [pom.xml](https://github.com/yue9944882/replicaset-co
 </plugin>
 ```
 
+#### Introducing Spring Integration Dependency
+
+Adding the following dependency to your `pom.xml`.
+
+```xml
+<dependency>
+	<groupId>io.kubernetes</groupId>
+	<artifactId>client-java-spring-integration</artifactId>
+	<version>${ >= 11.0.0 recommended}</version>
+</dependency>
+```
+
+The dependency will auto-configure the necessary configuration beans for injecting informers
+and reconcilers to your application. And note that you can disable the configuration beans by
+setting the following properties in your spring context:
+
+
+```text
+kubernetes.informer.enabled=false   # disables informer injection
+kubernetes.reconciler.enabled=false # disables reconciler injection
+```
+
 #### Adding a Main Class 
 
 So that the project can be packaged as a executable jar. See the example class [here](https://github.com/yue9944882/replicaset-controller/blob/master/src/main/java/com/github/yue9944882/kubernetes/Application.java).
 
-#### Loading Post-Processor Spring Beans
+##### Loading Post-Processor Spring Beans (Required only if you're using < 11.0.0 releases)
 
 Adding the following annotation to whatever Java class under spring context, so that processors can be activated.
 
@@ -59,10 +81,6 @@ Adding the following annotation to whatever Java class under spring context, so 
 ```
 
 Corresponding example is available [here](https://github.com/yue9944882/replicaset-controller/blob/master/src/main/java/com/github/yue9944882/kubernetes/config/ControllerConfiguration.java#L20).
-
-__NOTE__: In the future releases (already landed on master, will release after 11.0.0), you will be able to activate the processors by configuration- 
-beans. To previewing the feature, you can take a glance at the test codes for [KubernetesReconcilerConfigurer](https://github.com/kubernetes-client/java/blob/351ffa13d49cb76445788d78bf83e03a5edf139a/spring/src/test/java/io/kubernetes/client/spring/extended/controller/KubernetesReconcilerCreatorTest.java#L75-L79) and 
-[KubernetesInformerConfigurer](https://github.com/kubernetes-client/java/blob/351ffa13d49cb76445788d78bf83e03a5edf139a/spring/src/test/java/io/kubernetes/client/spring/extended/controller/KubernetesInformerCreatorTest.java#L73-L76).
 
 #### Declaring Your Informer Factory
 
@@ -99,10 +117,11 @@ The registered informer-factory won't be running unless you explcitly calls `sta
 the method is the trigger to run the controller, so hold it carefully until you're ready :). In the example project, the 
 informer-factory was started inside `ControllerManager#run`.
 
-The [KubernetesInformerFactoryProcessor](https://github.com/kubernetes-client/java/blob/master/spring/src/main/java/io/kubernetes/client/spring/extended/controller/KubernetesInformerFactoryProcessor.java) 
-will be parsing the `@KubernetesInformers` annotation on informer-factory class and then register `SharedInformer` and 
-`Lister` beans for the kubernetes resource classes. You can easily acquire them by declaring them as parameters in the
-bean method. See this example source to see the per-resource informer/lister bean registration [here](https://github.com/yue9944882/replicaset-controller/blob/c8dda02fe444d7154117b9bf0583557502694e1b/src/main/java/com/github/yue9944882/kubernetes/config/ControllerConfiguration.java#L35-L43).
+As a deeper insight, it's the [KubernetesInformerFactoryProcessor](https://github.com/kubernetes-client/java/blob/master/spring/src/main/java/io/kubernetes/client/spring/extended/controller/KubernetesInformerFactoryProcessor.java) 
+parsing the `@KubernetesInformers` annotation on informer-factory class and then register `SharedInformer` and 
+`Lister` beans for the kubernetes resource classes. You can easily acquire them by `@Autowired` (for >= 11.0.0 release) 
+or declaring them as parameters in the bean method. See this example source to see the per-resource informer/lister 
+bean registration [here](https://github.com/yue9944882/replicaset-controller/blob/c8dda02fe444d7154117b9bf0583557502694e1b/src/main/java/com/github/yue9944882/kubernetes/config/ControllerConfiguration.java#L35-L43).
 
 
 #### Declaring Your Reconciler
@@ -126,10 +145,78 @@ the watch connections are managed by informer-factory and they're multiplex'd. S
 to the watch connection. For more detail, take a look at the example code [here](https://github.com/yue9944882/replicaset-controller/blob/c8dda02fe444d7154117b9bf0583557502694e1b/src/main/java/com/github/yue9944882/kubernetes/ReplicaSetReconciler.java#L27-L40).
 
 
+#### Injecting Informer/Lister using @Autowired (Optional for >= 11.0.0 releases)
+
+You can easily acquire `SharedInformer` and `Lister` instances via `@Autowired` annotations instead of passing them from
+the bean constructor, see the following example:
+
+```java
+public class ReplicaSetReconciler implements Reconciler {
+    @Autowired private SharedInformer<V1Pod> podInformer;
+    @Autowired private Lister<V1Pod> podLister;
+    @Autowired private SharedInformer<V1Node> nodeInformer;
+    @Autowired private Lister<V1Node> nodeLister;
+    ...
+}
+```
+
+Note that the type parameter for the informer and lister i.e. the kubernetes api resource type must be declared in your 
+`@KubernetesInformers` annotation.
+
+#### Setting Event-Filter or ReadyFunc for your reconciler
+
+Both the event-filter method and ready-func method is supposed to be "public" access.
+
+```java
+public class ReplicaSetReconciler implements Reconciler {
+    ...
+    @AddWatchEventFilter(apiTypeClass = V1Pod.class)
+    public boolean onAddFilter(V1Pod pod) {
+      return true; // returns true to handle the event
+    }
+    
+    @UpdateWatchEventFilter(apiTypeClass = V1Pod.class)
+    public boolean onUpdateFilter(V1Pod oldPod, V1Pod newPod) {
+      return true; // returns true to handle the event
+    }
+    
+    @DeleteWatchEventFilter(apiTypeClass = V1Pod.class)
+    public boolean onDeleteFilter(V1Pod pod) {
+      return true; // returns true to handle the event
+    }
+    
+    @KubernetesReconcilerReadyFunc
+    public boolean podInformerCacheReady() {
+      return podInformer.hasSynced(); // return true if reconciler is ready to run.
+    }
+    ..
+}
+```
+
+#### Creating Your Controller Bean (Required for >= 11.0.0 releases)
+
+The controller bean is the entry bean to run your reconciler class definition. You're supposed to create a controller 
+bean instance using `KubernetesControllerFactory`:
+
+
+```java
+@Configuration
+public class MyConfiguration {
+    ...
+    @Bean
+    public KubernetesControllerFactory replicasetController(
+        SharedInformerFactory sharedInformerFactory,
+        Reconciler reconciler) {
+      return new KubernetesControllerFactory(sharedInformerFactory, reconciler);
+    }
+    ...
+}
+```
+
 #### Running the Reconcilers
 
 Now both the informer-factory and the reconciler are set, the last step is to stitch them together by adding a starter
-(or runner) bean implemeting `InitializingBean` as is shown in the following approaches:
+(or a `CommandLineRunner`) or a bean implemeting `InitializingBean` as is shown in the following approaches:
 
 
 - (Option 1) Run it immediately.
