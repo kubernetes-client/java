@@ -31,7 +31,7 @@ import org.joda.time.DateTime;
         "ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1ObjectMeta {
   public static final String SERIALIZED_NAME_ANNOTATIONS = "annotations";
 
@@ -457,8 +457,8 @@ public class V1ObjectMeta {
   }
 
   /**
-   * Namespace defines the space within each name must be unique. An empty namespace is equivalent
-   * to the \&quot;default\&quot; namespace, but \&quot;default\&quot; is the canonical
+   * Namespace defines the space within which each name must be unique. An empty namespace is
+   * equivalent to the \&quot;default\&quot; namespace, but \&quot;default\&quot; is the canonical
    * representation. Not all objects are required to be scoped to a namespace - the value of this
    * field for those objects will be empty. Must be a DNS_LABEL. Cannot be updated. More info:
    * http://kubernetes.io/docs/user-guide/namespaces
@@ -468,7 +468,7 @@ public class V1ObjectMeta {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Namespace defines the space within each name must be unique. An empty namespace is equivalent to the \"default\" namespace, but \"default\" is the canonical representation. Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty.  Must be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces")
+          "Namespace defines the space within which each name must be unique. An empty namespace is equivalent to the \"default\" namespace, but \"default\" is the canonical representation. Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty.  Must be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces")
   public String getNamespace() {
     return namespace;
   }

@@ -24,7 +24,7 @@ import java.util.Objects;
         "ResourceFieldSelector represents container resources (cpu, memory) and their output format")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1ResourceFieldSelector {
   public static final String SERIALIZED_NAME_CONTAINER_NAME = "containerName";
 

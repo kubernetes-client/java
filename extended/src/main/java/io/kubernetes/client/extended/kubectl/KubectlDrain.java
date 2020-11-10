@@ -72,6 +72,7 @@ public class KubectlDrain extends KubectlCordon {
             null,
             null,
             null,
+            null,
             null);
 
     validatePods(allPods.getItems());

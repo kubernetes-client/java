@@ -23,7 +23,7 @@ import java.util.Objects;
         "DownwardAPIVolumeFile represents information to create the file containing the pod field")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1DownwardAPIVolumeFile {
   public static final String SERIALIZED_NAME_FIELD_REF = "fieldRef";
 
@@ -73,16 +73,18 @@ public class V1DownwardAPIVolumeFile {
   }
 
   /**
-   * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified,
-   * the volume defaultMode will be used. This might be in conflict with other options that affect
-   * the file mode, like fsGroup, and the result can be other mode bits set.
+   * Optional: mode bits used to set permissions on this file, must be an octal value between 0000
+   * and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON
+   * requires decimal values for mode bits. If not specified, the volume defaultMode will be used.
+   * This might be in conflict with other options that affect the file mode, like fsGroup, and the
+   * result can be other mode bits set.
    *
    * @return mode
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.")
+          "Optional: mode bits used to set permissions on this file, must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.")
   public Integer getMode() {
     return mode;
   }

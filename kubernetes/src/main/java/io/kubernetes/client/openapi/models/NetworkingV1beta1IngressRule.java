@@ -27,7 +27,7 @@ import java.util.Objects;
         "IngressRule represents the rules mapping the paths under a specified host to the related backend services. Incoming requests are first evaluated for a host match, then routed to the backend associated with the matching IngressRuleValue.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class NetworkingV1beta1IngressRule {
   public static final String SERIALIZED_NAME_HOST = "host";
 

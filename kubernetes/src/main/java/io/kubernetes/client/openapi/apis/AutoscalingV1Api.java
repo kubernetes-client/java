@@ -336,12 +336,15 @@ public class AutoscalingV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -367,6 +370,7 @@ public class AutoscalingV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -425,6 +429,11 @@ public class AutoscalingV1Api {
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
     }
 
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
+    }
+
     if (timeoutSeconds != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
@@ -474,6 +483,7 @@ public class AutoscalingV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -498,6 +508,7 @@ public class AutoscalingV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -562,12 +573,15 @@ public class AutoscalingV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -593,6 +607,7 @@ public class AutoscalingV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -609,6 +624,7 @@ public class AutoscalingV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body);
     return localVarResp.getData();
@@ -672,12 +688,15 @@ public class AutoscalingV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -703,6 +722,7 @@ public class AutoscalingV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -719,6 +739,7 @@ public class AutoscalingV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             null);
@@ -784,12 +805,15 @@ public class AutoscalingV1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -815,6 +839,7 @@ public class AutoscalingV1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback<V1Status> _callback)
@@ -833,6 +858,7 @@ public class AutoscalingV1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -1337,12 +1363,15 @@ public class AutoscalingV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -1365,6 +1394,7 @@ public class AutoscalingV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -1404,6 +1434,11 @@ public class AutoscalingV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -1459,6 +1494,7 @@ public class AutoscalingV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -1473,6 +1509,7 @@ public class AutoscalingV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -1524,12 +1561,15 @@ public class AutoscalingV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -1552,6 +1592,7 @@ public class AutoscalingV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -1564,6 +1605,7 @@ public class AutoscalingV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -1614,12 +1656,15 @@ public class AutoscalingV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -1643,6 +1688,7 @@ public class AutoscalingV1Api {
           Integer limit,
           String pretty,
           String resourceVersion,
+          String resourceVersionMatch,
           Integer timeoutSeconds,
           Boolean watch)
           throws ApiException {
@@ -1655,6 +1701,7 @@ public class AutoscalingV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -1707,12 +1754,15 @@ public class AutoscalingV1Api {
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -1735,6 +1785,7 @@ public class AutoscalingV1Api {
       Integer limit,
       String pretty,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1HorizontalPodAutoscalerList> _callback)
@@ -1749,6 +1800,7 @@ public class AutoscalingV1Api {
             limit,
             pretty,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -1802,12 +1854,15 @@ public class AutoscalingV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -1831,6 +1886,7 @@ public class AutoscalingV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -1873,6 +1929,11 @@ public class AutoscalingV1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -1929,6 +1990,7 @@ public class AutoscalingV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -1950,6 +2012,7 @@ public class AutoscalingV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -2002,12 +2065,15 @@ public class AutoscalingV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -2031,6 +2097,7 @@ public class AutoscalingV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -2044,6 +2111,7 @@ public class AutoscalingV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -2095,12 +2163,15 @@ public class AutoscalingV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -2125,6 +2196,7 @@ public class AutoscalingV1Api {
           String labelSelector,
           Integer limit,
           String resourceVersion,
+          String resourceVersionMatch,
           Integer timeoutSeconds,
           Boolean watch)
           throws ApiException {
@@ -2138,6 +2210,7 @@ public class AutoscalingV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -2191,12 +2264,15 @@ public class AutoscalingV1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -2220,6 +2296,7 @@ public class AutoscalingV1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1HorizontalPodAutoscalerList> _callback)
@@ -2235,6 +2312,7 @@ public class AutoscalingV1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);

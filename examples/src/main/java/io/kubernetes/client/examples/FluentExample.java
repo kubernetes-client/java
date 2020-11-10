@@ -66,7 +66,8 @@ public class FluentExample {
     api.createNamespacedPod("default", pod2, null, null, null);
 
     V1PodList list =
-        api.listNamespacedPod("default", null, null, null, null, null, null, null, null, null);
+        api.listNamespacedPod(
+            "default", null, null, null, null, null, null, null, null, null, null);
     for (V1Pod item : list.getItems()) {
       System.out.println(item.getMetadata().getName());
     }

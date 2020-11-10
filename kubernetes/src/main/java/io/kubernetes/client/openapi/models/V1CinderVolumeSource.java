@@ -27,7 +27,7 @@ import java.util.Objects;
         "Represents a cinder volume resource in Openstack. A Cinder volume must exist before mounting to a container. The volume must also be in the same region as the kubelet. Cinder volumes support ownership management and SELinux relabeling.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1CinderVolumeSource {
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
 

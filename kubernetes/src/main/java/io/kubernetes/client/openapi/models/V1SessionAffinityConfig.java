@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(description = "SessionAffinityConfig represents the configurations of session affinity.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1SessionAffinityConfig {
   public static final String SERIALIZED_NAME_CLIENT_I_P = "clientIP";
 

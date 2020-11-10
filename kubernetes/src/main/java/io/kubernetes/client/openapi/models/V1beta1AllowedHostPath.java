@@ -26,7 +26,7 @@ import java.util.Objects;
         "AllowedHostPath defines the host volume conditions that will be enabled by a policy for pods to use. It requires the path prefix to be defined.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1beta1AllowedHostPath {
   public static final String SERIALIZED_NAME_PATH_PREFIX = "pathPrefix";
 

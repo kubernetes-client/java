@@ -28,7 +28,7 @@ import java.util.Objects;
         "HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod's hosts file.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1HostAlias {
   public static final String SERIALIZED_NAME_HOSTNAMES = "hostnames";
 

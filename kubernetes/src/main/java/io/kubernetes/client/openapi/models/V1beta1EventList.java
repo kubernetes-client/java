@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "EventList is a list of Event objects.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1beta1EventList implements io.kubernetes.client.common.KubernetesListObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 
@@ -83,11 +83,11 @@ public class V1beta1EventList implements io.kubernetes.client.common.KubernetesL
   }
 
   /**
-   * Items is a list of schema objects.
+   * items is a list of schema objects.
    *
    * @return items
    */
-  @ApiModelProperty(required = true, value = "Items is a list of schema objects.")
+  @ApiModelProperty(required = true, value = "items is a list of schema objects.")
   public List<V1beta1Event> getItems() {
     return items;
   }

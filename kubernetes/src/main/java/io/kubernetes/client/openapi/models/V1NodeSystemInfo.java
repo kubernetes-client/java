@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(description = "NodeSystemInfo is a set of ids/uuids to uniquely identify the node.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1NodeSystemInfo {
   public static final String SERIALIZED_NAME_ARCHITECTURE = "architecture";
 
@@ -275,14 +275,14 @@ public class V1NodeSystemInfo {
   /**
    * SystemUUID reported by the node. For unique machine identification MachineID is preferred. This
    * field is specific to Red Hat hosts
-   * https://access.redhat.com/documentation/en-US/Red_Hat_Subscription_Management/1/html/RHSM/getting-system-uuid.html
+   * https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/rhsm/uuid
    *
    * @return systemUUID
    */
   @ApiModelProperty(
       required = true,
       value =
-          "SystemUUID reported by the node. For unique machine identification MachineID is preferred. This field is specific to Red Hat hosts https://access.redhat.com/documentation/en-US/Red_Hat_Subscription_Management/1/html/RHSM/getting-system-uuid.html")
+          "SystemUUID reported by the node. For unique machine identification MachineID is preferred. This field is specific to Red Hat hosts https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/rhsm/uuid")
   public String getSystemUUID() {
     return systemUUID;
   }

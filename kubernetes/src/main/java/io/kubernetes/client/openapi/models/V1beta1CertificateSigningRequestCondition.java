@@ -20,8 +20,13 @@ import org.joda.time.DateTime;
 /** V1beta1CertificateSigningRequestCondition */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1beta1CertificateSigningRequestCondition {
+  public static final String SERIALIZED_NAME_LAST_TRANSITION_TIME = "lastTransitionTime";
+
+  @SerializedName(SERIALIZED_NAME_LAST_TRANSITION_TIME)
+  private DateTime lastTransitionTime;
+
   public static final String SERIALIZED_NAME_LAST_UPDATE_TIME = "lastUpdateTime";
 
   @SerializedName(SERIALIZED_NAME_LAST_UPDATE_TIME)
@@ -37,10 +42,40 @@ public class V1beta1CertificateSigningRequestCondition {
   @SerializedName(SERIALIZED_NAME_REASON)
   private String reason;
 
+  public static final String SERIALIZED_NAME_STATUS = "status";
+
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  private String status;
+
   public static final String SERIALIZED_NAME_TYPE = "type";
 
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
+
+  public V1beta1CertificateSigningRequestCondition lastTransitionTime(DateTime lastTransitionTime) {
+
+    this.lastTransitionTime = lastTransitionTime;
+    return this;
+  }
+
+  /**
+   * lastTransitionTime is the time the condition last transitioned from one status to another. If
+   * unset, when a new condition type is added or an existing condition&#39;s status is changed, the
+   * server defaults this to the current time.
+   *
+   * @return lastTransitionTime
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "lastTransitionTime is the time the condition last transitioned from one status to another. If unset, when a new condition type is added or an existing condition's status is changed, the server defaults this to the current time.")
+  public DateTime getLastTransitionTime() {
+    return lastTransitionTime;
+  }
+
+  public void setLastTransitionTime(DateTime lastTransitionTime) {
+    this.lastTransitionTime = lastTransitionTime;
+  }
 
   public V1beta1CertificateSigningRequestCondition lastUpdateTime(DateTime lastUpdateTime) {
 
@@ -105,6 +140,31 @@ public class V1beta1CertificateSigningRequestCondition {
     this.reason = reason;
   }
 
+  public V1beta1CertificateSigningRequestCondition status(String status) {
+
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * Status of the condition, one of True, False, Unknown. Approved, Denied, and Failed conditions
+   * may not be \&quot;False\&quot; or \&quot;Unknown\&quot;. Defaults to \&quot;True\&quot;. If
+   * unset, should be treated as \&quot;True\&quot;.
+   *
+   * @return status
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Status of the condition, one of True, False, Unknown. Approved, Denied, and Failed conditions may not be \"False\" or \"Unknown\". Defaults to \"True\". If unset, should be treated as \"True\".")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
   public V1beta1CertificateSigningRequestCondition type(String type) {
 
     this.type = type;
@@ -112,13 +172,15 @@ public class V1beta1CertificateSigningRequestCondition {
   }
 
   /**
-   * request approval state, currently Approved or Denied.
+   * type of the condition. Known conditions include \&quot;Approved\&quot;, \&quot;Denied\&quot;,
+   * and \&quot;Failed\&quot;.
    *
    * @return type
    */
   @ApiModelProperty(
       required = true,
-      value = "request approval state, currently Approved or Denied.")
+      value =
+          "type of the condition. Known conditions include \"Approved\", \"Denied\", and \"Failed\".")
   public String getType() {
     return type;
   }
@@ -138,24 +200,29 @@ public class V1beta1CertificateSigningRequestCondition {
     V1beta1CertificateSigningRequestCondition v1beta1CertificateSigningRequestCondition =
         (V1beta1CertificateSigningRequestCondition) o;
     return Objects.equals(
+            this.lastTransitionTime, v1beta1CertificateSigningRequestCondition.lastTransitionTime)
+        && Objects.equals(
             this.lastUpdateTime, v1beta1CertificateSigningRequestCondition.lastUpdateTime)
         && Objects.equals(this.message, v1beta1CertificateSigningRequestCondition.message)
         && Objects.equals(this.reason, v1beta1CertificateSigningRequestCondition.reason)
+        && Objects.equals(this.status, v1beta1CertificateSigningRequestCondition.status)
         && Objects.equals(this.type, v1beta1CertificateSigningRequestCondition.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(lastUpdateTime, message, reason, type);
+    return Objects.hash(lastTransitionTime, lastUpdateTime, message, reason, status, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1beta1CertificateSigningRequestCondition {\n");
+    sb.append("    lastTransitionTime: ").append(toIndentedString(lastTransitionTime)).append("\n");
     sb.append("    lastUpdateTime: ").append(toIndentedString(lastUpdateTime)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(description = "IngressStatus describe the current state of the Ingress.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class ExtensionsV1beta1IngressStatus {
   public static final String SERIALIZED_NAME_LOAD_BALANCER = "loadBalancer";
 

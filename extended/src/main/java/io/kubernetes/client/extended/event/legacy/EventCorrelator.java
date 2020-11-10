@@ -13,7 +13,7 @@ limitations under the License.
 package io.kubernetes.client.extended.event.legacy;
 
 import io.kubernetes.client.custom.V1Patch;
-import io.kubernetes.client.openapi.models.V1Event;
+import io.kubernetes.client.openapi.models.CoreV1Event;
 import java.util.Optional;
 import java.util.function.Predicate;
 import org.apache.commons.lang3.tuple.MutablePair;
@@ -21,7 +21,7 @@ import org.apache.commons.lang3.tuple.MutablePair;
 public class EventCorrelator {
 
   protected EventAggregator aggregator;
-  protected Predicate<V1Event> filter;
+  protected Predicate<CoreV1Event> filter;
   protected EventLogger logger;
 
   public EventCorrelator() {
@@ -36,18 +36,19 @@ public class EventCorrelator {
     this.logger = new EventLogger(maxLRUCacheEntries, EventUtils::getEventKey);
   }
 
-  public Optional<MutablePair<V1Event, V1Patch>> correlate(V1Event event) {
-    MutablePair<V1Event, String> aggregatedResult = this.aggregator.aggregate(event);
-    V1Event aggregatedEvent = aggregatedResult.getLeft();
+  public Optional<MutablePair<CoreV1Event, V1Patch>> correlate(CoreV1Event event) {
+    MutablePair<CoreV1Event, String> aggregatedResult = this.aggregator.aggregate(event);
+    CoreV1Event aggregatedEvent = aggregatedResult.getLeft();
     String cacheKey = aggregatedResult.getRight();
-    MutablePair<V1Event, V1Patch> observeResult = this.logger.observe(aggregatedEvent, cacheKey);
+    MutablePair<CoreV1Event, V1Patch> observeResult =
+        this.logger.observe(aggregatedEvent, cacheKey);
     if (!this.filter.test(event)) {
       return Optional.empty();
     }
     return Optional.of(observeResult);
   }
 
-  public void updateState(V1Event event) {
+  public void updateState(CoreV1Event event) {
     this.logger.updateState(event);
   }
 }

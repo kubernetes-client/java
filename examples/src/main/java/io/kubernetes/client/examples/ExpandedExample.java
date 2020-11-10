@@ -102,7 +102,7 @@ public class ExpandedExample {
   public static List<String> getAllNameSpaces() throws ApiException {
     V1NamespaceList listNamespace =
         COREV1_API.listNamespace(
-            "true", null, null, null, null, 0, null, Integer.MAX_VALUE, Boolean.FALSE);
+            "true", null, null, null, null, 0, null, null, Integer.MAX_VALUE, Boolean.FALSE);
     List<String> list =
         listNamespace.getItems().stream()
             .map(v1Namespace -> v1Namespace.getMetadata().getName())
@@ -118,7 +118,8 @@ public class ExpandedExample {
    */
   public static List<String> getPods() throws ApiException {
     V1PodList v1podList =
-        COREV1_API.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null);
+        COREV1_API.listPodForAllNamespaces(
+            null, null, null, null, null, null, null, null, null, null);
     List<String> podList =
         v1podList.getItems().stream()
             .map(v1Pod -> v1Pod.getMetadata().getName())
@@ -166,6 +167,7 @@ public class ExpandedExample {
             label,
             Integer.MAX_VALUE,
             null,
+            null,
             TIME_OUT_VALUE,
             Boolean.FALSE);
     List<String> listPods =
@@ -192,6 +194,7 @@ public class ExpandedExample {
             null,
             Integer.MAX_VALUE,
             null,
+            null,
             TIME_OUT_VALUE,
             Boolean.FALSE);
     return listNamespacedService.getItems().stream()
@@ -212,7 +215,17 @@ public class ExpandedExample {
     appsV1Api.setApiClient(COREV1_API.getApiClient());
     V1DeploymentList listNamespacedDeployment =
         appsV1Api.listNamespacedDeployment(
-            DEFAULT_NAME_SPACE, null, null, null, null, null, null, null, null, Boolean.FALSE);
+            DEFAULT_NAME_SPACE,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            Boolean.FALSE);
 
     List<V1Deployment> appsV1DeploymentItems = listNamespacedDeployment.getItems();
     Optional<V1Deployment> findedDeployment =

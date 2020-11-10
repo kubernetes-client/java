@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(description = "PodSpec is a description of a pod.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1PodSpec {
   public static final String SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS = "activeDeadlineSeconds";
 
@@ -168,6 +168,11 @@ public class V1PodSpec {
 
   @SerializedName(SERIALIZED_NAME_SERVICE_ACCOUNT_NAME)
   private String serviceAccountName;
+
+  public static final String SERIALIZED_NAME_SET_HOSTNAME_AS_F_Q_D_N = "setHostnameAsFQDN";
+
+  @SerializedName(SERIALIZED_NAME_SET_HOSTNAME_AS_F_Q_D_N)
+  private Boolean setHostnameAsFQDN;
 
   public static final String SERIALIZED_NAME_SHARE_PROCESS_NAMESPACE = "shareProcessNamespace";
 
@@ -712,15 +717,15 @@ public class V1PodSpec {
 
   /**
    * PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never,
-   * PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and
-   * is only honored by servers that enable the NonPreemptingPriority feature.
+   * PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is beta-level,
+   * gated by the NonPreemptingPriority feature-gate.
    *
    * @return preemptionPolicy
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.")
+          "PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is beta-level, gated by the NonPreemptingPriority feature-gate.")
   public String getPreemptionPolicy() {
     return preemptionPolicy;
   }
@@ -962,6 +967,34 @@ public class V1PodSpec {
     this.serviceAccountName = serviceAccountName;
   }
 
+  public V1PodSpec setHostnameAsFQDN(Boolean setHostnameAsFQDN) {
+
+    this.setHostnameAsFQDN = setHostnameAsFQDN;
+    return this;
+  }
+
+  /**
+   * If true the pod&#39;s hostname will be configured as the pod&#39;s FQDN, rather than the leaf
+   * name (the default). In Linux containers, this means setting the FQDN in the hostname field of
+   * the kernel (the nodename field of struct utsname). In Windows containers, this means setting
+   * the registry value of hostname for the registry key
+   * HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters to FQDN. If a pod
+   * does not have FQDN, this has no effect. Default to false.
+   *
+   * @return setHostnameAsFQDN
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "If true the pod's hostname will be configured as the pod's FQDN, rather than the leaf name (the default). In Linux containers, this means setting the FQDN in the hostname field of the kernel (the nodename field of struct utsname). In Windows containers, this means setting the registry value of hostname for the registry key HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters to FQDN. If a pod does not have FQDN, this has no effect. Default to false.")
+  public Boolean getSetHostnameAsFQDN() {
+    return setHostnameAsFQDN;
+  }
+
+  public void setSetHostnameAsFQDN(Boolean setHostnameAsFQDN) {
+    this.setHostnameAsFQDN = setHostnameAsFQDN;
+  }
+
   public V1PodSpec shareProcessNamespace(Boolean shareProcessNamespace) {
 
     this.shareProcessNamespace = shareProcessNamespace;
@@ -1088,16 +1121,15 @@ public class V1PodSpec {
 
   /**
    * TopologySpreadConstraints describes how a group of pods ought to spread across topology
-   * domains. Scheduler will schedule pods in a way which abides by the constraints. This field is
-   * only honored by clusters that enable the EvenPodsSpread feature. All topologySpreadConstraints
-   * are ANDed.
+   * domains. Scheduler will schedule pods in a way which abides by the constraints. All
+   * topologySpreadConstraints are ANDed.
    *
    * @return topologySpreadConstraints
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "TopologySpreadConstraints describes how a group of pods ought to spread across topology domains. Scheduler will schedule pods in a way which abides by the constraints. This field is only honored by clusters that enable the EvenPodsSpread feature. All topologySpreadConstraints are ANDed.")
+          "TopologySpreadConstraints describes how a group of pods ought to spread across topology domains. Scheduler will schedule pods in a way which abides by the constraints. All topologySpreadConstraints are ANDed.")
   public List<V1TopologySpreadConstraint> getTopologySpreadConstraints() {
     return topologySpreadConstraints;
   }
@@ -1176,6 +1208,7 @@ public class V1PodSpec {
         && Objects.equals(this.securityContext, v1PodSpec.securityContext)
         && Objects.equals(this.serviceAccount, v1PodSpec.serviceAccount)
         && Objects.equals(this.serviceAccountName, v1PodSpec.serviceAccountName)
+        && Objects.equals(this.setHostnameAsFQDN, v1PodSpec.setHostnameAsFQDN)
         && Objects.equals(this.shareProcessNamespace, v1PodSpec.shareProcessNamespace)
         && Objects.equals(this.subdomain, v1PodSpec.subdomain)
         && Objects.equals(
@@ -1216,6 +1249,7 @@ public class V1PodSpec {
         securityContext,
         serviceAccount,
         serviceAccountName,
+        setHostnameAsFQDN,
         shareProcessNamespace,
         subdomain,
         terminationGracePeriodSeconds,
@@ -1262,6 +1296,7 @@ public class V1PodSpec {
     sb.append("    securityContext: ").append(toIndentedString(securityContext)).append("\n");
     sb.append("    serviceAccount: ").append(toIndentedString(serviceAccount)).append("\n");
     sb.append("    serviceAccountName: ").append(toIndentedString(serviceAccountName)).append("\n");
+    sb.append("    setHostnameAsFQDN: ").append(toIndentedString(setHostnameAsFQDN)).append("\n");
     sb.append("    shareProcessNamespace: ")
         .append(toIndentedString(shareProcessNamespace))
         .append("\n");

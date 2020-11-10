@@ -28,7 +28,7 @@ import java.util.Objects;
         "RuleWithOperations is a tuple of Operations and Resources. It is recommended to make sure that all the tuple expansions are valid.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1beta1RuleWithOperations {
   public static final String SERIALIZED_NAME_API_GROUPS = "apiGroups";
 
@@ -134,15 +134,16 @@ public class V1beta1RuleWithOperations {
   }
 
   /**
-   * Operations is the operations the admission hook cares about - CREATE, UPDATE, or * for all
-   * operations. If &#39;*&#39; is present, the length of the slice must be one. Required.
+   * Operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT
+   * or * for all of those operations and any future admission operations that are added. If
+   * &#39;*&#39; is present, the length of the slice must be one. Required.
    *
    * @return operations
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Operations is the operations the admission hook cares about - CREATE, UPDATE, or * for all operations. If '*' is present, the length of the slice must be one. Required.")
+          "Operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or * for all of those operations and any future admission operations that are added. If '*' is present, the length of the slice must be one. Required.")
   public List<String> getOperations() {
     return operations;
   }

@@ -24,7 +24,7 @@ import java.util.Objects;
     description = "IngressTLS describes the transport layer security associated with an Ingress.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class ExtensionsV1beta1IngressTLS {
   public static final String SERIALIZED_NAME_HOSTS = "hosts";
 

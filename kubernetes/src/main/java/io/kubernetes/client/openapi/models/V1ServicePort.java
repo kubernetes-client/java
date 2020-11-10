@@ -22,7 +22,7 @@ import java.util.Objects;
 @ApiModel(description = "ServicePort contains information on service's port.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1ServicePort {
   public static final String SERIALIZED_NAME_APP_PROTOCOL = "appProtocol";
 
@@ -64,15 +64,15 @@ public class V1ServicePort {
    * The application protocol for this port. This field follows standard Kubernetes label syntax.
    * Un-prefixed names are reserved for IANA standard service names (as per RFC-6335 and
    * http://www.iana.org/assignments/service-names). Non-standard protocols should use prefixed
-   * names such as mycompany.com/my-custom-protocol. Field can be enabled with ServiceAppProtocol
-   * feature gate.
+   * names such as mycompany.com/my-custom-protocol. This is a beta field that is guarded by the
+   * ServiceAppProtocol feature gate and enabled by default.
    *
    * @return appProtocol
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "The application protocol for this port. This field follows standard Kubernetes label syntax. Un-prefixed names are reserved for IANA standard service names (as per RFC-6335 and http://www.iana.org/assignments/service-names). Non-standard protocols should use prefixed names such as mycompany.com/my-custom-protocol. Field can be enabled with ServiceAppProtocol feature gate.")
+          "The application protocol for this port. This field follows standard Kubernetes label syntax. Un-prefixed names are reserved for IANA standard service names (as per RFC-6335 and http://www.iana.org/assignments/service-names). Non-standard protocols should use prefixed names such as mycompany.com/my-custom-protocol. This is a beta field that is guarded by the ServiceAppProtocol feature gate and enabled by default.")
   public String getAppProtocol() {
     return appProtocol;
   }

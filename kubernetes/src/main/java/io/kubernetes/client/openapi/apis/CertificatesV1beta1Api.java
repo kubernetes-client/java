@@ -615,12 +615,15 @@ public class CertificatesV1beta1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -645,6 +648,7 @@ public class CertificatesV1beta1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -700,6 +704,11 @@ public class CertificatesV1beta1Api {
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
     }
 
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
+    }
+
     if (timeoutSeconds != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
@@ -748,6 +757,7 @@ public class CertificatesV1beta1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback _callback)
@@ -765,6 +775,7 @@ public class CertificatesV1beta1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -828,12 +839,15 @@ public class CertificatesV1beta1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -858,6 +872,7 @@ public class CertificatesV1beta1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -873,6 +888,7 @@ public class CertificatesV1beta1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body);
     return localVarResp.getData();
@@ -935,12 +951,15 @@ public class CertificatesV1beta1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -965,6 +984,7 @@ public class CertificatesV1beta1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body)
       throws ApiException {
@@ -980,6 +1000,7 @@ public class CertificatesV1beta1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             null);
@@ -1044,12 +1065,15 @@ public class CertificatesV1beta1Api {
    *     allow the garbage collector to delete the dependents in the background;
    *     &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground.
    *     (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param body (optional)
@@ -1074,6 +1098,7 @@ public class CertificatesV1beta1Api {
       Boolean orphanDependents,
       String propagationPolicy,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       V1DeleteOptions body,
       final ApiCallback<V1Status> _callback)
@@ -1091,6 +1116,7 @@ public class CertificatesV1beta1Api {
             orphanDependents,
             propagationPolicy,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             body,
             _callback);
@@ -1261,12 +1287,15 @@ public class CertificatesV1beta1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -1289,6 +1318,7 @@ public class CertificatesV1beta1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -1328,6 +1358,11 @@ public class CertificatesV1beta1Api {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -1383,6 +1418,7 @@ public class CertificatesV1beta1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -1397,6 +1433,7 @@ public class CertificatesV1beta1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -1448,12 +1485,15 @@ public class CertificatesV1beta1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -1476,6 +1516,7 @@ public class CertificatesV1beta1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -1488,6 +1529,7 @@ public class CertificatesV1beta1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -1538,12 +1580,15 @@ public class CertificatesV1beta1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -1567,6 +1612,7 @@ public class CertificatesV1beta1Api {
           String labelSelector,
           Integer limit,
           String resourceVersion,
+          String resourceVersionMatch,
           Integer timeoutSeconds,
           Boolean watch)
           throws ApiException {
@@ -1579,6 +1625,7 @@ public class CertificatesV1beta1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -1631,12 +1678,15 @@ public class CertificatesV1beta1Api {
    *     smaller chunks of a very large result can ensure they see all possible objects. If objects
    *     are updated during a chunked list the version of the object that was present at the time
    *     the first list result was calculated is returned. (optional)
-   * @param resourceVersion When specified with a watch call, shows changes that occur after that
-   *     particular version of a resource. Defaults to changes from the beginning of history. When
-   *     specified for list: - if unset, then the result is returned from remote storage based on
-   *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
-   *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
-   *     (optional)
+   * @param resourceVersion resourceVersion sets a constraint on what resource versions a request
+   *     may be served from. See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -1659,6 +1709,7 @@ public class CertificatesV1beta1Api {
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<V1beta1CertificateSigningRequestList> _callback)
@@ -1673,6 +1724,7 @@ public class CertificatesV1beta1Api {
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -1916,6 +1968,254 @@ public class CertificatesV1beta1Api {
 
     okhttp3.Call localVarCall =
         patchCertificateSigningRequestValidateBeforeCall(
+            name, body, pretty, dryRun, fieldManager, force, _callback);
+    Type localVarReturnType = new TypeToken<V1beta1CertificateSigningRequest>() {}.getType();
+    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+    return localVarCall;
+  }
+  /**
+   * Build call for patchCertificateSigningRequestApproval
+   *
+   * @param name name of the CertificateSigningRequest (required)
+   * @param body (required)
+   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @param dryRun When present, indicates that modifications should not be persisted. An invalid or
+   *     unrecognized dryRun directive will result in an error response and no further processing of
+   *     the request. Valid values are: - All: all dry run stages will be processed (optional)
+   * @param fieldManager fieldManager is a name associated with the actor or entity that is making
+   *     these changes. The value must be less than or 128 characters long, and only contain
+   *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
+   *     required for apply requests (application/apply-patch) but optional for non-apply patch
+   *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
+   *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
+   *     patch requests. (optional)
+   * @param _callback Callback for upload/download progress
+   * @return Call to execute
+   * @throws ApiException If fail to serialize the request body object
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call patchCertificateSigningRequestApprovalCall(
+      String name,
+      V1Patch body,
+      String pretty,
+      String dryRun,
+      String fieldManager,
+      Boolean force,
+      final ApiCallback _callback)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // create path and map variables
+    String localVarPath =
+        "/apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name}/approval"
+            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    if (pretty != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+    }
+
+    if (dryRun != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
+    }
+
+    if (fieldManager != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+    }
+
+    if (force != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
+    }
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+    final String[] localVarAccepts = {
+      "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+    };
+    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+    if (localVarAccept != null) {
+      localVarHeaderParams.put("Accept", localVarAccept);
+    }
+
+    final String[] localVarContentTypes = {
+      "application/json-patch+json",
+      "application/merge-patch+json",
+      "application/strategic-merge-patch+json",
+      "application/apply-patch+yaml"
+    };
+    final String localVarContentType =
+        localVarApiClient.selectHeaderContentType(localVarContentTypes);
+    localVarHeaderParams.put("Content-Type", localVarContentType);
+
+    String[] localVarAuthNames = new String[] {"BearerToken"};
+    return localVarApiClient.buildCall(
+        localVarPath,
+        "PATCH",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAuthNames,
+        _callback);
+  }
+
+  @SuppressWarnings("rawtypes")
+  private okhttp3.Call patchCertificateSigningRequestApprovalValidateBeforeCall(
+      String name,
+      V1Patch body,
+      String pretty,
+      String dryRun,
+      String fieldManager,
+      Boolean force,
+      final ApiCallback _callback)
+      throws ApiException {
+
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(
+          "Missing the required parameter 'name' when calling patchCertificateSigningRequestApproval(Async)");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          "Missing the required parameter 'body' when calling patchCertificateSigningRequestApproval(Async)");
+    }
+
+    okhttp3.Call localVarCall =
+        patchCertificateSigningRequestApprovalCall(
+            name, body, pretty, dryRun, fieldManager, force, _callback);
+    return localVarCall;
+  }
+
+  /**
+   * partially update approval of the specified CertificateSigningRequest
+   *
+   * @param name name of the CertificateSigningRequest (required)
+   * @param body (required)
+   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @param dryRun When present, indicates that modifications should not be persisted. An invalid or
+   *     unrecognized dryRun directive will result in an error response and no further processing of
+   *     the request. Valid values are: - All: all dry run stages will be processed (optional)
+   * @param fieldManager fieldManager is a name associated with the actor or entity that is making
+   *     these changes. The value must be less than or 128 characters long, and only contain
+   *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
+   *     required for apply requests (application/apply-patch) but optional for non-apply patch
+   *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
+   *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
+   *     patch requests. (optional)
+   * @return V1beta1CertificateSigningRequest
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   * </table>
+   */
+  public V1beta1CertificateSigningRequest patchCertificateSigningRequestApproval(
+      String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force)
+      throws ApiException {
+    ApiResponse<V1beta1CertificateSigningRequest> localVarResp =
+        patchCertificateSigningRequestApprovalWithHttpInfo(
+            name, body, pretty, dryRun, fieldManager, force);
+    return localVarResp.getData();
+  }
+
+  /**
+   * partially update approval of the specified CertificateSigningRequest
+   *
+   * @param name name of the CertificateSigningRequest (required)
+   * @param body (required)
+   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @param dryRun When present, indicates that modifications should not be persisted. An invalid or
+   *     unrecognized dryRun directive will result in an error response and no further processing of
+   *     the request. Valid values are: - All: all dry run stages will be processed (optional)
+   * @param fieldManager fieldManager is a name associated with the actor or entity that is making
+   *     these changes. The value must be less than or 128 characters long, and only contain
+   *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
+   *     required for apply requests (application/apply-patch) but optional for non-apply patch
+   *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
+   *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
+   *     patch requests. (optional)
+   * @return ApiResponse&lt;V1beta1CertificateSigningRequest&gt;
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   * </table>
+   */
+  public ApiResponse<V1beta1CertificateSigningRequest>
+      patchCertificateSigningRequestApprovalWithHttpInfo(
+          String name,
+          V1Patch body,
+          String pretty,
+          String dryRun,
+          String fieldManager,
+          Boolean force)
+          throws ApiException {
+    okhttp3.Call localVarCall =
+        patchCertificateSigningRequestApprovalValidateBeforeCall(
+            name, body, pretty, dryRun, fieldManager, force, null);
+    Type localVarReturnType = new TypeToken<V1beta1CertificateSigningRequest>() {}.getType();
+    return localVarApiClient.execute(localVarCall, localVarReturnType);
+  }
+
+  /**
+   * (asynchronously) partially update approval of the specified CertificateSigningRequest
+   *
+   * @param name name of the CertificateSigningRequest (required)
+   * @param body (required)
+   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @param dryRun When present, indicates that modifications should not be persisted. An invalid or
+   *     unrecognized dryRun directive will result in an error response and no further processing of
+   *     the request. Valid values are: - All: all dry run stages will be processed (optional)
+   * @param fieldManager fieldManager is a name associated with the actor or entity that is making
+   *     these changes. The value must be less than or 128 characters long, and only contain
+   *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
+   *     required for apply requests (application/apply-patch) but optional for non-apply patch
+   *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
+   *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
+   *     patch requests. (optional)
+   * @param _callback The callback to be executed when the API call finishes
+   * @return The request call
+   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call patchCertificateSigningRequestApprovalAsync(
+      String name,
+      V1Patch body,
+      String pretty,
+      String dryRun,
+      String fieldManager,
+      Boolean force,
+      final ApiCallback<V1beta1CertificateSigningRequest> _callback)
+      throws ApiException {
+
+    okhttp3.Call localVarCall =
+        patchCertificateSigningRequestApprovalValidateBeforeCall(
             name, body, pretty, dryRun, fieldManager, force, _callback);
     Type localVarReturnType = new TypeToken<V1beta1CertificateSigningRequest>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -2346,6 +2646,152 @@ public class CertificatesV1beta1Api {
     return localVarCall;
   }
   /**
+   * Build call for readCertificateSigningRequestApproval
+   *
+   * @param name name of the CertificateSigningRequest (required)
+   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @param _callback Callback for upload/download progress
+   * @return Call to execute
+   * @throws ApiException If fail to serialize the request body object
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call readCertificateSigningRequestApprovalCall(
+      String name, String pretty, final ApiCallback _callback) throws ApiException {
+    Object localVarPostBody = null;
+
+    // create path and map variables
+    String localVarPath =
+        "/apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name}/approval"
+            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    if (pretty != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+    }
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+    final String[] localVarAccepts = {
+      "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+    };
+    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+    if (localVarAccept != null) {
+      localVarHeaderParams.put("Accept", localVarAccept);
+    }
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType =
+        localVarApiClient.selectHeaderContentType(localVarContentTypes);
+    localVarHeaderParams.put("Content-Type", localVarContentType);
+
+    String[] localVarAuthNames = new String[] {"BearerToken"};
+    return localVarApiClient.buildCall(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAuthNames,
+        _callback);
+  }
+
+  @SuppressWarnings("rawtypes")
+  private okhttp3.Call readCertificateSigningRequestApprovalValidateBeforeCall(
+      String name, String pretty, final ApiCallback _callback) throws ApiException {
+
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(
+          "Missing the required parameter 'name' when calling readCertificateSigningRequestApproval(Async)");
+    }
+
+    okhttp3.Call localVarCall = readCertificateSigningRequestApprovalCall(name, pretty, _callback);
+    return localVarCall;
+  }
+
+  /**
+   * read approval of the specified CertificateSigningRequest
+   *
+   * @param name name of the CertificateSigningRequest (required)
+   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @return V1beta1CertificateSigningRequest
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   * </table>
+   */
+  public V1beta1CertificateSigningRequest readCertificateSigningRequestApproval(
+      String name, String pretty) throws ApiException {
+    ApiResponse<V1beta1CertificateSigningRequest> localVarResp =
+        readCertificateSigningRequestApprovalWithHttpInfo(name, pretty);
+    return localVarResp.getData();
+  }
+
+  /**
+   * read approval of the specified CertificateSigningRequest
+   *
+   * @param name name of the CertificateSigningRequest (required)
+   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @return ApiResponse&lt;V1beta1CertificateSigningRequest&gt;
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   * </table>
+   */
+  public ApiResponse<V1beta1CertificateSigningRequest>
+      readCertificateSigningRequestApprovalWithHttpInfo(String name, String pretty)
+          throws ApiException {
+    okhttp3.Call localVarCall =
+        readCertificateSigningRequestApprovalValidateBeforeCall(name, pretty, null);
+    Type localVarReturnType = new TypeToken<V1beta1CertificateSigningRequest>() {}.getType();
+    return localVarApiClient.execute(localVarCall, localVarReturnType);
+  }
+
+  /**
+   * (asynchronously) read approval of the specified CertificateSigningRequest
+   *
+   * @param name name of the CertificateSigningRequest (required)
+   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @param _callback The callback to be executed when the API call finishes
+   * @return The request call
+   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call readCertificateSigningRequestApprovalAsync(
+      String name, String pretty, final ApiCallback<V1beta1CertificateSigningRequest> _callback)
+      throws ApiException {
+
+    okhttp3.Call localVarCall =
+        readCertificateSigningRequestApprovalValidateBeforeCall(name, pretty, _callback);
+    Type localVarReturnType = new TypeToken<V1beta1CertificateSigningRequest>() {}.getType();
+    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+    return localVarCall;
+  }
+  /**
    * Build call for readCertificateSigningRequestStatus
    *
    * @param name name of the CertificateSigningRequest (required)
@@ -2717,13 +3163,13 @@ public class CertificatesV1beta1Api {
    *
    * @param name name of the CertificateSigningRequest (required)
    * @param body (required)
+   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
    * @param dryRun When present, indicates that modifications should not be persisted. An invalid or
    *     unrecognized dryRun directive will result in an error response and no further processing of
    *     the request. Valid values are: - All: all dry run stages will be processed (optional)
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -2738,9 +3184,9 @@ public class CertificatesV1beta1Api {
   public okhttp3.Call replaceCertificateSigningRequestApprovalCall(
       String name,
       V1beta1CertificateSigningRequest body,
+      String pretty,
       String dryRun,
       String fieldManager,
-      String pretty,
       final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = body;
@@ -2752,16 +3198,16 @@ public class CertificatesV1beta1Api {
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    if (pretty != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+    }
+
     if (dryRun != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
     }
 
     if (fieldManager != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
-    }
-
-    if (pretty != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -2799,9 +3245,9 @@ public class CertificatesV1beta1Api {
   private okhttp3.Call replaceCertificateSigningRequestApprovalValidateBeforeCall(
       String name,
       V1beta1CertificateSigningRequest body,
+      String pretty,
       String dryRun,
       String fieldManager,
-      String pretty,
       final ApiCallback _callback)
       throws ApiException {
 
@@ -2819,7 +3265,7 @@ public class CertificatesV1beta1Api {
 
     okhttp3.Call localVarCall =
         replaceCertificateSigningRequestApprovalCall(
-            name, body, dryRun, fieldManager, pretty, _callback);
+            name, body, pretty, dryRun, fieldManager, _callback);
     return localVarCall;
   }
 
@@ -2828,13 +3274,13 @@ public class CertificatesV1beta1Api {
    *
    * @param name name of the CertificateSigningRequest (required)
    * @param body (required)
+   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
    * @param dryRun When present, indicates that modifications should not be persisted. An invalid or
    *     unrecognized dryRun directive will result in an error response and no further processing of
    *     the request. Valid values are: - All: all dry run stages will be processed (optional)
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
    * @return V1beta1CertificateSigningRequest
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -2849,13 +3295,13 @@ public class CertificatesV1beta1Api {
   public V1beta1CertificateSigningRequest replaceCertificateSigningRequestApproval(
       String name,
       V1beta1CertificateSigningRequest body,
+      String pretty,
       String dryRun,
-      String fieldManager,
-      String pretty)
+      String fieldManager)
       throws ApiException {
     ApiResponse<V1beta1CertificateSigningRequest> localVarResp =
         replaceCertificateSigningRequestApprovalWithHttpInfo(
-            name, body, dryRun, fieldManager, pretty);
+            name, body, pretty, dryRun, fieldManager);
     return localVarResp.getData();
   }
 
@@ -2864,13 +3310,13 @@ public class CertificatesV1beta1Api {
    *
    * @param name name of the CertificateSigningRequest (required)
    * @param body (required)
+   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
    * @param dryRun When present, indicates that modifications should not be persisted. An invalid or
    *     unrecognized dryRun directive will result in an error response and no further processing of
    *     the request. Valid values are: - All: all dry run stages will be processed (optional)
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
    * @return ApiResponse&lt;V1beta1CertificateSigningRequest&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -2886,13 +3332,13 @@ public class CertificatesV1beta1Api {
       replaceCertificateSigningRequestApprovalWithHttpInfo(
           String name,
           V1beta1CertificateSigningRequest body,
+          String pretty,
           String dryRun,
-          String fieldManager,
-          String pretty)
+          String fieldManager)
           throws ApiException {
     okhttp3.Call localVarCall =
         replaceCertificateSigningRequestApprovalValidateBeforeCall(
-            name, body, dryRun, fieldManager, pretty, null);
+            name, body, pretty, dryRun, fieldManager, null);
     Type localVarReturnType = new TypeToken<V1beta1CertificateSigningRequest>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -2902,13 +3348,13 @@ public class CertificatesV1beta1Api {
    *
    * @param name name of the CertificateSigningRequest (required)
    * @param body (required)
+   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
    * @param dryRun When present, indicates that modifications should not be persisted. An invalid or
    *     unrecognized dryRun directive will result in an error response and no further processing of
    *     the request. Valid values are: - All: all dry run stages will be processed (optional)
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2923,15 +3369,15 @@ public class CertificatesV1beta1Api {
   public okhttp3.Call replaceCertificateSigningRequestApprovalAsync(
       String name,
       V1beta1CertificateSigningRequest body,
+      String pretty,
       String dryRun,
       String fieldManager,
-      String pretty,
       final ApiCallback<V1beta1CertificateSigningRequest> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         replaceCertificateSigningRequestApprovalValidateBeforeCall(
-            name, body, dryRun, fieldManager, pretty, _callback);
+            name, body, pretty, dryRun, fieldManager, _callback);
     Type localVarReturnType = new TypeToken<V1beta1CertificateSigningRequest>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;

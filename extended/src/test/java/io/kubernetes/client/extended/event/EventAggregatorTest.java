@@ -17,8 +17,8 @@ import static org.junit.Assert.assertNotEquals;
 
 import io.kubernetes.client.extended.event.legacy.EventAggregator;
 import io.kubernetes.client.extended.event.legacy.EventUtils;
-import io.kubernetes.client.openapi.models.V1Event;
-import io.kubernetes.client.openapi.models.V1EventBuilder;
+import io.kubernetes.client.openapi.models.CoreV1Event;
+import io.kubernetes.client.openapi.models.CoreV1EventBuilder;
 import io.kubernetes.client.openapi.models.V1EventSource;
 import io.kubernetes.client.openapi.models.V1ObjectReference;
 import org.junit.Test;
@@ -35,7 +35,7 @@ public class EventAggregatorTest {
       String message =
           aggregator
               .aggregate(
-                  new V1EventBuilder()
+                  new CoreV1EventBuilder()
                       .withSource(new V1EventSource())
                       .withInvolvedObject(new V1ObjectReference())
                       .withMessage("foo: " + i)
@@ -44,10 +44,10 @@ public class EventAggregatorTest {
               .getMessage();
       assertNotEquals(aggregatedMessage, message);
     }
-    V1Event aggregatedEvent =
+    CoreV1Event aggregatedEvent =
         aggregator
             .aggregate(
-                new V1EventBuilder()
+                new CoreV1EventBuilder()
                     .withSource(new V1EventSource())
                     .withInvolvedObject(new V1ObjectReference())
                     .withMessage("not_noxu")

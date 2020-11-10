@@ -26,7 +26,7 @@ import java.util.Objects;
         "HTTPIngressPath associates a path with a backend. Incoming urls matching the path are forwarded to the backend.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class NetworkingV1beta1HTTPIngressPath {
   public static final String SERIALIZED_NAME_BACKEND = "backend";
 

@@ -22,7 +22,7 @@ import org.joda.time.DateTime;
 @ApiModel(description = "VolumeError captures an error encountered during a volume operation.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1beta1VolumeError {
   public static final String SERIALIZED_NAME_MESSAGE = "message";
 

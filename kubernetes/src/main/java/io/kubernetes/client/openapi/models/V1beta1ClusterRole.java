@@ -22,14 +22,14 @@ import java.util.Objects;
 /**
  * ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit
  * by a RoleBinding or ClusterRoleBinding. Deprecated in v1.17 in favor of
- * rbac.authorization.k8s.io/v1 ClusterRole, and will no longer be served in v1.20.
+ * rbac.authorization.k8s.io/v1 ClusterRole, and will no longer be served in v1.22.
  */
 @ApiModel(
     description =
-        "ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRole, and will no longer be served in v1.20.")
+        "ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRole, and will no longer be served in v1.22.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-07-29T18:17:00.375Z[Etc/UTC]")
+    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
 public class V1beta1ClusterRole implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_AGGREGATION_RULE = "aggregationRule";
 
