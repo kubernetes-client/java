@@ -58,9 +58,6 @@ public class KubernetesReconcilerProcessor implements BeanFactoryPostProcessor, 
   @Override
   public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory)
       throws BeansException {
-    if (this.sharedInformerFactory == null) {
-      this.sharedInformerFactory = beanFactory.getBean(SharedInformerFactory.class);
-    }
     String[] names = beanFactory.getBeanNamesForType(Reconciler.class);
     for (String name : names) {
       Reconciler reconciler = (Reconciler) beanFactory.getBean(name);

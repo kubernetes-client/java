@@ -19,16 +19,11 @@ import io.kubernetes.client.informer.cache.Lister;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.spring.extended.controller.annotation.KubernetesInformer;
 import io.kubernetes.client.spring.extended.controller.annotation.KubernetesInformers;
-import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
-import java.io.IOException;
 import java.time.Duration;
-import java.util.Map;
-import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
@@ -57,53 +52,22 @@ public class KubernetesInformerFactoryProcessor
 
   private BeanDefinitionRegistry beanDefinitionRegistry;
 
-  private ApiClient apiClient = null;
+  private final ApiClient apiClient;
+  private final SharedInformerFactory sharedInformerFactory;
 
-  public KubernetesInformerFactoryProcessor(ApiClient apiClient) {
+  public KubernetesInformerFactoryProcessor(
+      ApiClient apiClient, SharedInformerFactory sharedInformerFactory) {
     this.apiClient = apiClient;
+    this.sharedInformerFactory = sharedInformerFactory;
   }
 
   @Override
   public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory)
       throws BeansException {
-    Optional<String> sharedInformerFactoryBeanName;
-    try {
-      Map<String, SharedInformerFactory> sharedInformerFactories =
-          beanFactory.getBeansOfType(SharedInformerFactory.class);
-      if (sharedInformerFactories.size() > 1) {
-        log.warn("More than sharedInformerFactory registered..");
-        return;
-      }
-      sharedInformerFactoryBeanName = sharedInformerFactories.keySet().stream().findFirst();
-    } catch (NoSuchBeanDefinitionException e) {
-      // should never happen..
-      log.error("No sharedInformerFactory bean registered..");
-      return;
-    }
-
-    if (!sharedInformerFactoryBeanName.isPresent()) {
-      log.info("No sharedInformerFactory selected, skipping informers constructing..");
-      return;
-    }
-
-    if (this.apiClient == null) {
-      try {
-        this.apiClient = beanFactory.getBean(ApiClient.class);
-      } catch (NoSuchBeanDefinitionException e) {
-        log.info("No ApiClient bean found, falling-back to default initialization..");
-        try {
-          this.apiClient = ClientBuilder.standard().build();
-        } catch (IOException ex) {
-          log.error("failed initializing ApiClient", ex);
-          return;
-        }
-      }
-    }
 
     this.apiClient.setHttpClient(
         this.apiClient.getHttpClient().newBuilder().readTimeout(Duration.ZERO).build());
 
-    SharedInformerFactory sharedInformerFactory = beanFactory.getBean(SharedInformerFactory.class);
     KubernetesInformers kubernetesInformers =
         sharedInformerFactory.getClass().getAnnotation(KubernetesInformers.class);
     if (kubernetesInformers == null || kubernetesInformers.value().length == 0) {

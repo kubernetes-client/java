@@ -71,8 +71,9 @@ public class KubernetesInformerCreatorTest {
     }
 
     @Bean
-    public KubernetesInformerConfigurer kubernetesInformerConfigurer(ApiClient apiClient) {
-      return new KubernetesInformerConfigurer(apiClient);
+    public KubernetesInformerConfigurer kubernetesInformerConfigurer(
+        ApiClient apiClient, SharedInformerFactory sharedInformerFactory) {
+      return new KubernetesInformerConfigurer(apiClient, sharedInformerFactory);
     }
 
     @KubernetesInformers({

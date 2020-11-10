@@ -67,8 +67,9 @@ public class SpringControllerExample {
     // *REQUIRED*
     // Configurer components that registers informers to the informer-factory in the context.
     @Bean
-    public KubernetesInformerConfigurer kubernetesInformerConfigurer(ApiClient apiClient) {
-      return new KubernetesInformerConfigurer(apiClient);
+    public KubernetesInformerConfigurer kubernetesInformerConfigurer(
+        ApiClient apiClient, SharedInformerFactory sharedInformerFactory) {
+      return new KubernetesInformerConfigurer(apiClient, sharedInformerFactory);
     }
 
     // *REQUIRED*
@@ -126,7 +127,6 @@ public class SpringControllerExample {
   // io.kubernetes.client.extended.controller.Controller}
   // with the name specified and registering it to the spring bean-factory.
   @KubernetesReconciler(
-      value = "node-printing-controller",
       watches =
           @KubernetesReconcilerWatches({
             @KubernetesReconcilerWatch(

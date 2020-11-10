@@ -40,6 +40,7 @@ import io.kubernetes.client.spring.extended.controller.annotation.KubernetesReco
 import io.kubernetes.client.spring.extended.controller.annotation.KubernetesReconcilerWatch;
 import io.kubernetes.client.spring.extended.controller.annotation.KubernetesReconcilerWatches;
 import io.kubernetes.client.spring.extended.controller.annotation.UpdateWatchEventFilter;
+import io.kubernetes.client.spring.extended.controller.factory.KubernetesControllerFactory;
 import java.util.LinkedList;
 import java.util.function.Function;
 import javax.annotation.Resource;
@@ -47,6 +48,7 @@ import org.apache.commons.lang3.tuple.MutablePair;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
@@ -64,18 +66,14 @@ public class KubernetesReconcilerCreatorTest {
   static class TestConfig {
 
     @Bean
-    public TestReconciler podReconciler(
-        SharedInformer<V1Pod> podInformer,
-        Lister<V1Pod> podLister,
-        SharedInformer<V1ConfigMap> configMapInformer,
-        Lister<V1ConfigMap> configMapLister) {
-      return new TestReconciler(podInformer, podLister, configMapLister);
+    public TestReconciler testReconciler() {
+      return new TestReconciler();
     }
 
     @Bean
-    public KubernetesReconcilerConfigurer kubernetesReconcilerConfigurer(
-        SharedInformerFactory sharedInformerFactory) {
-      return new KubernetesReconcilerConfigurer(sharedInformerFactory);
+    public KubernetesControllerFactory testControllerFactory(
+        SharedInformerFactory sharedInformerFactory, Reconciler reconciler) {
+      return new KubernetesControllerFactory(sharedInformerFactory, reconciler);
     }
   }
 
@@ -93,20 +91,11 @@ public class KubernetesReconcilerCreatorTest {
 
     private Request receivedRequest;
 
-    public TestReconciler(
-        SharedInformer<V1Pod> podInformer,
-        Lister<V1Pod> podLister,
-        Lister<V1ConfigMap> configMapLister) {
-      this.podInformer = podInformer;
-      this.podLister = podLister;
-      this.configMapLister = configMapLister;
-    }
+    @Autowired private SharedInformer<V1Pod> podInformer;
 
-    private final SharedInformer<V1Pod> podInformer;
+    @Autowired private Lister<V1Pod> podLister;
 
-    private final Lister<V1Pod> podLister;
-
-    private final Lister<V1ConfigMap> configMapLister;
+    @Autowired private Lister<V1ConfigMap> configMapLister;
 
     @Override
     public Result reconcile(Request request) {
@@ -115,28 +104,27 @@ public class KubernetesReconcilerCreatorTest {
     }
 
     @AddWatchEventFilter(apiTypeClass = V1Pod.class)
-    private boolean onAddFilter(V1Pod pod) {
+    public boolean onAddFilter(V1Pod pod) {
       return true;
     }
 
     @UpdateWatchEventFilter(apiTypeClass = V1Pod.class)
-    private boolean onUpdateFilter(V1Pod oldPod, V1Pod newPod) {
+    public boolean onUpdateFilter(V1Pod oldPod, V1Pod newPod) {
       return true;
     }
 
     @DeleteWatchEventFilter(apiTypeClass = V1Pod.class)
-    private boolean onDeleteFilter(V1Pod pod) {
+    public boolean onDeleteFilter(V1Pod pod) {
       return true;
     }
 
     @KubernetesReconcilerReadyFunc
-    private boolean podInformerCacheReady() {
+    public boolean podInformerCacheReady() {
       return podInformer.hasSynced();
     }
   }
 
-  @Resource(name = "test-reconcile")
-  private Controller testController;
+  @Resource private Controller testController;
 
   @Resource private TestReconciler testReconciler;
 

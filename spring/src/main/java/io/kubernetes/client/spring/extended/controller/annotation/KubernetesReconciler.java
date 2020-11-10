@@ -34,9 +34,12 @@ public @interface KubernetesReconciler {
   /**
    * The name of the Kubernetes Reconciler.
    *
+   * <p>NOTE: No longer in use for version >= 11.0.0
+   *
    * @return the string
    */
-  String value();
+  @Deprecated
+  String value() default "";
 
   /**
    * Watches kubernetes resources.
