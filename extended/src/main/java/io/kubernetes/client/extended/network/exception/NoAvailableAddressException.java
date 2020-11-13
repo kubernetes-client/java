@@ -10,19 +10,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-package io.kubernetes.client.extended.network;
+package io.kubernetes.client.extended.network.exception;
 
-import io.kubernetes.client.extended.network.exception.NoAvailableAddressException;
-import java.util.List;
-
-/** LoadBalancer provides IP address for L4 client-side load-balancing. */
-public interface LoadBalancer {
-
-  List<String> getAllAvailableIPs() throws NoAvailableAddressException;
-
-  List<String> getAllAvailableIPs(int port) throws NoAvailableAddressException;
-
-  String getTargetIP() throws NoAvailableAddressException;
-
-  String getTargetIP(int port) throws NoAvailableAddressException;
-}
+public class NoAvailableAddressException extends Exception {}

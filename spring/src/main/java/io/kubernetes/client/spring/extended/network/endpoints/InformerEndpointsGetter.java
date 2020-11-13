@@ -10,19 +10,18 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-package io.kubernetes.client.extended.network;
+package io.kubernetes.client.spring.extended.network.endpoints;
 
-import io.kubernetes.client.extended.network.exception.NoAvailableAddressException;
-import java.util.List;
+import io.kubernetes.client.informer.cache.Lister;
+import io.kubernetes.client.openapi.models.V1Endpoints;
+import org.springframework.beans.factory.annotation.Autowired;
 
-/** LoadBalancer provides IP address for L4 client-side load-balancing. */
-public interface LoadBalancer {
+public class InformerEndpointsGetter implements EndpointsGetter {
 
-  List<String> getAllAvailableIPs() throws NoAvailableAddressException;
+  @Autowired private Lister<V1Endpoints> endpointsLister;
 
-  List<String> getAllAvailableIPs(int port) throws NoAvailableAddressException;
-
-  String getTargetIP() throws NoAvailableAddressException;
-
-  String getTargetIP(int port) throws NoAvailableAddressException;
+  @Override
+  public V1Endpoints get(String namespace, String name) {
+    return this.endpointsLister.namespace(namespace).get(name);
+  }
 }

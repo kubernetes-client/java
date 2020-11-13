@@ -12,6 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.network;
 
+import io.kubernetes.client.extended.network.exception.NoAvailableAddressException;
 import io.kubernetes.client.openapi.models.V1Endpoints;
 import java.util.List;
 import java.util.function.Supplier;
@@ -37,26 +38,50 @@ public class EndpointsLoadBalancer implements LoadBalancer {
   }
 
   @Override
-  public String getTargetIP() {
+  public List<String> getAllAvailableIPs() throws NoAvailableAddressException {
     V1Endpoints ep = endpointsSupplier.get();
-    List<String> availableIPs =
-        ep.getSubsets().stream()
-            .flatMap(subset -> subset.getAddresses().stream().map(addr -> addr.getIp()))
-            .collect(Collectors.toList());
+    if (ep == null || ep.getSubsets() == null) {
+      throw new NoAvailableAddressException();
+    }
+    return ep.getSubsets().stream()
+        .flatMap(subset -> subset.getAddresses().stream().map(addr -> addr.getIp()))
+        .collect(Collectors.toList());
+  }
+
+  @Override
+  public List<String> getAllAvailableIPs(int port) throws NoAvailableAddressException {
+    V1Endpoints ep = endpointsSupplier.get();
+    if (ep == null || ep.getSubsets() == null) {
+      throw new NoAvailableAddressException();
+    }
+    return ep.getSubsets().stream()
+        .filter(
+            subset ->
+                subset.getPorts().stream()
+                    .anyMatch(epPort -> Integer.valueOf(port).equals(epPort.getPort())))
+        .flatMap(subset -> subset.getAddresses().stream().map(addr -> addr.getIp()))
+        .collect(Collectors.toList());
+  }
+
+  @Override
+  public String getTargetIP() throws NoAvailableAddressException {
+    List<String> availableIPs = getAllAvailableIPs();
+    if (availableIPs.size() == 0) {
+      throw new NoAvailableAddressException();
+    }
     return this.strategy.chooseIP(availableIPs);
   }
 
   @Override
-  public String getTargetIP(int port) {
+  public String getTargetIP(int port) throws NoAvailableAddressException {
     V1Endpoints ep = endpointsSupplier.get();
-    List<String> availableIPs =
-        ep.getSubsets().stream()
-            .filter(
-                subset ->
-                    subset.getPorts().stream()
-                        .anyMatch(epPort -> Integer.valueOf(port).equals(epPort.getPort())))
-            .flatMap(subset -> subset.getAddresses().stream().map(addr -> addr.getIp()))
-            .collect(Collectors.toList());
+    if (ep == null || ep.getSubsets() == null) {
+      throw new NoAvailableAddressException();
+    }
+    List<String> availableIPs = getAllAvailableIPs(port);
+    if (availableIPs.size() == 0) {
+      throw new NoAvailableAddressException();
+    }
     return this.strategy.chooseIP(availableIPs);
   }
 }
