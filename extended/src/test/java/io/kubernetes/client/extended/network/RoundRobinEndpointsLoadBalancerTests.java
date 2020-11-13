@@ -14,6 +14,7 @@ package io.kubernetes.client.extended.network;
 
 import static org.junit.Assert.*;
 
+import io.kubernetes.client.extended.network.exception.NoAvailableAddressException;
 import io.kubernetes.client.openapi.models.V1EndpointAddress;
 import io.kubernetes.client.openapi.models.V1EndpointPort;
 import io.kubernetes.client.openapi.models.V1EndpointSubset;
@@ -81,14 +82,14 @@ public class RoundRobinEndpointsLoadBalancerTests {
   }
 
   @Test
-  public void testEndpointLoadBalancing() {
+  public void testEndpointLoadBalancing() throws NoAvailableAddressException {
     EndpointsLoadBalancer loadBalancer =
         new EndpointsLoadBalancer(() -> twoPortTwoHostEp, new RoundRobinLoadBalanceStrategy());
     assertEquals("127.0.0.1", loadBalancer.getTargetIP());
     assertEquals("127.0.0.2", loadBalancer.getTargetIP());
     assertEquals("127.0.0.1", loadBalancer.getTargetIP(8081));
     assertThrows(
-        IllegalArgumentException.class,
+        NoAvailableAddressException.class,
         () -> {
           loadBalancer.getTargetIP(9999);
         });

@@ -20,6 +20,8 @@ import io.kubernetes.client.informer.SharedInformer;
 import io.kubernetes.client.informer.SharedInformerFactory;
 import io.kubernetes.client.informer.cache.Lister;
 import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.models.V1Endpoints;
+import io.kubernetes.client.openapi.models.V1EndpointsList;
 import io.kubernetes.client.openapi.models.V1Node;
 import io.kubernetes.client.openapi.models.V1NodeList;
 import io.kubernetes.client.openapi.models.V1Pod;
@@ -107,6 +109,11 @@ public class SpringControllerExample {
   }
 
   @KubernetesInformers({ // Defining what resources is the informer-factory actually watching.
+    @KubernetesInformer(
+        apiTypeClass = V1Endpoints.class,
+        apiListTypeClass = V1EndpointsList.class,
+        groupVersionResource =
+            @GroupVersionResource(apiGroup = "", apiVersion = "v1", resourcePlural = "endpoints")),
     @KubernetesInformer(
         apiTypeClass = V1Node.class,
         apiListTypeClass = V1NodeList.class,

@@ -14,6 +14,7 @@ package io.kubernetes.client.extended.network;
 
 import static org.junit.Assert.*;
 
+import io.kubernetes.client.extended.network.exception.NoAvailableAddressException;
 import io.kubernetes.client.openapi.models.V1EndpointAddress;
 import io.kubernetes.client.openapi.models.V1EndpointPort;
 import io.kubernetes.client.openapi.models.V1EndpointSubset;
@@ -56,7 +57,7 @@ public class EndpointsLoadBalancerTests {
                   .addPortsItem(new V1EndpointPort().port(8082)));
 
   @Test
-  public void testGetTargetIP1() {
+  public void testGetTargetIP1() throws NoAvailableAddressException {
     AtomicReference<List<String>> receivingAvailableIPs = new AtomicReference<>();
     EndpointsLoadBalancer endpointsLoadBalancer =
         new EndpointsLoadBalancer(
@@ -70,7 +71,7 @@ public class EndpointsLoadBalancerTests {
   }
 
   @Test
-  public void testGetTargetIP2() {
+  public void testGetTargetIP2() throws NoAvailableAddressException {
     AtomicReference<List<String>> receivingAvailableIPs = new AtomicReference<>();
     EndpointsLoadBalancer endpointsLoadBalancer =
         new EndpointsLoadBalancer(
@@ -84,7 +85,7 @@ public class EndpointsLoadBalancerTests {
   }
 
   @Test
-  public void testGetTargetIP3() {
+  public void testGetTargetIP3() throws NoAvailableAddressException {
     AtomicReference<List<String>> receivingAvailableIPs = new AtomicReference<>();
     EndpointsLoadBalancer endpointsLoadBalancer =
         new EndpointsLoadBalancer(
