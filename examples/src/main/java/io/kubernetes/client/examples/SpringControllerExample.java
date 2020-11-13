@@ -19,20 +19,14 @@ import io.kubernetes.client.extended.controller.reconciler.Result;
 import io.kubernetes.client.informer.SharedInformer;
 import io.kubernetes.client.informer.SharedInformerFactory;
 import io.kubernetes.client.informer.cache.Lister;
-import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.models.V1Endpoints;
 import io.kubernetes.client.openapi.models.V1EndpointsList;
 import io.kubernetes.client.openapi.models.V1Node;
 import io.kubernetes.client.openapi.models.V1NodeList;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1PodList;
-import io.kubernetes.client.spring.extended.controller.KubernetesInformerConfigurer;
 import io.kubernetes.client.spring.extended.controller.annotation.*;
 import io.kubernetes.client.spring.extended.controller.factory.KubernetesControllerFactory;
-import io.kubernetes.client.spring.extended.controller.metrics.PrometheusScrapeEndpoint;
-import io.kubernetes.client.util.ClientBuilder;
-import java.io.IOException;
-import java.time.Duration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -67,14 +61,6 @@ public class SpringControllerExample {
     }
 
     // *REQUIRED*
-    // Configurer components that registers informers to the informer-factory in the context.
-    @Bean
-    public KubernetesInformerConfigurer kubernetesInformerConfigurer(
-        ApiClient apiClient, SharedInformerFactory sharedInformerFactory) {
-      return new KubernetesInformerConfigurer(apiClient, sharedInformerFactory);
-    }
-
-    // *REQUIRED*
     // factorybean to crete controller
     @Bean("node-printing-controller")
     public KubernetesControllerFactory kubernetesReconcilerConfigurer(
@@ -82,29 +68,11 @@ public class SpringControllerExample {
       return new KubernetesControllerFactory(sharedInformerFactory, reconciler);
     }
 
-    // *OPTIONAL*
-    // Injecting and customize your ApiClient, if not specified, fallbacks to {@link
-    // io.kubernetes.client.util.ClientBuilder#standard}
-    @Bean
-    public ApiClient myApiClient() throws IOException {
-      ApiClient apiClient = ClientBuilder.standard().build();
-      return apiClient.setHttpClient(
-          apiClient.getHttpClient().newBuilder().readTimeout(Duration.ZERO).build());
-    }
-
     // *REQUIRED*
     // Injecting your SharedInformerFactory class annotated `@KubernetesInformers`
     @Bean("sharedInformerFactory")
     public SharedInformerFactory sharedInformerFactory() {
       return new MySharedInformerFactory();
-    }
-
-    // *OPTIONAL*
-    // Enabling prometheus scraping endpoint at `/actuator/prometheus`
-    // SHOULD set `management.endpoints.web.exposure.include=prometheus` property.
-    @Bean
-    public PrometheusScrapeEndpoint prometheusScrapeEndpoint() {
-      return new PrometheusScrapeEndpoint();
     }
   }
 
