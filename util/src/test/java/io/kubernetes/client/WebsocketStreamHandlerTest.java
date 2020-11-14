@@ -122,7 +122,7 @@ public class WebsocketStreamHandlerTest {
     assertArrayEquals(output, mockWebSocket.data);
   }
 
-  private class MockWebSocket implements WebSocket {
+  private static class MockWebSocket implements WebSocket {
     byte[] data;
     private boolean closed = false;
 

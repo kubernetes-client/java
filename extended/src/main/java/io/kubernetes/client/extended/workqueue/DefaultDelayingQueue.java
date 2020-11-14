@@ -125,7 +125,7 @@ public class DefaultDelayingQueue<T> extends DefaultWorkQueue<T> implements Dela
   }
 
   // WaitForEntry holds the data to add and the time it should be added.
-  private class WaitForEntry<T> implements Delayed {
+  private static class WaitForEntry<T> implements Delayed {
 
     private WaitForEntry(T data, Temporal readyAtMillis) {
       this.data = data;
