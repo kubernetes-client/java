@@ -88,7 +88,7 @@ public class EventAggregator {
     return new MutablePair<>(aggregatedEvent, aggregatedKey);
   }
 
-  private class AggregatedRecord {
+  private static class AggregatedRecord {
     private Set<String> localKeys = new HashSet<>();
     private DateTime lastTimestamp;
 

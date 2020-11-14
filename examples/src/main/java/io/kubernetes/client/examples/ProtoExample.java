@@ -53,8 +53,7 @@ public class ProtoExample {
     System.out.println(ns);
     if (ns.object != null) {
       namespace =
-          ns.object
-              .toBuilder()
+          ns.object.toBuilder()
               .setSpec(NamespaceSpec.newBuilder().addFinalizers("test").build())
               .build();
       // This is how you would update an object, but you can't actually

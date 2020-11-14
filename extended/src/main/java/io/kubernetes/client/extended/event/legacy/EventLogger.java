@@ -67,7 +67,7 @@ public class EventLogger {
     this.eventCache.put(key, log);
   }
 
-  private class EventLog {
+  private static class EventLog {
     private Integer count;
     private DateTime firstTimestamp;
     private String name;

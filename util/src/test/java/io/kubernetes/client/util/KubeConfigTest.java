@@ -221,7 +221,7 @@ public class KubeConfigTest {
     assertNull(config.getNamespace());
   }
 
-  class FakeAuthenticator implements Authenticator {
+  static class FakeAuthenticator implements Authenticator {
     public String token;
     public String refresh;
     public boolean expired;
