@@ -91,7 +91,7 @@ public class KubernetesInformerCreatorTest {
                   apiVersion = "v1",
                   resourcePlural = "configmaps")),
     })
-    class TestSharedInformerFactory extends SharedInformerFactory {}
+    static class TestSharedInformerFactory extends SharedInformerFactory {}
   }
 
   @Autowired private SharedInformerFactory informerFactory;

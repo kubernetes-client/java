@@ -35,7 +35,7 @@ public class ControllerManagerTest {
     assertTrue(dummy2.stopped);
   }
 
-  class DummyController implements Controller {
+  static class DummyController implements Controller {
 
     private boolean started;
     private boolean stopped;
