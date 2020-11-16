@@ -10,7 +10,7 @@
 
   <modules>
     <module>util</module>
-    <module>examples</module>
+    <module>examples/examples-release-11</module>
     <module>kubernetes</module>
     <module>proto</module>
     <module>extended</module>

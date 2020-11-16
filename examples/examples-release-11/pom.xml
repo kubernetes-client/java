@@ -1,16 +1,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.kubernetes</groupId>
-	<artifactId>client-java-examples</artifactId>
+	<artifactId>client-java-examples-release-11</artifactId>
 	<packaging>bundle</packaging>
-	<name>client-java-examples</name>
+	<name>client-java-examples-release-11</name>
 	<url>https://github.com/kubernetes-client/java</url>
 	<parent>
 		<groupId>io.kubernetes</groupId>
 		<artifactId>client-java-parent</artifactId>
 		<version>10.0.1-SNAPSHOT</version>
-		<relativePath>../pom.xml</relativePath>
+		<relativePath>../../pom.xml</relativePath>
 	</parent>
+	<properties>
+		<kubernetes.client.version>${project.version}</kubernetes.client.version>
+	</properties>
 	<dependencies>
         <dependency>
             <groupId>io.prometheus</groupId>
@@ -25,27 +28,27 @@
 		<dependency>
 			<groupId>io.kubernetes</groupId>
 			<artifactId>client-java-api</artifactId>
-			<version>${project.version}</version>
+			<version>${kubernetes.client.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.kubernetes</groupId>
 			<artifactId>client-java</artifactId>
-			<version>${project.version}</version>
+			<version>${kubernetes.client.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.kubernetes</groupId>
 			<artifactId>client-java-extended</artifactId>
-			<version>${project.version}</version>
+			<version>${kubernetes.client.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.kubernetes</groupId>
 			<artifactId>client-java-spring-integration</artifactId>
-			<version>${project.version}</version>
+			<version>${kubernetes.client.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.kubernetes</groupId>
 			<artifactId>client-java-proto</artifactId>
-			<version>${project.version}</version>
+			<version>${kubernetes.client.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.guava</groupId>
