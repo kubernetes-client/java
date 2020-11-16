@@ -10,7 +10,6 @@
 
   <modules>
     <module>util</module>
-    <module>examples/examples-release-11</module>
     <module>kubernetes</module>
     <module>proto</module>
     <module>extended</module>
@@ -18,6 +17,7 @@
     <module>client-java-contrib/cert-manager</module>
     <module>e2e</module>
     <module>client-java-contrib/prometheus-operator</module>
+    <module>examples</module>
   </modules>
 
   <scm>
