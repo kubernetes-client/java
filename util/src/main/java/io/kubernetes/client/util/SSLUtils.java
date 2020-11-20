@@ -12,13 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.math.BigInteger;
 import java.security.KeyFactory;
 import java.security.KeyStore;
@@ -38,7 +32,9 @@ import javax.net.ssl.KeyManagerFactory;
 import org.apache.commons.codec.binary.Base64;
 import org.bouncycastle.openssl.PEMKeyPair;
 import org.bouncycastle.openssl.PEMParser;
+import org.bouncycastle.openssl.jcajce.JcaMiscPEMGenerator;
 import org.bouncycastle.openssl.jcajce.JcaPEMKeyConverter;
+import org.bouncycastle.util.io.pem.PemWriter;
 
 public class SSLUtils {
   static {
@@ -91,7 +87,38 @@ public class SSLUtils {
     }
   }
 
-  private static PrivateKey loadKey(InputStream keyInputStream, String clientKeyAlgo)
+  public static byte[] dumpKey(PrivateKey privateKey) throws IOException {
+    StringWriter writer = new StringWriter();
+    PemWriter pemWriter = new PemWriter(writer);
+    pemWriter.writeObject(new JcaMiscPEMGenerator(privateKey));
+    pemWriter.flush();
+    return writer.toString().getBytes();
+  }
+
+  public static String recognizePrivateKeyAlgo(byte[] privateKeyBytes) {
+    String dataString = new String(privateKeyBytes);
+    String algo = ""; // PKCS#8
+    if (dataString.contains("BEGIN EC PRIVATE KEY")) {
+      algo = "EC"; // PKCS#1 - EC
+    }
+    if (dataString.contains("BEGIN RSA PRIVATE KEY")) {
+      algo = "RSA"; // PKCS#1 - RSA
+    }
+    return algo;
+  }
+
+  public static PrivateKey loadKey(byte[] privateKeyBytes)
+      throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
+    return loadKey(
+        new ByteArrayInputStream(privateKeyBytes), recognizePrivateKeyAlgo(privateKeyBytes));
+  }
+
+  public static PrivateKey loadKey(byte[] pemPrivateKeyBytes, String algo)
+      throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
+    return loadKey(new ByteArrayInputStream(pemPrivateKeyBytes), algo);
+  }
+
+  public static PrivateKey loadKey(InputStream keyInputStream, String clientKeyAlgo)
       throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
 
     // Try PKCS7 / EC
