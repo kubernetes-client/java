@@ -16,7 +16,6 @@ import static io.kubernetes.client.KubernetesConstants.*;
 
 import com.google.common.io.CharStreams;
 import com.google.gson.reflect.TypeToken;
-import io.kubernetes.client.custom.AsyncPump;
 import io.kubernetes.client.custom.IOTrio;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
@@ -28,19 +27,25 @@ import io.kubernetes.client.openapi.models.V1StatusCause;
 import io.kubernetes.client.openapi.models.V1StatusDetails;
 import io.kubernetes.client.util.WebSocketStreamHandler;
 import io.kubernetes.client.util.WebSockets;
-
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.Reader;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
-
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,7 +54,6 @@ public class Exec {
   private static final Logger log = LoggerFactory.getLogger(Exec.class);
 
   private ApiClient apiClient;
-  private long graceTimeoutMs = 5_000L;
 
   /** Simple Exec API constructor, uses default configuration */
   public Exec() {
@@ -195,170 +199,110 @@ public class Exec {
   }
 
   /**
-   * A convenience method. It simply executes a single command and returns its complete stdout, stderr and exit code as a result. Command
-   * execution is asynchronous and can be synchronized through the returned {@link Future}. Any error during the execution will fail the
-   * {@link Future}.
-   * <br/> See {@link #exec(String, String, Consumer, BiConsumer, BiConsumer, Long, boolean, String...)} for more details.
-   *
-   * @return a {@link Future} promise which contains all the collected output and an exit code. In case an error occurs during execution
-   * the promise will be completed exceptionally.
-   * @throws IOException
-   */
-  public Future<SimpleExecResult> execSimple(String namespace, String podName, long timeout, boolean tty, String... command)
-      throws IOException {
-    CompletableFuture<SimpleExecResult> promise = new CompletableFuture<>();
-    ByteArrayOutputStream outBuffer = new ByteArrayOutputStream();
-    ByteArrayOutputStream errBuffer = new ByteArrayOutputStream();
-    AsyncPump outPump = new AsyncPump(outBuffer::write, Throwable::printStackTrace, null);
-    AsyncPump errPump = new AsyncPump(errBuffer::write, Throwable::printStackTrace, null);
-    exec(namespace, podName,
-        io -> {
-          outPump.startAsync(io.getStdout());
-          errPump.startAsync(io.getStderr());
-        },
-        (code, io) -> {
-          SimpleExecResult result = new SimpleExecResult();
-          result.setCode(code);
-          outPump.waitForExit();
-          errPump.waitForExit();
-          result.setOut(outBuffer.toByteArray());
-          result.setError(errBuffer.toByteArray());
-          promise.complete(result);
-        },
-        (err, io) -> {
-          promise.completeExceptionally(err);
-          io.close(-1, 0L);
-        },
-        timeout, tty, command);
-
-    return promise;
-  }
-
-  public static class SimpleExecResult {
-    private byte[] error;
-    private byte[] out;
-    private int code;
-
-    public String getErrorAsString() {
-      if (hasError()) return new String(error);
-      return "";
-    }
-
-    public String getOutAsString() {
-      if (hasOut()) return new String(out);
-      return "";
-    }
-
-    public boolean hasError() {
-      return error != null && error.length > 0;
-    }
-
-    public boolean hasOut() {
-      return out != null && out.length > 0;
-    }
-
-    public byte[] getError() {
-      return error;
-    }
-
-    public void setError(byte[] error) {
-      this.error = error;
-    }
-
-    public byte[] getOut() {
-      return out;
-    }
-
-    public void setOut(byte[] out) {
-      this.out = out;
-    }
-
-    public int getCode() {
-      return code;
-    }
-
-    public void setCode(int code) {
-      this.code = code;
-    }
-  }
-
-  /**
-   * A convenience method. Executes a command remotely on a pod and monitors for events in that execution. The monitored events are:
-   * <br/>- connection established (onOpen)
-   * <br/>- connection closed (onClosed)
-   * <br/>- execution error occurred (onError)
-   * <br/>
-   * This method also allows to specify a MAX timeout for the execution and returns a future in order to monitor the execution flow.
+   * A convenience method. Executes a command remotely on a pod and monitors for events in that
+   * execution. The monitored events are: <br>
+   * - connection established (onOpen) <br>
+   * - connection closed (onClosed) <br>
+   * - execution error occurred (onError) <br>
+   * This method also allows to specify a MAX timeout for the execution and returns a future in
+   * order to monitor the execution flow. <br>
+   * onError and onClosed callbacks are invoked asynchronously, in a separate thread. <br>
    *
    * @param namespace a namespace the target pod "lives" in
-   * @param podName   a name of the pod to exec the command on
-   * @param onOpen    a callback invoked upon the connection established event.
-   * @param onClosed  a callback invoked upon the process termination. Return code might not always be there.
-   * @param onError   a callback to handle k8s errors (NOT the command errors/stderr!)
-   * @param timeoutMs timeout in milliseconds for the execution. I.e. the execution will take this many ms or less. If the timeout
-   *                  command is running longer than the allowed timeout, the command will be "asked" to terminate gracefully. If the
-   *                  command is still running after the grace period, the sigkill will be issued. If null is passed, the timeout will not
-   *                  be used and will wait for process to exit itself.
-   * @param tty       whether you need tty to pipe the data. TTY mode will trim some binary data in order to make it possible to show
-   *                  on screen (tty)
-   * @param command   a tokenized command to run on the pod
-   * @return a {@link Future} promise representing this execution. Unless something goes south, the promise will contain the process return
-   * exit code. If the timeoutMs is non-null and the timeout expires before the process exits, promise will contain
-   * {@link Integer#MAX_VALUE}.
+   * @param podName a name of the pod to exec the command on
+   * @param onOpen a callback invoked upon the connection established event.
+   * @param onClosed a callback invoked upon the process termination. Return code might not always
+   *     be there. N.B. this callback is invoked before the returned {@link Future} is completed.
+   * @param onError a callback to handle k8s errors (NOT the command errors/stderr!)
+   * @param timeoutMs timeout in milliseconds for the execution. I.e. the execution will take this
+   *     many ms or less. If the timeout command is running longer than the allowed timeout, the
+   *     command will be "asked" to terminate gracefully. If the command is still running after the
+   *     grace period, the sigkill will be issued. If null is passed, the timeout will not be used
+   *     and will wait for process to exit itself.
+   * @param tty whether you need tty to pipe the data. TTY mode will trim some binary data in order
+   *     to make it possible to show on screen (tty)
+   * @param command a tokenized command to run on the pod
+   * @return a {@link Future} promise representing this execution. Unless something goes south, the
+   *     promise will contain the process return exit code. If the timeoutMs is non-null and the
+   *     timeout expires before the process exits, promise will contain {@link Integer#MAX_VALUE}.
    * @throws IOException
    */
-  public Future<Integer> exec(String namespace, String podName, Consumer<IOTrio> onOpen, BiConsumer<Integer, IOTrio> onClosed,
-                              BiConsumer<Throwable, IOTrio> onError, Long timeoutMs, boolean tty, String... command) throws IOException {
+  public Future<Integer> exec(
+      String namespace,
+      String podName,
+      Consumer<IOTrio> onOpen,
+      BiConsumer<Integer, IOTrio> onClosed,
+      BiConsumer<Throwable, IOTrio> onError,
+      Long timeoutMs,
+      boolean tty,
+      String... command)
+      throws IOException {
     CompletableFuture<Integer> future = new CompletableFuture<>();
     IOTrio io = new IOTrio();
     String cmdStr = Arrays.toString(command);
+    BiConsumer<Throwable, IOTrio> errHandler =
+        (err, errIO) -> {
+          if (onError != null) {
+            onError.accept(err, errIO);
+          }
+        };
     try {
-      Process process = newExecutionBuilder(namespace, podName, command)
-          .setStdin(true)
-          .setStdout(true)
-          .setStderr(true)
-          .setTty(tty)
-          .execute();
-      io.onClose((code, timeout) -> {
-        process.destroy();
-        waitForProcessToExit(process, timeout, cmdStr, err -> onError.accept(err, io));
-        // processWaitingThread will handle the rest
-      });
+      Process process = exec(namespace, podName, command, null, true, tty);
+
+      io.onClose(
+          (code, timeout) -> {
+            process.destroy();
+            waitForProcessToExit(process, timeout, cmdStr, err -> errHandler.accept(err, io));
+            // processWaitingThread will handle the rest
+          });
       io.setStdin(process.getOutputStream());
       io.setStdout(process.getInputStream());
       io.setStderr(process.getErrorStream());
-      Thread processWaitingThread = new Thread(() -> {
-        Supplier<Integer> returnCode = process::exitValue;
-        try {
-          log.debug("Waiting for process to close in {} ms: {}", timeoutMs, cmdStr);
-          boolean beforeTimout = waitForProcessToExit(process, timeoutMs, cmdStr, err -> onError.accept(err, io));
-          if (!beforeTimout) {
-            returnCode = () -> Integer.MAX_VALUE;
-          }
-        } catch (Exception e) {
-          onError.accept(e, io);
-        }
-        log.debug("process.onExit({}): {}", returnCode.get(), cmdStr);
-        future.complete(returnCode.get());
-        onClosed.accept(returnCode.get(), io);
-      });
-      processWaitingThread.setName("Process-Waiting-Thread-" + command[0] + "-" + podName);
-      processWaitingThread.start();
-      onOpen.accept(io);
+      runAsync(
+          "Process-Waiting-Thread-" + command[0] + "-" + podName,
+          () -> {
+            Supplier<Integer> returnCode = process::exitValue;
+            try {
+              log.debug("Waiting for process to close in {} ms: {}", timeoutMs, cmdStr);
+              boolean beforeTimout =
+                  waitForProcessToExit(
+                      process, timeoutMs, cmdStr, err -> errHandler.accept(err, io));
+              if (!beforeTimout) {
+                returnCode = () -> Integer.MAX_VALUE;
+              }
+            } catch (Exception e) {
+              errHandler.accept(e, io);
+            }
+            log.debug("process.onExit({}): {}", returnCode.get(), cmdStr);
+            if (onClosed != null) {
+              onClosed.accept(returnCode.get(), io);
+            }
+            future.complete(returnCode.get());
+          });
+      if (onOpen != null) {
+        onOpen.accept(io);
+      }
     } catch (ApiException e) {
-      onError.accept(e, io);
+      errHandler.accept(e, io);
       future.completeExceptionally(e);
     }
     return future;
   }
 
-  private boolean waitForProcessToExit(Process process, Long timeoutMs, String cmdStr, Consumer<Exception> onError) {
+  protected void runAsync(String taskName, Runnable task) {
+    Thread thread = new Thread(task);
+    thread.setName(taskName);
+    thread.start();
+  }
+
+  private boolean waitForProcessToExit(
+      Process process, Long timeoutMs, String cmdStr, Consumer<Exception> onError) {
     boolean beforeTimeout = true;
     if (timeoutMs != null && timeoutMs >= 0) {
       boolean exited = false;
       try {
         exited = process.waitFor(timeoutMs, TimeUnit.MILLISECONDS);
-      } catch (Exception e) {
+      } catch (InterruptedException e) {
         onError.accept(e);
       }
       log.debug("Process closed={}: {}", exited, cmdStr);
@@ -366,15 +310,6 @@ public class Exec {
         beforeTimeout = false;
         log.warn("Process timed out after {} ms. Shutting down: {}", timeoutMs, cmdStr);
         process.destroy();
-        try {
-          exited = process.waitFor(graceTimeoutMs, TimeUnit.MILLISECONDS);
-        } catch (Exception e) {
-          onError.accept(e);
-        }
-        if (!exited && process.isAlive()) {
-          log.warn("Process timed out after {} ms and remained running after grace period. Killing: {}", timeoutMs, cmdStr);
-          process.destroyForcibly();
-        }
       }
     } else {
       try {
@@ -384,10 +319,6 @@ public class Exec {
       }
     }
     return beforeTimeout;
-  }
-
-  public void setGraceTimeoutMs(long graceTimeoutMs) {
-    this.graceTimeoutMs = graceTimeoutMs;
   }
 
   public final class ExecutionBuilder {
