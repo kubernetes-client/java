@@ -57,6 +57,8 @@ public class KubectlGet<ApiType extends KubernetesObject>
 
   @Override
   public List<ApiType> execute() throws KubectlException {
+    refreshDiscovery();
+
     GenericKubernetesApi<ApiType, ? extends KubernetesListObject> api =
         apiTypeListClass == null
             ? getGenericApi(apiTypeClass)
