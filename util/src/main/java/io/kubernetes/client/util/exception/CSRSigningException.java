@@ -10,7 +10,10 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-package io.kubernetes.client.extended.wait;
+package io.kubernetes.client.util.exception;
 
-@Deprecated
-public class Wait extends io.kubernetes.client.util.wait.Wait {}
+public class CSRSigningException extends Exception {
+  public CSRSigningException(Exception e) {
+    super(e);
+  }
+}
