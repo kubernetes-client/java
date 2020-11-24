@@ -34,6 +34,7 @@ public class KubectlCordon extends Kubectl.ResourceBuilder<V1Node, KubectlCordon
 
   @Override
   public V1Node execute() throws KubectlException {
+    refreshDiscovery();
     return performCordon();
   }
 
