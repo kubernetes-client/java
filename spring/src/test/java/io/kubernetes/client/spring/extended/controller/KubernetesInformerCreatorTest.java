@@ -43,21 +43,21 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
-@Import(KubernetesInformerCreatorTest.TestConfig.class)
+@SpringBootTest(classes = {KubernetesInformerCreatorTest.App.class})
 public class KubernetesInformerCreatorTest {
 
   @Rule public WireMockRule wireMockRule = new WireMockRule(8188);
 
-  @TestConfiguration
-  static class TestConfig {
+  @SpringBootApplication
+  @EnableAutoConfiguration
+  static class App {
 
     @Bean
     public ApiClient testingApiClient() {
@@ -70,12 +70,6 @@ public class KubernetesInformerCreatorTest {
       return new TestSharedInformerFactory();
     }
 
-    @Bean
-    public KubernetesInformerConfigurer kubernetesInformerConfigurer(
-        ApiClient apiClient, SharedInformerFactory sharedInformerFactory) {
-      return new KubernetesInformerConfigurer(apiClient, sharedInformerFactory);
-    }
-
     @KubernetesInformers({
       @KubernetesInformer(
           apiTypeClass = V1Pod.class,
@@ -85,6 +79,7 @@ public class KubernetesInformerCreatorTest {
       @KubernetesInformer(
           apiTypeClass = V1ConfigMap.class,
           apiListTypeClass = V1ConfigMapList.class,
+          namespace = "default",
           groupVersionResource =
               @GroupVersionResource(
                   apiGroup = "",
@@ -138,7 +133,7 @@ public class KubernetesInformerCreatorTest {
             .willReturn(aResponse().withStatus(200).withBody("{}")));
 
     wireMockRule.stubFor(
-        get(urlMatching("^/api/v1/configmaps.*"))
+        get(urlMatching("^/api/v1/namespaces/default/configmaps.*"))
             .withQueryParam("watch", equalTo("false"))
             .willReturn(
                 aResponse()
@@ -150,7 +145,7 @@ public class KubernetesInformerCreatorTest {
                                     .metadata(new V1ListMeta().resourceVersion("0"))
                                     .items(Arrays.asList(bar1))))));
     wireMockRule.stubFor(
-        get(urlMatching("^/api/v1/configmaps.*"))
+        get(urlMatching("^/api/v1/namespaces/default/configmaps.*"))
             .withQueryParam("watch", equalTo("true"))
             .willReturn(aResponse().withStatus(200).withBody("{}")));
 
@@ -165,10 +160,10 @@ public class KubernetesInformerCreatorTest {
         getRequestedFor(urlPathEqualTo("/api/v1/pods")).withQueryParam("watch", equalTo("true")));
     verify(
         1,
-        getRequestedFor(urlPathEqualTo("/api/v1/configmaps"))
+        getRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/configmaps"))
             .withQueryParam("watch", equalTo("false")));
     verify(
-        getRequestedFor(urlPathEqualTo("/api/v1/configmaps"))
+        getRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/configmaps"))
             .withQueryParam("watch", equalTo("true")));
 
     assertEquals(1, podLister.list().size());

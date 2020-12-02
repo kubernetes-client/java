@@ -92,7 +92,7 @@ public class GenericKubernetesApiForCoreApiTest {
     V1PodList podList = new V1PodList().kind("PodList").metadata(new V1ListMeta());
 
     stubFor(
-        get(urlEqualTo("/api/v1/namespaces/default/pods"))
+        get(urlPathEqualTo("/api/v1/namespaces/default/pods"))
             .willReturn(aResponse().withStatus(200).withBody(new Gson().toJson(podList))));
     KubernetesApiResponse<V1PodList> podListResp = podClient.list("default");
     assertTrue(podListResp.isSuccess());

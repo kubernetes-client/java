@@ -20,6 +20,8 @@ import java.nio.charset.Charset;
 /** Namespaces provides a set of helpers for operating namespaces. */
 public class Namespaces {
 
+  public static final String NAMESPACE_ALL = "";
+
   public static final String NAMESPACE_DEFAULT = "default";
 
   public static final String NAMESPACE_KUBESYSTEM = "kube-system";

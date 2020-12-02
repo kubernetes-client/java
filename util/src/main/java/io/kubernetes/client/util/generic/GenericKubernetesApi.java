@@ -379,7 +379,7 @@ public class GenericKubernetesApi<
               listOptions.getLimit(),
               listOptions.getResourceVersion(),
               listOptions.getTimeoutSeconds(),
-              null,
+              false,
               null);
         });
   }
@@ -698,6 +698,7 @@ public class GenericKubernetesApi<
             true,
             null);
 
+    call = tweakCallForCoreV1Group(call);
     return Watch.createWatch(
         customObjectsApi.getApiClient(),
         call,

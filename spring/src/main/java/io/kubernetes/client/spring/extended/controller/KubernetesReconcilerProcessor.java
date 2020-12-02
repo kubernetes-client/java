@@ -26,7 +26,6 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.core.Ordered;
-import org.springframework.stereotype.Component;
 
 /**
  * Scans and processes {@link
@@ -35,7 +34,6 @@ import org.springframework.stereotype.Component;
  * <p>It will create a {@link io.kubernetes.client.extended.controller.Controller} for every
  * reconciler instances registered in the spring bean-factory.
  */
-@Component
 public class KubernetesReconcilerProcessor implements BeanFactoryPostProcessor, Ordered {
 
   private static final Logger log = LoggerFactory.getLogger(KubernetesReconcilerProcessor.class);
