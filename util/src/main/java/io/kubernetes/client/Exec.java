@@ -16,6 +16,7 @@ import static io.kubernetes.client.KubernetesConstants.*;
 
 import com.google.common.io.CharStreams;
 import com.google.gson.reflect.TypeToken;
+import io.kubernetes.client.custom.IOTrio;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
@@ -34,11 +35,17 @@ import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.net.URLEncoder;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -189,6 +196,129 @@ public class Exec {
         .setStdin(stdin)
         .setTty(tty)
         .execute();
+  }
+
+  /**
+   * A convenience method. Executes a command remotely on a pod and monitors for events in that
+   * execution. The monitored events are: <br>
+   * - connection established (onOpen) <br>
+   * - connection closed (onClosed) <br>
+   * - execution error occurred (onError) <br>
+   * This method also allows to specify a MAX timeout for the execution and returns a future in
+   * order to monitor the execution flow. <br>
+   * onError and onClosed callbacks are invoked asynchronously, in a separate thread. <br>
+   *
+   * @param namespace a namespace the target pod "lives" in
+   * @param podName a name of the pod to exec the command on
+   * @param onOpen a callback invoked upon the connection established event.
+   * @param onClosed a callback invoked upon the process termination. Return code might not always
+   *     be there. N.B. this callback is invoked before the returned {@link Future} is completed.
+   * @param onError a callback to handle k8s errors (NOT the command errors/stderr!)
+   * @param timeoutMs timeout in milliseconds for the execution. I.e. the execution will take this
+   *     many ms or less. If the timeout command is running longer than the allowed timeout, the
+   *     command will be "asked" to terminate gracefully. If the command is still running after the
+   *     grace period, the sigkill will be issued. If null is passed, the timeout will not be used
+   *     and will wait for process to exit itself.
+   * @param tty whether you need tty to pipe the data. TTY mode will trim some binary data in order
+   *     to make it possible to show on screen (tty)
+   * @param command a tokenized command to run on the pod
+   * @return a {@link Future} promise representing this execution. Unless something goes south, the
+   *     promise will contain the process return exit code. If the timeoutMs is non-null and the
+   *     timeout expires before the process exits, promise will contain {@link Integer#MAX_VALUE}.
+   * @throws IOException
+   */
+  public Future<Integer> exec(
+      String namespace,
+      String podName,
+      Consumer<IOTrio> onOpen,
+      BiConsumer<Integer, IOTrio> onClosed,
+      BiConsumer<Throwable, IOTrio> onError,
+      Long timeoutMs,
+      boolean tty,
+      String... command)
+      throws IOException {
+    CompletableFuture<Integer> future = new CompletableFuture<>();
+    IOTrio io = new IOTrio();
+    String cmdStr = Arrays.toString(command);
+    BiConsumer<Throwable, IOTrio> errHandler =
+        (err, errIO) -> {
+          if (onError != null) {
+            onError.accept(err, errIO);
+          }
+        };
+    try {
+      Process process = exec(namespace, podName, command, null, true, tty);
+
+      io.onClose(
+          (code, timeout) -> {
+            process.destroy();
+            waitForProcessToExit(process, timeout, cmdStr, err -> errHandler.accept(err, io));
+            // processWaitingThread will handle the rest
+          });
+      io.setStdin(process.getOutputStream());
+      io.setStdout(process.getInputStream());
+      io.setStderr(process.getErrorStream());
+      runAsync(
+          "Process-Waiting-Thread-" + command[0] + "-" + podName,
+          () -> {
+            Supplier<Integer> returnCode = process::exitValue;
+            try {
+              log.debug("Waiting for process to close in {} ms: {}", timeoutMs, cmdStr);
+              boolean beforeTimout =
+                  waitForProcessToExit(
+                      process, timeoutMs, cmdStr, err -> errHandler.accept(err, io));
+              if (!beforeTimout) {
+                returnCode = () -> Integer.MAX_VALUE;
+              }
+            } catch (Exception e) {
+              errHandler.accept(e, io);
+            }
+            log.debug("process.onExit({}): {}", returnCode.get(), cmdStr);
+            if (onClosed != null) {
+              onClosed.accept(returnCode.get(), io);
+            }
+            future.complete(returnCode.get());
+          });
+      if (onOpen != null) {
+        onOpen.accept(io);
+      }
+    } catch (ApiException e) {
+      errHandler.accept(e, io);
+      future.completeExceptionally(e);
+    }
+    return future;
+  }
+
+  protected void runAsync(String taskName, Runnable task) {
+    Thread thread = new Thread(task);
+    thread.setName(taskName);
+    thread.start();
+  }
+
+  private boolean waitForProcessToExit(
+      Process process, Long timeoutMs, String cmdStr, Consumer<Exception> onError) {
+    boolean beforeTimeout = true;
+    if (timeoutMs != null && timeoutMs >= 0) {
+      boolean exited = false;
+      try {
+        exited = process.waitFor(timeoutMs, TimeUnit.MILLISECONDS);
+      } catch (InterruptedException e) {
+        onError.accept(e);
+      }
+      log.debug("Process closed={}: {}", exited, cmdStr);
+      if (!exited && process.isAlive()) {
+        beforeTimeout = false;
+        log.warn("Process timed out after {} ms. Shutting down: {}", timeoutMs, cmdStr);
+        process.destroy();
+      }
+    } else {
+      try {
+        process.waitFor();
+      } catch (InterruptedException e) {
+        onError.accept(e);
+      }
+    }
+    return beforeTimeout;
   }
 
   public final class ExecutionBuilder {
