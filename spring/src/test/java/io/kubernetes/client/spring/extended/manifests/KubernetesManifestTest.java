@@ -36,15 +36,13 @@ import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
-@Import(KubernetesManifestTest.TestConfig.class)
+@SpringBootTest(classes = KubernetesManifestTest.App.class)
 public class KubernetesManifestTest {
 
   private static final String DISCOVERY_API = Resources.getResource("discovery-api.json").getPath();
@@ -57,9 +55,8 @@ public class KubernetesManifestTest {
 
   @ClassRule public static WireMockRule wireMockRule = new WireMockRule(8288);
 
-  @TestConfiguration
-  static class TestConfig {
-
+  @SpringBootConfiguration
+  static class App {
     @Bean
     public ApiClient testingApiClient() {
       ApiClient apiClient = new ClientBuilder().setBasePath(wireMockRule.baseUrl()).build();

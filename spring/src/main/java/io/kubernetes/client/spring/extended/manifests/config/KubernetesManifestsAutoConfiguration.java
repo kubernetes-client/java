@@ -12,6 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.spring.extended.manifests.config;
 
+import io.kubernetes.client.spring.extended.manifests.KubernetesFromYamlProcessor;
 import io.kubernetes.client.spring.extended.manifests.KubernetesKubectlCreateProcessor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -25,5 +26,11 @@ public class KubernetesManifestsAutoConfiguration {
   @ConditionalOnMissingBean
   public KubernetesKubectlCreateProcessor kubernetesKubectlCreateProcessor() {
     return new KubernetesKubectlCreateProcessor();
+  }
+
+  @Bean
+  @ConditionalOnMissingBean
+  public KubernetesFromYamlProcessor kubernetesFromYamlProcessor() {
+    return new KubernetesFromYamlProcessor();
   }
 }
