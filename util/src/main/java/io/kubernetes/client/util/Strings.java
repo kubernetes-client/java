@@ -10,24 +10,17 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-package io.kubernetes.client.util.credentials;
+package io.kubernetes.client.util;
 
-import java.util.Objects;
+import javax.annotation.Nullable;
 
-import io.kubernetes.client.openapi.ApiClient;
+public class Strings {
 
-/** Uses a Bearer Token to configure {@link ApiClient} authentication to the Kubernetes API. */
-public class AccessTokenAuthentication implements Authentication {
-  private String token;
-
-  public AccessTokenAuthentication(final String token) {
-    Objects.requireNonNull(token, "Access Token cannot be null");
-    this.token = token;
+  public static boolean isNullOrEmpty(String value) {
+    return value == null || value.length() == 0;
   }
 
-  @Override
-  public void provide(ApiClient client) {
-    client.setApiKeyPrefix("Bearer");
-    client.setApiKey(token);
+  public static String nullToEmpty(@Nullable String string) {
+    return (string == null) ? "" : string;
   }
 }

@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.apimachinery;
 
-import com.google.common.base.Objects;
+import java.util.Objects;
 
 public class GroupVersionKind extends GroupVersion {
 
@@ -32,15 +32,19 @@ public class GroupVersionKind extends GroupVersion {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o)
+      return true;
+    if (o == null || getClass() != o.getClass())
+      return false;
+    if (!super.equals(o))
+      return false;
     GroupVersionKind that = (GroupVersionKind) o;
-    return Objects.equal(kind, that.kind);
+    return Objects.equals(kind, that.kind);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hashCode(super.hashCode(), kind);
+    return Objects.hash(super.hashCode(), kind);
   }
+
 }

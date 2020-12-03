@@ -12,9 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import com.google.common.base.Strings;
-import com.google.common.reflect.ClassPath;
-import com.google.common.util.concurrent.Striped;
 import io.kubernetes.client.Discovery;
 import io.kubernetes.client.apimachinery.GroupVersionKind;
 import io.kubernetes.client.apimachinery.GroupVersionResource;
