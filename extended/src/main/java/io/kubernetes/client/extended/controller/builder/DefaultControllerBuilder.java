@@ -21,6 +21,8 @@ import io.kubernetes.client.extended.workqueue.RateLimitingQueue;
 import io.kubernetes.client.extended.workqueue.WorkQueue;
 import io.kubernetes.client.informer.SharedIndexInformer;
 import io.kubernetes.client.informer.SharedInformerFactory;
+
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
@@ -33,6 +35,7 @@ public class DefaultControllerBuilder {
   private int workerCount;
   private String controllerName;
   private RateLimitingQueue<Request> workQueue;
+  private Duration readyTimeout;
 
   private SharedInformerFactory informerFactory;
   private List<Supplier<Boolean>> readyFuncs;
@@ -125,6 +128,11 @@ public class DefaultControllerBuilder {
     return this;
   }
 
+  public DefaultControllerBuilder withReadyTimeout(Duration readyTimeout) {
+    this.readyTimeout = readyTimeout;
+    return this;
+  }
+
   /**
    * Sets reconciler of the controller.
    *
@@ -158,6 +166,10 @@ public class DefaultControllerBuilder {
             this.workerCount, Controllers.namedControllerThreadFactory(this.controllerName)));
 
     controller.setReconciler(this.reconciler);
+
+    if(this.readyTimeout != null) {
+      controller.setReadyTimeout(this.readyTimeout);
+    }
 
     return controller;
   }
