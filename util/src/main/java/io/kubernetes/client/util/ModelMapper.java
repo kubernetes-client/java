@@ -12,36 +12,46 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import io.kubernetes.client.Discovery;
-import io.kubernetes.client.apimachinery.GroupVersionKind;
-import io.kubernetes.client.apimachinery.GroupVersionResource;
-import io.kubernetes.client.common.KubernetesListObject;
-import io.kubernetes.client.common.KubernetesObject;
-import io.kubernetes.client.openapi.ApiException;
+import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URL;
+import java.net.URLDecoder;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.locks.ReadWriteLock;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
+
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import io.kubernetes.client.Discovery;
+import io.kubernetes.client.apimachinery.GroupVersionKind;
+import io.kubernetes.client.apimachinery.GroupVersionResource;
+import io.kubernetes.client.common.KubernetesListObject;
+import io.kubernetes.client.common.KubernetesObject;
+import io.kubernetes.client.openapi.ApiException;
+import sun.tools.java.ClassPath;
+
 /**
- * Model mapper loads pre-built kubernetes models from classpath and manages their mapping between
- * their apiVersion and kind.
+ * Model mapper loads pre-built kubernetes models from classpath and manages their mapping
+ * between their apiVersion and kind.
  */
 public class ModelMapper {
 
   private static final Logger logger = LoggerFactory.getLogger(ModelMapper.class);
 
-  public static final Duration DEFAULT_DISCOVERY_REFRESH_INTERVAL = Duration.ofMinutes(30);
+  public static final Duration DEFAULT_DISCOVERY_REFRESH_INTERVAL = Duration
+      .ofMinutes(30);
 
   // initially loaded from classpath, can be incorrect
   private static Map<GroupVersionKind, Class<?>> preBuiltClassesByGVK = new HashMap<>();
@@ -52,33 +62,34 @@ public class ModelMapper {
   // Model's api-version midfix to kubernetes api-version
   private static List<String> preBuiltApiVersions = new ArrayList<>();
 
-  private static BiDirectionalMap<GroupVersionKind, Class<?>> classesByGVK =
-      new BiDirectionalMap<>();
+  private static BiDirectionalMap<GroupVersionKind, Class<?>> classesByGVK = new BiDirectionalMap<>();
 
-  private static BiDirectionalMap<GroupVersionResource, Class<?>> classesByGVR =
-      new BiDirectionalMap<>();
+  private static BiDirectionalMap<GroupVersionResource, Class<?>> classesByGVR = new BiDirectionalMap<>();
 
   private static Map<Class<?>, Boolean> isNamespacedByClasses = new ConcurrentHashMap<>();
 
   private static Set<Discovery.APIResource> lastAPIDiscovery = new HashSet<>();
 
-  private static volatile long nextDiscoveryRefreshTimeMillis =
-      0; // zero means api-discovery never done
+  private static volatile long nextDiscoveryRefreshTimeMillis = 0; // zero means
+  // api-discovery
+  // never done
 
   static {
     try {
       initModelMap();
-    } catch (Exception ex) {
+    }
+    catch (Exception ex) {
       logger.error("Unexpected exception while loading classes", ex);
     }
   }
 
   /**
-   * Registering concrete model classes by its apiGroupVersion (e.g. "apps/v1") and kind (e.g.
-   * "Deployment").
+   * Registering concrete model classes by its apiGroupVersion (e.g. "apps/v1") and kind
+   * (e.g. "Deployment").
    *
-   * <p>Note that the the so-called apiGroupVersion equals to the "apiVersion" in the kubenretes
-   * resource yamls.
+   * <p>
+   * Note that the the so-called apiGroupVersion equals to the "apiVersion" in the
+   * kubenretes resource yamls.
    */
   @Deprecated
   public static void addModelMap(String apiGroupVersion, String kind, Class<?> clazz) {
@@ -92,38 +103,36 @@ public class ModelMapper {
   /**
    * Registering concrete model classes by its group, version and kind (e.g. "apps", "v1",
    * "Deployment")
-   *
    * @param group the group
    * @param version the version
    * @param kind the kind
    * @param clazz the clazz
    */
   @Deprecated
-  public static void addModelMap(String group, String version, String kind, Class<?> clazz) {
+  public static void addModelMap(String group, String version, String kind,
+      Class<?> clazz) {
     preBuiltAddModelMap(group, version, kind, clazz);
   }
 
   /**
    * Registering concrete model classes by its group, version and kind (e.g. "apps", "v1",
    * "Deployment")
-   *
    * @param group the group
    * @param version the version
    * @param kind the kind
    * @param resourceNamePlural the resource name plural
    * @param clazz the clazz
    */
-  public static void addModelMap(
-      String group, String version, String kind, String resourceNamePlural, Class<?> clazz) {
+  public static void addModelMap(String group, String version, String kind,
+      String resourceNamePlural, Class<?> clazz) {
     // TODO(yue9944882): consistency between bi-directional maps
     classesByGVK.add(new GroupVersionKind(group, version, kind), clazz);
     classesByGVR.add(new GroupVersionResource(group, version, resourceNamePlural), clazz);
   }
 
   /**
-   * Registering concrete model classes by its group, version, kind and isNamespaced (e.g. "apps",
-   * "v1", "Deployment", true).
-   *
+   * Registering concrete model classes by its group, version, kind and isNamespaced (e.g.
+   * "apps", "v1", "Deployment", true).
    * @param group the group
    * @param version the version
    * @param kind the kind
@@ -131,20 +140,15 @@ public class ModelMapper {
    * @param isNamespacedResource the is namespaced resource
    * @param clazz the clazz
    */
-  public static void addModelMap(
-      String group,
-      String version,
-      String kind,
-      String resourceNamePlural,
-      Boolean isNamespacedResource,
-      Class<?> clazz) {
+  public static void addModelMap(String group, String version, String kind,
+      String resourceNamePlural, Boolean isNamespacedResource, Class<?> clazz) {
     addModelMap(group, version, kind, resourceNamePlural, clazz);
     isNamespacedByClasses.put(clazz, isNamespacedResource);
   }
 
   /**
-   * Gets the model classes by given apiGroupVersion (e.g. "apps/v1") and kind (e.g. "Deployment").
-   *
+   * Gets the model classes by given apiGroupVersion (e.g. "apps/v1") and kind (e.g.
+   * "Deployment").
    * @param apiGroupVersion the api version
    * @param kind the kind
    * @return the api type class
@@ -157,7 +161,8 @@ public class ModelMapper {
       // legacy group
       apiGroup = "";
       apiVersion = apiGroupVersion;
-    } else {
+    }
+    else {
       apiGroup = parts[0];
       apiVersion = parts[1];
     }
@@ -165,8 +170,8 @@ public class ModelMapper {
   }
 
   /**
-   * Gets the model classes by given group, version and kind (e.g. "apps", ""v1", "Deployment").
-   *
+   * Gets the model classes by given group, version and kind (e.g. "apps", ""v1",
+   * "Deployment").
    * @param group the group
    * @param version the version
    * @param kind the kind
@@ -182,7 +187,6 @@ public class ModelMapper {
 
   /**
    * Gets the GVK by the given model class.
-   *
    * @param clazz the clazz
    * @return the group version kind by class
    */
@@ -192,7 +196,6 @@ public class ModelMapper {
 
   /**
    * Gets the GVK by the given model class.
-   *
    * @param clazz the clazz
    * @return the group version kind by class
    */
@@ -201,30 +204,30 @@ public class ModelMapper {
   }
 
   /**
-   * Refreshes the model mapping by syncing up w/the api discovery info from the kubernetes
-   * apiserver. These mapping will be cached for {@link
-   * ModelMapper#DEFAULT_DISCOVERY_REFRESH_INTERVAL}.
-   *
+   * Refreshes the model mapping by syncing up w/the api discovery info from the
+   * kubernetes apiserver. These mapping will be cached for
+   * {@link ModelMapper#DEFAULT_DISCOVERY_REFRESH_INTERVAL}.
    * @param discovery the discovery
    * @return the set
    * @throws ApiException the api exception
    */
-  public static Set<Discovery.APIResource> refresh(Discovery discovery) throws ApiException {
+  public static Set<Discovery.APIResource> refresh(Discovery discovery)
+      throws ApiException {
     return refresh(discovery, DEFAULT_DISCOVERY_REFRESH_INTERVAL);
   }
 
   /**
-   * Refreshes the model mapping by syncing up w/the api discovery info from the kubernetes
-   * apiserver.
+   * Refreshes the model mapping by syncing up w/the api discovery info from the
+   * kubernetes apiserver.
    *
-   * <p>Note: if model mappings can be incomplete if this method is never called.
-   *
+   * <p>
+   * Note: if model mappings can be incomplete if this method is never called.
    * @param discovery the discovery
    * @return the api-discovery set
    * @throws ApiException the api exception
    */
-  public static Set<Discovery.APIResource> refresh(Discovery discovery, Duration refreshInterval)
-      throws ApiException {
+  public static Set<Discovery.APIResource> refresh(Discovery discovery,
+      Duration refreshInterval) throws ApiException {
     long nowMillis = System.currentTimeMillis();
     if (nowMillis < nextDiscoveryRefreshTimeMillis) {
       return lastAPIDiscovery;
@@ -234,19 +237,15 @@ public class ModelMapper {
 
     for (Discovery.APIResource apiResource : apiResources) {
       for (String version : apiResource.getVersions()) {
-        Class<?> clazz = getApiTypeClass(apiResource.getGroup(), version, apiResource.getKind());
+        Class<?> clazz = getApiTypeClass(apiResource.getGroup(), version,
+            apiResource.getKind());
         // no such classes registered in the ModelMapper, ignoring
         if (clazz == null) {
           continue;
         }
         // sync up w/ the latest api discovery
-        addModelMap(
-            apiResource.getGroup(),
-            version,
-            apiResource.getKind(),
-            apiResource.getResourcePlural(),
-            apiResource.getNamespaced(),
-            clazz);
+        addModelMap(apiResource.getGroup(), version, apiResource.getKind(),
+            apiResource.getResourcePlural(), apiResource.getNamespaced(), clazz);
       }
     }
 
@@ -259,11 +258,13 @@ public class ModelMapper {
     return nextDiscoveryRefreshTimeMillis != 0;
   }
 
-  static void preBuiltAddModelMap(String group, String version, String kind, Class<?> clazz) {
+  static void preBuiltAddModelMap(String group, String version, String kind,
+      Class<?> clazz) {
     preBuiltClassesByGVK.put(new GroupVersionKind(group, version, kind), clazz);
   }
 
-  public static Class<?> preBuiltGetApiTypeClass(String group, String version, String kind) {
+  public static Class<?> preBuiltGetApiTypeClass(String group, String version,
+      String kind) {
     Class<?> clazz = preBuiltClassesByGVK.get(new GroupVersionKind(group, version, kind));
     if (clazz != null) {
       return clazz;
@@ -273,15 +274,11 @@ public class ModelMapper {
 
   public static GroupVersionKind preBuiltGetGroupVersionKindByClass(Class<?> clazz) {
     return preBuiltClassesByGVK.entrySet().stream()
-        .filter(e -> clazz.equals(e.getValue()))
-        .map(e -> e.getKey())
-        .findFirst()
-        .get();
+        .filter(e -> clazz.equals(e.getValue())).map(e -> e.getKey()).findFirst().get();
   }
 
   /**
    * Checks whether the class is connected with a namespaced kubernetes resource.
-   *
    * @param clazz the clazz
    * @return the boolean
    */
@@ -326,12 +323,9 @@ public class ModelMapper {
     initApiGroupMap();
     initApiVersionList();
 
-    ClassPath cp = ClassPath.from(Yaml.class.getClassLoader());
-    Set<ClassPath.ClassInfo> allClasses =
-        cp.getTopLevelClasses("io.kubernetes.client.openapi.models");
-
-    for (ClassPath.ClassInfo classInfo : allClasses) {
-      Class clazz = classInfo.load();
+    for (String classInfo : getClassNamesFromPackage(Yaml.class.getClassLoader(),
+        "io.kubernetes.client.openapi.models")) {
+      Class<?> clazz = loadClass(classInfo, Yaml.class.getClassLoader());
       if (!KubernetesObject.class.isAssignableFrom(clazz)
           && !KubernetesListObject.class.isAssignableFrom(clazz)) {
         continue;
@@ -348,60 +342,90 @@ public class ModelMapper {
     }
   }
 
+  private static Class<?> loadClass(String name, ClassLoader classLoader) {
+    try {
+      return Class.forName(name, false, classLoader);
+    }
+    catch (ClassNotFoundException e) {
+      return null;
+    }
+  }
+
   private static Pair<String, String> getApiGroup(String name) {
-    return preBuiltApiGroups.entrySet().stream()
-        .filter(e -> name.startsWith(e.getKey()))
+    return preBuiltApiGroups.entrySet().stream().filter(e -> name.startsWith(e.getKey()))
         .map(e -> new MutablePair(e.getValue(), name.substring(e.getKey().length())))
-        .findFirst()
-        .orElse(new MutablePair(null, name));
+        .findFirst().orElse(new MutablePair(null, name));
   }
 
   private static Pair<String, String> getApiVersion(String name) {
-    return preBuiltApiVersions.stream()
-        .filter(v -> name.startsWith(v))
+    return preBuiltApiVersions.stream().filter(v -> name.startsWith(v))
         .map(v -> new MutablePair(v.toLowerCase(), name.substring(v.length())))
-        .findFirst()
-        .orElse(new MutablePair(null, name));
+        .findFirst().orElse(new MutablePair(null, name));
   }
 
   static class BiDirectionalMap<K, V> {
-    private Map<K, V> kvMap = new HashMap<>();
-    private Map<V, K> vkMap = new HashMap<>();
-    private Striped<ReadWriteLock> lock =
-        Striped.readWriteLock(Runtime.getRuntime().availableProcessors() * 4);
+
+    private Map<K, V> kvMap = new ConcurrentHashMap<>();
+
+    private Map<V, K> vkMap = new ConcurrentHashMap<>();
 
     void add(K k, V v) {
-      ReadWriteLock keyLock = lock.get(k);
-      ReadWriteLock valueLock = lock.get(v);
-      keyLock.writeLock().lock();
-      valueLock.writeLock().lock();
-      try {
-        kvMap.put(k, v);
-        vkMap.put(v, k);
-      } finally {
-        keyLock.writeLock().unlock();
-        valueLock.writeLock().unlock();
-      }
+      kvMap.put(k, v);
+      vkMap.put(v, k);
     }
 
     V getByK(K k) {
-      ReadWriteLock l = lock.get(k);
-      l.readLock().lock();
-      try {
-        return kvMap.get(k);
-      } finally {
-        l.readLock().unlock();
-      }
+      return kvMap.get(k);
     }
 
     K getByV(V v) {
-      ReadWriteLock l = lock.get(v);
-      l.readLock().lock();
-      try {
-        return vkMap.get(v);
-      } finally {
-        l.readLock().unlock();
+      return vkMap.get(v);
+    }
+
+  }
+
+  private static List<String> getClassNamesFromPackage(ClassLoader classLoader, String pkg)
+      throws IOException {
+
+        URL packageURL;
+    ArrayList<String> names = new ArrayList<String>();
+
+    String packageName = pkg.replace(".", "/");
+    packageURL = classLoader.getResource(packageName);
+
+    if (packageURL.getProtocol().equals("jar")) {
+      String jarFileName;
+      JarFile jf;
+      Enumeration<JarEntry> jarEntries;
+      String entryName;
+      jarFileName = URLDecoder.decode(packageURL.getFile(), "UTF-8");
+      jarFileName = jarFileName.substring(5, jarFileName.indexOf("!"));
+      System.out.println(">" + jarFileName);
+      jf = new JarFile(jarFileName);
+      jarEntries = jf.entries();
+      while (jarEntries.hasMoreElements()) {
+        entryName = jarEntries.nextElement().getName();
+        if (entryName.startsWith(packageName)
+            && entryName.length() > packageName.length() + 5) {
+          entryName = entryName.substring(packageName.length()+1,
+              entryName.lastIndexOf('.'));
+          names.add(pkg + "." + entryName);
+        }
+      }
+      jf.close();
+    }
+    else {
+      URI uri = URI.create(packageURL.toString());
+      File folder = new File(uri.getPath());
+      File[] contenuti = folder.listFiles();
+      String entryName;
+      for (File actual : contenuti) {
+        entryName = actual.getName();
+        entryName = entryName.substring(0, entryName.lastIndexOf('.'));
+        names.add(pkg + "." + entryName);
       }
     }
+    return names;
   }
+
 }
