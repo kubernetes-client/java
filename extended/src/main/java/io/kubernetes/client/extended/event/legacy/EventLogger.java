@@ -12,18 +12,20 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.event.legacy;
 
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.models.CoreV1Event;
 import java.util.function.Function;
+
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
+
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.joda.time.DateTime;
 
 public class EventLogger {
   public EventLogger(int lruCacheEntries, Function<CoreV1Event, String> eventKeyFunc) {
-    this.eventCache = CacheBuilder.newBuilder().maximumSize(lruCacheEntries).build();
+    this.eventCache = Caffeine.newBuilder().maximumSize(lruCacheEntries).build();
     this.eventKeyFunc = eventKeyFunc;
   }
 

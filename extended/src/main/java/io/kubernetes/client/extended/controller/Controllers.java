@@ -12,14 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.controller;
 
-import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Function;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.controller.reconciler.Request;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
-import java.util.concurrent.ThreadFactory;
-import java.util.function.Function;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /** The Controllers is a set of commonly used utility functions for constructing controller. */
 public class Controllers {
@@ -50,6 +53,16 @@ public class Controllers {
    * @return the thread factory
    */
   public static ThreadFactory namedControllerThreadFactory(String controllerName) {
-    return new ThreadFactoryBuilder().setNameFormat(controllerName + "-%d").build();
+    final ThreadFactory defaultFactory = Executors.defaultThreadFactory();
+    final AtomicInteger threadNumber = new AtomicInteger(1);
+    String format = controllerName + "-%d";
+    return r -> {
+      Thread thread = defaultFactory.newThread(r);
+      if (!thread.isDaemon()) {
+        thread.setDaemon(true);
+      }
+      thread.setName(String.format(format, threadNumber.getAndIncrement()));
+      return thread;
+    };
   }
 }

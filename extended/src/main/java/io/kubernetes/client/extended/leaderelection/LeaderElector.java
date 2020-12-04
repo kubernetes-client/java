@@ -12,18 +12,29 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.leaderelection;
 
-import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import io.kubernetes.client.openapi.ApiException;
 import java.net.HttpURLConnection;
 import java.time.Duration;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.concurrent.*;
+import java.util.concurrent.CancellationException;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import io.kubernetes.client.openapi.ApiException;
 
 public class LeaderElector implements AutoCloseable {
 
@@ -334,8 +345,17 @@ public class LeaderElector implements AutoCloseable {
     }
   }
 
-  private ThreadFactory makeThreadFactory(String nameFormat) {
-    return new ThreadFactoryBuilder().setDaemon(true).setNameFormat(nameFormat).build();
+  private ThreadFactory makeThreadFactory(String format) {
+      final ThreadFactory defaultFactory = Executors.defaultThreadFactory();
+      final AtomicInteger threadNumber = new AtomicInteger(1);
+      return r -> {
+        Thread thread = defaultFactory.newThread(r);
+        if (!thread.isDaemon()) {
+          thread.setDaemon(true);
+        }
+        thread.setName(String.format(format, threadNumber.getAndIncrement()));
+        return thread;
+      };
   }
 
   @Override

@@ -12,8 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.event.legacy;
 
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
 import io.kubernetes.client.fluent.Function;
 import io.kubernetes.client.openapi.models.CoreV1Event;
 import io.kubernetes.client.openapi.models.CoreV1EventBuilder;
@@ -22,6 +20,10 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.ExecutionException;
+
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
+
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.joda.time.DateTime;
 
@@ -39,7 +41,7 @@ public class EventAggregator {
     this.messageFunc = messageFunc;
     this.maxEvents = DEFAULT_MAX_EVENT_LOCAL_KEYS;
     this.spammingCache =
-        CacheBuilder.newBuilder()
+        Caffeine.newBuilder()
             .maximumSize(maxLRUCacheEntries)
             .expireAfterWrite(DEFAULT_EVENT_AGGREGATE_CACHE_EXPIRATION)
             .build();
@@ -58,12 +60,7 @@ public class EventAggregator {
     String aggregatedKey = aggregatedKeys.getLeft();
     String localKey = aggregatedKeys.getRight();
 
-    AggregatedRecord record;
-    try {
-      record = this.spammingCache.get(aggregatedKey, AggregatedRecord::new);
-    } catch (ExecutionException e) {
-      throw new IllegalStateException(e);
-    }
+    AggregatedRecord record = this.spammingCache.get(aggregatedKey, k -> new AggregatedRecord());
     record.lastTimestamp = now;
     record.localKeys.add(localKey);
 

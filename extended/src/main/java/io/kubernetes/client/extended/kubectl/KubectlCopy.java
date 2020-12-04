@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.kubectl;
 
-import static com.google.common.base.Strings.isNullOrEmpty;
+import static io.kubernetes.client.util.Strings.isNullOrEmpty;
 
 import io.kubernetes.client.Copy;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
