@@ -12,6 +12,8 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.event.legacy;
 
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
 import io.github.bucket4j.Bandwidth;
 import io.github.bucket4j.Bucket4j;
 import io.github.bucket4j.Refill;
@@ -19,11 +21,7 @@ import io.github.bucket4j.local.LocalBucket;
 import io.github.bucket4j.local.SynchronizationStrategy;
 import io.kubernetes.client.openapi.models.CoreV1Event;
 import java.time.Duration;
-import java.util.concurrent.ExecutionException;
 import java.util.function.Function;
-
-import com.github.benmanes.caffeine.cache.Cache;
-import com.github.benmanes.caffeine.cache.Caffeine;
 
 public class EventSpamFilter {
 

@@ -23,7 +23,6 @@ import io.kubernetes.client.proto.Meta.Status;
 import io.kubernetes.client.proto.Runtime.TypeMeta;
 import io.kubernetes.client.proto.Runtime.Unknown;
 import io.kubernetes.client.util.Streams;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;

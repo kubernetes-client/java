@@ -12,6 +12,10 @@ limitations under the License.
 */
 package io.kubernetes.client.informer.cache;
 
+import io.kubernetes.client.common.KubernetesListObject;
+import io.kubernetes.client.common.KubernetesObject;
+import io.kubernetes.client.informer.ListerWatcher;
+import io.kubernetes.client.informer.ResyncRunnable;
 import java.util.Deque;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
@@ -22,21 +26,16 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
-
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.kubernetes.client.common.KubernetesListObject;
-import io.kubernetes.client.common.KubernetesObject;
-import io.kubernetes.client.informer.ListerWatcher;
-import io.kubernetes.client.informer.ResyncRunnable;
-
 /**
- * Controller is a java port of k/client-go's informer#Controller. It plumbs reflector and
- * the queue implementation and it runs re-sync function periodically.
+ * Controller is a java port of k/client-go's informer#Controller. It plumbs reflector and the queue
+ * implementation and it runs re-sync function periodically.
  */
-public class Controller<ApiType extends KubernetesObject, ApiListType extends KubernetesListObject> {
+public class Controller<
+    ApiType extends KubernetesObject, ApiListType extends KubernetesListObject> {
 
   private static final Logger log = LoggerFactory.getLogger(Controller.class);
 
@@ -67,10 +66,13 @@ public class Controller<ApiType extends KubernetesObject, ApiListType extends Ku
 
   private ScheduledFuture reflectorFuture;
 
-  public Controller(Class<ApiType> apiTypeClass, DeltaFIFO queue,
+  public Controller(
+      Class<ApiType> apiTypeClass,
+      DeltaFIFO queue,
       ListerWatcher<ApiType, ApiListType> listerWatcher,
       Consumer<Deque<MutablePair<DeltaFIFO.DeltaType, KubernetesObject>>> processFunc,
-      Supplier<Boolean> resyncFunc, long fullResyncPeriod) {
+      Supplier<Boolean> resyncFunc,
+      long fullResyncPeriod) {
     this.queue = queue;
     this.listerWatcher = listerWatcher;
     this.apiTypeClass = apiTypeClass;
@@ -79,12 +81,14 @@ public class Controller<ApiType extends KubernetesObject, ApiListType extends Ku
     this.fullResyncPeriod = fullResyncPeriod;
 
     // starts one daemon thread for reflector
-    this.reflectExecutor = Executors.newSingleThreadScheduledExecutor(
-        threadFactory("controller-reflector-" + apiTypeClass.getName() + "-%d"));
+    this.reflectExecutor =
+        Executors.newSingleThreadScheduledExecutor(
+            threadFactory("controller-reflector-" + apiTypeClass.getName() + "-%d"));
 
     // starts one daemon thread for resync
-    this.resyncExecutor = Executors.newSingleThreadScheduledExecutor(
-        threadFactory("controller-reflector-" + apiTypeClass.getName() + "-%d"));
+    this.resyncExecutor =
+        Executors.newSingleThreadScheduledExecutor(
+            threadFactory("controller-reflector-" + apiTypeClass.getName() + "-%d"));
   }
 
   private ThreadFactory threadFactory(String format) {
@@ -100,7 +104,9 @@ public class Controller<ApiType extends KubernetesObject, ApiListType extends Ku
     };
   }
 
-  public Controller(Class<ApiType> apiTypeClass, DeltaFIFO queue,
+  public Controller(
+      Class<ApiType> apiTypeClass,
+      DeltaFIFO queue,
       ListerWatcher<ApiType, ApiListType> listerWatcher,
       Consumer<Deque<MutablePair<DeltaFIFO.DeltaType, KubernetesObject>>> popProcessFunc) {
     this(apiTypeClass, queue, listerWatcher, popProcessFunc, null, 0);
@@ -112,26 +118,24 @@ public class Controller<ApiType extends KubernetesObject, ApiListType extends Ku
     // start the resync runnable
     if (fullResyncPeriod > 0) {
       ResyncRunnable resyncRunnable = new ResyncRunnable(queue, resyncFunc);
-      resyncFuture = resyncExecutor.scheduleAtFixedRate(resyncRunnable::run,
-          fullResyncPeriod, fullResyncPeriod, TimeUnit.MILLISECONDS);
-    }
-    else {
+      resyncFuture =
+          resyncExecutor.scheduleAtFixedRate(
+              resyncRunnable::run, fullResyncPeriod, fullResyncPeriod, TimeUnit.MILLISECONDS);
+    } else {
       log.info("informer#Controller: resync skipped due to 0 full resync period");
     }
 
     synchronized (this) {
       // TODO(yue9944882): proper naming for reflector
-      reflector = new ReflectorRunnable<ApiType, ApiListType>(apiTypeClass, listerWatcher,
-          queue);
+      reflector = new ReflectorRunnable<ApiType, ApiListType>(apiTypeClass, listerWatcher, queue);
       try {
-        reflectorFuture = reflectExecutor.scheduleWithFixedDelay(reflector::run, 0L,
-            DEFAULT_PERIOD, TimeUnit.MILLISECONDS);
-      }
-      catch (RejectedExecutionException e) {
+        reflectorFuture =
+            reflectExecutor.scheduleWithFixedDelay(
+                reflector::run, 0L, DEFAULT_PERIOD, TimeUnit.MILLISECONDS);
+      } catch (RejectedExecutionException e) {
         // submitting reflector list-watching job can fail due to concurrent invocation of
         // `shutdown`. handling exception with a warning then return.
-        log.warn(
-            "reflector list-watching job exiting because the thread-pool is shutting down");
+        log.warn("reflector list-watching job exiting because the thread-pool is shutting down");
         return;
       }
     }
@@ -169,14 +173,11 @@ public class Controller<ApiType extends KubernetesObject, ApiListType extends Ku
     while (true) {
       try {
         this.queue.pop(this.processFunc);
-      }
-      catch (InterruptedException t) {
+      } catch (InterruptedException t) {
         log.error("DefaultController#processLoop get interrupted {}", t.getMessage(), t);
         return;
-      }
-      catch (Throwable t) {
-        log.error("DefaultController#processLoop recovered from crashing {}",
-            t.getMessage(), t);
+      } catch (Throwable t) {
+        log.error("DefaultController#processLoop recovered from crashing {}", t.getMessage(), t);
       }
     }
   }

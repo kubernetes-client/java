@@ -12,6 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client;
 
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.ApiResponse;
+import io.kubernetes.client.openapi.Configuration;
+import io.kubernetes.client.openapi.models.V1APIGroup;
+import io.kubernetes.client.openapi.models.V1APIGroupList;
+import io.kubernetes.client.openapi.models.V1APIResourceList;
+import io.kubernetes.client.openapi.models.V1APIVersions;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -23,15 +31,6 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
-
-import io.kubernetes.client.openapi.ApiClient;
-import io.kubernetes.client.openapi.ApiException;
-import io.kubernetes.client.openapi.ApiResponse;
-import io.kubernetes.client.openapi.Configuration;
-import io.kubernetes.client.openapi.models.V1APIGroup;
-import io.kubernetes.client.openapi.models.V1APIGroupList;
-import io.kubernetes.client.openapi.models.V1APIResourceList;
-import io.kubernetes.client.openapi.models.V1APIVersions;
 import okhttp3.Call;
 
 public class Discovery {

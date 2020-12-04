@@ -12,9 +12,8 @@ limitations under the License.
 */
 package io.kubernetes.client.util.credentials;
 
-import java.util.Objects;
-
 import io.kubernetes.client.openapi.ApiClient;
+import java.util.Objects;
 
 /** Uses a Bearer Token to configure {@link ApiClient} authentication to the Kubernetes API. */
 public class AccessTokenAuthentication implements Authentication {

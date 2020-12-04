@@ -28,12 +28,9 @@ public class GroupVersionResource extends GroupVersion {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o)
-      return true;
-    if (o == null || getClass() != o.getClass())
-      return false;
-    if (!super.equals(o))
-      return false;
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     GroupVersionResource that = (GroupVersionResource) o;
     return Objects.equals(resource, that.resource);
   }
@@ -46,5 +43,4 @@ public class GroupVersionResource extends GroupVersion {
   public String getResource() {
     return resource;
   }
-
 }

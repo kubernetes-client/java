@@ -12,6 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.leaderelection;
 
+import io.kubernetes.client.openapi.ApiException;
 import java.net.HttpURLConnection;
 import java.time.Duration;
 import java.util.Date;
@@ -30,11 +31,8 @@ import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import io.kubernetes.client.openapi.ApiException;
 
 public class LeaderElector implements AutoCloseable {
 
@@ -346,16 +344,16 @@ public class LeaderElector implements AutoCloseable {
   }
 
   private ThreadFactory makeThreadFactory(String format) {
-      final ThreadFactory defaultFactory = Executors.defaultThreadFactory();
-      final AtomicInteger threadNumber = new AtomicInteger(1);
-      return r -> {
-        Thread thread = defaultFactory.newThread(r);
-        if (!thread.isDaemon()) {
-          thread.setDaemon(true);
-        }
-        thread.setName(String.format(format, threadNumber.getAndIncrement()));
-        return thread;
-      };
+    final ThreadFactory defaultFactory = Executors.defaultThreadFactory();
+    final AtomicInteger threadNumber = new AtomicInteger(1);
+    return r -> {
+      Thread thread = defaultFactory.newThread(r);
+      if (!thread.isDaemon()) {
+        thread.setDaemon(true);
+      }
+      thread.setName(String.format(format, threadNumber.getAndIncrement()));
+      return thread;
+    };
   }
 
   @Override

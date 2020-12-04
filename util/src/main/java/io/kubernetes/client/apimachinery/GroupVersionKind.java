@@ -32,12 +32,9 @@ public class GroupVersionKind extends GroupVersion {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o)
-      return true;
-    if (o == null || getClass() != o.getClass())
-      return false;
-    if (!super.equals(o))
-      return false;
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     GroupVersionKind that = (GroupVersionKind) o;
     return Objects.equals(kind, that.kind);
   }
@@ -46,5 +43,4 @@ public class GroupVersionKind extends GroupVersion {
   public int hashCode() {
     return Objects.hash(super.hashCode(), kind);
   }
-
 }

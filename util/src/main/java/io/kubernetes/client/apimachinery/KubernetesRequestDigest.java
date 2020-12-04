@@ -12,16 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.apimachinery;
 
-import java.util.regex.Pattern;
-
 import io.kubernetes.client.util.Strings;
+import java.util.regex.Pattern;
 import okhttp3.Request;
 
 public class KubernetesRequestDigest {
 
-  public static final Pattern RESOURCE_URL_PATH_PATTERN = Pattern.compile("^/(api|apis)(/\\S+)?/v\\d\\w*/\\S+");
+  public static final Pattern RESOURCE_URL_PATH_PATTERN =
+      Pattern.compile("^/(api|apis)(/\\S+)?/v\\d\\w*/\\S+");
 
-  KubernetesRequestDigest(String urlPath, boolean isNonResourceRequest, KubernetesResource resourceMeta,
+  KubernetesRequestDigest(
+      String urlPath,
+      boolean isNonResourceRequest,
+      KubernetesResource resourceMeta,
       KubernetesVerb verb) {
     this.urlPath = urlPath;
     this.isNonResourceRequest = isNonResourceRequest;
@@ -38,15 +41,17 @@ public class KubernetesRequestDigest {
       KubernetesResource resourceMeta;
       if (urlPath.startsWith("/api/v1")) {
         resourceMeta = KubernetesResource.parseCoreResource(urlPath);
-      }
-      else {
+      } else {
         resourceMeta = KubernetesResource.parseRegularResource(urlPath);
       }
 
-      return new KubernetesRequestDigest(urlPath, false, resourceMeta, KubernetesVerb.of(request.method(),
-          hasNamePathParameter(resourceMeta), hasWatchParameter(request)));
-    }
-    catch (ParseKubernetesResourceException e) {
+      return new KubernetesRequestDigest(
+          urlPath,
+          false,
+          resourceMeta,
+          KubernetesVerb.of(
+              request.method(), hasNamePathParameter(resourceMeta), hasWatchParameter(request)));
+    } catch (ParseKubernetesResourceException e) {
       return nonResource(urlPath);
     }
   }
@@ -99,26 +104,33 @@ public class KubernetesRequestDigest {
     }
 
     String groupVersion;
-    if (Strings.isNullOrEmpty(resourceMeta.getGroupVersionResource().getGroup())) { // core
-                                            // resource
+    if (Strings.isNullOrEmpty(resourceMeta.getGroupVersionResource().getGroup())) {
+      // core resource
       groupVersion = "";
-    }
-    else { // regular resource
-      groupVersion = resourceMeta.getGroupVersionResource().getGroup() + "/"
-          + resourceMeta.getGroupVersionResource().getVersion();
+    } else {
+      // regular resource
+      groupVersion =
+          resourceMeta.getGroupVersionResource().getGroup()
+              + "/"
+              + resourceMeta.getGroupVersionResource().getVersion();
     }
 
     String targetResourceName;
     if (Strings.isNullOrEmpty(resourceMeta.getSubResource())) {
       targetResourceName = resourceMeta.getGroupVersionResource().getResource();
-    }
-    else { // subresource
-      targetResourceName = resourceMeta.getGroupVersionResource().getResource() + "/"
-          + resourceMeta.getSubResource();
+    } else { // subresource
+      targetResourceName =
+          resourceMeta.getGroupVersionResource().getResource()
+              + "/"
+              + resourceMeta.getSubResource();
     }
 
-    return new StringBuilder().append(verb.value()).append(' ').append(groupVersion).append(' ')
-        .append(targetResourceName).toString();
+    return new StringBuilder()
+        .append(verb.value())
+        .append(' ')
+        .append(groupVersion)
+        .append(' ')
+        .append(targetResourceName)
+        .toString();
   }
-
 }

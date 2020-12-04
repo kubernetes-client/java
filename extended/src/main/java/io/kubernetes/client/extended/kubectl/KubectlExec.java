@@ -12,16 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.kubectl;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
 import io.kubernetes.client.Exec;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.util.Streams;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 public class KubectlExec extends Kubectl.ResourceAndContainerBuilder<V1Pod, KubectlExec>
     implements Kubectl.Executable<Integer> {

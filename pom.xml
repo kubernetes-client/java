@@ -517,7 +517,7 @@ limitations under the License.
           <family>!windows</family>
         </os>
         <file>
-			<missing>.google</missing>
+        <missing>.google</missing>
         </file>
       </activation>
       <build>

@@ -27,8 +27,8 @@ public class Namespaces {
   public static final String NAMESPACE_KUBESYSTEM = "kube-system";
 
   public static String getPodNamespace() throws IOException {
-    return new String(Files.readAllBytes(new File(Config.SERVICEACCOUNT_NAMESPACE_PATH).toPath()),
+    return new String(
+        Files.readAllBytes(new File(Config.SERVICEACCOUNT_NAMESPACE_PATH).toPath()),
         StandardCharsets.UTF_8);
   }
-
 }

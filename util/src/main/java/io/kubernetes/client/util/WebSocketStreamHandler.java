@@ -82,7 +82,8 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
   public void textMessage(Reader in) {
     try {
       handleMessage(
-          in.read(), new ByteArrayInputStream(Streams.toString(in).getBytes(StandardCharsets.UTF_8)));
+          in.read(),
+          new ByteArrayInputStream(Streams.toString(in).getBytes(StandardCharsets.UTF_8)));
     } catch (IOException ex) {
       log.error("Error writing message", ex);
     }

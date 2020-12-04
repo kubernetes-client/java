@@ -12,13 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client.informer;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-
 import com.google.gson.reflect.TypeToken;
 import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
@@ -33,6 +26,12 @@ import io.kubernetes.client.util.Watch;
 import io.kubernetes.client.util.Watchable;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
 import io.kubernetes.client.util.generic.options.ListOptions;
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import okhttp3.Call;
 import org.apache.commons.collections4.MapUtils;
 
@@ -296,4 +295,23 @@ public class SharedInformerFactory {
     stopAllRegisteredInformers(true);
   }
 
+  /**
+   * Stop all registered informers.
+   *
+   * @param shutdownThreadPool whether or not to shut down the thread pool.
+   */
+  public synchronized void stopAllRegisteredInformers(boolean shutdownThreadPool) {
+    if (MapUtils.isEmpty(informers)) {
+      return;
+    }
+    informers.forEach(
+        (informerType, informer) -> {
+          if (startedInformers.remove(informerType) != null) {
+            informer.stop();
+          }
+        });
+    if (shutdownThreadPool) {
+      informerExecutor.shutdown();
+    }
+  }
 }

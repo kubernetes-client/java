@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.util.annotations;
 
 import io.kubernetes.client.common.KubernetesObject;
-
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;

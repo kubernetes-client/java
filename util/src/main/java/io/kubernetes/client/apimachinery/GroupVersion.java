@@ -12,10 +12,9 @@ limitations under the License.
 */
 package io.kubernetes.client.apimachinery;
 
-import java.util.Objects;
-
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.util.Strings;
+import java.util.Objects;
 
 public class GroupVersion {
 
@@ -29,8 +28,7 @@ public class GroupVersion {
     }
     String[] parts = apiVersion.split("/");
     if (parts.length != 2) {
-      throw new IllegalArgumentException(
-              "Invalid apiVersion found on object: " + apiVersion);
+      throw new IllegalArgumentException("Invalid apiVersion found on object: " + apiVersion);
     }
     return new GroupVersion(parts[0], parts[1]);
   }
@@ -64,10 +62,8 @@ public class GroupVersion {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o)
-      return true;
-    if (o == null || getClass() != o.getClass())
-      return false;
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
     GroupVersion that = (GroupVersion) o;
     return Objects.equals(group, that.group) && Objects.equals(version, that.version);
   }
@@ -76,5 +72,4 @@ public class GroupVersion {
   public int hashCode() {
     return Objects.hash(group, version);
   }
-
 }
