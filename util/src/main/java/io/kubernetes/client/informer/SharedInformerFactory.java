@@ -21,6 +21,7 @@ import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.util.CallGenerator;
 import io.kubernetes.client.util.CallGeneratorParams;
+import io.kubernetes.client.util.Namespaces;
 import io.kubernetes.client.util.Watch;
 import io.kubernetes.client.util.Watchable;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
@@ -162,7 +163,31 @@ public class SharedInformerFactory {
           GenericKubernetesApi<ApiType, ApiListType> genericKubernetesApi,
           Class<ApiType> apiTypeClass,
           long resyncPeriodInMillis) {
-    ListerWatcher<ApiType, ApiListType> listerWatcher = listerWatcherFor(genericKubernetesApi);
+    return sharedIndexInformerFor(
+        genericKubernetesApi, apiTypeClass, resyncPeriodInMillis, Namespaces.NAMESPACE_ALL);
+  }
+
+  /**
+   * Working the same as {@link SharedInformerFactory#sharedIndexInformerFor} above.
+   *
+   * <p>Constructs and returns a shared index informer for a specific namespace.
+   *
+   * @param <ApiType> the type parameter
+   * @param <ApiListType> the type parameter
+   * @param genericKubernetesApi the generic kubernetes api
+   * @param apiTypeClass the api type class
+   * @param resyncPeriodInMillis the resync period in millis
+   * @param namespace the target namespace
+   * @return the shared index informer
+   */
+  public synchronized <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
+      SharedIndexInformer<ApiType> sharedIndexInformerFor(
+          GenericKubernetesApi<ApiType, ApiListType> genericKubernetesApi,
+          Class<ApiType> apiTypeClass,
+          long resyncPeriodInMillis,
+          String namespace) {
+    ListerWatcher<ApiType, ApiListType> listerWatcher =
+        listerWatcherFor(genericKubernetesApi, namespace);
     return sharedIndexInformerFor(listerWatcher, apiTypeClass, resyncPeriodInMillis);
   }
 
@@ -197,7 +222,7 @@ public class SharedInformerFactory {
 
   private <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
       ListerWatcher<ApiType, ApiListType> listerWatcherFor(
-          GenericKubernetesApi<ApiType, ApiListType> genericKubernetesApi) {
+          GenericKubernetesApi<ApiType, ApiListType> genericKubernetesApi, String namespace) {
     if (apiClient.getReadTimeout() > 0) {
       // set read timeout zero to ensure client doesn't time out
       apiClient.setReadTimeout(0);
@@ -205,20 +230,38 @@ public class SharedInformerFactory {
     // TODO: it seems read timeout is determined by genericKubernetesApi instead of above apiClient.
     return new ListerWatcher<ApiType, ApiListType>() {
       public ApiListType list(CallGeneratorParams params) throws ApiException {
-        return genericKubernetesApi
-            .list(
-                new ListOptions() {
-                  {
-                    setResourceVersion(params.resourceVersion);
-                    setTimeoutSeconds(params.timeoutSeconds);
-                  }
-                })
-            .throwsApiException()
-            .getObject();
+        if (Namespaces.NAMESPACE_ALL.equals(namespace)) {
+          return genericKubernetesApi
+              .list(
+                  new ListOptions() {
+                    {
+                      setResourceVersion(params.resourceVersion);
+                      setTimeoutSeconds(params.timeoutSeconds);
+                    }
+                  })
+              .throwsApiException()
+              .getObject();
+        } else {
+          return genericKubernetesApi
+              .list(
+                  namespace,
+                  new ListOptions() {
+                    {
+                      setResourceVersion(params.resourceVersion);
+                      setTimeoutSeconds(params.timeoutSeconds);
+                    }
+                  })
+              .throwsApiException()
+              .getObject();
+        }
       }
 
       public Watchable<ApiType> watch(CallGeneratorParams params) throws ApiException {
-        return genericKubernetesApi.watch();
+        if (Namespaces.NAMESPACE_ALL.equals(namespace)) {
+          return genericKubernetesApi.watch();
+        } else {
+          return genericKubernetesApi.watch(namespace);
+        }
       }
     };
   }

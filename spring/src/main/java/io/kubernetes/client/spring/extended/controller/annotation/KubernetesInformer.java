@@ -16,6 +16,7 @@ import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.openapi.models.V1Namespace;
 import io.kubernetes.client.openapi.models.V1NamespaceList;
+import io.kubernetes.client.util.Namespaces;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -58,4 +59,11 @@ public @interface KubernetesInformer {
    * @return the long
    */
   long resyncPeriodMillis() default 0;
+
+  /**
+   * Target namespace to list-watch, by default it will be cluster-scoped.
+   *
+   * @return the string
+   */
+  String namespace() default Namespaces.NAMESPACE_ALL;
 }

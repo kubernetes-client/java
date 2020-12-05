@@ -24,6 +24,7 @@ import java.time.Duration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
@@ -31,7 +32,6 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProce
 import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.core.Ordered;
 import org.springframework.core.ResolvableType;
-import org.springframework.stereotype.Component;
 
 /**
  * The type Kubernetes informer factory processor which basically does the following things:
@@ -41,7 +41,6 @@ import org.springframework.stereotype.Component;
  * io.kubernetes.client.spring.extended.controller.annotation.KubernetesInformers}, instantiates and
  * injects informers to spring context with the underlying constructing process hidden from users.
  */
-@Component
 public class KubernetesInformerFactoryProcessor
     implements BeanDefinitionRegistryPostProcessor, Ordered {
 
@@ -55,6 +54,7 @@ public class KubernetesInformerFactoryProcessor
   private final ApiClient apiClient;
   private final SharedInformerFactory sharedInformerFactory;
 
+  @Autowired
   public KubernetesInformerFactoryProcessor(
       ApiClient apiClient, SharedInformerFactory sharedInformerFactory) {
     this.apiClient = apiClient;
@@ -85,7 +85,10 @@ public class KubernetesInformerFactoryProcessor
               apiClient);
       SharedIndexInformer sharedIndexInformer =
           sharedInformerFactory.sharedIndexInformerFor(
-              api, kubernetesInformer.apiTypeClass(), kubernetesInformer.resyncPeriodMillis());
+              api,
+              kubernetesInformer.apiTypeClass(),
+              kubernetesInformer.resyncPeriodMillis(),
+              kubernetesInformer.namespace());
       ResolvableType informerType =
           ResolvableType.forClassWithGenerics(
               SharedInformer.class, kubernetesInformer.apiTypeClass());
