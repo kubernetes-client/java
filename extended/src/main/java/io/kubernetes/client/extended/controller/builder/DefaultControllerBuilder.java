@@ -13,7 +13,10 @@ limitations under the License.
 package io.kubernetes.client.extended.controller.builder;
 
 import io.kubernetes.client.common.KubernetesObject;
-import io.kubernetes.client.extended.controller.*;
+import io.kubernetes.client.extended.controller.Controller;
+import io.kubernetes.client.extended.controller.ControllerWatch;
+import io.kubernetes.client.extended.controller.Controllers;
+import io.kubernetes.client.extended.controller.DefaultController;
 import io.kubernetes.client.extended.controller.reconciler.Reconciler;
 import io.kubernetes.client.extended.controller.reconciler.Request;
 import io.kubernetes.client.extended.workqueue.DefaultRateLimitingQueue;
@@ -21,6 +24,7 @@ import io.kubernetes.client.extended.workqueue.RateLimitingQueue;
 import io.kubernetes.client.extended.workqueue.WorkQueue;
 import io.kubernetes.client.informer.SharedIndexInformer;
 import io.kubernetes.client.informer.SharedInformerFactory;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
@@ -33,6 +37,7 @@ public class DefaultControllerBuilder {
   private int workerCount;
   private String controllerName;
   private RateLimitingQueue<Request> workQueue;
+  private Duration readyTimeout;
 
   private SharedInformerFactory informerFactory;
   private List<Supplier<Boolean>> readyFuncs;
@@ -114,6 +119,11 @@ public class DefaultControllerBuilder {
     return this;
   }
 
+  public DefaultControllerBuilder withReadyTimeout(Duration readyTimeout) {
+    this.readyTimeout = readyTimeout;
+    return this;
+  }
+
   /**
    * Overrides worker thread counts of the controller.
    *
@@ -154,6 +164,9 @@ public class DefaultControllerBuilder {
             this.workQueue,
             this.readyFuncs.stream().toArray(Supplier[]::new));
 
+    if (this.readyTimeout != null) {
+      controller.setReadyTimeout(this.readyTimeout);
+    }
     controller.setWorkerCount(this.workerCount);
     controller.setWorkerThreadPool(
         Executors.newScheduledThreadPool(
