@@ -100,7 +100,7 @@ public class DeploymentRollout extends Rollout<V1Deployment> {
 
     V1Patch patch = new V1Patch(String.format(PAUSE_PATCH, Boolean.FALSE.toString()));
     KubernetesApiResponse<V1Deployment> patchResponse =
-        getApi().patch(getNamespace(), getName(), patch);
+        getApi().patch(getNamespace(), getName(), V1Patch.PATCH_FORMAT_JSON_MERGE_PATCH, patch);
     if (patchResponse == null || patchResponse.getObject() == null) {
       throw new KubectlException(
           "Failed to resume resource "
@@ -123,7 +123,12 @@ public class DeploymentRollout extends Rollout<V1Deployment> {
     }
 
     KubernetesApiResponse<V1Deployment> patchResponse =
-        getApi().patch(getNamespace(), getName(), getRestartPatch());
+        getApi()
+            .patch(
+                getNamespace(),
+                getName(),
+                V1Patch.PATCH_FORMAT_JSON_MERGE_PATCH,
+                getRestartPatch());
     if (patchResponse == null || patchResponse.getObject() == null) {
       throw new KubectlException("Failed to restart resource " + getName());
     }
@@ -142,7 +147,7 @@ public class DeploymentRollout extends Rollout<V1Deployment> {
 
     V1Patch patch = new V1Patch(String.format(PAUSE_PATCH, Boolean.TRUE.toString()));
     KubernetesApiResponse<V1Deployment> patchResponse =
-        getApi().patch(getNamespace(), getName(), patch);
+        getApi().patch(getNamespace(), getName(), V1Patch.PATCH_FORMAT_JSON_MERGE_PATCH, patch);
     if (patchResponse == null || patchResponse.getObject() == null) {
       throw new KubectlException("Failed to pause resource " + getName());
     }

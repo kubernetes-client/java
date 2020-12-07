@@ -36,6 +36,7 @@ import io.kubernetes.client.custom.PodMetrics;
 import io.kubernetes.client.extended.kubectl.KubectlExec;
 import io.kubernetes.client.extended.kubectl.KubectlPortForward;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
+import io.kubernetes.client.extended.kubectl.rollout.response.RolloutResponse;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.models.V1DaemonSet;
 import io.kubernetes.client.openapi.models.V1Deployment;
@@ -316,13 +317,13 @@ public class KubectlExample {
         String action = args[1];
         kind = args[2];
         name = args[3];
-        String namespace = args[4];
-        rollout(getClassForKind(kind))
-            .apiClient(client)
-            .name(name)
-            .namespace(namespace)
-            .history()
-            .execute();
+        RolloutResponse response =
+            rollout(getClassForKind(kind))
+                .apiClient(client)
+                .name(name)
+                .namespace(ns)
+                .history()
+                .execute();
         System.exit(0);
       default:
         System.out.println("Unknown verb: " + verb);

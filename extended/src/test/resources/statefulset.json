@@ -1,0 +1,97 @@
+{
+  "apiVersion": "apps/v1",
+  "kind": "StatefulSet",
+  "metadata": {
+    "labels": {
+      "test": "sample"
+    },
+    "name": "web",
+    "resourceVersion": "4756859",
+    "selfLink": "/apis/apps/v1/namespaces/poc-sts/statefulsets/web",
+    "uid": "3c95897d-90da-4900-90bd-3b55c681cb4a"
+  },
+  "spec": {
+    "replicas": 2,
+    "revisionHistoryLimit": 10,
+    "selector": {
+      "matchLabels": {
+        "app": "nginx"
+      }
+    },
+    "serviceName": "nginx",
+    "template": {
+      "metadata": {
+        "labels": {
+          "app": "nginx"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "image": "nginx:1.14.2",
+            "imagePullPolicy": "IfNotPresent",
+            "name": "nginx",
+            "ports": [
+              {
+                "containerPort": 80,
+                "name": "web",
+                "protocol": "TCP"
+              }
+            ],
+            "resources": {},
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "volumeMounts": [
+              {
+                "mountPath": "/usr/share/nginx/html",
+                "name": "www"
+              }
+            ]
+          }
+        ],
+        "dnsPolicy": "ClusterFirst",
+        "restartPolicy": "Always",
+        "schedulerName": "default-scheduler",
+        "securityContext": {},
+        "terminationGracePeriodSeconds": 30
+      }
+    },
+    "updateStrategy": {
+      "rollingUpdate": {
+        "partition": 0
+      },
+      "type": "RollingUpdate"
+    },
+    "volumeClaimTemplates": [
+      {
+        "apiVersion": "v1",
+        "kind": "PersistentVolumeClaim",
+        "metadata": {
+          "creationTimestamp": null,
+          "name": "www"
+        },
+        "spec": {
+          "accessModes": [
+            "ReadWriteOnce"
+          ],
+          "resources": {
+            "requests": {
+              "storage": "1Gi"
+            }
+          },
+          "volumeMode": "Filesystem"
+        },
+        "status": {
+          "phase": "Pending"
+        }
+      }
+    ]
+  },
+  "status": {
+    "collisionCount": 0,
+    "currentRevision": "web-b899d445c",
+    "observedGeneration": 3,
+    "replicas": 2,
+    "updateRevision": "web-b899d445c"
+  }
+}

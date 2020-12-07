@@ -16,6 +16,7 @@ import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
+import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.extended.kubectl.rollout.response.RolloutHistory;
 import io.kubernetes.client.openapi.ApiException;
@@ -61,7 +62,7 @@ public class DaemonSetRollout extends Rollout<V1DaemonSet> {
               getNamespace(), "true", null, null, null, labelSelector, null, null, null, null);
       if (controllerRevisionList != null && controllerRevisionList.getItems() != null) {
         for (V1ControllerRevision each : controllerRevisionList.getItems()) {
-          V1OwnerReference ownerReference = getControllerRefernce(each.getMetadata());
+          V1OwnerReference ownerReference = getControllerReference(each.getMetadata());
           if (ownerReference != null
               && ownerReference.getUid().equals(daemonSet.getMetadata().getUid())) {
             RolloutHistory rolloutHistory =
@@ -97,7 +98,12 @@ public class DaemonSetRollout extends Rollout<V1DaemonSet> {
     getResource();
 
     KubernetesApiResponse<V1DaemonSet> patchResponse =
-        getApi().patch(getNamespace(), getName(), getRestartPatch());
+        getApi()
+            .patch(
+                getNamespace(),
+                getName(),
+                V1Patch.PATCH_FORMAT_JSON_MERGE_PATCH,
+                getRestartPatch());
     if (patchResponse == null || patchResponse.getObject() == null) {
       throw new KubectlException(
           "Failed to restart resource "
@@ -113,7 +119,7 @@ public class DaemonSetRollout extends Rollout<V1DaemonSet> {
     throw new KubectlException("Unsupported Operation on DaemonSets");
   }
 
-  private V1OwnerReference getControllerRefernce(V1ObjectMeta meta) {
+  private V1OwnerReference getControllerReference(V1ObjectMeta meta) {
     for (V1OwnerReference ref : meta.getOwnerReferences()) {
       if (ref.getController()) {
         return ref;
@@ -123,7 +129,8 @@ public class DaemonSetRollout extends Rollout<V1DaemonSet> {
   }
 
   private V1PodTemplateSpec unmarshal(LinkedTreeMap data) {
-    Object templateObj = ((LinkedTreeMap) data.get("spec")).get("template");
+    LinkedTreeMap templateObj =
+        ((LinkedTreeMap) ((LinkedTreeMap) data.get("spec")).get("template"));
     Gson gson = new Gson();
     V1PodTemplateSpec podTemplateSpec =
         gson.fromJson(gson.toJsonTree(templateObj), V1PodTemplateSpec.class);

@@ -13,15 +13,14 @@ limitations under the License.
 package io.kubernetes.client.extended.kubectl.rollout;
 
 import static com.google.common.base.Strings.isNullOrEmpty;
-import static java.util.Objects.isNull;
 
 import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
-import io.kubernetes.client.util.generic.KubernetesApiResponse;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -81,12 +80,11 @@ public abstract class Rollout<ApiType extends KubernetesObject> implements Rollo
   }
 
   protected ApiType getResource() throws KubectlException {
-    KubernetesApiResponse<ApiType> apiResource = getApi().get(getNamespace(), getName());
-    if (isNull(apiResource) || isNull(apiResource.getObject())) {
-      throw new KubectlException(
-          "Resource " + getName() + " does not exist in namespace " + getNamespace());
+    try {
+      return getApi().get(getNamespace(), getName()).throwsApiException().getObject();
+    } catch (ApiException e) {
+      throw new KubectlException(e);
     }
-    return apiResource.getObject();
   }
 
   protected ApiClient getApiClient() {
