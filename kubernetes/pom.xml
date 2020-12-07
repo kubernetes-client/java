@@ -141,6 +141,7 @@
     <dependency>
       <groupId>io.sundr</groupId>
       <artifactId>builder-annotations</artifactId>
+       <optional>true</optional>
     </dependency>
     <dependency>
       <groupId>javax.annotation</groupId>

@@ -20,7 +20,7 @@ import io.kubernetes.client.util.annotations.Annotations;
 import io.kubernetes.client.util.generic.KubernetesApiResponse;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 public class KubectlAnnotate<ApiType extends KubernetesObject>
     extends Kubectl.ResourceBuilder<ApiType, KubectlAnnotate<ApiType>>

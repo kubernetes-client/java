@@ -5,6 +5,7 @@
 .settings/
 .project
 .vscode/
+.attach_pid*
 
 # Maven builds
 */target/
