@@ -287,7 +287,7 @@ public class SharedInformerFactory {
     informers.forEach(
         (informerType, informer) ->
             startedInformers.computeIfAbsent(
-                informerType, key -> informerExecutor.submit(informer::run)));
+                informerType, key -> informerExecutor.submit((Runnable) informer::run)));
   }
 
   /** Stop all registered informers and shut down the thread pool. */
