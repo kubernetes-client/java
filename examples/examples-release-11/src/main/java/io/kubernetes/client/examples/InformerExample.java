@@ -12,7 +12,9 @@ limitations under the License.
 */
 package io.kubernetes.client.examples;
 
-import io.kubernetes.client.informer.*;
+import io.kubernetes.client.informer.ResourceEventHandler;
+import io.kubernetes.client.informer.SharedIndexInformer;
+import io.kubernetes.client.informer.SharedInformerFactory;
 import io.kubernetes.client.informer.cache.Lister;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.apis.CoreV1Api;

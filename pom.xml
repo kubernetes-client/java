@@ -449,6 +449,7 @@
         <version>2.6.1</version>
         <configuration>
           <formats>
+            <!-- common settings -->
             <format>
               <includes>
                 <include>examples/**/*.java</include>
@@ -461,10 +462,42 @@
               <trimTrailingWhitespace />
               <endWithNewline />
             </format>
+            <!-- removes wildcard imports -->
+            <format>
+              <includes>
+                <include>examples/**/*.java</include>
+                <include>extended/**/*.java</include>
+                <include>kubernetes/**/*.java</include>
+                <include>proto/**/*.java</include>
+                <include>spring/**/*.java</include>
+                <include>util/**/*.java</include>
+              </includes>
+              <replaceRegex>
+                <name>Remove wildcard imports</name>
+                <searchRegex>import (static )?\s+\S+\.\*;$</searchRegex>
+                <replacement>INVALID IMPORTS (WILDCARD)</replacement>
+              </replaceRegex>
+            </format>
+            <!-- removes guava imports -->
+            <format>
+              <includes>
+                <include>examples/**/*.java</include>
+                <include>extended/**/*.java</include>
+                <include>kubernetes/**/*.java</include>
+                <include>proto/**/*.java</include>
+                <include>spring/**/*.java</include>
+                <include>util/**/*.java</include>
+              </includes>
+              <replaceRegex>
+                <name>Forbids guava imports</name>
+                <searchRegex>^import (static )?com\.google\.guava\..*;$</searchRegex>
+                <replacement>INVALID IMPORTS (GUAVA)</replacement>
+              </replaceRegex>
+            </format>
           </formats>
           <java>
             <removeUnusedImports /> <!-- self-explanatory -->
-            <googleJavaFormat />
+            <googleJavaFormat/>
           </java>
           <licenseHeader>
             <content>
