@@ -12,7 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.leaderelection;
 
-import io.kubernetes.client.openapi.ApiException;
 import java.net.HttpURLConnection;
 import java.time.Duration;
 import java.util.Date;
@@ -25,14 +24,16 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.util.Threads;
 
 public class LeaderElector implements AutoCloseable {
 
@@ -54,11 +55,11 @@ public class LeaderElector implements AutoCloseable {
 
   private final ScheduledExecutorService scheduledWorkers =
       Executors.newSingleThreadScheduledExecutor(
-          makeThreadFactory("leader-elector-scheduled-worker-%d"));
+          Threads.threadFactory("leader-elector-scheduled-worker-%d"));
   private final ExecutorService leaseWorkers =
-      Executors.newSingleThreadExecutor(makeThreadFactory("leader-elector-lease-worker-%d"));
+      Executors.newSingleThreadExecutor(Threads.threadFactory("leader-elector-lease-worker-%d"));
   private final ExecutorService hookWorkers =
-      Executors.newSingleThreadExecutor(makeThreadFactory("leader-elector-hook-worker-%d"));
+      Executors.newSingleThreadExecutor(Threads.threadFactory("leader-elector-hook-worker-%d"));
 
   public LeaderElector(LeaderElectionConfig config) {
     this(
@@ -341,19 +342,6 @@ public class LeaderElector implements AutoCloseable {
     if (this.onNewLeaderHook != null) {
       this.hookWorkers.submit(() -> onNewLeaderHook.accept(this.reportedLeader));
     }
-  }
-
-  private ThreadFactory makeThreadFactory(String format) {
-    final ThreadFactory defaultFactory = Executors.defaultThreadFactory();
-    final AtomicInteger threadNumber = new AtomicInteger(1);
-    return r -> {
-      Thread thread = defaultFactory.newThread(r);
-      if (!thread.isDaemon()) {
-        thread.setDaemon(true);
-      }
-      thread.setName(String.format(format, threadNumber.getAndIncrement()));
-      return thread;
-    };
   }
 
   @Override
