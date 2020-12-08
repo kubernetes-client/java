@@ -17,7 +17,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Threads {
-  
+
   public static ThreadFactory threadFactory(String format) {
     final ThreadFactory defaultFactory = Executors.defaultThreadFactory();
     final AtomicInteger threadNumber = new AtomicInteger(1);

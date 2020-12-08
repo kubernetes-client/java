@@ -12,6 +12,8 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.leaderelection;
 
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.util.Threads;
 import java.net.HttpURLConnection;
 import java.time.Duration;
 import java.util.Date;
@@ -28,12 +30,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Consumer;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import io.kubernetes.client.openapi.ApiException;
-import io.kubernetes.client.util.Threads;
 
 public class LeaderElector implements AutoCloseable {
 

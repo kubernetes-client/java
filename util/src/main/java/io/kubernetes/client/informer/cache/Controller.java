@@ -12,6 +12,11 @@ limitations under the License.
 */
 package io.kubernetes.client.informer.cache;
 
+import io.kubernetes.client.common.KubernetesListObject;
+import io.kubernetes.client.common.KubernetesObject;
+import io.kubernetes.client.informer.ListerWatcher;
+import io.kubernetes.client.informer.ResyncRunnable;
+import io.kubernetes.client.util.Threads;
 import java.util.Deque;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
@@ -20,16 +25,9 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
-
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import io.kubernetes.client.common.KubernetesListObject;
-import io.kubernetes.client.common.KubernetesObject;
-import io.kubernetes.client.informer.ListerWatcher;
-import io.kubernetes.client.informer.ResyncRunnable;
-import io.kubernetes.client.util.Threads;
 
 /**
  * Controller is a java port of k/client-go's informer#Controller. It plumbs reflector and the queue
@@ -84,12 +82,12 @@ public class Controller<
     // starts one daemon thread for reflector
     this.reflectExecutor =
         Executors.newSingleThreadScheduledExecutor(
-          Threads.threadFactory("controller-reflector-" + apiTypeClass.getName() + "-%d"));
+            Threads.threadFactory("controller-reflector-" + apiTypeClass.getName() + "-%d"));
 
     // starts one daemon thread for resync
     this.resyncExecutor =
         Executors.newSingleThreadScheduledExecutor(
-          Threads.threadFactory("controller-reflector-" + apiTypeClass.getName() + "-%d"));
+            Threads.threadFactory("controller-reflector-" + apiTypeClass.getName() + "-%d"));
   }
 
   public Controller(
