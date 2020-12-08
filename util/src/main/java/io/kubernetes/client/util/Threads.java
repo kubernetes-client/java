@@ -23,9 +23,7 @@ public class Threads {
     final AtomicInteger threadNumber = new AtomicInteger(1);
     return r -> {
       Thread thread = defaultFactory.newThread(r);
-      if (!thread.isDaemon()) {
-        thread.setDaemon(true);
-      }
+      // Daemon status inherited from default
       thread.setName(String.format(format, threadNumber.getAndIncrement()));
       return thread;
     };
