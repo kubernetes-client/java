@@ -13,7 +13,7 @@ limitations under the License.
 package io.kubernetes.client.extended.event.legacy;
 
 import io.kubernetes.client.openapi.models.CoreV1Event;
-import org.apache.commons.lang.RandomStringUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.joda.time.DateTime;
 

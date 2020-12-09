@@ -16,7 +16,7 @@ import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.util.ModelMapper;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 public class KubectlDelete<ApiType extends KubernetesObject>
     extends Kubectl.ResourceBuilder<ApiType, KubectlDelete<ApiType>>
