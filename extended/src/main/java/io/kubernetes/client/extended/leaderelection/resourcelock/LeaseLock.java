@@ -72,9 +72,7 @@ public class LeaseLock implements Lock {
       V1Lease createdLease =
           coordinationV1Api.createNamespacedLease(
               namespace,
-              new V1Lease()
-                  .metadata(objectMeta)
-                  .spec(getLeaseFromRecord(record)),
+              new V1Lease().metadata(objectMeta).spec(getLeaseFromRecord(record)),
               null,
               null,
               null);

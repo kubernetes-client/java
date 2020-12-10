@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.extended.leaderelection;
 
 import io.kubernetes.client.openapi.models.V1OwnerReference;
-
 import java.time.Duration;
 
 public class LeaderElectionConfig {
@@ -36,7 +35,11 @@ public class LeaderElectionConfig {
   }
 
   public LeaderElectionConfig(
-          Lock lock, Duration leaseDuration, Duration renewDeadline, Duration retryPeriod, V1OwnerReference ownerReference) {
+      Lock lock,
+      Duration leaseDuration,
+      Duration renewDeadline,
+      Duration retryPeriod,
+      V1OwnerReference ownerReference) {
     this.lock = lock;
     this.leaseDuration = leaseDuration;
     this.renewDeadline = renewDeadline;

@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.extended.leaderelection;
 
 import io.kubernetes.client.openapi.models.V1OwnerReference;
-
 import java.util.Date;
 
 public class LeaderElectionRecord {
@@ -42,12 +41,12 @@ public class LeaderElectionRecord {
   }
 
   public LeaderElectionRecord(
-          String holderIdentity,
-          int leaseDurationSeconds,
-          Date acquireTime,
-          Date renewTime,
-          int leaderTransitions,
-          V1OwnerReference ownerReference) {
+      String holderIdentity,
+      int leaseDurationSeconds,
+      Date acquireTime,
+      Date renewTime,
+      int leaderTransitions,
+      V1OwnerReference ownerReference) {
     this.holderIdentity = holderIdentity;
     this.leaseDurationSeconds = leaseDurationSeconds;
     this.acquireTime = acquireTime;
