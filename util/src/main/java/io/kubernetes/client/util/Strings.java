@@ -12,23 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
+import javax.annotation.Nullable;
 
-/** Namespaces provides a set of helpers for operating namespaces. */
-public class Namespaces {
+public class Strings {
 
-  public static final String NAMESPACE_ALL = "";
+  public static boolean isNullOrEmpty(String value) {
+    return value == null || value.length() == 0;
+  }
 
-  public static final String NAMESPACE_DEFAULT = "default";
-
-  public static final String NAMESPACE_KUBESYSTEM = "kube-system";
-
-  public static String getPodNamespace() throws IOException {
-    return new String(
-        Files.readAllBytes(new File(Config.SERVICEACCOUNT_NAMESPACE_PATH).toPath()),
-        StandardCharsets.UTF_8);
+  public static String nullToEmpty(@Nullable String string) {
+    return (string == null) ? "" : string;
   }
 }

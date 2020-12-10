@@ -12,34 +12,34 @@ limitations under the License.
 */
 package io.kubernetes.client.spring.extended.network.endpoints;
 
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
 import io.kubernetes.client.apimachinery.NamespaceName;
 import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.apis.CoreV1Api;
 import io.kubernetes.client.openapi.models.V1Endpoints;
 import java.time.Duration;
-import java.util.concurrent.ExecutionException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class PollingEndpointsGetter implements EndpointsGetter {
 
   private static final Cache<NamespaceName, V1Endpoints> lastObservedEndpoints =
-      CacheBuilder.newBuilder().expireAfterWrite(Duration.ofMinutes(5)).build();
+      Caffeine.newBuilder().expireAfterWrite(Duration.ofMinutes(5)).build();
 
   @Autowired private ApiClient apiClient;
 
   @Override
   public V1Endpoints get(String namespace, String name) {
     CoreV1Api coreV1Api = new CoreV1Api(apiClient);
-    try {
-      return lastObservedEndpoints.get(
-          new NamespaceName(namespace, name),
-          () -> {
+    return lastObservedEndpoints.get(
+        new NamespaceName(namespace, name),
+        k -> {
+          try {
             return coreV1Api.readNamespacedEndpoints(name, namespace, null, null, null);
-          });
-    } catch (ExecutionException e) {
-      throw new RuntimeException(e);
-    }
+          } catch (ApiException e) {
+            throw new IllegalStateException(e);
+          }
+        });
   }
 }

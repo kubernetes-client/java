@@ -12,10 +12,10 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.controller;
 
-import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.controller.reconciler.Request;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
+import io.kubernetes.client.util.Threads;
 import java.util.concurrent.ThreadFactory;
 import java.util.function.Function;
 import org.slf4j.Logger;
@@ -50,6 +50,6 @@ public class Controllers {
    * @return the thread factory
    */
   public static ThreadFactory namedControllerThreadFactory(String controllerName) {
-    return new ThreadFactoryBuilder().setNameFormat(controllerName + "-%d").build();
+    return Threads.threadFactory(controllerName + "-%d");
   }
 }

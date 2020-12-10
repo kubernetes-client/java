@@ -12,8 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.workqueue;
 
-import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
 
@@ -42,9 +41,9 @@ public class DefaultWorkQueue<T> implements WorkQueue<T> {
   private boolean shuttingDown = false;
 
   public DefaultWorkQueue() {
-    this.queue = Lists.newLinkedList();
-    this.dirty = Sets.newHashSet();
-    this.processing = Sets.newHashSet();
+    this.queue = new LinkedList<>();
+    this.dirty = new HashSet<>();
+    this.processing = new HashSet<>();
   }
 
   @Override

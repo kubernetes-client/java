@@ -12,8 +12,8 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.event.legacy;
 
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
 import io.github.bucket4j.Bandwidth;
 import io.github.bucket4j.Bucket4j;
 import io.github.bucket4j.Refill;
@@ -21,7 +21,6 @@ import io.github.bucket4j.local.LocalBucket;
 import io.github.bucket4j.local.SynchronizationStrategy;
 import io.kubernetes.client.openapi.models.CoreV1Event;
 import java.time.Duration;
-import java.util.concurrent.ExecutionException;
 import java.util.function.Function;
 
 public class EventSpamFilter {
@@ -49,7 +48,7 @@ public class EventSpamFilter {
     this.capacity = tokenBucketCapacity;
     this.refillingTokensPerPeriod = refillingTokensPerPeriod;
     this.refillingPeriod = refillingPeriod;
-    this.spamRecordCache = CacheBuilder.newBuilder().maximumSize(maxLRUCacheEntries).build();
+    this.spamRecordCache = Caffeine.newBuilder().maximumSize(maxLRUCacheEntries).build();
   }
 
   private final long capacity;
@@ -60,12 +59,7 @@ public class EventSpamFilter {
 
   public boolean filter(CoreV1Event event) {
     String spamKey = spamKeyFunc.apply(event);
-    SpamRecord record;
-    try {
-      record = spamRecordCache.get(spamKey, SpamRecord::new);
-    } catch (ExecutionException e) {
-      throw new IllegalStateException(e);
-    }
+    SpamRecord record = spamRecordCache.get(spamKey, k -> new SpamRecord());
     return record.tokenBucket.tryConsume(1);
   }
 

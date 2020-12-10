@@ -12,7 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import com.google.common.base.Strings;
 import java.io.IOException;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;

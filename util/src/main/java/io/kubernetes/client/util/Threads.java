@@ -12,23 +12,20 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
 
-/** Namespaces provides a set of helpers for operating namespaces. */
-public class Namespaces {
+public class Threads {
 
-  public static final String NAMESPACE_ALL = "";
-
-  public static final String NAMESPACE_DEFAULT = "default";
-
-  public static final String NAMESPACE_KUBESYSTEM = "kube-system";
-
-  public static String getPodNamespace() throws IOException {
-    return new String(
-        Files.readAllBytes(new File(Config.SERVICEACCOUNT_NAMESPACE_PATH).toPath()),
-        StandardCharsets.UTF_8);
+  public static ThreadFactory threadFactory(String format) {
+    final ThreadFactory defaultFactory = Executors.defaultThreadFactory();
+    final AtomicInteger threadNumber = new AtomicInteger(1);
+    return r -> {
+      Thread thread = defaultFactory.newThread(r);
+      // Daemon status inherited from default
+      thread.setName(String.format(format, threadNumber.getAndIncrement()));
+      return thread;
+    };
   }
 }

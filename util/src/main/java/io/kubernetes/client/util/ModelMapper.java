@@ -12,25 +12,28 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import com.google.common.base.Strings;
-import com.google.common.reflect.ClassPath;
-import com.google.common.util.concurrent.Striped;
 import io.kubernetes.client.Discovery;
 import io.kubernetes.client.apimachinery.GroupVersionKind;
 import io.kubernetes.client.apimachinery.GroupVersionResource;
 import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.openapi.ApiException;
+import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URL;
+import java.net.URLDecoder;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.locks.ReadWriteLock;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.slf4j.Logger;
@@ -65,8 +68,8 @@ public class ModelMapper {
 
   private static Set<Discovery.APIResource> lastAPIDiscovery = new HashSet<>();
 
-  private static volatile long nextDiscoveryRefreshTimeMillis =
-      0; // zero means api-discovery never done
+  // zero means api-discovery never done
+  private static volatile long nextDiscoveryRefreshTimeMillis = 0;
 
   static {
     try {
@@ -329,12 +332,10 @@ public class ModelMapper {
     initApiGroupMap();
     initApiVersionList();
 
-    ClassPath cp = ClassPath.from(Yaml.class.getClassLoader());
-    Set<ClassPath.ClassInfo> allClasses =
-        cp.getTopLevelClasses("io.kubernetes.client.openapi.models");
-
-    for (ClassPath.ClassInfo classInfo : allClasses) {
-      Class clazz = classInfo.load();
+    for (String classInfo :
+        getClassNamesFromPackage(
+            Yaml.class.getClassLoader(), "io.kubernetes.client.openapi.models")) {
+      Class<?> clazz = loadClass(classInfo, Yaml.class.getClassLoader());
       if (!KubernetesObject.class.isAssignableFrom(clazz)
           && !KubernetesListObject.class.isAssignableFrom(clazz)) {
         continue;
@@ -348,6 +349,14 @@ public class ModelMapper {
       String kind = versionAndOther.getRight();
 
       preBuiltClassesByGVK.put(new GroupVersionKind(group, version, kind), clazz);
+    }
+  }
+
+  private static Class<?> loadClass(String name, ClassLoader classLoader) {
+    try {
+      return Class.forName(name, false, classLoader);
+    } catch (ClassNotFoundException e) {
+      return null;
     }
   }
 
@@ -368,43 +377,63 @@ public class ModelMapper {
   }
 
   static class BiDirectionalMap<K, V> {
-    private Map<K, V> kvMap = new HashMap<>();
-    private Map<V, K> vkMap = new HashMap<>();
-    private Striped<ReadWriteLock> lock =
-        Striped.readWriteLock(Runtime.getRuntime().availableProcessors() * 4);
+
+    private Map<K, V> kvMap = new ConcurrentHashMap<>();
+
+    private Map<V, K> vkMap = new ConcurrentHashMap<>();
 
     void add(K k, V v) {
-      ReadWriteLock keyLock = lock.get(k);
-      ReadWriteLock valueLock = lock.get(v);
-      keyLock.writeLock().lock();
-      valueLock.writeLock().lock();
-      try {
-        kvMap.put(k, v);
-        vkMap.put(v, k);
-      } finally {
-        keyLock.writeLock().unlock();
-        valueLock.writeLock().unlock();
-      }
+      kvMap.put(k, v);
+      vkMap.put(v, k);
     }
 
     V getByK(K k) {
-      ReadWriteLock l = lock.get(k);
-      l.readLock().lock();
-      try {
-        return kvMap.get(k);
-      } finally {
-        l.readLock().unlock();
-      }
+      return kvMap.get(k);
     }
 
     K getByV(V v) {
-      ReadWriteLock l = lock.get(v);
-      l.readLock().lock();
-      try {
-        return vkMap.get(v);
-      } finally {
-        l.readLock().unlock();
+      return vkMap.get(v);
+    }
+  }
+
+  private static List<String> getClassNamesFromPackage(ClassLoader classLoader, String pkg)
+      throws IOException {
+
+    URL packageURL;
+    ArrayList<String> names = new ArrayList<String>();
+
+    String packageName = pkg.replace(".", "/");
+    packageURL = classLoader.getResource(packageName);
+
+    if (packageURL.getProtocol().equals("jar")) {
+      String jarFileName;
+      JarFile jf;
+      Enumeration<JarEntry> jarEntries;
+      String entryName;
+      jarFileName = URLDecoder.decode(packageURL.getFile(), "UTF-8");
+      jarFileName = jarFileName.substring(5, jarFileName.indexOf("!"));
+      System.out.println(">" + jarFileName);
+      jf = new JarFile(jarFileName);
+      jarEntries = jf.entries();
+      while (jarEntries.hasMoreElements()) {
+        entryName = jarEntries.nextElement().getName();
+        if (entryName.startsWith(packageName) && entryName.length() > packageName.length() + 5) {
+          entryName = entryName.substring(packageName.length() + 1, entryName.lastIndexOf('.'));
+          names.add(pkg + "." + entryName);
+        }
+      }
+      jf.close();
+    } else {
+      URI uri = URI.create(packageURL.toString());
+      File folder = new File(uri.getPath());
+      File[] contenuti = folder.listFiles();
+      String entryName;
+      for (File actual : contenuti) {
+        entryName = actual.getName();
+        entryName = entryName.substring(0, entryName.lastIndexOf('.'));
+        names.add(pkg + "." + entryName);
       }
     }
+    return names;
   }
 }

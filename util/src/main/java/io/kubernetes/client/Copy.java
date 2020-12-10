@@ -12,11 +12,11 @@ limitations under the License.
 */
 package io.kubernetes.client;
 
-import com.google.common.io.ByteStreams;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.models.V1Pod;
+import io.kubernetes.client.util.Streams;
 import io.kubernetes.client.util.exception.CopyNotSupportedException;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -96,7 +96,7 @@ public class Copy extends Exec {
       throws ApiException, IOException {
     try (InputStream is = copyFileFromPod(namespace, name, container, srcPath);
         FileOutputStream fos = new FileOutputStream(destination.toFile())) {
-      ByteStreams.copy(is, fos);
+      Streams.copy(is, fos);
       fos.flush();
     }
   }
@@ -204,7 +204,7 @@ public class Copy extends Exec {
             throw new IOException("create directory failed: " + parent);
           }
           try (OutputStream fs = new FileOutputStream(f)) {
-            ByteStreams.copy(archive, fs);
+            Streams.copy(archive, fs);
             fs.flush();
           }
         }
@@ -250,7 +250,7 @@ public class Copy extends Exec {
         String modifiedSrcPath = genericPathBuilder(srcPath, childNode.name);
         try (InputStream is = copyFileFromPod(namespace, pod, modifiedSrcPath);
             OutputStream fs = new FileOutputStream(f)) {
-          ByteStreams.copy(is, fs);
+          Streams.copy(is, fs);
           fs.flush();
         }
       } else {
@@ -337,7 +337,7 @@ public class Copy extends Exec {
     Copy c = new Copy();
     try (InputStream is = c.copyFileFromPod(namespace, pod, null, srcPath);
         FileOutputStream os = new FileOutputStream(dest.toFile())) {
-      ByteStreams.copy(is, os);
+      Streams.copy(is, os);
       os.flush();
     }
   }
@@ -371,7 +371,7 @@ public class Copy extends Exec {
       ArchiveEntry tarEntry = new TarArchiveEntry(srcFile, destPath.getFileName().toString());
 
       archiveOutputStream.putArchiveEntry(tarEntry);
-      ByteStreams.copy(input, archiveOutputStream);
+      Streams.copy(input, archiveOutputStream);
       archiveOutputStream.closeArchiveEntry();
 
       return new ProcessFuture(proc);
@@ -404,7 +404,7 @@ public class Copy extends Exec {
       ((TarArchiveEntry) tarEntry).setSize(src.length);
 
       archiveOutputStream.putArchiveEntry(tarEntry);
-      ByteStreams.copy(new ByteArrayInputStream(src), archiveOutputStream);
+      Streams.copy(new ByteArrayInputStream(src), archiveOutputStream);
       archiveOutputStream.closeArchiveEntry();
 
       return new ProcessFuture(proc);

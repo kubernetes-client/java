@@ -12,9 +12,9 @@ limitations under the License.
 */
 package io.kubernetes.client.informer.cache;
 
-import com.google.common.base.Strings;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
+import io.kubernetes.client.util.Strings;
 import java.util.Collections;
 import java.util.List;
 
