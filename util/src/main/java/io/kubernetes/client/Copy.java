@@ -35,6 +35,7 @@ import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
 import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
 import org.apache.commons.compress.archivers.tar.TarArchiveOutputStream;
 import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
+import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -137,7 +138,11 @@ public class Copy extends Exec {
           log.error("Can't read: " + entry);
           continue;
         }
-        File f = new File(destination.toFile(), entry.getName());
+        String normalName = FilenameUtils.normalize(entry.getName());
+        if (normalName == null) {
+          throw new IOException("Invalid entry: " + entry.getName());
+        }
+        File f = new File(destination.toFile(), normalName);
         if (entry.isDirectory()) {
           if (!f.isDirectory() && !f.mkdirs()) {
             throw new IOException("create directory failed: " + f);
