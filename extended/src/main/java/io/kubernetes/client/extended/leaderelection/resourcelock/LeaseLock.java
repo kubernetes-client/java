@@ -22,6 +22,7 @@ import io.kubernetes.client.openapi.models.V1Lease;
 import io.kubernetes.client.openapi.models.V1LeaseSpec;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import java.net.HttpURLConnection;
+import java.util.Collections;
 import java.util.concurrent.atomic.AtomicReference;
 import org.joda.time.DateTime;
 import org.slf4j.Logger;
@@ -62,12 +63,16 @@ public class LeaseLock implements Lock {
   @Override
   public boolean create(LeaderElectionRecord record) {
     try {
+      V1ObjectMeta objectMeta = new V1ObjectMeta();
+      objectMeta.setName(name);
+      objectMeta.setNamespace(namespace);
+      if (record.getOwnerReference() != null) {
+        objectMeta.setOwnerReferences(Collections.singletonList(record.getOwnerReference()));
+      }
       V1Lease createdLease =
           coordinationV1Api.createNamespacedLease(
               namespace,
-              new V1Lease()
-                  .metadata(new V1ObjectMeta().namespace(namespace).name(name))
-                  .spec(getLeaseFromRecord(record)),
+              new V1Lease().metadata(objectMeta).spec(getLeaseFromRecord(record)),
               null,
               null,
               null);

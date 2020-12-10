@@ -241,7 +241,8 @@ public class LeaderElector implements AutoCloseable {
             Long.valueOf(config.getLeaseDuration().getSeconds()).intValue(),
             now,
             now,
-            0);
+            0,
+            config.getOwnerReference());
 
     // 1. obtain or create the ElectionRecord
     LeaderElectionRecord oldLeaderElectionRecord;
