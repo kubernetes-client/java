@@ -12,12 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.kubectl;
 
-import com.google.common.io.ByteStreams;
 import io.kubernetes.client.Exec;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
+import io.kubernetes.client.util.Streams;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -71,7 +71,7 @@ public class KubectlExec extends Kubectl.ResourceAndContainerBuilder<V1Pod, Kube
             new Runnable() {
               public void run() {
                 try {
-                  ByteStreams.copy(in, out);
+                  Streams.copy(in, out);
                 } catch (IOException ex) {
                   ex.printStackTrace();
                 }

@@ -12,14 +12,22 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.leaderelection;
 
-import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.util.Threads;
 import java.net.HttpURLConnection;
 import java.time.Duration;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.concurrent.*;
+import java.util.concurrent.CancellationException;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Consumer;
 import org.slf4j.Logger;
@@ -45,11 +53,11 @@ public class LeaderElector implements AutoCloseable {
 
   private final ScheduledExecutorService scheduledWorkers =
       Executors.newSingleThreadScheduledExecutor(
-          makeThreadFactory("leader-elector-scheduled-worker-%d"));
+          Threads.threadFactory("leader-elector-scheduled-worker-%d"));
   private final ExecutorService leaseWorkers =
-      Executors.newSingleThreadExecutor(makeThreadFactory("leader-elector-lease-worker-%d"));
+      Executors.newSingleThreadExecutor(Threads.threadFactory("leader-elector-lease-worker-%d"));
   private final ExecutorService hookWorkers =
-      Executors.newSingleThreadExecutor(makeThreadFactory("leader-elector-hook-worker-%d"));
+      Executors.newSingleThreadExecutor(Threads.threadFactory("leader-elector-hook-worker-%d"));
 
   public LeaderElector(LeaderElectionConfig config) {
     this(
@@ -333,10 +341,6 @@ public class LeaderElector implements AutoCloseable {
     if (this.onNewLeaderHook != null) {
       this.hookWorkers.submit(() -> onNewLeaderHook.accept(this.reportedLeader));
     }
-  }
-
-  private ThreadFactory makeThreadFactory(String nameFormat) {
-    return new ThreadFactoryBuilder().setDaemon(true).setNameFormat(nameFormat).build();
   }
 
   @Override

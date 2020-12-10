@@ -12,7 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client.util.generic;
 
-import com.google.common.base.Strings;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonSyntaxException;
@@ -28,6 +27,7 @@ import io.kubernetes.client.openapi.apis.CustomObjectsApi;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Status;
 import io.kubernetes.client.util.PatchUtils;
+import io.kubernetes.client.util.Strings;
 import io.kubernetes.client.util.Watch;
 import io.kubernetes.client.util.Watchable;
 import io.kubernetes.client.util.generic.options.CreateOptions;

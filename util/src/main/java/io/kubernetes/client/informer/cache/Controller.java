@@ -12,13 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.informer.cache;
 
-import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.ListerWatcher;
 import io.kubernetes.client.informer.ResyncRunnable;
+import io.kubernetes.client.util.Threads;
 import java.util.Deque;
-import java.util.concurrent.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.RejectedExecutionException;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 import org.apache.commons.lang3.tuple.MutablePair;
@@ -78,16 +82,12 @@ public class Controller<
     // starts one daemon thread for reflector
     this.reflectExecutor =
         Executors.newSingleThreadScheduledExecutor(
-            new ThreadFactoryBuilder()
-                .setNameFormat("controller-reflector-" + apiTypeClass.getName() + "-%d")
-                .build());
+            Threads.threadFactory("controller-reflector-" + apiTypeClass.getName() + "-%d"));
 
     // starts one daemon thread for resync
     this.resyncExecutor =
         Executors.newSingleThreadScheduledExecutor(
-            new ThreadFactoryBuilder()
-                .setNameFormat("controller-resync-" + apiTypeClass.getName() + "-%d")
-                .build());
+            Threads.threadFactory("controller-reflector-" + apiTypeClass.getName() + "-%d"));
   }
 
   public Controller(

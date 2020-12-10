@@ -12,8 +12,8 @@ limitations under the License.
 */
 package io.kubernetes.client.informer.cache;
 
-import com.google.common.base.Strings;
 import io.kubernetes.client.common.KubernetesObject;
+import io.kubernetes.client.util.Strings;
 import java.util.List;
 
 /** Lister interface is used to list cached items from a running informer. */

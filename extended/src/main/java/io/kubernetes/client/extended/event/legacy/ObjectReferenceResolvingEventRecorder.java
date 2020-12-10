@@ -12,7 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.event.legacy;
 
-import com.google.common.base.Strings;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.event.EventType;
 import io.kubernetes.client.openapi.models.CoreV1Event;
@@ -22,6 +21,7 @@ import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1ObjectMetaBuilder;
 import io.kubernetes.client.openapi.models.V1ObjectReference;
 import io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder;
+import io.kubernetes.client.util.Strings;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.BlockingQueue;

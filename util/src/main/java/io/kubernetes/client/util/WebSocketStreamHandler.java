@@ -12,9 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import com.google.common.base.Charsets;
-import com.google.common.io.ByteStreams;
-import com.google.common.io.CharStreams;
 import java.io.ByteArrayInputStream;
 import java.io.Closeable;
 import java.io.IOException;
@@ -24,6 +21,7 @@ import java.io.OutputStream;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
 import java.io.Reader;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 import okhttp3.WebSocket;
@@ -84,7 +82,8 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
   public void textMessage(Reader in) {
     try {
       handleMessage(
-          in.read(), new ByteArrayInputStream(CharStreams.toString(in).getBytes(Charsets.UTF_8)));
+          in.read(),
+          new ByteArrayInputStream(Streams.toString(in).getBytes(StandardCharsets.UTF_8)));
     } catch (IOException ex) {
       log.error("Error writing message", ex);
     }
@@ -93,7 +92,7 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
   protected void handleMessage(int stream, InputStream inStream) throws IOException {
     try {
       OutputStream out = getSocketInputOutputStream(stream);
-      ByteStreams.copy(inStream, out);
+      Streams.copy(inStream, out);
       out.flush();
     } finally {
       inStream.close();

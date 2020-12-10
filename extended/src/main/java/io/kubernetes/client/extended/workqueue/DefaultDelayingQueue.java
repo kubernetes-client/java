@@ -12,7 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.workqueue;
 
-import com.google.common.primitives.Longs;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.temporal.Temporal;
@@ -143,7 +142,7 @@ public class DefaultDelayingQueue<T> extends DefaultWorkQueue<T> implements Dela
 
     @Override
     public int compareTo(Delayed o) {
-      return Longs.compare(getDelay(TimeUnit.MILLISECONDS), o.getDelay(TimeUnit.MILLISECONDS));
+      return Long.compare(getDelay(TimeUnit.MILLISECONDS), o.getDelay(TimeUnit.MILLISECONDS));
     }
   }
 }
