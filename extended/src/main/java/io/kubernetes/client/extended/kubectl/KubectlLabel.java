@@ -19,7 +19,7 @@ import io.kubernetes.client.util.ModelMapper;
 import io.kubernetes.client.util.labels.Labels;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 public class KubectlLabel<ApiType extends KubernetesObject>
     extends Kubectl.ResourceBuilder<ApiType, KubectlLabel<ApiType>>

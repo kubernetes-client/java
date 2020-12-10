@@ -10,9 +10,15 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-package io.kubernetes.client.spring.extended.manifests;
+package io.kubernetes.client.spring.extended.manifests.annotation;
 
-import org.springframework.boot.SpringBootConfiguration;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-@SpringBootConfiguration
-public class TestApplication {}
+@Target({ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface KubectlApply {
+  boolean skipApiDiscovery() default false;
+}

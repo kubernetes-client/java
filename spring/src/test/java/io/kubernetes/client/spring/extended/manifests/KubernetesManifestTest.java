@@ -14,6 +14,7 @@ package io.kubernetes.client.spring.extended.manifests;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
+import static com.github.tomakehurst.wiremock.client.WireMock.patch;
 import static com.github.tomakehurst.wiremock.client.WireMock.post;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
@@ -26,7 +27,9 @@ import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.models.V1Namespace;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
+import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1ServiceAccount;
+import io.kubernetes.client.spring.extended.manifests.annotation.KubectlApply;
 import io.kubernetes.client.spring.extended.manifests.annotation.KubectlCreate;
 import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
@@ -36,15 +39,13 @@ import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
-@Import(KubernetesManifestTest.TestConfig.class)
+@SpringBootTest(classes = KubernetesManifestTest.App.class)
 public class KubernetesManifestTest {
 
   private static final String DISCOVERY_API = Resources.getResource("discovery-api.json").getPath();
@@ -57,9 +58,8 @@ public class KubernetesManifestTest {
 
   @ClassRule public static WireMockRule wireMockRule = new WireMockRule(8288);
 
-  @TestConfiguration
-  static class TestConfig {
-
+  @SpringBootConfiguration
+  static class App {
     @Bean
     public ApiClient testingApiClient() {
       ApiClient apiClient = new ClientBuilder().setBasePath(wireMockRule.baseUrl()).build();
@@ -87,6 +87,21 @@ public class KubernetesManifestTest {
                   .namespace(testNamespace.getMetadata().getName())
                   .name("spring-boot-test-serviceaccount"));
     }
+
+    @Bean
+    public KubernetesKubectlApplyProcessor kubernetesApplyManifestsProcessor() {
+      return new KubernetesKubectlApplyProcessor();
+    }
+
+    @Bean
+    @KubectlApply
+    public V1Pod testApplyPod(V1Namespace testNamespace) {
+      return new V1Pod()
+          .metadata(
+              new V1ObjectMeta()
+                  .namespace(testNamespace.getMetadata().getName())
+                  .name("spring-boot-test-pod"));
+    }
   }
 
   @Autowired private ApiClient client;
@@ -94,6 +109,8 @@ public class KubernetesManifestTest {
   @Autowired private V1Namespace createdNamespace;
 
   @Autowired private V1ServiceAccount createdServiceAccount;
+
+  @Autowired private V1Pod createdPod;
 
   private static final V1Namespace returningCreatedNamespace =
       new V1Namespace()
@@ -107,6 +124,14 @@ public class KubernetesManifestTest {
           .metadata(
               new V1ObjectMeta()
                   .name("spring-boot-test-serviceaccount")
+                  .putLabelsItem("created", "true"));
+
+  private static final V1Pod returningCreatedPod =
+      new V1Pod()
+          .metadata(
+              new V1ObjectMeta()
+                  .name("spring-boot-test-pod")
+                  .namespace("spring-boot-test-namespace")
                   .putLabelsItem("created", "true"));
 
   static {
@@ -131,6 +156,18 @@ public class KubernetesManifestTest {
                         Configuration.getDefaultApiClient()
                             .getJSON()
                             .serialize(returningCreatedServiceAccount))));
+
+    wireMockRule.stubFor(
+        patch(
+                urlEqualTo(
+                    "/api/v1/namespaces/spring-boot-test-namespace/pods/spring-boot-test-pod?fieldManager=kubernetes-java-kubectl-apply&force=false"))
+            .willReturn(
+                aResponse()
+                    .withHeader("Content-Type", "application/json")
+                    .withBody(
+                        Configuration.getDefaultApiClient()
+                            .getJSON()
+                            .serialize(returningCreatedPod))));
 
     try {
       wireMockRule.stubFor(
@@ -160,8 +197,10 @@ public class KubernetesManifestTest {
   public void test() {
     assertNotNull(createdNamespace);
     assertNotNull(createdServiceAccount);
+    assertNotNull(createdPod);
 
     assertEquals("true", createdNamespace.getMetadata().getLabels().get("created"));
     assertEquals("true", createdServiceAccount.getMetadata().getLabels().get("created"));
+    assertEquals("true", createdPod.getMetadata().getLabels().get("created"));
   }
 }

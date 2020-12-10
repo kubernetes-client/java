@@ -19,7 +19,7 @@ import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
 import io.kubernetes.client.util.generic.options.ListOptions;
 import java.util.List;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 public class KubectlGet<ApiType extends KubernetesObject>
     extends Kubectl.ApiClientBuilder<KubectlGet<ApiType>>
