@@ -510,51 +510,5 @@ limitations under the License.
         </plugins>
       </build>
     </profile>
-    <profile>
-      <id>imports</id>
-      <activation>
-        <os>
-          <family>!windows</family>
-        </os>
-        <file>
-        <missing>.google</missing>
-        </file>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>exec-maven-plugin</artifactId>
-            <version>${exec-maven-plugin.version}</version>
-            <executions>
-              <execution>
-                <id>imports</id>
-                <phase>process-sources</phase>
-                <configuration>
-                  <executable>egrep</executable>
-                  <successCodes>
-                    <successCode>1</successCode>
-                    <successCode>2</successCode>
-                  </successCodes>
-                  <arguments>
-                    <argument>-rm</argument>
-                    <argument>1</argument>
-                    <!-- Forbidden Keywords -->
-                    <argument>^import com.google.common</argument>
-                    <!-- file patterns -->
-                    <argument>--include=*.java</argument>
-                    <!-- search path -->
-                    <argument>${project.build.sourceDirectory}</argument>
-                  </arguments>
-                </configuration>
-                <goals>
-                  <goal>exec</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
   </profiles>
 </project>
