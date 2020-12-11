@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.spring.extended.controller.config;
 
-import io.kubernetes.client.spring.extended.controller.metrics.PrometheusScrapeEndpoint;
+import io.prometheus.client.CollectorRegistry;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,14 +21,10 @@ import org.springframework.context.annotation.Configuration;
 @ConditionalOnKubernetesReconcilerEnabled
 public class KubernetesReconcilerAutoConfiguration {
 
-  @Configuration(proxyBeanMethods = false)
-  @ConditionalOnActuatorPrometheusEndpointEnabled
-  public static class KubernetesActuatorPrometheusConfiguration {
-
-    @Bean
-    @ConditionalOnMissingBean
-    public PrometheusScrapeEndpoint prometheusScrapeEndpoint() {
-      return new PrometheusScrapeEndpoint();
-    }
+  @Bean
+  @ConditionalOnMissingBean
+  public CollectorRegistry prometheusCollectorRegistry() {
+    // Explicitly uses default static registry by default
+    return CollectorRegistry.defaultRegistry;
   }
 }
