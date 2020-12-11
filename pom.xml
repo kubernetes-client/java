@@ -58,6 +58,7 @@
     <apache.commons.lang3.version>3.11</apache.commons.lang3.version>
     <apache.commons.collections4.version>4.4</apache.commons.collections4.version>
     <apache.commons.compress>1.20</apache.commons.compress>
+    <apache.commons.io>2.8.0</apache.commons.io>
     <common.codec.version>1.15</common.codec.version>
     <spring.boot.version>2.3.5.RELEASE</spring.boot.version>
     <spring.version>5.2.9.RELEASE</spring.version>
@@ -112,6 +113,11 @@
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-compress</artifactId>
         <version>${apache.commons.compress}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>${apache.commons.io}</version>
       </dependency>
       <dependency>
         <groupId>com.github.ben-manes.caffeine</groupId>
