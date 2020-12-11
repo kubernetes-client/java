@@ -16,7 +16,7 @@ import io.kubernetes.client.extended.controller.Controller;
 import io.kubernetes.client.extended.controller.ControllerManager;
 import io.kubernetes.client.extended.controller.reconciler.Reconciler;
 import io.kubernetes.client.informer.SharedInformerFactory;
-import io.kubernetes.client.spring.extended.controller.annotation.*;
+import io.kubernetes.client.spring.extended.controller.annotation.KubernetesReconciler;
 import io.kubernetes.client.spring.extended.controller.factory.KubernetesControllerFactory;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

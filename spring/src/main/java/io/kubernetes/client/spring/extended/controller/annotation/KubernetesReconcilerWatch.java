@@ -20,7 +20,7 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-import java.util.function.*;
+import java.util.function.Function;
 
 /** The interface Kubernetes reconciler watch. */
 @Target({ElementType.TYPE})
