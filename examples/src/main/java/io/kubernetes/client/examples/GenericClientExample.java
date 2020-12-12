@@ -21,7 +21,6 @@ import io.kubernetes.client.openapi.models.V1PodList;
 import io.kubernetes.client.openapi.models.V1PodSpec;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
-import io.kubernetes.client.util.generic.KubernetesApiResponse;
 import java.util.Arrays;
 
 public class GenericClientExample {
@@ -35,32 +34,47 @@ public class GenericClientExample {
             .spec(
                 new V1PodSpec()
                     .containers(Arrays.asList(new V1Container().name("c").image("test"))));
+
     ApiClient apiClient = ClientBuilder.standard().build();
     GenericKubernetesApi<V1Pod, V1PodList> podClient =
         new GenericKubernetesApi<>(V1Pod.class, V1PodList.class, "", "v1", "pods", apiClient);
 
-    KubernetesApiResponse<V1Pod> createResponse = podClient.create(pod);
-    if (!createResponse.isSuccess()) {
-      throw new RuntimeException(createResponse.getStatus().toString());
-    }
+    V1Pod latestPod =
+        podClient
+            .create(pod)
+            .onFailure(
+                errorStatus -> {
+                  System.out.println("Not Created!");
+                  throw new RuntimeException(errorStatus.toString());
+                })
+            .getObject();
     System.out.println("Created!");
 
-    KubernetesApiResponse<V1Pod> patchResponse =
-        podClient.patch(
-            "default",
-            "foo",
-            V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH,
-            new V1Patch("{\"metadata\":{\"finalizers\":[\"example.io/foo\"]}}"));
-    if (!patchResponse.isSuccess()) {
-      throw new RuntimeException(patchResponse.getStatus().toString());
-    }
+    V1Pod patchedPod =
+        podClient
+            .patch(
+                "default",
+                "foo",
+                V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH,
+                new V1Patch("{\"metadata\":{\"finalizers\":[\"example.io/foo\"]}}"))
+            .onFailure(
+                errorStatus -> {
+                  System.out.println("Not Patched!");
+                  throw new RuntimeException(errorStatus.toString());
+                })
+            .getObject();
     System.out.println("Patched!");
 
-    KubernetesApiResponse<V1Pod> deleteResponse = podClient.delete("default", "foo");
-    if (!deleteResponse.isSuccess()) {
-      throw new RuntimeException(deleteResponse.getStatus().toString());
-    }
-    if (deleteResponse.getObject() != null) {
+    V1Pod deletedPod =
+        podClient
+            .delete("default", "foo")
+            .onFailure(
+                errorStatus -> {
+                  System.out.println("Not Deleted!");
+                  throw new RuntimeException(errorStatus.toString());
+                })
+            .getObject();
+    if (deletedPod != null) {
       System.out.println(
           "Received after-deletion status of the requested object, will be deleting in background!");
     }
