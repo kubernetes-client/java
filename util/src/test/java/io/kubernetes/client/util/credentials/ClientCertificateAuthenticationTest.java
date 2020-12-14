@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.util.credentials;
 
-import com.google.common.io.Resources;
+import io.kubernetes.client.Resources;
 import io.kubernetes.client.openapi.ApiClient;
 import java.nio.file.Files;
 import java.nio.file.Paths;

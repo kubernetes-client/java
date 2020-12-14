@@ -25,7 +25,6 @@ import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static org.junit.Assert.assertEquals;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
-import com.google.common.io.Resources;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.models.V1Node;
@@ -41,7 +40,8 @@ import org.junit.Test;
 
 public class KubectlDrainTest {
 
-  private static final String POD_LIST_API = Resources.getResource("pod-list.json").getPath();
+  private static final String POD_LIST_API =
+      KubectlDrainTest.class.getClassLoader().getResource("pod-list.json").getPath();
 
   private ApiClient apiClient;
 

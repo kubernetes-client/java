@@ -16,8 +16,8 @@ import static io.kubernetes.client.util.TestUtils.getApiKeyAuthFromClient;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-import com.google.common.base.Charsets;
 import io.kubernetes.client.openapi.ApiClient;
+import java.nio.charset.StandardCharsets;
 import okio.ByteString;
 import org.junit.Test;
 
@@ -26,7 +26,7 @@ public class UsernamePasswordAuthenticationTest {
   private static final String USERNAME = "username";
   private static final String PASSWORD = "password";
   public static final byte[] USERNAME_PASSWORD_BYTES =
-      (USERNAME + ":" + PASSWORD).getBytes(Charsets.ISO_8859_1);
+      (USERNAME + ":" + PASSWORD).getBytes(StandardCharsets.ISO_8859_1);
 
   @Test
   public void testUsernamePasswordProvided() {

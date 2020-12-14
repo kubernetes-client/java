@@ -12,9 +12,9 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-import com.google.common.io.Resources;
+import io.kubernetes.client.Resources;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;

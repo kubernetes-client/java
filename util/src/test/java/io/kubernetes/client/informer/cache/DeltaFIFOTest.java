@@ -15,7 +15,6 @@ package io.kubernetes.client.informer.cache;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
-import com.google.common.collect.Lists;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
@@ -160,7 +159,7 @@ public class DeltaFIFOTest {
     DeltaFIFO deltaFIFO = new DeltaFIFO(Caches::deletionHandlingMetaNamespaceKeyFunc, mockCache);
 
     deltaFIFO.delete(oldPod);
-    deltaFIFO.replace(Lists.newArrayList(newPod), "0");
+    deltaFIFO.replace(Arrays.asList(newPod), "0");
 
     deltaFIFO.pop(
         (deltas) -> {
