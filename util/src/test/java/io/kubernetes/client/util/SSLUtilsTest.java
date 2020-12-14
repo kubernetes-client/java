@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import com.google.common.io.Resources;
+import io.kubernetes.client.Resources;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;

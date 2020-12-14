@@ -22,7 +22,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
-import com.google.common.io.Resources;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.models.V1Namespace;
@@ -42,19 +41,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = KubernetesManifestTest.App.class)
 public class KubernetesManifestTest {
 
-  private static final String DISCOVERY_API = Resources.getResource("discovery-api.json").getPath();
+  private static final Resource DISCOVERY_API = new ClassPathResource("discovery-api.json");
 
-  private static final String DISCOVERY_APIV1 =
-      Resources.getResource("discovery-api-v1.json").getPath();
+  private static final Resource DISCOVERY_APIV1 = new ClassPathResource("discovery-api-v1.json");
 
-  private static final String DISCOVERY_APIS =
-      Resources.getResource("discovery-apis.json").getPath();
+  private static final Resource DISCOVERY_APIS = new ClassPathResource("discovery-apis.json");
 
   @ClassRule public static WireMockRule wireMockRule = new WireMockRule(8288);
 
@@ -175,19 +174,22 @@ public class KubernetesManifestTest {
               .willReturn(
                   aResponse()
                       .withStatus(200)
-                      .withBody(new String(Files.readAllBytes(Paths.get(DISCOVERY_API))))));
+                      .withBody(
+                          new String(Files.readAllBytes(Paths.get(DISCOVERY_API.getURI()))))));
       wireMockRule.stubFor(
           get(urlPathEqualTo("/apis"))
               .willReturn(
                   aResponse()
                       .withStatus(200)
-                      .withBody(new String(Files.readAllBytes(Paths.get(DISCOVERY_APIS))))));
+                      .withBody(
+                          new String(Files.readAllBytes(Paths.get(DISCOVERY_APIS.getURI()))))));
       wireMockRule.stubFor(
           get(urlPathEqualTo("/api/v1"))
               .willReturn(
                   aResponse()
                       .withStatus(200)
-                      .withBody(new String(Files.readAllBytes(Paths.get(DISCOVERY_APIV1))))));
+                      .withBody(
+                          new String(Files.readAllBytes(Paths.get(DISCOVERY_APIV1.getURI()))))));
     } catch (IOException e) {
       e.printStackTrace();
     }

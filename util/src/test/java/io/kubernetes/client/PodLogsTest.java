@@ -21,7 +21,6 @@ import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options
 import static org.junit.Assert.assertEquals;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
-import com.google.common.io.ByteStreams;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1Container;
@@ -29,6 +28,7 @@ import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1PodSpec;
 import io.kubernetes.client.util.ClientBuilder;
+import io.kubernetes.client.util.Streams;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -124,7 +124,7 @@ public class PodLogsTest {
             .withQueryParam("timestamps", equalTo("false")));
 
     ByteArrayOutputStream bos = new ByteArrayOutputStream();
-    ByteStreams.copy(is, bos);
+    Streams.copy(is, bos);
     assertEquals(content, bos.toString());
   }
 }
