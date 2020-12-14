@@ -48,6 +48,7 @@
     <common.codec.version>1.14</common.codec.version>
     <spring.boot.version>2.3.1.RELEASE</spring.boot.version>
     <spring.version>5.2.8.RELEASE</spring.version>
+    <apache.commons.io>2.8.0</apache.commons.io>
 
     <gpg.keyname>48540ECBBF00A28EACCF04E720FD12AFB0C9EBA9</gpg.keyname>
     <gpg.passphrase>${env.GPG_PASSPHRASE}</gpg.passphrase>
@@ -96,6 +97,11 @@
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-compress</artifactId>
         <version>${apache.commons.compress}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>${apache.commons.io}</version>
       </dependency>
       <dependency>
         <groupId>com.google.guava</groupId>
