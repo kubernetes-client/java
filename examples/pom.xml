@@ -17,7 +17,6 @@
 	<name>client-java-examples-parent</name>
 
 	<properties>
-		<guava.version>30.0-jre</guava.version>
 		<kubernetes.client.version>10.0.1-SNAPSHOT</kubernetes.client.version>
 	</properties>
 
@@ -25,16 +24,6 @@
 		<module>examples-release-11</module>
 		<module>examples-release-10</module>
 	</modules>
-
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>com.google.guava</groupId>
-				<artifactId>guava</artifactId>
-				<version>${guava.version}</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 
 	<build>
 		<plugins>

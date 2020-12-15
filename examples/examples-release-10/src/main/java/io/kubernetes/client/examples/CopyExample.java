@@ -12,7 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client.examples;
 
-import com.google.common.io.ByteStreams;
 import io.kubernetes.client.Copy;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
@@ -42,7 +41,7 @@ public class CopyExample {
 
     Copy copy = new Copy();
     InputStream dataStream = copy.copyFileFromPod(namespace, podName, "/etc/motd");
-    ByteStreams.copy(dataStream, System.out);
+    Streams.copy(dataStream, System.out);
 
     copy.copyDirectoryFromPod(namespace, podName, null, "/etc", Paths.get("/tmp/etc"));
 

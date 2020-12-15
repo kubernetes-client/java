@@ -12,12 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.examples;
 
-import com.google.common.io.ByteStreams;
 import io.kubernetes.client.Attach;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.util.Config;
+import io.kubernetes.client.util.Streams;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -62,7 +62,7 @@ public class AttachExample {
             new Runnable() {
               public void run() {
                 try {
-                  ByteStreams.copy(result.getStandardOutputStream(), System.out);
+                  Streams.copy(result.getStandardOutputStream(), System.out);
                 } catch (IOException ex) {
                   ex.printStackTrace();
                 }

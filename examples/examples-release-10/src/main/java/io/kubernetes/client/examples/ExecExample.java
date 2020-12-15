@@ -12,7 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client.examples;
 
-import com.google.common.io.ByteStreams;
 import io.kubernetes.client.Exec;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
@@ -63,7 +62,7 @@ public class ExecExample {
             new Runnable() {
               public void run() {
                 try {
-                  ByteStreams.copy(System.in, proc.getOutputStream());
+                  Streams.copy(System.in, proc.getOutputStream());
                 } catch (IOException ex) {
                   ex.printStackTrace();
                 }
@@ -76,7 +75,7 @@ public class ExecExample {
             new Runnable() {
               public void run() {
                 try {
-                  ByteStreams.copy(proc.getInputStream(), System.out);
+                  Streams.copy(proc.getInputStream(), System.out);
                 } catch (IOException ex) {
                   ex.printStackTrace();
                 }
