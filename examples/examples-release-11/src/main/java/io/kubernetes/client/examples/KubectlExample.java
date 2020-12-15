@@ -28,7 +28,6 @@ import static io.kubernetes.client.extended.kubectl.Kubectl.uncordon;
 import static io.kubernetes.client.extended.kubectl.Kubectl.version;
 import static io.kubernetes.client.extended.kubectl.KubectlTop.podMetricSum;
 
-import com.google.common.io.ByteStreams;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.custom.NodeMetrics;
 import io.kubernetes.client.custom.PodMetrics;
@@ -42,6 +41,7 @@ import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1ReplicationController;
 import io.kubernetes.client.openapi.models.V1Service;
 import io.kubernetes.client.util.Config;
+import io.kubernetes.client.util.Streams;
 import java.util.Arrays;
 import java.util.List;
 import org.apache.commons.cli.CommandLine;
@@ -244,7 +244,7 @@ public class KubectlExample {
         System.exit(0);
       case "log":
         name = args[1];
-        ByteStreams.copy(
+        Streams.copy(
             log()
                 .apiClient(client)
                 .name(name)

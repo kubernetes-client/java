@@ -481,6 +481,7 @@
             <!-- removes guava imports -->
             <format>
               <includes>
+                <include>examples/**/*.java</include>
                 <include>extended/**/*.java</include>
                 <include>kubernetes/**/*.java</include>
                 <include>proto/**/*.java</include>

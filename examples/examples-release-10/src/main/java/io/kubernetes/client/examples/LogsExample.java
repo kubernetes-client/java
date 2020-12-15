@@ -12,7 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client.examples;
 
-import com.google.common.io.ByteStreams;
 import io.kubernetes.client.PodLogs;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
@@ -45,6 +44,6 @@ public class LogsExample {
             .get(0);
 
     InputStream is = logs.streamNamespacedPodLog(pod);
-    ByteStreams.copy(is, System.out);
+    Streams.copy(is, System.out);
   }
 }
