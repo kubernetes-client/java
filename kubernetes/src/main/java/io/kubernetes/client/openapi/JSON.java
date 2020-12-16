@@ -20,6 +20,8 @@ import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.gsonfire.GsonFireBuilder;
+import io.kubernetes.client.gson.V1StatusPreProcessor;
+import io.kubernetes.client.openapi.models.V1Status;
 import java.io.IOException;
 import java.io.StringReader;
 import java.lang.reflect.Type;
@@ -46,7 +48,10 @@ public class JSON {
 
   public static GsonBuilder createGson() {
     GsonFireBuilder fireBuilder = new GsonFireBuilder();
-    GsonBuilder builder = fireBuilder.createGsonBuilder();
+    GsonBuilder builder =
+        fireBuilder
+            .registerPreProcessor(V1Status.class, new V1StatusPreProcessor())
+            .createGsonBuilder();
     return builder;
   }
 
