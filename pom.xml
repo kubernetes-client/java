@@ -17,7 +17,6 @@
     <module>client-java-contrib/cert-manager</module>
     <module>e2e</module>
     <module>client-java-contrib/prometheus-operator</module>
-    <module>examples</module>
   </modules>
 
   <scm>
