@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>client-java-parent</artifactId>
   <groupId>io.kubernetes</groupId>
-  <version>9.0.3-SNAPSHOT</version>
+  <version>9.0.3</version>
   <packaging>pom</packaging>
   <name>Kubernetes Client API</name>
   <url>https://github.com/kubernetes-client/java</url>
@@ -21,7 +21,7 @@
     <connection>scm:git:git@github.com:kubernetes-client/java.git</connection>
     <developerConnection>scm:git:git@github.com:kubernetes-client/java.git</developerConnection>
     <url>https://github.com/kubernetes-client/java</url>
-    <tag>client-java-parent-9.0.2</tag>
+    <tag>client-java-parent-9.0.3</tag>
   </scm>
 
   <prerequisites>

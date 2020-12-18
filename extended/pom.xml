@@ -9,7 +9,7 @@
     <parent>
         <artifactId>client-java-parent</artifactId>
         <groupId>io.kubernetes</groupId>
-        <version>9.0.3-SNAPSHOT</version>
+        <version>9.0.3</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
