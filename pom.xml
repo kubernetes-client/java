@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>client-java-parent</artifactId>
   <groupId>io.kubernetes</groupId>
-  <version>10.0.1-SNAPSHOT</version>
+  <version>11.0.0</version>
   <packaging>pom</packaging>
   <name>Kubernetes Client API</name>
   <url>https://github.com/kubernetes-client/java</url>
@@ -17,14 +17,13 @@
     <module>client-java-contrib/cert-manager</module>
     <module>e2e</module>
     <module>client-java-contrib/prometheus-operator</module>
-    <module>examples</module>
   </modules>
 
   <scm>
     <connection>scm:git:git@github.com:kubernetes-client/java.git</connection>
     <developerConnection>scm:git:git@github.com:kubernetes-client/java.git</developerConnection>
     <url>https://github.com/kubernetes-client/java</url>
-    <tag>HEAD</tag>
+    <tag>client-java-parent-11.0.0</tag>
   </scm>
 
   <prerequisites>
@@ -497,7 +496,7 @@
           </formats>
           <java>
             <removeUnusedImports /> <!-- self-explanatory -->
-            <googleJavaFormat/>
+            <googleJavaFormat />
           </java>
           <licenseHeader>
             <content>
