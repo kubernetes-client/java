@@ -25,6 +25,7 @@ import io.kubernetes.client.extended.leaderelection.LeaderElectionRecord;
 import io.kubernetes.client.extended.leaderelection.LeaderElector;
 import io.kubernetes.client.extended.leaderelection.Lock;
 import io.kubernetes.client.openapi.ApiException;
+import java.net.HttpURLConnection;
 import java.time.Duration;
 import java.util.concurrent.atomic.AtomicReference;
 import org.junit.Test;
@@ -56,8 +57,10 @@ public class LeaderElectingControllerTest {
     record.set(new LeaderElectionRecord());
 
     when(mockLock.identity()).thenReturn("foo");
-
-    doAnswer(invocationOnMock -> record.get()).when(mockLock).get();
+    when(mockLock.get())
+        .thenThrow(
+            new ApiException("Record Not Found", HttpURLConnection.HTTP_NOT_FOUND, null, null))
+        .thenReturn(record.get());
 
     doAnswer(
             invocationOnMock -> {
