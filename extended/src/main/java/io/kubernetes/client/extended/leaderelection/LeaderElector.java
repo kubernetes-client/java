@@ -281,14 +281,16 @@ public class LeaderElector implements AutoCloseable {
         || oldLeaderElectionRecord.getAcquireTime() == null
         || oldLeaderElectionRecord.getRenewTime() == null
         || oldLeaderElectionRecord.getHolderIdentity() == null) {
-      // We found the lock resource with an empty LeaderElectionRecord, try to get leadership by updating it
+      // We found the lock resource with an empty LeaderElectionRecord, try to get leadership by
+      // updating it
       if (log.isDebugEnabled()) {
         log.debug("Update lock to get lease");
       }
 
       if (oldLeaderElectionRecord != null) {
         // maintain the leaderTransitions
-        leaderElectionRecord.setLeaderTransitions(oldLeaderElectionRecord.getLeaderTransitions() + 1);
+        leaderElectionRecord.setLeaderTransitions(
+            oldLeaderElectionRecord.getLeaderTransitions() + 1);
       }
 
       return updateLock(lock, leaderElectionRecord);
@@ -382,19 +384,23 @@ public class LeaderElector implements AutoCloseable {
 
       // First ensure that all executors have stopped
       try {
-        boolean isTerminated = scheduledWorkers.awaitTermination(config.getRetryPeriod().getSeconds(), TimeUnit.SECONDS);
+        boolean isTerminated =
+            scheduledWorkers.awaitTermination(
+                config.getRetryPeriod().getSeconds(), TimeUnit.SECONDS);
         if (!isTerminated) {
           log.warn("scheduledWorkers executor termination didn't finish.");
           return;
         }
 
-        isTerminated = leaseWorkers.awaitTermination(config.getRetryPeriod().getSeconds(), TimeUnit.SECONDS);
+        isTerminated =
+            leaseWorkers.awaitTermination(config.getRetryPeriod().getSeconds(), TimeUnit.SECONDS);
         if (!isTerminated) {
           log.warn("leaseWorkers executor termination didn't finish.");
           return;
         }
 
-        isTerminated = hookWorkers.awaitTermination(config.getRetryPeriod().getSeconds(), TimeUnit.SECONDS);
+        isTerminated =
+            hookWorkers.awaitTermination(config.getRetryPeriod().getSeconds(), TimeUnit.SECONDS);
         if (!isTerminated) {
           log.warn("hookWorkers executor termination didn't finish.");
           return;
