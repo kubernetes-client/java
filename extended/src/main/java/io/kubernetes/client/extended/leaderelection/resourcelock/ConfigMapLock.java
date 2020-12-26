@@ -59,6 +59,8 @@ public class ConfigMapLock implements Lock {
   @Override
   public LeaderElectionRecord get() throws ApiException {
     V1ConfigMap configMap = coreV1Client.readNamespacedConfigMap(name, namespace, null, null, null);
+    configMapRefer.set(configMap);
+
     Map<String, String> annotations = configMap.getMetadata().getAnnotations();
     if (annotations == null || annotations.isEmpty()) {
       configMap.getMetadata().setAnnotations(new HashMap<>());
@@ -74,7 +76,7 @@ public class ConfigMapLock implements Lock {
             .getApiClient()
             .getJSON()
             .deserialize(recordRawStringContent, LeaderElectionRecord.class);
-    configMapRefer.set(configMap);
+
     return record;
   }
 

@@ -59,6 +59,8 @@ public class EndpointsLock implements Lock {
   @Override
   public LeaderElectionRecord get() throws ApiException {
     V1Endpoints endpoints = coreV1Client.readNamespacedEndpoints(name, namespace, null, null, null);
+    endpointsRefer.set(endpoints);
+
     Map<String, String> annotations = endpoints.getMetadata().getAnnotations();
     if (annotations == null || annotations.isEmpty()) {
       endpoints.getMetadata().setAnnotations(new HashMap<>());
@@ -74,7 +76,6 @@ public class EndpointsLock implements Lock {
             .getApiClient()
             .getJSON()
             .deserialize(recordRawStringContent, LeaderElectionRecord.class);
-    endpointsRefer.set(endpoints);
     return record;
   }
 
