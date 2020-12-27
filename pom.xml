@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>client-java-parent</artifactId>
   <groupId>io.kubernetes</groupId>
-  <version>10.0.1-SNAPSHOT</version>
+  <version>11.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Kubernetes Client API</name>
   <url>https://github.com/kubernetes-client/java</url>
@@ -45,7 +45,7 @@
     <caffeine.version>2.8.8</caffeine.version>
     <protobuf.version>3.14.0</protobuf.version>
     <junit.version>4.13</junit.version>
-    <bucket4j.version>4.10.0</bucket4j.version>
+    <bucket4j.version>6.0.0</bucket4j.version>
     <bouncycastle.version>1.68</bouncycastle.version>
     <jodatime.version>2.10.8</jodatime.version>
     <joda-convert.version>2.2.1</joda-convert.version>
@@ -497,7 +497,7 @@
           </formats>
           <java>
             <removeUnusedImports /> <!-- self-explanatory -->
-            <googleJavaFormat/>
+            <googleJavaFormat />
           </java>
           <licenseHeader>
             <content>
