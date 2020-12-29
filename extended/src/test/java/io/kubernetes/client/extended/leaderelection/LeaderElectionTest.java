@@ -17,6 +17,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 import io.kubernetes.client.openapi.ApiException;
+import java.net.HttpURLConnection;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
@@ -412,9 +413,12 @@ public class LeaderElectionTest {
     }
 
     @Override
-    public LeaderElectionRecord get() {
+    public LeaderElectionRecord get() throws ApiException {
       lock.lock();
       try {
+        if (leaderRecord == null) {
+          throw new ApiException("Record Not Found", HttpURLConnection.HTTP_NOT_FOUND, null, null);
+        }
         return leaderRecord;
       } finally {
         lock.unlock();

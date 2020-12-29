@@ -262,21 +262,46 @@ public class LeaderElector implements AutoCloseable {
         return false;
       }
 
+      if (log.isDebugEnabled()) {
+        log.debug("Lock not found, try to create it");
+      }
+
+      // No Lock resource exists, try to get leadership by creating it
       return createLock(lock, leaderElectionRecord);
     }
+
+    // alright, we have an existing lock resource
+    // 1. Is Lock Empty? --> try to get leadership by updating it
+    // 2. Am I the Leader? --> update info and renew lease by updating it
+    // 3. I am not the Leader?
+    // 3.1 is Lock expired? --> try to get leadership by updating it
+    // 3.2 Lock not expired? --> update info, try later
 
     if (oldLeaderElectionRecord == null
         || oldLeaderElectionRecord.getAcquireTime() == null
         || oldLeaderElectionRecord.getRenewTime() == null
         || oldLeaderElectionRecord.getHolderIdentity() == null) {
-      return createLock(lock, leaderElectionRecord);
+      // We found the lock resource with an empty LeaderElectionRecord, try to get leadership by
+      // updating it
+      if (log.isDebugEnabled()) {
+        log.debug("Update lock to get lease");
+      }
+
+      if (oldLeaderElectionRecord != null) {
+        // maintain the leaderTransitions
+        leaderElectionRecord.setLeaderTransitions(
+            oldLeaderElectionRecord.getLeaderTransitions() + 1);
+      }
+
+      return updateLock(lock, leaderElectionRecord);
     }
 
-    // 2. Record obtained, check the Identity & Time
+    // 2. Record obtained with LeaderElectionRecord, check the Identity & Time
     if (!oldLeaderElectionRecord.equals(this.observedRecord)) {
       this.observedRecord = oldLeaderElectionRecord;
       this.observedTimeMilliSeconds = System.currentTimeMillis();
     }
+
     if (observedTimeMilliSeconds + config.getLeaseDuration().toMillis() > now.getTime()
         && !isLeader()) {
       if (log.isDebugEnabled()) {
@@ -296,28 +321,32 @@ public class LeaderElector implements AutoCloseable {
       leaderElectionRecord.setLeaderTransitions(oldLeaderElectionRecord.getLeaderTransitions() + 1);
     }
 
-    // update the lock itself
     if (log.isDebugEnabled()) {
-      log.debug("Update lock acquire time to keep lease");
+      log.debug("Update lock to renew lease");
     }
-    boolean updateSuccess = config.getLock().update(leaderElectionRecord);
-    if (!updateSuccess) {
+
+    boolean renewalStatus = updateLock(lock, leaderElectionRecord);
+
+    if (renewalStatus && log.isDebugEnabled()) {
+      log.debug("TryAcquireOrRenew return success");
+    }
+
+    return renewalStatus;
+  }
+
+  private boolean createLock(Lock lock, LeaderElectionRecord leaderElectionRecord) {
+    boolean createSuccess = lock.create(leaderElectionRecord);
+    if (!createSuccess) {
       return false;
     }
     this.observedRecord = leaderElectionRecord;
     this.observedTimeMilliSeconds = System.currentTimeMillis();
-    if (log.isDebugEnabled()) {
-      log.debug("TryAcquireOrRenew return success");
-    }
     return true;
   }
 
-  private boolean createLock(Lock lock, LeaderElectionRecord leaderElectionRecord) {
-    if (log.isDebugEnabled()) {
-      log.debug("Lock not found, try to create it");
-    }
-    boolean createSuccess = lock.create(leaderElectionRecord);
-    if (!createSuccess) {
+  private boolean updateLock(Lock lock, LeaderElectionRecord leaderElectionRecord) {
+    boolean updateSuccess = lock.update(leaderElectionRecord);
+    if (!updateSuccess) {
       return false;
     }
     this.observedRecord = leaderElectionRecord;
@@ -345,8 +374,53 @@ public class LeaderElector implements AutoCloseable {
 
   @Override
   public void close() {
+    log.info("Closing...");
     scheduledWorkers.shutdownNow();
     leaseWorkers.shutdownNow();
     hookWorkers.shutdownNow();
+
+    // If I am the leader, free the lock so that other candidates can take it immediately
+    if (observedRecord != null && isLeader()) {
+
+      // First ensure that all executors have stopped
+      try {
+        boolean isTerminated =
+            scheduledWorkers.awaitTermination(
+                config.getRetryPeriod().getSeconds(), TimeUnit.SECONDS);
+        if (!isTerminated) {
+          log.warn("scheduledWorkers executor termination didn't finish.");
+          return;
+        }
+
+        isTerminated =
+            leaseWorkers.awaitTermination(config.getRetryPeriod().getSeconds(), TimeUnit.SECONDS);
+        if (!isTerminated) {
+          log.warn("leaseWorkers executor termination didn't finish.");
+          return;
+        }
+
+        isTerminated =
+            hookWorkers.awaitTermination(config.getRetryPeriod().getSeconds(), TimeUnit.SECONDS);
+        if (!isTerminated) {
+          log.warn("hookWorkers executor termination didn't finish.");
+          return;
+        }
+      } catch (InterruptedException ex) {
+        log.warn("Failed to ensure executors termination.", ex);
+        return;
+      }
+
+      log.info("Giving up the lock....");
+      LeaderElectionRecord emptyRecord = new LeaderElectionRecord();
+      // maintain leaderTransitions count
+      emptyRecord.setLeaderTransitions(observedRecord.getLeaderTransitions());
+      boolean status = this.config.getLock().update(emptyRecord);
+
+      if (!status) {
+        log.warn("Failed to give up the lock.");
+      }
+    }
+
+    log.info("Closed");
   }
 }
