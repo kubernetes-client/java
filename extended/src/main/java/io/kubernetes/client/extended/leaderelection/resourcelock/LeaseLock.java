@@ -80,9 +80,9 @@ public class LeaseLock implements Lock {
       return true;
     } catch (ApiException e) {
       if (e.getCode() == HttpURLConnection.HTTP_CONFLICT) {
-        log.debug("received {} when creating configmap lock", e.getCode(), e);
+        log.debug("received {} when creating lease lock", e.getCode(), e);
       } else {
-        log.error("received {} when creating configmap lock", e.getCode(), e);
+        log.error("received {} when creating lease lock", e.getCode(), e);
       }
       return false;
     }
@@ -99,9 +99,9 @@ public class LeaseLock implements Lock {
       return true;
     } catch (ApiException e) {
       if (e.getCode() == HttpURLConnection.HTTP_CONFLICT) {
-        log.debug("received {} when creating configmap lock", e.getCode(), e);
+        log.debug("received {} when updating lease lock", e.getCode(), e);
       } else {
-        log.error("received {} when creating configmap lock", e.getCode(), e);
+        log.error("received {} when updating lease lock", e.getCode(), e);
       }
       return false;
     }
