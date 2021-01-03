@@ -36,7 +36,7 @@ public final class Preconditions {
    * @throws IllegalArgumentException if predicate returns true
    */
   public static <T> T precondition(
-      T validate, Predicate<T> predicate, Supplier<String> errorSupplier) {
+      T validate, Predicate<? super T> predicate, Supplier<String> errorSupplier) {
     if (predicate.test(validate)) {
       throw new IllegalArgumentException(errorSupplier.get());
     }
