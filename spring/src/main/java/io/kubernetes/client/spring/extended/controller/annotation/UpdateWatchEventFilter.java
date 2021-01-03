@@ -18,13 +18,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Indicates that the method is a filter for {@link
- * io.kubernetes.client.informer.EventType#MODIFIED} from watches.
+ * Indicates that the method is a filter for {@link io.kubernetes.client.informer.EventType#DELETED}
+ * from watches.
  *
- * <p>A update-event filter must have the signature as {@link
- * java.util.function.BiPredicate<ApiType, Boolean>} where the 1st parameter is the
- * "before-deletion" state of the resource and the 2nd indicates whether the cache entry for the
- * resource is stale.
+ * <p>A delete-event filter must have the signature as {@link
+ * java.util.function.BiPredicate<ApiType,ApiType>} where the 1st parameter is the old state of the
+ * resource and the 2nd is the new state.
  */
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
