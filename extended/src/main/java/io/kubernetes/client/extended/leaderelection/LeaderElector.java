@@ -414,6 +414,9 @@ public class LeaderElector implements AutoCloseable {
       LeaderElectionRecord emptyRecord = new LeaderElectionRecord();
       // maintain leaderTransitions count
       emptyRecord.setLeaderTransitions(observedRecord.getLeaderTransitions());
+      // LeaseLock impl requires a non-zero value for leaseDuration
+      emptyRecord.setLeaseDurationSeconds(
+          Long.valueOf(config.getLeaseDuration().getSeconds()).intValue());
       boolean status = this.config.getLock().update(emptyRecord);
 
       if (!status) {
