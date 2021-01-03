@@ -14,10 +14,14 @@ package io.kubernetes.client.util;
 
 import javax.annotation.Nullable;
 
-public class Strings {
+public final class Strings {
+
+  private Strings() {
+    throw new AssertionError("not supported");
+  }
 
   public static boolean isNullOrEmpty(String value) {
-    return value == null || value.length() == 0;
+    return value == null || value.isEmpty();
   }
 
   public static String nullToEmpty(@Nullable String string) {
