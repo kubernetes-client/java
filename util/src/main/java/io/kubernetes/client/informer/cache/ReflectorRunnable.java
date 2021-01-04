@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.net.ConnectException;
 import java.time.Duration;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.BiConsumer;
 import org.slf4j.Logger;
@@ -186,12 +187,12 @@ public class ReflectorRunnable<
     while (watch.hasNext()) {
       io.kubernetes.client.util.Watch.Response<ApiType> item = watch.next();
 
-      EventType eventType = EventType.getByType(item.type);
-      if (eventType == null) {
+      Optional<EventType> eventType = EventType.findByType(item.type);
+      if (!eventType.isPresent()) {
         log.error("unrecognized event {}", item);
         continue;
       }
-      if (eventType == EventType.ERROR) {
+      if (eventType.get() == EventType.ERROR) {
         String errorMessage =
             String.format("got ERROR event and its status: %s", item.status.toString());
         log.error(errorMessage);
@@ -203,7 +204,7 @@ public class ReflectorRunnable<
       V1ObjectMeta meta = obj.getMetadata();
 
       String newResourceVersion = meta.getResourceVersion();
-      switch (eventType) {
+      switch (eventType.get()) {
         case ADDED:
           store.add(obj);
           break;
