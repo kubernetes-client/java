@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(description = "JobStatus represents the current state of a Job.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1JobStatus {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
 
@@ -85,14 +85,15 @@ public class V1JobStatus {
 
   /**
    * Represents time when the job was completed. It is not guaranteed to be set in happens-before
-   * order across separate operations. It is represented in RFC3339 form and is in UTC.
+   * order across separate operations. It is represented in RFC3339 form and is in UTC. The
+   * completion time is only set when the job finishes successfully.
    *
    * @return completionTime
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Represents time when the job was completed. It is not guaranteed to be set in happens-before order across separate operations. It is represented in RFC3339 form and is in UTC.")
+          "Represents time when the job was completed. It is not guaranteed to be set in happens-before order across separate operations. It is represented in RFC3339 form and is in UTC. The completion time is only set when the job finishes successfully.")
   public OffsetDateTime getCompletionTime() {
     return completionTime;
   }
@@ -116,7 +117,8 @@ public class V1JobStatus {
   }
 
   /**
-   * The latest available observations of an object&#39;s current state. More info:
+   * The latest available observations of an object&#39;s current state. When a job fails, one of
+   * the conditions will have type &#x3D;&#x3D; \&quot;Failed\&quot;. More info:
    * https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
    *
    * @return conditions
@@ -124,7 +126,7 @@ public class V1JobStatus {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "The latest available observations of an object's current state. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/")
+          "The latest available observations of an object's current state. When a job fails, one of the conditions will have type == \"Failed\". More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/")
   public List<V1JobCondition> getConditions() {
     return conditions;
   }

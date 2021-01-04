@@ -15,18 +15,54 @@ package io.kubernetes.client.openapi.models;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /** ServiceStatus represents the current status of a service. */
 @ApiModel(description = "ServiceStatus represents the current status of a service.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1ServiceStatus {
+  public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
+
+  @SerializedName(SERIALIZED_NAME_CONDITIONS)
+  private List<V1Condition> conditions = null;
+
   public static final String SERIALIZED_NAME_LOAD_BALANCER = "loadBalancer";
 
   @SerializedName(SERIALIZED_NAME_LOAD_BALANCER)
   private V1LoadBalancerStatus loadBalancer;
+
+  public V1ServiceStatus conditions(List<V1Condition> conditions) {
+
+    this.conditions = conditions;
+    return this;
+  }
+
+  public V1ServiceStatus addConditionsItem(V1Condition conditionsItem) {
+    if (this.conditions == null) {
+      this.conditions = new ArrayList<>();
+    }
+    this.conditions.add(conditionsItem);
+    return this;
+  }
+
+  /**
+   * Current service state
+   *
+   * @return conditions
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Current service state")
+  public List<V1Condition> getConditions() {
+    return conditions;
+  }
+
+  public void setConditions(List<V1Condition> conditions) {
+    this.conditions = conditions;
+  }
 
   public V1ServiceStatus loadBalancer(V1LoadBalancerStatus loadBalancer) {
 
@@ -58,18 +94,20 @@ public class V1ServiceStatus {
       return false;
     }
     V1ServiceStatus v1ServiceStatus = (V1ServiceStatus) o;
-    return Objects.equals(this.loadBalancer, v1ServiceStatus.loadBalancer);
+    return Objects.equals(this.conditions, v1ServiceStatus.conditions)
+        && Objects.equals(this.loadBalancer, v1ServiceStatus.loadBalancer);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(loadBalancer);
+    return Objects.hash(conditions, loadBalancer);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1ServiceStatus {\n");
+    sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("    loadBalancer: ").append(toIndentedString(loadBalancer)).append("\n");
     sb.append("}");
     return sb.toString();

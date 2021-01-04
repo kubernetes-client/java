@@ -22,7 +22,7 @@ import java.util.Objects;
     description = "CustomResourceValidation is a list of validation methods for CustomResources.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1CustomResourceValidation {
   public static final String SERIALIZED_NAME_OPEN_A_P_I_V3_SCHEMA = "openAPIV3Schema";
 

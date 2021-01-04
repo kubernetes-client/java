@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(description = "NodeAddress contains information for the node's address.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1NodeAddress {
   public static final String SERIALIZED_NAME_ADDRESS = "address";
 

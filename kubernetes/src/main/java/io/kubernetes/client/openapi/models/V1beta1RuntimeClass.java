@@ -29,7 +29,7 @@ import java.util.Objects;
         "RuntimeClass defines a class of container runtime supported in the cluster. The RuntimeClass is used to determine which container runtime is used to run all containers in a pod. RuntimeClasses are (currently) manually defined by a user or cluster provisioner, and referenced in the PodSpec. The Kubelet is responsible for resolving the RuntimeClassName reference before running the pod.  For more details, see https://git.k8s.io/enhancements/keps/sig-node/runtime-class.md")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1beta1RuntimeClass implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 
@@ -99,15 +99,15 @@ public class V1beta1RuntimeClass implements io.kubernetes.client.common.Kubernet
    * configuration. It is assumed that all handlers are available on every node, and handlers of the
    * same name are equivalent on every node. For example, a handler called \&quot;runc\&quot; might
    * specify that the runc OCI runtime (using native Linux containers) will be used to run the
-   * containers in a pod. The Handler must conform to the DNS Label (RFC 1123) requirements, and is
-   * immutable.
+   * containers in a pod. The Handler must be lowercase, conform to the DNS Label (RFC 1123)
+   * requirements, and is immutable.
    *
    * @return handler
    */
   @ApiModelProperty(
       required = true,
       value =
-          "Handler specifies the underlying runtime and configuration that the CRI implementation will use to handle pods of this class. The possible values are specific to the node & CRI configuration.  It is assumed that all handlers are available on every node, and handlers of the same name are equivalent on every node. For example, a handler called \"runc\" might specify that the runc OCI runtime (using native Linux containers) will be used to run the containers in a pod. The Handler must conform to the DNS Label (RFC 1123) requirements, and is immutable.")
+          "Handler specifies the underlying runtime and configuration that the CRI implementation will use to handle pods of this class. The possible values are specific to the node & CRI configuration.  It is assumed that all handlers are available on every node, and handlers of the same name are equivalent on every node. For example, a handler called \"runc\" might specify that the runc OCI runtime (using native Linux containers) will be used to run the containers in a pod. The Handler must be lowercase, conform to the DNS Label (RFC 1123) requirements, and is immutable.")
   public String getHandler() {
     return handler;
   }

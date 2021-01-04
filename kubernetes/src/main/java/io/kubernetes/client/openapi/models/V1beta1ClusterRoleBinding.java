@@ -29,7 +29,7 @@ import java.util.Objects;
         "ClusterRoleBinding references a ClusterRole, but not contain it.  It can reference a ClusterRole in the global namespace, and adds who information via Subject. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBinding, and will no longer be served in v1.22.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1beta1ClusterRoleBinding implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 
@@ -54,7 +54,7 @@ public class V1beta1ClusterRoleBinding implements io.kubernetes.client.common.Ku
   public static final String SERIALIZED_NAME_SUBJECTS = "subjects";
 
   @SerializedName(SERIALIZED_NAME_SUBJECTS)
-  private List<V1beta1Subject> subjects = null;
+  private List<RbacV1beta1Subject> subjects = null;
 
   public V1beta1ClusterRoleBinding apiVersion(String apiVersion) {
 
@@ -149,13 +149,13 @@ public class V1beta1ClusterRoleBinding implements io.kubernetes.client.common.Ku
     this.roleRef = roleRef;
   }
 
-  public V1beta1ClusterRoleBinding subjects(List<V1beta1Subject> subjects) {
+  public V1beta1ClusterRoleBinding subjects(List<RbacV1beta1Subject> subjects) {
 
     this.subjects = subjects;
     return this;
   }
 
-  public V1beta1ClusterRoleBinding addSubjectsItem(V1beta1Subject subjectsItem) {
+  public V1beta1ClusterRoleBinding addSubjectsItem(RbacV1beta1Subject subjectsItem) {
     if (this.subjects == null) {
       this.subjects = new ArrayList<>();
     }
@@ -170,11 +170,11 @@ public class V1beta1ClusterRoleBinding implements io.kubernetes.client.common.Ku
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Subjects holds references to the objects the role applies to.")
-  public List<V1beta1Subject> getSubjects() {
+  public List<RbacV1beta1Subject> getSubjects() {
     return subjects;
   }
 
-  public void setSubjects(List<V1beta1Subject> subjects) {
+  public void setSubjects(List<RbacV1beta1Subject> subjects) {
     this.subjects = subjects;
   }
 

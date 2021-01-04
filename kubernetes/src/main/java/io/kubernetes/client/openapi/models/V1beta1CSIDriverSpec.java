@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "CSIDriverSpec is the specification of a CSIDriver.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1beta1CSIDriverSpec {
   public static final String SERIALIZED_NAME_ATTACH_REQUIRED = "attachRequired";
 
@@ -40,10 +40,20 @@ public class V1beta1CSIDriverSpec {
   @SerializedName(SERIALIZED_NAME_POD_INFO_ON_MOUNT)
   private Boolean podInfoOnMount;
 
+  public static final String SERIALIZED_NAME_REQUIRES_REPUBLISH = "requiresRepublish";
+
+  @SerializedName(SERIALIZED_NAME_REQUIRES_REPUBLISH)
+  private Boolean requiresRepublish;
+
   public static final String SERIALIZED_NAME_STORAGE_CAPACITY = "storageCapacity";
 
   @SerializedName(SERIALIZED_NAME_STORAGE_CAPACITY)
   private Boolean storageCapacity;
+
+  public static final String SERIALIZED_NAME_TOKEN_REQUESTS = "tokenRequests";
+
+  @SerializedName(SERIALIZED_NAME_TOKEN_REQUESTS)
+  private List<V1beta1TokenRequest> tokenRequests = null;
 
   public static final String SERIALIZED_NAME_VOLUME_LIFECYCLE_MODES = "volumeLifecycleModes";
 
@@ -146,6 +156,34 @@ public class V1beta1CSIDriverSpec {
     this.podInfoOnMount = podInfoOnMount;
   }
 
+  public V1beta1CSIDriverSpec requiresRepublish(Boolean requiresRepublish) {
+
+    this.requiresRepublish = requiresRepublish;
+    return this;
+  }
+
+  /**
+   * RequiresRepublish indicates the CSI driver wants &#x60;NodePublishVolume&#x60; being
+   * periodically called to reflect any possible change in the mounted volume. This field defaults
+   * to false. Note: After a successful initial NodePublishVolume call, subsequent calls to
+   * NodePublishVolume should only update the contents of the volume. New mount points will not be
+   * seen by a running container. This is an alpha feature and only available when the
+   * CSIServiceAccountToken feature is enabled.
+   *
+   * @return requiresRepublish
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "RequiresRepublish indicates the CSI driver wants `NodePublishVolume` being periodically called to reflect any possible change in the mounted volume. This field defaults to false.  Note: After a successful initial NodePublishVolume call, subsequent calls to NodePublishVolume should only update the contents of the volume. New mount points will not be seen by a running container.  This is an alpha feature and only available when the CSIServiceAccountToken feature is enabled.")
+  public Boolean getRequiresRepublish() {
+    return requiresRepublish;
+  }
+
+  public void setRequiresRepublish(Boolean requiresRepublish) {
+    this.requiresRepublish = requiresRepublish;
+  }
+
   public V1beta1CSIDriverSpec storageCapacity(Boolean storageCapacity) {
 
     this.storageCapacity = storageCapacity;
@@ -174,6 +212,46 @@ public class V1beta1CSIDriverSpec {
 
   public void setStorageCapacity(Boolean storageCapacity) {
     this.storageCapacity = storageCapacity;
+  }
+
+  public V1beta1CSIDriverSpec tokenRequests(List<V1beta1TokenRequest> tokenRequests) {
+
+    this.tokenRequests = tokenRequests;
+    return this;
+  }
+
+  public V1beta1CSIDriverSpec addTokenRequestsItem(V1beta1TokenRequest tokenRequestsItem) {
+    if (this.tokenRequests == null) {
+      this.tokenRequests = new ArrayList<>();
+    }
+    this.tokenRequests.add(tokenRequestsItem);
+    return this;
+  }
+
+  /**
+   * TokenRequests indicates the CSI driver needs pods&#39; service account tokens it is mounting
+   * volume for to do necessary authentication. Kubelet will pass the tokens in VolumeContext in the
+   * CSI NodePublishVolume calls. The CSI driver should parse and validate the following
+   * VolumeContext: \&quot;csi.storage.k8s.io/serviceAccount.tokens\&quot;: {
+   * \&quot;&lt;audience&gt;\&quot;: { \&quot;token\&quot;: &lt;token&gt;,
+   * \&quot;expirationTimestamp\&quot;: &lt;expiration timestamp in RFC3339&gt;, }, ... } Note:
+   * Audience in each TokenRequest should be different and at most one token is empty string. To
+   * receive a new token after expiry, RequiresRepublish can be used to trigger NodePublishVolume
+   * periodically. This is an alpha feature and only available when the CSIServiceAccountToken
+   * feature is enabled.
+   *
+   * @return tokenRequests
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "TokenRequests indicates the CSI driver needs pods' service account tokens it is mounting volume for to do necessary authentication. Kubelet will pass the tokens in VolumeContext in the CSI NodePublishVolume calls. The CSI driver should parse and validate the following VolumeContext: \"csi.storage.k8s.io/serviceAccount.tokens\": {   \"<audience>\": {     \"token\": <token>,     \"expirationTimestamp\": <expiration timestamp in RFC3339>,   },   ... }  Note: Audience in each TokenRequest should be different and at most one token is empty string. To receive a new token after expiry, RequiresRepublish can be used to trigger NodePublishVolume periodically.  This is an alpha feature and only available when the CSIServiceAccountToken feature is enabled.")
+  public List<V1beta1TokenRequest> getTokenRequests() {
+    return tokenRequests;
+  }
+
+  public void setTokenRequests(List<V1beta1TokenRequest> tokenRequests) {
+    this.tokenRequests = tokenRequests;
   }
 
   public V1beta1CSIDriverSpec volumeLifecycleModes(List<String> volumeLifecycleModes) {
@@ -227,14 +305,22 @@ public class V1beta1CSIDriverSpec {
     return Objects.equals(this.attachRequired, v1beta1CSIDriverSpec.attachRequired)
         && Objects.equals(this.fsGroupPolicy, v1beta1CSIDriverSpec.fsGroupPolicy)
         && Objects.equals(this.podInfoOnMount, v1beta1CSIDriverSpec.podInfoOnMount)
+        && Objects.equals(this.requiresRepublish, v1beta1CSIDriverSpec.requiresRepublish)
         && Objects.equals(this.storageCapacity, v1beta1CSIDriverSpec.storageCapacity)
+        && Objects.equals(this.tokenRequests, v1beta1CSIDriverSpec.tokenRequests)
         && Objects.equals(this.volumeLifecycleModes, v1beta1CSIDriverSpec.volumeLifecycleModes);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        attachRequired, fsGroupPolicy, podInfoOnMount, storageCapacity, volumeLifecycleModes);
+        attachRequired,
+        fsGroupPolicy,
+        podInfoOnMount,
+        requiresRepublish,
+        storageCapacity,
+        tokenRequests,
+        volumeLifecycleModes);
   }
 
   @Override
@@ -244,7 +330,9 @@ public class V1beta1CSIDriverSpec {
     sb.append("    attachRequired: ").append(toIndentedString(attachRequired)).append("\n");
     sb.append("    fsGroupPolicy: ").append(toIndentedString(fsGroupPolicy)).append("\n");
     sb.append("    podInfoOnMount: ").append(toIndentedString(podInfoOnMount)).append("\n");
+    sb.append("    requiresRepublish: ").append(toIndentedString(requiresRepublish)).append("\n");
     sb.append("    storageCapacity: ").append(toIndentedString(storageCapacity)).append("\n");
+    sb.append("    tokenRequests: ").append(toIndentedString(tokenRequests)).append("\n");
     sb.append("    volumeLifecycleModes: ")
         .append(toIndentedString(volumeLifecycleModes))
         .append("\n");

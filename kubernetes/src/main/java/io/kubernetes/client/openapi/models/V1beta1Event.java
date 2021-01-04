@@ -20,14 +20,17 @@ import java.util.Objects;
 
 /**
  * Event is a report of an event somewhere in the cluster. It generally denotes some state change in
- * the system.
+ * the system. Events have a limited retention time and triggers and messages may evolve with time.
+ * Event consumers should not rely on the timing of an event with a given Reason reflecting a
+ * consistent underlying trigger, or the continued existence of events with that Reason. Events
+ * should be treated as informative, best-effort, supplemental data.
  */
 @ApiModel(
     description =
-        "Event is a report of an event somewhere in the cluster. It generally denotes some state change in the system.")
+        "Event is a report of an event somewhere in the cluster. It generally denotes some state change in the system. Events have a limited retention time and triggers and messages may evolve with time.  Event consumers should not rely on the timing of an event with a given Reason reflecting a consistent underlying trigger, or the continued existence of events with that Reason.  Events should be treated as informative, best-effort, supplemental data.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1beta1Event implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_ACTION = "action";
 
@@ -317,8 +320,7 @@ public class V1beta1Event implements io.kubernetes.client.common.KubernetesObjec
    *
    * @return metadata
    */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public V1ObjectMeta getMetadata() {
     return metadata;
   }

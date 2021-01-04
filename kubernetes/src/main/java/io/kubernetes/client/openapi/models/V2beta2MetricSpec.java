@@ -26,8 +26,13 @@ import java.util.Objects;
         "MetricSpec specifies how to scale based on a single metric (only `type` and one other matching field should be set at once).")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V2beta2MetricSpec {
+  public static final String SERIALIZED_NAME_CONTAINER_RESOURCE = "containerResource";
+
+  @SerializedName(SERIALIZED_NAME_CONTAINER_RESOURCE)
+  private V2beta2ContainerResourceMetricSource containerResource;
+
   public static final String SERIALIZED_NAME_EXTERNAL = "external";
 
   @SerializedName(SERIALIZED_NAME_EXTERNAL)
@@ -52,6 +57,28 @@ public class V2beta2MetricSpec {
 
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
+
+  public V2beta2MetricSpec containerResource(
+      V2beta2ContainerResourceMetricSource containerResource) {
+
+    this.containerResource = containerResource;
+    return this;
+  }
+
+  /**
+   * Get containerResource
+   *
+   * @return containerResource
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V2beta2ContainerResourceMetricSource getContainerResource() {
+    return containerResource;
+  }
+
+  public void setContainerResource(V2beta2ContainerResourceMetricSource containerResource) {
+    this.containerResource = containerResource;
+  }
 
   public V2beta2MetricSpec external(V2beta2ExternalMetricSource external) {
 
@@ -144,15 +171,17 @@ public class V2beta2MetricSpec {
   }
 
   /**
-   * type is the type of metric source. It should be one of \&quot;Object\&quot;, \&quot;Pods\&quot;
-   * or \&quot;Resource\&quot;, each mapping to a matching field in the object.
+   * type is the type of metric source. It should be one of \&quot;ContainerResource\&quot;,
+   * \&quot;External\&quot;, \&quot;Object\&quot;, \&quot;Pods\&quot; or \&quot;Resource\&quot;,
+   * each mapping to a matching field in the object. Note: \&quot;ContainerResource\&quot; type is
+   * available on when the feature-gate HPAContainerMetrics is enabled
    *
    * @return type
    */
   @ApiModelProperty(
       required = true,
       value =
-          "type is the type of metric source.  It should be one of \"Object\", \"Pods\" or \"Resource\", each mapping to a matching field in the object.")
+          "type is the type of metric source.  It should be one of \"ContainerResource\", \"External\", \"Object\", \"Pods\" or \"Resource\", each mapping to a matching field in the object. Note: \"ContainerResource\" type is available on when the feature-gate HPAContainerMetrics is enabled")
   public String getType() {
     return type;
   }
@@ -170,7 +199,8 @@ public class V2beta2MetricSpec {
       return false;
     }
     V2beta2MetricSpec v2beta2MetricSpec = (V2beta2MetricSpec) o;
-    return Objects.equals(this.external, v2beta2MetricSpec.external)
+    return Objects.equals(this.containerResource, v2beta2MetricSpec.containerResource)
+        && Objects.equals(this.external, v2beta2MetricSpec.external)
         && Objects.equals(this._object, v2beta2MetricSpec._object)
         && Objects.equals(this.pods, v2beta2MetricSpec.pods)
         && Objects.equals(this.resource, v2beta2MetricSpec.resource)
@@ -179,13 +209,14 @@ public class V2beta2MetricSpec {
 
   @Override
   public int hashCode() {
-    return Objects.hash(external, _object, pods, resource, type);
+    return Objects.hash(containerResource, external, _object, pods, resource, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V2beta2MetricSpec {\n");
+    sb.append("    containerResource: ").append(toIndentedString(containerResource)).append("\n");
     sb.append("    external: ").append(toIndentedString(external)).append("\n");
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
     sb.append("    pods: ").append(toIndentedString(pods)).append("\n");

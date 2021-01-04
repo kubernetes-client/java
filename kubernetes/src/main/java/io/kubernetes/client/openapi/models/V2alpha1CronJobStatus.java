@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(description = "CronJobStatus represents the current state of a cron job.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V2alpha1CronJobStatus {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
 

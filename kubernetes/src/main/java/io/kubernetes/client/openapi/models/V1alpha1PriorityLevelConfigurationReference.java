@@ -26,7 +26,7 @@ import java.util.Objects;
         "PriorityLevelConfigurationReference contains information that points to the \"request-priority\" being used.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1alpha1PriorityLevelConfigurationReference {
   public static final String SERIALIZED_NAME_NAME = "name";
 

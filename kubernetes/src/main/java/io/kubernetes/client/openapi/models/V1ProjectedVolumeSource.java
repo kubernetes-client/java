@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "Represents a projected volume source")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1ProjectedVolumeSource {
   public static final String SERIALIZED_NAME_DEFAULT_MODE = "defaultMode";
 
@@ -33,7 +33,7 @@ public class V1ProjectedVolumeSource {
   public static final String SERIALIZED_NAME_SOURCES = "sources";
 
   @SerializedName(SERIALIZED_NAME_SOURCES)
-  private List<V1VolumeProjection> sources = new ArrayList<>();
+  private List<V1VolumeProjection> sources = null;
 
   public V1ProjectedVolumeSource defaultMode(Integer defaultMode) {
 
@@ -69,6 +69,9 @@ public class V1ProjectedVolumeSource {
   }
 
   public V1ProjectedVolumeSource addSourcesItem(V1VolumeProjection sourcesItem) {
+    if (this.sources == null) {
+      this.sources = new ArrayList<>();
+    }
     this.sources.add(sourcesItem);
     return this;
   }
@@ -78,7 +81,8 @@ public class V1ProjectedVolumeSource {
    *
    * @return sources
    */
-  @ApiModelProperty(required = true, value = "list of volume projections")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "list of volume projections")
   public List<V1VolumeProjection> getSources() {
     return sources;
   }

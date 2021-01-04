@@ -27,7 +27,7 @@ import java.util.Objects;
         "ObjectMetricStatus indicates the current value of a metric describing a kubernetes object (for example, hits-per-second on an Ingress object).")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V2beta1ObjectMetricStatus {
   public static final String SERIALIZED_NAME_AVERAGE_VALUE = "averageValue";
 

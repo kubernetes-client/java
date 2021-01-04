@@ -20,14 +20,17 @@ import java.util.Objects;
 
 /**
  * Event is a report of an event somewhere in the cluster. It generally denotes some state change in
- * the system.
+ * the system. Events have a limited retention time and triggers and messages may evolve with time.
+ * Event consumers should not rely on the timing of an event with a given Reason reflecting a
+ * consistent underlying trigger, or the continued existence of events with that Reason. Events
+ * should be treated as informative, best-effort, supplemental data.
  */
 @ApiModel(
     description =
-        "Event is a report of an event somewhere in the cluster. It generally denotes some state change in the system.")
+        "Event is a report of an event somewhere in the cluster. It generally denotes some state change in the system. Events have a limited retention time and triggers and messages may evolve with time.  Event consumers should not rely on the timing of an event with a given Reason reflecting a consistent underlying trigger, or the continued existence of events with that Reason.  Events should be treated as informative, best-effort, supplemental data.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class EventsV1Event implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_ACTION = "action";
 
@@ -123,14 +126,15 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
 
   /**
    * action is what action was taken/failed regarding to the regarding object. It is
-   * machine-readable. This field can have at most 128 characters.
+   * machine-readable. This field cannot be empty for new Events and it can have at most 128
+   * characters.
    *
    * @return action
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "action is what action was taken/failed regarding to the regarding object. It is machine-readable. This field can have at most 128 characters.")
+          "action is what action was taken/failed regarding to the regarding object. It is machine-readable. This field cannot be empty for new Events and it can have at most 128 characters.")
   public String getAction() {
     return action;
   }
@@ -317,8 +321,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    *
    * @return metadata
    */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public V1ObjectMeta getMetadata() {
     return metadata;
   }
@@ -358,15 +361,15 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
   }
 
   /**
-   * reason is why the action was taken. It is human-readable. This field can have at most 128
-   * characters.
+   * reason is why the action was taken. It is human-readable. This field cannot be empty for new
+   * Events and it can have at most 128 characters.
    *
    * @return reason
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "reason is why the action was taken. It is human-readable. This field can have at most 128 characters.")
+          "reason is why the action was taken. It is human-readable. This field cannot be empty for new Events and it can have at most 128 characters.")
   public String getReason() {
     return reason;
   }
@@ -494,14 +497,14 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
 
   /**
    * type is the type of this event (Normal, Warning), new types could be added in the future. It is
-   * machine-readable.
+   * machine-readable. This field cannot be empty for new Events.
    *
    * @return type
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "type is the type of this event (Normal, Warning), new types could be added in the future. It is machine-readable.")
+          "type is the type of this event (Normal, Warning), new types could be added in the future. It is machine-readable. This field cannot be empty for new Events.")
   public String getType() {
     return type;
   }

@@ -22,7 +22,7 @@ import java.util.Objects;
 @ApiModel(description = "IngressBackend describes all endpoints for a given service and port.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class ExtensionsV1beta1IngressBackend {
   public static final String SERIALIZED_NAME_RESOURCE = "resource";
 

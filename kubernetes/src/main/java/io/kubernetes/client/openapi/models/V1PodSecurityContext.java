@@ -29,7 +29,7 @@ import java.util.Objects;
         "PodSecurityContext holds pod-level security attributes and common container settings. Some fields are also present in container.securityContext.  Field values of container.securityContext take precedence over field values of PodSecurityContext.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1PodSecurityContext {
   public static final String SERIALIZED_NAME_FS_GROUP = "fsGroup";
 
@@ -119,14 +119,14 @@ public class V1PodSecurityContext {
    * being exposed inside Pod. This field will only apply to volume types which support fsGroup
    * based ownership(and permissions). It will have no effect on ephemeral volume types such as:
    * secret, configmaps and emptydir. Valid values are \&quot;OnRootMismatch\&quot; and
-   * \&quot;Always\&quot;. If not specified defaults to \&quot;Always\&quot;.
+   * \&quot;Always\&quot;. If not specified, \&quot;Always\&quot; is used.
    *
    * @return fsGroupChangePolicy
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "fsGroupChangePolicy defines behavior of changing ownership and permission of the volume before being exposed inside Pod. This field will only apply to volume types which support fsGroup based ownership(and permissions). It will have no effect on ephemeral volume types such as: secret, configmaps and emptydir. Valid values are \"OnRootMismatch\" and \"Always\". If not specified defaults to \"Always\".")
+          "fsGroupChangePolicy defines behavior of changing ownership and permission of the volume before being exposed inside Pod. This field will only apply to volume types which support fsGroup based ownership(and permissions). It will have no effect on ephemeral volume types such as: secret, configmaps and emptydir. Valid values are \"OnRootMismatch\" and \"Always\". If not specified, \"Always\" is used.")
   public String getFsGroupChangePolicy() {
     return fsGroupChangePolicy;
   }

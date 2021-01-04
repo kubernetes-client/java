@@ -26,7 +26,6 @@ import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.time.Duration;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;

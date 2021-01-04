@@ -5091,7 +5091,7 @@ Name | Type | Description  | Notes
 
 <a name="createNamespacedServiceAccountToken"></a>
 # **createNamespacedServiceAccountToken**
-> V1TokenRequest createNamespacedServiceAccountToken(name, namespace, body, dryRun, fieldManager, pretty)
+> AuthenticationV1TokenRequest createNamespacedServiceAccountToken(name, namespace, body, dryRun, fieldManager, pretty)
 
 
 
@@ -5121,12 +5121,12 @@ public class Example {
     CoreV1Api apiInstance = new CoreV1Api(defaultClient);
     String name = "name_example"; // String | name of the TokenRequest
     String namespace = "namespace_example"; // String | object name and auth scope, such as for teams and projects
-    V1TokenRequest body = new V1TokenRequest(); // V1TokenRequest | 
+    AuthenticationV1TokenRequest body = new AuthenticationV1TokenRequest(); // AuthenticationV1TokenRequest | 
     String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
     String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
     try {
-      V1TokenRequest result = apiInstance.createNamespacedServiceAccountToken(name, namespace, body, dryRun, fieldManager, pretty);
+      AuthenticationV1TokenRequest result = apiInstance.createNamespacedServiceAccountToken(name, namespace, body, dryRun, fieldManager, pretty);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoreV1Api#createNamespacedServiceAccountToken");
@@ -5145,14 +5145,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the TokenRequest |
  **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | [**V1TokenRequest**](V1TokenRequest.md)|  |
+ **body** | [**AuthenticationV1TokenRequest**](AuthenticationV1TokenRequest.md)|  |
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
 
 ### Return type
 
-[**V1TokenRequest**](V1TokenRequest.md)
+[**AuthenticationV1TokenRequest**](AuthenticationV1TokenRequest.md)
 
 ### Authorization
 

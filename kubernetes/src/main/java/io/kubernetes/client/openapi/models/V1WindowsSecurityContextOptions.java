@@ -22,7 +22,7 @@ import java.util.Objects;
     description = "WindowsSecurityContextOptions contain Windows-specific options and credentials.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1WindowsSecurityContextOptions {
   public static final String SERIALIZED_NAME_GMSA_CREDENTIAL_SPEC = "gmsaCredentialSpec";
 

@@ -23,7 +23,7 @@ import java.util.Objects;
         "PodTemplateSpec describes the data a pod should have when created from a template")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1PodTemplateSpec {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
 

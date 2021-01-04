@@ -22,7 +22,7 @@ import java.util.Objects;
     description = "CustomResourceConversion describes how to convert different versions of a CR.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1CustomResourceConversion {
   public static final String SERIALIZED_NAME_STRATEGY = "strategy";
 

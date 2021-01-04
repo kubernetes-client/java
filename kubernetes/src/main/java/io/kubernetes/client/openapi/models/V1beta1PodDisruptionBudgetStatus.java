@@ -29,7 +29,7 @@ import java.util.Objects;
         "PodDisruptionBudgetStatus represents information about the status of a PodDisruptionBudget. Status may trail the actual state of a system.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1beta1PodDisruptionBudgetStatus {
   public static final String SERIALIZED_NAME_CURRENT_HEALTHY = "currentHealthy";
 
