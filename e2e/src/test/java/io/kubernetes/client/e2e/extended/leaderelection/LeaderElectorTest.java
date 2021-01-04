@@ -26,6 +26,8 @@ import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.time.Duration;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -76,14 +78,28 @@ public class LeaderElectorTest {
     } catch (IOException ex) {
       throw new RuntimeException("Couldn't create ApiClient", ex);
     }
+    // Lease resource requires special care with DateTime
+    if (lockType == LockType.Lease) {
+      // TODO: switch date-time library so that micro-sec timestamp can be serialized
+      // in RFC3339
+      // format w/ correct precision without the hacks
+
+      // This formatter is used for Lease resource spec's acquire/renewTime
+      DateTimeFormatter formatter =
+          new DateTimeFormatterBuilder()
+              .appendOptional(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'"))
+              .appendOptional(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'"))
+              .toFormatter();
+
+      apiClient.setOffsetDateTimeFormat(formatter);
+    }
     this.lockType = lockType;
   }
 
   @Before
   public void setup() throws Exception {
     // delete the lock resource if it exists, or else first leader candidate might need to wait for
-    // a whole
-    // leaseDuration configured
+    // a whole leaseDuration configured
     switch (lockType) {
       case ConfigMap:
         deleteConfigMapLockResource();
@@ -169,8 +185,8 @@ public class LeaderElectorTest {
     Assert.assertNotNull(leaderRef.get());
     Assert.assertTrue(candidate1.equals(leaderRef.get()) || candidate2.equals(leaderRef.get()));
 
-    // stop both LeaderElectors, in order .. non-leader, then leader so that non-leader doesn't get
-    // to become leader
+    // stop both LeaderElectors, in order .. non-leader, then leader so that
+    // non-leader doesn't get to become leader
     if (candidate1.equals(leaderRef.get())) {
       leaderElector2.close();
       leaderElector1.close();
