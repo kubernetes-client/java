@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -25,7 +25,7 @@ import java.util.Objects;
         "CustomResourceDefinitionStatus indicates the state of the CustomResourceDefinition")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1beta1CustomResourceDefinitionStatus {
   public static final String SERIALIZED_NAME_ACCEPTED_NAMES = "acceptedNames";
 
@@ -74,7 +74,7 @@ public class V1beta1CustomResourceDefinitionStatus {
   public V1beta1CustomResourceDefinitionStatus addConditionsItem(
       V1beta1CustomResourceDefinitionCondition conditionsItem) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList<V1beta1CustomResourceDefinitionCondition>();
+      this.conditions = new ArrayList<>();
     }
     this.conditions.add(conditionsItem);
     return this;
@@ -104,7 +104,7 @@ public class V1beta1CustomResourceDefinitionStatus {
 
   public V1beta1CustomResourceDefinitionStatus addStoredVersionsItem(String storedVersionsItem) {
     if (this.storedVersions == null) {
-      this.storedVersions = new ArrayList<String>();
+      this.storedVersions = new ArrayList<>();
     }
     this.storedVersions.add(storedVersionsItem);
     return this;

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -28,7 +28,7 @@ import java.util.Objects;
         "Represents a Fibre Channel volume. Fibre Channel volumes can only be mounted as read/write once. Fibre Channel volumes support ownership management and SELinux relabeling.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1FCVolumeSource {
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
 
@@ -133,7 +133,7 @@ public class V1FCVolumeSource {
 
   public V1FCVolumeSource addTargetWWNsItem(String targetWWNsItem) {
     if (this.targetWWNs == null) {
-      this.targetWWNs = new ArrayList<String>();
+      this.targetWWNs = new ArrayList<>();
     }
     this.targetWWNs.add(targetWWNsItem);
     return this;
@@ -162,7 +162,7 @@ public class V1FCVolumeSource {
 
   public V1FCVolumeSource addWwidsItem(String wwidsItem) {
     if (this.wwids == null) {
-      this.wwids = new ArrayList<String>();
+      this.wwids = new ArrayList<>();
     }
     this.wwids.add(wwidsItem);
     return this;

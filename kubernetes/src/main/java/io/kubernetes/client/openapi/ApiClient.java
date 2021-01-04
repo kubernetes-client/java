@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -29,44 +29,22 @@ import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.text.DateFormat;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.KeyManager;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.TrustManagerFactory;
-import javax.net.ssl.X509TrustManager;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Headers;
-import okhttp3.Interceptor;
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
+import javax.net.ssl.*;
+import okhttp3.*;
 import okhttp3.internal.http.HttpMethod;
 import okhttp3.internal.tls.OkHostnameVerifier;
 import okhttp3.logging.HttpLoggingInterceptor;
 import okhttp3.logging.HttpLoggingInterceptor.Level;
 import okio.BufferedSink;
 import okio.Okio;
-import org.joda.time.DateTime;
-import org.joda.time.LocalDate;
-import org.joda.time.format.DateTimeFormatter;
 
 public class ApiClient {
 
@@ -125,7 +103,7 @@ public class ApiClient {
     json = new JSON();
 
     // Set default User-Agent.
-    setUserAgent("Kubernetes Java Client/10.0.1-SNAPSHOT");
+    setUserAgent("Kubernetes Java Client/11.0.1-SNAPSHOT");
 
     authentications = new HashMap<String, Authentication>();
   }
@@ -266,8 +244,8 @@ public class ApiClient {
     return this;
   }
 
-  public ApiClient setDateTimeFormat(DateTimeFormatter dateFormat) {
-    this.json.setDateTimeFormat(dateFormat);
+  public ApiClient setOffsetDateTimeFormat(DateTimeFormatter dateFormat) {
+    this.json.setOffsetDateTimeFormat(dateFormat);
     return this;
   }
 
@@ -530,7 +508,9 @@ public class ApiClient {
   public String parameterToString(Object param) {
     if (param == null) {
       return "";
-    } else if (param instanceof Date || param instanceof DateTime || param instanceof LocalDate) {
+    } else if (param instanceof Date
+        || param instanceof OffsetDateTime
+        || param instanceof LocalDate) {
       // Serialize to json string and remove the " enclosing characters
       String jsonStr = json.serialize(param);
       return jsonStr.substring(1, jsonStr.length() - 1);

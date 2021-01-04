@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -29,7 +29,7 @@ import java.util.Objects;
         "EndpointSlice represents a subset of the endpoints that implement a service. For a given service there may be multiple EndpointSlice objects, selected by labels, which must be joined to produce the full set of endpoints.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1beta1EndpointSlice implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_ADDRESS_TYPE = "addressType";
 
@@ -44,7 +44,7 @@ public class V1beta1EndpointSlice implements io.kubernetes.client.common.Kuberne
   public static final String SERIALIZED_NAME_ENDPOINTS = "endpoints";
 
   @SerializedName(SERIALIZED_NAME_ENDPOINTS)
-  private List<V1beta1Endpoint> endpoints = new ArrayList<V1beta1Endpoint>();
+  private List<V1beta1Endpoint> endpoints = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_KIND = "kind";
 
@@ -197,7 +197,7 @@ public class V1beta1EndpointSlice implements io.kubernetes.client.common.Kuberne
 
   public V1beta1EndpointSlice addPortsItem(V1beta1EndpointPort portsItem) {
     if (this.ports == null) {
-      this.ports = new ArrayList<V1beta1EndpointPort>();
+      this.ports = new ArrayList<>();
     }
     this.ports.add(portsItem);
     return this;

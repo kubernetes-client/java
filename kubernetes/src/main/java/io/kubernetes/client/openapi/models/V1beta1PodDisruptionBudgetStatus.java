@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -15,10 +15,10 @@ package io.kubernetes.client.openapi.models;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-import org.joda.time.DateTime;
 
 /**
  * PodDisruptionBudgetStatus represents information about the status of a PodDisruptionBudget.
@@ -29,7 +29,7 @@ import org.joda.time.DateTime;
         "PodDisruptionBudgetStatus represents information about the status of a PodDisruptionBudget. Status may trail the actual state of a system.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1beta1PodDisruptionBudgetStatus {
   public static final String SERIALIZED_NAME_CURRENT_HEALTHY = "currentHealthy";
 
@@ -44,7 +44,7 @@ public class V1beta1PodDisruptionBudgetStatus {
   public static final String SERIALIZED_NAME_DISRUPTED_PODS = "disruptedPods";
 
   @SerializedName(SERIALIZED_NAME_DISRUPTED_PODS)
-  private Map<String, DateTime> disruptedPods = null;
+  private Map<String, OffsetDateTime> disruptedPods = null;
 
   public static final String SERIALIZED_NAME_DISRUPTIONS_ALLOWED = "disruptionsAllowed";
 
@@ -101,16 +101,16 @@ public class V1beta1PodDisruptionBudgetStatus {
     this.desiredHealthy = desiredHealthy;
   }
 
-  public V1beta1PodDisruptionBudgetStatus disruptedPods(Map<String, DateTime> disruptedPods) {
+  public V1beta1PodDisruptionBudgetStatus disruptedPods(Map<String, OffsetDateTime> disruptedPods) {
 
     this.disruptedPods = disruptedPods;
     return this;
   }
 
   public V1beta1PodDisruptionBudgetStatus putDisruptedPodsItem(
-      String key, DateTime disruptedPodsItem) {
+      String key, OffsetDateTime disruptedPodsItem) {
     if (this.disruptedPods == null) {
-      this.disruptedPods = new HashMap<String, DateTime>();
+      this.disruptedPods = new HashMap<>();
     }
     this.disruptedPods.put(key, disruptedPodsItem);
     return this;
@@ -133,11 +133,11 @@ public class V1beta1PodDisruptionBudgetStatus {
   @ApiModelProperty(
       value =
           "DisruptedPods contains information about pods whose eviction was processed by the API server eviction subresource handler but has not yet been observed by the PodDisruptionBudget controller. A pod will be in this map from the time when the API server processed the eviction request to the time when the pod is seen by PDB controller as having been marked for deletion (or after a timeout). The key in the map is the name of the pod and the value is the time when the API server processed the eviction request. If the deletion didn't occur and a pod is still there it will be removed from the list automatically by PodDisruptionBudget controller after some time. If everything goes smooth this map should be empty for the most of the time. Large number of entries in the map may indicate problems with pod deletions.")
-  public Map<String, DateTime> getDisruptedPods() {
+  public Map<String, OffsetDateTime> getDisruptedPods() {
     return disruptedPods;
   }
 
-  public void setDisruptedPods(Map<String, DateTime> disruptedPods) {
+  public void setDisruptedPods(Map<String, OffsetDateTime> disruptedPods) {
     this.disruptedPods = disruptedPods;
   }
 

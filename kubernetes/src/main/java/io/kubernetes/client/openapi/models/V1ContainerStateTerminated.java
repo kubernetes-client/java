@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -15,14 +15,14 @@ package io.kubernetes.client.openapi.models;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.Objects;
-import org.joda.time.DateTime;
 
 /** ContainerStateTerminated is a terminated state of a container. */
 @ApiModel(description = "ContainerStateTerminated is a terminated state of a container.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1ContainerStateTerminated {
   public static final String SERIALIZED_NAME_CONTAINER_I_D = "containerID";
 
@@ -37,7 +37,7 @@ public class V1ContainerStateTerminated {
   public static final String SERIALIZED_NAME_FINISHED_AT = "finishedAt";
 
   @SerializedName(SERIALIZED_NAME_FINISHED_AT)
-  private DateTime finishedAt;
+  private OffsetDateTime finishedAt;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
 
@@ -57,7 +57,7 @@ public class V1ContainerStateTerminated {
   public static final String SERIALIZED_NAME_STARTED_AT = "startedAt";
 
   @SerializedName(SERIALIZED_NAME_STARTED_AT)
-  private DateTime startedAt;
+  private OffsetDateTime startedAt;
 
   public V1ContainerStateTerminated containerID(String containerID) {
 
@@ -102,7 +102,7 @@ public class V1ContainerStateTerminated {
     this.exitCode = exitCode;
   }
 
-  public V1ContainerStateTerminated finishedAt(DateTime finishedAt) {
+  public V1ContainerStateTerminated finishedAt(OffsetDateTime finishedAt) {
 
     this.finishedAt = finishedAt;
     return this;
@@ -115,11 +115,11 @@ public class V1ContainerStateTerminated {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Time at which the container last terminated")
-  public DateTime getFinishedAt() {
+  public OffsetDateTime getFinishedAt() {
     return finishedAt;
   }
 
-  public void setFinishedAt(DateTime finishedAt) {
+  public void setFinishedAt(OffsetDateTime finishedAt) {
     this.finishedAt = finishedAt;
   }
 
@@ -186,7 +186,7 @@ public class V1ContainerStateTerminated {
     this.signal = signal;
   }
 
-  public V1ContainerStateTerminated startedAt(DateTime startedAt) {
+  public V1ContainerStateTerminated startedAt(OffsetDateTime startedAt) {
 
     this.startedAt = startedAt;
     return this;
@@ -199,11 +199,11 @@ public class V1ContainerStateTerminated {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Time at which previous execution of the container started")
-  public DateTime getStartedAt() {
+  public OffsetDateTime getStartedAt() {
     return startedAt;
   }
 
-  public void setStartedAt(DateTime startedAt) {
+  public void setStartedAt(OffsetDateTime startedAt) {
     this.startedAt = startedAt;
   }
 

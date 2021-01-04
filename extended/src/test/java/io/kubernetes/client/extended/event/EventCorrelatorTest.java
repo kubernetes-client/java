@@ -28,13 +28,13 @@ import io.kubernetes.client.openapi.models.V1EventSourceBuilder;
 import io.kubernetes.client.openapi.models.V1ObjectMetaBuilder;
 import io.kubernetes.client.openapi.models.V1ObjectReference;
 import io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import org.apache.commons.lang3.tuple.MutablePair;
-import org.joda.time.DateTime;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -159,7 +159,7 @@ public class EventCorrelatorTest {
   public void testEventCorrelate() throws InterruptedException {
     EventCorrelator correlator = new EventCorrelator();
     for (CoreV1Event event : previousEvents) {
-      DateTime now = DateTime.now();
+      OffsetDateTime now = OffsetDateTime.now();
       event.setFirstTimestamp(now);
       event.setLastTimestamp(now);
       Optional<MutablePair<CoreV1Event, V1Patch>> result = correlator.correlate(event);
@@ -168,7 +168,7 @@ public class EventCorrelatorTest {
       }
     }
     Thread.sleep(100);
-    DateTime now = DateTime.now();
+    OffsetDateTime now = OffsetDateTime.now();
     newEvent.setFirstTimestamp(now);
     newEvent.setLastTimestamp(now);
     Optional<MutablePair<CoreV1Event, V1Patch>> result = correlator.correlate(newEvent);
@@ -183,8 +183,8 @@ public class EventCorrelatorTest {
 
   private void validateEvent(CoreV1Event expectedEvent, CoreV1Event actualEvent) {
     CoreV1Event recvEvent = new CoreV1EventBuilder(actualEvent).build();
-    assertNotEquals(0, recvEvent.getFirstTimestamp().getMillis());
-    assertNotEquals(0, recvEvent.getLastTimestamp().getMillis());
+    assertNotEquals(0, recvEvent.getFirstTimestamp().toInstant().toEpochMilli());
+    assertNotEquals(0, recvEvent.getLastTimestamp().toInstant().toEpochMilli());
     if (actualEvent.getFirstTimestamp().equals(actualEvent.getLastTimestamp())) {
       if (expectedEvent.getCount() > 1) {
         fail("firstTimestamp and lastTimestamp must not be equal to indicate compression happen");

@@ -15,8 +15,8 @@ package com.coreos.monitoring.models;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.Objects;
-import org.joda.time.DateTime;
 
 /** PersistentVolumeClaimCondition contails details about state of pvc */
 @ApiModel(description = "PersistentVolumeClaimCondition contails details about state of pvc")
@@ -27,12 +27,12 @@ public class V1ThanosRulerSpecStorageVolumeClaimTemplateStatusConditions {
   public static final String SERIALIZED_NAME_LAST_PROBE_TIME = "lastProbeTime";
 
   @SerializedName(SERIALIZED_NAME_LAST_PROBE_TIME)
-  private DateTime lastProbeTime;
+  private OffsetDateTime lastProbeTime;
 
   public static final String SERIALIZED_NAME_LAST_TRANSITION_TIME = "lastTransitionTime";
 
   @SerializedName(SERIALIZED_NAME_LAST_TRANSITION_TIME)
-  private DateTime lastTransitionTime;
+  private OffsetDateTime lastTransitionTime;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
 
@@ -55,7 +55,7 @@ public class V1ThanosRulerSpecStorageVolumeClaimTemplateStatusConditions {
   private String type;
 
   public V1ThanosRulerSpecStorageVolumeClaimTemplateStatusConditions lastProbeTime(
-      DateTime lastProbeTime) {
+      OffsetDateTime lastProbeTime) {
 
     this.lastProbeTime = lastProbeTime;
     return this;
@@ -68,16 +68,16 @@ public class V1ThanosRulerSpecStorageVolumeClaimTemplateStatusConditions {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Last time we probed the condition.")
-  public DateTime getLastProbeTime() {
+  public OffsetDateTime getLastProbeTime() {
     return lastProbeTime;
   }
 
-  public void setLastProbeTime(DateTime lastProbeTime) {
+  public void setLastProbeTime(OffsetDateTime lastProbeTime) {
     this.lastProbeTime = lastProbeTime;
   }
 
   public V1ThanosRulerSpecStorageVolumeClaimTemplateStatusConditions lastTransitionTime(
-      DateTime lastTransitionTime) {
+      OffsetDateTime lastTransitionTime) {
 
     this.lastTransitionTime = lastTransitionTime;
     return this;
@@ -90,11 +90,11 @@ public class V1ThanosRulerSpecStorageVolumeClaimTemplateStatusConditions {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Last time the condition transitioned from one status to another.")
-  public DateTime getLastTransitionTime() {
+  public OffsetDateTime getLastTransitionTime() {
     return lastTransitionTime;
   }
 
-  public void setLastTransitionTime(DateTime lastTransitionTime) {
+  public void setLastTransitionTime(OffsetDateTime lastTransitionTime) {
     this.lastTransitionTime = lastTransitionTime;
   }
 

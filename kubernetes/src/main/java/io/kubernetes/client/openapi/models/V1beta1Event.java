@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -15,8 +15,8 @@ package io.kubernetes.client.openapi.models;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.Objects;
-import org.joda.time.DateTime;
 
 /**
  * Event is a report of an event somewhere in the cluster. It generally denotes some state change in
@@ -27,7 +27,7 @@ import org.joda.time.DateTime;
         "Event is a report of an event somewhere in the cluster. It generally denotes some state change in the system.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1beta1Event implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_ACTION = "action";
 
@@ -48,12 +48,12 @@ public class V1beta1Event implements io.kubernetes.client.common.KubernetesObjec
       "deprecatedFirstTimestamp";
 
   @SerializedName(SERIALIZED_NAME_DEPRECATED_FIRST_TIMESTAMP)
-  private DateTime deprecatedFirstTimestamp;
+  private OffsetDateTime deprecatedFirstTimestamp;
 
   public static final String SERIALIZED_NAME_DEPRECATED_LAST_TIMESTAMP = "deprecatedLastTimestamp";
 
   @SerializedName(SERIALIZED_NAME_DEPRECATED_LAST_TIMESTAMP)
-  private DateTime deprecatedLastTimestamp;
+  private OffsetDateTime deprecatedLastTimestamp;
 
   public static final String SERIALIZED_NAME_DEPRECATED_SOURCE = "deprecatedSource";
 
@@ -63,7 +63,7 @@ public class V1beta1Event implements io.kubernetes.client.common.KubernetesObjec
   public static final String SERIALIZED_NAME_EVENT_TIME = "eventTime";
 
   @SerializedName(SERIALIZED_NAME_EVENT_TIME)
-  private DateTime eventTime;
+  private OffsetDateTime eventTime;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
 
@@ -189,7 +189,7 @@ public class V1beta1Event implements io.kubernetes.client.common.KubernetesObjec
     this.deprecatedCount = deprecatedCount;
   }
 
-  public V1beta1Event deprecatedFirstTimestamp(DateTime deprecatedFirstTimestamp) {
+  public V1beta1Event deprecatedFirstTimestamp(OffsetDateTime deprecatedFirstTimestamp) {
 
     this.deprecatedFirstTimestamp = deprecatedFirstTimestamp;
     return this;
@@ -205,15 +205,15 @@ public class V1beta1Event implements io.kubernetes.client.common.KubernetesObjec
   @ApiModelProperty(
       value =
           "deprecatedFirstTimestamp is the deprecated field assuring backward compatibility with core.v1 Event type.")
-  public DateTime getDeprecatedFirstTimestamp() {
+  public OffsetDateTime getDeprecatedFirstTimestamp() {
     return deprecatedFirstTimestamp;
   }
 
-  public void setDeprecatedFirstTimestamp(DateTime deprecatedFirstTimestamp) {
+  public void setDeprecatedFirstTimestamp(OffsetDateTime deprecatedFirstTimestamp) {
     this.deprecatedFirstTimestamp = deprecatedFirstTimestamp;
   }
 
-  public V1beta1Event deprecatedLastTimestamp(DateTime deprecatedLastTimestamp) {
+  public V1beta1Event deprecatedLastTimestamp(OffsetDateTime deprecatedLastTimestamp) {
 
     this.deprecatedLastTimestamp = deprecatedLastTimestamp;
     return this;
@@ -229,11 +229,11 @@ public class V1beta1Event implements io.kubernetes.client.common.KubernetesObjec
   @ApiModelProperty(
       value =
           "deprecatedLastTimestamp is the deprecated field assuring backward compatibility with core.v1 Event type.")
-  public DateTime getDeprecatedLastTimestamp() {
+  public OffsetDateTime getDeprecatedLastTimestamp() {
     return deprecatedLastTimestamp;
   }
 
-  public void setDeprecatedLastTimestamp(DateTime deprecatedLastTimestamp) {
+  public void setDeprecatedLastTimestamp(OffsetDateTime deprecatedLastTimestamp) {
     this.deprecatedLastTimestamp = deprecatedLastTimestamp;
   }
 
@@ -258,7 +258,7 @@ public class V1beta1Event implements io.kubernetes.client.common.KubernetesObjec
     this.deprecatedSource = deprecatedSource;
   }
 
-  public V1beta1Event eventTime(DateTime eventTime) {
+  public V1beta1Event eventTime(OffsetDateTime eventTime) {
 
     this.eventTime = eventTime;
     return this;
@@ -272,11 +272,11 @@ public class V1beta1Event implements io.kubernetes.client.common.KubernetesObjec
   @ApiModelProperty(
       required = true,
       value = "eventTime is the time when this Event was first observed. It is required.")
-  public DateTime getEventTime() {
+  public OffsetDateTime getEventTime() {
     return eventTime;
   }
 
-  public void setEventTime(DateTime eventTime) {
+  public void setEventTime(OffsetDateTime eventTime) {
     this.eventTime = eventTime;
   }
 

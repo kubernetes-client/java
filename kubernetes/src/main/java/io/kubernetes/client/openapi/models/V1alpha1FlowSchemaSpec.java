@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "FlowSchemaSpec describes how the FlowSchema's specification looks like.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1alpha1FlowSchemaSpec {
   public static final String SERIALIZED_NAME_DISTINGUISHER_METHOD = "distinguisherMethod";
 
@@ -124,7 +124,7 @@ public class V1alpha1FlowSchemaSpec {
 
   public V1alpha1FlowSchemaSpec addRulesItem(V1alpha1PolicyRulesWithSubjects rulesItem) {
     if (this.rules == null) {
-      this.rules = new ArrayList<V1alpha1PolicyRulesWithSubjects>();
+      this.rules = new ArrayList<>();
     }
     this.rules.add(rulesItem);
     return this;

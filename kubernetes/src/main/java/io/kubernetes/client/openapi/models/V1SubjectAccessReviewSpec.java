@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -30,7 +30,7 @@ import java.util.Objects;
         "SubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1SubjectAccessReviewSpec {
   public static final String SERIALIZED_NAME_EXTRA = "extra";
 
@@ -70,7 +70,7 @@ public class V1SubjectAccessReviewSpec {
 
   public V1SubjectAccessReviewSpec putExtraItem(String key, List<String> extraItem) {
     if (this.extra == null) {
-      this.extra = new HashMap<String, List<String>>();
+      this.extra = new HashMap<>();
     }
     this.extra.put(key, extraItem);
     return this;
@@ -102,7 +102,7 @@ public class V1SubjectAccessReviewSpec {
 
   public V1SubjectAccessReviewSpec addGroupsItem(String groupsItem) {
     if (this.groups == null) {
-      this.groups = new ArrayList<String>();
+      this.groups = new ArrayList<>();
     }
     this.groups.add(groupsItem);
     return this;

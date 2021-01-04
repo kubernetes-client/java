@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -15,14 +15,14 @@ package io.kubernetes.client.openapi.models;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.Objects;
-import org.joda.time.DateTime;
 
 /** Event is a report of an event somewhere in the cluster. */
 @ApiModel(description = "Event is a report of an event somewhere in the cluster.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_ACTION = "action";
 
@@ -42,12 +42,12 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
   public static final String SERIALIZED_NAME_EVENT_TIME = "eventTime";
 
   @SerializedName(SERIALIZED_NAME_EVENT_TIME)
-  private DateTime eventTime;
+  private OffsetDateTime eventTime;
 
   public static final String SERIALIZED_NAME_FIRST_TIMESTAMP = "firstTimestamp";
 
   @SerializedName(SERIALIZED_NAME_FIRST_TIMESTAMP)
-  private DateTime firstTimestamp;
+  private OffsetDateTime firstTimestamp;
 
   public static final String SERIALIZED_NAME_INVOLVED_OBJECT = "involvedObject";
 
@@ -62,7 +62,7 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
   public static final String SERIALIZED_NAME_LAST_TIMESTAMP = "lastTimestamp";
 
   @SerializedName(SERIALIZED_NAME_LAST_TIMESTAMP)
-  private DateTime lastTimestamp;
+  private OffsetDateTime lastTimestamp;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
 
@@ -177,7 +177,7 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
     this.count = count;
   }
 
-  public CoreV1Event eventTime(DateTime eventTime) {
+  public CoreV1Event eventTime(OffsetDateTime eventTime) {
 
     this.eventTime = eventTime;
     return this;
@@ -190,15 +190,15 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Time when this Event was first observed.")
-  public DateTime getEventTime() {
+  public OffsetDateTime getEventTime() {
     return eventTime;
   }
 
-  public void setEventTime(DateTime eventTime) {
+  public void setEventTime(OffsetDateTime eventTime) {
     this.eventTime = eventTime;
   }
 
-  public CoreV1Event firstTimestamp(DateTime firstTimestamp) {
+  public CoreV1Event firstTimestamp(OffsetDateTime firstTimestamp) {
 
     this.firstTimestamp = firstTimestamp;
     return this;
@@ -213,11 +213,11 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
   @ApiModelProperty(
       value =
           "The time at which the event was first recorded. (Time of server receipt is in TypeMeta.)")
-  public DateTime getFirstTimestamp() {
+  public OffsetDateTime getFirstTimestamp() {
     return firstTimestamp;
   }
 
-  public void setFirstTimestamp(DateTime firstTimestamp) {
+  public void setFirstTimestamp(OffsetDateTime firstTimestamp) {
     this.firstTimestamp = firstTimestamp;
   }
 
@@ -267,7 +267,7 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
     this.kind = kind;
   }
 
-  public CoreV1Event lastTimestamp(DateTime lastTimestamp) {
+  public CoreV1Event lastTimestamp(OffsetDateTime lastTimestamp) {
 
     this.lastTimestamp = lastTimestamp;
     return this;
@@ -281,11 +281,11 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
   @javax.annotation.Nullable
   @ApiModelProperty(
       value = "The time at which the most recent occurrence of this event was recorded.")
-  public DateTime getLastTimestamp() {
+  public OffsetDateTime getLastTimestamp() {
     return lastTimestamp;
   }
 
-  public void setLastTimestamp(DateTime lastTimestamp) {
+  public void setLastTimestamp(OffsetDateTime lastTimestamp) {
     this.lastTimestamp = lastTimestamp;
   }
 

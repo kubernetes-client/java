@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -28,7 +28,7 @@ import java.util.Objects;
         "PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1PersistentVolumeClaimSpec {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
 
@@ -73,7 +73,7 @@ public class V1PersistentVolumeClaimSpec {
 
   public V1PersistentVolumeClaimSpec addAccessModesItem(String accessModesItem) {
     if (this.accessModes == null) {
-      this.accessModes = new ArrayList<String>();
+      this.accessModes = new ArrayList<>();
     }
     this.accessModes.add(accessModesItem);
     return this;

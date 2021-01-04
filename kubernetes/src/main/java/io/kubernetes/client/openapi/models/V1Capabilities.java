@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "Adds and removes POSIX capabilities from running containers.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1Capabilities {
   public static final String SERIALIZED_NAME_ADD = "add";
 
@@ -43,7 +43,7 @@ public class V1Capabilities {
 
   public V1Capabilities addAddItem(String addItem) {
     if (this.add == null) {
-      this.add = new ArrayList<String>();
+      this.add = new ArrayList<>();
     }
     this.add.add(addItem);
     return this;
@@ -72,7 +72,7 @@ public class V1Capabilities {
 
   public V1Capabilities addDropItem(String dropItem) {
     if (this.drop == null) {
-      this.drop = new ArrayList<String>();
+      this.drop = new ArrayList<>();
     }
     this.drop.add(dropItem);
     return this;

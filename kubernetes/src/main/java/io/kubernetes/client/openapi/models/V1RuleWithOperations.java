@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -28,7 +28,7 @@ import java.util.Objects;
         "RuleWithOperations is a tuple of Operations and Resources. It is recommended to make sure that all the tuple expansions are valid.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1RuleWithOperations {
   public static final String SERIALIZED_NAME_API_GROUPS = "apiGroups";
 
@@ -63,7 +63,7 @@ public class V1RuleWithOperations {
 
   public V1RuleWithOperations addApiGroupsItem(String apiGroupsItem) {
     if (this.apiGroups == null) {
-      this.apiGroups = new ArrayList<String>();
+      this.apiGroups = new ArrayList<>();
     }
     this.apiGroups.add(apiGroupsItem);
     return this;
@@ -95,7 +95,7 @@ public class V1RuleWithOperations {
 
   public V1RuleWithOperations addApiVersionsItem(String apiVersionsItem) {
     if (this.apiVersions == null) {
-      this.apiVersions = new ArrayList<String>();
+      this.apiVersions = new ArrayList<>();
     }
     this.apiVersions.add(apiVersionsItem);
     return this;
@@ -127,7 +127,7 @@ public class V1RuleWithOperations {
 
   public V1RuleWithOperations addOperationsItem(String operationsItem) {
     if (this.operations == null) {
-      this.operations = new ArrayList<String>();
+      this.operations = new ArrayList<>();
     }
     this.operations.add(operationsItem);
     return this;
@@ -160,7 +160,7 @@ public class V1RuleWithOperations {
 
   public V1RuleWithOperations addResourcesItem(String resourcesItem) {
     if (this.resources == null) {
-      this.resources = new ArrayList<String>();
+      this.resources = new ArrayList<>();
     }
     this.resources.add(resourcesItem);
     return this;

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -25,7 +25,7 @@ import java.util.Objects;
 @ApiModel(description = "ServiceSpec describes the attributes that a user creates on a service.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1ServiceSpec {
   public static final String SERIALIZED_NAME_CLUSTER_I_P = "clusterIP";
 
@@ -142,7 +142,7 @@ public class V1ServiceSpec {
 
   public V1ServiceSpec addExternalIPsItem(String externalIPsItem) {
     if (this.externalIPs == null) {
-      this.externalIPs = new ArrayList<String>();
+      this.externalIPs = new ArrayList<>();
     }
     this.externalIPs.add(externalIPsItem);
     return this;
@@ -316,7 +316,7 @@ public class V1ServiceSpec {
 
   public V1ServiceSpec addLoadBalancerSourceRangesItem(String loadBalancerSourceRangesItem) {
     if (this.loadBalancerSourceRanges == null) {
-      this.loadBalancerSourceRanges = new ArrayList<String>();
+      this.loadBalancerSourceRanges = new ArrayList<>();
     }
     this.loadBalancerSourceRanges.add(loadBalancerSourceRangesItem);
     return this;
@@ -350,7 +350,7 @@ public class V1ServiceSpec {
 
   public V1ServiceSpec addPortsItem(V1ServicePort portsItem) {
     if (this.ports == null) {
-      this.ports = new ArrayList<V1ServicePort>();
+      this.ports = new ArrayList<>();
     }
     this.ports.add(portsItem);
     return this;
@@ -412,7 +412,7 @@ public class V1ServiceSpec {
 
   public V1ServiceSpec putSelectorItem(String key, String selectorItem) {
     if (this.selector == null) {
-      this.selector = new HashMap<String, String>();
+      this.selector = new HashMap<>();
     }
     this.selector.put(key, selectorItem);
     return this;
@@ -493,7 +493,7 @@ public class V1ServiceSpec {
 
   public V1ServiceSpec addTopologyKeysItem(String topologyKeysItem) {
     if (this.topologyKeys == null) {
-      this.topologyKeys = new ArrayList<String>();
+      this.topologyKeys = new ArrayList<>();
     }
     this.topologyKeys.add(topologyKeysItem);
     return this;

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -31,7 +31,7 @@ import java.util.Objects;
         "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1LabelSelector {
   public static final String SERIALIZED_NAME_MATCH_EXPRESSIONS = "matchExpressions";
 
@@ -51,7 +51,7 @@ public class V1LabelSelector {
 
   public V1LabelSelector addMatchExpressionsItem(V1LabelSelectorRequirement matchExpressionsItem) {
     if (this.matchExpressions == null) {
-      this.matchExpressions = new ArrayList<V1LabelSelectorRequirement>();
+      this.matchExpressions = new ArrayList<>();
     }
     this.matchExpressions.add(matchExpressionsItem);
     return this;
@@ -82,7 +82,7 @@ public class V1LabelSelector {
 
   public V1LabelSelector putMatchLabelsItem(String key, String matchLabelsItem) {
     if (this.matchLabels == null) {
-      this.matchLabels = new HashMap<String, String>();
+      this.matchLabels = new HashMap<>();
     }
     this.matchLabels.put(key, matchLabelsItem);
     return this;

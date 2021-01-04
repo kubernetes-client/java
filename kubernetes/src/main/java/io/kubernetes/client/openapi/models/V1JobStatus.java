@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -15,16 +15,16 @@ package io.kubernetes.client.openapi.models;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import org.joda.time.DateTime;
 
 /** JobStatus represents the current state of a Job. */
 @ApiModel(description = "JobStatus represents the current state of a Job.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1JobStatus {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
 
@@ -34,7 +34,7 @@ public class V1JobStatus {
   public static final String SERIALIZED_NAME_COMPLETION_TIME = "completionTime";
 
   @SerializedName(SERIALIZED_NAME_COMPLETION_TIME)
-  private DateTime completionTime;
+  private OffsetDateTime completionTime;
 
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
 
@@ -49,7 +49,7 @@ public class V1JobStatus {
   public static final String SERIALIZED_NAME_START_TIME = "startTime";
 
   @SerializedName(SERIALIZED_NAME_START_TIME)
-  private DateTime startTime;
+  private OffsetDateTime startTime;
 
   public static final String SERIALIZED_NAME_SUCCEEDED = "succeeded";
 
@@ -77,7 +77,7 @@ public class V1JobStatus {
     this.active = active;
   }
 
-  public V1JobStatus completionTime(DateTime completionTime) {
+  public V1JobStatus completionTime(OffsetDateTime completionTime) {
 
     this.completionTime = completionTime;
     return this;
@@ -93,11 +93,11 @@ public class V1JobStatus {
   @ApiModelProperty(
       value =
           "Represents time when the job was completed. It is not guaranteed to be set in happens-before order across separate operations. It is represented in RFC3339 form and is in UTC.")
-  public DateTime getCompletionTime() {
+  public OffsetDateTime getCompletionTime() {
     return completionTime;
   }
 
-  public void setCompletionTime(DateTime completionTime) {
+  public void setCompletionTime(OffsetDateTime completionTime) {
     this.completionTime = completionTime;
   }
 
@@ -109,7 +109,7 @@ public class V1JobStatus {
 
   public V1JobStatus addConditionsItem(V1JobCondition conditionsItem) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList<V1JobCondition>();
+      this.conditions = new ArrayList<>();
     }
     this.conditions.add(conditionsItem);
     return this;
@@ -154,7 +154,7 @@ public class V1JobStatus {
     this.failed = failed;
   }
 
-  public V1JobStatus startTime(DateTime startTime) {
+  public V1JobStatus startTime(OffsetDateTime startTime) {
 
     this.startTime = startTime;
     return this;
@@ -171,11 +171,11 @@ public class V1JobStatus {
   @ApiModelProperty(
       value =
           "Represents time when the job was acknowledged by the job controller. It is not guaranteed to be set in happens-before order across separate operations. It is represented in RFC3339 form and is in UTC.")
-  public DateTime getStartTime() {
+  public OffsetDateTime getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(DateTime startTime) {
+  public void setStartTime(OffsetDateTime startTime) {
     this.startTime = startTime;
   }
 

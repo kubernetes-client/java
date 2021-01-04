@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -15,8 +15,8 @@ package io.kubernetes.client.openapi.models;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.Objects;
-import org.joda.time.DateTime;
 
 /**
  * ManagedFieldsEntry is a workflow-id, a FieldSet and the group version of the resource that the
@@ -27,7 +27,7 @@ import org.joda.time.DateTime;
         "ManagedFieldsEntry is a workflow-id, a FieldSet and the group version of the resource that the fieldset applies to.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1ManagedFieldsEntry {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 
@@ -57,7 +57,7 @@ public class V1ManagedFieldsEntry {
   public static final String SERIALIZED_NAME_TIME = "time";
 
   @SerializedName(SERIALIZED_NAME_TIME)
-  private DateTime time;
+  private OffsetDateTime time;
 
   public V1ManagedFieldsEntry apiVersion(String apiVersion) {
 
@@ -175,7 +175,7 @@ public class V1ManagedFieldsEntry {
     this.operation = operation;
   }
 
-  public V1ManagedFieldsEntry time(DateTime time) {
+  public V1ManagedFieldsEntry time(OffsetDateTime time) {
 
     this.time = time;
     return this;
@@ -191,11 +191,11 @@ public class V1ManagedFieldsEntry {
   @ApiModelProperty(
       value =
           "Time is timestamp of when these fields were set. It should always be empty if Operation is 'Apply'")
-  public DateTime getTime() {
+  public OffsetDateTime getTime() {
     return time;
   }
 
-  public void setTime(DateTime time) {
+  public void setTime(OffsetDateTime time) {
     this.time = time;
   }
 

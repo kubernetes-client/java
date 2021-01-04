@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -28,7 +28,7 @@ import java.util.Objects;
         "A null or empty node selector term matches no objects. The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1NodeSelectorTerm {
   public static final String SERIALIZED_NAME_MATCH_EXPRESSIONS = "matchExpressions";
 
@@ -49,7 +49,7 @@ public class V1NodeSelectorTerm {
   public V1NodeSelectorTerm addMatchExpressionsItem(
       V1NodeSelectorRequirement matchExpressionsItem) {
     if (this.matchExpressions == null) {
-      this.matchExpressions = new ArrayList<V1NodeSelectorRequirement>();
+      this.matchExpressions = new ArrayList<>();
     }
     this.matchExpressions.add(matchExpressionsItem);
     return this;
@@ -78,7 +78,7 @@ public class V1NodeSelectorTerm {
 
   public V1NodeSelectorTerm addMatchFieldsItem(V1NodeSelectorRequirement matchFieldsItem) {
     if (this.matchFields == null) {
-      this.matchFields = new ArrayList<V1NodeSelectorRequirement>();
+      this.matchFields = new ArrayList<>();
     }
     this.matchFields.add(matchFieldsItem);
     return this;

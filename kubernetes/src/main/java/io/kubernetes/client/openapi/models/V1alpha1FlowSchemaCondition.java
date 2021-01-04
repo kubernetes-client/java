@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -15,19 +15,19 @@ package io.kubernetes.client.openapi.models;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.Objects;
-import org.joda.time.DateTime;
 
 /** FlowSchemaCondition describes conditions for a FlowSchema. */
 @ApiModel(description = "FlowSchemaCondition describes conditions for a FlowSchema.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1alpha1FlowSchemaCondition {
   public static final String SERIALIZED_NAME_LAST_TRANSITION_TIME = "lastTransitionTime";
 
   @SerializedName(SERIALIZED_NAME_LAST_TRANSITION_TIME)
-  private DateTime lastTransitionTime;
+  private OffsetDateTime lastTransitionTime;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
 
@@ -49,7 +49,7 @@ public class V1alpha1FlowSchemaCondition {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
-  public V1alpha1FlowSchemaCondition lastTransitionTime(DateTime lastTransitionTime) {
+  public V1alpha1FlowSchemaCondition lastTransitionTime(OffsetDateTime lastTransitionTime) {
 
     this.lastTransitionTime = lastTransitionTime;
     return this;
@@ -65,11 +65,11 @@ public class V1alpha1FlowSchemaCondition {
   @ApiModelProperty(
       value =
           "`lastTransitionTime` is the last time the condition transitioned from one status to another.")
-  public DateTime getLastTransitionTime() {
+  public OffsetDateTime getLastTransitionTime() {
     return lastTransitionTime;
   }
 
-  public void setLastTransitionTime(DateTime lastTransitionTime) {
+  public void setLastTransitionTime(OffsetDateTime lastTransitionTime) {
     this.lastTransitionTime = lastTransitionTime;
   }
 

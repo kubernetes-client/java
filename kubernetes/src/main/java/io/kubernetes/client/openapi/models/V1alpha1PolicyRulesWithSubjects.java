@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -31,7 +31,7 @@ import java.util.Objects;
         "PolicyRulesWithSubjects prescribes a test that applies to a request to an apiserver. The test considers the subject making the request, the verb being requested, and the resource to be acted upon. This PolicyRulesWithSubjects matches a request if and only if both (a) at least one member of subjects matches the request and (b) at least one member of resourceRules or nonResourceRules matches the request.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1alpha1PolicyRulesWithSubjects {
   public static final String SERIALIZED_NAME_NON_RESOURCE_RULES = "nonResourceRules";
 
@@ -46,7 +46,7 @@ public class V1alpha1PolicyRulesWithSubjects {
   public static final String SERIALIZED_NAME_SUBJECTS = "subjects";
 
   @SerializedName(SERIALIZED_NAME_SUBJECTS)
-  private List<FlowcontrolV1alpha1Subject> subjects = new ArrayList<FlowcontrolV1alpha1Subject>();
+  private List<FlowcontrolV1alpha1Subject> subjects = new ArrayList<>();
 
   public V1alpha1PolicyRulesWithSubjects nonResourceRules(
       List<V1alpha1NonResourcePolicyRule> nonResourceRules) {
@@ -58,7 +58,7 @@ public class V1alpha1PolicyRulesWithSubjects {
   public V1alpha1PolicyRulesWithSubjects addNonResourceRulesItem(
       V1alpha1NonResourcePolicyRule nonResourceRulesItem) {
     if (this.nonResourceRules == null) {
-      this.nonResourceRules = new ArrayList<V1alpha1NonResourcePolicyRule>();
+      this.nonResourceRules = new ArrayList<>();
     }
     this.nonResourceRules.add(nonResourceRulesItem);
     return this;
@@ -92,7 +92,7 @@ public class V1alpha1PolicyRulesWithSubjects {
   public V1alpha1PolicyRulesWithSubjects addResourceRulesItem(
       V1alpha1ResourcePolicyRule resourceRulesItem) {
     if (this.resourceRules == null) {
-      this.resourceRules = new ArrayList<V1alpha1ResourcePolicyRule>();
+      this.resourceRules = new ArrayList<>();
     }
     this.resourceRules.add(resourceRulesItem);
     return this;

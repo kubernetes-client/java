@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -27,7 +27,7 @@ import java.util.Objects;
         "ValidatingWebhook describes an admission webhook and the resources and operations it applies to.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1beta1ValidatingWebhook {
   public static final String SERIALIZED_NAME_ADMISSION_REVIEW_VERSIONS = "admissionReviewVersions";
 
@@ -88,7 +88,7 @@ public class V1beta1ValidatingWebhook {
   public V1beta1ValidatingWebhook addAdmissionReviewVersionsItem(
       String admissionReviewVersionsItem) {
     if (this.admissionReviewVersions == null) {
-      this.admissionReviewVersions = new ArrayList<String>();
+      this.admissionReviewVersions = new ArrayList<>();
     }
     this.admissionReviewVersions.add(admissionReviewVersionsItem);
     return this;
@@ -270,7 +270,7 @@ public class V1beta1ValidatingWebhook {
 
   public V1beta1ValidatingWebhook addRulesItem(V1beta1RuleWithOperations rulesItem) {
     if (this.rules == null) {
-      this.rules = new ArrayList<V1beta1RuleWithOperations>();
+      this.rules = new ArrayList<>();
     }
     this.rules.add(rulesItem);
     return this;

@@ -18,11 +18,11 @@ import io.kubernetes.client.fluent.Function;
 import io.kubernetes.client.openapi.models.CoreV1Event;
 import io.kubernetes.client.openapi.models.CoreV1EventBuilder;
 import io.kubernetes.client.openapi.models.V1ObjectMetaBuilder;
+import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import org.apache.commons.lang3.tuple.MutablePair;
-import org.joda.time.DateTime;
 
 public class EventAggregator {
 
@@ -51,7 +51,7 @@ public class EventAggregator {
   private final int maxEvents;
 
   public synchronized MutablePair<CoreV1Event, String> aggregate(CoreV1Event event) {
-    DateTime now = DateTime.now();
+    OffsetDateTime now = OffsetDateTime.now();
 
     MutablePair<String, String> aggregatedKeys = keyFunc.apply(event);
     String aggregatedKey = aggregatedKeys.getLeft();
@@ -84,7 +84,7 @@ public class EventAggregator {
 
   private static class AggregatedRecord {
     private Set<String> localKeys = new HashSet<>();
-    private DateTime lastTimestamp;
+    private OffsetDateTime lastTimestamp;
 
     @Override
     public boolean equals(Object o) {

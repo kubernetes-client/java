@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -25,7 +25,7 @@ import java.util.Objects;
         "Represents storage that is managed by an external CSI volume driver (Beta feature)")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1CSIPersistentVolumeSource {
   public static final String SERIALIZED_NAME_CONTROLLER_EXPAND_SECRET_REF =
       "controllerExpandSecretRef";
@@ -238,7 +238,7 @@ public class V1CSIPersistentVolumeSource {
   public V1CSIPersistentVolumeSource putVolumeAttributesItem(
       String key, String volumeAttributesItem) {
     if (this.volumeAttributes == null) {
-      this.volumeAttributes = new HashMap<String, String>();
+      this.volumeAttributes = new HashMap<>();
     }
     this.volumeAttributes.put(key, volumeAttributesItem);
     return this;

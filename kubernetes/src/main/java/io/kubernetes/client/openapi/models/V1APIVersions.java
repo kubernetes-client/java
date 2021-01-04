@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -28,7 +28,7 @@ import java.util.Objects;
         "APIVersions lists the versions that are available, to allow clients to discover the API at /api, which is the root path of the legacy v1 API.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1APIVersions {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 
@@ -44,13 +44,12 @@ public class V1APIVersions {
       "serverAddressByClientCIDRs";
 
   @SerializedName(SERIALIZED_NAME_SERVER_ADDRESS_BY_CLIENT_C_I_D_RS)
-  private List<V1ServerAddressByClientCIDR> serverAddressByClientCIDRs =
-      new ArrayList<V1ServerAddressByClientCIDR>();
+  private List<V1ServerAddressByClientCIDR> serverAddressByClientCIDRs = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_VERSIONS = "versions";
 
   @SerializedName(SERIALIZED_NAME_VERSIONS)
-  private List<String> versions = new ArrayList<String>();
+  private List<String> versions = new ArrayList<>();
 
   public V1APIVersions apiVersion(String apiVersion) {
 

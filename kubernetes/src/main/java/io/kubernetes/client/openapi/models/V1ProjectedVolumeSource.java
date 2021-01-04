@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "Represents a projected volume source")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1ProjectedVolumeSource {
   public static final String SERIALIZED_NAME_DEFAULT_MODE = "defaultMode";
 
@@ -33,7 +33,7 @@ public class V1ProjectedVolumeSource {
   public static final String SERIALIZED_NAME_SOURCES = "sources";
 
   @SerializedName(SERIALIZED_NAME_SOURCES)
-  private List<V1VolumeProjection> sources = new ArrayList<V1VolumeProjection>();
+  private List<V1VolumeProjection> sources = new ArrayList<>();
 
   public V1ProjectedVolumeSource defaultMode(Integer defaultMode) {
 

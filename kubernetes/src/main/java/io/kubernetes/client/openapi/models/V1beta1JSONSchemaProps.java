@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -27,7 +27,7 @@ import java.util.Objects;
         "JSONSchemaProps is a JSON-Schema following Specification Draft 4 (http://json-schema.org/).")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1beta1JSONSchemaProps {
   public static final String SERIALIZED_NAME_$_REF = "$ref";
 
@@ -346,7 +346,7 @@ public class V1beta1JSONSchemaProps {
 
   public V1beta1JSONSchemaProps addAllOfItem(V1beta1JSONSchemaProps allOfItem) {
     if (this.allOf == null) {
-      this.allOf = new ArrayList<V1beta1JSONSchemaProps>();
+      this.allOf = new ArrayList<>();
     }
     this.allOf.add(allOfItem);
     return this;
@@ -375,7 +375,7 @@ public class V1beta1JSONSchemaProps {
 
   public V1beta1JSONSchemaProps addAnyOfItem(V1beta1JSONSchemaProps anyOfItem) {
     if (this.anyOf == null) {
-      this.anyOf = new ArrayList<V1beta1JSONSchemaProps>();
+      this.anyOf = new ArrayList<>();
     }
     this.anyOf.add(anyOfItem);
     return this;
@@ -430,7 +430,7 @@ public class V1beta1JSONSchemaProps {
   public V1beta1JSONSchemaProps putDefinitionsItem(
       String key, V1beta1JSONSchemaProps definitionsItem) {
     if (this.definitions == null) {
-      this.definitions = new HashMap<String, V1beta1JSONSchemaProps>();
+      this.definitions = new HashMap<>();
     }
     this.definitions.put(key, definitionsItem);
     return this;
@@ -459,7 +459,7 @@ public class V1beta1JSONSchemaProps {
 
   public V1beta1JSONSchemaProps putDependenciesItem(String key, Object dependenciesItem) {
     if (this.dependencies == null) {
-      this.dependencies = new HashMap<String, Object>();
+      this.dependencies = new HashMap<>();
     }
     this.dependencies.put(key, dependenciesItem);
     return this;
@@ -509,7 +509,7 @@ public class V1beta1JSONSchemaProps {
 
   public V1beta1JSONSchemaProps addEnumItem(Object _enumItem) {
     if (this._enum == null) {
-      this._enum = new ArrayList<Object>();
+      this._enum = new ArrayList<>();
     }
     this._enum.add(_enumItem);
     return this;
@@ -949,7 +949,7 @@ public class V1beta1JSONSchemaProps {
 
   public V1beta1JSONSchemaProps addOneOfItem(V1beta1JSONSchemaProps oneOfItem) {
     if (this.oneOf == null) {
-      this.oneOf = new ArrayList<V1beta1JSONSchemaProps>();
+      this.oneOf = new ArrayList<>();
     }
     this.oneOf.add(oneOfItem);
     return this;
@@ -1001,7 +1001,7 @@ public class V1beta1JSONSchemaProps {
   public V1beta1JSONSchemaProps putPatternPropertiesItem(
       String key, V1beta1JSONSchemaProps patternPropertiesItem) {
     if (this.patternProperties == null) {
-      this.patternProperties = new HashMap<String, V1beta1JSONSchemaProps>();
+      this.patternProperties = new HashMap<>();
     }
     this.patternProperties.put(key, patternPropertiesItem);
     return this;
@@ -1031,7 +1031,7 @@ public class V1beta1JSONSchemaProps {
   public V1beta1JSONSchemaProps putPropertiesItem(
       String key, V1beta1JSONSchemaProps propertiesItem) {
     if (this.properties == null) {
-      this.properties = new HashMap<String, V1beta1JSONSchemaProps>();
+      this.properties = new HashMap<>();
     }
     this.properties.put(key, propertiesItem);
     return this;
@@ -1060,7 +1060,7 @@ public class V1beta1JSONSchemaProps {
 
   public V1beta1JSONSchemaProps addRequiredItem(String requiredItem) {
     if (this.required == null) {
-      this.required = new ArrayList<String>();
+      this.required = new ArrayList<>();
     }
     this.required.add(requiredItem);
     return this;
@@ -1205,7 +1205,7 @@ public class V1beta1JSONSchemaProps {
 
   public V1beta1JSONSchemaProps addXKubernetesListMapKeysItem(String xKubernetesListMapKeysItem) {
     if (this.xKubernetesListMapKeys == null) {
-      this.xKubernetesListMapKeys = new ArrayList<String>();
+      this.xKubernetesListMapKeys = new ArrayList<>();
     }
     this.xKubernetesListMapKeys.add(xKubernetesListMapKeysItem);
     return this;

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -29,7 +29,7 @@ import java.util.Objects;
         "A topology selector term represents the result of label queries. A null or empty topology selector term matches no objects. The requirements of them are ANDed. It provides a subset of functionality as NodeSelectorTerm. This is an alpha feature and may change in the future.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1TopologySelectorTerm {
   public static final String SERIALIZED_NAME_MATCH_LABEL_EXPRESSIONS = "matchLabelExpressions";
 
@@ -46,7 +46,7 @@ public class V1TopologySelectorTerm {
   public V1TopologySelectorTerm addMatchLabelExpressionsItem(
       V1TopologySelectorLabelRequirement matchLabelExpressionsItem) {
     if (this.matchLabelExpressions == null) {
-      this.matchLabelExpressions = new ArrayList<V1TopologySelectorLabelRequirement>();
+      this.matchLabelExpressions = new ArrayList<>();
     }
     this.matchLabelExpressions.add(matchLabelExpressionsItem);
     return this;

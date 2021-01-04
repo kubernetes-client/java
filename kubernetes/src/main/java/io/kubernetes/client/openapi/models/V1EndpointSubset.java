@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -32,7 +32,7 @@ import java.util.Objects;
         "EndpointSubset is a group of addresses with a common set of ports. The expanded set of endpoints is the Cartesian product of Addresses x Ports. For example, given:   {     Addresses: [{\"ip\": \"10.10.1.1\"}, {\"ip\": \"10.10.2.2\"}],     Ports:     [{\"name\": \"a\", \"port\": 8675}, {\"name\": \"b\", \"port\": 309}]   } The resulting set of endpoints can be viewed as:     a: [ 10.10.1.1:8675, 10.10.2.2:8675 ],     b: [ 10.10.1.1:309, 10.10.2.2:309 ]")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1EndpointSubset {
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
 
@@ -57,7 +57,7 @@ public class V1EndpointSubset {
 
   public V1EndpointSubset addAddressesItem(V1EndpointAddress addressesItem) {
     if (this.addresses == null) {
-      this.addresses = new ArrayList<V1EndpointAddress>();
+      this.addresses = new ArrayList<>();
     }
     this.addresses.add(addressesItem);
     return this;
@@ -89,7 +89,7 @@ public class V1EndpointSubset {
 
   public V1EndpointSubset addNotReadyAddressesItem(V1EndpointAddress notReadyAddressesItem) {
     if (this.notReadyAddresses == null) {
-      this.notReadyAddresses = new ArrayList<V1EndpointAddress>();
+      this.notReadyAddresses = new ArrayList<>();
     }
     this.notReadyAddresses.add(notReadyAddressesItem);
     return this;
@@ -122,7 +122,7 @@ public class V1EndpointSubset {
 
   public V1EndpointSubset addPortsItem(V1EndpointPort portsItem) {
     if (this.ports == null) {
-      this.ports = new ArrayList<V1EndpointPort>();
+      this.ports = new ArrayList<>();
     }
     this.ports.add(portsItem);
     return this;

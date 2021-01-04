@@ -27,6 +27,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.security.KeyPair;
 import java.time.Duration;
+import java.time.OffsetDateTime;
 import java.util.Base64;
 import java.util.Objects;
 import java.util.Optional;
@@ -40,7 +41,6 @@ import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.pkcs.PKCS10CertificationRequest;
 import org.bouncycastle.pkcs.PKCS10CertificationRequestBuilder;
 import org.bouncycastle.pkcs.jcajce.JcaPKCS10CertificationRequestBuilder;
-import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -62,7 +62,7 @@ public class CSRUtils {
    */
   public static void approve(ApiClient apiClient, String csrObjName) throws ApiException {
     CertificatesV1Api api = new CertificatesV1Api(apiClient);
-    DateTime now = DateTime.now();
+    OffsetDateTime now = OffsetDateTime.now();
     V1CertificateSigningRequest current =
         api.readCertificateSigningRequest(csrObjName, null, null, null);
     current

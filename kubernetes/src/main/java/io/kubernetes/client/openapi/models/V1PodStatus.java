@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -15,10 +15,10 @@ package io.kubernetes.client.openapi.models;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import org.joda.time.DateTime;
 
 /**
  * PodStatus represents information about the status of a pod. Status may trail the actual state of
@@ -29,7 +29,7 @@ import org.joda.time.DateTime;
         "PodStatus represents information about the status of a pod. Status may trail the actual state of a system, especially if the node that hosts the pod cannot contact the control plane.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1PodStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
 
@@ -95,7 +95,7 @@ public class V1PodStatus {
   public static final String SERIALIZED_NAME_START_TIME = "startTime";
 
   @SerializedName(SERIALIZED_NAME_START_TIME)
-  private DateTime startTime;
+  private OffsetDateTime startTime;
 
   public V1PodStatus conditions(List<V1PodCondition> conditions) {
 
@@ -105,7 +105,7 @@ public class V1PodStatus {
 
   public V1PodStatus addConditionsItem(V1PodCondition conditionsItem) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList<V1PodCondition>();
+      this.conditions = new ArrayList<>();
     }
     this.conditions.add(conditionsItem);
     return this;
@@ -137,7 +137,7 @@ public class V1PodStatus {
 
   public V1PodStatus addContainerStatusesItem(V1ContainerStatus containerStatusesItem) {
     if (this.containerStatuses == null) {
-      this.containerStatuses = new ArrayList<V1ContainerStatus>();
+      this.containerStatuses = new ArrayList<>();
     }
     this.containerStatuses.add(containerStatusesItem);
     return this;
@@ -172,7 +172,7 @@ public class V1PodStatus {
   public V1PodStatus addEphemeralContainerStatusesItem(
       V1ContainerStatus ephemeralContainerStatusesItem) {
     if (this.ephemeralContainerStatuses == null) {
-      this.ephemeralContainerStatuses = new ArrayList<V1ContainerStatus>();
+      this.ephemeralContainerStatuses = new ArrayList<>();
     }
     this.ephemeralContainerStatuses.add(ephemeralContainerStatusesItem);
     return this;
@@ -226,7 +226,7 @@ public class V1PodStatus {
 
   public V1PodStatus addInitContainerStatusesItem(V1ContainerStatus initContainerStatusesItem) {
     if (this.initContainerStatuses == null) {
-      this.initContainerStatuses = new ArrayList<V1ContainerStatus>();
+      this.initContainerStatuses = new ArrayList<>();
     }
     this.initContainerStatuses.add(initContainerStatusesItem);
     return this;
@@ -369,7 +369,7 @@ public class V1PodStatus {
 
   public V1PodStatus addPodIPsItem(V1PodIP podIPsItem) {
     if (this.podIPs == null) {
-      this.podIPs = new ArrayList<V1PodIP>();
+      this.podIPs = new ArrayList<>();
     }
     this.podIPs.add(podIPsItem);
     return this;
@@ -443,7 +443,7 @@ public class V1PodStatus {
     this.reason = reason;
   }
 
-  public V1PodStatus startTime(DateTime startTime) {
+  public V1PodStatus startTime(OffsetDateTime startTime) {
 
     this.startTime = startTime;
     return this;
@@ -459,11 +459,11 @@ public class V1PodStatus {
   @ApiModelProperty(
       value =
           "RFC 3339 date and time at which the object was acknowledged by the Kubelet. This is before the Kubelet pulled the container image(s) for the pod.")
-  public DateTime getStartTime() {
+  public OffsetDateTime getStartTime() {
     return startTime;
   }
 
-  public void setStartTime(DateTime startTime) {
+  public void setStartTime(OffsetDateTime startTime) {
     this.startTime = startTime;
   }
 

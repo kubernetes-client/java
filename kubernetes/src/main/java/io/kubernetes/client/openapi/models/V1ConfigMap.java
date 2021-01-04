@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "ConfigMap holds configuration data for pods to consume.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1ConfigMap implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 
@@ -89,7 +89,7 @@ public class V1ConfigMap implements io.kubernetes.client.common.KubernetesObject
 
   public V1ConfigMap putBinaryDataItem(String key, byte[] binaryDataItem) {
     if (this.binaryData == null) {
-      this.binaryData = new HashMap<String, byte[]>();
+      this.binaryData = new HashMap<>();
     }
     this.binaryData.put(key, binaryDataItem);
     return this;
@@ -124,7 +124,7 @@ public class V1ConfigMap implements io.kubernetes.client.common.KubernetesObject
 
   public V1ConfigMap putDataItem(String key, String dataItem) {
     if (this.data == null) {
-      this.data = new HashMap<String, String>();
+      this.data = new HashMap<>();
     }
     this.data.put(key, dataItem);
     return this;

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "PodPresetSpec is a description of a pod preset.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1alpha1PodPresetSpec {
   public static final String SERIALIZED_NAME_ENV = "env";
 
@@ -58,7 +58,7 @@ public class V1alpha1PodPresetSpec {
 
   public V1alpha1PodPresetSpec addEnvItem(V1EnvVar envItem) {
     if (this.env == null) {
-      this.env = new ArrayList<V1EnvVar>();
+      this.env = new ArrayList<>();
     }
     this.env.add(envItem);
     return this;
@@ -87,7 +87,7 @@ public class V1alpha1PodPresetSpec {
 
   public V1alpha1PodPresetSpec addEnvFromItem(V1EnvFromSource envFromItem) {
     if (this.envFrom == null) {
-      this.envFrom = new ArrayList<V1EnvFromSource>();
+      this.envFrom = new ArrayList<>();
     }
     this.envFrom.add(envFromItem);
     return this;
@@ -138,7 +138,7 @@ public class V1alpha1PodPresetSpec {
 
   public V1alpha1PodPresetSpec addVolumeMountsItem(V1VolumeMount volumeMountsItem) {
     if (this.volumeMounts == null) {
-      this.volumeMounts = new ArrayList<V1VolumeMount>();
+      this.volumeMounts = new ArrayList<>();
     }
     this.volumeMounts.add(volumeMountsItem);
     return this;
@@ -168,7 +168,7 @@ public class V1alpha1PodPresetSpec {
 
   public V1alpha1PodPresetSpec addVolumesItem(V1Volume volumesItem) {
     if (this.volumes == null) {
-      this.volumes = new ArrayList<V1Volume>();
+      this.volumes = new ArrayList<>();
     }
     this.volumes.add(volumesItem);
     return this;

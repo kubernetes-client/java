@@ -15,11 +15,11 @@ package io.cert.manager.models;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import org.joda.time.DateTime;
 
 /** Status of the CertificateRequest. This is set and managed automatically. */
 @ApiModel(description = "Status of the CertificateRequest. This is set and managed automatically.")
@@ -45,7 +45,7 @@ public class V1beta1CertificateRequestStatus {
   public static final String SERIALIZED_NAME_FAILURE_TIME = "failureTime";
 
   @SerializedName(SERIALIZED_NAME_FAILURE_TIME)
-  private DateTime failureTime;
+  private OffsetDateTime failureTime;
 
   public V1beta1CertificateRequestStatus ca(byte[] ca) {
 
@@ -131,7 +131,7 @@ public class V1beta1CertificateRequestStatus {
     this.conditions = conditions;
   }
 
-  public V1beta1CertificateRequestStatus failureTime(DateTime failureTime) {
+  public V1beta1CertificateRequestStatus failureTime(OffsetDateTime failureTime) {
 
     this.failureTime = failureTime;
     return this;
@@ -147,11 +147,11 @@ public class V1beta1CertificateRequestStatus {
   @ApiModelProperty(
       value =
           "FailureTime stores the time that this CertificateRequest failed. This is used to influence garbage collection and back-off.")
-  public DateTime getFailureTime() {
+  public OffsetDateTime getFailureTime() {
     return failureTime;
   }
 
-  public void setFailureTime(DateTime failureTime) {
+  public void setFailureTime(OffsetDateTime failureTime) {
     this.failureTime = failureTime;
   }
 

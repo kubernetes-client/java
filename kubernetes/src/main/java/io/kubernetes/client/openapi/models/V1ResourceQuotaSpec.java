@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(description = "ResourceQuotaSpec defines the desired hard limits to enforce for Quota.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1ResourceQuotaSpec {
   public static final String SERIALIZED_NAME_HARD = "hard";
 
@@ -51,7 +51,7 @@ public class V1ResourceQuotaSpec {
 
   public V1ResourceQuotaSpec putHardItem(String key, Quantity hardItem) {
     if (this.hard == null) {
-      this.hard = new HashMap<String, Quantity>();
+      this.hard = new HashMap<>();
     }
     this.hard.put(key, hardItem);
     return this;
@@ -104,7 +104,7 @@ public class V1ResourceQuotaSpec {
 
   public V1ResourceQuotaSpec addScopesItem(String scopesItem) {
     if (this.scopes == null) {
-      this.scopes = new ArrayList<String>();
+      this.scopes = new ArrayList<>();
     }
     this.scopes.add(scopesItem);
     return this;

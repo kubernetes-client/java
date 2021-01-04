@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -26,7 +26,7 @@ import java.util.Objects;
         "Overhead structure represents the resource overhead associated with running a pod.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1alpha1Overhead {
   public static final String SERIALIZED_NAME_POD_FIXED = "podFixed";
 
@@ -41,7 +41,7 @@ public class V1alpha1Overhead {
 
   public V1alpha1Overhead putPodFixedItem(String key, Quantity podFixedItem) {
     if (this.podFixed == null) {
-      this.podFixed = new HashMap<String, Quantity>();
+      this.podFixed = new HashMap<>();
     }
     this.podFixed.put(key, podFixedItem);
     return this;

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -29,7 +29,7 @@ import java.util.Objects;
         "NetworkPolicyEgressRule describes a particular set of traffic that is allowed out of pods matched by a NetworkPolicySpec's podSelector. The traffic must match both ports and to. This type is beta-level in 1.8")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1NetworkPolicyEgressRule {
   public static final String SERIALIZED_NAME_PORTS = "ports";
 
@@ -49,7 +49,7 @@ public class V1NetworkPolicyEgressRule {
 
   public V1NetworkPolicyEgressRule addPortsItem(V1NetworkPolicyPort portsItem) {
     if (this.ports == null) {
-      this.ports = new ArrayList<V1NetworkPolicyPort>();
+      this.ports = new ArrayList<>();
     }
     this.ports.add(portsItem);
     return this;
@@ -83,7 +83,7 @@ public class V1NetworkPolicyEgressRule {
 
   public V1NetworkPolicyEgressRule addToItem(V1NetworkPolicyPeer toItem) {
     if (this.to == null) {
-      this.to = new ArrayList<V1NetworkPolicyPeer>();
+      this.to = new ArrayList<>();
     }
     this.to.add(toItem);
     return this;

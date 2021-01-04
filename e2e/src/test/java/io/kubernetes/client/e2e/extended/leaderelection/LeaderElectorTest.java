@@ -26,6 +26,7 @@ import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.time.Duration;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -34,7 +35,6 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-import org.joda.time.format.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -78,30 +78,6 @@ public class LeaderElectorTest {
       throw new RuntimeException("Couldn't create ApiClient", ex);
     }
     this.lockType = lockType;
-
-    // Lease resource requires special care with DateTime
-    if (lockType == LockType.Lease) {
-      // TODO: switch date-time library so that micro-sec timestamp can be serialized in RFC3339
-      // format w/ correct precision without the hacks
-
-      // This formatter is used for Lease resource spec's acquire/renewTime
-      DateTimeFormatter isoWithFractionalMicroSecsFormatter =
-          DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'");
-
-      DateTimeFormatter formatter =
-          new DateTimeFormatterBuilder()
-              .append(
-                  isoWithFractionalMicroSecsFormatter.getPrinter(),
-                  new DateTimeParser[] {
-                    isoWithFractionalMicroSecsFormatter.getParser(),
-                    // need this one to parse "creationTimestamp" format e.g. "2020-12-30T09:29:13Z"
-                    // in Lease resource returned from server
-                    ISODateTimeFormat.dateOptionalTimeParser().getParser(),
-                  })
-              .toFormatter();
-
-      apiClient.setDateTimeFormat(formatter);
-    }
   }
 
   @Before

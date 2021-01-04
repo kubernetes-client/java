@@ -7,7 +7,7 @@ ContainerStateRunning is a running state of a container.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**startedAt** | [**DateTime**](DateTime.md) | Time at which the container was last (re-)started |  [optional]
+**startedAt** | [**OffsetDateTime**](OffsetDateTime.md) | Time at which the container was last (re-)started |  [optional]
 
 
 

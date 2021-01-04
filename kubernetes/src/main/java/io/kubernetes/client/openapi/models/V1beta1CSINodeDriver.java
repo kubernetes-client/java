@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -25,7 +25,7 @@ import java.util.Objects;
         "CSINodeDriver holds information about the specification of one CSI driver installed on a node")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1beta1CSINodeDriver {
   public static final String SERIALIZED_NAME_ALLOCATABLE = "allocatable";
 
@@ -129,7 +129,7 @@ public class V1beta1CSINodeDriver {
 
   public V1beta1CSINodeDriver addTopologyKeysItem(String topologyKeysItem) {
     if (this.topologyKeys == null) {
-      this.topologyKeys = new ArrayList<String>();
+      this.topologyKeys = new ArrayList<>();
     }
     this.topologyKeys.add(topologyKeysItem);
     return this;

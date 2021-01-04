@@ -19,11 +19,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import org.joda.time.DateTime;
 
 /** V1beta1OrderStatus */
 @javax.annotation.Generated(
@@ -43,7 +43,7 @@ public class V1beta1OrderStatus {
   public static final String SERIALIZED_NAME_FAILURE_TIME = "failureTime";
 
   @SerializedName(SERIALIZED_NAME_FAILURE_TIME)
-  private DateTime failureTime;
+  private OffsetDateTime failureTime;
 
   public static final String SERIALIZED_NAME_FINALIZE_U_R_L = "finalizeURL";
 
@@ -182,7 +182,7 @@ public class V1beta1OrderStatus {
     this.certificate = certificate;
   }
 
-  public V1beta1OrderStatus failureTime(DateTime failureTime) {
+  public V1beta1OrderStatus failureTime(OffsetDateTime failureTime) {
 
     this.failureTime = failureTime;
     return this;
@@ -198,11 +198,11 @@ public class V1beta1OrderStatus {
   @ApiModelProperty(
       value =
           "FailureTime stores the time that this order failed. This is used to influence garbage collection and back-off.")
-  public DateTime getFailureTime() {
+  public OffsetDateTime getFailureTime() {
     return failureTime;
   }
 
-  public void setFailureTime(DateTime failureTime) {
+  public void setFailureTime(OffsetDateTime failureTime) {
     this.failureTime = failureTime;
   }
 

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "A single application container that you want to run within a pod.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1Container {
   public static final String SERIALIZED_NAME_ARGS = "args";
 
@@ -144,7 +144,7 @@ public class V1Container {
 
   public V1Container addArgsItem(String argsItem) {
     if (this.args == null) {
-      this.args = new ArrayList<String>();
+      this.args = new ArrayList<>();
     }
     this.args.add(argsItem);
     return this;
@@ -181,7 +181,7 @@ public class V1Container {
 
   public V1Container addCommandItem(String commandItem) {
     if (this.command == null) {
-      this.command = new ArrayList<String>();
+      this.command = new ArrayList<>();
     }
     this.command.add(commandItem);
     return this;
@@ -218,7 +218,7 @@ public class V1Container {
 
   public V1Container addEnvItem(V1EnvVar envItem) {
     if (this.env == null) {
-      this.env = new ArrayList<V1EnvVar>();
+      this.env = new ArrayList<>();
     }
     this.env.add(envItem);
     return this;
@@ -248,7 +248,7 @@ public class V1Container {
 
   public V1Container addEnvFromItem(V1EnvFromSource envFromItem) {
     if (this.envFrom == null) {
-      this.envFrom = new ArrayList<V1EnvFromSource>();
+      this.envFrom = new ArrayList<>();
     }
     this.envFrom.add(envFromItem);
     return this;
@@ -399,7 +399,7 @@ public class V1Container {
 
   public V1Container addPortsItem(V1ContainerPort portsItem) {
     if (this.ports == null) {
-      this.ports = new ArrayList<V1ContainerPort>();
+      this.ports = new ArrayList<>();
     }
     this.ports.add(portsItem);
     return this;
@@ -649,7 +649,7 @@ public class V1Container {
 
   public V1Container addVolumeDevicesItem(V1VolumeDevice volumeDevicesItem) {
     if (this.volumeDevices == null) {
-      this.volumeDevices = new ArrayList<V1VolumeDevice>();
+      this.volumeDevices = new ArrayList<>();
     }
     this.volumeDevices.add(volumeDevicesItem);
     return this;
@@ -679,7 +679,7 @@ public class V1Container {
 
   public V1Container addVolumeMountsItem(V1VolumeMount volumeMountsItem) {
     if (this.volumeMounts == null) {
-      this.volumeMounts = new ArrayList<V1VolumeMount>();
+      this.volumeMounts = new ArrayList<>();
     }
     this.volumeMounts.add(volumeMountsItem);
     return this;

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -15,16 +15,16 @@ package io.kubernetes.client.openapi.models;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import org.joda.time.DateTime;
 
 /** CronJobStatus represents the current state of a cron job. */
 @ApiModel(description = "CronJobStatus represents the current state of a cron job.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V2alpha1CronJobStatus {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
 
@@ -34,7 +34,7 @@ public class V2alpha1CronJobStatus {
   public static final String SERIALIZED_NAME_LAST_SCHEDULE_TIME = "lastScheduleTime";
 
   @SerializedName(SERIALIZED_NAME_LAST_SCHEDULE_TIME)
-  private DateTime lastScheduleTime;
+  private OffsetDateTime lastScheduleTime;
 
   public V2alpha1CronJobStatus active(List<V1ObjectReference> active) {
 
@@ -44,7 +44,7 @@ public class V2alpha1CronJobStatus {
 
   public V2alpha1CronJobStatus addActiveItem(V1ObjectReference activeItem) {
     if (this.active == null) {
-      this.active = new ArrayList<V1ObjectReference>();
+      this.active = new ArrayList<>();
     }
     this.active.add(activeItem);
     return this;
@@ -65,7 +65,7 @@ public class V2alpha1CronJobStatus {
     this.active = active;
   }
 
-  public V2alpha1CronJobStatus lastScheduleTime(DateTime lastScheduleTime) {
+  public V2alpha1CronJobStatus lastScheduleTime(OffsetDateTime lastScheduleTime) {
 
     this.lastScheduleTime = lastScheduleTime;
     return this;
@@ -79,11 +79,11 @@ public class V2alpha1CronJobStatus {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value = "Information when was the last time the job was successfully scheduled.")
-  public DateTime getLastScheduleTime() {
+  public OffsetDateTime getLastScheduleTime() {
     return lastScheduleTime;
   }
 
-  public void setLastScheduleTime(DateTime lastScheduleTime) {
+  public void setLastScheduleTime(OffsetDateTime lastScheduleTime) {
     this.lastScheduleTime = lastScheduleTime;
   }
 

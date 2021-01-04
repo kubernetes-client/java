@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "NodeSpec describes the attributes that a node is created with.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1NodeSpec {
   public static final String SERIALIZED_NAME_CONFIG_SOURCE = "configSource";
 
@@ -134,7 +134,7 @@ public class V1NodeSpec {
 
   public V1NodeSpec addPodCIDRsItem(String podCIDRsItem) {
     if (this.podCIDRs == null) {
-      this.podCIDRs = new ArrayList<String>();
+      this.podCIDRs = new ArrayList<>();
     }
     this.podCIDRs.add(podCIDRsItem);
     return this;
@@ -191,7 +191,7 @@ public class V1NodeSpec {
 
   public V1NodeSpec addTaintsItem(V1Taint taintsItem) {
     if (this.taints == null) {
-      this.taints = new ArrayList<V1Taint>();
+      this.taints = new ArrayList<>();
     }
     this.taints.add(taintsItem);
     return this;

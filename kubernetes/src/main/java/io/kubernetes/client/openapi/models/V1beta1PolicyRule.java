@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -28,7 +28,7 @@ import java.util.Objects;
         "PolicyRule holds information that describes a policy rule, but does not contain information about who the rule applies to or which namespace the rule applies to.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1beta1PolicyRule {
   public static final String SERIALIZED_NAME_API_GROUPS = "apiGroups";
 
@@ -53,7 +53,7 @@ public class V1beta1PolicyRule {
   public static final String SERIALIZED_NAME_VERBS = "verbs";
 
   @SerializedName(SERIALIZED_NAME_VERBS)
-  private List<String> verbs = new ArrayList<String>();
+  private List<String> verbs = new ArrayList<>();
 
   public V1beta1PolicyRule apiGroups(List<String> apiGroups) {
 
@@ -63,7 +63,7 @@ public class V1beta1PolicyRule {
 
   public V1beta1PolicyRule addApiGroupsItem(String apiGroupsItem) {
     if (this.apiGroups == null) {
-      this.apiGroups = new ArrayList<String>();
+      this.apiGroups = new ArrayList<>();
     }
     this.apiGroups.add(apiGroupsItem);
     return this;
@@ -96,7 +96,7 @@ public class V1beta1PolicyRule {
 
   public V1beta1PolicyRule addNonResourceURLsItem(String nonResourceURLsItem) {
     if (this.nonResourceURLs == null) {
-      this.nonResourceURLs = new ArrayList<String>();
+      this.nonResourceURLs = new ArrayList<>();
     }
     this.nonResourceURLs.add(nonResourceURLsItem);
     return this;
@@ -131,7 +131,7 @@ public class V1beta1PolicyRule {
 
   public V1beta1PolicyRule addResourceNamesItem(String resourceNamesItem) {
     if (this.resourceNames == null) {
-      this.resourceNames = new ArrayList<String>();
+      this.resourceNames = new ArrayList<>();
     }
     this.resourceNames.add(resourceNamesItem);
     return this;
@@ -163,7 +163,7 @@ public class V1beta1PolicyRule {
 
   public V1beta1PolicyRule addResourcesItem(String resourcesItem) {
     if (this.resources == null) {
-      this.resources = new ArrayList<String>();
+      this.resources = new ArrayList<>();
     }
     this.resources.add(resourcesItem);
     return this;

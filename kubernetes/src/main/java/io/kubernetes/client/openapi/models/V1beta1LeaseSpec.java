@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -15,19 +15,19 @@ package io.kubernetes.client.openapi.models;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.Objects;
-import org.joda.time.DateTime;
 
 /** LeaseSpec is a specification of a Lease. */
 @ApiModel(description = "LeaseSpec is a specification of a Lease.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1beta1LeaseSpec {
   public static final String SERIALIZED_NAME_ACQUIRE_TIME = "acquireTime";
 
   @SerializedName(SERIALIZED_NAME_ACQUIRE_TIME)
-  private DateTime acquireTime;
+  private OffsetDateTime acquireTime;
 
   public static final String SERIALIZED_NAME_HOLDER_IDENTITY = "holderIdentity";
 
@@ -47,9 +47,9 @@ public class V1beta1LeaseSpec {
   public static final String SERIALIZED_NAME_RENEW_TIME = "renewTime";
 
   @SerializedName(SERIALIZED_NAME_RENEW_TIME)
-  private DateTime renewTime;
+  private OffsetDateTime renewTime;
 
-  public V1beta1LeaseSpec acquireTime(DateTime acquireTime) {
+  public V1beta1LeaseSpec acquireTime(OffsetDateTime acquireTime) {
 
     this.acquireTime = acquireTime;
     return this;
@@ -62,11 +62,11 @@ public class V1beta1LeaseSpec {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "acquireTime is a time when the current lease was acquired.")
-  public DateTime getAcquireTime() {
+  public OffsetDateTime getAcquireTime() {
     return acquireTime;
   }
 
-  public void setAcquireTime(DateTime acquireTime) {
+  public void setAcquireTime(OffsetDateTime acquireTime) {
     this.acquireTime = acquireTime;
   }
 
@@ -138,7 +138,7 @@ public class V1beta1LeaseSpec {
     this.leaseTransitions = leaseTransitions;
   }
 
-  public V1beta1LeaseSpec renewTime(DateTime renewTime) {
+  public V1beta1LeaseSpec renewTime(OffsetDateTime renewTime) {
 
     this.renewTime = renewTime;
     return this;
@@ -152,11 +152,11 @@ public class V1beta1LeaseSpec {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value = "renewTime is a time when the current holder of a lease has last updated the lease.")
-  public DateTime getRenewTime() {
+  public OffsetDateTime getRenewTime() {
     return renewTime;
   }
 
-  public void setRenewTime(DateTime renewTime) {
+  public void setRenewTime(OffsetDateTime renewTime) {
     this.renewTime = renewTime;
   }
 

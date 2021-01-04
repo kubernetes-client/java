@@ -13,13 +13,13 @@ limitations under the License.
 package io.kubernetes.client.extended.event.legacy;
 
 import io.kubernetes.client.openapi.models.CoreV1Event;
+import java.time.OffsetDateTime;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.tuple.MutablePair;
-import org.joda.time.DateTime;
 
 public class EventUtils {
 
-  public static String generateName(String referencedObjectName, DateTime timestamp) {
+  public static String generateName(String referencedObjectName, OffsetDateTime timestamp) {
     return referencedObjectName + "." + RandomStringUtils.randomAlphanumeric(12);
   }
 

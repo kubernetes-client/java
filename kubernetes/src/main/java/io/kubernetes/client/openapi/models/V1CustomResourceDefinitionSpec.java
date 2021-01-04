@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -25,7 +25,7 @@ import java.util.Objects;
         "CustomResourceDefinitionSpec describes how a user wants their resource to appear")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1CustomResourceDefinitionSpec {
   public static final String SERIALIZED_NAME_CONVERSION = "conversion";
 
@@ -55,8 +55,7 @@ public class V1CustomResourceDefinitionSpec {
   public static final String SERIALIZED_NAME_VERSIONS = "versions";
 
   @SerializedName(SERIALIZED_NAME_VERSIONS)
-  private List<V1CustomResourceDefinitionVersion> versions =
-      new ArrayList<V1CustomResourceDefinitionVersion>();
+  private List<V1CustomResourceDefinitionVersion> versions = new ArrayList<>();
 
   public V1CustomResourceDefinitionSpec conversion(V1CustomResourceConversion conversion) {
 

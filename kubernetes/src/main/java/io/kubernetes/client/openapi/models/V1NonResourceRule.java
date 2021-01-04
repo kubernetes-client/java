@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -24,7 +24,7 @@ import java.util.Objects;
     description = "NonResourceRule holds information that describes a rule for the non-resource")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1NonResourceRule {
   public static final String SERIALIZED_NAME_NON_RESOURCE_U_R_LS = "nonResourceURLs";
 
@@ -34,7 +34,7 @@ public class V1NonResourceRule {
   public static final String SERIALIZED_NAME_VERBS = "verbs";
 
   @SerializedName(SERIALIZED_NAME_VERBS)
-  private List<String> verbs = new ArrayList<String>();
+  private List<String> verbs = new ArrayList<>();
 
   public V1NonResourceRule nonResourceURLs(List<String> nonResourceURLs) {
 
@@ -44,7 +44,7 @@ public class V1NonResourceRule {
 
   public V1NonResourceRule addNonResourceURLsItem(String nonResourceURLsItem) {
     if (this.nonResourceURLs == null) {
-      this.nonResourceURLs = new ArrayList<String>();
+      this.nonResourceURLs = new ArrayList<>();
     }
     this.nonResourceURLs.add(nonResourceURLsItem);
     return this;

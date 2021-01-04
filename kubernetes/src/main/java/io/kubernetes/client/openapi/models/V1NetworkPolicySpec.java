@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "NetworkPolicySpec provides the specification of a NetworkPolicy")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T08:47:01.853Z[Etc/UTC]")
 public class V1NetworkPolicySpec {
   public static final String SERIALIZED_NAME_EGRESS = "egress";
 
@@ -53,7 +53,7 @@ public class V1NetworkPolicySpec {
 
   public V1NetworkPolicySpec addEgressItem(V1NetworkPolicyEgressRule egressItem) {
     if (this.egress == null) {
-      this.egress = new ArrayList<V1NetworkPolicyEgressRule>();
+      this.egress = new ArrayList<>();
     }
     this.egress.add(egressItem);
     return this;
@@ -89,7 +89,7 @@ public class V1NetworkPolicySpec {
 
   public V1NetworkPolicySpec addIngressItem(V1NetworkPolicyIngressRule ingressItem) {
     if (this.ingress == null) {
-      this.ingress = new ArrayList<V1NetworkPolicyIngressRule>();
+      this.ingress = new ArrayList<>();
     }
     this.ingress.add(ingressItem);
     return this;
@@ -145,7 +145,7 @@ public class V1NetworkPolicySpec {
 
   public V1NetworkPolicySpec addPolicyTypesItem(String policyTypesItem) {
     if (this.policyTypes == null) {
-      this.policyTypes = new ArrayList<String>();
+      this.policyTypes = new ArrayList<>();
     }
     this.policyTypes.add(policyTypesItem);
     return this;
