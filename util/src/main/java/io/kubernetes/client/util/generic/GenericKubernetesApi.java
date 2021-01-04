@@ -37,6 +37,8 @@ import io.kubernetes.client.util.generic.options.ListOptions;
 import io.kubernetes.client.util.generic.options.PatchOptions;
 import io.kubernetes.client.util.generic.options.UpdateOptions;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.function.Function;
 import okhttp3.Call;
 import okhttp3.HttpUrl;
 
@@ -477,6 +479,63 @@ public class GenericKubernetesApi<
   }
 
   /**
+   * Create kubernetes api response, if the namespace in the object is present, it will send a
+   * namespace-scoped requests, vice versa.
+   *
+   * @param object the object
+   * @param status function to extract the status from the object
+   * @return the kubernetes api response
+   */
+  public KubernetesApiResponse<ApiType> updateStatus(
+      ApiType object, Function<ApiType, Object> status) {
+    return updateStatus(object, status, new UpdateOptions());
+  }
+
+  /**
+   * Update status of kubernetes api response.
+   *
+   * @param object the object
+   * @param status function to extract the status from the object
+   * @param updateOptions the update options
+   * @return the kubernetes api response
+   */
+  public KubernetesApiResponse<ApiType> updateStatus(
+      ApiType object, Function<ApiType, Object> status, final UpdateOptions updateOptions) {
+    V1ObjectMeta objectMeta = object.getMetadata();
+    return executeCall(
+        customObjectsApi.getApiClient(),
+        apiTypeClass,
+        () -> {
+          //// TODO(yue9944882): judge namespaced object via api discovery
+          boolean isNamespaced = !Strings.isNullOrEmpty(objectMeta.getNamespace());
+          if (isNamespaced) {
+            return customObjectsApi.patchNamespacedCustomObjectStatusCall(
+                this.apiGroup,
+                this.apiVersion,
+                objectMeta.getNamespace(),
+                this.resourcePlural,
+                objectMeta.getName(),
+                Arrays.asList(new StatusPatch(status.apply(object))),
+                updateOptions.getDryRun(),
+                updateOptions.getFieldManager(),
+                null,
+                null);
+          } else {
+            return customObjectsApi.patchClusterCustomObjectStatusCall(
+                this.apiGroup,
+                this.apiVersion,
+                this.resourcePlural,
+                objectMeta.getName(),
+                Arrays.asList(new StatusPatch(status.apply(object))),
+                updateOptions.getDryRun(),
+                updateOptions.getFieldManager(),
+                null,
+                null);
+          }
+        });
+  }
+
+  /**
    * Patch kubernetes api response.
    *
    * @param name the name
@@ -770,5 +829,42 @@ public class GenericKubernetesApi<
         .getApiClient()
         .getHttpClient()
         .newCall(call.request().newBuilder().url(tweakedUrl).build());
+  }
+
+  public static class StatusPatch {
+
+    private String op = "replace";
+
+    private String path = "/status";
+
+    private Object value;
+
+    public StatusPatch(Object value) {
+      this.value = value;
+    }
+
+    public String getOp() {
+      return op;
+    }
+
+    public void setOp(String op) {
+      this.op = op;
+    }
+
+    public String getPath() {
+      return path;
+    }
+
+    public void setPath(String path) {
+      this.path = path;
+    }
+
+    public Object getValue() {
+      return value;
+    }
+
+    public void setValue(Object value) {
+      this.value = value;
+    }
   }
 }
