@@ -12,6 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.informer;
 
+import java.util.Arrays;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
 public enum EventType {
   ADDED,
 
@@ -23,12 +29,17 @@ public enum EventType {
 
   ERROR;
 
+  private static final Map<String, EventType> TYPES =
+      Arrays.stream(EventType.values()).collect(Collectors.toMap(Enum::name, Function.identity()));
+
   /**
-   * getByType returns the corresponding EventType by type.
+   * returns the corresponding EventType by type.
    *
    * @param type specific code
    * @return corresponding EventType
+   * @deprecated will be removed in a future release. use : findByType
    */
+  @Deprecated
   public static EventType getByType(String type) {
     if (type != null && type.length() > 0) {
       for (EventType eventType : EventType.values()) {
@@ -38,5 +49,15 @@ public enum EventType {
       }
     }
     return null;
+  }
+
+  /**
+   * returns the corresponding EventType by type, wrapped in an {@link Optional}
+   *
+   * @param type specific code
+   * @return an Optional describing the EventType
+   */
+  public static Optional<EventType> findByType(String type) {
+    return Optional.ofNullable(TYPES.get(String.valueOf(type).toUpperCase()));
   }
 }
