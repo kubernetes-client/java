@@ -20,6 +20,7 @@ See the wiki page and documentation [here](https://github.com/kubernetes-client/
 - [Development and Contributing](https://github.com/kubernetes-client/java/wiki/4.-Development-and-Contributing)
 - [Generate Java CRD Models](https://github.com/kubernetes-client/java/wiki/5.-Generate-Java-CRD-Model)
 - [Known Issues](https://github.com/kubernetes-client/java/wiki/6.-Known-Issues)
+- [Troubleshooting/FAQ](https://github.com/kubernetes-client/java/wiki/7.-FAQ)
 
 ## Support
 
