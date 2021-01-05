@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -15,8 +15,8 @@ package io.kubernetes.client.openapi.models;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.Objects;
-import org.joda.time.DateTime;
 
 /**
  * The node this Taint is attached to has the \&quot;effect\&quot; on any pod that does not tolerate
@@ -27,7 +27,7 @@ import org.joda.time.DateTime;
         "The node this Taint is attached to has the \"effect\" on any pod that does not tolerate the Taint.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1Taint {
   public static final String SERIALIZED_NAME_EFFECT = "effect";
 
@@ -42,7 +42,7 @@ public class V1Taint {
   public static final String SERIALIZED_NAME_TIME_ADDED = "timeAdded";
 
   @SerializedName(SERIALIZED_NAME_TIME_ADDED)
-  private DateTime timeAdded;
+  private OffsetDateTime timeAdded;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
 
@@ -93,7 +93,7 @@ public class V1Taint {
     this.key = key;
   }
 
-  public V1Taint timeAdded(DateTime timeAdded) {
+  public V1Taint timeAdded(OffsetDateTime timeAdded) {
 
     this.timeAdded = timeAdded;
     return this;
@@ -109,11 +109,11 @@ public class V1Taint {
   @ApiModelProperty(
       value =
           "TimeAdded represents the time at which the taint was added. It is only written for NoExecute taints.")
-  public DateTime getTimeAdded() {
+  public OffsetDateTime getTimeAdded() {
     return timeAdded;
   }
 
-  public void setTimeAdded(DateTime timeAdded) {
+  public void setTimeAdded(OffsetDateTime timeAdded) {
     this.timeAdded = timeAdded;
   }
 

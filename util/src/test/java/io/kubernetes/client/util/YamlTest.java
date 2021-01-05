@@ -234,7 +234,7 @@ public class YamlTest {
 
       assertEquals(
           "Incorrect value loaded for creationTimestamp",
-          "2018-09-06T15:12:24.000Z",
+          "2018-09-06T15:12:24Z",
           new String(pod.getMetadata().getCreationTimestamp().toString().getBytes(), UTF_8));
 
     } catch (Exception ex) {

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -15,8 +15,8 @@ package io.kubernetes.client.openapi.models;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.Objects;
-import org.joda.time.DateTime;
 
 /**
  * EventSeries contain information on series of events, i.e. thing that was/is happening
@@ -27,7 +27,7 @@ import org.joda.time.DateTime;
         "EventSeries contain information on series of events, i.e. thing that was/is happening continuously for some time.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1beta1EventSeries {
   public static final String SERIALIZED_NAME_COUNT = "count";
 
@@ -37,7 +37,7 @@ public class V1beta1EventSeries {
   public static final String SERIALIZED_NAME_LAST_OBSERVED_TIME = "lastObservedTime";
 
   @SerializedName(SERIALIZED_NAME_LAST_OBSERVED_TIME)
-  private DateTime lastObservedTime;
+  private OffsetDateTime lastObservedTime;
 
   public V1beta1EventSeries count(Integer count) {
 
@@ -61,7 +61,7 @@ public class V1beta1EventSeries {
     this.count = count;
   }
 
-  public V1beta1EventSeries lastObservedTime(DateTime lastObservedTime) {
+  public V1beta1EventSeries lastObservedTime(OffsetDateTime lastObservedTime) {
 
     this.lastObservedTime = lastObservedTime;
     return this;
@@ -76,11 +76,11 @@ public class V1beta1EventSeries {
       required = true,
       value =
           "lastObservedTime is the time when last Event from the series was seen before last heartbeat.")
-  public DateTime getLastObservedTime() {
+  public OffsetDateTime getLastObservedTime() {
     return lastObservedTime;
   }
 
-  public void setLastObservedTime(DateTime lastObservedTime) {
+  public void setLastObservedTime(OffsetDateTime lastObservedTime) {
     this.lastObservedTime = lastObservedTime;
   }
 

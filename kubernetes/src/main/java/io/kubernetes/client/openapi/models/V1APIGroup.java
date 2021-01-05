@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -25,7 +25,7 @@ import java.util.Objects;
         "APIGroup contains the name, the supported versions, and the preferred version of a group.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1APIGroup {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 
@@ -56,7 +56,7 @@ public class V1APIGroup {
   public static final String SERIALIZED_NAME_VERSIONS = "versions";
 
   @SerializedName(SERIALIZED_NAME_VERSIONS)
-  private List<V1GroupVersionForDiscovery> versions = new ArrayList<V1GroupVersionForDiscovery>();
+  private List<V1GroupVersionForDiscovery> versions = new ArrayList<>();
 
   public V1APIGroup apiVersion(String apiVersion) {
 
@@ -161,7 +161,7 @@ public class V1APIGroup {
   public V1APIGroup addServerAddressByClientCIDRsItem(
       V1ServerAddressByClientCIDR serverAddressByClientCIDRsItem) {
     if (this.serverAddressByClientCIDRs == null) {
-      this.serverAddressByClientCIDRs = new ArrayList<V1ServerAddressByClientCIDR>();
+      this.serverAddressByClientCIDRs = new ArrayList<>();
     }
     this.serverAddressByClientCIDRs.add(serverAddressByClientCIDRsItem);
     return this;

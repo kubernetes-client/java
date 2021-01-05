@@ -22,11 +22,11 @@ import io.kubernetes.client.openapi.models.V1ObjectMetaBuilder;
 import io.kubernetes.client.openapi.models.V1ObjectReference;
 import io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder;
 import io.kubernetes.client.util.Strings;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
-import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -109,7 +109,7 @@ public class ObjectReferenceResolvingEventRecorder implements EventRecorder {
     }
 
     // build event
-    DateTime now = DateTime.now();
+    OffsetDateTime now = OffsetDateTime.now();
     CoreV1Event event =
         new CoreV1EventBuilder()
             .withMetadata(

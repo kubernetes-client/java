@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -28,7 +28,7 @@ import java.util.Objects;
         "NetworkPolicyIngressRule describes a particular set of traffic that is allowed to the pods matched by a NetworkPolicySpec's podSelector. The traffic must match both ports and from.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1NetworkPolicyIngressRule {
   public static final String SERIALIZED_NAME_FROM = "from";
 
@@ -48,7 +48,7 @@ public class V1NetworkPolicyIngressRule {
 
   public V1NetworkPolicyIngressRule addFromItem(V1NetworkPolicyPeer fromItem) {
     if (this.from == null) {
-      this.from = new ArrayList<V1NetworkPolicyPeer>();
+      this.from = new ArrayList<>();
     }
     this.from.add(fromItem);
     return this;
@@ -83,7 +83,7 @@ public class V1NetworkPolicyIngressRule {
 
   public V1NetworkPolicyIngressRule addPortsItem(V1NetworkPolicyPort portsItem) {
     if (this.ports == null) {
-      this.ports = new ArrayList<V1NetworkPolicyPort>();
+      this.ports = new ArrayList<>();
     }
     this.ports.add(portsItem);
     return this;

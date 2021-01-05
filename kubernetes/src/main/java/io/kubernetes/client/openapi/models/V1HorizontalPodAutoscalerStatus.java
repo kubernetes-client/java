@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -15,14 +15,14 @@ package io.kubernetes.client.openapi.models;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.Objects;
-import org.joda.time.DateTime;
 
 /** current status of a horizontal pod autoscaler */
 @ApiModel(description = "current status of a horizontal pod autoscaler")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1HorizontalPodAutoscalerStatus {
   public static final String SERIALIZED_NAME_CURRENT_C_P_U_UTILIZATION_PERCENTAGE =
       "currentCPUUtilizationPercentage";
@@ -43,7 +43,7 @@ public class V1HorizontalPodAutoscalerStatus {
   public static final String SERIALIZED_NAME_LAST_SCALE_TIME = "lastScaleTime";
 
   @SerializedName(SERIALIZED_NAME_LAST_SCALE_TIME)
-  private DateTime lastScaleTime;
+  private OffsetDateTime lastScaleTime;
 
   public static final String SERIALIZED_NAME_OBSERVED_GENERATION = "observedGeneration";
 
@@ -119,7 +119,7 @@ public class V1HorizontalPodAutoscalerStatus {
     this.desiredReplicas = desiredReplicas;
   }
 
-  public V1HorizontalPodAutoscalerStatus lastScaleTime(DateTime lastScaleTime) {
+  public V1HorizontalPodAutoscalerStatus lastScaleTime(OffsetDateTime lastScaleTime) {
 
     this.lastScaleTime = lastScaleTime;
     return this;
@@ -135,11 +135,11 @@ public class V1HorizontalPodAutoscalerStatus {
   @ApiModelProperty(
       value =
           "last time the HorizontalPodAutoscaler scaled the number of pods; used by the autoscaler to control how often the number of pods is changed.")
-  public DateTime getLastScaleTime() {
+  public OffsetDateTime getLastScaleTime() {
     return lastScaleTime;
   }
 
-  public void setLastScaleTime(DateTime lastScaleTime) {
+  public void setLastScaleTime(OffsetDateTime lastScaleTime) {
     this.lastScaleTime = lastScaleTime;
   }
 

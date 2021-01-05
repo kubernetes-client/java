@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -28,7 +28,7 @@ import java.util.Objects;
         "MutatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and may change the object.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1MutatingWebhookConfiguration
     implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
@@ -132,7 +132,7 @@ public class V1MutatingWebhookConfiguration
 
   public V1MutatingWebhookConfiguration addWebhooksItem(V1MutatingWebhook webhooksItem) {
     if (this.webhooks == null) {
-      this.webhooks = new ArrayList<V1MutatingWebhook>();
+      this.webhooks = new ArrayList<>();
     }
     this.webhooks.add(webhooksItem);
     return this;

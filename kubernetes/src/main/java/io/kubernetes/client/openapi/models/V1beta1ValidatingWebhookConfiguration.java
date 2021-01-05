@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -29,7 +29,7 @@ import java.util.Objects;
         "ValidatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and object without changing it. Deprecated in v1.16, planned for removal in v1.19. Use admissionregistration.k8s.io/v1 ValidatingWebhookConfiguration instead.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1beta1ValidatingWebhookConfiguration
     implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
@@ -134,7 +134,7 @@ public class V1beta1ValidatingWebhookConfiguration
   public V1beta1ValidatingWebhookConfiguration addWebhooksItem(
       V1beta1ValidatingWebhook webhooksItem) {
     if (this.webhooks == null) {
-      this.webhooks = new ArrayList<V1beta1ValidatingWebhook>();
+      this.webhooks = new ArrayList<>();
     }
     this.webhooks.add(webhooksItem);
     return this;

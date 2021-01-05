@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -31,7 +31,7 @@ import java.util.Objects;
         "StorageClass describes the parameters for a class of storage for which PersistentVolumes can be dynamically provisioned.  StorageClasses are non-namespaced; the name of the storage class according to etcd is in ObjectMeta.Name.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1beta1StorageClass implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_ALLOW_VOLUME_EXPANSION = "allowVolumeExpansion";
 
@@ -114,7 +114,7 @@ public class V1beta1StorageClass implements io.kubernetes.client.common.Kubernet
   public V1beta1StorageClass addAllowedTopologiesItem(
       V1TopologySelectorTerm allowedTopologiesItem) {
     if (this.allowedTopologies == null) {
-      this.allowedTopologies = new ArrayList<V1TopologySelectorTerm>();
+      this.allowedTopologies = new ArrayList<>();
     }
     this.allowedTopologies.add(allowedTopologiesItem);
     return this;
@@ -221,7 +221,7 @@ public class V1beta1StorageClass implements io.kubernetes.client.common.Kubernet
 
   public V1beta1StorageClass addMountOptionsItem(String mountOptionsItem) {
     if (this.mountOptions == null) {
-      this.mountOptions = new ArrayList<String>();
+      this.mountOptions = new ArrayList<>();
     }
     this.mountOptions.add(mountOptionsItem);
     return this;
@@ -254,7 +254,7 @@ public class V1beta1StorageClass implements io.kubernetes.client.common.Kubernet
 
   public V1beta1StorageClass putParametersItem(String key, String parametersItem) {
     if (this.parameters == null) {
-      this.parameters = new HashMap<String, String>();
+      this.parameters = new HashMap<>();
     }
     this.parameters.put(key, parametersItem);
     return this;

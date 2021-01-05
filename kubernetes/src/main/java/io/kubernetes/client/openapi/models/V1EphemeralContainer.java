@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -33,7 +33,7 @@ import java.util.Objects;
         "An EphemeralContainer is a container that may be added temporarily to an existing pod for user-initiated activities such as debugging. Ephemeral containers have no resource or scheduling guarantees, and they will not be restarted when they exit or when a pod is removed or restarted. If an ephemeral container causes a pod to exceed its resource allocation, the pod may be evicted. Ephemeral containers may not be added by directly updating the pod spec. They must be added via the pod's ephemeralcontainers subresource, and they will appear in the pod spec once added. This is an alpha feature enabled by the EphemeralContainers feature flag.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1EphemeralContainer {
   public static final String SERIALIZED_NAME_ARGS = "args";
 
@@ -159,7 +159,7 @@ public class V1EphemeralContainer {
 
   public V1EphemeralContainer addArgsItem(String argsItem) {
     if (this.args == null) {
-      this.args = new ArrayList<String>();
+      this.args = new ArrayList<>();
     }
     this.args.add(argsItem);
     return this;
@@ -196,7 +196,7 @@ public class V1EphemeralContainer {
 
   public V1EphemeralContainer addCommandItem(String commandItem) {
     if (this.command == null) {
-      this.command = new ArrayList<String>();
+      this.command = new ArrayList<>();
     }
     this.command.add(commandItem);
     return this;
@@ -233,7 +233,7 @@ public class V1EphemeralContainer {
 
   public V1EphemeralContainer addEnvItem(V1EnvVar envItem) {
     if (this.env == null) {
-      this.env = new ArrayList<V1EnvVar>();
+      this.env = new ArrayList<>();
     }
     this.env.add(envItem);
     return this;
@@ -263,7 +263,7 @@ public class V1EphemeralContainer {
 
   public V1EphemeralContainer addEnvFromItem(V1EnvFromSource envFromItem) {
     if (this.envFrom == null) {
-      this.envFrom = new ArrayList<V1EnvFromSource>();
+      this.envFrom = new ArrayList<>();
     }
     this.envFrom.add(envFromItem);
     return this;
@@ -411,7 +411,7 @@ public class V1EphemeralContainer {
 
   public V1EphemeralContainer addPortsItem(V1ContainerPort portsItem) {
     if (this.ports == null) {
-      this.ports = new ArrayList<V1ContainerPort>();
+      this.ports = new ArrayList<>();
     }
     this.ports.add(portsItem);
     return this;
@@ -681,7 +681,7 @@ public class V1EphemeralContainer {
 
   public V1EphemeralContainer addVolumeDevicesItem(V1VolumeDevice volumeDevicesItem) {
     if (this.volumeDevices == null) {
-      this.volumeDevices = new ArrayList<V1VolumeDevice>();
+      this.volumeDevices = new ArrayList<>();
     }
     this.volumeDevices.add(volumeDevicesItem);
     return this;
@@ -711,7 +711,7 @@ public class V1EphemeralContainer {
 
   public V1EphemeralContainer addVolumeMountsItem(V1VolumeMount volumeMountsItem) {
     if (this.volumeMounts == null) {
-      this.volumeMounts = new ArrayList<V1VolumeMount>();
+      this.volumeMounts = new ArrayList<>();
     }
     this.volumeMounts.add(volumeMountsItem);
     return this;

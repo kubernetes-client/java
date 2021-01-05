@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -31,7 +31,7 @@ import java.util.Objects;
         "This information is immutable after the request is created. Only the Request and Usages fields can be set on creation, other fields are derived by Kubernetes and cannot be modified by users.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1beta1CertificateSigningRequestSpec {
   public static final String SERIALIZED_NAME_EXTRA = "extra";
 
@@ -76,7 +76,7 @@ public class V1beta1CertificateSigningRequestSpec {
 
   public V1beta1CertificateSigningRequestSpec putExtraItem(String key, List<String> extraItem) {
     if (this.extra == null) {
-      this.extra = new HashMap<String, List<String>>();
+      this.extra = new HashMap<>();
     }
     this.extra.put(key, extraItem);
     return this;
@@ -106,7 +106,7 @@ public class V1beta1CertificateSigningRequestSpec {
 
   public V1beta1CertificateSigningRequestSpec addGroupsItem(String groupsItem) {
     if (this.groups == null) {
-      this.groups = new ArrayList<String>();
+      this.groups = new ArrayList<>();
     }
     this.groups.add(groupsItem);
     return this;
@@ -207,7 +207,7 @@ public class V1beta1CertificateSigningRequestSpec {
 
   public V1beta1CertificateSigningRequestSpec addUsagesItem(String usagesItem) {
     if (this.usages == null) {
-      this.usages = new ArrayList<String>();
+      this.usages = new ArrayList<>();
     }
     this.usages.add(usagesItem);
     return this;

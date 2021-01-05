@@ -22,9 +22,12 @@ import io.kubernetes.client.openapi.models.V1Lease;
 import io.kubernetes.client.openapi.models.V1LeaseSpec;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import java.net.HttpURLConnection;
+import java.time.Instant;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 import java.util.Collections;
+import java.util.Date;
 import java.util.concurrent.atomic.AtomicReference;
-import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -120,10 +123,10 @@ public class LeaseLock implements Lock {
   private LeaderElectionRecord getRecordFromLease(V1LeaseSpec lease) {
     LeaderElectionRecord record = new LeaderElectionRecord();
     if (lease.getAcquireTime() != null) {
-      record.setAcquireTime(lease.getAcquireTime().toDate());
+      record.setAcquireTime(new Date(lease.getAcquireTime().toInstant().toEpochMilli()));
     }
     if (lease.getRenewTime() != null) {
-      record.setRenewTime(lease.getRenewTime().toDate());
+      record.setRenewTime(new Date(lease.getRenewTime().toInstant().toEpochMilli()));
     }
     record.setHolderIdentity(lease.getHolderIdentity());
     record.setLeaderTransitions(lease.getLeaseTransitions());
@@ -133,8 +136,12 @@ public class LeaseLock implements Lock {
 
   private V1LeaseSpec getLeaseFromRecord(LeaderElectionRecord record) {
     return new V1LeaseSpec()
-        .acquireTime(new DateTime(record.getAcquireTime()))
-        .renewTime(new DateTime(record.getRenewTime()))
+        .acquireTime(
+            OffsetDateTime.ofInstant(
+                Instant.ofEpochMilli(record.getAcquireTime().getTime()), ZoneOffset.UTC))
+        .renewTime(
+            OffsetDateTime.ofInstant(
+                Instant.ofEpochMilli(record.getRenewTime().getTime()), ZoneOffset.UTC))
         .holderIdentity(record.getHolderIdentity())
         .leaseDurationSeconds(record.getLeaseDurationSeconds())
         .leaseTransitions(record.getLeaderTransitions());

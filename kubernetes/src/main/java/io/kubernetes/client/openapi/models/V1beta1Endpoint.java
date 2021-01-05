@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -25,12 +25,12 @@ import java.util.Objects;
 @ApiModel(description = "Endpoint represents a single logical \"backend\" implementing a service.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1beta1Endpoint {
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
 
   @SerializedName(SERIALIZED_NAME_ADDRESSES)
-  private List<String> addresses = new ArrayList<String>();
+  private List<String> addresses = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
 
@@ -41,6 +41,11 @@ public class V1beta1Endpoint {
 
   @SerializedName(SERIALIZED_NAME_HOSTNAME)
   private String hostname;
+
+  public static final String SERIALIZED_NAME_NODE_NAME = "nodeName";
+
+  @SerializedName(SERIALIZED_NAME_NODE_NAME)
+  private String nodeName;
 
   public static final String SERIALIZED_NAME_TARGET_REF = "targetRef";
 
@@ -113,21 +118,46 @@ public class V1beta1Endpoint {
   /**
    * hostname of this endpoint. This field may be used by consumers of endpoints to distinguish
    * endpoints from each other (e.g. in DNS names). Multiple endpoints which use the same hostname
-   * should be considered fungible (e.g. multiple A values in DNS). Must pass DNS Label (RFC 1123)
-   * validation.
+   * should be considered fungible (e.g. multiple A values in DNS). Must be lowercase and pass DNS
+   * Label (RFC 1123) validation.
    *
    * @return hostname
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "hostname of this endpoint. This field may be used by consumers of endpoints to distinguish endpoints from each other (e.g. in DNS names). Multiple endpoints which use the same hostname should be considered fungible (e.g. multiple A values in DNS). Must pass DNS Label (RFC 1123) validation.")
+          "hostname of this endpoint. This field may be used by consumers of endpoints to distinguish endpoints from each other (e.g. in DNS names). Multiple endpoints which use the same hostname should be considered fungible (e.g. multiple A values in DNS). Must be lowercase and pass DNS Label (RFC 1123) validation.")
   public String getHostname() {
     return hostname;
   }
 
   public void setHostname(String hostname) {
     this.hostname = hostname;
+  }
+
+  public V1beta1Endpoint nodeName(String nodeName) {
+
+    this.nodeName = nodeName;
+    return this;
+  }
+
+  /**
+   * nodeName represents the name of the Node hosting this endpoint. This can be used to determine
+   * endpoints local to a Node. This field can be enabled with the EndpointSliceNodeName feature
+   * gate.
+   *
+   * @return nodeName
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "nodeName represents the name of the Node hosting this endpoint. This can be used to determine endpoints local to a Node. This field can be enabled with the EndpointSliceNodeName feature gate.")
+  public String getNodeName() {
+    return nodeName;
+  }
+
+  public void setNodeName(String nodeName) {
+    this.nodeName = nodeName;
   }
 
   public V1beta1Endpoint targetRef(V1ObjectReference targetRef) {
@@ -159,7 +189,7 @@ public class V1beta1Endpoint {
 
   public V1beta1Endpoint putTopologyItem(String key, String topologyItem) {
     if (this.topology == null) {
-      this.topology = new HashMap<String, String>();
+      this.topology = new HashMap<>();
     }
     this.topology.put(key, topologyItem);
     return this;
@@ -174,14 +204,15 @@ public class V1beta1Endpoint {
    * is located. This should match the corresponding node label. * topology.kubernetes.io/zone: the
    * value indicates the zone where the endpoint is located. This should match the corresponding
    * node label. * topology.kubernetes.io/region: the value indicates the region where the endpoint
-   * is located. This should match the corresponding node label.
+   * is located. This should match the corresponding node label. This field is deprecated and will
+   * be removed in future api versions.
    *
    * @return topology
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "topology contains arbitrary topology information associated with the endpoint. These key/value pairs must conform with the label format. https://kubernetes.io/docs/concepts/overview/working-with-objects/labels Topology may include a maximum of 16 key/value pairs. This includes, but is not limited to the following well known keys: * kubernetes.io/hostname: the value indicates the hostname of the node   where the endpoint is located. This should match the corresponding   node label. * topology.kubernetes.io/zone: the value indicates the zone where the   endpoint is located. This should match the corresponding node label. * topology.kubernetes.io/region: the value indicates the region where the   endpoint is located. This should match the corresponding node label.")
+          "topology contains arbitrary topology information associated with the endpoint. These key/value pairs must conform with the label format. https://kubernetes.io/docs/concepts/overview/working-with-objects/labels Topology may include a maximum of 16 key/value pairs. This includes, but is not limited to the following well known keys: * kubernetes.io/hostname: the value indicates the hostname of the node   where the endpoint is located. This should match the corresponding   node label. * topology.kubernetes.io/zone: the value indicates the zone where the   endpoint is located. This should match the corresponding node label. * topology.kubernetes.io/region: the value indicates the region where the   endpoint is located. This should match the corresponding node label. This field is deprecated and will be removed in future api versions.")
   public Map<String, String> getTopology() {
     return topology;
   }
@@ -202,13 +233,14 @@ public class V1beta1Endpoint {
     return Objects.equals(this.addresses, v1beta1Endpoint.addresses)
         && Objects.equals(this.conditions, v1beta1Endpoint.conditions)
         && Objects.equals(this.hostname, v1beta1Endpoint.hostname)
+        && Objects.equals(this.nodeName, v1beta1Endpoint.nodeName)
         && Objects.equals(this.targetRef, v1beta1Endpoint.targetRef)
         && Objects.equals(this.topology, v1beta1Endpoint.topology);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addresses, conditions, hostname, targetRef, topology);
+    return Objects.hash(addresses, conditions, hostname, nodeName, targetRef, topology);
   }
 
   @Override
@@ -218,6 +250,7 @@ public class V1beta1Endpoint {
     sb.append("    addresses: ").append(toIndentedString(addresses)).append("\n");
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
+    sb.append("    nodeName: ").append(toIndentedString(nodeName)).append("\n");
     sb.append("    targetRef: ").append(toIndentedString(targetRef)).append("\n");
     sb.append("    topology: ").append(toIndentedString(topology)).append("\n");
     sb.append("}");

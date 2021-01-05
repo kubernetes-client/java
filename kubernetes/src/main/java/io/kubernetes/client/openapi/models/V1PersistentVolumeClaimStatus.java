@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -27,7 +27,7 @@ import java.util.Objects;
     description = "PersistentVolumeClaimStatus is the current status of a persistent volume claim.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1PersistentVolumeClaimStatus {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
 
@@ -57,7 +57,7 @@ public class V1PersistentVolumeClaimStatus {
 
   public V1PersistentVolumeClaimStatus addAccessModesItem(String accessModesItem) {
     if (this.accessModes == null) {
-      this.accessModes = new ArrayList<String>();
+      this.accessModes = new ArrayList<>();
     }
     this.accessModes.add(accessModesItem);
     return this;
@@ -89,7 +89,7 @@ public class V1PersistentVolumeClaimStatus {
 
   public V1PersistentVolumeClaimStatus putCapacityItem(String key, Quantity capacityItem) {
     if (this.capacity == null) {
-      this.capacity = new HashMap<String, Quantity>();
+      this.capacity = new HashMap<>();
     }
     this.capacity.put(key, capacityItem);
     return this;
@@ -120,7 +120,7 @@ public class V1PersistentVolumeClaimStatus {
   public V1PersistentVolumeClaimStatus addConditionsItem(
       V1PersistentVolumeClaimCondition conditionsItem) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList<V1PersistentVolumeClaimCondition>();
+      this.conditions = new ArrayList<>();
     }
     this.conditions.add(conditionsItem);
     return this;

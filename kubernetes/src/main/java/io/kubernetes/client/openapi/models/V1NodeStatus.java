@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(description = "NodeStatus is information about the current status of a node.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1NodeStatus {
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
 
@@ -91,7 +91,7 @@ public class V1NodeStatus {
 
   public V1NodeStatus addAddressesItem(V1NodeAddress addressesItem) {
     if (this.addresses == null) {
-      this.addresses = new ArrayList<V1NodeAddress>();
+      this.addresses = new ArrayList<>();
     }
     this.addresses.add(addressesItem);
     return this;
@@ -126,7 +126,7 @@ public class V1NodeStatus {
 
   public V1NodeStatus putAllocatableItem(String key, Quantity allocatableItem) {
     if (this.allocatable == null) {
-      this.allocatable = new HashMap<String, Quantity>();
+      this.allocatable = new HashMap<>();
     }
     this.allocatable.put(key, allocatableItem);
     return this;
@@ -158,7 +158,7 @@ public class V1NodeStatus {
 
   public V1NodeStatus putCapacityItem(String key, Quantity capacityItem) {
     if (this.capacity == null) {
-      this.capacity = new HashMap<String, Quantity>();
+      this.capacity = new HashMap<>();
     }
     this.capacity.put(key, capacityItem);
     return this;
@@ -190,7 +190,7 @@ public class V1NodeStatus {
 
   public V1NodeStatus addConditionsItem(V1NodeCondition conditionsItem) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList<V1NodeCondition>();
+      this.conditions = new ArrayList<>();
     }
     this.conditions.add(conditionsItem);
     return this;
@@ -264,7 +264,7 @@ public class V1NodeStatus {
 
   public V1NodeStatus addImagesItem(V1ContainerImage imagesItem) {
     if (this.images == null) {
-      this.images = new ArrayList<V1ContainerImage>();
+      this.images = new ArrayList<>();
     }
     this.images.add(imagesItem);
     return this;
@@ -339,7 +339,7 @@ public class V1NodeStatus {
 
   public V1NodeStatus addVolumesAttachedItem(V1AttachedVolume volumesAttachedItem) {
     if (this.volumesAttached == null) {
-      this.volumesAttached = new ArrayList<V1AttachedVolume>();
+      this.volumesAttached = new ArrayList<>();
     }
     this.volumesAttached.add(volumesAttachedItem);
     return this;
@@ -368,7 +368,7 @@ public class V1NodeStatus {
 
   public V1NodeStatus addVolumesInUseItem(String volumesInUseItem) {
     if (this.volumesInUse == null) {
-      this.volumesInUse = new ArrayList<String>();
+      this.volumesInUse = new ArrayList<>();
     }
     this.volumesInUse.add(volumesInUseItem);
     return this;

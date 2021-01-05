@@ -7,7 +7,7 @@ CustomResourceDefinitionCondition contains details for the current condition of 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**lastTransitionTime** | [**DateTime**](DateTime.md) | lastTransitionTime last time the condition transitioned from one status to another. |  [optional]
+**lastTransitionTime** | [**OffsetDateTime**](OffsetDateTime.md) | lastTransitionTime last time the condition transitioned from one status to another. |  [optional]
 **message** | **String** | message is a human-readable message indicating details about last transition. |  [optional]
 **reason** | **String** | reason is a unique, one-word, CamelCase reason for the condition&#39;s last transition. |  [optional]
 **status** | **String** | status is the status of the condition. Can be True, False, Unknown. | 

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -30,7 +30,7 @@ import java.util.Objects;
         "SubjectRulesReviewStatus contains the result of a rules check. This check can be incomplete depending on the set of authorizers the server is configured with and any errors experienced during evaluation. Because authorization rules are additive, if a rule appears in a list it's safe to assume the subject has that permission, even if that list is incomplete.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1SubjectRulesReviewStatus {
   public static final String SERIALIZED_NAME_EVALUATION_ERROR = "evaluationError";
 
@@ -45,12 +45,12 @@ public class V1SubjectRulesReviewStatus {
   public static final String SERIALIZED_NAME_NON_RESOURCE_RULES = "nonResourceRules";
 
   @SerializedName(SERIALIZED_NAME_NON_RESOURCE_RULES)
-  private List<V1NonResourceRule> nonResourceRules = new ArrayList<V1NonResourceRule>();
+  private List<V1NonResourceRule> nonResourceRules = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_RESOURCE_RULES = "resourceRules";
 
   @SerializedName(SERIALIZED_NAME_RESOURCE_RULES)
-  private List<V1ResourceRule> resourceRules = new ArrayList<V1ResourceRule>();
+  private List<V1ResourceRule> resourceRules = new ArrayList<>();
 
   public V1SubjectRulesReviewStatus evaluationError(String evaluationError) {
 

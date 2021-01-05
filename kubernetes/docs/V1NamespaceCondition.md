@@ -7,7 +7,7 @@ NamespaceCondition contains details about state of namespace.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**lastTransitionTime** | [**DateTime**](DateTime.md) | Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers. |  [optional]
+**lastTransitionTime** | [**OffsetDateTime**](OffsetDateTime.md) | Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers. |  [optional]
 **message** | **String** |  |  [optional]
 **reason** | **String** |  |  [optional]
 **status** | **String** | Status of the condition, one of True, False, Unknown. | 

@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **podIPs** | [**List&lt;V1PodIP&gt;**](V1PodIP.md) | podIPs holds the IP addresses allocated to the pod. If this field is specified, the 0th entry must match the podIP field. Pods may be allocated at most 1 value for each of IPv4 and IPv6. This list is empty if no IPs have been allocated yet. |  [optional]
 **qosClass** | **String** | The Quality of Service (QOS) classification assigned to the pod based on resource requirements See PodQOSClass type for available QOS classes More info: https://git.k8s.io/community/contributors/design-proposals/node/resource-qos.md |  [optional]
 **reason** | **String** | A brief CamelCase message indicating details about why the pod is in this state. e.g. &#39;Evicted&#39; |  [optional]
-**startTime** | [**DateTime**](DateTime.md) | RFC 3339 date and time at which the object was acknowledged by the Kubelet. This is before the Kubelet pulled the container image(s) for the pod. |  [optional]
+**startTime** | [**OffsetDateTime**](OffsetDateTime.md) | RFC 3339 date and time at which the object was acknowledged by the Kubelet. This is before the Kubelet pulled the container image(s) for the pod. |  [optional]
 
 
 

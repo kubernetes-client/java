@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -15,12 +15,12 @@ package io.kubernetes.client.openapi.models;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import org.joda.time.DateTime;
 
 /**
  * ObjectMeta is metadata that all persisted resources must have, which includes all objects users
@@ -31,7 +31,7 @@ import org.joda.time.DateTime;
         "ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1ObjectMeta {
   public static final String SERIALIZED_NAME_ANNOTATIONS = "annotations";
 
@@ -46,7 +46,7 @@ public class V1ObjectMeta {
   public static final String SERIALIZED_NAME_CREATION_TIMESTAMP = "creationTimestamp";
 
   @SerializedName(SERIALIZED_NAME_CREATION_TIMESTAMP)
-  private DateTime creationTimestamp;
+  private OffsetDateTime creationTimestamp;
 
   public static final String SERIALIZED_NAME_DELETION_GRACE_PERIOD_SECONDS =
       "deletionGracePeriodSeconds";
@@ -57,7 +57,7 @@ public class V1ObjectMeta {
   public static final String SERIALIZED_NAME_DELETION_TIMESTAMP = "deletionTimestamp";
 
   @SerializedName(SERIALIZED_NAME_DELETION_TIMESTAMP)
-  private DateTime deletionTimestamp;
+  private OffsetDateTime deletionTimestamp;
 
   public static final String SERIALIZED_NAME_FINALIZERS = "finalizers";
 
@@ -122,7 +122,7 @@ public class V1ObjectMeta {
 
   public V1ObjectMeta putAnnotationsItem(String key, String annotationsItem) {
     if (this.annotations == null) {
-      this.annotations = new HashMap<String, String>();
+      this.annotations = new HashMap<>();
     }
     this.annotations.put(key, annotationsItem);
     return this;
@@ -172,7 +172,7 @@ public class V1ObjectMeta {
     this.clusterName = clusterName;
   }
 
-  public V1ObjectMeta creationTimestamp(DateTime creationTimestamp) {
+  public V1ObjectMeta creationTimestamp(OffsetDateTime creationTimestamp) {
 
     this.creationTimestamp = creationTimestamp;
     return this;
@@ -191,11 +191,11 @@ public class V1ObjectMeta {
   @ApiModelProperty(
       value =
           "CreationTimestamp is a timestamp representing the server time when this object was created. It is not guaranteed to be set in happens-before order across separate operations. Clients may not set this value. It is represented in RFC3339 form and is in UTC.  Populated by the system. Read-only. Null for lists. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata")
-  public DateTime getCreationTimestamp() {
+  public OffsetDateTime getCreationTimestamp() {
     return creationTimestamp;
   }
 
-  public void setCreationTimestamp(DateTime creationTimestamp) {
+  public void setCreationTimestamp(OffsetDateTime creationTimestamp) {
     this.creationTimestamp = creationTimestamp;
   }
 
@@ -223,7 +223,7 @@ public class V1ObjectMeta {
     this.deletionGracePeriodSeconds = deletionGracePeriodSeconds;
   }
 
-  public V1ObjectMeta deletionTimestamp(DateTime deletionTimestamp) {
+  public V1ObjectMeta deletionTimestamp(OffsetDateTime deletionTimestamp) {
 
     this.deletionTimestamp = deletionTimestamp;
     return this;
@@ -252,11 +252,11 @@ public class V1ObjectMeta {
   @ApiModelProperty(
       value =
           "DeletionTimestamp is RFC 3339 date and time at which this resource will be deleted. This field is set by the server when a graceful deletion is requested by the user, and is not directly settable by a client. The resource is expected to be deleted (no longer visible from resource lists, and not reachable by name) after the time in this field, once the finalizers list is empty. As long as the finalizers list contains items, deletion is blocked. Once the deletionTimestamp is set, this value may not be unset or be set further into the future, although it may be shortened or the resource may be deleted prior to this time. For example, a user may request that a pod is deleted in 30 seconds. The Kubelet will react by sending a graceful termination signal to the containers in the pod. After that 30 seconds, the Kubelet will send a hard termination signal (SIGKILL) to the container and after cleanup, remove the pod from the API. In the presence of network partitions, this object may still exist after this timestamp, until an administrator or automated process can determine the resource is fully terminated. If not set, graceful deletion of the object has not been requested.  Populated by the system when a graceful deletion is requested. Read-only. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata")
-  public DateTime getDeletionTimestamp() {
+  public OffsetDateTime getDeletionTimestamp() {
     return deletionTimestamp;
   }
 
-  public void setDeletionTimestamp(DateTime deletionTimestamp) {
+  public void setDeletionTimestamp(OffsetDateTime deletionTimestamp) {
     this.deletionTimestamp = deletionTimestamp;
   }
 
@@ -268,7 +268,7 @@ public class V1ObjectMeta {
 
   public V1ObjectMeta addFinalizersItem(String finalizersItem) {
     if (this.finalizers == null) {
-      this.finalizers = new ArrayList<String>();
+      this.finalizers = new ArrayList<>();
     }
     this.finalizers.add(finalizersItem);
     return this;
@@ -364,7 +364,7 @@ public class V1ObjectMeta {
 
   public V1ObjectMeta putLabelsItem(String key, String labelsItem) {
     if (this.labels == null) {
-      this.labels = new HashMap<String, String>();
+      this.labels = new HashMap<>();
     }
     this.labels.put(key, labelsItem);
     return this;
@@ -397,7 +397,7 @@ public class V1ObjectMeta {
 
   public V1ObjectMeta addManagedFieldsItem(V1ManagedFieldsEntry managedFieldsItem) {
     if (this.managedFields == null) {
-      this.managedFields = new ArrayList<V1ManagedFieldsEntry>();
+      this.managedFields = new ArrayList<>();
     }
     this.managedFields.add(managedFieldsItem);
     return this;
@@ -485,7 +485,7 @@ public class V1ObjectMeta {
 
   public V1ObjectMeta addOwnerReferencesItem(V1OwnerReference ownerReferencesItem) {
     if (this.ownerReferences == null) {
-      this.ownerReferences = new ArrayList<V1OwnerReference>();
+      this.ownerReferences = new ArrayList<>();
     }
     this.ownerReferences.add(ownerReferencesItem);
     return this;

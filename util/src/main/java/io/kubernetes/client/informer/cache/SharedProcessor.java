@@ -14,6 +14,7 @@ package io.kubernetes.client.informer.cache;
 
 import io.kubernetes.client.common.KubernetesObject;
 import java.time.Duration;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -22,7 +23,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import org.apache.commons.collections4.CollectionUtils;
-import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -138,7 +138,7 @@ public class SharedProcessor<ApiType extends KubernetesObject> {
     try {
       this.syncingListeners = new ArrayList<>(this.listeners.size());
 
-      DateTime now = DateTime.now();
+      OffsetDateTime now = OffsetDateTime.now();
       for (ProcessorListener listener : this.listeners) {
         if (listener.shouldResync(now)) {
           resyncNeeded = true;

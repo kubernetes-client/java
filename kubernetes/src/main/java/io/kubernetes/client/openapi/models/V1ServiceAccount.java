@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -28,7 +28,7 @@ import java.util.Objects;
         "ServiceAccount binds together: * a name, understood by users, and perhaps by peripheral systems, for an identity * a principal that can be authenticated and authorized * a set of secrets")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1ServiceAccount implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 
@@ -119,7 +119,7 @@ public class V1ServiceAccount implements io.kubernetes.client.common.KubernetesO
 
   public V1ServiceAccount addImagePullSecretsItem(V1LocalObjectReference imagePullSecretsItem) {
     if (this.imagePullSecrets == null) {
-      this.imagePullSecrets = new ArrayList<V1LocalObjectReference>();
+      this.imagePullSecrets = new ArrayList<>();
     }
     this.imagePullSecrets.add(imagePullSecretsItem);
     return this;
@@ -201,7 +201,7 @@ public class V1ServiceAccount implements io.kubernetes.client.common.KubernetesO
 
   public V1ServiceAccount addSecretsItem(V1ObjectReference secretsItem) {
     if (this.secrets == null) {
-      this.secrets = new ArrayList<V1ObjectReference>();
+      this.secrets = new ArrayList<>();
     }
     this.secrets.add(secretsItem);
     return this;

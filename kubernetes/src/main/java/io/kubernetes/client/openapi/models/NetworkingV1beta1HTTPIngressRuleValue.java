@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -30,13 +30,12 @@ import java.util.Objects;
         "HTTPIngressRuleValue is a list of http selectors pointing to backends. In the example: http://<host>/<path>?<searchpart> -> backend where where parts of the url correspond to RFC 3986, this resource will be used to match against everything after the last '/' and before the first '?' or '#'.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class NetworkingV1beta1HTTPIngressRuleValue {
   public static final String SERIALIZED_NAME_PATHS = "paths";
 
   @SerializedName(SERIALIZED_NAME_PATHS)
-  private List<NetworkingV1beta1HTTPIngressPath> paths =
-      new ArrayList<NetworkingV1beta1HTTPIngressPath>();
+  private List<NetworkingV1beta1HTTPIngressPath> paths = new ArrayList<>();
 
   public NetworkingV1beta1HTTPIngressRuleValue paths(List<NetworkingV1beta1HTTPIngressPath> paths) {
 

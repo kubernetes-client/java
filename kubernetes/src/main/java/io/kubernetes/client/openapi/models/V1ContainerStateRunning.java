@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -15,21 +15,21 @@ package io.kubernetes.client.openapi.models;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.Objects;
-import org.joda.time.DateTime;
 
 /** ContainerStateRunning is a running state of a container. */
 @ApiModel(description = "ContainerStateRunning is a running state of a container.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1ContainerStateRunning {
   public static final String SERIALIZED_NAME_STARTED_AT = "startedAt";
 
   @SerializedName(SERIALIZED_NAME_STARTED_AT)
-  private DateTime startedAt;
+  private OffsetDateTime startedAt;
 
-  public V1ContainerStateRunning startedAt(DateTime startedAt) {
+  public V1ContainerStateRunning startedAt(OffsetDateTime startedAt) {
 
     this.startedAt = startedAt;
     return this;
@@ -42,11 +42,11 @@ public class V1ContainerStateRunning {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Time at which the container was last (re-)started")
-  public DateTime getStartedAt() {
+  public OffsetDateTime getStartedAt() {
     return startedAt;
   }
 
-  public void setStartedAt(DateTime startedAt) {
+  public void setStartedAt(OffsetDateTime startedAt) {
     this.startedAt = startedAt;
   }
 

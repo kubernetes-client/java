@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -26,7 +26,7 @@ import java.util.Objects;
         "LimitRangeItem defines a min/max usage limit for any resource that matches on kind.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1LimitRangeItem {
   public static final String SERIALIZED_NAME_DEFAULT = "default";
 
@@ -66,7 +66,7 @@ public class V1LimitRangeItem {
 
   public V1LimitRangeItem putDefaultItem(String key, Quantity _defaultItem) {
     if (this._default == null) {
-      this._default = new HashMap<String, Quantity>();
+      this._default = new HashMap<>();
     }
     this._default.put(key, _defaultItem);
     return this;
@@ -97,7 +97,7 @@ public class V1LimitRangeItem {
 
   public V1LimitRangeItem putDefaultRequestItem(String key, Quantity defaultRequestItem) {
     if (this.defaultRequest == null) {
-      this.defaultRequest = new HashMap<String, Quantity>();
+      this.defaultRequest = new HashMap<>();
     }
     this.defaultRequest.put(key, defaultRequestItem);
     return this;
@@ -129,7 +129,7 @@ public class V1LimitRangeItem {
 
   public V1LimitRangeItem putMaxItem(String key, Quantity maxItem) {
     if (this.max == null) {
-      this.max = new HashMap<String, Quantity>();
+      this.max = new HashMap<>();
     }
     this.max.put(key, maxItem);
     return this;
@@ -159,7 +159,7 @@ public class V1LimitRangeItem {
   public V1LimitRangeItem putMaxLimitRequestRatioItem(
       String key, Quantity maxLimitRequestRatioItem) {
     if (this.maxLimitRequestRatio == null) {
-      this.maxLimitRequestRatio = new HashMap<String, Quantity>();
+      this.maxLimitRequestRatio = new HashMap<>();
     }
     this.maxLimitRequestRatio.put(key, maxLimitRequestRatioItem);
     return this;
@@ -192,7 +192,7 @@ public class V1LimitRangeItem {
 
   public V1LimitRangeItem putMinItem(String key, Quantity minItem) {
     if (this.min == null) {
-      this.min = new HashMap<String, Quantity>();
+      this.min = new HashMap<>();
     }
     this.min.put(key, minItem);
     return this;

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -15,20 +15,20 @@ package io.kubernetes.client.openapi.models;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.Objects;
-import org.joda.time.DateTime;
 
 /** StatefulSetCondition describes the state of a statefulset at a certain point. */
 @ApiModel(
     description = "StatefulSetCondition describes the state of a statefulset at a certain point.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1StatefulSetCondition {
   public static final String SERIALIZED_NAME_LAST_TRANSITION_TIME = "lastTransitionTime";
 
   @SerializedName(SERIALIZED_NAME_LAST_TRANSITION_TIME)
-  private DateTime lastTransitionTime;
+  private OffsetDateTime lastTransitionTime;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
 
@@ -50,7 +50,7 @@ public class V1StatefulSetCondition {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
-  public V1StatefulSetCondition lastTransitionTime(DateTime lastTransitionTime) {
+  public V1StatefulSetCondition lastTransitionTime(OffsetDateTime lastTransitionTime) {
 
     this.lastTransitionTime = lastTransitionTime;
     return this;
@@ -63,11 +63,11 @@ public class V1StatefulSetCondition {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Last time the condition transitioned from one status to another.")
-  public DateTime getLastTransitionTime() {
+  public OffsetDateTime getLastTransitionTime() {
     return lastTransitionTime;
   }
 
-  public void setLastTransitionTime(DateTime lastTransitionTime) {
+  public void setLastTransitionTime(OffsetDateTime lastTransitionTime) {
     this.lastTransitionTime = lastTransitionTime;
   }
 

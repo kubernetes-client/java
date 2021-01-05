@@ -15,10 +15,10 @@ package io.cert.manager.models;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import org.joda.time.DateTime;
 
 /** Status of the Certificate. This is set and managed automatically. */
 @ApiModel(description = "Status of the Certificate. This is set and managed automatically.")
@@ -34,7 +34,7 @@ public class V1beta1CertificateStatus {
   public static final String SERIALIZED_NAME_LAST_FAILURE_TIME = "lastFailureTime";
 
   @SerializedName(SERIALIZED_NAME_LAST_FAILURE_TIME)
-  private DateTime lastFailureTime;
+  private OffsetDateTime lastFailureTime;
 
   public static final String SERIALIZED_NAME_NEXT_PRIVATE_KEY_SECRET_NAME =
       "nextPrivateKeySecretName";
@@ -45,17 +45,17 @@ public class V1beta1CertificateStatus {
   public static final String SERIALIZED_NAME_NOT_AFTER = "notAfter";
 
   @SerializedName(SERIALIZED_NAME_NOT_AFTER)
-  private DateTime notAfter;
+  private OffsetDateTime notAfter;
 
   public static final String SERIALIZED_NAME_NOT_BEFORE = "notBefore";
 
   @SerializedName(SERIALIZED_NAME_NOT_BEFORE)
-  private DateTime notBefore;
+  private OffsetDateTime notBefore;
 
   public static final String SERIALIZED_NAME_RENEWAL_TIME = "renewalTime";
 
   @SerializedName(SERIALIZED_NAME_RENEWAL_TIME)
-  private DateTime renewalTime;
+  private OffsetDateTime renewalTime;
 
   public static final String SERIALIZED_NAME_REVISION = "revision";
 
@@ -95,7 +95,7 @@ public class V1beta1CertificateStatus {
     this.conditions = conditions;
   }
 
-  public V1beta1CertificateStatus lastFailureTime(DateTime lastFailureTime) {
+  public V1beta1CertificateStatus lastFailureTime(OffsetDateTime lastFailureTime) {
 
     this.lastFailureTime = lastFailureTime;
     return this;
@@ -112,11 +112,11 @@ public class V1beta1CertificateStatus {
   @ApiModelProperty(
       value =
           "LastFailureTime is the time as recorded by the Certificate controller of the most recent failure to complete a CertificateRequest for this Certificate resource. If set, cert-manager will not re-request another Certificate until 1 hour has elapsed from this time.")
-  public DateTime getLastFailureTime() {
+  public OffsetDateTime getLastFailureTime() {
     return lastFailureTime;
   }
 
-  public void setLastFailureTime(DateTime lastFailureTime) {
+  public void setLastFailureTime(OffsetDateTime lastFailureTime) {
     this.lastFailureTime = lastFailureTime;
   }
 
@@ -146,7 +146,7 @@ public class V1beta1CertificateStatus {
     this.nextPrivateKeySecretName = nextPrivateKeySecretName;
   }
 
-  public V1beta1CertificateStatus notAfter(DateTime notAfter) {
+  public V1beta1CertificateStatus notAfter(OffsetDateTime notAfter) {
 
     this.notAfter = notAfter;
     return this;
@@ -162,15 +162,15 @@ public class V1beta1CertificateStatus {
   @ApiModelProperty(
       value =
           "The expiration time of the certificate stored in the secret named by this resource in `spec.secretName`.")
-  public DateTime getNotAfter() {
+  public OffsetDateTime getNotAfter() {
     return notAfter;
   }
 
-  public void setNotAfter(DateTime notAfter) {
+  public void setNotAfter(OffsetDateTime notAfter) {
     this.notAfter = notAfter;
   }
 
-  public V1beta1CertificateStatus notBefore(DateTime notBefore) {
+  public V1beta1CertificateStatus notBefore(OffsetDateTime notBefore) {
 
     this.notBefore = notBefore;
     return this;
@@ -186,15 +186,15 @@ public class V1beta1CertificateStatus {
   @ApiModelProperty(
       value =
           "The time after which the certificate stored in the secret named by this resource in spec.secretName is valid.")
-  public DateTime getNotBefore() {
+  public OffsetDateTime getNotBefore() {
     return notBefore;
   }
 
-  public void setNotBefore(DateTime notBefore) {
+  public void setNotBefore(OffsetDateTime notBefore) {
     this.notBefore = notBefore;
   }
 
-  public V1beta1CertificateStatus renewalTime(DateTime renewalTime) {
+  public V1beta1CertificateStatus renewalTime(OffsetDateTime renewalTime) {
 
     this.renewalTime = renewalTime;
     return this;
@@ -210,11 +210,11 @@ public class V1beta1CertificateStatus {
   @ApiModelProperty(
       value =
           "RenewalTime is the time at which the certificate will be next renewed. If not set, no upcoming renewal is scheduled.")
-  public DateTime getRenewalTime() {
+  public OffsetDateTime getRenewalTime() {
     return renewalTime;
   }
 
-  public void setRenewalTime(DateTime renewalTime) {
+  public void setRenewalTime(OffsetDateTime renewalTime) {
     this.renewalTime = renewalTime;
   }
 
