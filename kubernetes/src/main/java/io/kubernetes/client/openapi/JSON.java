@@ -21,7 +21,8 @@ import com.google.gson.internal.bind.util.ISO8601Utils;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.gsonfire.GsonFireBuilder;
-import io.kubernetes.client.openapi.models.*;
+import io.kubernetes.client.gson.V1StatusPreProcessor;
+import io.kubernetes.client.openapi.models.V1Status;
 import java.io.IOException;
 import java.io.StringReader;
 import java.lang.reflect.Type;
@@ -36,17 +37,27 @@ import java.util.Map;
 import okio.ByteString;
 
 public class JSON {
+
   private Gson gson;
+
   private boolean isLenientOnJson = false;
+
   private DateTypeAdapter dateTypeAdapter = new DateTypeAdapter();
+
   private SqlDateTypeAdapter sqlDateTypeAdapter = new SqlDateTypeAdapter();
+
   private OffsetDateTimeTypeAdapter offsetDateTimeTypeAdapter = new OffsetDateTimeTypeAdapter();
+
   private LocalDateTypeAdapter localDateTypeAdapter = new LocalDateTypeAdapter();
+
   private ByteArrayAdapter byteArrayAdapter = new ByteArrayAdapter();
 
   public static GsonBuilder createGson() {
     GsonFireBuilder fireBuilder = new GsonFireBuilder();
-    GsonBuilder builder = fireBuilder.createGsonBuilder();
+    GsonBuilder builder =
+        fireBuilder
+            .registerPreProcessor(V1Status.class, new V1StatusPreProcessor())
+            .createGsonBuilder();
     return builder;
   }
 
