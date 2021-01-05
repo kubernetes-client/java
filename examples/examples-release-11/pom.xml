@@ -1,16 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<groupId>io.kubernetes</groupId>
 	<artifactId>client-java-examples-release-11</artifactId>
-	<packaging>bundle</packaging>
 	<name>client-java-examples-release-11</name>
     <version>1.0.0</version>
     <properties>
-        <kubernetes.client.version>10.0.0</kubernetes.client.version>
+        <kubernetes.client.version>11.0.0</kubernetes.client.version>
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <junit.version>4.13.1</junit.version>
+		<junit.version>4.13.1</junit.version>
+		<spring.boot.version>2.4.1</spring.boot.version>
     </properties>
 
 	<dependencies>
@@ -57,12 +58,12 @@
 		<dependency>
 			<groupId>io.kubernetes</groupId>
 			<artifactId>client-java-cert-manager-models</artifactId>
-			<version>0.16.1-SNAPSHOT</version>
+			<version>10.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>io.kubernetes</groupId>
 			<artifactId>client-java-prometheus-operator-models</artifactId>
-			<version>0.38.1-SNAPSHOT</version>
+			<version>10.0.1</version>
 		</dependency>
 		<!-- test dependencies -->
 		<dependency>
