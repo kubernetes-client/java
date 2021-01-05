@@ -13,6 +13,8 @@ limitations under the License.
 
 package io.kubernetes.client.e2e.basic
 
+import com.google.gson.JsonSyntaxException
+import io.kubernetes.client.openapi.ApiException
 import io.kubernetes.client.openapi.Configuration
 import io.kubernetes.client.openapi.apis.CoreV1Api
 import io.kubernetes.client.openapi.models.V1Namespace
@@ -22,6 +24,19 @@ import io.kubernetes.client.util.ClientBuilder
 import spock.lang.Specification
 
 class CoreV1ApiTest extends Specification {
+    public deleteNamespace(CoreV1Api api, String namespace) {
+        try {
+            api.deleteNamespace(namespace, null, null, null, null, null, null);
+        } catch (ApiException ex) {
+            if (ex.getCode() != HttpURLConnection.HTTP_NOT_FOUND) {
+                throw ex;
+            }
+        } catch (JsonSyntaxException ex) {
+            // Delete returned v1Status, try again.
+            deleteNamespace(api, namespace);
+        }
+    }
+
     def "Create Namespace then Delete should work"() {
         given:
         def apiClient = ClientBuilder.defaultClient()
@@ -33,9 +48,9 @@ class CoreV1ApiTest extends Specification {
         then:
         created != null
         when:
-        V1Status deleted = corev1api.deleteNamespace("e2e-basic", null, null, null, null, null, null)
+        boolean deleted = deleteNamespace(corev1api, "e2e-basic");
         then:
-        deleted != null
+        deleted == true
     }
 
 }
