@@ -61,9 +61,9 @@ public class LeaderElectorTest {
     LeaderElectionConfig leaderElectionConfig =
         new LeaderElectionConfig(
             lockSmith.makeLock(lockIdentity),
-            Duration.ofMillis(TimeUnit.MINUTES.toMillis(1)),
-            Duration.ofMillis(TimeUnit.SECONDS.toMillis(51)),
-            Duration.ofMillis(TimeUnit.SECONDS.toMillis(3)));
+            Duration.ofMillis(TimeUnit.SECONDS.toMillis(10)),
+            Duration.ofMillis(TimeUnit.SECONDS.toMillis(9)),
+            Duration.ofMillis(TimeUnit.SECONDS.toMillis(2)));
     LeaderElector leaderElector = new LeaderElector(leaderElectionConfig);
 
     Thread thread =
