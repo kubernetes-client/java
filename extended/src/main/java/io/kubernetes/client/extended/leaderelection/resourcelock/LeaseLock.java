@@ -135,15 +135,23 @@ public class LeaseLock implements Lock {
   }
 
   private V1LeaseSpec getLeaseFromRecord(LeaderElectionRecord record) {
-    return new V1LeaseSpec()
-        .acquireTime(
-            OffsetDateTime.ofInstant(
-                Instant.ofEpochMilli(record.getAcquireTime().getTime()), ZoneOffset.UTC))
-        .renewTime(
-            OffsetDateTime.ofInstant(
-                Instant.ofEpochMilli(record.getRenewTime().getTime()), ZoneOffset.UTC))
-        .holderIdentity(record.getHolderIdentity())
-        .leaseDurationSeconds(record.getLeaseDurationSeconds())
-        .leaseTransitions(record.getLeaderTransitions());
+    V1LeaseSpec spec =
+        new V1LeaseSpec()
+            .holderIdentity(record.getHolderIdentity())
+            .leaseDurationSeconds(record.getLeaseDurationSeconds())
+            .leaseTransitions(record.getLeaderTransitions());
+    if (record.getAcquireTime() != null) {
+      spec =
+          spec.acquireTime(
+              OffsetDateTime.ofInstant(
+                  Instant.ofEpochMilli(record.getAcquireTime().getTime()), ZoneOffset.UTC));
+    }
+    if (record.getRenewTime() != null) {
+      spec =
+          spec.renewTime(
+              OffsetDateTime.ofInstant(
+                  Instant.ofEpochMilli(record.getRenewTime().getTime()), ZoneOffset.UTC));
+    }
+    return spec;
   }
 }

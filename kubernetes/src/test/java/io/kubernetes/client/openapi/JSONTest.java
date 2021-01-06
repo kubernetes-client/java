@@ -15,6 +15,7 @@ package io.kubernetes.client.openapi;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
+import java.time.OffsetDateTime;
 import okio.ByteString;
 import org.junit.Test;
 
@@ -35,5 +36,30 @@ public class JSONTest {
     // Check encoded string correctly
     final String decodedText = new String(byteStr.toByteArray());
     assertThat(decodedText, is(plainText));
+  }
+
+  @Test
+  public void testOffsetDateTime1e6Parse() {
+    System.out.println(JSON.RFC3339MICRO_FORMATTER.format(OffsetDateTime.now()));
+    String timeStr = "2018-04-03T11:32:26.123456Z";
+    OffsetDateTime t = OffsetDateTime.parse(timeStr, JSON.RFC3339MICRO_FORMATTER);
+    String serializedTsStr = JSON.RFC3339MICRO_FORMATTER.format(t);
+    assertEquals(timeStr, serializedTsStr);
+  }
+
+  @Test
+  public void testOffsetDateTime1e4Parse() {
+    String timeStr = "2018-04-03T11:32:26.123400Z";
+    OffsetDateTime t = OffsetDateTime.parse(timeStr, JSON.RFC3339MICRO_FORMATTER);
+    String serializedTsStr = JSON.RFC3339MICRO_FORMATTER.format(t);
+    assertEquals(timeStr, serializedTsStr);
+  }
+
+  @Test
+  public void testOffsetDateTimeNoFractionParse() {
+    String timeStr = "2018-04-03T11:32:26Z";
+    OffsetDateTime t = OffsetDateTime.parse(timeStr, JSON.RFC3339MICRO_FORMATTER);
+    String serializedTsStr = JSON.RFC3339MICRO_FORMATTER.format(t);
+    assertEquals("2018-04-03T11:32:26.000000Z", serializedTsStr);
   }
 }

@@ -32,6 +32,8 @@ import java.text.ParsePosition;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoField;
 import java.util.Date;
 import java.util.Map;
 import okio.ByteString;
@@ -42,11 +44,22 @@ public class JSON {
 
   private boolean isLenientOnJson = false;
 
+  public static final DateTimeFormatter RFC3339MICRO_FORMATTER =
+      new DateTimeFormatterBuilder()
+          .parseDefaulting(ChronoField.OFFSET_SECONDS, 0)
+          .append(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"))
+          .optionalStart()
+          .appendFraction(ChronoField.NANO_OF_SECOND, 6, 6, true)
+          .optionalEnd()
+          .appendLiteral("Z")
+          .toFormatter();
+
   private DateTypeAdapter dateTypeAdapter = new DateTypeAdapter();
 
   private SqlDateTypeAdapter sqlDateTypeAdapter = new SqlDateTypeAdapter();
 
-  private OffsetDateTimeTypeAdapter offsetDateTimeTypeAdapter = new OffsetDateTimeTypeAdapter();
+  private OffsetDateTimeTypeAdapter offsetDateTimeTypeAdapter =
+      new OffsetDateTimeTypeAdapter(RFC3339MICRO_FORMATTER);
 
   private LocalDateTypeAdapter localDateTypeAdapter = new LocalDateTypeAdapter();
 
