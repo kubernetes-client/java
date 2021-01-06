@@ -33,6 +33,7 @@ import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
+import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoField;
 import java.util.Date;
 import java.util.Map;
@@ -244,7 +245,12 @@ public class JSON {
           if (date.endsWith("+0000")) {
             date = date.substring(0, date.length() - 5) + "Z";
           }
-          return OffsetDateTime.parse(date, formatter);
+          try {
+            return OffsetDateTime.parse(date, formatter);
+          } catch (DateTimeParseException e) {
+            // backward-compatibility for ISO8601 timestamp format
+            return OffsetDateTime.parse(date, DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+          }
       }
     }
   }

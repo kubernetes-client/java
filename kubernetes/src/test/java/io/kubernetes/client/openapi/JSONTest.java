@@ -21,9 +21,10 @@ import org.junit.Test;
 
 public class JSONTest {
 
+  private final JSON json = new JSON();
+
   @Test
   public void testSerializeByteArray() {
-    final JSON json = new JSON();
     final String plainText = "string that contains '=' when encoded";
     final String base64String = json.serialize(plainText.getBytes());
     // serialize returns string surrounded by quotes: "\"[base64]\""
@@ -40,19 +41,28 @@ public class JSONTest {
 
   @Test
   public void testOffsetDateTime1e6Parse() {
-    System.out.println(JSON.RFC3339MICRO_FORMATTER.format(OffsetDateTime.now()));
-    String timeStr = "2018-04-03T11:32:26.123456Z";
-    OffsetDateTime t = OffsetDateTime.parse(timeStr, JSON.RFC3339MICRO_FORMATTER);
-    String serializedTsStr = JSON.RFC3339MICRO_FORMATTER.format(t);
+    String timeStr = "\"2018-04-03T11:32:26.123456Z\"";
+    OffsetDateTime dateTime = json.deserialize(timeStr, OffsetDateTime.class);
+    String serializedTsStr = json.serialize(dateTime);
     assertEquals(timeStr, serializedTsStr);
   }
 
   @Test
   public void testOffsetDateTime1e4Parse() {
-    String timeStr = "2018-04-03T11:32:26.123400Z";
-    OffsetDateTime t = OffsetDateTime.parse(timeStr, JSON.RFC3339MICRO_FORMATTER);
-    String serializedTsStr = JSON.RFC3339MICRO_FORMATTER.format(t);
-    assertEquals(timeStr, serializedTsStr);
+    String timeStr = "\"2018-04-03T11:32:26.1234Z\"";
+    OffsetDateTime dateTime = json.deserialize(timeStr, OffsetDateTime.class);
+    String serializedTsStr = json.serialize(dateTime);
+    String expectedStr = "\"2018-04-03T11:32:26.123400Z\"";
+    assertEquals(expectedStr, serializedTsStr);
+  }
+
+  @Test
+  public void testOffsetDateTime1e3Parse() {
+    String timeStr = "\"2018-04-03T11:32:26.123Z\"";
+    OffsetDateTime dateTime = json.deserialize(timeStr, OffsetDateTime.class);
+    String serializedTsStr = json.serialize(dateTime);
+    String expectedStr = "\"2018-04-03T11:32:26.123000Z\"";
+    assertEquals(expectedStr, serializedTsStr);
   }
 
   @Test
