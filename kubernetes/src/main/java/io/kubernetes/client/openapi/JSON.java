@@ -45,7 +45,7 @@ public class JSON {
 
   private boolean isLenientOnJson = false;
 
-  public static final DateTimeFormatter RFC3339MICRO_FORMATTER =
+  private static final DateTimeFormatter RFC3339MICRO_FORMATTER =
       new DateTimeFormatterBuilder()
           .parseDefaulting(ChronoField.OFFSET_SECONDS, 0)
           .append(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"))

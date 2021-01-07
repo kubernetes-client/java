@@ -67,9 +67,10 @@ public class JSONTest {
 
   @Test
   public void testOffsetDateTimeNoFractionParse() {
-    String timeStr = "2018-04-03T11:32:26Z";
-    OffsetDateTime t = OffsetDateTime.parse(timeStr, JSON.RFC3339MICRO_FORMATTER);
-    String serializedTsStr = JSON.RFC3339MICRO_FORMATTER.format(t);
-    assertEquals("2018-04-03T11:32:26.000000Z", serializedTsStr);
+    String timeStr = "\"2018-04-03T11:32:26Z\"";
+    OffsetDateTime dateTime = json.deserialize(timeStr, OffsetDateTime.class);
+    String serializedTsStr = json.serialize(dateTime);
+    String expectedStr = "\"2018-04-03T11:32:26.000000Z\"";
+    assertEquals(expectedStr, serializedTsStr);
   }
 }
