@@ -15,14 +15,16 @@ package io.kubernetes.client.openapi;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
+import java.time.OffsetDateTime;
 import okio.ByteString;
 import org.junit.Test;
 
 public class JSONTest {
 
+  private final JSON json = new JSON();
+
   @Test
   public void testSerializeByteArray() {
-    final JSON json = new JSON();
     final String plainText = "string that contains '=' when encoded";
     final String base64String = json.serialize(plainText.getBytes());
     // serialize returns string surrounded by quotes: "\"[base64]\""
@@ -35,5 +37,40 @@ public class JSONTest {
     // Check encoded string correctly
     final String decodedText = new String(byteStr.toByteArray());
     assertThat(decodedText, is(plainText));
+  }
+
+  @Test
+  public void testOffsetDateTime1e6Parse() {
+    String timeStr = "\"2018-04-03T11:32:26.123456Z\"";
+    OffsetDateTime dateTime = json.deserialize(timeStr, OffsetDateTime.class);
+    String serializedTsStr = json.serialize(dateTime);
+    assertEquals(timeStr, serializedTsStr);
+  }
+
+  @Test
+  public void testOffsetDateTime1e4Parse() {
+    String timeStr = "\"2018-04-03T11:32:26.1234Z\"";
+    OffsetDateTime dateTime = json.deserialize(timeStr, OffsetDateTime.class);
+    String serializedTsStr = json.serialize(dateTime);
+    String expectedStr = "\"2018-04-03T11:32:26.123400Z\"";
+    assertEquals(expectedStr, serializedTsStr);
+  }
+
+  @Test
+  public void testOffsetDateTime1e3Parse() {
+    String timeStr = "\"2018-04-03T11:32:26.123Z\"";
+    OffsetDateTime dateTime = json.deserialize(timeStr, OffsetDateTime.class);
+    String serializedTsStr = json.serialize(dateTime);
+    String expectedStr = "\"2018-04-03T11:32:26.123000Z\"";
+    assertEquals(expectedStr, serializedTsStr);
+  }
+
+  @Test
+  public void testOffsetDateTimeNoFractionParse() {
+    String timeStr = "\"2018-04-03T11:32:26Z\"";
+    OffsetDateTime dateTime = json.deserialize(timeStr, OffsetDateTime.class);
+    String serializedTsStr = json.serialize(dateTime);
+    String expectedStr = "\"2018-04-03T11:32:26.000000Z\"";
+    assertEquals(expectedStr, serializedTsStr);
   }
 }

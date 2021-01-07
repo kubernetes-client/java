@@ -26,8 +26,6 @@ import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.time.Duration;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -77,21 +75,6 @@ public class LeaderElectorTest {
       apiClient = ClientBuilder.defaultClient();
     } catch (IOException ex) {
       throw new RuntimeException("Couldn't create ApiClient", ex);
-    }
-    // Lease resource requires special care with DateTime
-    if (lockType == LockType.Lease) {
-      // TODO: switch date-time library so that micro-sec timestamp can be serialized
-      // in RFC3339
-      // format w/ correct precision without the hacks
-
-      // This formatter is used for Lease resource spec's acquire/renewTime
-      DateTimeFormatter formatter =
-          new DateTimeFormatterBuilder()
-              .appendOptional(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'"))
-              .appendOptional(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'"))
-              .toFormatter();
-
-      apiClient.setOffsetDateTimeFormat(formatter);
     }
     this.lockType = lockType;
   }
