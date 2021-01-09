@@ -4,13 +4,17 @@
 	<parent>
 		<groupId>io.kubernetes</groupId>
 		<artifactId>client-java-examples-parent</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
-		<relativePath>../pom.xml</relativePath>
+		<version>11.0.1-SNAPSHOT</version>
+		<relativePath>..</relativePath>
 	</parent>
 
 	<artifactId>client-java-examples-release-12</artifactId>
-	<packaging>bundle</packaging>
 	<name>client-java-examples-release-12</name>
+
+	<properties>
+		<kubernetes.prometheus.version>11.0.1-SNAPSHOT</kubernetes.prometheus.version>
+		<kubernetes.cert-manager.version>11.0.1-SNAPSHOT</kubernetes.cert-manager.version>
+	</properties>
 
 	<dependencies>
         <dependency>
@@ -55,12 +59,12 @@
 		<dependency>
 			<groupId>io.kubernetes</groupId>
 			<artifactId>client-java-cert-manager-models</artifactId>
-			<version>0.16.1-SNAPSHOT</version>
+			<version>${kubernetes.cert-manager.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.kubernetes</groupId>
 			<artifactId>client-java-prometheus-operator-models</artifactId>
-			<version>0.38.1-SNAPSHOT</version>
+			<version>${kubernetes.prometheus.version}</version>
 		</dependency>
 		<!-- test dependencies -->
 		<dependency>

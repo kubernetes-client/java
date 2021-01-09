@@ -70,6 +70,51 @@ jobs:
             -B \
             -De2e.skip=false \
             -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+  examples:
+    runs-on: ubuntu-latest
+    name: Examples smoke test
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11.0.x
+      - name: Cache local Maven repository
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      - name: Build with Maven
+        run: |
+          mvn clean install \
+          -q \
+          -Dmaven.test.skip=true
+      - name: Build Cert Manager Contrib
+        run: |
+          cd client-java-contrib/cert-manager
+          mvn clean install \
+          -q \
+          -Dmaven.test.skip=true
+      - name: Build Prometheus Contrib
+        run: |
+          cd client-java-contrib/prometheus-operator
+          mvn clean install \
+          -q \
+          -Dmaven.test.skip=true
+      - name: Version 10
+        run: |
+          cd examples/examples-release-10
+          mvn clean install
+      - name: Version 11
+        run: |
+          cd examples/examples-release-11
+          mvn clean install
+      - name: Version 12
+        run: |
+          cd examples/examples-release-12
+          mvn clean install
   codegen:
     runs-on: ubuntu-latest
     services:
