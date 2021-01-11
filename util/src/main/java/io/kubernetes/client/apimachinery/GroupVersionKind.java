@@ -12,6 +12,8 @@ limitations under the License.
 */
 package io.kubernetes.client.apimachinery;
 
+import static io.kubernetes.client.util.Preconditions.precondition;
+
 import java.util.Objects;
 
 public class GroupVersionKind extends GroupVersion {
@@ -20,10 +22,7 @@ public class GroupVersionKind extends GroupVersion {
 
   public GroupVersionKind(String group, String version, String kind) {
     super(group, version);
-    if (kind == null) {
-      throw new IllegalArgumentException("kind must not be null");
-    }
-    this.kind = kind;
+    this.kind = precondition(kind, Objects::isNull, () -> "kind must not be null");
   }
 
   public String getKind() {

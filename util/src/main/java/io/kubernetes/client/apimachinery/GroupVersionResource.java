@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.apimachinery;
 
 import java.util.Objects;
+import static io.kubernetes.client.util.Preconditions.precondition;
 
 public class GroupVersionResource extends GroupVersion {
 
@@ -20,10 +21,7 @@ public class GroupVersionResource extends GroupVersion {
 
   public GroupVersionResource(String group, String version, String resource) {
     super(group, version);
-    if (resource == null) {
-      throw new IllegalArgumentException("resource must not be null");
-    }
-    this.resource = resource;
+    this.resource = precondition(resource, Objects::isNull, () -> "resource must not be null");
   }
 
   @Override
