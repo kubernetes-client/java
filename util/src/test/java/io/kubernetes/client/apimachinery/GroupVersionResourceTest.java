@@ -19,16 +19,16 @@ import org.junit.Test;
 
 /** @author wind57 */
 public class GroupVersionResourceTest {
-	@Test
-	public void testInvalidResource() {
-		assertThatThrownBy(() -> new GroupVersionResource("group", "version", null))
-				.isInstanceOf(IllegalArgumentException.class)
-				.hasMessage("resource must not be null");
-	}
+  @Test
+  public void testInvalidResource() {
+    assertThatThrownBy(() -> new GroupVersionResource("group", "version", null))
+        .isInstanceOf(IllegalArgumentException.class)
+        .hasMessage("resource must not be null");
+  }
 
-	@Test
-	public void testValidResource() {
-		Assertions.assertThatNoException()
-				.isThrownBy(() -> new GroupVersionResource("group", "version", "resource"));
-	}
+  @Test
+  public void testValidResource() {
+    Assertions.assertThatNoException()
+        .isThrownBy(() -> new GroupVersionResource("group", "version", "resource"));
+  }
 }

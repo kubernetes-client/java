@@ -20,24 +20,22 @@ import org.junit.Test;
 /** @author wind57 */
 public class NamespaceNameTest {
 
-	@Test
-	public void testInvalidNamespace() {
-		assertThatThrownBy(() -> new NamespaceName(null, "name"))
-				.isInstanceOf(IllegalArgumentException.class)
-				.hasMessage("namespace must not be null");
-	}
+  @Test
+  public void testInvalidNamespace() {
+    assertThatThrownBy(() -> new NamespaceName(null, "name"))
+        .isInstanceOf(IllegalArgumentException.class)
+        .hasMessage("namespace must not be null");
+  }
 
-	@Test
-	public void testInvalidName() {
-		assertThatThrownBy(() -> new NamespaceName("namespace", null))
-				.isInstanceOf(IllegalArgumentException.class)
-				.hasMessage("name must not be null");
-	}
+  @Test
+  public void testInvalidName() {
+    assertThatThrownBy(() -> new NamespaceName("namespace", null))
+        .isInstanceOf(IllegalArgumentException.class)
+        .hasMessage("name must not be null");
+  }
 
-	@Test
-	public void testValidNamespaceName() {
-		Assertions.assertThatNoException()
-				.isThrownBy(() -> new NamespaceName("namespace", "name"));
-	}
-
+  @Test
+  public void testValidNamespaceName() {
+    Assertions.assertThatNoException().isThrownBy(() -> new NamespaceName("namespace", "name"));
+  }
 }

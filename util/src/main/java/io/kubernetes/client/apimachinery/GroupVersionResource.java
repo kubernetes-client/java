@@ -12,8 +12,9 @@ limitations under the License.
 */
 package io.kubernetes.client.apimachinery;
 
-import java.util.Objects;
 import static io.kubernetes.client.util.Preconditions.precondition;
+
+import java.util.Objects;
 
 public class GroupVersionResource extends GroupVersion {
 
