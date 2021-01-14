@@ -17,7 +17,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
-/** @author wind57 */
 public class NamespaceNameTest {
 
   @Test
