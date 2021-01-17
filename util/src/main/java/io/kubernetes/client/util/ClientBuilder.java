@@ -12,11 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import static io.kubernetes.client.util.Config.*;
-import static io.kubernetes.client.util.KubeConfig.ENV_HOME;
-import static io.kubernetes.client.util.KubeConfig.KUBECONFIG;
-import static io.kubernetes.client.util.KubeConfig.KUBEDIR;
-
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1CertificateSigningRequest;
@@ -26,6 +21,11 @@ import io.kubernetes.client.util.credentials.ClientCertificateAuthentication;
 import io.kubernetes.client.util.credentials.KubeconfigAuthentication;
 import io.kubernetes.client.util.credentials.TokenFileAuthentication;
 import io.kubernetes.client.util.exception.CSRNotApprovedException;
+import okhttp3.Protocol;
+import org.apache.commons.compress.utils.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -41,11 +41,18 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.PrivateKey;
+import java.time.Duration;
 import java.util.Arrays;
-import okhttp3.Protocol;
-import org.apache.commons.compress.utils.IOUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.List;
+
+import static io.kubernetes.client.util.Config.ENV_KUBECONFIG;
+import static io.kubernetes.client.util.Config.ENV_SERVICE_HOST;
+import static io.kubernetes.client.util.Config.ENV_SERVICE_PORT;
+import static io.kubernetes.client.util.Config.SERVICEACCOUNT_CA_PATH;
+import static io.kubernetes.client.util.Config.SERVICEACCOUNT_TOKEN_PATH;
+import static io.kubernetes.client.util.KubeConfig.ENV_HOME;
+import static io.kubernetes.client.util.KubeConfig.KUBECONFIG;
+import static io.kubernetes.client.util.KubeConfig.KUBEDIR;
 
 /** A Builder which allows the construction of {@link ApiClient}s in a fluent fashion. */
 public class ClientBuilder {
@@ -55,6 +62,12 @@ public class ClientBuilder {
   private byte[] caCertBytes = null;
   private boolean verifyingSsl = true;
   private Authentication authentication;
+  // defaulting client protocols to HTTP1.1 and HTTP 2
+  private List<Protocol> protocols = Arrays.asList(Protocol.HTTP_2, Protocol.HTTP_1_1);
+  // default to unlimited read timeout
+  private Duration readTimeout = Duration.ZERO;
+  // default health check is once a minute
+  private Duration pingInterval = Duration.ofMinutes(1);
 
   /**
    * Creates an {@link ApiClient} by calling {@link #standard()} and {@link #build()}.
@@ -367,12 +380,39 @@ public class ClientBuilder {
     return this;
   }
 
+  public ClientBuilder setProtocols(List<Protocol> protocols) {
+    this.protocols = protocols;
+    return this;
+  }
+
+  public List<Protocol> getProtocols() {
+    return protocols;
+  }
+
+  public ClientBuilder setReadTimeout(Duration readTimeout) {
+    this.readTimeout = readTimeout;
+    return this;
+  }
+
+  public Duration getReadTimeout() {
+    return this.readTimeout;
+  }
+
+  public ClientBuilder setPingInterval(Duration pingInterval) {
+    this.pingInterval = pingInterval;
+    return this;
+  }
+
+  public Duration getPingInterval() {
+    return this.pingInterval;
+  }
+
   public ApiClient build() {
     final ApiClient client = new ApiClient();
 
-    // defaulting client protocols to HTTP1.1
     client.setHttpClient(
-        client.getHttpClient().newBuilder().protocols(Arrays.asList(Protocol.HTTP_1_1)).build());
+            client.getHttpClient().newBuilder().protocols(protocols).readTimeout(this.readTimeout)
+                    .pingInterval(pingInterval).build());
 
     if (basePath != null) {
       if (basePath.endsWith("/")) {
