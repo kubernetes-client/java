@@ -12,6 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
+import static io.kubernetes.client.util.Config.ENV_KUBECONFIG;
+import static io.kubernetes.client.util.Config.ENV_SERVICE_HOST;
+import static io.kubernetes.client.util.Config.ENV_SERVICE_PORT;
+import static io.kubernetes.client.util.Config.SERVICEACCOUNT_CA_PATH;
+import static io.kubernetes.client.util.Config.SERVICEACCOUNT_TOKEN_PATH;
+import static io.kubernetes.client.util.KubeConfig.ENV_HOME;
+import static io.kubernetes.client.util.KubeConfig.KUBECONFIG;
+import static io.kubernetes.client.util.KubeConfig.KUBEDIR;
+
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1CertificateSigningRequest;
@@ -21,11 +30,6 @@ import io.kubernetes.client.util.credentials.ClientCertificateAuthentication;
 import io.kubernetes.client.util.credentials.KubeconfigAuthentication;
 import io.kubernetes.client.util.credentials.TokenFileAuthentication;
 import io.kubernetes.client.util.exception.CSRNotApprovedException;
-import okhttp3.Protocol;
-import org.apache.commons.compress.utils.IOUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -44,15 +48,10 @@ import java.security.PrivateKey;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
-
-import static io.kubernetes.client.util.Config.ENV_KUBECONFIG;
-import static io.kubernetes.client.util.Config.ENV_SERVICE_HOST;
-import static io.kubernetes.client.util.Config.ENV_SERVICE_PORT;
-import static io.kubernetes.client.util.Config.SERVICEACCOUNT_CA_PATH;
-import static io.kubernetes.client.util.Config.SERVICEACCOUNT_TOKEN_PATH;
-import static io.kubernetes.client.util.KubeConfig.ENV_HOME;
-import static io.kubernetes.client.util.KubeConfig.KUBECONFIG;
-import static io.kubernetes.client.util.KubeConfig.KUBEDIR;
+import okhttp3.Protocol;
+import org.apache.commons.compress.utils.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /** A Builder which allows the construction of {@link ApiClient}s in a fluent fashion. */
 public class ClientBuilder {
@@ -411,8 +410,13 @@ public class ClientBuilder {
     final ApiClient client = new ApiClient();
 
     client.setHttpClient(
-            client.getHttpClient().newBuilder().protocols(protocols).readTimeout(this.readTimeout)
-                    .pingInterval(pingInterval).build());
+        client
+            .getHttpClient()
+            .newBuilder()
+            .protocols(protocols)
+            .readTimeout(this.readTimeout)
+            .pingInterval(pingInterval)
+            .build());
 
     if (basePath != null) {
       if (basePath.endsWith("/")) {
