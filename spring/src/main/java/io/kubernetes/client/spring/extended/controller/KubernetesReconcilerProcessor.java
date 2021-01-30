@@ -12,19 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.spring.extended.controller;
 
-import io.kubernetes.client.extended.controller.Controller;
-import io.kubernetes.client.extended.controller.ControllerManager;
+import static org.springframework.util.Assert.notNull;
+
 import io.kubernetes.client.extended.controller.reconciler.Reconciler;
 import io.kubernetes.client.informer.SharedInformerFactory;
-import io.kubernetes.client.spring.extended.controller.annotation.KubernetesReconciler;
 import io.kubernetes.client.spring.extended.controller.factory.KubernetesControllerFactory;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
+import java.util.function.Supplier;
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.support.BeanDefinitionBuilder;
+import org.springframework.beans.factory.support.BeanDefinitionRegistry;
+import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
 import org.springframework.core.Ordered;
 
 /**
@@ -34,18 +32,21 @@ import org.springframework.core.Ordered;
  * <p>It will create a {@link io.kubernetes.client.extended.controller.Controller} for every
  * reconciler instances registered in the spring bean-factory.
  */
-public class KubernetesReconcilerProcessor implements BeanFactoryPostProcessor, Ordered {
+public class KubernetesReconcilerProcessor implements BeanDefinitionRegistryPostProcessor, Ordered {
 
-  private static final Logger log = LoggerFactory.getLogger(KubernetesReconcilerProcessor.class);
+  public static final String DEFAULT_SHARED_INFORMER_FACTORY_BEAN_NAME = "sharedInformerFactory";
 
-  private ControllerManager controllerManager;
+  private final String sharedInformerFactoryBeanName;
 
-  private ExecutorService controllerManagerDaemon = Executors.newSingleThreadExecutor();
+  private BeanDefinitionRegistry beanDefinitionRegistry;
 
-  private SharedInformerFactory sharedInformerFactory;
+  public KubernetesReconcilerProcessor() {
+    this(DEFAULT_SHARED_INFORMER_FACTORY_BEAN_NAME);
+  }
 
-  public KubernetesReconcilerProcessor(SharedInformerFactory sharedInformerFactory) {
-    this.sharedInformerFactory = sharedInformerFactory;
+  public KubernetesReconcilerProcessor(String sharedInformerFactoryBeanName) {
+    notNull(sharedInformerFactoryBeanName, "SharedInformerFactory bean name is required");
+    this.sharedInformerFactoryBeanName = sharedInformerFactoryBeanName;
   }
 
   @Override
@@ -54,20 +55,27 @@ public class KubernetesReconcilerProcessor implements BeanFactoryPostProcessor, 
   }
 
   @Override
-  public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory)
-      throws BeansException {
-    String[] names = beanFactory.getBeanNamesForType(Reconciler.class);
-    for (String name : names) {
-      Reconciler reconciler = (Reconciler) beanFactory.getBean(name);
-      KubernetesReconciler kubernetesReconciler =
-          reconciler.getClass().getAnnotation(KubernetesReconciler.class);
-      String reconcilerName = kubernetesReconciler.value();
+  public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) {
+    this.beanDefinitionRegistry = registry;
+  }
 
-      KubernetesControllerFactory controllerFactory =
-          new KubernetesControllerFactory(sharedInformerFactory, reconciler);
+  @Override
+  public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) {
+    for (String reconcilerName : beanFactory.getBeanNamesForType(Reconciler.class)) {
 
-      Controller controller = controllerFactory.getObject();
-      beanFactory.registerSingleton(reconcilerName, controller);
+      Supplier<KubernetesControllerFactory> kubernetesControllerFactorySupplier =
+          () ->
+              new KubernetesControllerFactory(
+                  beanFactory.getBean(sharedInformerFactoryBeanName, SharedInformerFactory.class),
+                  beanFactory.getBean(reconcilerName, Reconciler.class));
+
+      BeanDefinition controllerFactoryBeanDefinition =
+          BeanDefinitionBuilder.genericBeanDefinition(
+                  KubernetesControllerFactory.class, kubernetesControllerFactorySupplier)
+              .getBeanDefinition();
+
+      beanDefinitionRegistry.registerBeanDefinition(
+          reconcilerName + "Controller", controllerFactoryBeanDefinition);
     }
   }
 }
