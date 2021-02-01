@@ -412,7 +412,7 @@ public class ModelMapper {
       String entryName;
       jarFileName = URLDecoder.decode(packageURL.getFile(), "UTF-8");
       jarFileName = jarFileName.substring(5, jarFileName.indexOf("!"));
-      System.out.println(">" + jarFileName);
+      logger.info("Loading classes from jar {}", jarFileName);
       jf = new JarFile(jarFileName);
       jarEntries = jf.entries();
       while (jarEntries.hasMoreElements()) {
