@@ -12,22 +12,27 @@ limitations under the License.
 */
 package io.kubernetes.client.spring.extended.network.endpoints;
 
+import java.time.Duration;
+
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
+
 import io.kubernetes.client.apimachinery.NamespaceName;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.apis.CoreV1Api;
 import io.kubernetes.client.openapi.models.V1Endpoints;
-import java.time.Duration;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class PollingEndpointsGetter implements EndpointsGetter {
 
   private static final Cache<NamespaceName, V1Endpoints> lastObservedEndpoints =
       Caffeine.newBuilder().expireAfterWrite(Duration.ofMinutes(5)).build();
 
-  @Autowired private ApiClient apiClient;
+  private final ApiClient apiClient;
+
+  public PollingEndpointsGetter(ApiClient apiClient) {
+    this.apiClient = apiClient;
+  }
 
   @Override
   public V1Endpoints get(String namespace, String name) {
