@@ -151,7 +151,7 @@
       <dependency>
         <groupId>org.bitbucket.b_c</groupId>
         <artifactId>jose4j</artifactId>
-        <version>0.7.5</version>
+        <version>0.7.6</version>
       </dependency>
       <dependency>
         <groupId>com.github.vladimir-bukhtoyarov</groupId>
