@@ -51,7 +51,16 @@ public class SpringLoadBalancerExample {
 
   public static class MyService {
 
-    @KubernetesEndpointsLoadBalanced(namespace = "default", name = "kubernetes")
     private LoadBalancer defaultKubernetesLoadBalancer;
+
+    public MyService(Lister<V1Endpoints> lister) {
+      InformerEndpointsGetter getter = new InformerEndpointsGetter(lister);
+      RoundRobinLoadBalanceStrategy strategy = new RoundRobinLoadBalanceStrategy();
+      defaultKubernetesLoadBalancer = new EndpointsLoadBalancer(
+        () -> getter.get("default", "kubernetes"),
+        strategy
+      );
+    }
+
   }
 }
