@@ -12,16 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.spring.extended.network.endpoints;
 
-import java.time.Duration;
-
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
-
 import io.kubernetes.client.apimachinery.NamespaceName;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.apis.CoreV1Api;
 import io.kubernetes.client.openapi.models.V1Endpoints;
+import java.time.Duration;
 
 public class PollingEndpointsGetter implements EndpointsGetter {
 
