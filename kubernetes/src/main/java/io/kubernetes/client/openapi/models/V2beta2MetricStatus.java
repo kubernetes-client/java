@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -21,8 +21,13 @@ import java.util.Objects;
 @ApiModel(description = "MetricStatus describes the last-read state of a single metric.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V2beta2MetricStatus {
+  public static final String SERIALIZED_NAME_CONTAINER_RESOURCE = "containerResource";
+
+  @SerializedName(SERIALIZED_NAME_CONTAINER_RESOURCE)
+  private V2beta2ContainerResourceMetricStatus containerResource;
+
   public static final String SERIALIZED_NAME_EXTERNAL = "external";
 
   @SerializedName(SERIALIZED_NAME_EXTERNAL)
@@ -47,6 +52,28 @@ public class V2beta2MetricStatus {
 
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
+
+  public V2beta2MetricStatus containerResource(
+      V2beta2ContainerResourceMetricStatus containerResource) {
+
+    this.containerResource = containerResource;
+    return this;
+  }
+
+  /**
+   * Get containerResource
+   *
+   * @return containerResource
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V2beta2ContainerResourceMetricStatus getContainerResource() {
+    return containerResource;
+  }
+
+  public void setContainerResource(V2beta2ContainerResourceMetricStatus containerResource) {
+    this.containerResource = containerResource;
+  }
 
   public V2beta2MetricStatus external(V2beta2ExternalMetricStatus external) {
 
@@ -139,15 +166,17 @@ public class V2beta2MetricStatus {
   }
 
   /**
-   * type is the type of metric source. It will be one of \&quot;Object\&quot;, \&quot;Pods\&quot;
-   * or \&quot;Resource\&quot;, each corresponds to a matching field in the object.
+   * type is the type of metric source. It will be one of \&quot;ContainerResource\&quot;,
+   * \&quot;External\&quot;, \&quot;Object\&quot;, \&quot;Pods\&quot; or \&quot;Resource\&quot;,
+   * each corresponds to a matching field in the object. Note: \&quot;ContainerResource\&quot; type
+   * is available on when the feature-gate HPAContainerMetrics is enabled
    *
    * @return type
    */
   @ApiModelProperty(
       required = true,
       value =
-          "type is the type of metric source.  It will be one of \"Object\", \"Pods\" or \"Resource\", each corresponds to a matching field in the object.")
+          "type is the type of metric source.  It will be one of \"ContainerResource\", \"External\", \"Object\", \"Pods\" or \"Resource\", each corresponds to a matching field in the object. Note: \"ContainerResource\" type is available on when the feature-gate HPAContainerMetrics is enabled")
   public String getType() {
     return type;
   }
@@ -165,7 +194,8 @@ public class V2beta2MetricStatus {
       return false;
     }
     V2beta2MetricStatus v2beta2MetricStatus = (V2beta2MetricStatus) o;
-    return Objects.equals(this.external, v2beta2MetricStatus.external)
+    return Objects.equals(this.containerResource, v2beta2MetricStatus.containerResource)
+        && Objects.equals(this.external, v2beta2MetricStatus.external)
         && Objects.equals(this._object, v2beta2MetricStatus._object)
         && Objects.equals(this.pods, v2beta2MetricStatus.pods)
         && Objects.equals(this.resource, v2beta2MetricStatus.resource)
@@ -174,13 +204,14 @@ public class V2beta2MetricStatus {
 
   @Override
   public int hashCode() {
-    return Objects.hash(external, _object, pods, resource, type);
+    return Objects.hash(containerResource, external, _object, pods, resource, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V2beta2MetricStatus {\n");
+    sb.append("    containerResource: ").append(toIndentedString(containerResource)).append("\n");
     sb.append("    external: ").append(toIndentedString(external)).append("\n");
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
     sb.append("    pods: ").append(toIndentedString(pods)).append("\n");

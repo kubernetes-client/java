@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -15,14 +15,14 @@ package io.kubernetes.client.openapi.models;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.Objects;
-import org.joda.time.DateTime;
 
 /** VolumeError captures an error encountered during a volume operation. */
 @ApiModel(description = "VolumeError captures an error encountered during a volume operation.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1alpha1VolumeError {
   public static final String SERIALIZED_NAME_MESSAGE = "message";
 
@@ -32,7 +32,7 @@ public class V1alpha1VolumeError {
   public static final String SERIALIZED_NAME_TIME = "time";
 
   @SerializedName(SERIALIZED_NAME_TIME)
-  private DateTime time;
+  private OffsetDateTime time;
 
   public V1alpha1VolumeError message(String message) {
 
@@ -58,7 +58,7 @@ public class V1alpha1VolumeError {
     this.message = message;
   }
 
-  public V1alpha1VolumeError time(DateTime time) {
+  public V1alpha1VolumeError time(OffsetDateTime time) {
 
     this.time = time;
     return this;
@@ -71,11 +71,11 @@ public class V1alpha1VolumeError {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Time the error was encountered.")
-  public DateTime getTime() {
+  public OffsetDateTime getTime() {
     return time;
   }
 
-  public void setTime(DateTime time) {
+  public void setTime(OffsetDateTime time) {
     this.time = time;
   }
 

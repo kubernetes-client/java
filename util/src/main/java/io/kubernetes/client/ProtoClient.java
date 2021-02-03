@@ -12,8 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client;
 
-import com.google.common.io.ByteStreams;
-import com.google.common.primitives.Bytes;
 import com.google.protobuf.Message;
 import com.google.protobuf.Message.Builder;
 import io.kubernetes.client.openapi.ApiClient;
@@ -24,6 +22,7 @@ import io.kubernetes.client.proto.Meta.DeleteOptions;
 import io.kubernetes.client.proto.Meta.Status;
 import io.kubernetes.client.proto.Runtime.TypeMeta;
 import io.kubernetes.client.proto.Runtime.Unknown;
+import io.kubernetes.client.util.Streams;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -309,12 +308,19 @@ public class ProtoClient {
             .setTypeMeta(TypeMeta.newBuilder().setApiVersion(apiVersion).setKind(kind))
             .setRaw(msg.toByteString())
             .build();
-    return Bytes.concat(MAGIC, u.toByteArray());
+    return concat(MAGIC, u.toByteArray());
+  }
+
+  private static byte[] concat(byte[] one, byte[] two) {
+    byte[] result = new byte[one.length + two.length];
+    System.arraycopy(one, 0, result, 0, one.length);
+    System.arraycopy(two, 0, result, one.length, two.length);
+    return result;
   }
 
   private Unknown parse(InputStream stream) throws ApiException, IOException {
     byte[] magic = new byte[4];
-    ByteStreams.readFully(stream, magic);
+    Streams.readFully(stream, magic);
     if (!Arrays.equals(magic, MAGIC)) {
       throw new ApiException("Unexpected magic number: " + Hex.encodeHexString(magic));
     }

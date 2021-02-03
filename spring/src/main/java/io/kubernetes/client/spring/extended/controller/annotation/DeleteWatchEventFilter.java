@@ -19,8 +19,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Indicates that the method is a filter for {@link io.kubernetes.client.informer.EventType#DELETED}
- * from watches.
+ * Indicates that the method is a filter for {@link
+ * io.kubernetes.client.informer.EventType#DELETED} from watches.
  *
  * <p>A delete-event filter must have the signature as {@link
  * java.util.function.BiPredicate<ApiType, Boolean>} where the 1st parameter is the

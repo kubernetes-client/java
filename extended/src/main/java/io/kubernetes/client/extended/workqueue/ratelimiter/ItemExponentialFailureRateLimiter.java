@@ -12,8 +12,10 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.workqueue.ratelimiter;
 
-import com.google.common.util.concurrent.AtomicLongMap;
 import java.time.Duration;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * ItemExponentialFailureRateLimiter does a simple baseDelay*10<sup>num-failures</sup> limit dealing
@@ -24,18 +26,16 @@ public class ItemExponentialFailureRateLimiter<T> implements RateLimiter<T> {
   private Duration baseDelay;
   private Duration maxDelay;
 
-  private AtomicLongMap<T> failures;
+  private ConcurrentMap<T, AtomicLong> failures = new ConcurrentHashMap<>();
 
   public ItemExponentialFailureRateLimiter(Duration baseDelay, Duration maxDelay) {
     this.baseDelay = baseDelay;
     this.maxDelay = maxDelay;
-
-    failures = AtomicLongMap.create();
   }
 
   @Override
   public Duration when(T item) {
-    long exp = failures.getAndIncrement(item);
+    long exp = failures.computeIfAbsent(item, k -> new AtomicLong()).getAndIncrement();
     long d = maxDelay.toMillis() >> exp;
     return d > baseDelay.toMillis() ? baseDelay.multipliedBy(1 << exp) : maxDelay;
   }
@@ -47,6 +47,6 @@ public class ItemExponentialFailureRateLimiter<T> implements RateLimiter<T> {
 
   @Override
   public int numRequeues(T item) {
-    return (int) failures.get(item);
+    return (int) failures.computeIfAbsent(item, k -> new AtomicLong()).get();
   }
 }

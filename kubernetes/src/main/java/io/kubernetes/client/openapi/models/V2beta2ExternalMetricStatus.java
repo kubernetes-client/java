@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -26,7 +26,7 @@ import java.util.Objects;
         "ExternalMetricStatus indicates the current value of a global metric not associated with any Kubernetes object.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V2beta2ExternalMetricStatus {
   public static final String SERIALIZED_NAME_CURRENT = "current";
 

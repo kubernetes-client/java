@@ -14,13 +14,13 @@ package io.kubernetes.client.util;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-import com.google.common.io.Resources;
+import io.kubernetes.client.Resources;
 import io.kubernetes.client.common.KubernetesType;
 import io.kubernetes.client.openapi.models.V1Deployment;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
@@ -234,7 +234,7 @@ public class YamlTest {
 
       assertEquals(
           "Incorrect value loaded for creationTimestamp",
-          "2018-09-06T15:12:24.000Z",
+          "2018-09-06T15:12:24Z",
           new String(pod.getMetadata().getCreationTimestamp().toString().getBytes(), UTF_8));
 
     } catch (Exception ex) {

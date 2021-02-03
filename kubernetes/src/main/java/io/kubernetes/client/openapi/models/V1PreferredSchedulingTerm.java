@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -26,7 +26,7 @@ import java.util.Objects;
         "An empty preferred scheduling term matches all objects with implicit weight 0 (i.e. it's a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1PreferredSchedulingTerm {
   public static final String SERIALIZED_NAME_PREFERENCE = "preference";
 

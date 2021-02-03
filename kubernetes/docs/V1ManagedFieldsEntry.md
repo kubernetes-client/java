@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **fieldsV1** | [**Object**](.md) | FieldsV1 holds the first JSON version format as described in the \&quot;FieldsV1\&quot; type. |  [optional]
 **manager** | **String** | Manager is an identifier of the workflow managing these fields. |  [optional]
 **operation** | **String** | Operation is the type of operation which lead to this ManagedFieldsEntry being created. The only valid values for this field are &#39;Apply&#39; and &#39;Update&#39;. |  [optional]
-**time** | [**DateTime**](DateTime.md) | Time is timestamp of when these fields were set. It should always be empty if Operation is &#39;Apply&#39; |  [optional]
+**time** | [**OffsetDateTime**](OffsetDateTime.md) | Time is timestamp of when these fields were set. It should always be empty if Operation is &#39;Apply&#39; |  [optional]
 
 
 

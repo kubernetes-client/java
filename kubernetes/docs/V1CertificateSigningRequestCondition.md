@@ -7,8 +7,8 @@ CertificateSigningRequestCondition describes a condition of a CertificateSigning
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**lastTransitionTime** | [**DateTime**](DateTime.md) | lastTransitionTime is the time the condition last transitioned from one status to another. If unset, when a new condition type is added or an existing condition&#39;s status is changed, the server defaults this to the current time. |  [optional]
-**lastUpdateTime** | [**DateTime**](DateTime.md) | lastUpdateTime is the time of the last update to this condition |  [optional]
+**lastTransitionTime** | [**OffsetDateTime**](OffsetDateTime.md) | lastTransitionTime is the time the condition last transitioned from one status to another. If unset, when a new condition type is added or an existing condition&#39;s status is changed, the server defaults this to the current time. |  [optional]
+**lastUpdateTime** | [**OffsetDateTime**](OffsetDateTime.md) | lastUpdateTime is the time of the last update to this condition |  [optional]
 **message** | **String** | message contains a human readable message with details about the request state |  [optional]
 **reason** | **String** | reason indicates a brief reason for the request state |  [optional]
 **status** | **String** | status of the condition, one of True, False, Unknown. Approved, Denied, and Failed conditions may not be \&quot;False\&quot; or \&quot;Unknown\&quot;. | 

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(description = "PodSpec is a description of a pod.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1PodSpec {
   public static final String SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS = "activeDeadlineSeconds";
 
@@ -47,7 +47,7 @@ public class V1PodSpec {
   public static final String SERIALIZED_NAME_CONTAINERS = "containers";
 
   @SerializedName(SERIALIZED_NAME_CONTAINERS)
-  private List<V1Container> containers = new ArrayList<V1Container>();
+  private List<V1Container> containers = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DNS_CONFIG = "dnsConfig";
 
@@ -386,7 +386,7 @@ public class V1PodSpec {
 
   public V1PodSpec addEphemeralContainersItem(V1EphemeralContainer ephemeralContainersItem) {
     if (this.ephemeralContainers == null) {
-      this.ephemeralContainers = new ArrayList<V1EphemeralContainer>();
+      this.ephemeralContainers = new ArrayList<>();
     }
     this.ephemeralContainers.add(ephemeralContainersItem);
     return this;
@@ -422,7 +422,7 @@ public class V1PodSpec {
 
   public V1PodSpec addHostAliasesItem(V1HostAlias hostAliasesItem) {
     if (this.hostAliases == null) {
-      this.hostAliases = new ArrayList<V1HostAlias>();
+      this.hostAliases = new ArrayList<>();
     }
     this.hostAliases.add(hostAliasesItem);
     return this;
@@ -544,7 +544,7 @@ public class V1PodSpec {
 
   public V1PodSpec addImagePullSecretsItem(V1LocalObjectReference imagePullSecretsItem) {
     if (this.imagePullSecrets == null) {
-      this.imagePullSecrets = new ArrayList<V1LocalObjectReference>();
+      this.imagePullSecrets = new ArrayList<>();
     }
     this.imagePullSecrets.add(imagePullSecretsItem);
     return this;
@@ -579,7 +579,7 @@ public class V1PodSpec {
 
   public V1PodSpec addInitContainersItem(V1Container initContainersItem) {
     if (this.initContainers == null) {
-      this.initContainers = new ArrayList<V1Container>();
+      this.initContainers = new ArrayList<>();
     }
     this.initContainers.add(initContainersItem);
     return this;
@@ -644,7 +644,7 @@ public class V1PodSpec {
 
   public V1PodSpec putNodeSelectorItem(String key, String nodeSelectorItem) {
     if (this.nodeSelector == null) {
-      this.nodeSelector = new HashMap<String, String>();
+      this.nodeSelector = new HashMap<>();
     }
     this.nodeSelector.put(key, nodeSelectorItem);
     return this;
@@ -677,7 +677,7 @@ public class V1PodSpec {
 
   public V1PodSpec putOverheadItem(String key, Quantity overheadItem) {
     if (this.overhead == null) {
-      this.overhead = new HashMap<String, Quantity>();
+      this.overhead = new HashMap<>();
     }
     this.overhead.put(key, overheadItem);
     return this;
@@ -795,7 +795,7 @@ public class V1PodSpec {
 
   public V1PodSpec addReadinessGatesItem(V1PodReadinessGate readinessGatesItem) {
     if (this.readinessGates == null) {
-      this.readinessGates = new ArrayList<V1PodReadinessGate>();
+      this.readinessGates = new ArrayList<>();
     }
     this.readinessGates.add(readinessGatesItem);
     return this;
@@ -1082,7 +1082,7 @@ public class V1PodSpec {
 
   public V1PodSpec addTolerationsItem(V1Toleration tolerationsItem) {
     if (this.tolerations == null) {
-      this.tolerations = new ArrayList<V1Toleration>();
+      this.tolerations = new ArrayList<>();
     }
     this.tolerations.add(tolerationsItem);
     return this;
@@ -1113,7 +1113,7 @@ public class V1PodSpec {
   public V1PodSpec addTopologySpreadConstraintsItem(
       V1TopologySpreadConstraint topologySpreadConstraintsItem) {
     if (this.topologySpreadConstraints == null) {
-      this.topologySpreadConstraints = new ArrayList<V1TopologySpreadConstraint>();
+      this.topologySpreadConstraints = new ArrayList<>();
     }
     this.topologySpreadConstraints.add(topologySpreadConstraintsItem);
     return this;
@@ -1147,7 +1147,7 @@ public class V1PodSpec {
 
   public V1PodSpec addVolumesItem(V1Volume volumesItem) {
     if (this.volumes == null) {
-      this.volumes = new ArrayList<V1Volume>();
+      this.volumes = new ArrayList<>();
     }
     this.volumes.add(volumesItem);
     return this;

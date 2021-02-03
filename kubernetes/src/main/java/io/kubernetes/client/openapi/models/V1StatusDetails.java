@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -30,7 +30,7 @@ import java.util.Objects;
         "StatusDetails is a set of additional properties that MAY be set by the server to provide additional information about a response. The Reason field of a Status object defines what attributes will be set. Clients must ignore fields that do not match the defined type of each attribute, and should assume that any attribute may be empty, invalid, or under defined.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1StatusDetails {
   public static final String SERIALIZED_NAME_CAUSES = "causes";
 
@@ -70,7 +70,7 @@ public class V1StatusDetails {
 
   public V1StatusDetails addCausesItem(V1StatusCause causesItem) {
     if (this.causes == null) {
-      this.causes = new ArrayList<V1StatusCause>();
+      this.causes = new ArrayList<>();
     }
     this.causes.add(causesItem);
     return this;

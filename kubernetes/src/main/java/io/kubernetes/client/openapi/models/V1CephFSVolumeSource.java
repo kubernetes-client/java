@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -28,12 +28,12 @@ import java.util.Objects;
         "Represents a Ceph Filesystem mount that lasts the lifetime of a pod Cephfs volumes do not support ownership management or SELinux relabeling.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1CephFSVolumeSource {
   public static final String SERIALIZED_NAME_MONITORS = "monitors";
 
   @SerializedName(SERIALIZED_NAME_MONITORS)
-  private List<String> monitors = new ArrayList<String>();
+  private List<String> monitors = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PATH = "path";
 

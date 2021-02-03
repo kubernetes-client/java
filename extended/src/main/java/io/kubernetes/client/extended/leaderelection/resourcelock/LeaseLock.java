@@ -22,8 +22,12 @@ import io.kubernetes.client.openapi.models.V1Lease;
 import io.kubernetes.client.openapi.models.V1LeaseSpec;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import java.net.HttpURLConnection;
+import java.time.Instant;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
+import java.util.Collections;
+import java.util.Date;
 import java.util.concurrent.atomic.AtomicReference;
-import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -62,12 +66,16 @@ public class LeaseLock implements Lock {
   @Override
   public boolean create(LeaderElectionRecord record) {
     try {
+      V1ObjectMeta objectMeta = new V1ObjectMeta();
+      objectMeta.setName(name);
+      objectMeta.setNamespace(namespace);
+      if (record.getOwnerReference() != null) {
+        objectMeta.setOwnerReferences(Collections.singletonList(record.getOwnerReference()));
+      }
       V1Lease createdLease =
           coordinationV1Api.createNamespacedLease(
               namespace,
-              new V1Lease()
-                  .metadata(new V1ObjectMeta().namespace(namespace).name(name))
-                  .spec(getLeaseFromRecord(record)),
+              new V1Lease().metadata(objectMeta).spec(getLeaseFromRecord(record)),
               null,
               null,
               null);
@@ -75,9 +83,9 @@ public class LeaseLock implements Lock {
       return true;
     } catch (ApiException e) {
       if (e.getCode() == HttpURLConnection.HTTP_CONFLICT) {
-        log.debug("received {} when creating configmap lock", e.getCode(), e);
+        log.debug("received {} when creating lease lock", e.getCode(), e);
       } else {
-        log.error("received {} when creating configmap lock", e.getCode(), e);
+        log.error("received {} when creating lease lock", e.getCode(), e);
       }
       return false;
     }
@@ -94,9 +102,9 @@ public class LeaseLock implements Lock {
       return true;
     } catch (ApiException e) {
       if (e.getCode() == HttpURLConnection.HTTP_CONFLICT) {
-        log.debug("received {} when creating configmap lock", e.getCode(), e);
+        log.debug("received {} when updating lease lock", e.getCode(), e);
       } else {
-        log.error("received {} when creating configmap lock", e.getCode(), e);
+        log.error("received {} when updating lease lock", e.getCode(), e);
       }
       return false;
     }
@@ -115,10 +123,10 @@ public class LeaseLock implements Lock {
   private LeaderElectionRecord getRecordFromLease(V1LeaseSpec lease) {
     LeaderElectionRecord record = new LeaderElectionRecord();
     if (lease.getAcquireTime() != null) {
-      record.setAcquireTime(lease.getAcquireTime().toDate());
+      record.setAcquireTime(new Date(lease.getAcquireTime().toInstant().toEpochMilli()));
     }
     if (lease.getRenewTime() != null) {
-      record.setRenewTime(lease.getRenewTime().toDate());
+      record.setRenewTime(new Date(lease.getRenewTime().toInstant().toEpochMilli()));
     }
     record.setHolderIdentity(lease.getHolderIdentity());
     record.setLeaderTransitions(lease.getLeaseTransitions());
@@ -127,11 +135,23 @@ public class LeaseLock implements Lock {
   }
 
   private V1LeaseSpec getLeaseFromRecord(LeaderElectionRecord record) {
-    return new V1LeaseSpec()
-        .acquireTime(new DateTime(record.getAcquireTime()))
-        .renewTime(new DateTime(record.getRenewTime()))
-        .holderIdentity(record.getHolderIdentity())
-        .leaseDurationSeconds(record.getLeaseDurationSeconds())
-        .leaseTransitions(record.getLeaderTransitions());
+    V1LeaseSpec spec =
+        new V1LeaseSpec()
+            .holderIdentity(record.getHolderIdentity())
+            .leaseDurationSeconds(record.getLeaseDurationSeconds())
+            .leaseTransitions(record.getLeaderTransitions());
+    if (record.getAcquireTime() != null) {
+      spec =
+          spec.acquireTime(
+              OffsetDateTime.ofInstant(
+                  Instant.ofEpochMilli(record.getAcquireTime().getTime()), ZoneOffset.UTC));
+    }
+    if (record.getRenewTime() != null) {
+      spec =
+          spec.renewTime(
+              OffsetDateTime.ofInstant(
+                  Instant.ofEpochMilli(record.getRenewTime().getTime()), ZoneOffset.UTC));
+    }
+    return spec;
   }
 }

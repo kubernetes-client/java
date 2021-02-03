@@ -10,7 +10,7 @@
   <parent>
     <artifactId>client-java-parent</artifactId>
     <groupId>io.kubernetes</groupId>
-    <version>10.0.1-SNAPSHOT</version>
+    <version>11.0.1-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
@@ -38,6 +38,10 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-actuator</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.github.ben-manes.caffeine</groupId>
+      <artifactId>caffeine</artifactId>
     </dependency>
 
     <dependency>

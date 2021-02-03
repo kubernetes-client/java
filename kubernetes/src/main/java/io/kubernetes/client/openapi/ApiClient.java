@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -29,6 +29,9 @@ import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.text.DateFormat;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
@@ -42,9 +45,6 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import okhttp3.logging.HttpLoggingInterceptor.Level;
 import okio.BufferedSink;
 import okio.Okio;
-import org.joda.time.DateTime;
-import org.joda.time.LocalDate;
-import org.joda.time.format.DateTimeFormatter;
 
 public class ApiClient {
 
@@ -103,7 +103,7 @@ public class ApiClient {
     json = new JSON();
 
     // Set default User-Agent.
-    setUserAgent("Kubernetes Java Client/10.0.1-SNAPSHOT");
+    setUserAgent("Kubernetes Java Client/11.0.1-SNAPSHOT");
 
     authentications = new HashMap<String, Authentication>();
   }
@@ -244,8 +244,8 @@ public class ApiClient {
     return this;
   }
 
-  public ApiClient setDateTimeFormat(DateTimeFormatter dateFormat) {
-    this.json.setDateTimeFormat(dateFormat);
+  public ApiClient setOffsetDateTimeFormat(DateTimeFormatter dateFormat) {
+    this.json.setOffsetDateTimeFormat(dateFormat);
     return this;
   }
 
@@ -508,7 +508,9 @@ public class ApiClient {
   public String parameterToString(Object param) {
     if (param == null) {
       return "";
-    } else if (param instanceof Date || param instanceof DateTime || param instanceof LocalDate) {
+    } else if (param instanceof Date
+        || param instanceof OffsetDateTime
+        || param instanceof LocalDate) {
       // Serialize to json string and remove the " enclosing characters
       String jsonStr = json.serialize(param);
       return jsonStr.substring(1, jsonStr.length() - 1);

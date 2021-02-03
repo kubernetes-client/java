@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -29,7 +29,7 @@ import java.util.Objects;
         "Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 Role, and will no longer be served in v1.22.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1beta1Role implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 
@@ -132,7 +132,7 @@ public class V1beta1Role implements io.kubernetes.client.common.KubernetesObject
 
   public V1beta1Role addRulesItem(V1beta1PolicyRule rulesItem) {
     if (this.rules == null) {
-      this.rules = new ArrayList<V1beta1PolicyRule>();
+      this.rules = new ArrayList<>();
     }
     this.rules.add(rulesItem);
     return this;

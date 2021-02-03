@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -17,36 +17,61 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapter;
+import com.google.gson.internal.bind.util.ISO8601Utils;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.gsonfire.GsonFireBuilder;
+import io.kubernetes.client.gson.V1StatusPreProcessor;
+import io.kubernetes.client.openapi.models.V1Status;
 import java.io.IOException;
 import java.io.StringReader;
 import java.lang.reflect.Type;
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.ParsePosition;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.format.DateTimeParseException;
+import java.time.temporal.ChronoField;
 import java.util.Date;
-import java.util.Locale;
 import java.util.Map;
 import okio.ByteString;
-import org.joda.time.DateTime;
-import org.joda.time.LocalDate;
-import org.joda.time.format.DateTimeFormatter;
-import org.joda.time.format.DateTimeFormatterBuilder;
-import org.joda.time.format.ISODateTimeFormat;
 
 public class JSON {
+
   private Gson gson;
+
   private boolean isLenientOnJson = false;
+
+  private static final DateTimeFormatter RFC3339MICRO_FORMATTER =
+      new DateTimeFormatterBuilder()
+          .parseDefaulting(ChronoField.OFFSET_SECONDS, 0)
+          .append(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"))
+          .optionalStart()
+          .appendFraction(ChronoField.NANO_OF_SECOND, 6, 6, true)
+          .optionalEnd()
+          .appendLiteral("Z")
+          .toFormatter();
+
   private DateTypeAdapter dateTypeAdapter = new DateTypeAdapter();
+
   private SqlDateTypeAdapter sqlDateTypeAdapter = new SqlDateTypeAdapter();
-  private DateTimeTypeAdapter dateTimeTypeAdapter = new DateTimeTypeAdapter();
+
+  private OffsetDateTimeTypeAdapter offsetDateTimeTypeAdapter =
+      new OffsetDateTimeTypeAdapter(RFC3339MICRO_FORMATTER);
+
   private LocalDateTypeAdapter localDateTypeAdapter = new LocalDateTypeAdapter();
+
   private ByteArrayAdapter byteArrayAdapter = new ByteArrayAdapter();
 
   public static GsonBuilder createGson() {
     GsonFireBuilder fireBuilder = new GsonFireBuilder();
-    GsonBuilder builder = fireBuilder.createGsonBuilder();
+    GsonBuilder builder =
+        fireBuilder
+            .registerPreProcessor(V1Status.class, new V1StatusPreProcessor())
+            .createGsonBuilder();
     return builder;
   }
 
@@ -59,10 +84,17 @@ public class JSON {
     return element.getAsString();
   }
 
+  /**
+   * Returns the Java class that implements the OpenAPI schema for the specified discriminator
+   * value.
+   *
+   * @param classByDiscriminatorValue The map of discriminator values to Java classes.
+   * @param discriminatorValue The value of the OpenAPI discriminator in the input data.
+   * @return The Java class that implements the OpenAPI schema
+   */
   private static Class getClassByDiscriminator(
       Map classByDiscriminatorValue, String discriminatorValue) {
-    Class clazz =
-        (Class) classByDiscriminatorValue.get(discriminatorValue.toUpperCase(Locale.ROOT));
+    Class clazz = (Class) classByDiscriminatorValue.get(discriminatorValue);
     if (null == clazz) {
       throw new IllegalArgumentException(
           "cannot determine model class of name: <" + discriminatorValue + ">");
@@ -75,7 +107,7 @@ public class JSON {
         createGson()
             .registerTypeAdapter(Date.class, dateTypeAdapter)
             .registerTypeAdapter(java.sql.Date.class, sqlDateTypeAdapter)
-            .registerTypeAdapter(DateTime.class, dateTimeTypeAdapter)
+            .registerTypeAdapter(OffsetDateTime.class, offsetDateTimeTypeAdapter)
             .registerTypeAdapter(LocalDate.class, localDateTypeAdapter)
             .registerTypeAdapter(byte[].class, byteArrayAdapter)
             .create();
@@ -176,21 +208,16 @@ public class JSON {
     }
   }
 
-  /** Gson TypeAdapter for Joda DateTime type */
-  public static class DateTimeTypeAdapter extends TypeAdapter<DateTime> {
+  /** Gson TypeAdapter for JSR310 OffsetDateTime type */
+  public static class OffsetDateTimeTypeAdapter extends TypeAdapter<OffsetDateTime> {
 
     private DateTimeFormatter formatter;
 
-    public DateTimeTypeAdapter() {
-      this(
-          new DateTimeFormatterBuilder()
-              .append(
-                  ISODateTimeFormat.dateTime().getPrinter(),
-                  ISODateTimeFormat.dateOptionalTimeParser().getParser())
-              .toFormatter());
+    public OffsetDateTimeTypeAdapter() {
+      this(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
     }
 
-    public DateTimeTypeAdapter(DateTimeFormatter formatter) {
+    public OffsetDateTimeTypeAdapter(DateTimeFormatter formatter) {
       this.formatter = formatter;
     }
 
@@ -199,34 +226,42 @@ public class JSON {
     }
 
     @Override
-    public void write(JsonWriter out, DateTime date) throws IOException {
+    public void write(JsonWriter out, OffsetDateTime date) throws IOException {
       if (date == null) {
         out.nullValue();
       } else {
-        out.value(formatter.print(date));
+        out.value(formatter.format(date));
       }
     }
 
     @Override
-    public DateTime read(JsonReader in) throws IOException {
+    public OffsetDateTime read(JsonReader in) throws IOException {
       switch (in.peek()) {
         case NULL:
           in.nextNull();
           return null;
         default:
           String date = in.nextString();
-          return formatter.parseDateTime(date);
+          if (date.endsWith("+0000")) {
+            date = date.substring(0, date.length() - 5) + "Z";
+          }
+          try {
+            return OffsetDateTime.parse(date, formatter);
+          } catch (DateTimeParseException e) {
+            // backward-compatibility for ISO8601 timestamp format
+            return OffsetDateTime.parse(date, DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+          }
       }
     }
   }
 
-  /** Gson TypeAdapter for Joda LocalDate type */
+  /** Gson TypeAdapter for JSR310 LocalDate type */
   public class LocalDateTypeAdapter extends TypeAdapter<LocalDate> {
 
     private DateTimeFormatter formatter;
 
     public LocalDateTypeAdapter() {
-      this(ISODateTimeFormat.date());
+      this(DateTimeFormatter.ISO_LOCAL_DATE);
     }
 
     public LocalDateTypeAdapter(DateTimeFormatter formatter) {
@@ -242,7 +277,7 @@ public class JSON {
       if (date == null) {
         out.nullValue();
       } else {
-        out.value(formatter.print(date));
+        out.value(formatter.format(date));
       }
     }
 
@@ -254,13 +289,13 @@ public class JSON {
           return null;
         default:
           String date = in.nextString();
-          return formatter.parseLocalDate(date);
+          return LocalDate.parse(date, formatter);
       }
     }
   }
 
-  public JSON setDateTimeFormat(DateTimeFormatter dateFormat) {
-    dateTimeTypeAdapter.setFormat(dateFormat);
+  public JSON setOffsetDateTimeFormat(DateTimeFormatter dateFormat) {
+    offsetDateTimeTypeAdapter.setFormat(dateFormat);
     return this;
   }
 
@@ -314,7 +349,7 @@ public class JSON {
             if (dateFormat != null) {
               return new java.sql.Date(dateFormat.parse(date).getTime());
             }
-            return new java.sql.Date(ISODateTimeFormat.basicDateTime().parseMillis(date));
+            return new java.sql.Date(ISO8601Utils.parse(date, new ParsePosition(0)).getTime());
           } catch (ParseException e) {
             throw new JsonParseException(e);
           }
@@ -348,7 +383,7 @@ public class JSON {
         if (dateFormat != null) {
           value = dateFormat.format(date);
         } else {
-          value = ISODateTimeFormat.basicDateTime().print(date.getTime());
+          value = ISO8601Utils.format(date, true);
         }
         out.value(value);
       }
@@ -367,7 +402,7 @@ public class JSON {
               if (dateFormat != null) {
                 return dateFormat.parse(date);
               }
-              return ISODateTimeFormat.basicDateTime().parseDateTime(date).toDate();
+              return ISO8601Utils.parse(date, new ParsePosition(0));
             } catch (ParseException e) {
               throw new JsonParseException(e);
             }

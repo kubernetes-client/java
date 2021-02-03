@@ -18,7 +18,6 @@ import static org.junit.Assert.*;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.github.tomakehurst.wiremock.matching.EqualToPattern;
-import com.google.common.io.Resources;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiClient;
@@ -35,13 +34,14 @@ import org.junit.Test;
 
 public class KubectlApplyTest {
 
-  private static final String DISCOVERY_API = Resources.getResource("discovery-api.json").getPath();
+  private static final String DISCOVERY_API =
+      KubectlApplyTest.class.getClassLoader().getResource("discovery-api.json").getPath();
 
   private static final String DISCOVERY_APIV1 =
-      Resources.getResource("discovery-api-v1.json").getPath();
+      KubectlApplyTest.class.getClassLoader().getResource("discovery-api-v1.json").getPath();
 
   private static final String DISCOVERY_APIS =
-      Resources.getResource("discovery-apis.json").getPath();
+      KubectlApplyTest.class.getClassLoader().getResource("discovery-apis.json").getPath();
 
   private ApiClient apiClient;
 

@@ -21,6 +21,7 @@ import io.kubernetes.client.openapi.apis.CoreV1Api;
 import io.kubernetes.client.openapi.models.V1ConfigMap;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import java.net.HttpURLConnection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
@@ -58,6 +59,8 @@ public class ConfigMapLock implements Lock {
   @Override
   public LeaderElectionRecord get() throws ApiException {
     V1ConfigMap configMap = coreV1Client.readNamespacedConfigMap(name, namespace, null, null, null);
+    configMapRefer.set(configMap);
+
     Map<String, String> annotations = configMap.getMetadata().getAnnotations();
     if (annotations == null || annotations.isEmpty()) {
       configMap.getMetadata().setAnnotations(new HashMap<>());
@@ -73,7 +76,7 @@ public class ConfigMapLock implements Lock {
             .getApiClient()
             .getJSON()
             .deserialize(recordRawStringContent, LeaderElectionRecord.class);
-    configMapRefer.set(configMap);
+
     return record;
   }
 
@@ -89,6 +92,9 @@ public class ConfigMapLock implements Lock {
           LeaderElectionRecordAnnotationKey,
           coreV1Client.getApiClient().getJSON().serialize(record));
       objectMeta.setAnnotations(annotations);
+      if (record.getOwnerReference() != null) {
+        objectMeta.setOwnerReferences(Collections.singletonList(record.getOwnerReference()));
+      }
       configMap.setMetadata(objectMeta);
       V1ConfigMap createdConfigMap =
           coreV1Client.createNamespacedConfigMap(namespace, configMap, null, null, null);

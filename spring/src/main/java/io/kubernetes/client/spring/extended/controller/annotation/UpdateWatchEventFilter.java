@@ -18,8 +18,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Indicates that the method is a filter for {@link
- * io.kubernetes.client.informer.EventType#MODIFIED} from watches.
+ * Indicates that the method is a filter for {@link io.kubernetes.client.informer.EventType#MODIFIED}
+ * from watches.
  *
  * <p>A update-event filter must have the signature as {@link
  * java.util.function.BiPredicate<ApiType,ApiType>} where the 1st parameter is the old state of the

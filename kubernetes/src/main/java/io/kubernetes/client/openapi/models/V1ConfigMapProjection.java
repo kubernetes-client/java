@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -30,7 +30,7 @@ import java.util.Objects;
         "Adapts a ConfigMap into a projected volume.  The contents of the target ConfigMap's Data field will be presented in a projected volume as files using the keys in the Data field as the file names, unless the items element is populated with specific mappings of keys to paths. Note that this is identical to a configmap volume source without the default mode.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1ConfigMapProjection {
   public static final String SERIALIZED_NAME_ITEMS = "items";
 
@@ -55,7 +55,7 @@ public class V1ConfigMapProjection {
 
   public V1ConfigMapProjection addItemsItem(V1KeyToPath itemsItem) {
     if (this.items == null) {
-      this.items = new ArrayList<V1KeyToPath>();
+      this.items = new ArrayList<>();
     }
     this.items.add(itemsItem);
     return this;

@@ -110,6 +110,8 @@ public class LegacyEventBroadcaster implements EventBroadcaster {
               }
             } catch (InterruptedException e) {
               logger.info("shutdown signaled");
+            } catch (Throwable t) {
+              logger.error("failed recording event", t);
             }
           }
         });

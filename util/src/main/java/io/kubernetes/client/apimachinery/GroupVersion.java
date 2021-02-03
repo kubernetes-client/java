@@ -12,24 +12,24 @@ limitations under the License.
 */
 package io.kubernetes.client.apimachinery;
 
-import com.google.common.base.Objects;
-import com.google.common.base.Strings;
+import static io.kubernetes.client.util.Preconditions.precondition;
+
 import io.kubernetes.client.common.KubernetesObject;
+import io.kubernetes.client.util.Strings;
+import java.util.Objects;
 
 public class GroupVersion {
 
+  private static final GroupVersion GROUP_VERSION_V1 = new GroupVersion("", "v1");
+
   public static GroupVersion parse(String apiVersion) {
-    if (Strings.isNullOrEmpty(apiVersion)) {
-      throw new IllegalArgumentException("No apiVersion found on object");
-    }
     if ("v1".equals(apiVersion)) {
       // legacy api group
-      return new GroupVersion("", "v1");
+      return GROUP_VERSION_V1;
     }
+    precondition(apiVersion, Strings::isNullOrEmpty, () -> "apiVersion can not be null");
     String[] parts = apiVersion.split("/");
-    if (parts.length != 2) {
-      throw new IllegalArgumentException("Invalid apiVersion found on object: " + apiVersion);
-    }
+    precondition(parts, x -> x.length != 2, () -> "Invalid apiVersion: " + apiVersion);
     return new GroupVersion(parts[0], parts[1]);
   }
 
@@ -38,17 +38,12 @@ public class GroupVersion {
   }
 
   public GroupVersion(String group, String version) {
-    if (group == null) {
-      throw new IllegalArgumentException("group must not be null");
-    }
-    if (version == null) {
-      throw new IllegalArgumentException("version must not be null");
-    }
-    this.group = group;
-    this.version = version;
+    this.group = precondition(group, Objects::isNull, () -> "group must not be null");
+    this.version = precondition(version, Objects::isNull, () -> "version must not be null");
   }
 
   private final String group;
+
   private final String version;
 
   public String getGroup() {
@@ -64,11 +59,11 @@ public class GroupVersion {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     GroupVersion that = (GroupVersion) o;
-    return Objects.equal(group, that.group) && Objects.equal(version, that.version);
+    return Objects.equals(group, that.group) && Objects.equals(version, that.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hashCode(group, version);
+    return Objects.hash(group, version);
   }
 }

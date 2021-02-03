@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "PodSecurityPolicySpec defines the policy enforced.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1beta1PodSecurityPolicySpec {
   public static final String SERIALIZED_NAME_ALLOW_PRIVILEGE_ESCALATION =
       "allowPrivilegeEscalation";
@@ -182,7 +182,7 @@ public class V1beta1PodSecurityPolicySpec {
   public V1beta1PodSecurityPolicySpec addAllowedCSIDriversItem(
       V1beta1AllowedCSIDriver allowedCSIDriversItem) {
     if (this.allowedCSIDrivers == null) {
-      this.allowedCSIDrivers = new ArrayList<V1beta1AllowedCSIDriver>();
+      this.allowedCSIDrivers = new ArrayList<>();
     }
     this.allowedCSIDrivers.add(allowedCSIDriversItem);
     return this;
@@ -216,7 +216,7 @@ public class V1beta1PodSecurityPolicySpec {
 
   public V1beta1PodSecurityPolicySpec addAllowedCapabilitiesItem(String allowedCapabilitiesItem) {
     if (this.allowedCapabilities == null) {
-      this.allowedCapabilities = new ArrayList<String>();
+      this.allowedCapabilities = new ArrayList<>();
     }
     this.allowedCapabilities.add(allowedCapabilitiesItem);
     return this;
@@ -251,7 +251,7 @@ public class V1beta1PodSecurityPolicySpec {
   public V1beta1PodSecurityPolicySpec addAllowedFlexVolumesItem(
       V1beta1AllowedFlexVolume allowedFlexVolumesItem) {
     if (this.allowedFlexVolumes == null) {
-      this.allowedFlexVolumes = new ArrayList<V1beta1AllowedFlexVolume>();
+      this.allowedFlexVolumes = new ArrayList<>();
     }
     this.allowedFlexVolumes.add(allowedFlexVolumesItem);
     return this;
@@ -286,7 +286,7 @@ public class V1beta1PodSecurityPolicySpec {
   public V1beta1PodSecurityPolicySpec addAllowedHostPathsItem(
       V1beta1AllowedHostPath allowedHostPathsItem) {
     if (this.allowedHostPaths == null) {
-      this.allowedHostPaths = new ArrayList<V1beta1AllowedHostPath>();
+      this.allowedHostPaths = new ArrayList<>();
     }
     this.allowedHostPaths.add(allowedHostPathsItem);
     return this;
@@ -319,7 +319,7 @@ public class V1beta1PodSecurityPolicySpec {
   public V1beta1PodSecurityPolicySpec addAllowedProcMountTypesItem(
       String allowedProcMountTypesItem) {
     if (this.allowedProcMountTypes == null) {
-      this.allowedProcMountTypes = new ArrayList<String>();
+      this.allowedProcMountTypes = new ArrayList<>();
     }
     this.allowedProcMountTypes.add(allowedProcMountTypesItem);
     return this;
@@ -352,7 +352,7 @@ public class V1beta1PodSecurityPolicySpec {
 
   public V1beta1PodSecurityPolicySpec addAllowedUnsafeSysctlsItem(String allowedUnsafeSysctlsItem) {
     if (this.allowedUnsafeSysctls == null) {
-      this.allowedUnsafeSysctls = new ArrayList<String>();
+      this.allowedUnsafeSysctls = new ArrayList<>();
     }
     this.allowedUnsafeSysctls.add(allowedUnsafeSysctlsItem);
     return this;
@@ -389,7 +389,7 @@ public class V1beta1PodSecurityPolicySpec {
   public V1beta1PodSecurityPolicySpec addDefaultAddCapabilitiesItem(
       String defaultAddCapabilitiesItem) {
     if (this.defaultAddCapabilities == null) {
-      this.defaultAddCapabilities = new ArrayList<String>();
+      this.defaultAddCapabilities = new ArrayList<>();
     }
     this.defaultAddCapabilities.add(defaultAddCapabilitiesItem);
     return this;
@@ -448,7 +448,7 @@ public class V1beta1PodSecurityPolicySpec {
 
   public V1beta1PodSecurityPolicySpec addForbiddenSysctlsItem(String forbiddenSysctlsItem) {
     if (this.forbiddenSysctls == null) {
-      this.forbiddenSysctls = new ArrayList<String>();
+      this.forbiddenSysctls = new ArrayList<>();
     }
     this.forbiddenSysctls.add(forbiddenSysctlsItem);
     return this;
@@ -569,7 +569,7 @@ public class V1beta1PodSecurityPolicySpec {
 
   public V1beta1PodSecurityPolicySpec addHostPortsItem(V1beta1HostPortRange hostPortsItem) {
     if (this.hostPorts == null) {
-      this.hostPorts = new ArrayList<V1beta1HostPortRange>();
+      this.hostPorts = new ArrayList<>();
     }
     this.hostPorts.add(hostPortsItem);
     return this;
@@ -648,7 +648,7 @@ public class V1beta1PodSecurityPolicySpec {
   public V1beta1PodSecurityPolicySpec addRequiredDropCapabilitiesItem(
       String requiredDropCapabilitiesItem) {
     if (this.requiredDropCapabilities == null) {
-      this.requiredDropCapabilities = new ArrayList<String>();
+      this.requiredDropCapabilities = new ArrayList<>();
     }
     this.requiredDropCapabilities.add(requiredDropCapabilitiesItem);
     return this;
@@ -784,7 +784,7 @@ public class V1beta1PodSecurityPolicySpec {
 
   public V1beta1PodSecurityPolicySpec addVolumesItem(String volumesItem) {
     if (this.volumes == null) {
-      this.volumes = new ArrayList<String>();
+      this.volumes = new ArrayList<>();
     }
     this.volumes.add(volumesItem);
     return this;

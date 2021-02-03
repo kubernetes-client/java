@@ -14,6 +14,7 @@ package io.kubernetes.client.spring.extended.manifests;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
+import static com.github.tomakehurst.wiremock.client.WireMock.patch;
 import static com.github.tomakehurst.wiremock.client.WireMock.post;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
@@ -21,12 +22,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
-import com.google.common.io.Resources;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.models.V1Namespace;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
+import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1ServiceAccount;
+import io.kubernetes.client.spring.extended.manifests.annotation.KubectlApply;
 import io.kubernetes.client.spring.extended.manifests.annotation.KubectlCreate;
 import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
@@ -39,19 +41,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = KubernetesManifestTest.App.class)
 public class KubernetesManifestTest {
 
-  private static final String DISCOVERY_API = Resources.getResource("discovery-api.json").getPath();
+  private static final Resource DISCOVERY_API = new ClassPathResource("discovery-api.json");
 
-  private static final String DISCOVERY_APIV1 =
-      Resources.getResource("discovery-api-v1.json").getPath();
+  private static final Resource DISCOVERY_APIV1 = new ClassPathResource("discovery-api-v1.json");
 
-  private static final String DISCOVERY_APIS =
-      Resources.getResource("discovery-apis.json").getPath();
+  private static final Resource DISCOVERY_APIS = new ClassPathResource("discovery-apis.json");
 
   @ClassRule public static WireMockRule wireMockRule = new WireMockRule(8288);
 
@@ -84,6 +86,21 @@ public class KubernetesManifestTest {
                   .namespace(testNamespace.getMetadata().getName())
                   .name("spring-boot-test-serviceaccount"));
     }
+
+    @Bean
+    public KubernetesKubectlApplyProcessor kubernetesApplyManifestsProcessor() {
+      return new KubernetesKubectlApplyProcessor();
+    }
+
+    @Bean
+    @KubectlApply
+    public V1Pod testApplyPod(V1Namespace testNamespace) {
+      return new V1Pod()
+          .metadata(
+              new V1ObjectMeta()
+                  .namespace(testNamespace.getMetadata().getName())
+                  .name("spring-boot-test-pod"));
+    }
   }
 
   @Autowired private ApiClient client;
@@ -91,6 +108,8 @@ public class KubernetesManifestTest {
   @Autowired private V1Namespace createdNamespace;
 
   @Autowired private V1ServiceAccount createdServiceAccount;
+
+  @Autowired private V1Pod createdPod;
 
   private static final V1Namespace returningCreatedNamespace =
       new V1Namespace()
@@ -104,6 +123,14 @@ public class KubernetesManifestTest {
           .metadata(
               new V1ObjectMeta()
                   .name("spring-boot-test-serviceaccount")
+                  .putLabelsItem("created", "true"));
+
+  private static final V1Pod returningCreatedPod =
+      new V1Pod()
+          .metadata(
+              new V1ObjectMeta()
+                  .name("spring-boot-test-pod")
+                  .namespace("spring-boot-test-namespace")
                   .putLabelsItem("created", "true"));
 
   static {
@@ -129,25 +156,40 @@ public class KubernetesManifestTest {
                             .getJSON()
                             .serialize(returningCreatedServiceAccount))));
 
+    wireMockRule.stubFor(
+        patch(
+                urlEqualTo(
+                    "/api/v1/namespaces/spring-boot-test-namespace/pods/spring-boot-test-pod?fieldManager=kubernetes-java-kubectl-apply&force=false"))
+            .willReturn(
+                aResponse()
+                    .withHeader("Content-Type", "application/json")
+                    .withBody(
+                        Configuration.getDefaultApiClient()
+                            .getJSON()
+                            .serialize(returningCreatedPod))));
+
     try {
       wireMockRule.stubFor(
           get(urlPathEqualTo("/api"))
               .willReturn(
                   aResponse()
                       .withStatus(200)
-                      .withBody(new String(Files.readAllBytes(Paths.get(DISCOVERY_API))))));
+                      .withBody(
+                          new String(Files.readAllBytes(Paths.get(DISCOVERY_API.getURI()))))));
       wireMockRule.stubFor(
           get(urlPathEqualTo("/apis"))
               .willReturn(
                   aResponse()
                       .withStatus(200)
-                      .withBody(new String(Files.readAllBytes(Paths.get(DISCOVERY_APIS))))));
+                      .withBody(
+                          new String(Files.readAllBytes(Paths.get(DISCOVERY_APIS.getURI()))))));
       wireMockRule.stubFor(
           get(urlPathEqualTo("/api/v1"))
               .willReturn(
                   aResponse()
                       .withStatus(200)
-                      .withBody(new String(Files.readAllBytes(Paths.get(DISCOVERY_APIV1))))));
+                      .withBody(
+                          new String(Files.readAllBytes(Paths.get(DISCOVERY_APIV1.getURI()))))));
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -157,8 +199,10 @@ public class KubernetesManifestTest {
   public void test() {
     assertNotNull(createdNamespace);
     assertNotNull(createdServiceAccount);
+    assertNotNull(createdPod);
 
     assertEquals("true", createdNamespace.getMetadata().getLabels().get("created"));
     assertEquals("true", createdServiceAccount.getMetadata().getLabels().get("created"));
+    assertEquals("true", createdPod.getMetadata().getLabels().get("created"));
   }
 }

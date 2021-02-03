@@ -12,8 +12,8 @@ limitations under the License.
 */
 package io.kubernetes.client.util.annotations;
 
-import com.google.common.collect.ImmutableMap;
 import io.kubernetes.client.common.KubernetesObject;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,7 +28,7 @@ public class Annotations {
    */
   public static void addAnnotations(
       KubernetesObject kubernetesObject, String annotation, String value) {
-    addAnnotations(kubernetesObject, ImmutableMap.of(annotation, value));
+    addAnnotations(kubernetesObject, Collections.singletonMap(annotation, value));
   }
 
   /**

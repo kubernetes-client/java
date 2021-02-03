@@ -14,7 +14,6 @@ package io.kubernetes.client;
 
 import static io.kubernetes.client.KubernetesConstants.*;
 
-import com.google.common.io.CharStreams;
 import com.google.gson.reflect.TypeToken;
 import io.kubernetes.client.custom.IOTrio;
 import io.kubernetes.client.openapi.ApiClient;
@@ -25,6 +24,7 @@ import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1Status;
 import io.kubernetes.client.openapi.models.V1StatusCause;
 import io.kubernetes.client.openapi.models.V1StatusDetails;
+import io.kubernetes.client.util.Streams;
 import io.kubernetes.client.util.WebSocketStreamHandler;
 import io.kubernetes.client.util.WebSockets;
 import java.io.IOException;
@@ -446,7 +446,7 @@ public class Exec {
       Type returnType = new TypeToken<V1Status>() {}.getType();
       String body;
       try (final Reader reader = new InputStreamReader(inputStream)) {
-        body = CharStreams.toString(reader);
+        body = Streams.toString(reader);
       }
 
       V1Status status = client.getJSON().deserialize(body, returnType);

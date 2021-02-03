@@ -12,7 +12,9 @@ limitations under the License.
 */
 package io.kubernetes.client.apimachinery;
 
-import com.google.common.base.Objects;
+import static io.kubernetes.client.util.Preconditions.precondition;
+
+import java.util.Objects;
 
 public class GroupVersionKind extends GroupVersion {
 
@@ -20,10 +22,7 @@ public class GroupVersionKind extends GroupVersion {
 
   public GroupVersionKind(String group, String version, String kind) {
     super(group, version);
-    if (kind == null) {
-      throw new IllegalArgumentException("kind must not be null");
-    }
-    this.kind = kind;
+    this.kind = precondition(kind, Objects::isNull, () -> "kind must not be null");
   }
 
   public String getKind() {
@@ -36,11 +35,11 @@ public class GroupVersionKind extends GroupVersion {
     if (o == null || getClass() != o.getClass()) return false;
     if (!super.equals(o)) return false;
     GroupVersionKind that = (GroupVersionKind) o;
-    return Objects.equal(kind, that.kind);
+    return Objects.equals(kind, that.kind);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hashCode(super.hashCode(), kind);
+    return Objects.hash(super.hashCode(), kind);
   }
 }

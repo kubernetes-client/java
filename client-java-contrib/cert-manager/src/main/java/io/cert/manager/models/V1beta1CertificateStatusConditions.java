@@ -20,8 +20,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.Objects;
-import org.joda.time.DateTime;
 
 /** CertificateCondition contains condition information for an Certificate. */
 @ApiModel(description = "CertificateCondition contains condition information for an Certificate.")
@@ -32,7 +32,7 @@ public class V1beta1CertificateStatusConditions {
   public static final String SERIALIZED_NAME_LAST_TRANSITION_TIME = "lastTransitionTime";
 
   @SerializedName(SERIALIZED_NAME_LAST_TRANSITION_TIME)
-  private DateTime lastTransitionTime;
+  private OffsetDateTime lastTransitionTime;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
 
@@ -102,7 +102,7 @@ public class V1beta1CertificateStatusConditions {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
-  public V1beta1CertificateStatusConditions lastTransitionTime(DateTime lastTransitionTime) {
+  public V1beta1CertificateStatusConditions lastTransitionTime(OffsetDateTime lastTransitionTime) {
 
     this.lastTransitionTime = lastTransitionTime;
     return this;
@@ -117,11 +117,11 @@ public class V1beta1CertificateStatusConditions {
   @ApiModelProperty(
       value =
           "LastTransitionTime is the timestamp corresponding to the last status change of this condition.")
-  public DateTime getLastTransitionTime() {
+  public OffsetDateTime getLastTransitionTime() {
     return lastTransitionTime;
   }
 
-  public void setLastTransitionTime(DateTime lastTransitionTime) {
+  public void setLastTransitionTime(OffsetDateTime lastTransitionTime) {
     this.lastTransitionTime = lastTransitionTime;
   }
 

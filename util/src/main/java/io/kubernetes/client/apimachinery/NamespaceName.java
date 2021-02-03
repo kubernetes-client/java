@@ -12,6 +12,8 @@ limitations under the License.
 */
 package io.kubernetes.client.apimachinery;
 
+import static io.kubernetes.client.util.Preconditions.precondition;
+
 import java.util.Objects;
 
 public class NamespaceName {
@@ -20,8 +22,8 @@ public class NamespaceName {
   private final String name;
 
   public NamespaceName(String namespace, String name) {
-    this.namespace = namespace;
-    this.name = name;
+    this.namespace = precondition(namespace, Objects::isNull, () -> "namespace must not be null");
+    this.name = precondition(name, Objects::isNull, () -> "name must not be null");
   }
 
   public String getNamespace() {

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,6 +20,7 @@ import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.ApiResponse;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.Pair;
+import io.kubernetes.client.openapi.models.AuthenticationV1TokenRequest;
 import io.kubernetes.client.openapi.models.CoreV1Event;
 import io.kubernetes.client.openapi.models.CoreV1EventList;
 import io.kubernetes.client.openapi.models.V1APIResourceList;
@@ -57,7 +58,6 @@ import io.kubernetes.client.openapi.models.V1ServiceAccount;
 import io.kubernetes.client.openapi.models.V1ServiceAccountList;
 import io.kubernetes.client.openapi.models.V1ServiceList;
 import io.kubernetes.client.openapi.models.V1Status;
-import io.kubernetes.client.openapi.models.V1TokenRequest;
 import io.kubernetes.client.openapi.models.V1beta1Eviction;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -11781,7 +11781,7 @@ public class CoreV1Api {
   public okhttp3.Call createNamespacedServiceAccountTokenCall(
       String name,
       String namespace,
-      V1TokenRequest body,
+      AuthenticationV1TokenRequest body,
       String dryRun,
       String fieldManager,
       String pretty,
@@ -11845,7 +11845,7 @@ public class CoreV1Api {
   private okhttp3.Call createNamespacedServiceAccountTokenValidateBeforeCall(
       String name,
       String namespace,
-      V1TokenRequest body,
+      AuthenticationV1TokenRequest body,
       String dryRun,
       String fieldManager,
       String pretty,
@@ -11889,7 +11889,7 @@ public class CoreV1Api {
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @return V1TokenRequest
+   * @return AuthenticationV1TokenRequest
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -11901,15 +11901,15 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1TokenRequest createNamespacedServiceAccountToken(
+  public AuthenticationV1TokenRequest createNamespacedServiceAccountToken(
       String name,
       String namespace,
-      V1TokenRequest body,
+      AuthenticationV1TokenRequest body,
       String dryRun,
       String fieldManager,
       String pretty)
       throws ApiException {
-    ApiResponse<V1TokenRequest> localVarResp =
+    ApiResponse<AuthenticationV1TokenRequest> localVarResp =
         createNamespacedServiceAccountTokenWithHttpInfo(
             name, namespace, body, dryRun, fieldManager, pretty);
     return localVarResp.getData();
@@ -11928,7 +11928,7 @@ public class CoreV1Api {
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @return ApiResponse&lt;V1TokenRequest&gt;
+   * @return ApiResponse&lt;AuthenticationV1TokenRequest&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -11940,10 +11940,10 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<V1TokenRequest> createNamespacedServiceAccountTokenWithHttpInfo(
+  public ApiResponse<AuthenticationV1TokenRequest> createNamespacedServiceAccountTokenWithHttpInfo(
       String name,
       String namespace,
-      V1TokenRequest body,
+      AuthenticationV1TokenRequest body,
       String dryRun,
       String fieldManager,
       String pretty)
@@ -11951,7 +11951,7 @@ public class CoreV1Api {
     okhttp3.Call localVarCall =
         createNamespacedServiceAccountTokenValidateBeforeCall(
             name, namespace, body, dryRun, fieldManager, pretty, null);
-    Type localVarReturnType = new TypeToken<V1TokenRequest>() {}.getType();
+    Type localVarReturnType = new TypeToken<AuthenticationV1TokenRequest>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -11983,17 +11983,17 @@ public class CoreV1Api {
   public okhttp3.Call createNamespacedServiceAccountTokenAsync(
       String name,
       String namespace,
-      V1TokenRequest body,
+      AuthenticationV1TokenRequest body,
       String dryRun,
       String fieldManager,
       String pretty,
-      final ApiCallback<V1TokenRequest> _callback)
+      final ApiCallback<AuthenticationV1TokenRequest> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         createNamespacedServiceAccountTokenValidateBeforeCall(
             name, namespace, body, dryRun, fieldManager, pretty, _callback);
-    Type localVarReturnType = new TypeToken<V1TokenRequest>() {}.getType();
+    Type localVarReturnType = new TypeToken<AuthenticationV1TokenRequest>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }

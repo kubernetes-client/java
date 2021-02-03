@@ -12,7 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.kubectl;
 
-import com.google.common.base.Strings;
 import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.custom.V1Patch;
@@ -20,6 +19,7 @@ import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.util.ModelMapper;
 import io.kubernetes.client.util.Namespaces;
+import io.kubernetes.client.util.Strings;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
 import io.kubernetes.client.util.generic.KubernetesApiResponse;
 import io.kubernetes.client.util.generic.options.PatchOptions;

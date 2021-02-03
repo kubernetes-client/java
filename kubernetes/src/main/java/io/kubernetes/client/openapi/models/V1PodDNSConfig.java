@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -27,7 +27,7 @@ import java.util.Objects;
         "PodDNSConfig defines the DNS parameters of a pod in addition to those generated from DNSPolicy.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1PodDNSConfig {
   public static final String SERIALIZED_NAME_NAMESERVERS = "nameservers";
 
@@ -52,7 +52,7 @@ public class V1PodDNSConfig {
 
   public V1PodDNSConfig addNameserversItem(String nameserversItem) {
     if (this.nameservers == null) {
-      this.nameservers = new ArrayList<String>();
+      this.nameservers = new ArrayList<>();
     }
     this.nameservers.add(nameserversItem);
     return this;
@@ -84,7 +84,7 @@ public class V1PodDNSConfig {
 
   public V1PodDNSConfig addOptionsItem(V1PodDNSConfigOption optionsItem) {
     if (this.options == null) {
-      this.options = new ArrayList<V1PodDNSConfigOption>();
+      this.options = new ArrayList<>();
     }
     this.options.add(optionsItem);
     return this;
@@ -117,7 +117,7 @@ public class V1PodDNSConfig {
 
   public V1PodDNSConfig addSearchesItem(String searchesItem) {
     if (this.searches == null) {
-      this.searches = new ArrayList<String>();
+      this.searches = new ArrayList<>();
     }
     this.searches.add(searchesItem);
     return this;

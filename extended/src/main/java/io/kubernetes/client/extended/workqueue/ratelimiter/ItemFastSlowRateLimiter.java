@@ -12,8 +12,10 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.workqueue.ratelimiter;
 
-import com.google.common.util.concurrent.AtomicLongMap;
 import java.time.Duration;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * ItemFastSlowRateLimiter does a quick retry for a certain number of attempts, then a slow retry
@@ -25,19 +27,17 @@ public class ItemFastSlowRateLimiter<T> implements RateLimiter<T> {
   private Duration slowDelay;
   private int maxFastAttempts;
 
-  private AtomicLongMap<T> failures;
+  private ConcurrentMap<T, AtomicInteger> failures = new ConcurrentHashMap<>();
 
   public ItemFastSlowRateLimiter(Duration fastDelay, Duration slowDelay, int maxFastAttempts) {
     this.fastDelay = fastDelay;
     this.slowDelay = slowDelay;
     this.maxFastAttempts = maxFastAttempts;
-
-    failures = AtomicLongMap.create();
   }
 
   @Override
   public Duration when(T item) {
-    long attempts = failures.incrementAndGet(item);
+    int attempts = failures.computeIfAbsent(item, k -> new AtomicInteger()).incrementAndGet();
     if (attempts <= maxFastAttempts) {
       return fastDelay;
     }
@@ -51,6 +51,6 @@ public class ItemFastSlowRateLimiter<T> implements RateLimiter<T> {
 
   @Override
   public int numRequeues(T item) {
-    return (int) failures.get(item);
+    return (int) failures.computeIfAbsent(item, k -> new AtomicInteger()).get();
   }
 }

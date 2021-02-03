@@ -21,6 +21,7 @@ import io.kubernetes.client.openapi.apis.CoreV1Api;
 import io.kubernetes.client.openapi.models.V1Endpoints;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import java.net.HttpURLConnection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
@@ -58,6 +59,8 @@ public class EndpointsLock implements Lock {
   @Override
   public LeaderElectionRecord get() throws ApiException {
     V1Endpoints endpoints = coreV1Client.readNamespacedEndpoints(name, namespace, null, null, null);
+    endpointsRefer.set(endpoints);
+
     Map<String, String> annotations = endpoints.getMetadata().getAnnotations();
     if (annotations == null || annotations.isEmpty()) {
       endpoints.getMetadata().setAnnotations(new HashMap<>());
@@ -73,7 +76,6 @@ public class EndpointsLock implements Lock {
             .getApiClient()
             .getJSON()
             .deserialize(recordRawStringContent, LeaderElectionRecord.class);
-    endpointsRefer.set(endpoints);
     return record;
   }
 
@@ -89,6 +91,9 @@ public class EndpointsLock implements Lock {
           LeaderElectionRecordAnnotationKey,
           coreV1Client.getApiClient().getJSON().serialize(record));
       objectMeta.setAnnotations(annotations);
+      if (record.getOwnerReference() != null) {
+        objectMeta.setOwnerReferences(Collections.singletonList(record.getOwnerReference()));
+      }
       endpoints.setMetadata(objectMeta);
       V1Endpoints createdendpoints =
           coreV1Client.createNamespacedEndpoints(namespace, endpoints, null, null, null);

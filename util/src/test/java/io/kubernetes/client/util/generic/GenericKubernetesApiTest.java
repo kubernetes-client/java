@@ -20,7 +20,12 @@ import com.google.gson.Gson;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
-import io.kubernetes.client.openapi.models.*;
+import io.kubernetes.client.openapi.models.V1Job;
+import io.kubernetes.client.openapi.models.V1JobList;
+import io.kubernetes.client.openapi.models.V1JobStatus;
+import io.kubernetes.client.openapi.models.V1ListMeta;
+import io.kubernetes.client.openapi.models.V1ObjectMeta;
+import io.kubernetes.client.openapi.models.V1Status;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.Watchable;
 import io.kubernetes.client.util.generic.options.ListOptions;
@@ -146,6 +151,23 @@ public class GenericKubernetesApiTest {
     assertEquals(foo1, jobListResp.getObject());
     assertNull(jobListResp.getStatus());
     verify(1, putRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1")));
+  }
+
+  @Test
+  public void updateStatusNamespacedJobReturningObject() {
+    V1Job foo1 =
+        new V1Job().kind("Job").metadata(new V1ObjectMeta().namespace("default").name("foo1"));
+    foo1.setStatus(new V1JobStatus().failed(1));
+
+    stubFor(
+        patch(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1/status"))
+            .willReturn(aResponse().withStatus(200).withBody(new Gson().toJson(foo1))));
+    KubernetesApiResponse<V1Job> jobListResp = jobClient.updateStatus(foo1, t -> t.getStatus());
+    assertTrue(jobListResp.isSuccess());
+    assertEquals(foo1, jobListResp.getObject());
+    assertNull(jobListResp.getStatus());
+    verify(
+        1, patchRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1/status")));
   }
 
   @Test

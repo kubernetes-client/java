@@ -12,7 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import com.google.common.net.HttpHeaders;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Pair;
@@ -41,6 +40,8 @@ public class WebSockets {
   public static final String V4_STREAM_PROTOCOL = "v4.channel.k8s.io";
   public static final String STREAM_PROTOCOL_HEADER = "Sec-WebSocket-Protocol";
   public static final String SPDY_3_1 = "SPDY/3.1";
+  public static final String CONNECTION = "Connection";
+  public static final String UPGRADE = "Upgrade";
 
   /** A simple interface for a listener on a web socket */
   public interface SocketListener {
@@ -91,8 +92,8 @@ public class WebSockets {
 
     HashMap<String, String> headers = new HashMap<String, String>();
     headers.put(STREAM_PROTOCOL_HEADER, V4_STREAM_PROTOCOL);
-    headers.put(HttpHeaders.CONNECTION, HttpHeaders.UPGRADE);
-    headers.put(HttpHeaders.UPGRADE, SPDY_3_1);
+    headers.put(WebSockets.CONNECTION, WebSockets.UPGRADE);
+    headers.put(WebSockets.UPGRADE, SPDY_3_1);
     String[] localVarAuthNames = new String[] {"BearerToken"};
 
     Request request =

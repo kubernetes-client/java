@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -15,8 +15,8 @@ package io.kubernetes.client.openapi.models;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.Objects;
-import org.joda.time.DateTime;
 
 /**
  * CertificateSigningRequestCondition describes a condition of a CertificateSigningRequest object
@@ -26,17 +26,17 @@ import org.joda.time.DateTime;
         "CertificateSigningRequestCondition describes a condition of a CertificateSigningRequest object")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1CertificateSigningRequestCondition {
   public static final String SERIALIZED_NAME_LAST_TRANSITION_TIME = "lastTransitionTime";
 
   @SerializedName(SERIALIZED_NAME_LAST_TRANSITION_TIME)
-  private DateTime lastTransitionTime;
+  private OffsetDateTime lastTransitionTime;
 
   public static final String SERIALIZED_NAME_LAST_UPDATE_TIME = "lastUpdateTime";
 
   @SerializedName(SERIALIZED_NAME_LAST_UPDATE_TIME)
-  private DateTime lastUpdateTime;
+  private OffsetDateTime lastUpdateTime;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
 
@@ -58,7 +58,8 @@ public class V1CertificateSigningRequestCondition {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
-  public V1CertificateSigningRequestCondition lastTransitionTime(DateTime lastTransitionTime) {
+  public V1CertificateSigningRequestCondition lastTransitionTime(
+      OffsetDateTime lastTransitionTime) {
 
     this.lastTransitionTime = lastTransitionTime;
     return this;
@@ -75,15 +76,15 @@ public class V1CertificateSigningRequestCondition {
   @ApiModelProperty(
       value =
           "lastTransitionTime is the time the condition last transitioned from one status to another. If unset, when a new condition type is added or an existing condition's status is changed, the server defaults this to the current time.")
-  public DateTime getLastTransitionTime() {
+  public OffsetDateTime getLastTransitionTime() {
     return lastTransitionTime;
   }
 
-  public void setLastTransitionTime(DateTime lastTransitionTime) {
+  public void setLastTransitionTime(OffsetDateTime lastTransitionTime) {
     this.lastTransitionTime = lastTransitionTime;
   }
 
-  public V1CertificateSigningRequestCondition lastUpdateTime(DateTime lastUpdateTime) {
+  public V1CertificateSigningRequestCondition lastUpdateTime(OffsetDateTime lastUpdateTime) {
 
     this.lastUpdateTime = lastUpdateTime;
     return this;
@@ -96,11 +97,11 @@ public class V1CertificateSigningRequestCondition {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "lastUpdateTime is the time of the last update to this condition")
-  public DateTime getLastUpdateTime() {
+  public OffsetDateTime getLastUpdateTime() {
     return lastUpdateTime;
   }
 
-  public void setLastUpdateTime(DateTime lastUpdateTime) {
+  public void setLastUpdateTime(OffsetDateTime lastUpdateTime) {
     this.lastUpdateTime = lastUpdateTime;
   }
 

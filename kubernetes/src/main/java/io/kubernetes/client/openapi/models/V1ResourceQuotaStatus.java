@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(description = "ResourceQuotaStatus defines the enforced hard limits and observed use.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1ResourceQuotaStatus {
   public static final String SERIALIZED_NAME_HARD = "hard";
 
@@ -44,7 +44,7 @@ public class V1ResourceQuotaStatus {
 
   public V1ResourceQuotaStatus putHardItem(String key, Quantity hardItem) {
     if (this.hard == null) {
-      this.hard = new HashMap<String, Quantity>();
+      this.hard = new HashMap<>();
     }
     this.hard.put(key, hardItem);
     return this;
@@ -76,7 +76,7 @@ public class V1ResourceQuotaStatus {
 
   public V1ResourceQuotaStatus putUsedItem(String key, Quantity usedItem) {
     if (this.used == null) {
-      this.used = new HashMap<String, Quantity>();
+      this.used = new HashMap<>();
     }
     this.used.put(key, usedItem);
     return this;

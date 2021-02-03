@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -28,7 +28,7 @@ import java.util.Objects;
         "FlexPersistentVolumeSource represents a generic persistent volume resource that is provisioned/attached using an exec based plugin.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1FlexPersistentVolumeSource {
   public static final String SERIALIZED_NAME_DRIVER = "driver";
 
@@ -110,7 +110,7 @@ public class V1FlexPersistentVolumeSource {
 
   public V1FlexPersistentVolumeSource putOptionsItem(String key, String optionsItem) {
     if (this.options == null) {
-      this.options = new HashMap<String, String>();
+      this.options = new HashMap<>();
     }
     this.options.put(key, optionsItem);
     return this;

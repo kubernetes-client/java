@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "WebhookConversion describes how to call a conversion webhook")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1WebhookConversion {
   public static final String SERIALIZED_NAME_CLIENT_CONFIG = "clientConfig";
 
@@ -34,7 +34,7 @@ public class V1WebhookConversion {
       "conversionReviewVersions";
 
   @SerializedName(SERIALIZED_NAME_CONVERSION_REVIEW_VERSIONS)
-  private List<String> conversionReviewVersions = new ArrayList<String>();
+  private List<String> conversionReviewVersions = new ArrayList<>();
 
   public V1WebhookConversion clientConfig(ApiextensionsV1WebhookClientConfig clientConfig) {
 

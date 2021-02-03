@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(description = "ResourceRequirements describes the compute resource requirements.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1ResourceRequirements {
   public static final String SERIALIZED_NAME_LIMITS = "limits";
 
@@ -44,7 +44,7 @@ public class V1ResourceRequirements {
 
   public V1ResourceRequirements putLimitsItem(String key, Quantity limitsItem) {
     if (this.limits == null) {
-      this.limits = new HashMap<String, Quantity>();
+      this.limits = new HashMap<>();
     }
     this.limits.put(key, limitsItem);
     return this;
@@ -76,7 +76,7 @@ public class V1ResourceRequirements {
 
   public V1ResourceRequirements putRequestsItem(String key, Quantity requestsItem) {
     if (this.requests == null) {
-      this.requests = new HashMap<String, Quantity>();
+      this.requests = new HashMap<>();
     }
     this.requests.put(key, requestsItem);
     return this;

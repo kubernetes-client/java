@@ -12,8 +12,8 @@ limitations under the License.
 */
 package io.kubernetes.client.monitoring;
 
-import com.google.common.base.Strings;
 import io.kubernetes.client.apimachinery.KubernetesRequestDigest;
+import io.kubernetes.client.util.Strings;
 import io.prometheus.client.Counter;
 import io.prometheus.client.Histogram;
 import io.prometheus.client.SimpleTimer;

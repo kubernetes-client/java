@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 import java.io.Writer;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -29,8 +30,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import okio.ByteString;
-import org.joda.time.DateTime;
-import org.joda.time.DateTimeZone;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.DumperOptions;
@@ -227,7 +226,7 @@ public class Yaml {
         return constructByteArray((ScalarNode) node);
       }
 
-      if (node.getType() == org.joda.time.DateTime.class) {
+      if (node.getType() == OffsetDateTime.class) {
         return constructDateTime((ScalarNode) node);
       }
 
@@ -250,7 +249,7 @@ public class Yaml {
       if (node.getValue() == null || "null".equalsIgnoreCase(node.getValue())) {
         return null;
       } else {
-        return new DateTime(node.getValue(), DateTimeZone.UTC);
+        return OffsetDateTime.parse(node.getValue());
       }
     }
   }
@@ -261,7 +260,7 @@ public class Yaml {
       this.representers.put(IntOrString.class, new RepresentIntOrString());
       this.representers.put(byte[].class, new RepresentByteArray());
       this.representers.put(Quantity.class, new RepresentQuantity());
-      this.representers.put(DateTime.class, new RepresentDateTime());
+      this.representers.put(OffsetDateTime.class, new RepresentDateTime());
     }
 
     private class RepresentDateTime implements Represent {

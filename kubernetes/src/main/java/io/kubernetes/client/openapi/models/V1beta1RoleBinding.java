@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -31,7 +31,7 @@ import java.util.Objects;
         "RoleBinding references a role, but does not contain it.  It can reference a Role in the same namespace or a ClusterRole in the global namespace. It adds who information via Subjects and namespace information by which namespace it exists in.  RoleBindings in a given namespace only have effect in that namespace. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBinding, and will no longer be served in v1.22.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1beta1RoleBinding implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 
@@ -56,7 +56,7 @@ public class V1beta1RoleBinding implements io.kubernetes.client.common.Kubernete
   public static final String SERIALIZED_NAME_SUBJECTS = "subjects";
 
   @SerializedName(SERIALIZED_NAME_SUBJECTS)
-  private List<V1beta1Subject> subjects = null;
+  private List<RbacV1beta1Subject> subjects = null;
 
   public V1beta1RoleBinding apiVersion(String apiVersion) {
 
@@ -151,15 +151,15 @@ public class V1beta1RoleBinding implements io.kubernetes.client.common.Kubernete
     this.roleRef = roleRef;
   }
 
-  public V1beta1RoleBinding subjects(List<V1beta1Subject> subjects) {
+  public V1beta1RoleBinding subjects(List<RbacV1beta1Subject> subjects) {
 
     this.subjects = subjects;
     return this;
   }
 
-  public V1beta1RoleBinding addSubjectsItem(V1beta1Subject subjectsItem) {
+  public V1beta1RoleBinding addSubjectsItem(RbacV1beta1Subject subjectsItem) {
     if (this.subjects == null) {
-      this.subjects = new ArrayList<V1beta1Subject>();
+      this.subjects = new ArrayList<>();
     }
     this.subjects.add(subjectsItem);
     return this;
@@ -172,11 +172,11 @@ public class V1beta1RoleBinding implements io.kubernetes.client.common.Kubernete
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Subjects holds references to the objects the role applies to.")
-  public List<V1beta1Subject> getSubjects() {
+  public List<RbacV1beta1Subject> getSubjects() {
     return subjects;
   }
 
-  public void setSubjects(List<V1beta1Subject> subjects) {
+  public void setSubjects(List<RbacV1beta1Subject> subjects) {
     this.subjects = subjects;
   }
 

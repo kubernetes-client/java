@@ -12,6 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.leaderelection;
 
+import io.kubernetes.client.openapi.models.V1OwnerReference;
 import java.time.Duration;
 
 public class LeaderElectionConfig {
@@ -24,14 +25,26 @@ public class LeaderElectionConfig {
 
   private Duration retryPeriod;
 
+  private V1OwnerReference ownerReference;
+
   public LeaderElectionConfig() {}
 
   public LeaderElectionConfig(
       Lock lock, Duration leaseDuration, Duration renewDeadline, Duration retryPeriod) {
+    this(lock, leaseDuration, renewDeadline, retryPeriod, null);
+  }
+
+  public LeaderElectionConfig(
+      Lock lock,
+      Duration leaseDuration,
+      Duration renewDeadline,
+      Duration retryPeriod,
+      V1OwnerReference ownerReference) {
     this.lock = lock;
     this.leaseDuration = leaseDuration;
     this.renewDeadline = renewDeadline;
     this.retryPeriod = retryPeriod;
+    this.ownerReference = ownerReference;
   }
 
   public Lock getLock() {
@@ -64,5 +77,13 @@ public class LeaderElectionConfig {
 
   public void setRetryPeriod(Duration retryPeriod) {
     this.retryPeriod = retryPeriod;
+  }
+
+  public V1OwnerReference getOwnerReference() {
+    return ownerReference;
+  }
+
+  public void setOwnerReference(V1OwnerReference ownerReference) {
+    this.ownerReference = ownerReference;
   }
 }

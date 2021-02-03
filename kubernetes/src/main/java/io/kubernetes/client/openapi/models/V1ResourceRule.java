@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -28,7 +28,7 @@ import java.util.Objects;
         "ResourceRule is the list of actions the subject is allowed to perform on resources. The list ordering isn't significant, may contain duplicates, and possibly be incomplete.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1ResourceRule {
   public static final String SERIALIZED_NAME_API_GROUPS = "apiGroups";
 
@@ -48,7 +48,7 @@ public class V1ResourceRule {
   public static final String SERIALIZED_NAME_VERBS = "verbs";
 
   @SerializedName(SERIALIZED_NAME_VERBS)
-  private List<String> verbs = new ArrayList<String>();
+  private List<String> verbs = new ArrayList<>();
 
   public V1ResourceRule apiGroups(List<String> apiGroups) {
 
@@ -58,7 +58,7 @@ public class V1ResourceRule {
 
   public V1ResourceRule addApiGroupsItem(String apiGroupsItem) {
     if (this.apiGroups == null) {
-      this.apiGroups = new ArrayList<String>();
+      this.apiGroups = new ArrayList<>();
     }
     this.apiGroups.add(apiGroupsItem);
     return this;
@@ -91,7 +91,7 @@ public class V1ResourceRule {
 
   public V1ResourceRule addResourceNamesItem(String resourceNamesItem) {
     if (this.resourceNames == null) {
-      this.resourceNames = new ArrayList<String>();
+      this.resourceNames = new ArrayList<>();
     }
     this.resourceNames.add(resourceNamesItem);
     return this;
@@ -123,7 +123,7 @@ public class V1ResourceRule {
 
   public V1ResourceRule addResourcesItem(String resourcesItem) {
     if (this.resources == null) {
-      this.resources = new ArrayList<String>();
+      this.resources = new ArrayList<>();
     }
     this.resources.add(resourcesItem);
     return this;

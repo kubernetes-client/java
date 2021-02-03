@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -15,26 +15,26 @@ package io.kubernetes.client.openapi.models;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.Objects;
-import org.joda.time.DateTime;
 
 /** TokenRequestStatus is the result of a token request. */
 @ApiModel(description = "TokenRequestStatus is the result of a token request.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1TokenRequestStatus {
   public static final String SERIALIZED_NAME_EXPIRATION_TIMESTAMP = "expirationTimestamp";
 
   @SerializedName(SERIALIZED_NAME_EXPIRATION_TIMESTAMP)
-  private DateTime expirationTimestamp;
+  private OffsetDateTime expirationTimestamp;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
 
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
 
-  public V1TokenRequestStatus expirationTimestamp(DateTime expirationTimestamp) {
+  public V1TokenRequestStatus expirationTimestamp(OffsetDateTime expirationTimestamp) {
 
     this.expirationTimestamp = expirationTimestamp;
     return this;
@@ -48,11 +48,11 @@ public class V1TokenRequestStatus {
   @ApiModelProperty(
       required = true,
       value = "ExpirationTimestamp is the time of expiration of the returned token.")
-  public DateTime getExpirationTimestamp() {
+  public OffsetDateTime getExpirationTimestamp() {
     return expirationTimestamp;
   }
 
-  public void setExpirationTimestamp(DateTime expirationTimestamp) {
+  public void setExpirationTimestamp(OffsetDateTime expirationTimestamp) {
     this.expirationTimestamp = expirationTimestamp;
   }
 

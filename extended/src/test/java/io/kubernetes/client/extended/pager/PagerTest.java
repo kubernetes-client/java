@@ -25,7 +25,6 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
-import com.google.common.io.Resources;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.apis.CoreV1Api;
 import io.kubernetes.client.openapi.models.V1Namespace;
@@ -47,15 +46,15 @@ public class PagerTest {
 
   private ApiClient client;
   private static final String LIST_PAGE0_FILE_PATH =
-      Resources.getResource("namespace-list-pager0.json").getPath();
+      PagerTest.class.getClassLoader().getResource("namespace-list-pager0.json").getPath();
   private static final String LIST_PAGE1_FILE_PATH =
-      Resources.getResource("namespace-list-pager1.json").getPath();
+      PagerTest.class.getClassLoader().getResource("namespace-list-pager1.json").getPath();
   private static final String LIST_PAGE2_FILE_PATH =
-      Resources.getResource("namespace-list-pager2.json").getPath();
+      PagerTest.class.getClassLoader().getResource("namespace-list-pager2.json").getPath();
   private static final String LIST_STATUS_FILE_PATH =
-      Resources.getResource("status-400.json").getPath();
+      PagerTest.class.getClassLoader().getResource("status-400.json").getPath();
   private static final String STATUS_BAD_TOKEN_FILE_PATH =
-      Resources.getResource("bad-token-status.json").getPath();
+      PagerTest.class.getClassLoader().getResource("bad-token-status.json").getPath();
   @Rule public WireMockRule wireMockRule = new WireMockRule(wireMockConfig().dynamicPort());
 
   @Before

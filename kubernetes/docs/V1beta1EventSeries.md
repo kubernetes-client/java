@@ -8,7 +8,7 @@ EventSeries contain information on series of events, i.e. thing that was/is happ
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **count** | **Integer** | count is the number of occurrences in this series up to the last heartbeat time. | 
-**lastObservedTime** | [**DateTime**](DateTime.md) | lastObservedTime is the time when last Event from the series was seen before last heartbeat. | 
+**lastObservedTime** | [**OffsetDateTime**](OffsetDateTime.md) | lastObservedTime is the time when last Event from the series was seen before last heartbeat. | 
 
 
 

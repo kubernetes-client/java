@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -28,7 +28,7 @@ import java.util.Objects;
         "A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1LabelSelectorRequirement {
   public static final String SERIALIZED_NAME_KEY = "key";
 
@@ -97,7 +97,7 @@ public class V1LabelSelectorRequirement {
 
   public V1LabelSelectorRequirement addValuesItem(String valuesItem) {
     if (this.values == null) {
-      this.values = new ArrayList<String>();
+      this.values = new ArrayList<>();
     }
     this.values.add(valuesItem);
     return this;

@@ -15,9 +15,10 @@ package io.kubernetes.client.informer.cache;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.ResourceEventHandler;
 import io.kubernetes.client.informer.exception.BadNotificationException;
+import java.time.Duration;
+import java.time.OffsetDateTime;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,7 +36,7 @@ public class ProcessorListener<ApiType extends KubernetesObject> implements Runn
   // the
   // informer's overall resync check period.
   private long resyncPeriod;
-  private DateTime nextResync;
+  private OffsetDateTime nextResync;
 
   private BlockingQueue<Notification> queue;
 
@@ -47,7 +48,7 @@ public class ProcessorListener<ApiType extends KubernetesObject> implements Runn
 
     this.queue = new LinkedBlockingQueue<>();
 
-    determineNextResync(DateTime.now());
+    determineNextResync(OffsetDateTime.now());
   }
 
   @Override
@@ -105,11 +106,11 @@ public class ProcessorListener<ApiType extends KubernetesObject> implements Runn
     this.queue.add(obj);
   }
 
-  public void determineNextResync(DateTime now) {
-    this.nextResync = now.plus(this.resyncPeriod);
+  public void determineNextResync(OffsetDateTime now) {
+    this.nextResync = now.plus(Duration.ofMillis(this.resyncPeriod));
   }
 
-  public boolean shouldResync(DateTime now) {
+  public boolean shouldResync(OffsetDateTime now) {
     return this.resyncPeriod != 0 && (now.isAfter(this.nextResync) || now.equals(this.nextResync));
   }
 

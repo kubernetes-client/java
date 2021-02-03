@@ -17,7 +17,7 @@ import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.util.ModelMapper;
 import io.kubernetes.client.util.generic.options.UpdateOptions;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 public class KubectlReplace<ApiType extends KubernetesObject>
     extends Kubectl.ResourceBuilder<ApiType, KubectlReplace<ApiType>>

@@ -20,7 +20,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-import com.google.common.io.Resources;
+import io.kubernetes.client.Resources;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.util.credentials.Authentication;
 import java.io.File;

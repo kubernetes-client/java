@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -30,7 +30,7 @@ import java.util.Objects;
         "IPBlock describes a particular CIDR (Ex. \"192.168.1.1/24\",\"2001:db9::/64\") that is allowed to the pods matched by a NetworkPolicySpec's podSelector. The except entry describes CIDRs that should not be included within this rule.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2020-11-06T08:58:17.566Z[Etc/UTC]")
+    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
 public class V1IPBlock {
   public static final String SERIALIZED_NAME_CIDR = "cidr";
 
@@ -74,7 +74,7 @@ public class V1IPBlock {
 
   public V1IPBlock addExceptItem(String exceptItem) {
     if (this.except == null) {
-      this.except = new ArrayList<String>();
+      this.except = new ArrayList<>();
     }
     this.except.add(exceptItem);
     return this;

@@ -12,7 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client;
 
-import com.google.common.base.Objects;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.ApiResponse;
@@ -28,6 +27,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -237,19 +237,19 @@ public class Discovery {
       if (this == o) return true;
       if (o == null || getClass() != o.getClass()) return false;
       APIResource that = (APIResource) o;
-      return Objects.equal(group, that.group)
-          && Objects.equal(kind, that.kind)
-          && Objects.equal(versions, that.versions)
-          && Objects.equal(preferredVersion, that.preferredVersion)
-          && Objects.equal(isNamespaced, that.isNamespaced)
-          && Objects.equal(resourcePlural, that.resourcePlural)
-          && Objects.equal(resourceSingular, that.resourceSingular)
-          && Objects.equal(subResources, that.subResources);
+      return Objects.equals(group, that.group)
+          && Objects.equals(kind, that.kind)
+          && Objects.equals(versions, that.versions)
+          && Objects.equals(preferredVersion, that.preferredVersion)
+          && Objects.equals(isNamespaced, that.isNamespaced)
+          && Objects.equals(resourcePlural, that.resourcePlural)
+          && Objects.equals(resourceSingular, that.resourceSingular)
+          && Objects.equals(subResources, that.subResources);
     }
 
     @Override
     public int hashCode() {
-      return Objects.hashCode(
+      return Objects.hash(
           group,
           kind,
           versions,

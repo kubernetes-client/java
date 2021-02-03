@@ -9,7 +9,7 @@
     <parent>
         <artifactId>client-java-parent</artifactId>
         <groupId>io.kubernetes</groupId>
-        <version>10.0.1-SNAPSHOT</version>
+        <version>11.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -35,16 +35,16 @@
             <artifactId>commons-lang3</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-        </dependency>
-        <dependency>
             <groupId>com.github.vladimir-bukhtoyarov</groupId>
             <artifactId>bucket4j-core</artifactId>
         </dependency>
         <dependency>
             <groupId>com.flipkart.zjsonpatch</groupId>
             <artifactId>zjsonpatch</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>caffeine</artifactId>
         </dependency>
         <!-- test dependencies -->
         <dependency>

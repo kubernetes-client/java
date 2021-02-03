@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.apimachinery;
 
-import com.google.common.base.Strings;
+import io.kubernetes.client.util.Strings;
 import java.util.regex.Pattern;
 import okhttp3.Request;
 
@@ -74,9 +74,11 @@ public class KubernetesRequestDigest {
   }
 
   private final String urlPath;
+
   private final boolean isNonResourceRequest;
 
   private final KubernetesResource resourceMeta;
+
   private final KubernetesVerb verb;
 
   public String getUrlPath() {
@@ -102,9 +104,11 @@ public class KubernetesRequestDigest {
     }
 
     String groupVersion;
-    if (Strings.isNullOrEmpty(resourceMeta.getGroupVersionResource().getGroup())) { // core resource
+    if (Strings.isNullOrEmpty(resourceMeta.getGroupVersionResource().getGroup())) {
+      // core resource
       groupVersion = "";
-    } else { // regular resource
+    } else {
+      // regular resource
       groupVersion =
           resourceMeta.getGroupVersionResource().getGroup()
               + "/"

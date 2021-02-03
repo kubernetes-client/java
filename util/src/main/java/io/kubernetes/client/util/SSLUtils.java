@@ -179,7 +179,16 @@ public class SSLUtils {
 
     PrivateKey privateKey = loadKey(keyInputStream, clientKeyAlgo);
 
-    KeyStore keyStore = KeyStore.getInstance("JKS");
+    KeyStore keyStore;
+    try {
+      keyStore = KeyStore.getInstance("JKS");
+    } catch (KeyStoreException e) {
+      // Not having an instance of JKS happens on Android, for example.
+      // Since we rely on BouncyCastle anyway, let's try BKS instead
+      // (which is BouncyCastle's JKS compatible provider).
+      keyStore = KeyStore.getInstance("BKS");
+    }
+
     if (keyStoreFile != null && keyStoreFile.length() > 0) {
       keyStore.load(new FileInputStream(keyStoreFile), keyStorePassphrase);
     } else {
