@@ -1,13 +1,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.kubernetes</groupId>
+    <parent>
+        <groupId>io.kubernetes</groupId>
+        <artifactId>client-java-examples-parent</artifactId>
+        <version>12.0.0-SNAPSHOT</version>
+        <relativePath>..</relativePath>
+    </parent>
+
     <artifactId>client-java-examples-release-10</artifactId>
     <packaging>bundle</packaging>
     <name>client-java-examples-release-10</name>
-    <version>1.0.0</version>
+    <version>12.0.0-SNAPSHOT</version>
     <properties>
-        <kubernetes.client.version>10.0.1</kubernetes.client.version>
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
@@ -27,27 +32,27 @@
         <dependency>
             <groupId>io.kubernetes</groupId>
             <artifactId>client-java-api</artifactId>
-            <version>${kubernetes.client.version}</version>
+            <version>10.0.1</version>
         </dependency>
         <dependency>
             <groupId>io.kubernetes</groupId>
             <artifactId>client-java</artifactId>
-            <version>${kubernetes.client.version}</version>
+            <version>10.0.1</version>
         </dependency>
         <dependency>
             <groupId>io.kubernetes</groupId>
             <artifactId>client-java-extended</artifactId>
-            <version>${kubernetes.client.version}</version>
+            <version>10.0.1</version>
         </dependency>
         <dependency>
             <groupId>io.kubernetes</groupId>
             <artifactId>client-java-spring-integration</artifactId>
-            <version>${kubernetes.client.version}</version>
+            <version>10.0.1</version>
         </dependency>
         <dependency>
             <groupId>io.kubernetes</groupId>
             <artifactId>client-java-proto</artifactId>
-            <version>${kubernetes.client.version}</version>
+            <version>10.0.1</version>
         </dependency>
         <dependency>
             <groupId>commons-cli</groupId>
