@@ -155,7 +155,7 @@ public class DefaultSharedIndexInformer<
 
     ProcessorListener<ApiType> listener =
         new ProcessorListener(
-            handler, determineResyncPeriod(resyncCheckPeriodMillis, this.resyncCheckPeriodMillis));
+            handler, determineResyncPeriod(resyncPeriodMillis, this.resyncCheckPeriodMillis));
     if (!started) {
       this.processor.addListener(listener);
       return;
