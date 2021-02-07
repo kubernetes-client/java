@@ -12,10 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.spring.extended.network;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThrows;
 
+import io.kubernetes.client.extended.network.EndpointsLoadBalancer;
 import io.kubernetes.client.extended.network.LoadBalanceStrategy;
 import io.kubernetes.client.extended.network.LoadBalancer;
+import io.kubernetes.client.extended.network.RoundRobinLoadBalanceStrategy;
 import io.kubernetes.client.extended.network.exception.NoAvailableAddressException;
 import io.kubernetes.client.informer.cache.Cache;
 import io.kubernetes.client.informer.cache.Lister;
@@ -24,8 +28,8 @@ import io.kubernetes.client.openapi.models.V1EndpointPort;
 import io.kubernetes.client.openapi.models.V1EndpointSubset;
 import io.kubernetes.client.openapi.models.V1Endpoints;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
-import io.kubernetes.client.spring.extended.network.annotation.KubernetesEndpointsLoadBalanced;
 import io.kubernetes.client.spring.extended.network.endpoints.EndpointsGetter;
+import io.kubernetes.client.spring.extended.network.endpoints.InformerEndpointsGetter;
 import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -53,28 +57,32 @@ public class KubernetesEndpointsLoadBalancerCreatorTest {
     }
 
     @Bean
-    public MyBean myBean() {
-      return new MyBean();
+    public MyBean myBean(Lister<V1Endpoints> lister) {
+      return new MyBean(new MyEndpointGetter(), new MyStrategy(), lister);
     }
   }
 
   static class MyBean {
-    @KubernetesEndpointsLoadBalanced(namespace = "default", name = "no-such")
+
+    public MyBean(
+        MyEndpointGetter myEndpointGetter, MyStrategy myStrategy, Lister<V1Endpoints> lister) {
+      InformerEndpointsGetter getter = new InformerEndpointsGetter(lister);
+      RoundRobinLoadBalanceStrategy strategy = new RoundRobinLoadBalanceStrategy();
+      noSuchLoadBalancer =
+          new EndpointsLoadBalancer(() -> getter.get("default", "no-such"), strategy);
+      fooLoadBalancer = new EndpointsLoadBalancer(() -> getter.get("default", "foo"), strategy);
+      customStrategyLoadBalancer =
+          new EndpointsLoadBalancer(() -> getter.get("default", "foo"), myStrategy);
+      customEndpointGetterLoadBalancer =
+          new EndpointsLoadBalancer(() -> myEndpointGetter.get("default", "foo"), strategy);
+    }
+
     private LoadBalancer noSuchLoadBalancer;
 
-    @KubernetesEndpointsLoadBalanced(namespace = "default", name = "foo")
     private LoadBalancer fooLoadBalancer;
 
-    @KubernetesEndpointsLoadBalanced(
-        namespace = "default",
-        name = "foo",
-        strategy = MyStrategy.class)
     private LoadBalancer customStrategyLoadBalancer;
 
-    @KubernetesEndpointsLoadBalanced(
-        namespace = "default",
-        name = "foo",
-        endpointsGetter = MyEndpointGetter.class)
     private LoadBalancer customEndpointGetterLoadBalancer;
   }
 
@@ -109,6 +117,7 @@ public class KubernetesEndpointsLoadBalancerCreatorTest {
               new V1EndpointSubset()
                   .addAddressesItem(new V1EndpointAddress().ip("127.0.0.1"))
                   .addPortsItem(new V1EndpointPort().port(8080)));
+
   @Autowired private MyBean myBean;
 
   @Autowired private Cache<V1Endpoints> endpointsCache;

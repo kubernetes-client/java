@@ -14,11 +14,14 @@ package io.kubernetes.client.spring.extended.network.endpoints;
 
 import io.kubernetes.client.informer.cache.Lister;
 import io.kubernetes.client.openapi.models.V1Endpoints;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class InformerEndpointsGetter implements EndpointsGetter {
 
-  @Autowired private Lister<V1Endpoints> endpointsLister;
+  private final Lister<V1Endpoints> endpointsLister;
+
+  public InformerEndpointsGetter(Lister<V1Endpoints> lister) {
+    this.endpointsLister = lister;
+  }
 
   @Override
   public V1Endpoints get(String namespace, String name) {

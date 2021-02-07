@@ -99,8 +99,6 @@ public class KubernetesInformerCreatorTest {
 
   @Autowired private Lister<V1ConfigMap> configMapLister;
 
-  @Autowired private ApiClient apiClient;
-
   @Test
   public void testInformerInjection() throws InterruptedException {
     assertNotNull(podInformer);

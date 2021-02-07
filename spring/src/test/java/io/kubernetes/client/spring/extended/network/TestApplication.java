@@ -12,12 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.spring.extended.network;
 
-import io.kubernetes.client.spring.extended.network.config.KubernetesLoadBalancerAutoConfiguration;
 import org.springframework.boot.SpringBootConfiguration;
-import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 
 @SpringBootConfiguration
-@ImportAutoConfiguration({
-  KubernetesLoadBalancerAutoConfiguration.class,
-})
 public class TestApplication {}

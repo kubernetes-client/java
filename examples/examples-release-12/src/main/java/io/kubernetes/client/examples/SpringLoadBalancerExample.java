@@ -12,14 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.examples;
 
-import io.kubernetes.client.extended.network.LoadBalancer;
-import io.kubernetes.client.informer.SharedInformerFactory;
-import io.kubernetes.client.spring.extended.network.annotation.KubernetesEndpointsLoadBalanced;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import io.kubernetes.client.extended.network.EndpointsLoadBalancer;
+import io.kubernetes.client.extended.network.LoadBalancer;
+import io.kubernetes.client.extended.network.RoundRobinLoadBalanceStrategy;
+import io.kubernetes.client.informer.SharedInformerFactory;
+import io.kubernetes.client.informer.cache.Lister;
+import io.kubernetes.client.openapi.models.V1Endpoints;
+import io.kubernetes.client.spring.extended.network.endpoints.InformerEndpointsGetter;
 
 @SpringBootApplication
 public class SpringLoadBalancerExample {
@@ -44,14 +49,23 @@ public class SpringLoadBalancerExample {
     }
 
     @Bean
-    public MyService myService() {
-      return new MyService();
+    public MyService myService(Lister<V1Endpoints> lister) {
+      return new MyService(lister);
     }
   }
 
   public static class MyService {
 
-    @KubernetesEndpointsLoadBalanced(namespace = "default", name = "kubernetes")
     private LoadBalancer defaultKubernetesLoadBalancer;
+
+    public MyService(Lister<V1Endpoints> lister) {
+      InformerEndpointsGetter getter = new InformerEndpointsGetter(lister);
+      RoundRobinLoadBalanceStrategy strategy = new RoundRobinLoadBalanceStrategy();
+      defaultKubernetesLoadBalancer = new EndpointsLoadBalancer(
+        () -> getter.get("default", "kubernetes"),
+        strategy
+      );
+    }
+
   }
 }
