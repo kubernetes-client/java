@@ -59,8 +59,8 @@ public class KubernetesApiResponse<DataType extends KubernetesType> {
    */
   public KubernetesApiResponse<DataType> throwsApiException() throws ApiException {
     return onFailure(
-        errorStatus -> {
-          throw new ApiException(errorStatus.toString());
+        (code, errorStatus) -> {
+          throw new ApiException(code, errorStatus.toString());
         });
   }
 
@@ -74,12 +74,12 @@ public class KubernetesApiResponse<DataType extends KubernetesType> {
   public KubernetesApiResponse<DataType> onFailure(ErrorStatusHandler errorStatusHandler)
       throws ApiException {
     if (!isSuccess()) {
-      errorStatusHandler.handle(this.status);
+      errorStatusHandler.handle(this.getHttpStatusCode(), this.status);
     }
     return this;
   }
 
   public interface ErrorStatusHandler {
-    void handle(V1Status errorStatus) throws ApiException;
+    void handle(int code, V1Status errorStatus) throws ApiException;
   }
 }
