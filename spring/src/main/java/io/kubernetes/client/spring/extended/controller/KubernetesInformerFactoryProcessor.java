@@ -12,6 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.spring.extended.controller;
 
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.SharedIndexInformer;
 import io.kubernetes.client.informer.SharedInformer;
 import io.kubernetes.client.informer.SharedInformerFactory;
@@ -20,18 +21,16 @@ import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.spring.extended.controller.annotation.KubernetesInformer;
 import io.kubernetes.client.spring.extended.controller.annotation.KubernetesInformers;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
-import java.time.Duration;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
-import org.springframework.beans.factory.support.AbstractBeanDefinition;
+import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
 import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.core.Ordered;
 import org.springframework.core.ResolvableType;
+import org.springframework.core.annotation.AnnotatedElementUtils;
 
 /**
  * The type Kubernetes informer factory processor which basically does the following things:
@@ -44,73 +43,14 @@ import org.springframework.core.ResolvableType;
 public class KubernetesInformerFactoryProcessor
     implements BeanDefinitionRegistryPostProcessor, Ordered {
 
-  private static final Logger log =
-      LoggerFactory.getLogger(KubernetesInformerFactoryProcessor.class);
-
   public static final int ORDER = 0;
 
-  private BeanDefinitionRegistry beanDefinitionRegistry;
-
-  private final ApiClient apiClient;
-  private final SharedInformerFactory sharedInformerFactory;
-
-  @Autowired
-  public KubernetesInformerFactoryProcessor(
-      ApiClient apiClient, SharedInformerFactory sharedInformerFactory) {
-    this.apiClient = apiClient;
-    this.sharedInformerFactory = sharedInformerFactory;
-  }
+  private ConfigurableListableBeanFactory beanFactory;
 
   @Override
   public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory)
       throws BeansException {
-
-    this.apiClient.setHttpClient(
-        this.apiClient.getHttpClient().newBuilder().readTimeout(Duration.ZERO).build());
-
-    KubernetesInformers kubernetesInformers =
-        sharedInformerFactory.getClass().getAnnotation(KubernetesInformers.class);
-    if (kubernetesInformers == null || kubernetesInformers.value().length == 0) {
-      log.info("No informers registered in the sharedInformerFactory..");
-      return;
-    }
-    for (KubernetesInformer kubernetesInformer : kubernetesInformers.value()) {
-      final GenericKubernetesApi api =
-          new GenericKubernetesApi(
-              kubernetesInformer.apiTypeClass(),
-              kubernetesInformer.apiListTypeClass(),
-              kubernetesInformer.groupVersionResource().apiGroup(),
-              kubernetesInformer.groupVersionResource().apiVersion(),
-              kubernetesInformer.groupVersionResource().resourcePlural(),
-              apiClient);
-      SharedIndexInformer sharedIndexInformer =
-          sharedInformerFactory.sharedIndexInformerFor(
-              api,
-              kubernetesInformer.apiTypeClass(),
-              kubernetesInformer.resyncPeriodMillis(),
-              kubernetesInformer.namespace());
-      ResolvableType informerType =
-          ResolvableType.forClassWithGenerics(
-              SharedInformer.class, kubernetesInformer.apiTypeClass());
-      RootBeanDefinition informerBean = new RootBeanDefinition();
-      informerBean.setTargetType(informerType);
-      informerBean.setAutowireMode(AbstractBeanDefinition.AUTOWIRE_BY_TYPE);
-      informerBean.setAutowireCandidate(true);
-      String informerBeanName = informerType.toString();
-      this.beanDefinitionRegistry.registerBeanDefinition(informerBeanName, informerBean);
-      beanFactory.registerSingleton(informerBeanName, sharedIndexInformer);
-
-      Lister lister = new Lister(sharedIndexInformer.getIndexer());
-      ResolvableType listerType =
-          ResolvableType.forClassWithGenerics(Lister.class, kubernetesInformer.apiTypeClass());
-      RootBeanDefinition listerBean = new RootBeanDefinition();
-      listerBean.setTargetType(listerType);
-      listerBean.setAutowireMode(AbstractBeanDefinition.AUTOWIRE_BY_TYPE);
-      listerBean.setAutowireCandidate(true);
-      String listerBeanName = listerType.toString();
-      this.beanDefinitionRegistry.registerBeanDefinition(listerBeanName, listerBean);
-      beanFactory.registerSingleton(listerBeanName, lister);
-    }
+    this.beanFactory = beanFactory;
   }
 
   @Override
@@ -121,6 +61,80 @@ public class KubernetesInformerFactoryProcessor
   @Override
   public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry)
       throws BeansException {
-    this.beanDefinitionRegistry = registry;
+    if (!(registry instanceof BeanFactory)) {
+      return;
+    }
+    for (String name : registry.getBeanDefinitionNames()) {
+      Class<?> cls = ((BeanFactory) registry).getType(name);
+      if (cls != null) {
+        KubernetesInformers kubernetesInformers =
+            AnnotatedElementUtils.getMergedAnnotation(cls, KubernetesInformers.class);
+        if (kubernetesInformers != null && kubernetesInformers.value().length > 0) {
+          for (KubernetesInformer kubernetesInformer : kubernetesInformers.value()) {
+            registerInformer(registry, kubernetesInformer);
+            registerLister(registry, kubernetesInformer);
+          }
+        }
+      }
+    }
+  }
+
+  private void registerInformer(
+      BeanDefinitionRegistry registry, KubernetesInformer kubernetesInformer) {
+    RootBeanDefinition informerBean =
+        (RootBeanDefinition)
+            BeanDefinitionBuilder.rootBeanDefinition(SharedInformer.class).getBeanDefinition();
+    informerBean.setInstanceSupplier(
+        () -> informer(kubernetesInformer.apiTypeClass(), kubernetesInformer));
+    ResolvableType informerType =
+        ResolvableType.forClassWithGenerics(
+            SharedIndexInformer.class, kubernetesInformer.apiTypeClass());
+    informerBean.setTargetType(informerType);
+    registry.registerBeanDefinition(
+        getInformerBeanName(kubernetesInformer.apiTypeClass()), informerBean);
+  }
+
+  private String getInformerBeanName(Class<?> type) {
+    return type.getName() + "Informer";
+  }
+
+  private void registerLister(
+      BeanDefinitionRegistry registry, KubernetesInformer kubernetesInformer) {
+    RootBeanDefinition listerBean =
+        (RootBeanDefinition)
+            BeanDefinitionBuilder.rootBeanDefinition(Lister.class).getBeanDefinition();
+    listerBean.setInstanceSupplier(() -> lister(kubernetesInformer.apiTypeClass()));
+    ResolvableType listerType =
+        ResolvableType.forClassWithGenerics(Lister.class, kubernetesInformer.apiTypeClass());
+    listerBean.setTargetType(listerType);
+    registry.registerBeanDefinition(listerType.toString(), listerBean);
+  }
+
+  @SuppressWarnings({"unchecked", "rawtypes"})
+  private <T extends KubernetesObject> Lister<T> lister(Class<T> type) {
+    SharedIndexInformer sharedInformer =
+        this.beanFactory.getBean(getInformerBeanName(type), SharedIndexInformer.class);
+    Lister<T> lister = new Lister<>(sharedInformer.getIndexer());
+    return lister;
+  }
+
+  @SuppressWarnings({"unchecked", "rawtypes"})
+  private <T extends KubernetesObject> SharedInformer<T> informer(
+      Class<T> type, KubernetesInformer kubernetesInformer) {
+    ApiClient apiClient = this.beanFactory.getBean(ApiClient.class);
+    SharedInformerFactory sharedInformerFactory =
+        this.beanFactory.getBean(SharedInformerFactory.class);
+    final GenericKubernetesApi api =
+        new GenericKubernetesApi(
+            kubernetesInformer.apiTypeClass(),
+            kubernetesInformer.apiListTypeClass(),
+            kubernetesInformer.groupVersionResource().apiGroup(),
+            kubernetesInformer.groupVersionResource().apiVersion(),
+            kubernetesInformer.groupVersionResource().resourcePlural(),
+            apiClient);
+    SharedIndexInformer<T> sharedIndexInformer =
+        sharedInformerFactory.sharedIndexInformerFor(
+            api, type, kubernetesInformer.resyncPeriodMillis(), kubernetesInformer.namespace());
+    return sharedIndexInformer;
   }
 }

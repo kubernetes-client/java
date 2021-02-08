@@ -66,7 +66,7 @@ public class KubernetesInformerCreatorTest {
     }
 
     @Bean
-    public SharedInformerFactory sharedInformerFactory() {
+    public TestSharedInformerFactory testSharedInformerFactory() {
       return new TestSharedInformerFactory();
     }
 
@@ -86,7 +86,7 @@ public class KubernetesInformerCreatorTest {
                   apiVersion = "v1",
                   resourcePlural = "configmaps")),
     })
-    static class TestSharedInformerFactory extends SharedInformerFactory {}
+    static class TestSharedInformerFactory {}
   }
 
   @Autowired private SharedInformerFactory informerFactory;

@@ -19,7 +19,6 @@ import io.kubernetes.client.extended.controller.reconciler.Reconciler;
 import io.kubernetes.client.extended.controller.reconciler.Request;
 import io.kubernetes.client.extended.controller.reconciler.Result;
 import io.kubernetes.client.informer.SharedInformer;
-import io.kubernetes.client.informer.SharedInformerFactory;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1PodList;
 import io.kubernetes.client.spring.extended.controller.annotation.GroupVersionResource;
@@ -49,7 +48,7 @@ public class KubernetesReconcilerProcessorTest {
     }
 
     @Bean
-    SharedInformerFactory sharedInformerFactory() {
+    TestSharedInformerFactory testSharedInformerFactory() {
       return new TestSharedInformerFactory();
     }
 
@@ -59,7 +58,7 @@ public class KubernetesReconcilerProcessorTest {
           apiListTypeClass = V1PodList.class,
           groupVersionResource = @GroupVersionResource(resourcePlural = "pods"))
     })
-    static class TestSharedInformerFactory extends SharedInformerFactory {}
+    static class TestSharedInformerFactory {}
 
     @Bean("testReconciler1")
     TestReconciler testReconciler1ToBeInjected() {
