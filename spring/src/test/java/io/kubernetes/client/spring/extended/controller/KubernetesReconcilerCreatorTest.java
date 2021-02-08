@@ -75,8 +75,8 @@ public class KubernetesReconcilerCreatorTest {
     }
 
     @Bean
-    public SharedInformerFactory sharedInformerFactory() {
-      return new KubernetesInformerCreatorTest.App.TestSharedInformerFactory();
+    public TestSharedInformerFactory testSharedInformerFactory() {
+      return new TestSharedInformerFactory();
     }
 
     @KubernetesInformers({
@@ -94,7 +94,7 @@ public class KubernetesReconcilerCreatorTest {
                   apiVersion = "v1",
                   resourcePlural = "configmaps")),
     })
-    static class TestSharedInformerFactory extends SharedInformerFactory {}
+    static class TestSharedInformerFactory {}
 
     @Bean
     public TestReconciler testReconciler() {
