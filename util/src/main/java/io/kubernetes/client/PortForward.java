@@ -156,7 +156,10 @@ public class PortForward {
       for (int i = 0; i < ports.size(); i++) {
         InputStream is = handler.getInputStream(i * 2);
         byte[] data = new byte[2];
-        is.read(data);
+        int readAmount = is.read(data);
+        if (readAmount != 2) {
+          throw new IOException("Failed to read port");
+        }
         int port = (data[0] & 0xFF) + (data[1] & 0xFF) * 256;
         streams.put(port, i);
       }
