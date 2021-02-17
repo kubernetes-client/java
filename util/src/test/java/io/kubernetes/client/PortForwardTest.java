@@ -22,6 +22,7 @@ import static io.kubernetes.client.ExecTest.makeStream;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.assertTrue;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.kubernetes.client.PortForward.PortForwardResult;
@@ -153,5 +154,44 @@ public class PortForwardTest {
     assertEquals(null, result.getInputStream(8080));
     assertEquals(null, result.getErrorStream(8080));
     assertEquals(null, result.getOutboundStream(8080));
+  }
+
+  private Exception thrownException;
+
+  @Test
+  public void testBrokenPortPassing() throws IOException, InterruptedException {
+    WebSocketStreamHandler handler = new WebSocketStreamHandler();
+    List<Integer> ports = new ArrayList<>();
+    ports.add(80);
+
+    final PortForwardResult result = new PortForwardResult(handler, ports);
+
+    String msgData = "this is a test datum";
+    handler.open("wss", null);
+    handler.bytesMessage(makeStream(new byte[] {66}, msgData.getBytes(StandardCharsets.UTF_8)));
+
+    final Object block = new Object();
+    Thread t =
+        new Thread(
+            () -> {
+              try {
+                result.init();
+              } catch (IOException ex) {
+                thrownException = ex;
+              } finally {
+                synchronized (block) {
+                  block.notifyAll();
+                }
+              }
+            });
+    synchronized (block) {
+      t.start();
+      Thread.sleep(2000);
+      handler.close();
+      block.wait();
+    }
+
+    assertNotNull(thrownException);
+    assertTrue(thrownException instanceof IOException);
   }
 }

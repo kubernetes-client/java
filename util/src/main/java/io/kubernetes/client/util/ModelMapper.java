@@ -427,6 +427,10 @@ public class ModelMapper {
       URI uri = URI.create(packageURL.toString());
       File folder = new File(uri.getPath());
       File[] contenuti = folder.listFiles();
+      if (contenuti == null) {
+        logger.warn("No files to load found in {}", folder.getPath());
+        return names;
+      }
       String entryName;
       for (File actual : contenuti) {
         entryName = actual.getName();
