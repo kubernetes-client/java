@@ -12,6 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.informer.cache;
 
+import static org.junit.Assert.assertFalse;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
@@ -28,6 +29,7 @@ import io.kubernetes.client.openapi.models.V1Status;
 import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.Watch;
 import io.kubernetes.client.util.Watchable;
+import java.net.HttpURLConnection;
 import java.time.Duration;
 import java.util.concurrent.atomic.AtomicReference;
 import org.awaitility.Awaitility;
@@ -211,6 +213,44 @@ public class ReflectorRunnableTest {
           .atMost(Duration.ofSeconds(1))
           .pollInterval(Duration.ofMillis(100))
           .untilAtomic(requestedResourceVersion, new IsEqual<>(expectedResourceVersion));
+    } finally {
+      reflectorRunnable.stop();
+    }
+  }
+
+  @Test
+  public void testReflectorListShouldHandleExpiredResourceVersion() throws ApiException {
+    String expectedResourceVersion = "100";
+    when(listerWatcher.list(any()))
+        .thenReturn(
+            new V1PodList().metadata(new V1ListMeta().resourceVersion(expectedResourceVersion)));
+    // constantly failing watches will make the reflector run only one time
+    when(listerWatcher.watch(any())).thenThrow(new ApiException(HttpURLConnection.HTTP_GONE, ""));
+    ReflectorRunnable<V1Pod, V1PodList> reflectorRunnable =
+        new ReflectorRunnable<>(V1Pod.class, listerWatcher, deltaFIFO);
+    try {
+      Thread thread = new Thread(reflectorRunnable::run);
+      thread.setDaemon(true);
+      thread.start();
+      Awaitility.await()
+          .atMost(Duration.ofSeconds(1))
+          .pollInterval(Duration.ofMillis(100))
+          .until(
+              () -> expectedResourceVersion.equals(reflectorRunnable.getLastSyncResourceVersion()));
+      assertFalse(reflectorRunnable.isLastSyncResourceVersionUnavailable());
+    } finally {
+      reflectorRunnable.stop();
+    }
+
+    try {
+      when(listerWatcher.list(any())).thenThrow(new ApiException(HttpURLConnection.HTTP_GONE, ""));
+      Thread thread = new Thread(reflectorRunnable::run);
+      thread.setDaemon(true);
+      thread.start();
+      Awaitility.await()
+          .atMost(Duration.ofSeconds(5))
+          .pollInterval(Duration.ofMillis(100))
+          .until(() -> reflectorRunnable.isLastSyncResourceVersionUnavailable());
     } finally {
       reflectorRunnable.stop();
     }

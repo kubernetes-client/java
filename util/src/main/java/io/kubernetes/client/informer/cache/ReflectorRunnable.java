@@ -16,6 +16,7 @@ import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.EventType;
 import io.kubernetes.client.informer.ListerWatcher;
+import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1ListMeta;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.util.CallGeneratorParams;
@@ -23,6 +24,7 @@ import io.kubernetes.client.util.Strings;
 import io.kubernetes.client.util.Watchable;
 import java.io.IOException;
 import java.net.ConnectException;
+import java.net.HttpURLConnection;
 import java.time.Duration;
 import java.util.List;
 import java.util.Optional;
@@ -38,6 +40,9 @@ public class ReflectorRunnable<
   private static final Logger log = LoggerFactory.getLogger(ReflectorRunnable.class);
 
   private String lastSyncResourceVersion;
+
+  private boolean isLastSyncResourceVersionUnavailable;
+
   private Watchable<ApiType> watch;
 
   private ListerWatcher<ApiType, ApiListType> listerWatcher;
@@ -87,6 +92,7 @@ public class ReflectorRunnable<
       }
       this.syncWith(items, resourceVersion);
       this.lastSyncResourceVersion = resourceVersion;
+      this.isLastSyncResourceVersionUnavailable = false;
 
       if (log.isDebugEnabled()) {
         log.debug("{}#Start watching with {}...", apiTypeClass, lastSyncResourceVersion);
@@ -146,6 +152,13 @@ public class ReflectorRunnable<
           closeWatch();
         }
       }
+    } catch (ApiException e) {
+      if (e.getCode() == HttpURLConnection.HTTP_GONE) {
+        log.info(
+            "ResourceVersion {} expired, will retry w/o resourceVersion at the next time",
+            getRelistResourceVersion());
+        isLastSyncResourceVersionUnavailable = true;
+      }
     } catch (Throwable t) {
       this.exceptionHandler.accept(apiTypeClass, t);
     }
@@ -176,8 +189,23 @@ public class ReflectorRunnable<
     return lastSyncResourceVersion;
   }
 
+  public boolean isLastSyncResourceVersionUnavailable() {
+    return isLastSyncResourceVersionUnavailable;
+  }
+
   private String getRelistResourceVersion() {
+    if (isLastSyncResourceVersionUnavailable) {
+      // Since this reflector makes paginated list requests, and all paginated list requests skip
+      // the watch cache
+      // if the lastSyncResourceVersion is unavailable, we set ResourceVersion="" and list again to
+      // re-establish reflector
+      // to the latest available ResourceVersion, using a consistent read from etcd.
+      return "";
+    }
     if (Strings.isNullOrEmpty(lastSyncResourceVersion)) {
+      // For performance reasons, initial list performed by reflector uses "0" as resource version
+      // to allow it to
+      // be served from the watch cache if it is enabled.
       return "0";
     }
     return lastSyncResourceVersion;
