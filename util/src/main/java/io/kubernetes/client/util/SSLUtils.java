@@ -56,15 +56,13 @@ public class SSLUtils {
       byte[] certData,
       byte[] keyData,
       String algo,
-      String passphrase,
-      String keyStoreFile,
-      String keyStorePassphrase)
+      String passphrase)
       throws NoSuchAlgorithmException, UnrecoverableKeyException, KeyStoreException,
           CertificateException, InvalidKeySpecException, IOException {
     KeyManager[] keyManagers = null;
     if (certData != null && keyData != null) {
       KeyStore keyStore =
-          createKeyStore(certData, keyData, algo, passphrase, keyStoreFile, keyStorePassphrase);
+          createKeyStore(certData, keyData, algo, passphrase);
       KeyManagerFactory kmf =
           KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
       kmf.init(keyStore, passphrase.toCharArray());
@@ -77,9 +75,7 @@ public class SSLUtils {
       byte[] clientCertData,
       byte[] clientKeyData,
       String clientKeyAlgo,
-      String clientKeyPassphrase,
-      String keyStoreFile,
-      String keyStorePassphrase)
+      String clientKeyPassphrase)
       throws IOException, CertificateException, NoSuchAlgorithmException, InvalidKeySpecException,
           KeyStoreException {
     try (InputStream certInputStream = new ByteArrayInputStream(clientCertData);
@@ -88,9 +84,7 @@ public class SSLUtils {
           certInputStream,
           keyInputStream,
           clientKeyAlgo,
-          clientKeyPassphrase != null ? clientKeyPassphrase.toCharArray() : null,
-          keyStoreFile,
-          getKeyStorePassphrase(keyStorePassphrase));
+          clientKeyPassphrase != null ? clientKeyPassphrase.toCharArray() : null);
     }
   }
 
@@ -169,9 +163,7 @@ public class SSLUtils {
       InputStream certInputStream,
       InputStream keyInputStream,
       String clientKeyAlgo,
-      char[] clientKeyPassphrase,
-      String keyStoreFile,
-      char[] keyStorePassphrase)
+      char[] clientKeyPassphrase)
       throws IOException, CertificateException, NoSuchAlgorithmException, InvalidKeySpecException,
           KeyStoreException {
     CertificateFactory certFactory = CertificateFactory.getInstance("X509");
@@ -188,13 +180,8 @@ public class SSLUtils {
       // (which is BouncyCastle's JKS compatible provider).
       keyStore = KeyStore.getInstance("BKS");
     }
-
-    if (keyStoreFile != null && keyStoreFile.length() > 0) {
-      keyStore.load(new FileInputStream(keyStoreFile), keyStorePassphrase);
-    } else {
-      loadDefaultKeyStoreFile(keyStore, keyStorePassphrase);
-    }
-
+    
+    keyStore.load(null);
     String alias = cert.getSubjectX500Principal().getName();
     keyStore.setKeyEntry(alias, privateKey, clientKeyPassphrase, new X509Certificate[] {cert});
 
@@ -335,35 +322,4 @@ public class SSLUtils {
     }
   }
 
-  private static void loadDefaultKeyStoreFile(KeyStore keyStore, char[] keyStorePassphrase)
-      throws CertificateException, NoSuchAlgorithmException, IOException {
-
-    String keyStorePath = System.getProperty("javax.net.ssl.keyStore");
-    if (keyStorePath != null && keyStorePath.length() > 0) {
-      File keyStoreFile = new File(keyStorePath);
-      if (loadDefaultStoreFile(keyStore, keyStoreFile, keyStorePassphrase)) {
-        return;
-      }
-    }
-
-    keyStore.load(null);
-  }
-
-  private static boolean loadDefaultStoreFile(KeyStore keyStore, File fileToLoad, char[] passphrase)
-      throws CertificateException, NoSuchAlgorithmException, IOException {
-    if (fileToLoad.exists() && fileToLoad.isFile() && fileToLoad.length() > 0) {
-      try (FileInputStream inputStream = new FileInputStream(fileToLoad)) {
-        keyStore.load(inputStream, passphrase);
-      }
-      return true;
-    }
-    return false;
-  }
-
-  private static char[] getKeyStorePassphrase(String keyStorePassphrase) {
-    if (keyStorePassphrase == null || keyStorePassphrase.length() == 0) {
-      return System.getProperty("javax.net.ssl.keyStorePassword", "changeit").toCharArray();
-    }
-    return keyStorePassphrase.toCharArray();
-  }
 }
