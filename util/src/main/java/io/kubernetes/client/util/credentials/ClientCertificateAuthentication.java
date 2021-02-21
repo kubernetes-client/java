@@ -39,7 +39,7 @@ public class ClientCertificateAuthentication implements Authentication {
   public void provide(ApiClient client) {
     String algo = SSLUtils.recognizePrivateKeyAlgo(key);
     try {
-      final KeyManager[] keyManagers = SSLUtils.keyManagers(certificate, key, algo, "", null, null);
+      final KeyManager[] keyManagers = SSLUtils.keyManagers(certificate, key, algo, "");
       client.setKeyManagers(keyManagers);
     } catch (NoSuchAlgorithmException
         | UnrecoverableKeyException
