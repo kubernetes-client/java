@@ -23,7 +23,10 @@ import static org.mockito.Mockito.verify;
 import io.kubernetes.client.Resources;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.util.credentials.Authentication;
+import io.kubernetes.client.util.credentials.ClientCertificateAuthentication;
+import io.kubernetes.client.util.credentials.KubeconfigAuthentication;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -42,6 +45,8 @@ public class ClientBuilderTest {
       Resources.getResource("kubeconfig-http").getPath();
   private static final String KUBECONFIG_HTTPS_FILE_PATH =
       Resources.getResource("kubeconfig-https").getPath();
+  private static final String KUBECONFIG_HTTPS_X509_FILE_PATH =
+      Resources.getResource("kubeconfig-https-x509").getPath();
   private static final String SSL_CA_CERT_PATH = Resources.getResource("ca-cert.pem").getPath();
   private static final String INVALID_SSL_CA_CERT_PATH =
       Resources.getResource("ca-cert-invalid.pem").getPath();
@@ -217,5 +222,21 @@ public class ClientBuilderTest {
         }.setBasePath(ipv4Host, port);
 
     assertEquals("https://[::1]:6443", builder.getBasePath());
+  }
+
+  @Test
+  public void testSettingPassphraseForKubeConfigShouldWork() throws IOException {
+    String expectedPassphrase = "test";
+    ClientBuilder builder =
+        ClientBuilder.kubeconfig(
+                KubeConfig.loadKubeConfig(new FileReader(KUBECONFIG_HTTPS_X509_FILE_PATH)))
+            .setKeyStorePassphrase(expectedPassphrase);
+    KubeconfigAuthentication receivingAuthn =
+        (KubeconfigAuthentication) builder.getAuthentication();
+    builder.build();
+    assertEquals(
+        expectedPassphrase,
+        ((ClientCertificateAuthentication) receivingAuthn.getDelegateAuthentication())
+            .getPassphrase());
   }
 }
