@@ -107,7 +107,7 @@ public class SSLUtils {
     }
     return algo;
   }
-  
+
   public static String recognizePrivateKeyPassword() {
     // Allowing to set Key password same as KeyStore password (if any)
     return System.getProperty("javax.net.ssl.keyStorePassword", "");
@@ -165,12 +165,12 @@ public class SSLUtils {
   }
 
   public static KeyStore createKeyStore(
-      InputStream certInputStream,
-      InputStream keyInputStream,
-      String clientKeyAlgo,
-      char[] clientKeyPassphrase)
-      throws IOException, CertificateException, NoSuchAlgorithmException, InvalidKeySpecException,
-          KeyStoreException {
+    InputStream certInputStream,
+    InputStream keyInputStream,
+    String clientKeyAlgo,
+    char[] clientKeyPassphrase)
+    throws IOException, CertificateException, NoSuchAlgorithmException, InvalidKeySpecException,
+      KeyStoreException {
     CertificateFactory certFactory = CertificateFactory.getInstance("X509");
     X509Certificate cert = (X509Certificate) certFactory.generateCertificate(certInputStream);
 
@@ -185,7 +185,7 @@ public class SSLUtils {
       // (which is BouncyCastle's JKS compatible provider).
       keyStore = KeyStore.getInstance("BKS");
     }
-    
+  
     keyStore.load(null);
     String alias = cert.getSubjectX500Principal().getName();
     keyStore.setKeyEntry(alias, privateKey, clientKeyPassphrase, new X509Certificate[] {cert});
