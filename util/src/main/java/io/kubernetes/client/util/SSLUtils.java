@@ -107,6 +107,11 @@ public class SSLUtils {
     }
     return algo;
   }
+  
+  public static String recognizePrivateKeyPassword() {
+    // Allowing to set Key password same as KeyStore password (if any)
+    return System.getProperty("javax.net.ssl.keyStorePassword", "");
+  }
 
   public static PrivateKey loadKey(byte[] privateKeyBytes)
       throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
