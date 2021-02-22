@@ -51,12 +51,12 @@ public class SSLUtils {
   }
 
   public static KeyManager[] keyManagers(
-      byte[] certData, byte[] keyData, String algo, String passphrase)
+      byte[] certData, byte[] keyData, String algo)
       throws NoSuchAlgorithmException, UnrecoverableKeyException, KeyStoreException,
           CertificateException, InvalidKeySpecException, IOException {
     KeyManager[] keyManagers = null;
     if (certData != null && keyData != null) {
-      KeyStore keyStore = createKeyStore(certData, keyData, algo, passphrase);
+      KeyStore keyStore = createKeyStore(certData, keyData, algo);
       KeyManagerFactory kmf =
           KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
       kmf.init(keyStore, passphrase.toCharArray());
@@ -66,7 +66,7 @@ public class SSLUtils {
   }
 
   public static KeyStore createKeyStore(
-      byte[] clientCertData, byte[] clientKeyData, String clientKeyAlgo, String clientKeyPassphrase)
+      byte[] clientCertData, byte[] clientKeyData, String clientKeyAlgo)
       throws IOException, CertificateException, NoSuchAlgorithmException, InvalidKeySpecException,
           KeyStoreException {
     try (InputStream certInputStream = new ByteArrayInputStream(clientCertData);
@@ -74,8 +74,7 @@ public class SSLUtils {
       return createKeyStore(
           certInputStream,
           keyInputStream,
-          clientKeyAlgo,
-          clientKeyPassphrase != null ? clientKeyPassphrase.toCharArray() : null);
+          clientKeyAlgo);
     }
   }
 
@@ -97,11 +96,6 @@ public class SSLUtils {
       algo = "RSA"; // PKCS#1 - RSA
     }
     return algo;
-  }
-
-  public static String recognizePrivateKeyPassword() {
-    // Allowing to set Key password same as KeyStore password (if any)
-    return System.getProperty("javax.net.ssl.keyStorePassword", "");
   }
 
   public static PrivateKey loadKey(byte[] privateKeyBytes)
@@ -158,8 +152,7 @@ public class SSLUtils {
   public static KeyStore createKeyStore(
       InputStream certInputStream,
       InputStream keyInputStream,
-      String clientKeyAlgo,
-      char[] clientKeyPassphrase)
+      String clientKeyAlgo)
       throws IOException, CertificateException, NoSuchAlgorithmException, InvalidKeySpecException,
           KeyStoreException {
     CertificateFactory certFactory = CertificateFactory.getInstance("X509");
@@ -179,7 +172,7 @@ public class SSLUtils {
 
     keyStore.load(null);
     String alias = cert.getSubjectX500Principal().getName();
-    keyStore.setKeyEntry(alias, privateKey, clientKeyPassphrase, new X509Certificate[] {cert});
+    keyStore.setKeyEntry(alias, privateKey, "", new X509Certificate[] {cert});
 
     return keyStore;
   }
