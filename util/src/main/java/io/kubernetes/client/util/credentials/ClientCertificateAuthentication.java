@@ -30,16 +30,20 @@ public class ClientCertificateAuthentication implements Authentication {
   private final byte[] certificate;
   private final byte[] key;
 
+  private String passphrase = "";
+
   public ClientCertificateAuthentication(final byte[] certificate, final byte[] key) {
     this.certificate = certificate;
     this.key = key;
+    this.passphrase = "";
   }
 
   @Override
   public void provide(ApiClient client) {
     String algo = SSLUtils.recognizePrivateKeyAlgo(key);
     try {
-      final KeyManager[] keyManagers = SSLUtils.keyManagers(certificate, key, algo, "", null, null);
+      final KeyManager[] keyManagers =
+          SSLUtils.keyManagers(certificate, key, algo, getPassphrase(), null, null);
       client.setKeyManagers(keyManagers);
     } catch (NoSuchAlgorithmException
         | UnrecoverableKeyException
@@ -50,5 +54,13 @@ public class ClientCertificateAuthentication implements Authentication {
       log.warn("Could not create key manager for Client Certificate authentication.", e);
       throw new RuntimeException(e);
     }
+  }
+
+  public String getPassphrase() {
+    return passphrase;
+  }
+
+  public void setPassphrase(String passphrase) {
+    this.passphrase = passphrase;
   }
 }

@@ -15,6 +15,7 @@ package io.kubernetes.client.util.credentials;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.util.KubeConfig;
 import java.io.IOException;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Uses a {@link KubeConfig} to configure {@link ApiClient} authentication to the Kubernetes API.
@@ -29,35 +30,46 @@ import java.io.IOException;
  */
 public class KubeconfigAuthentication implements Authentication {
 
-  private final String username;
-  private final String password;
-  private final String token;
-  private final byte[] clientCert;
-  private final byte[] clientKey;
+  private final Authentication delegateAuthentication;
 
   public KubeconfigAuthentication(final KubeConfig config) throws IOException {
-    this.clientCert =
+    byte[] clientCert =
         config.getDataOrFileRelative(
             config.getClientCertificateData(), config.getClientCertificateFile());
-    this.clientKey =
+    byte[] clientKey =
         config.getDataOrFileRelative(config.getClientKeyData(), config.getClientKeyFile());
-    this.username = config.getUsername();
-    this.password = config.getPassword();
-    this.token = config.getAccessToken();
+
+    // 1. honors x509 key-pairs
+    if (clientCert != null && clientKey != null) {
+      delegateAuthentication = new ClientCertificateAuthentication(clientCert, clientKey);
+      return;
+    }
+
+    // 2. honors username/password
+    String userName = config.getUsername();
+    String userPassword = config.getPassword();
+    if (StringUtils.isNotEmpty(userName) && StringUtils.isNotEmpty(userPassword)) {
+      delegateAuthentication = new UsernamePasswordAuthentication(userName, userPassword);
+      return;
+    }
+
+    // 3. honors bearer token
+    String token = config.getAccessToken();
+    if (StringUtils.isNotEmpty(token)) {
+      delegateAuthentication = new AccessTokenAuthentication(token);
+      return;
+    }
+
+    // 4. falling back to dummy authentication
+    delegateAuthentication = new DummyAuthentication();
   }
 
   @Override
   public void provide(ApiClient client) {
-    if (clientCert != null && clientKey != null) {
-      new ClientCertificateAuthentication(clientCert, clientKey).provide(client);
-    }
+    delegateAuthentication.provide(client);
+  }
 
-    if (username != null && password != null) {
-      new UsernamePasswordAuthentication(username, password).provide(client);
-    }
-
-    if (token != null) {
-      new AccessTokenAuthentication(token).provide(client);
-    }
+  public Authentication getDelegateAuthentication() {
+    return delegateAuthentication;
   }
 }

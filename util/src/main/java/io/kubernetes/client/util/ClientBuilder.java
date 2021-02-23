@@ -50,6 +50,7 @@ import java.util.Arrays;
 import java.util.List;
 import okhttp3.Protocol;
 import org.apache.commons.compress.utils.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -61,6 +62,7 @@ public class ClientBuilder {
   private byte[] caCertBytes = null;
   private boolean verifyingSsl = true;
   private Authentication authentication;
+  private String keyStorePassphrase;
   // defaulting client protocols to HTTP1.1 and HTTP 2
   private List<Protocol> protocols = Arrays.asList(Protocol.HTTP_2, Protocol.HTTP_1_1);
   // default to unlimited read timeout
@@ -406,6 +408,15 @@ public class ClientBuilder {
     return this.pingInterval;
   }
 
+  public String getKeyStorePassphrase() {
+    return keyStorePassphrase;
+  }
+
+  public ClientBuilder setKeyStorePassphrase(String keyStorePassphrase) {
+    this.keyStorePassphrase = keyStorePassphrase;
+    return this;
+  }
+
   public ApiClient build() {
     final ApiClient client = new ApiClient();
 
@@ -428,6 +439,16 @@ public class ClientBuilder {
     client.setVerifyingSsl(verifyingSsl);
 
     if (authentication != null) {
+      if (StringUtils.isNotEmpty(keyStorePassphrase)) {
+        if (authentication instanceof KubeconfigAuthentication) {
+          if (((KubeconfigAuthentication) authentication).getDelegateAuthentication()
+              instanceof ClientCertificateAuthentication) {
+            ((ClientCertificateAuthentication)
+                    (((KubeconfigAuthentication) authentication).getDelegateAuthentication()))
+                .setPassphrase(keyStorePassphrase);
+          }
+        }
+      }
       authentication.provide(client);
     }
 
