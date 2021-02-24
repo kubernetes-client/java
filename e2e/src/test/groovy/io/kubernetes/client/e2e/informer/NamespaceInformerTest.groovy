@@ -25,28 +25,27 @@ class NamespaceInformerTest extends Specification {
 
 	def "list-watching namespaces should work"() {
 		given:
-			def conditions = new PollingConditions()
-			def apiClient = ClientBuilder.defaultClient()
-			def api = new GenericKubernetesApi(
-					V1Namespace.class,
-					V1NamespaceList.class,
-					"",
-					"v1",
-					"namespaces",
-					apiClient)
-			def informerFactory = new SharedInformerFactory()
-			def nsInformer = informerFactory.sharedIndexInformerFor(
-					api,
-					V1Namespace.class,
-					0)
-			def nsLister = new Lister(nsInformer.getIndexer())
+		def conditions = new PollingConditions()
+		def apiClient = ClientBuilder.defaultClient()
+		def api = new GenericKubernetesApi(
+				V1Namespace.class,
+				V1NamespaceList.class,
+				"",
+				"v1",
+				"namespaces",
+				apiClient)
+		def informerFactory = new SharedInformerFactory()
+		def nsInformer = informerFactory.sharedIndexInformerFor(
+				api,
+				V1Namespace.class,
+				0)
+		def nsLister = new Lister(nsInformer.getIndexer())
 		when:
-			informerFactory.startAllRegisteredInformers()
+		informerFactory.startAllRegisteredInformers()
 		then:
-			conditions.eventually {
-				nsInformer.hasSynced()
-				nsLister.list().size() > 0
-			}
+		conditions.eventually {
+			nsInformer.hasSynced()
+			nsLister.list().size() > 0
+		}
 	}
-
 }

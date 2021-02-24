@@ -10,7 +10,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-
 package io.kubernetes.client.e2e.kubectl
 
 import io.kubernetes.client.extended.kubectl.Kubectl
@@ -28,36 +27,35 @@ import spock.lang.Specification
 class KubectlDrainTest extends Specification {
 	def "Kubectl drain should work"() {
 		given:
-			def apiClient = ClientBuilder.defaultClient()
-			Configuration.setDefaultApiClient(apiClient)
-			def testNode = new V1Node()
-					.metadata(new V1ObjectMeta().name("foo"))
-			def testPod = new V1Pod()
-					.metadata(new V1ObjectMeta()
-							.namespace("default")
-							.name("bar"))
-					.spec(new V1PodSpec()
-							.nodeName("foo")
-							.containers(Arrays.asList(
-									new V1Container().name("c1").image("nginx")
-							)))
+		def apiClient = ClientBuilder.defaultClient()
+		Configuration.setDefaultApiClient(apiClient)
+		def testNode = new V1Node()
+				.metadata(new V1ObjectMeta().name("foo"))
+		def testPod = new V1Pod()
+				.metadata(new V1ObjectMeta()
+				.namespace("default")
+				.name("bar"))
+				.spec(new V1PodSpec()
+				.nodeName("foo")
+				.containers(Arrays.asList(
+				new V1Container().name("c1").image("nginx")
+				)))
 		when:
-			V1Node createdNode = Kubectl.create(V1Node.class).resource(testNode).execute()
-			V1Pod createdPod = Kubectl.create(V1Pod.class).resource(testPod).execute()
+		V1Node createdNode = Kubectl.create(V1Node.class).resource(testNode).execute()
+		V1Pod createdPod = Kubectl.create(V1Pod.class).resource(testPod).execute()
 		then:
-			createdNode != null
-			createdPod != null
+		createdNode != null
+		createdPod != null
 		when:
-			V1Node drainedNode = Kubectl.drain().gracePeriod(0).name("foo").execute()
+		V1Node drainedNode = Kubectl.drain().gracePeriod(0).name("foo").execute()
 		then:
-			drainedNode != null
+		drainedNode != null
 		when:
-			Kubectl.get(V1Pod.class).namespace("default").name("bar").execute()
+		Kubectl.get(V1Pod.class).namespace("default").name("bar").execute()
 		then:
-			def e = thrown KubectlException
-			e.getCause().class == ApiException.class
+		def e = thrown KubectlException
+		e.getCause().class == ApiException.class
 		cleanup:
-			Kubectl.delete(V1Node.class).name("foo").execute()
+		Kubectl.delete(V1Node.class).name("foo").execute()
 	}
-
 }

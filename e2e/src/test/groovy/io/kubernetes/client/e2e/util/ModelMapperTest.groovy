@@ -24,24 +24,23 @@ import spock.lang.Specification
 
 class ModelMapperTest extends Specification {
 
-    def "api-discovery should work"() {
-        given:
-        def apiClient = ClientBuilder.defaultClient();
-        def discovery = new Discovery(apiClient)
-        ModelMapper.refresh(discovery);
+	def "api-discovery should work"() {
+		given:
+		def apiClient = ClientBuilder.defaultClient();
+		def discovery = new Discovery(apiClient)
+		ModelMapper.refresh(discovery);
 
-        expect:
-        new GroupVersionKind("", "v1", "Pod") == ModelMapper.getGroupVersionKindByClass(V1Pod.class)
-        new GroupVersionResource("", "v1", "pods") == ModelMapper.getGroupVersionResourceByClass(V1Pod.class)
-        ModelMapper.isNamespaced(V1Pod.class)
+		expect:
+		new GroupVersionKind("", "v1", "Pod") == ModelMapper.getGroupVersionKindByClass(V1Pod.class)
+		new GroupVersionResource("", "v1", "pods") == ModelMapper.getGroupVersionResourceByClass(V1Pod.class)
+		ModelMapper.isNamespaced(V1Pod.class)
 
-        new GroupVersionKind("apps", "v1", "Deployment") == ModelMapper.getGroupVersionKindByClass(V1Deployment.class)
-        new GroupVersionResource("apps", "v1", "deployments") == ModelMapper.getGroupVersionResourceByClass(V1Deployment.class)
-        ModelMapper.isNamespaced(V1Deployment.class)
+		new GroupVersionKind("apps", "v1", "Deployment") == ModelMapper.getGroupVersionKindByClass(V1Deployment.class)
+		new GroupVersionResource("apps", "v1", "deployments") == ModelMapper.getGroupVersionResourceByClass(V1Deployment.class)
+		ModelMapper.isNamespaced(V1Deployment.class)
 
-        new GroupVersionKind("apiextensions.k8s.io", "v1beta1", "CustomResourceDefinition") == ModelMapper.getGroupVersionKindByClass(V1beta1CustomResourceDefinition.class)
-        new GroupVersionResource("apiextensions.k8s.io", "v1beta1", "customresourcedefinitions") == ModelMapper.getGroupVersionResourceByClass(V1beta1CustomResourceDefinition.class)
-        !ModelMapper.isNamespaced(V1beta1CustomResourceDefinition.class)
-
-    }
+		new GroupVersionKind("apiextensions.k8s.io", "v1beta1", "CustomResourceDefinition") == ModelMapper.getGroupVersionKindByClass(V1beta1CustomResourceDefinition.class)
+		new GroupVersionResource("apiextensions.k8s.io", "v1beta1", "customresourcedefinitions") == ModelMapper.getGroupVersionResourceByClass(V1beta1CustomResourceDefinition.class)
+		!ModelMapper.isNamespaced(V1beta1CustomResourceDefinition.class)
+	}
 }
