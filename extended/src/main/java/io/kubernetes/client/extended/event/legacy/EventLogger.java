@@ -43,7 +43,7 @@ public class EventLogger {
       patch =
           new V1Patch(
               String.format(
-                  "{\"message\":\"%s\",\"count\":\"%d\",\"lastTimestamp\":%s}",
+                  "{\"message\":\"%s\",\"count\":%d,\"lastTimestamp\":\"%s\"}",
                   event.getMessage(),
                   event.getCount(),
                   Configuration.getDefaultApiClient().getJSON().serialize(now)));
