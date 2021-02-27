@@ -119,6 +119,16 @@ public class LeaderElector implements AutoCloseable {
   /**
    * Runs the leader election in foreground.
    *
+   * @param onNewLeaderHook called when the client observes a leader that is not the previously
+   *     observed leader. This includes the first observed leader when the client starts.
+   */
+  public void run(Consumer<String> onNewLeaderHook) {
+    run(() -> {}, () -> {}, onNewLeaderHook);
+  }
+
+  /**
+   * Runs the leader election in foreground.
+   *
    * @param startLeadingHook called when a LeaderElector client starts leading
    * @param stopLeadingHook called when a LeaderElector client stops leading
    * @param onNewLeaderHook called when the client observes a leader that is not the previously
@@ -262,10 +272,6 @@ public class LeaderElector implements AutoCloseable {
         return false;
       }
 
-      if (log.isDebugEnabled()) {
-        log.debug("Lock not found, try to create it");
-      }
-
       // No Lock resource exists, try to get leadership by creating it
       return createLock(lock, leaderElectionRecord);
     }
@@ -283,9 +289,6 @@ public class LeaderElector implements AutoCloseable {
         || oldLeaderElectionRecord.getHolderIdentity() == null) {
       // We found the lock resource with an empty LeaderElectionRecord, try to get leadership by
       // updating it
-      if (log.isDebugEnabled()) {
-        log.debug("Update lock to get lease");
-      }
 
       if (oldLeaderElectionRecord != null) {
         // maintain the leaderTransitions
@@ -321,10 +324,6 @@ public class LeaderElector implements AutoCloseable {
       leaderElectionRecord.setLeaderTransitions(oldLeaderElectionRecord.getLeaderTransitions() + 1);
     }
 
-    if (log.isDebugEnabled()) {
-      log.debug("Update lock to renew lease");
-    }
-
     boolean renewalStatus = updateLock(lock, leaderElectionRecord);
 
     if (renewalStatus && log.isDebugEnabled()) {
@@ -335,6 +334,14 @@ public class LeaderElector implements AutoCloseable {
   }
 
   private boolean createLock(Lock lock, LeaderElectionRecord leaderElectionRecord) {
+    if (!config.isEligibleForLeaderElection()) {
+      return false;
+    }
+
+    if (log.isDebugEnabled()) {
+      log.debug("Lock not found, try to create it");
+    }
+
     boolean createSuccess = lock.create(leaderElectionRecord);
     if (!createSuccess) {
       return false;
@@ -345,6 +352,14 @@ public class LeaderElector implements AutoCloseable {
   }
 
   private boolean updateLock(Lock lock, LeaderElectionRecord leaderElectionRecord) {
+    if (!config.isEligibleForLeaderElection()) {
+      return false;
+    }
+
+    if (log.isDebugEnabled()) {
+      log.debug("Update lock to get or renew lease");
+    }
+
     boolean updateSuccess = lock.update(leaderElectionRecord);
     if (!updateSuccess) {
       return false;
