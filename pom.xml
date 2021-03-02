@@ -53,7 +53,7 @@
     <swagger-core.version>1.6.2</swagger-core.version>
     <sundrio.version>0.22.1</sundrio.version>
     <gsonfire.version>1.8.5</gsonfire.version>
-    <apache.commons.lang3.version>3.11</apache.commons.lang3.version>
+    <apache.commons.lang3.version>3.12.0</apache.commons.lang3.version>
     <apache.commons.collections4.version>4.4</apache.commons.collections4.version>
     <apache.commons.compress>1.20</apache.commons.compress>
     <apache.commons.io>2.8.0</apache.commons.io>
