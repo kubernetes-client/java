@@ -40,13 +40,7 @@ public class EventLogger {
       event.getMetadata().setName(lastObserved.name);
       event.getMetadata().setResourceVersion(lastObserved.resourceVersion);
 
-      patch =
-          new V1Patch(
-              String.format(
-                  "{\"message\":\"%s\",\"count\":%d,\"lastTimestamp\":\"%s\"}",
-                  event.getMessage(),
-                  event.getCount(),
-                  Configuration.getDefaultApiClient().getJSON().serialize(now)));
+      patch = buildEventPatch(event.getCount(), event.getMessage(), now);
     }
     EventLog log = new EventLog();
     log.count = event.getCount();
@@ -72,5 +66,12 @@ public class EventLogger {
     private OffsetDateTime firstTimestamp;
     private String name;
     private String resourceVersion;
+  }
+
+  static V1Patch buildEventPatch(int count, String message, OffsetDateTime now) {
+    return new V1Patch(
+        String.format(
+            "{\"message\":\"%s\",\"count\":%d,\"lastTimestamp\":%s}",
+            message, count, Configuration.getDefaultApiClient().getJSON().serialize(now)));
   }
 }
