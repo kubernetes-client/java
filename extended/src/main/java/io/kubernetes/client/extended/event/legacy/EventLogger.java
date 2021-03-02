@@ -68,7 +68,7 @@ public class EventLogger {
     private String resourceVersion;
   }
 
-  static V1Patch buildEventPatch(int count, String message, OffsetDateTime now) {
+  static V1Patch buildEventPatch(int count, String message, DateTime now) {
     return new V1Patch(
         String.format(
             "{\"message\":\"%s\",\"count\":%d,\"lastTimestamp\":%s}",
