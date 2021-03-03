@@ -15,15 +15,15 @@ package io.kubernetes.client.extended.event.legacy;
 import static org.junit.Assert.*;
 
 import io.kubernetes.client.custom.V1Patch;
-import java.time.OffsetDateTime;
 import org.junit.Test;
+import org.joda.time.DateTime;
 
 public class EventLoggerTest {
 
   @Test
   public void buildEventPatch() {
-    String expectedStr = "2021-03-02T15:02:48.179000Z";
-    OffsetDateTime expected = OffsetDateTime.parse("2021-03-02T15:02:48.179000Z");
+    String expectedStr = "2021-03-02T15:02:48.179Z";
+    DateTime expected = DateTime.parse("2021-03-02T15:02:48.179Z");
     V1Patch patch = EventLogger.buildEventPatch(1, "foo", expected);
     assertEquals(
         "{\"message\":\"foo\",\"count\":1,\"lastTimestamp\":\"" + expectedStr + "\"}",
