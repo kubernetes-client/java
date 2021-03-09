@@ -55,7 +55,7 @@ public class KubernetesApiResponseTest {
         podClient
             .delete("default", "foo")
             .onFailure(
-                errStatus -> {
+                (code, errStatus) -> {
                   catched.set(true);
                 })
             .getObject());
