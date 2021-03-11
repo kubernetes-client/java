@@ -14,7 +14,7 @@ package io.kubernetes.client.spring.extended.controller.config;
 
 import io.kubernetes.client.informer.SharedInformerFactory;
 import io.kubernetes.client.openapi.ApiClient;
-import io.kubernetes.client.spring.extended.controller.KubernetesInformerConfigurer;
+import io.kubernetes.client.spring.extended.controller.KubernetesInformerFactoryProcessor;
 import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -39,8 +39,7 @@ public class KubernetesInformerAutoConfiguration {
 
   @Bean
   @ConditionalOnMissingBean
-  public KubernetesInformerConfigurer kubernetesInformerConfigurer(
-      ApiClient apiClient, SharedInformerFactory sharedInformerFactory) {
-    return new KubernetesInformerConfigurer(apiClient, sharedInformerFactory);
+  public static KubernetesInformerFactoryProcessor kubernetesInformerConfigurer() {
+    return new KubernetesInformerFactoryProcessor();
   }
 }
