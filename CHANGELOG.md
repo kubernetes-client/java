@@ -1,3 +1,26 @@
+# 12.0.0
+
+* Features
+  * Kubernetes spec to `v1.20.x`
+  * Switching datetime library from joda-time to jdk's OffsetDateTime (#1418)
+    * Joda-time is under deprecation
+    * Support millis-second precision in timestamp
+  * Introducing DynamicKubernetesApi which extends GenericKubernetesApi and 
+    packs kubernetes resources into a dynamic object. (#1528)
+  * Adding `updateStatus()` convenience for GenericKubernetesApi (#1470)
+* Bugfix
+  * Fixes the patch content sent by event-logger. (#1559, #1569)
+* Misc
+  * Clarifying graceful shutdown behaviors for leader-elector (#1460)
+  * Falling-back to BKS when JKS is not available (#1504)
+  * Refactoring @LoadBalancer annotation spring extension (#1518)
+  * Refactoring @KubernetesInformer annotation spring extension (#1532)
+
+# 11.0.0
+
+* Kubernetes spec to `v1.19.x`
+* Bug fixes
+
 # 10.0.0
 * Kubernetes spec to `v1.18.x`
 * Implementation of `kubectl` equivalent utilities
