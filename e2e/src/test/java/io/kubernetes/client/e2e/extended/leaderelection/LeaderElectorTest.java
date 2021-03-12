@@ -185,7 +185,7 @@ public class LeaderElectorTest {
     Assert.assertEquals(1, stopBeingLeaderCount.get());
   }
 
-  @Test(timeout = 30000L)
+  @Test(timeout = 45000L)
   public void testLeaderGracefulShutdown() throws Exception {
     CountDownLatch startBeingLeader1 = new CountDownLatch(1);
     CountDownLatch stopBeingLeader1 = new CountDownLatch(1);
