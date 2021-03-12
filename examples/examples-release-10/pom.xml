@@ -4,14 +4,14 @@
     <parent>
         <groupId>io.kubernetes</groupId>
         <artifactId>client-java-examples-parent</artifactId>
-        <version>12.0.0</version>
+        <version>12.0.1-SNAPSHOT</version>
         <relativePath>..</relativePath>
     </parent>
 
     <artifactId>client-java-examples-release-10</artifactId>
     <packaging>bundle</packaging>
     <name>client-java-examples-release-10</name>
-    <version>12.0.0</version>
+    <version>12.0.1-SNAPSHOT</version>
     <properties>
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
