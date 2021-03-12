@@ -37,6 +37,8 @@ public class ReflectorRunnable<
         ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
     implements Runnable {
 
+  public static Duration REFLECTOR_WATCH_CLIENTSIDE_TIMEOUT = Duration.ofMinutes(5);
+
   private static final Logger log = LoggerFactory.getLogger(ReflectorRunnable.class);
 
   private String lastSyncResourceVersion;
@@ -113,7 +115,7 @@ public class ReflectorRunnable<
                   new CallGeneratorParams(
                       Boolean.TRUE,
                       lastSyncResourceVersion,
-                      Long.valueOf(Duration.ofMinutes(5).getSeconds()).intValue()));
+                      Long.valueOf(REFLECTOR_WATCH_CLIENTSIDE_TIMEOUT.getSeconds()).intValue()));
 
           synchronized (this) {
             if (!isActive.get()) {

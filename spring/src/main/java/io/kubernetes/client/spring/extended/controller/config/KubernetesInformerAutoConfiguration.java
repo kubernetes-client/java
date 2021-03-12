@@ -18,11 +18,15 @@ import io.kubernetes.client.spring.extended.controller.KubernetesInformerFactory
 import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnKubernetesInformerEnabled
+@EnableConfigurationProperties({
+  KubernetesInformerProperties.class,
+})
 public class KubernetesInformerAutoConfiguration {
 
   @Bean
