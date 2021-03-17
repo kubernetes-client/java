@@ -18,6 +18,7 @@
 		<module>examples-release-10</module>
 		<module>examples-release-11</module>
 		<module>examples-release-12</module>
+		<module>examples-release-13</module>
 	</modules>
 
 	<build>
