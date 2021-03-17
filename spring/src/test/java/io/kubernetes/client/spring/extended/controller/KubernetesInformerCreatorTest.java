@@ -66,10 +66,6 @@ public class KubernetesInformerCreatorTest {
     }
 
     @Bean
-    public TestSharedInformerFactory testSharedInformerFactory() {
-      return new TestSharedInformerFactory();
-    }
-
     @KubernetesInformers({
       @KubernetesInformer(
           apiTypeClass = V1Pod.class,
@@ -86,7 +82,9 @@ public class KubernetesInformerCreatorTest {
                   apiVersion = "v1",
                   resourcePlural = "configmaps")),
     })
-    static class TestSharedInformerFactory {}
+    public SharedInformerFactory testSharedInformerFactory() {
+      return new SharedInformerFactory();
+    }
   }
 
   @Autowired private SharedInformerFactory informerFactory;

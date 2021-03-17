@@ -26,7 +26,7 @@ import java.lang.annotation.Target;
  * io.kubernetes.client.spring.extended.controller.annotation.KubernetesInformer} onto one bean
  * method.
  */
-@Target({ElementType.TYPE})
+@Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface KubernetesInformers {
 
