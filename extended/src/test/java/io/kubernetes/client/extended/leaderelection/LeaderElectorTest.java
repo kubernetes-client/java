@@ -15,6 +15,7 @@ package io.kubernetes.client.extended.leaderelection;
 import java.time.Duration;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Consumer;
 import org.junit.Test;
 
 /** Leader Election tests using "simulated" locks created by {@link LockSmith} */
@@ -53,11 +54,64 @@ public class LeaderElectorTest {
     leaderElector2.close();
   }
 
+  @Test(timeout = 20000L)
+  public void testLeaderTransitionHook() throws InterruptedException {
+    LockSmith lockSmith = new LockSmith();
+
+    CountDownLatch startBeingLeader1 = new CountDownLatch(1);
+    CountDownLatch stopBeingLeader1 = new CountDownLatch(1);
+
+    LeaderElector leaderElector1 =
+        makeAndRunLeaderElectorAsync(
+            lockSmith, "candidate1", startBeingLeader1, stopBeingLeader1, (id) -> {});
+
+    // wait for candidate1 to become leader
+    startBeingLeader1.await();
+
+    // start candidate2 and the transition hook should be called on the start
+    CountDownLatch startBeingLeader2 = new CountDownLatch(1);
+    CountDownLatch stopBeingLeader2 = new CountDownLatch(1);
+    CountDownLatch notifiedLeader = new CountDownLatch(1);
+    String expectedLeader = "candidate1";
+    LeaderElector leaderElector2 =
+        makeAndRunLeaderElectorAsync(
+            lockSmith,
+            "candidate2",
+            startBeingLeader2,
+            stopBeingLeader2,
+            (id) -> {
+              if (expectedLeader.equals(id)) {
+                notifiedLeader.countDown();
+              }
+            });
+
+    notifiedLeader.await();
+
+    // start candidate1
+    leaderElector1.close();
+
+    // ensure stopBeingLeader hook is called
+    stopBeingLeader1.await();
+
+    // wait for candidate2 to become leader
+    startBeingLeader2.await();
+  }
+
   private LeaderElector makeAndRunLeaderElectorAsync(
       LockSmith lockSmith,
       String lockIdentity,
       CountDownLatch startBeingLeader,
       CountDownLatch stopBeingLeader) {
+    return makeAndRunLeaderElectorAsync(
+        lockSmith, lockIdentity, startBeingLeader, stopBeingLeader, (id) -> {});
+  }
+
+  private LeaderElector makeAndRunLeaderElectorAsync(
+      LockSmith lockSmith,
+      String lockIdentity,
+      CountDownLatch startBeingLeader,
+      CountDownLatch stopBeingLeader,
+      Consumer<String> onNewLeaderHook) {
     LeaderElectionConfig leaderElectionConfig =
         new LeaderElectionConfig(
             lockSmith.makeLock(lockIdentity),
@@ -70,7 +124,9 @@ public class LeaderElectorTest {
         new Thread(
             () ->
                 leaderElector.run(
-                    () -> startBeingLeader.countDown(), () -> stopBeingLeader.countDown()),
+                    () -> startBeingLeader.countDown(),
+                    () -> stopBeingLeader.countDown(),
+                    onNewLeaderHook),
             String.format("%s-leader-elector-main", lockIdentity));
     thread.setDaemon(true);
     thread.start();
