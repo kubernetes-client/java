@@ -59,7 +59,7 @@
     <apache.commons.io>2.8.0</apache.commons.io>
     <common.codec.version>1.15</common.codec.version>
     <spring.boot.version>2.3.5.RELEASE</spring.boot.version>
-    <spring.version>5.2.9.RELEASE</spring.version>
+    <spring.version>5.3.5</spring.version>
     <prometheus.client.version>0.10.0</prometheus.client.version>
 
     <e2e.skip>true</e2e.skip>
