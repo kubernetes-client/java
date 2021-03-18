@@ -304,11 +304,9 @@ public class LeaderElector implements AutoCloseable {
 
     if (observedTimeMilliSeconds + config.getLeaseDuration().toMillis() > now.getTime()
         && !isLeader()) {
-      if (log.isDebugEnabled()) {
-        log.debug(
-            "Lock is held by {} and has not yet expired",
-            oldLeaderElectionRecord.getHolderIdentity());
-      }
+      log.debug(
+          "Lock is held by {} and has not yet expired",
+          oldLeaderElectionRecord.getHolderIdentity());
       return false;
     }
 
@@ -368,7 +366,13 @@ public class LeaderElector implements AutoCloseable {
     this.reportedLeader = this.observedRecord.getHolderIdentity();
 
     if (this.onNewLeaderHook != null) {
-      this.hookWorkers.submit(() -> onNewLeaderHook.accept(this.reportedLeader));
+      this.hookWorkers.submit(
+          () -> {
+            log.info(
+                "LeaderElection lock is currently held by {}",
+                this.observedRecord.getHolderIdentity());
+            onNewLeaderHook.accept(this.reportedLeader);
+          });
     }
   }
 
