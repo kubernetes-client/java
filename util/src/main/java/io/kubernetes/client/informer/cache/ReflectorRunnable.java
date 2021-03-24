@@ -223,10 +223,15 @@ public class ReflectorRunnable<
         continue;
       }
       if (eventType.get() == EventType.ERROR) {
-        String errorMessage =
-            String.format("got ERROR event and its status: %s", item.status.toString());
-        log.error(errorMessage);
-        throw new RuntimeException(errorMessage);
+        if (item.status != null && item.status.getCode() == HttpURLConnection.HTTP_GONE) {
+          log.info("Watch connection expired: {}", item.status.getMessage());
+          return;
+        } else {
+          String errorMessage =
+              String.format("got ERROR event and its status: %s", item.status.toString());
+          log.error(errorMessage);
+          throw new RuntimeException(errorMessage);
+        }
       }
 
       ApiType obj = item.object;
