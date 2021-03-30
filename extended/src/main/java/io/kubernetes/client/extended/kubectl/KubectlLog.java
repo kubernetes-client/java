@@ -35,7 +35,7 @@ public class KubectlLog extends Kubectl.ResourceAndContainerBuilder<V1Pod, Kubec
     PodLogs logs = new PodLogs(apiClient);
     String ns = (this.namespace == null ? "default" : this.namespace);
     try {
-      return logs.streamNamespacedPodLog(this.name, ns, this.container);
+      return logs.streamNamespacedPodLog(ns, this.name, this.container);
     } catch (ApiException | IOException ex) {
       throw new KubectlException(ex);
     }
