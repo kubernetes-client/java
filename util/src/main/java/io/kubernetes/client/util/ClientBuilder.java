@@ -245,6 +245,12 @@ public class ClientBuilder {
 
     final String host = System.getenv(ENV_SERVICE_HOST);
     final String port = System.getenv(ENV_SERVICE_PORT);
+    if (host == null) {
+      throw new IllegalStateException("ENV_SERVICE_HOST is not set");
+    }
+    if (port == null) {
+      throw new IllegalStateException("ENV_SERVICE_PORT is not set");
+    }
     builder.setBasePath(host, port);
 
     builder.setCertificateAuthority(Files.readAllBytes(Paths.get(SERVICEACCOUNT_CA_PATH)));
@@ -254,8 +260,11 @@ public class ClientBuilder {
   }
 
   protected ClientBuilder setBasePath(String host, String port) {
+    if (host == null) {
+      throw new IllegalArgumentException("Host is null");
+    }
     try {
-      Integer iPort = Integer.valueOf(port);
+      Integer iPort = port == null ? 443 : Integer.valueOf(port);
       URI uri = new URI("https", null, host, iPort, null, null, null);
       this.setBasePath(uri.toString());
     } catch (NumberFormatException | URISyntaxException e) {
