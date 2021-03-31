@@ -3,11 +3,11 @@
 ```sh
 export REPO_ROOT=/path/to/client-java/repo
 
-cd ${REPO_ROOT}/kubernetes
+cd ${REPO_ROOT}/
 mvn install
 
-cd ${REPO_ROOT}/examples
-mvn package
+cd ${REPO_ROOT}/examples/examples-12
+mvn compile
 mvn exec:java -Dexec.mainClass="io.kubernetes.client.examples.Example"
 ```
 
