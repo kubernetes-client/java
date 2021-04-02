@@ -160,6 +160,8 @@ public class ReflectorRunnable<
             "ResourceVersion {} expired, will retry w/o resourceVersion at the next time",
             getRelistResourceVersion());
         isLastSyncResourceVersionUnavailable = true;
+      } else {
+        this.exceptionHandler.accept(apiTypeClass, e);
       }
     } catch (Throwable t) {
       this.exceptionHandler.accept(apiTypeClass, t);
