@@ -61,17 +61,24 @@ public class ControllerManager implements Controller {
     for (Controller controller : this.controllers) {
       controllerThreadPool.submit(
           () -> {
-            controller.run();
-            latch.countDown();
+            try {
+              log.debug("Starting controller manager");
+              controller.run();
+            } catch (Throwable t) {
+              log.error("Unexpected controller termination", t);
+            } finally {
+              latch.countDown();
+              log.debug("Exiting controller manager");
+            }
           });
     }
     try {
-      log.debug("Controller-Manager {} bootstrapping..");
+      log.debug("Controller-Manager bootstrapping.");
       latch.await();
     } catch (InterruptedException e) {
       log.error("Aborting controller-manager.", e);
     } finally {
-      log.info("Controller-Manager {} exited");
+      log.info("Controller-Manager exited");
     }
   }
 }

@@ -154,9 +154,10 @@ public class DefaultController implements Controller {
               this.worker();
             } catch (Throwable t) {
               log.error("Unexpected controller loop abortion", t);
+            } finally {
+              latch.countDown();
+              log.debug("Exiting controller {} worker {}..", this.name, workerIndex);
             }
-            latch.countDown();
-            log.debug("Exiting controller {} worker {}..", this.name, workerIndex);
           },
           0,
           1,
