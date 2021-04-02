@@ -87,7 +87,7 @@ public class Controller<
     // starts one daemon thread for resync
     this.resyncExecutor =
         Executors.newSingleThreadScheduledExecutor(
-            Threads.threadFactory("controller-reflector-" + apiTypeClass.getName() + "-%d"));
+            Threads.threadFactory("controller-resync-" + apiTypeClass.getName() + "-%d"));
   }
 
   public Controller(
@@ -139,6 +139,7 @@ public class Controller<
       }
     }
     reflectExecutor.shutdown();
+    resyncExecutor.shutdown();
   }
 
   /** returns true if the queue has been resycned */
