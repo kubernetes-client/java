@@ -241,7 +241,11 @@ public class ReflectorRunnable<
       }
       if (eventType.get() == EventType.ERROR) {
         if (item.status != null && item.status.getCode() == HttpURLConnection.HTTP_GONE) {
-          log.info("Watch connection expired: {}", item.status.getMessage());
+          log.info(
+              "ResourceVersion {} and Watch connection expired: {} , will retry w/o resourceVersion next time",
+              getRelistResourceVersion(),
+              item.status.getMessage());
+          isLastSyncResourceVersionUnavailable = true;
           throw new WatchExpiredException();
         } else {
           String errorMessage =
