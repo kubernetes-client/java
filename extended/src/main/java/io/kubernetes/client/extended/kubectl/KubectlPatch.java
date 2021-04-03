@@ -44,10 +44,14 @@ public class KubectlPatch<ApiType extends KubernetesObject>
     refreshDiscovery();
 
     GenericKubernetesApi genericKubernetesApi = getGenericApi();
-    if (ModelMapper.isNamespaced(apiTypeClass)) {
-      return (ApiType) genericKubernetesApi.patch(namespace, name, patchType, patchContent);
-    } else {
-      return (ApiType) genericKubernetesApi.patch(name, patchType, patchContent);
+    try {
+      if (ModelMapper.isNamespaced(apiTypeClass)) {
+        return (ApiType) genericKubernetesApi.patch(namespace, name, patchType, patchContent).throwsApiException().getObject();
+      } else {
+        return (ApiType) genericKubernetesApi.patch(name, patchType, patchContent).throwsApiException().getObject();
+      }
+    } catch (Exception e) {
+      throw new KubectlException(e);
     }
   }
 }
