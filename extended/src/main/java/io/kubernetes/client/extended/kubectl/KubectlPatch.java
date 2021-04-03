@@ -46,9 +46,17 @@ public class KubectlPatch<ApiType extends KubernetesObject>
     GenericKubernetesApi genericKubernetesApi = getGenericApi();
     try {
       if (ModelMapper.isNamespaced(apiTypeClass)) {
-        return (ApiType) genericKubernetesApi.patch(namespace, name, patchType, patchContent).throwsApiException().getObject();
+        return (ApiType)
+            genericKubernetesApi
+                .patch(namespace, name, patchType, patchContent)
+                .throwsApiException()
+                .getObject();
       } else {
-        return (ApiType) genericKubernetesApi.patch(name, patchType, patchContent).throwsApiException().getObject();
+        return (ApiType)
+            genericKubernetesApi
+                .patch(name, patchType, patchContent)
+                .throwsApiException()
+                .getObject();
       }
     } catch (Exception e) {
       throw new KubectlException(e);
