@@ -15,6 +15,7 @@ package io.kubernetes.client.extended.kubectl;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
+import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.util.ModelMapper;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
 
@@ -58,7 +59,7 @@ public class KubectlPatch<ApiType extends KubernetesObject>
                 .throwsApiException()
                 .getObject();
       }
-    } catch (Exception e) {
+    } catch (ApiException e) {
       throw new KubectlException(e);
     }
   }
