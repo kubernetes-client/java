@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Setup Java
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2
         with:
           java-version: 8.0.x
       - name: Verify Format and License
@@ -31,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Setup Java
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2
         with:
           java-version: ${{ matrix.java }}
       - name: Cache local Maven repository
@@ -76,7 +76,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Setup Java
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2
         with:
           java-version: 11.0.x
       - name: Cache local Maven repository
