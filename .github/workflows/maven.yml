@@ -18,6 +18,7 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v2
         with:
+          distribution: 'adopt'
           java-version: 8.0.x
       - name: Verify Format and License
         run: mvn spotless:check
@@ -33,6 +34,7 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v2
         with:
+          distribution: 'adopt'
           java-version: ${{ matrix.java }}
       - name: Cache local Maven repository
         uses: actions/cache@v2.1.4
@@ -78,6 +80,7 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v2
         with:
+          distribution: 'adopt'
           java-version: 11.0.x
       - name: Cache local Maven repository
         uses: actions/cache@v2.1.4
