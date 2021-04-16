@@ -103,7 +103,8 @@ public class ApiClient {
     json = new JSON();
 
     // Set default User-Agent.
-    setUserAgent("Kubernetes Java Client/11.0.1-SNAPSHOT");
+    // TODO: rendering project version & JVM-runtime version in the header
+    setUserAgent("Kubernetes Java Client");
 
     authentications = new HashMap<String, Authentication>();
   }
