@@ -39,6 +39,8 @@ public class ReflectorRunnable<
 
   public static Duration REFLECTOR_WATCH_CLIENTSIDE_TIMEOUT = Duration.ofMinutes(5);
 
+  public static Duration REFLECTOR_WATCH_CLIENTSIDE_MAX_TIMEOUT = Duration.ofMinutes(5 * 2);
+
   private static final Logger log = LoggerFactory.getLogger(ReflectorRunnable.class);
 
   private String lastSyncResourceVersion;
@@ -110,12 +112,16 @@ public class ReflectorRunnable<
             log.debug(
                 "{}#Start watch with resource version {}", apiTypeClass, lastSyncResourceVersion);
           }
+
+          long jitteredWatchTimeoutSeconds =
+              Double.valueOf(REFLECTOR_WATCH_CLIENTSIDE_TIMEOUT.getSeconds() * (1 + Math.random()))
+                  .longValue();
           Watchable<ApiType> newWatch =
               listerWatcher.watch(
                   new CallGeneratorParams(
                       Boolean.TRUE,
                       lastSyncResourceVersion,
-                      Long.valueOf(REFLECTOR_WATCH_CLIENTSIDE_TIMEOUT.getSeconds()).intValue()));
+                      Long.valueOf(jitteredWatchTimeoutSeconds).intValue()));
 
           synchronized (this) {
             if (!isActive.get()) {

@@ -19,7 +19,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties("kubernetes.informer")
 public class KubernetesInformerProperties {
 
-  private Duration clientReadTimeout = ReflectorRunnable.REFLECTOR_WATCH_CLIENTSIDE_TIMEOUT;
+  private Duration clientReadTimeout = ReflectorRunnable.REFLECTOR_WATCH_CLIENTSIDE_MAX_TIMEOUT;
 
   public Duration getClientReadTimeout() {
     return clientReadTimeout;
