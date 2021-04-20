@@ -117,13 +117,21 @@ public class ModelMapper {
    * @param version the version
    * @param kind the kind
    * @param resourceNamePlural the resource name plural
-   * @param clazz the clazz
+   * @param objClass the clazz
    */
   public static void addModelMap(
-      String group, String version, String kind, String resourceNamePlural, Class<?> clazz) {
+      String group,
+      String version,
+      String kind,
+      String resourceNamePlural,
+      Class<? extends KubernetesObject> objClass,
+      Class<? extends KubernetesListObject> objListClass) {
     // TODO(yue9944882): consistency between bi-directional maps
-    classesByGVK.add(new GroupVersionKind(group, version, kind), clazz);
-    classesByGVR.add(new GroupVersionResource(group, version, resourceNamePlural), clazz);
+    classesByGVK.add(new GroupVersionKind(group, version, kind), objClass);
+    classesByGVR.add(new GroupVersionResource(group, version, resourceNamePlural), objClass);
+    if (objListClass != null) {
+      classesByGVK.add(new GroupVersionKind(group, version, kind + "List"), objListClass);
+    }
   }
 
   /**
@@ -135,7 +143,7 @@ public class ModelMapper {
    * @param kind the kind
    * @param resourceNamePlural the resource name plural
    * @param isNamespacedResource the is namespaced resource
-   * @param clazz the clazz
+   * @param objClass the clazz
    */
   public static void addModelMap(
       String group,
@@ -143,9 +151,21 @@ public class ModelMapper {
       String kind,
       String resourceNamePlural,
       Boolean isNamespacedResource,
-      Class<?> clazz) {
-    addModelMap(group, version, kind, resourceNamePlural, clazz);
-    isNamespacedByClasses.put(clazz, isNamespacedResource);
+      Class<? extends KubernetesObject> objClass) {
+    addModelMap(group, version, kind, resourceNamePlural, objClass, null);
+    isNamespacedByClasses.put(objClass, isNamespacedResource);
+  }
+
+  public static void addModelMap(
+      String group,
+      String version,
+      String kind,
+      String resourceNamePlural,
+      Boolean isNamespacedResource,
+      Class<? extends KubernetesObject> objClass,
+      Class<? extends KubernetesListObject> objListClass) {
+    addModelMap(group, version, kind, resourceNamePlural, objClass, objListClass);
+    isNamespacedByClasses.put(objClass, isNamespacedResource);
   }
 
   /**
@@ -240,11 +260,16 @@ public class ModelMapper {
 
     for (Discovery.APIResource apiResource : apiResources) {
       for (String version : apiResource.getVersions()) {
-        Class<?> clazz = getApiTypeClass(apiResource.getGroup(), version, apiResource.getKind());
+        Class<? extends KubernetesObject> objClass =
+            (Class<? extends KubernetesObject>)
+                getApiTypeClass(apiResource.getGroup(), version, apiResource.getKind());
         // no such classes registered in the ModelMapper, ignoring
-        if (clazz == null) {
+        if (objClass == null) {
           continue;
         }
+        Class<? extends KubernetesListObject> objListClass =
+            (Class<? extends KubernetesListObject>)
+                getApiTypeClass(apiResource.getGroup(), version, apiResource.getKind() + "List");
         // sync up w/ the latest api discovery
         addModelMap(
             apiResource.getGroup(),
@@ -252,7 +277,8 @@ public class ModelMapper {
             apiResource.getKind(),
             apiResource.getResourcePlural(),
             apiResource.getNamespaced(),
-            clazz);
+            objClass,
+            objListClass);
       }
     }
 
