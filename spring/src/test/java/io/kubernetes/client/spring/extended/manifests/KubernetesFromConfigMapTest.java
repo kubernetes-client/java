@@ -12,9 +12,9 @@ limitations under the License.
 */
 package io.kubernetes.client.spring.extended.manifests;
 
-import static junit.framework.Assert.assertNull;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
+import static org.awaitility.Awaitility.await;
 
 import io.kubernetes.client.openapi.models.V1ConfigMap;
 import io.kubernetes.client.spring.extended.manifests.annotation.FromConfigMap;
@@ -23,7 +23,6 @@ import io.kubernetes.client.spring.extended.manifests.configmaps.ConfigMapGetter
 import java.time.Duration;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
-import org.awaitility.Awaitility;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestRule;
@@ -98,8 +97,9 @@ public class KubernetesFromConfigMapTest {
     assertEquals("bar1", myBean.dynamicData.get("foo"));
     mockAtomicConfigMapGetter.configMapAtomicReference.set(
         new V1ConfigMap().putDataItem("foo", "bar2"));
-    Thread.sleep(manifestsProperties.getRefreshInterval().toMillis());
-    assertEquals("bar2", myBean.dynamicData.get("foo"));
+    await()
+        .timeout(manifestsProperties.getRefreshInterval().multipliedBy(2))
+        .until(() -> "bar2".equals(myBean.dynamicData.get("foo")));
   }
 
   @Test
@@ -109,14 +109,13 @@ public class KubernetesFromConfigMapTest {
     assertEquals("bar1", myBean.dynamicData.get("foo"));
     mockAtomicConfigMapGetter.configMapAtomicReference.set(
         new V1ConfigMap().putDataItem("foo1", "bar"));
-    Thread.sleep(manifestsProperties.getRefreshInterval().toMillis());
-    assertNull(myBean.dynamicData.get("foo")); // old key should be removed
-    assertEquals("bar", myBean.dynamicData.get("foo1")); // new key should be added
-  }
-
-  private void reset() {
-    mockAtomicConfigMapGetter.configMapAtomicReference.set(
-        new V1ConfigMap().putDataItem("foo", "bar1"));
+    await()
+        .timeout(manifestsProperties.getRefreshInterval().multipliedBy(2))
+        .until(
+            () -> {
+              return myBean.dynamicData.get("foo") == null
+                  && "bar".equals(myBean.dynamicData.get("foo1"));
+            });
   }
 
   static class MockConfigMapGetter implements ConfigMapGetter {
@@ -144,7 +143,7 @@ public class KubernetesFromConfigMapTest {
         public void evaluate() throws Throwable {
           mockAtomicConfigMapGetter.configMapAtomicReference.set(
               new V1ConfigMap().putDataItem("foo", "bar1"));
-          Awaitility.await().until(() -> "bar1".equals(myBean.dynamicData.get("foo")));
+          await().until(() -> "bar1".equals(myBean.dynamicData.get("foo")));
           statement.evaluate();
         }
       };
