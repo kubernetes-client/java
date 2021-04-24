@@ -260,7 +260,7 @@ public class ClientBuilder {
   }
 
   protected ClientBuilder setBasePath(String host, String port) {
-    if (host == null) {
+    if (StringUtils.isEmpty(host))
       throw new IllegalArgumentException("Host is null");
     }
     try {
