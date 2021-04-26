@@ -15,6 +15,7 @@ package io.kubernetes.client.util.generic;
 import io.kubernetes.client.common.KubernetesType;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1Status;
+import java.net.HttpURLConnection;
 
 public class KubernetesApiResponse<DataType extends KubernetesType> {
 
@@ -25,7 +26,7 @@ public class KubernetesApiResponse<DataType extends KubernetesType> {
   public KubernetesApiResponse(DataType object) {
     this.object = object;
     this.status = null;
-    this.httpStatusCode = -1;
+    this.httpStatusCode = HttpURLConnection.HTTP_OK; // 200
   }
 
   public KubernetesApiResponse(V1Status status, int httpStatusCode) {
@@ -47,7 +48,7 @@ public class KubernetesApiResponse<DataType extends KubernetesType> {
   }
 
   public boolean isSuccess() {
-    return this.httpStatusCode < 400;
+    return this.httpStatusCode < HttpURLConnection.HTTP_BAD_REQUEST; // 400
   }
 
   /**
