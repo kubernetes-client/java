@@ -35,6 +35,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.constructor.Constructor;
+import org.yaml.snakeyaml.constructor.SafeConstructor;
 import org.yaml.snakeyaml.introspector.Property;
 import org.yaml.snakeyaml.nodes.MappingNode;
 import org.yaml.snakeyaml.nodes.Node;
@@ -79,7 +80,7 @@ public class Yaml {
    * @throws IOException If an error occurs while reading the YAML.
    */
   public static Object load(Reader reader) throws IOException {
-    Map<String, Object> data = getSnakeYaml().load(reader);
+    Map<String, Object> data = getSnakeYaml(null).load(reader);
     return modelMapper(data);
   }
 
@@ -93,7 +94,7 @@ public class Yaml {
    * @throws IOException If an error occurs while reading the YAML.
    */
   public static <T> T loadAs(String content, Class<T> clazz) {
-    return getSnakeYaml().loadAs(new StringReader(content), clazz);
+    return getSnakeYaml(clazz).loadAs(new StringReader(content), clazz);
   }
 
   /**
@@ -105,7 +106,7 @@ public class Yaml {
    * @throws IOException If an error occurs while reading the YAML.
    */
   public static <T> T loadAs(File f, Class<T> clazz) throws IOException {
-    return getSnakeYaml().loadAs(new FileReader(f), clazz);
+    return getSnakeYaml(clazz).loadAs(new FileReader(f), clazz);
   }
 
   /**
@@ -118,7 +119,7 @@ public class Yaml {
    * @throws IOException If an error occurs while reading the YAML.
    */
   public static <T> T loadAs(Reader reader, Class<T> clazz) {
-    return getSnakeYaml().loadAs(reader, clazz);
+    return getSnakeYaml(clazz).loadAs(reader, clazz);
   }
 
   /**
@@ -161,7 +162,7 @@ public class Yaml {
    * @throws IOException If an error occurs while reading the YAML.
    */
   public static List<Object> loadAll(Reader reader) throws IOException {
-    Iterable<Object> iterable = getSnakeYaml().loadAll(reader);
+    Iterable<Object> iterable = getSnakeYaml(null).loadAll(reader);
     List<Object> list = new ArrayList<Object>();
     for (Object object : iterable) {
       if (object != null) {
@@ -183,7 +184,7 @@ public class Yaml {
    * @return A YAML String representing the API object.
    */
   public static String dump(Object object) {
-    return getSnakeYaml().dump(object);
+    return getSnakeYaml(object.getClass()).dump(object);
   }
 
   /**
@@ -193,7 +194,7 @@ public class Yaml {
    * @param writer The writer to write the YAML to.
    */
   public static void dump(Object object, Writer writer) {
-    getSnakeYaml().dump(object, writer);
+    getSnakeYaml(object.getClass()).dump(object, writer);
   }
 
   /**
@@ -203,7 +204,7 @@ public class Yaml {
    * @return A String representing the list of YAML API objects.
    */
   public static String dumpAll(Iterator<? extends KubernetesType> data) {
-    return getSnakeYaml().dumpAll(data);
+    return getSnakeYaml(null).dumpAll(data);
   }
 
   /**
@@ -213,11 +214,15 @@ public class Yaml {
    * @param output The writer to output the YAML String to.
    */
   public static void dumpAll(Iterator<? extends KubernetesType> data, Writer output) {
-    getSnakeYaml().dumpAll(data, output);
+    getSnakeYaml(null).dumpAll(data, output);
   }
 
   /** Defines constructor logic for custom types in this library. */
   public static class CustomConstructor extends Constructor {
+    public CustomConstructor(Class<?> type) {
+      super(type);
+    }
+
     @Override
     protected Object constructObject(Node node) {
       if (node.getType() == IntOrString.class) {
@@ -230,7 +235,6 @@ public class Yaml {
       if (node.getType() == org.joda.time.DateTime.class) {
         return constructDateTime((ScalarNode) node);
       }
-
       return super.constructObject(node);
     }
 
@@ -358,8 +362,11 @@ public class Yaml {
   }
 
   /** @return An instantiated SnakeYaml Object. */
-  public static org.yaml.snakeyaml.Yaml getSnakeYaml() {
-    return new org.yaml.snakeyaml.Yaml(new CustomConstructor(), new CustomRepresenter());
+  public static org.yaml.snakeyaml.Yaml getSnakeYaml(Class<?> type) {
+    if (type != null) {
+      return new org.yaml.snakeyaml.Yaml(new CustomConstructor(type), new CustomRepresenter());
+    }
+    return new org.yaml.snakeyaml.Yaml(new SafeConstructor(), new CustomRepresenter());
   }
 
   /**
@@ -382,7 +389,7 @@ public class Yaml {
       throw new IOException(
           "Unknown apiVersionKind " + apiVersion + "/" + kind + " is it registered?");
     }
-    return loadAs(new StringReader(getSnakeYaml().dump(data)), clazz);
+    return loadAs(new StringReader(getSnakeYaml(clazz).dump(data)), clazz);
   }
 
   @Deprecated
