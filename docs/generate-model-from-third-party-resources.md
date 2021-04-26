@@ -131,6 +131,19 @@ GenericKubernetesApi<V1CronTab, V1CronTabList> crontabClient =
         .throwsApiException();
 ```
 
+#### Loading generated model from Yaml
+
+In order to make the Yaml codec recognizes the generated model classes, we need to do the registration
+by `ModelMapper`:
+
+```java
+static {
+    ModelMapper.addModelMap("com.example.stable", "v1", "crontabs", V1CronTab.class);
+    // alternative:
+    // ModelMapper.addModelMap("com.example.stable", "v1", "crontabs", V1CronTab.class, V1CronTabList.class);
+}
+```
+
 
 
  
