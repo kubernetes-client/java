@@ -26,14 +26,11 @@ import java.util.Map;
 import java.util.function.Function;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.contrib.java.lang.system.EnvironmentVariables;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 @RunWith(Parameterized.class)
 public class CacheTest {
-
-  @Rule public final EnvironmentVariables environmentVariables = new EnvironmentVariables();
 
   private static String mockIndexName = "mock";
 

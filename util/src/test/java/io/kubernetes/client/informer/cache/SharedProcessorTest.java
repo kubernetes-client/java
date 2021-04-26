@@ -22,11 +22,8 @@ import java.time.Duration;
 import java.util.concurrent.Executors;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.contrib.java.lang.system.EnvironmentVariables;
 
 public class SharedProcessorTest {
-
-  @Rule public final EnvironmentVariables environmentVariables = new EnvironmentVariables();
 
   @Test
   public void testListenerAddition() throws InterruptedException {
