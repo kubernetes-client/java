@@ -25,12 +25,8 @@ import java.util.LinkedList;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.contrib.java.lang.system.EnvironmentVariables;
 
 public class DeltaFIFOTest {
-
-  @Rule public final EnvironmentVariables environmentVariables = new EnvironmentVariables();
-
   @Test
   public void testDeltaFIFOBasic() throws InterruptedException {
     Deque<MutablePair<DeltaFIFO.DeltaType, KubernetesObject>> receivingDeltas = new LinkedList<>();
