@@ -14,12 +14,17 @@ package io.kubernetes.client.util.generic.dynamic;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
-import io.kubernetes.client.openapi.Configuration;
+import io.kubernetes.client.openapi.JSON;
+import java.util.Map;
+import org.yaml.snakeyaml.Yaml;
 
 public class Dynamics {
 
+  static final JSON internalJSONCodec = new JSON();
+  static final Yaml internalYamlCodec = new Yaml();
+
   public static DynamicKubernetesObject newFromJson(String jsonContent) {
-    return newFromJson(Configuration.getDefaultApiClient().getJSON().getGson(), jsonContent);
+    return newFromJson(internalJSONCodec.getGson(), jsonContent);
   }
 
   public static DynamicKubernetesObject newFromJson(Gson gson, String jsonContent) {
@@ -28,11 +33,39 @@ public class Dynamics {
   }
 
   public static DynamicKubernetesListObject newListFromJson(String jsonContent) {
-    return newListFromJson(Configuration.getDefaultApiClient().getJSON().getGson(), jsonContent);
+    return newListFromJson(internalJSONCodec.getGson(), jsonContent);
   }
 
   public static DynamicKubernetesListObject newListFromJson(Gson gson, String jsonContent) {
     JsonElement raw = gson.fromJson(jsonContent, JsonElement.class);
     return new DynamicKubernetesListObject(raw.getAsJsonObject());
+  }
+
+  public static DynamicKubernetesObject newFromYaml(String yamlContent) {
+    return newFromYaml(internalYamlCodec, yamlContent);
+  }
+
+  public static DynamicKubernetesObject newFromYaml(Yaml yamlCodec, String yamlContent) {
+    return newFromJson(
+        internalJSONCodec.getGson(),
+        fromYamlToJson(yamlCodec, internalJSONCodec.getGson(), yamlContent));
+  }
+
+  public static String fromYamlToJson(String yamlContent) {
+    return fromYamlToJson(internalYamlCodec, internalJSONCodec.getGson(), yamlContent);
+  }
+
+  public static String fromJsonToYaml(String jsonContent) {
+    return fromJsonToYaml(internalYamlCodec, internalJSONCodec.getGson(), jsonContent);
+  }
+
+  public static String fromYamlToJson(Yaml yamlCodec, Gson gson, String yamlContent) {
+    Map<String, Object> rawYamlObj = yamlCodec.load(yamlContent);
+    return gson.toJson(rawYamlObj);
+  }
+
+  public static String fromJsonToYaml(Yaml yamlCodec, Gson gson, String jsonContent) {
+    Map<String, Object> rawJsonObj = gson.fromJson(jsonContent, Map.class);
+    return yamlCodec.dump(rawJsonObj);
   }
 }
