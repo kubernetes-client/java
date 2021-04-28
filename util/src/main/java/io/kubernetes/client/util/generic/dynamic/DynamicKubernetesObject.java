@@ -14,7 +14,6 @@ package io.kubernetes.client.util.generic.dynamic;
 
 import com.google.gson.JsonObject;
 import io.kubernetes.client.common.KubernetesObject;
-import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import java.util.Objects;
 
@@ -36,8 +35,7 @@ public class DynamicKubernetesObject implements KubernetesObject {
 
   @Override
   public V1ObjectMeta getMetadata() {
-    return Configuration.getDefaultApiClient()
-        .getJSON()
+    return Dynamics.internalJSONCodec
         .getGson()
         .fromJson(this.raw.get("metadata"), V1ObjectMeta.class);
   }
@@ -65,8 +63,7 @@ public class DynamicKubernetesObject implements KubernetesObject {
   }
 
   public void setMetadata(V1ObjectMeta objectMeta) {
-    this.raw.add(
-        "metadata", Configuration.getDefaultApiClient().getJSON().getGson().toJsonTree(objectMeta));
+    this.raw.add("metadata", Dynamics.internalJSONCodec.getGson().toJsonTree(objectMeta));
   }
 
   @Override
