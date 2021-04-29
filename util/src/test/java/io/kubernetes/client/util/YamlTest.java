@@ -47,6 +47,8 @@ public class YamlTest {
 
   private static final URL CREATED_TIMESTAMP_FILE = Resources.getResource("test-pod.yaml");
 
+  private static final URL TAGGED_FILE = Resources.getResource("pod-tag.yaml");
+
   private static final String[] kinds =
       new String[] {
         "Pod",
@@ -255,5 +257,27 @@ public class YamlTest {
     } catch (Exception ex) {
       assertNull("Unexpected exception: " + ex.toString(), ex);
     }
+  }
+
+  @Test
+  public void testYamlCantConstructObjects() {
+    try {
+      String data = Resources.toString(TAGGED_FILE, UTF_8);
+      Object pod = Yaml.load(data);
+    } catch (Exception ex) {
+      // pass
+    }
+    assertFalse("Object should not be constructed!", TestPoJ.hasBeenConstructed());
+  }
+
+  @Test
+  public void testLoadAsYamlCantConstructObjects() {
+    try {
+      String data = Resources.toString(TAGGED_FILE, UTF_8);
+      V1Pod pod = Yaml.loadAs(data, V1Pod.class);
+    } catch (Exception ex) {
+      // pass
+    }
+    assertFalse("Object should not be constructed!", TestPoJ.hasBeenConstructed());
   }
 }
