@@ -362,7 +362,12 @@ public class Yaml {
   }
 
   /** @return An instantiated SnakeYaml Object. */
-  public static org.yaml.snakeyaml.Yaml getSnakeYaml(Class<?> type) {
+  @Deprecated
+  public static org.yaml.snakeyaml.Yaml getSnakeYaml() {
+    return getSnakeYaml(null);
+  }
+
+  private static org.yaml.snakeyaml.Yaml getSnakeYaml(Class<?> type) {
     if (type != null) {
       return new org.yaml.snakeyaml.Yaml(new CustomConstructor(type), new CustomRepresenter());
     }
