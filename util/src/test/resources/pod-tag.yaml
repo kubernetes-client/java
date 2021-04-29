@@ -1,0 +1,12 @@
+!!io.kubernetes.client.util.TestPoJ
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2018-12-23T01:09:18Z"
+  generateName: test-776d6c86cc-
+  labels:
+    app: test
+    app-version: "19911"
+    pod-template-hash: "3328274277"
+  name: test-776d6c86cc-4zwj5
+  namespace: default
