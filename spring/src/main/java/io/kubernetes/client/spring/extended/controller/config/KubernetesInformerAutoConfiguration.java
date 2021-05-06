@@ -12,16 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.spring.extended.controller.config;
 
+import io.kubernetes.client.informer.SharedInformerFactory;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
-
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import io.kubernetes.client.informer.SharedInformerFactory;
-import io.kubernetes.client.openapi.ApiClient;
-import io.kubernetes.client.util.ClientBuilder;
 
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnKubernetesInformerEnabled
@@ -41,5 +39,4 @@ public class KubernetesInformerAutoConfiguration {
   public SharedInformerFactory sharedInformerFactory() {
     return new SharedInformerFactory();
   }
-
 }

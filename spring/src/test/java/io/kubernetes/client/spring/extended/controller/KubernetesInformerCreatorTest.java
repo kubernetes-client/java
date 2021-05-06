@@ -22,24 +22,8 @@ import static com.github.tomakehurst.wiremock.client.WireMock.verify;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import java.util.Arrays;
-
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.google.gson.Gson;
-<<<<<<< HEAD
-=======
-
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Bean;
-import org.springframework.test.context.junit4.SpringRunner;
-
->>>>>>> cdfb77c1 (Remove KubernetesInformers and related infrastructure)
 import io.kubernetes.client.informer.SharedIndexInformer;
 import io.kubernetes.client.informer.SharedInformerFactory;
 import io.kubernetes.client.informer.cache.Lister;
@@ -52,6 +36,15 @@ import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1PodList;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
+import java.util.Arrays;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Bean;
+import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -69,17 +62,21 @@ public class KubernetesInformerCreatorTest {
     }
 
     @Bean
-    public SharedIndexInformer<V1Pod> podInformer(ApiClient apiClient, SharedInformerFactory sharedInformerFactory) {
-      GenericKubernetesApi<V1Pod, V1PodList>  genericApi  = new GenericKubernetesApi<>(V1Pod.class, V1PodList.class,
-          "", "v1", "pods", apiClient);
-      return sharedInformerFactory.sharedIndexInformerFor( genericApi , V1Pod.class, 0);
+    public SharedIndexInformer<V1Pod> podInformer(
+        ApiClient apiClient, SharedInformerFactory sharedInformerFactory) {
+      GenericKubernetesApi<V1Pod, V1PodList> genericApi =
+          new GenericKubernetesApi<>(V1Pod.class, V1PodList.class, "", "v1", "pods", apiClient);
+      return sharedInformerFactory.sharedIndexInformerFor(genericApi, V1Pod.class, 0);
     }
 
     @Bean
-    public SharedIndexInformer<V1ConfigMap> configMapInformer(ApiClient apiClient, SharedInformerFactory sharedInformerFactory) {
-      GenericKubernetesApi<V1ConfigMap, V1ConfigMapList>  genericApi  = new GenericKubernetesApi<>(V1ConfigMap.class, V1ConfigMapList.class,
-          "", "v1", "configmaps", apiClient);
-      return sharedInformerFactory.sharedIndexInformerFor( genericApi , V1ConfigMap.class, 0, "default");
+    public SharedIndexInformer<V1ConfigMap> configMapInformer(
+        ApiClient apiClient, SharedInformerFactory sharedInformerFactory) {
+      GenericKubernetesApi<V1ConfigMap, V1ConfigMapList> genericApi =
+          new GenericKubernetesApi<>(
+              V1ConfigMap.class, V1ConfigMapList.class, "", "v1", "configmaps", apiClient);
+      return sharedInformerFactory.sharedIndexInformerFor(
+          genericApi, V1ConfigMap.class, 0, "default");
     }
   }
 
