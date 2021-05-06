@@ -73,13 +73,6 @@ public class SpringControllerExample {
         SharedInformerFactory sharedInformerFactory, Reconciler reconciler) {
       return new KubernetesControllerFactory(sharedInformerFactory, reconciler);
     }
-
-    // *REQUIRED*
-    // Injecting your SharedInformerFactory class annotated `@KubernetesInformers`
-    @Bean("sharedInformerFactory")
-    public SharedInformerFactory sharedInformerFactory() {
-      return new MySharedInformerFactory();
-    }
   }
 
   @KubernetesInformers({ // Defining what resources is the informer-factory actually watching.
@@ -100,6 +93,7 @@ public class SpringControllerExample {
         groupVersionResource =
             @GroupVersionResource(apiGroup = "", apiVersion = "v1", resourcePlural = "pods")),
   })
+  @Component
   public static class MySharedInformerFactory extends SharedInformerFactory {}
 
   // As long as a reconciler bean attached `@KubernetesReconciler` detected in the context, we
