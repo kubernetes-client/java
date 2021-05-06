@@ -30,7 +30,6 @@ import io.kubernetes.client.openapi.models.V1PodList;
 import io.kubernetes.client.spring.extended.controller.annotation.GroupVersionResource;
 import io.kubernetes.client.spring.extended.controller.annotation.KubernetesInformer;
 import io.kubernetes.client.spring.extended.controller.annotation.KubernetesInformers;
-import io.kubernetes.client.spring.extended.controller.annotation.KubernetesReconcilerReadyFunc;
 import java.time.Duration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -75,6 +74,7 @@ public class SpringControllerExample {
                     .build();
               });
       builder.withWorkerCount(2);
+      builder.withReadyFunc(reconciler::informerReady);
       return builder.withReconciler(reconciler).withName("nodePrintingController").build();
     }
   }
@@ -112,8 +112,7 @@ public class SpringControllerExample {
     @Autowired private Lister<V1Pod> podLister;
 
     // *OPTIONAL*
-    // If you feed like hold the controller from running util some condition..
-    @KubernetesReconcilerReadyFunc
+    // If you want to hold the controller from running util some condition..
     public boolean informerReady() {
       return podInformer.hasSynced() && nodeInformer.hasSynced();
     }
