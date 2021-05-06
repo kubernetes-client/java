@@ -13,6 +13,8 @@ limitations under the License.
 package io.kubernetes.client.examples;
 
 import io.kubernetes.client.extended.controller.Controller;
+import io.kubernetes.client.extended.controller.builder.ControllerBuilder;
+import io.kubernetes.client.extended.controller.builder.DefaultControllerBuilder;
 import io.kubernetes.client.extended.controller.reconciler.Reconciler;
 import io.kubernetes.client.extended.controller.reconciler.Request;
 import io.kubernetes.client.extended.controller.reconciler.Result;
@@ -28,13 +30,9 @@ import io.kubernetes.client.openapi.models.V1PodList;
 import io.kubernetes.client.spring.extended.controller.annotation.GroupVersionResource;
 import io.kubernetes.client.spring.extended.controller.annotation.KubernetesInformer;
 import io.kubernetes.client.spring.extended.controller.annotation.KubernetesInformers;
-import io.kubernetes.client.spring.extended.controller.annotation.KubernetesReconciler;
 import io.kubernetes.client.spring.extended.controller.annotation.KubernetesReconcilerReadyFunc;
-import io.kubernetes.client.spring.extended.controller.annotation.KubernetesReconcilerWatch;
-import io.kubernetes.client.spring.extended.controller.annotation.KubernetesReconcilerWatches;
-import io.kubernetes.client.spring.extended.controller.factory.KubernetesControllerFactory;
+import java.time.Duration;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -55,8 +53,7 @@ public class SpringControllerExample {
 
     @Bean
     public CommandLineRunner commandLineRunner(
-        SharedInformerFactory sharedInformerFactory,
-        @Qualifier("node-printing-controller") Controller nodePrintingController) {
+        SharedInformerFactory sharedInformerFactory, Controller nodePrintingController) {
       return args -> {
         System.out.println("starting informers..");
         sharedInformerFactory.startAllRegisteredInformers();
@@ -66,12 +63,19 @@ public class SpringControllerExample {
       };
     }
 
-    // *REQUIRED*
-    // factorybean to crete controller
-    @Bean("node-printing-controller")
-    public KubernetesControllerFactory kubernetesReconcilerConfigurer(
-        SharedInformerFactory sharedInformerFactory, Reconciler reconciler) {
-      return new KubernetesControllerFactory(sharedInformerFactory, reconciler);
+    @Bean
+    public Controller nodePrintingController(
+        SharedInformerFactory sharedInformerFactory, NodePrintingReconciler reconciler) {
+      DefaultControllerBuilder builder = ControllerBuilder.defaultBuilder(sharedInformerFactory);
+      builder =
+          builder.watch(
+              (q) -> {
+                return ControllerBuilder.controllerWatchBuilder(V1Node.class, q)
+                    .withResyncPeriod(Duration.ofMinutes(1))
+                    .build();
+              });
+      builder.withWorkerCount(2);
+      return builder.withReconciler(reconciler).withName("nodePrintingController").build();
     }
   }
 
@@ -96,19 +100,6 @@ public class SpringControllerExample {
   @Component
   public static class MySharedInformerFactory extends SharedInformerFactory {}
 
-  // As long as a reconciler bean attached `@KubernetesReconciler` detected in the context, we
-  // will
-  // be automatically creating a conresponding controller bean implementing {@link
-  // io.kubernetes.client.extended.controller.Controller}
-  // with the name specified and registering it to the spring bean-factory.
-  @KubernetesReconciler(
-      watches =
-          @KubernetesReconcilerWatches({
-            @KubernetesReconcilerWatch(
-                apiTypeClass = V1Node.class,
-                resyncPeriodMillis = 60 * 1000L // fully resync every 1 minute
-                ),
-          }))
   @Component
   public static class NodePrintingReconciler implements Reconciler {
 
