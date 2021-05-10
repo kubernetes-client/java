@@ -46,7 +46,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = KubernetesManifestTest.App.class)
+@SpringBootTest
 public class KubernetesManifestTest {
 
   private static final Resource DISCOVERY_API = new ClassPathResource("discovery-api.json");

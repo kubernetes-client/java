@@ -24,7 +24,7 @@ import static org.junit.Assert.assertNotNull;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.google.gson.Gson;
-import io.kubernetes.client.informer.SharedInformer;
+import io.kubernetes.client.informer.SharedIndexInformer;
 import io.kubernetes.client.informer.SharedInformerFactory;
 import io.kubernetes.client.informer.cache.Lister;
 import io.kubernetes.client.openapi.ApiClient;
@@ -34,29 +34,25 @@ import io.kubernetes.client.openapi.models.V1ListMeta;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1PodList;
-import io.kubernetes.client.spring.extended.controller.annotation.GroupVersionResource;
-import io.kubernetes.client.spring.extended.controller.annotation.KubernetesInformer;
-import io.kubernetes.client.spring.extended.controller.annotation.KubernetesInformers;
 import io.kubernetes.client.util.ClientBuilder;
+import io.kubernetes.client.util.generic.GenericKubernetesApi;
 import java.util.Arrays;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {KubernetesInformerCreatorTest.App.class})
+@SpringBootTest
 public class KubernetesInformerCreatorTest {
 
   @Rule public WireMockRule wireMockRule = new WireMockRule(8188);
 
   @SpringBootApplication
-  @EnableAutoConfiguration
   static class App {
 
     @Bean
@@ -66,43 +62,34 @@ public class KubernetesInformerCreatorTest {
     }
 
     @Bean
-    @KubernetesInformers({
-      @KubernetesInformer(
-          apiTypeClass = V1Pod.class,
-          apiListTypeClass = V1PodList.class,
-          groupVersionResource =
-              @GroupVersionResource(apiGroup = "", apiVersion = "v1", resourcePlural = "pods")),
-      @KubernetesInformer(
-          apiTypeClass = V1ConfigMap.class,
-          apiListTypeClass = V1ConfigMapList.class,
-          namespace = "default",
-          groupVersionResource =
-              @GroupVersionResource(
-                  apiGroup = "",
-                  apiVersion = "v1",
-                  resourcePlural = "configmaps")),
-    })
-    public SharedInformerFactory testSharedInformerFactory() {
-      return new SharedInformerFactory();
+    public SharedIndexInformer<V1Pod> podInformer(
+        ApiClient apiClient, SharedInformerFactory sharedInformerFactory) {
+      GenericKubernetesApi<V1Pod, V1PodList> genericApi =
+          new GenericKubernetesApi<>(V1Pod.class, V1PodList.class, "", "v1", "pods", apiClient);
+      return sharedInformerFactory.sharedIndexInformerFor(genericApi, V1Pod.class, 0);
+    }
+
+    @Bean
+    public SharedIndexInformer<V1ConfigMap> configMapInformer(
+        ApiClient apiClient, SharedInformerFactory sharedInformerFactory) {
+      GenericKubernetesApi<V1ConfigMap, V1ConfigMapList> genericApi =
+          new GenericKubernetesApi<>(
+              V1ConfigMap.class, V1ConfigMapList.class, "", "v1", "configmaps", apiClient);
+      return sharedInformerFactory.sharedIndexInformerFor(
+          genericApi, V1ConfigMap.class, 0, "default");
     }
   }
 
   @Autowired private SharedInformerFactory informerFactory;
 
-  @Autowired private SharedInformer<V1Pod> podInformer;
+  @Autowired private SharedIndexInformer<V1Pod> podInformer;
 
-  @Autowired private SharedInformer<V1ConfigMap> configMapInformer;
-
-  @Autowired private Lister<V1Pod> podLister;
-
-  @Autowired private Lister<V1ConfigMap> configMapLister;
+  @Autowired private SharedIndexInformer<V1ConfigMap> configMapInformer;
 
   @Test
   public void testInformerInjection() throws InterruptedException {
     assertNotNull(podInformer);
     assertNotNull(configMapInformer);
-    assertNotNull(podLister);
-    assertNotNull(configMapLister);
 
     V1Pod foo1 =
         new V1Pod().kind("Pod").metadata(new V1ObjectMeta().namespace("default").name("foo1"));
@@ -162,7 +149,7 @@ public class KubernetesInformerCreatorTest {
         getRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/configmaps"))
             .withQueryParam("watch", equalTo("true")));
 
-    assertEquals(1, podLister.list().size());
-    assertEquals(1, configMapLister.list().size());
+    assertEquals(1, new Lister<>(podInformer.getIndexer()).list().size());
+    assertEquals(1, new Lister<>(configMapInformer.getIndexer()).list().size());
   }
 }

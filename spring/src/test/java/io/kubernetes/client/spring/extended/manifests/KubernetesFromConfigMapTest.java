@@ -12,9 +12,9 @@ limitations under the License.
 */
 package io.kubernetes.client.spring.extended.manifests;
 
-import static junit.framework.TestCase.assertEquals;
-import static junit.framework.TestCase.assertNotNull;
 import static org.awaitility.Awaitility.await;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import io.kubernetes.client.openapi.models.V1ConfigMap;
 import io.kubernetes.client.spring.extended.manifests.annotation.FromConfigMap;
@@ -30,24 +30,18 @@ import org.junit.runner.Description;
 import org.junit.runner.RunWith;
 import org.junit.runners.model.Statement;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringBootConfiguration;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(
-    classes = KubernetesFromConfigMapTest.App.class,
-    properties = {
-      "kubernetes.manifests.refreshInterval=1s",
-    })
+@SpringBootTest("kubernetes.manifests.refreshInterval=1s")
 public class KubernetesFromConfigMapTest {
 
   @Rule public ConfigMapResetter configMapResetter = new ConfigMapResetter();
 
-  @SpringBootConfiguration
-  @EnableAutoConfiguration
+  @SpringBootApplication
   static class App {
 
     @Bean
