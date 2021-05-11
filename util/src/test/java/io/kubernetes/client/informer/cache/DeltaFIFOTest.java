@@ -23,7 +23,6 @@ import java.util.Collections;
 import java.util.Deque;
 import java.util.LinkedList;
 import org.apache.commons.lang3.tuple.MutablePair;
-import org.junit.Rule;
 import org.junit.Test;
 
 public class DeltaFIFOTest {

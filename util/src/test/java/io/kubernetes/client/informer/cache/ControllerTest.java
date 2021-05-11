@@ -24,7 +24,6 @@ import io.kubernetes.client.util.Watch;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-import org.junit.Rule;
 import org.junit.Test;
 
 public class ControllerTest {

@@ -17,7 +17,6 @@ import static org.junit.Assert.*;
 import io.kubernetes.client.informer.ResourceEventHandler;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
-import org.junit.Rule;
 import org.junit.Test;
 
 public class ProcessorListenerTest {

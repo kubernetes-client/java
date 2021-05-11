@@ -20,7 +20,6 @@ import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
 import java.time.Duration;
 import java.util.concurrent.Executors;
-import org.junit.Rule;
 import org.junit.Test;
 
 public class SharedProcessorTest {
