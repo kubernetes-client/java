@@ -18,13 +18,9 @@ import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
 import java.util.Arrays;
 import java.util.List;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.contrib.java.lang.system.EnvironmentVariables;
 
 public class ListerTest {
-  @Rule public final EnvironmentVariables environmentVariables = new EnvironmentVariables();
-
   @Test
   public void testListerBasic() {
     Cache<V1Pod> podCache = new Cache<>();

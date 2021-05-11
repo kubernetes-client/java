@@ -12,6 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
+import static com.github.stefanbirkner.systemlambda.SystemLambda.withEnvironmentVariable;
 import static io.kubernetes.client.util.Config.ENV_SERVICE_HOST;
 import static io.kubernetes.client.util.Config.ENV_SERVICE_PORT;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -30,10 +31,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.contrib.java.lang.system.EnvironmentVariables;
 
 /** Tests for the ConfigBuilder helper class */
 public class ClientBuilderTest {
@@ -59,85 +57,128 @@ public class ClientBuilderTest {
   public static final String KUBEDIR = ".kube";
   public static final String KUBECONFIG = "config";
 
-  @Rule public final EnvironmentVariables environmentVariables = new EnvironmentVariables();
-
-  @Before
-  public void setup() {
-    environmentVariables.set("HOME", "/non-existent");
-    environmentVariables.set("KUBECONFIG", null);
-  }
-
   @Test
-  public void testDefaultClientWithNoFiles() throws IOException {
-    environmentVariables.set("HOME", "/non-existent");
-    final ApiClient client = ClientBuilder.defaultClient();
-    assertEquals("http://localhost:8080", client.getBasePath());
+  public void testDefaultClientWithNoFiles() throws Exception {
+    String path =
+        withEnvironmentVariable("HOME", "/non-existent")
+            .and("KUBECONFIG", null)
+            .execute(
+                () -> {
+                  final ApiClient client = ClientBuilder.defaultClient();
+                  return client.getBasePath();
+                });
+    assertEquals("http://localhost:8080", path);
   }
 
   @Test
   public void testDefaultClientReadsHomeDir() throws Exception {
-    environmentVariables.set("HOME", HOME_PATH);
-    ApiClient client = ClientBuilder.defaultClient();
-    assertEquals("http://home.dir.com", client.getBasePath());
+    String path =
+        withEnvironmentVariable("HOME", HOME_PATH)
+            .execute(
+                () -> {
+                  ApiClient client = ClientBuilder.defaultClient();
+                  return client.getBasePath();
+                });
+    assertEquals("http://home.dir.com", path);
   }
 
   @Test
   public void testDefaultClientReadsKubeConfig() throws Exception {
-    environmentVariables.set("KUBECONFIG", KUBECONFIG_FILE_PATH);
-    final ApiClient client = ClientBuilder.defaultClient();
-    assertEquals("http://kubeconfig.dir.com", client.getBasePath());
+    String path =
+        withEnvironmentVariable("KUBECONFIG", KUBECONFIG_FILE_PATH)
+            .execute(
+                () -> {
+                  final ApiClient client = ClientBuilder.defaultClient();
+                  return client.getBasePath();
+                });
+    assertEquals("http://kubeconfig.dir.com", path);
   }
 
   @Test
   public void testDefaultClientUTF8EncodedConfig() throws Exception {
-    environmentVariables.set("KUBECONFIG", KUBECONFIG_UTF8_FILE_PATH);
-    final ApiClient client = ClientBuilder.defaultClient();
-    assertEquals("http://kubeconfig.dir.com", client.getBasePath());
+    String path =
+        withEnvironmentVariable("KUBECONFIG", KUBECONFIG_UTF8_FILE_PATH)
+            .execute(
+                () -> {
+                  final ApiClient client = ClientBuilder.defaultClient();
+                  return client.getBasePath();
+                });
+    assertEquals("http://kubeconfig.dir.com", path);
   }
 
   @Test
   public void testDefaultClientReadsKubeConfigMultiple() throws Exception {
     final String kubeConfigEnv = KUBECONFIG_FILE_PATH + File.pathSeparator + "/non-existent";
-    environmentVariables.set("KUBECONFIG", kubeConfigEnv);
-    final ApiClient client = ClientBuilder.defaultClient();
-    assertEquals("http://kubeconfig.dir.com", client.getBasePath());
+    String path =
+        withEnvironmentVariable("KUBECONFIG", kubeConfigEnv)
+            .execute(
+                () -> {
+                  final ApiClient client = ClientBuilder.defaultClient();
+                  return client.getBasePath();
+                });
+    assertEquals("http://kubeconfig.dir.com", path);
   }
 
   @Test
   public void testKubeconfigPreferredOverHomeDir() throws Exception {
-    environmentVariables.set("HOME", HOME_PATH);
-    environmentVariables.set("KUBECONFIG", KUBECONFIG_FILE_PATH);
-    final ApiClient client = ClientBuilder.standard().build();
+    String path =
+        withEnvironmentVariable("HOME", HOME_PATH)
+            .and("KUBECONFIG", KUBECONFIG_FILE_PATH)
+            .execute(
+                () -> {
+                  final ApiClient client = ClientBuilder.standard().build();
+                  return client.getBasePath();
+                });
     // $KUBECONFIG should take precedence over $HOME/.kube/config
-    assertEquals("http://kubeconfig.dir.com", client.getBasePath());
+    assertEquals("http://kubeconfig.dir.com", path);
   }
 
   @Test
   public void testInvalidKubeconfig() throws Exception {
-    environmentVariables.set("KUBECONFIG", "/non-existent");
-    final ApiClient client = ClientBuilder.standard().build();
-    assertThat(client.getBasePath(), is(Config.DEFAULT_FALLBACK_HOST));
+    String path =
+        withEnvironmentVariable("KUBECONFIG", "/non-existent")
+            .execute(
+                () -> {
+                  final ApiClient client = ClientBuilder.standard().build();
+                  return client.getBasePath();
+                });
+    assertThat(path, is(Config.DEFAULT_FALLBACK_HOST));
   }
 
   @Test
   public void testKubeconfigAddsSchemeHttps() throws Exception {
-    environmentVariables.set("KUBECONFIG", KUBECONFIG_HTTPS_FILE_PATH);
-    final ApiClient client = ClientBuilder.standard().build();
-    assertThat(client.getBasePath(), is("https://localhost:443"));
+    String path =
+        withEnvironmentVariable("KUBECONFIG", KUBECONFIG_HTTPS_FILE_PATH)
+            .execute(
+                () -> {
+                  final ApiClient client = ClientBuilder.standard().build();
+                  return client.getBasePath();
+                });
+    assertThat(path, is("https://localhost:443"));
   }
 
   @Test
   public void testKubeconfigAddsSchemeHttp() throws Exception {
-    environmentVariables.set("KUBECONFIG", KUBECONFIG_HTTP_FILE_PATH);
-    final ApiClient client = ClientBuilder.standard().build();
-    assertThat(client.getBasePath(), is("http://localhost"));
+    String path =
+        withEnvironmentVariable("KUBECONFIG", KUBECONFIG_HTTP_FILE_PATH)
+            .execute(
+                () -> {
+                  final ApiClient client = ClientBuilder.standard().build();
+                  return client.getBasePath();
+                });
+    assertThat(path, is("http://localhost"));
   }
 
   @Test
   public void testKubeconfigDisablesVerifySsl() throws Exception {
-    environmentVariables.set("KUBECONFIG", KUBECONFIG_HTTP_FILE_PATH);
-    final ApiClient client = ClientBuilder.standard().build();
-    assertThat(client.isVerifyingSsl(), is(false));
+    boolean isVerifyingSsl =
+        withEnvironmentVariable("KUBECONFIG", KUBECONFIG_HTTP_FILE_PATH)
+            .execute(
+                () -> {
+                  final ApiClient client = ClientBuilder.standard().build();
+                  return client.isVerifyingSsl();
+                });
+    assertThat(isVerifyingSsl, is(false));
   }
 
   @Test
@@ -147,10 +188,15 @@ public class ClientBuilderTest {
   }
 
   @Test
-  public void testStandardVerifiesSsl() throws IOException {
-    environmentVariables.set("HOME", "/non-existent");
-    final ApiClient client = ClientBuilder.standard().build();
-    assertThat(client.isVerifyingSsl(), is(true));
+  public void testStandardVerifiesSsl() throws Exception {
+    boolean isVerifyingSsl =
+        withEnvironmentVariable("HOME", "/non-existent")
+            .execute(
+                () -> {
+                  final ApiClient client = ClientBuilder.standard().build();
+                  return client.isVerifyingSsl();
+                });
+    assertThat(isVerifyingSsl, is(true));
   }
 
   @Test
@@ -183,45 +229,58 @@ public class ClientBuilderTest {
 
   @Test
   public void testHomeDirPreferredOverKubeConfig() throws Exception {
-    environmentVariables.set("HOME", HOME_PATH);
-    environmentVariables.set("KUBEDIR", KUBEDIR);
-    environmentVariables.set("KUBECONFIG", KUBECONFIG);
-    final ApiClient client = ClientBuilder.standard().build();
-    assertEquals("http://home.dir.com", client.getBasePath());
+    String path =
+        withEnvironmentVariable("HOME", HOME_PATH)
+            .and("KUBEDIR", KUBEDIR)
+            .and("KUBECONFIG", KUBECONFIG)
+            .execute(
+                () -> {
+                  final ApiClient client = ClientBuilder.standard().build();
+                  return client.getBasePath();
+                });
+    assertEquals(path, "http://home.dir.com");
   }
 
   @Test
-  public void testIPv4AddressParsingShouldWork() {
-    environmentVariables.set(ENV_SERVICE_HOST, "127.0.0.1");
-    environmentVariables.set(ENV_SERVICE_PORT, "6443");
-    String ipv4Host = "127.0.0.1";
-    String port = "6443";
-    ClientBuilder builder =
-        new ClientBuilder() {
-          @Override
-          public ClientBuilder setBasePath(String host, String port) {
-            return super.setBasePath(host, port);
-          }
-        }.setBasePath(ipv4Host, port);
-
-    assertEquals("https://127.0.0.1:6443", builder.getBasePath());
+  public void testIPv4AddressParsingShouldWork() throws Exception {
+    String path =
+        withEnvironmentVariable(ENV_SERVICE_HOST, "127.0.0.1")
+            .and(ENV_SERVICE_PORT, "6443")
+            .execute(
+                () -> {
+                  String ipv4Host = "127.0.0.1";
+                  String port = "6443";
+                  ClientBuilder builder =
+                      new ClientBuilder() {
+                        @Override
+                        public ClientBuilder setBasePath(String host, String port) {
+                          return super.setBasePath(host, port);
+                        }
+                      }.setBasePath(ipv4Host, port);
+                  return builder.getBasePath();
+                });
+    assertEquals(path, "https://127.0.0.1:6443");
   }
 
   @Test
-  public void testIPv6AddressParsingShouldWork() {
-    environmentVariables.set(ENV_SERVICE_HOST, "127.0.0.1");
-    environmentVariables.set(ENV_SERVICE_PORT, "6443");
-    String ipv4Host = "::1";
-    String port = "6443";
-    ClientBuilder builder =
-        new ClientBuilder() {
-          @Override
-          public ClientBuilder setBasePath(String host, String port) {
-            return super.setBasePath(host, port);
-          }
-        }.setBasePath(ipv4Host, port);
-
-    assertEquals("https://[::1]:6443", builder.getBasePath());
+  public void testIPv6AddressParsingShouldWork() throws Exception {
+    String path =
+        withEnvironmentVariable(ENV_SERVICE_HOST, "127.0.0.1")
+            .and(ENV_SERVICE_PORT, "6443")
+            .execute(
+                () -> {
+                  String ipv4Host = "::1";
+                  String port = "6443";
+                  ClientBuilder builder =
+                      new ClientBuilder() {
+                        @Override
+                        public ClientBuilder setBasePath(String host, String port) {
+                          return super.setBasePath(host, port);
+                        }
+                      }.setBasePath(ipv4Host, port);
+                  return builder.getBasePath();
+                });
+    assertEquals(path, "https://[::1]:6443");
   }
 
   @Test
