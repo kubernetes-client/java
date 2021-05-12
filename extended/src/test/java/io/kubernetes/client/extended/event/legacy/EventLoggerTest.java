@@ -15,8 +15,8 @@ package io.kubernetes.client.extended.event.legacy;
 import static org.junit.Assert.*;
 
 import io.kubernetes.client.custom.V1Patch;
-import org.junit.Test;
 import org.joda.time.DateTime;
+import org.junit.Test;
 
 public class EventLoggerTest {
 
