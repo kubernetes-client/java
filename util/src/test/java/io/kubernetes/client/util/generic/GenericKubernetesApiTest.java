@@ -20,6 +20,7 @@ import com.google.gson.Gson;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.JSON;
 import io.kubernetes.client.openapi.models.V1Job;
 import io.kubernetes.client.openapi.models.V1JobList;
 import io.kubernetes.client.openapi.models.V1JobStatus;
@@ -161,7 +162,7 @@ public class GenericKubernetesApiTest {
 
     stubFor(
         patch(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1/status"))
-            .willReturn(aResponse().withStatus(200).withBody(new Gson().toJson(foo1))));
+            .willReturn(aResponse().withStatus(200).withBody(new JSON().serialize(foo1))));
     KubernetesApiResponse<V1Job> jobListResp = jobClient.updateStatus(foo1, t -> t.getStatus());
     assertTrue(jobListResp.isSuccess());
     assertEquals(foo1, jobListResp.getObject());
