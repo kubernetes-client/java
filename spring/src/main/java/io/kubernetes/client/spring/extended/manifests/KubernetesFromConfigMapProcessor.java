@@ -54,6 +54,12 @@ public class KubernetesFromConfigMapProcessor
   public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
 
     for (Field field : bean.getClass().getDeclaredFields()) {
+      // skip if the field if the FromYaml annotation is missing
+      FromConfigMap fromConfigMapAnnotation = field.getAnnotation(FromConfigMap.class);
+      if (fromConfigMapAnnotation == null) {
+        continue;
+      }
+      // injecting
       ReflectionUtils.makeAccessible(field);
       try {
         if (field.get(bean) != null) {
@@ -62,11 +68,6 @@ public class KubernetesFromConfigMapProcessor
       } catch (IllegalAccessException e) {
         log.warn("Failed inject resource for @FromConfigMap annotated field {}", field, e);
         continue;
-      }
-
-      FromConfigMap fromConfigMapAnnotation = field.getAnnotation(FromConfigMap.class);
-      if (fromConfigMapAnnotation == null) {
-        continue; // skip if the field doesn't have the annotation
       }
 
       if (!Map.class.isAssignableFrom(field.getType())) {
