@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Verify Source Format
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.3.4
       - name: Setup Java
         uses: actions/setup-java@v2
         with:
@@ -30,7 +30,7 @@ jobs:
         # test against latest update of each major Java version, as well as specific updates of LTS versions:
         java: [ 8.0.x, 9.0.x, 10.0.x, 11.0.x, 12.0.x, 13.0.x ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.3.4
       - name: Setup Java
         uses: actions/setup-java@v2
         with:
@@ -49,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     name: GraalVM Maven Test
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.3.4
       - uses: DeLaGuardo/setup-graalvm@a766aa7b5fcc0a801fa3d4fd521ca299c03c9c00
         with:
           graalvm-version: '19.3.0.java8'
@@ -59,7 +59,7 @@ jobs:
     runs-on: ubuntu-latest
     name: End-to-End Test Against Real Cluster
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.3.4
       - name: Create k8s Kind Cluster
         uses: helm/kind-action@v1.1.0
       - name: Run E2E with Maven
@@ -76,7 +76,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Examples smoke test
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.3.4
       - name: Setup Java
         uses: actions/setup-java@v2
         with:
@@ -127,7 +127,7 @@ jobs:
           - 5000:5000
     name: CRD Java Models Code Generation
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.3.4
       - name: Publish to Registry
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
