@@ -60,6 +60,12 @@ public class KubernetesFromYamlProcessor
     }
 
     for (Field field : bean.getClass().getDeclaredFields()) {
+      // skip if the field if the FromYaml annotation is missing
+      fromYamlAnnotation = field.getAnnotation(FromYaml.class);
+      if (fromYamlAnnotation == null) {
+        continue; // skip if the field doesn't have the annotation
+      }
+      // injecting
       ReflectionUtils.makeAccessible(field);
       try {
         if (field.get(bean) != null) {
@@ -68,11 +74,6 @@ public class KubernetesFromYamlProcessor
       } catch (IllegalAccessException e) {
         log.warn("Failed inject resource for @FromYaml annotated field {}", field, e);
         continue;
-      }
-
-      fromYamlAnnotation = field.getAnnotation(FromYaml.class);
-      if (fromYamlAnnotation == null) {
-        continue; // skip if the field doesn't have the annotation
       }
 
       Object loadedObj = loadFromYaml(fromYamlAnnotation.filePath());
