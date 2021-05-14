@@ -13,28 +13,24 @@ limitations under the License.
 package io.kubernetes.client.examples;
 
 import io.kubernetes.client.extended.controller.Controller;
+import io.kubernetes.client.extended.controller.builder.ControllerBuilder;
+import io.kubernetes.client.extended.controller.builder.DefaultControllerBuilder;
 import io.kubernetes.client.extended.controller.reconciler.Reconciler;
 import io.kubernetes.client.extended.controller.reconciler.Request;
 import io.kubernetes.client.extended.controller.reconciler.Result;
+import io.kubernetes.client.informer.SharedIndexInformer;
 import io.kubernetes.client.informer.SharedInformer;
 import io.kubernetes.client.informer.SharedInformerFactory;
 import io.kubernetes.client.informer.cache.Lister;
+import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.models.V1Endpoints;
 import io.kubernetes.client.openapi.models.V1EndpointsList;
 import io.kubernetes.client.openapi.models.V1Node;
 import io.kubernetes.client.openapi.models.V1NodeList;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1PodList;
-import io.kubernetes.client.spring.extended.controller.annotation.GroupVersionResource;
-import io.kubernetes.client.spring.extended.controller.annotation.KubernetesInformer;
-import io.kubernetes.client.spring.extended.controller.annotation.KubernetesInformers;
-import io.kubernetes.client.spring.extended.controller.annotation.KubernetesReconciler;
-import io.kubernetes.client.spring.extended.controller.annotation.KubernetesReconcilerReadyFunc;
-import io.kubernetes.client.spring.extended.controller.annotation.KubernetesReconcilerWatch;
-import io.kubernetes.client.spring.extended.controller.annotation.KubernetesReconcilerWatches;
-import io.kubernetes.client.spring.extended.controller.factory.KubernetesControllerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import io.kubernetes.client.util.generic.GenericKubernetesApi;
+import java.time.Duration;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -55,8 +51,7 @@ public class SpringControllerExample {
 
     @Bean
     public CommandLineRunner commandLineRunner(
-        SharedInformerFactory sharedInformerFactory,
-        @Qualifier("node-printing-controller") Controller nodePrintingController) {
+        SharedInformerFactory sharedInformerFactory, Controller nodePrintingController) {
       return args -> {
         System.out.println("starting informers..");
         sharedInformerFactory.startAllRegisteredInformers();
@@ -66,63 +61,72 @@ public class SpringControllerExample {
       };
     }
 
-    // *REQUIRED*
-    // factorybean to crete controller
-    @Bean("node-printing-controller")
-    public KubernetesControllerFactory kubernetesReconcilerConfigurer(
-        SharedInformerFactory sharedInformerFactory, Reconciler reconciler) {
-      return new KubernetesControllerFactory(sharedInformerFactory, reconciler);
+    @Bean
+    public Controller nodePrintingController(
+        SharedInformerFactory sharedInformerFactory, NodePrintingReconciler reconciler) {
+      DefaultControllerBuilder builder = ControllerBuilder.defaultBuilder(sharedInformerFactory);
+      builder =
+          builder.watch(
+              (q) -> {
+                return ControllerBuilder.controllerWatchBuilder(V1Node.class, q)
+                    .withResyncPeriod(Duration.ofMinutes(1))
+                    .build();
+              });
+      builder.withWorkerCount(2);
+      builder.withReadyFunc(reconciler::informerReady);
+      return builder.withReconciler(reconciler).withName("nodePrintingController").build();
+    }
+
+    @Bean
+    public SharedIndexInformer<V1Endpoints> endpointsInformer(
+        ApiClient apiClient, SharedInformerFactory sharedInformerFactory) {
+      GenericKubernetesApi<V1Endpoints, V1EndpointsList> genericApi =
+          new GenericKubernetesApi<>(
+              V1Endpoints.class, V1EndpointsList.class, "", "v1", "endpoints", apiClient);
+      return sharedInformerFactory.sharedIndexInformerFor(genericApi, V1Endpoints.class, 0);
+    }
+
+    @Bean
+    public SharedIndexInformer<V1Node> nodeInformer(
+        ApiClient apiClient, SharedInformerFactory sharedInformerFactory) {
+      GenericKubernetesApi<V1Node, V1NodeList> genericApi =
+          new GenericKubernetesApi<>(V1Node.class, V1NodeList.class, "", "v1", "nodes", apiClient);
+      return sharedInformerFactory.sharedIndexInformerFor(genericApi, V1Node.class, 60 * 1000L);
+    }
+
+    @Bean
+    public SharedIndexInformer<V1Pod> podInformer(
+        ApiClient apiClient, SharedInformerFactory sharedInformerFactory) {
+      GenericKubernetesApi<V1Pod, V1PodList> genericApi =
+          new GenericKubernetesApi<>(V1Pod.class, V1PodList.class, "", "v1", "pods", apiClient);
+      return sharedInformerFactory.sharedIndexInformerFor(genericApi, V1Pod.class, 0);
     }
   }
 
-  @KubernetesInformers({ // Defining what resources is the informer-factory actually watching.
-    @KubernetesInformer(
-        apiTypeClass = V1Endpoints.class,
-        apiListTypeClass = V1EndpointsList.class,
-        groupVersionResource =
-            @GroupVersionResource(apiGroup = "", apiVersion = "v1", resourcePlural = "endpoints")),
-    @KubernetesInformer(
-        apiTypeClass = V1Node.class,
-        apiListTypeClass = V1NodeList.class,
-        groupVersionResource =
-            @GroupVersionResource(apiGroup = "", apiVersion = "v1", resourcePlural = "nodes"),
-        resyncPeriodMillis = 60 * 1000L),
-    @KubernetesInformer(
-        apiTypeClass = V1Pod.class,
-        apiListTypeClass = V1PodList.class,
-        groupVersionResource =
-            @GroupVersionResource(apiGroup = "", apiVersion = "v1", resourcePlural = "pods")),
-  })
-  @Component
-  public static class MySharedInformerFactory extends SharedInformerFactory {}
-
-  // As long as a reconciler bean attached `@KubernetesReconciler` detected in the context, we
-  // will
-  // be automatically creating a conresponding controller bean implementing {@link
-  // io.kubernetes.client.extended.controller.Controller}
-  // with the name specified and registering it to the spring bean-factory.
-  @KubernetesReconciler(
-      watches =
-          @KubernetesReconcilerWatches({
-            @KubernetesReconcilerWatch(
-                apiTypeClass = V1Node.class,
-                resyncPeriodMillis = 60 * 1000L // fully resync every 1 minute
-                ),
-          }))
   @Component
   public static class NodePrintingReconciler implements Reconciler {
 
     @Value("${namespace}")
     private String namespace;
 
-    @Autowired private SharedInformer<V1Node> nodeInformer;
-    @Autowired private SharedInformer<V1Pod> podInformer;
-    @Autowired private Lister<V1Node> nodeLister;
-    @Autowired private Lister<V1Pod> podLister;
+    private SharedInformer<V1Node> nodeInformer;
+
+    private SharedInformer<V1Pod> podInformer;
+
+    private Lister<V1Node> nodeLister;
+
+    private Lister<V1Pod> podLister;
+
+    public NodePrintingReconciler(
+        SharedIndexInformer<V1Node> nodeInformer, SharedIndexInformer<V1Pod> podInformer) {
+      this.nodeInformer = nodeInformer;
+      this.podInformer = podInformer;
+      this.nodeLister = new Lister<>(nodeInformer.getIndexer(), namespace);
+      this.podLister = new Lister<>(podInformer.getIndexer(), namespace);
+    }
 
     // *OPTIONAL*
-    // If you feed like hold the controller from running util some condition..
-    @KubernetesReconcilerReadyFunc
+    // If you want to hold the controller from running util some condition..
     public boolean informerReady() {
       return podInformer.hasSynced() && nodeInformer.hasSynced();
     }

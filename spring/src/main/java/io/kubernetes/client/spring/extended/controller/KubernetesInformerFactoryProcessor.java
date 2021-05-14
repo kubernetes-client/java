@@ -44,7 +44,11 @@ import org.springframework.core.annotation.AnnotatedElementUtils;
  * new ApiClient if there's no user-specified one for override. 3. By reading from {@link
  * io.kubernetes.client.spring.extended.controller.annotation.KubernetesInformers}, instantiates and
  * injects informers to spring context with the underlying constructing process hidden from users.
+ *
+ * @deprecated instead of declaring via the annotation create the informers manually as {@link
+ *     org.springframework.context.annotation.Bean @Beans}
  */
+@Deprecated
 public class KubernetesInformerFactoryProcessor
     implements BeanDefinitionRegistryPostProcessor, BeanFactoryAware, Ordered {
 

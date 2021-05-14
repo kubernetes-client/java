@@ -15,6 +15,7 @@ package io.kubernetes.client.examples;
 import io.kubernetes.client.extended.network.EndpointsLoadBalancer;
 import io.kubernetes.client.extended.network.LoadBalancer;
 import io.kubernetes.client.extended.network.RoundRobinLoadBalanceStrategy;
+import io.kubernetes.client.informer.SharedIndexInformer;
 import io.kubernetes.client.informer.SharedInformerFactory;
 import io.kubernetes.client.informer.cache.Lister;
 import io.kubernetes.client.openapi.models.V1Endpoints;
@@ -48,8 +49,8 @@ public class SpringLoadBalancerExample {
     }
 
     @Bean
-    public MyService myService(Lister<V1Endpoints> lister) {
-      return new MyService(lister);
+    public MyService myService(SharedIndexInformer<V1Endpoints> lister) {
+      return new MyService(new Lister<>(lister.getIndexer()));
     }
   }
 

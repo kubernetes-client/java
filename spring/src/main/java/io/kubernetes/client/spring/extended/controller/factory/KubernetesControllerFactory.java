@@ -55,7 +55,11 @@ import org.springframework.beans.factory.FactoryBean;
  *
  * <p>It will create a {@link io.kubernetes.client.extended.controller.Controller} for every
  * reconciler instances registered in the spring bean-factory.
+ *
+ * @deprecated create a {@link org.springframework.context.annotation.Bean @Bean} using {@link
+ *     ControllerBuilder} instead
  */
+@Deprecated
 public class KubernetesControllerFactory implements FactoryBean<Controller> {
 
   private static final Logger log = LoggerFactory.getLogger(KubernetesControllerFactory.class);

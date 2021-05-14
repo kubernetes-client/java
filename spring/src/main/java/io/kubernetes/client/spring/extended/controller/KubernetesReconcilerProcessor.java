@@ -31,7 +31,11 @@ import org.springframework.core.Ordered;
  *
  * <p>It will create a {@link io.kubernetes.client.extended.controller.Controller} for every
  * reconciler instances registered in the spring bean-factory.
+ *
+ * @deprecated instead of declaring via the annotation create the controller manually as a {@link
+ *     org.springframework.context.annotation.Bean @Bean}
  */
+@Deprecated
 public class KubernetesReconcilerProcessor implements BeanDefinitionRegistryPostProcessor, Ordered {
 
   public static final String DEFAULT_SHARED_INFORMER_FACTORY_BEAN_NAME = "sharedInformerFactory";

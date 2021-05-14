@@ -25,7 +25,10 @@ import java.lang.annotation.Target;
  * <p>This annotation is specifically used for joining a list of {@link
  * io.kubernetes.client.spring.extended.controller.annotation.KubernetesInformer} onto one bean
  * method.
+ *
+ * @deprecated create a {@link io.kubernetes.client.informer.SharedIndexInformer} beans instead
  */
+@Deprecated
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface KubernetesInformers {

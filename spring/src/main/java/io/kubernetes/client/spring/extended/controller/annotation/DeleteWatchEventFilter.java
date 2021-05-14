@@ -26,7 +26,11 @@ import java.lang.annotation.Target;
  * java.util.function.BiPredicate<ApiType, Boolean>} where the 1st parameter is the
  * "before-deletion" state of the resource and the 2nd indicates whether the cache entry for the
  * resource is stale.
+ *
+ * @deprecated register the watcher via the {@link
+ *     io.kubernetes.client.extended.controller.builder.ControllerBuilder} API
  */
+@Deprecated
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface DeleteWatchEventFilter {

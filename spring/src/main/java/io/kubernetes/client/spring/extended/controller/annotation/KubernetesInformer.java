@@ -26,7 +26,10 @@ import java.lang.annotation.Target;
  * The interface Kubernetes informer specifies the arguments for injecting an informer into the
  * informer-factory. The default argument list works for instantiating an informer list-watching
  * namespace resources.
+ *
+ * @deprecated create a {@link io.kubernetes.client.informer.SharedIndexInformer} as a bean instead
  */
+@Deprecated
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface KubernetesInformer {

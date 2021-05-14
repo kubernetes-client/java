@@ -23,7 +23,11 @@ import java.lang.annotation.Target;
  * from watches.
  *
  * <p>A add-event filter must have the signature as {@link java.util.function.Predicate<ApiType>}
+ *
+ * @deprecated register the watcher via the {@link
+ *     io.kubernetes.client.extended.controller.builder.ControllerBuilder} API
  */
+@Deprecated
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface AddWatchEventFilter {

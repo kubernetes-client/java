@@ -24,7 +24,11 @@ import java.lang.annotation.Target;
  * <p>A delete-event filter must have the signature as {@link
  * java.util.function.BiPredicate<ApiType,ApiType>} where the 1st parameter is the old state of the
  * resource and the 2nd is the new state.
+ *
+ * @deprecated register the watcher via the {@link
+ *     io.kubernetes.client.extended.controller.builder.ControllerBuilder} API
  */
+@Deprecated
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface UpdateWatchEventFilter {

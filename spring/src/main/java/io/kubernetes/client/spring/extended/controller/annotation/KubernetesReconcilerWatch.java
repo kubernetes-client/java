@@ -22,7 +22,13 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import java.util.function.Function;
 
-/** The interface Kubernetes reconciler watch. */
+/**
+ * The interface Kubernetes reconciler watch.
+ *
+ * @deprecated register the watcher via the {@link
+ *     io.kubernetes.client.extended.controller.builder.ControllerBuilder} API
+ */
+@Deprecated
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface KubernetesReconcilerWatch {

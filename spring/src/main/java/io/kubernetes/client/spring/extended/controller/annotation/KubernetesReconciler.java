@@ -26,7 +26,11 @@ import java.lang.annotation.Target;
  * KubernetesReconciler#value()} specifies.
  *
  * <p>Note that the automatically created controller is not started by default.
+ *
+ * @deprecated create a controller as a bean instead using {@link
+ *     io.kubernetes.client.extended.controller.builder.ControllerBuilder}
  */
+@Deprecated
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface KubernetesReconciler {

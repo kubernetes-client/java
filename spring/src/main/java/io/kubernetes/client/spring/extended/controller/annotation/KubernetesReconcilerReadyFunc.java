@@ -22,7 +22,11 @@ import java.lang.annotation.Target;
  * unless all its registered ready funcs return true.
  *
  * <p>A ready func must have the signature as {@link java.util.function.Supplier<Boolean>}
+ *
+ * @deprecated register the watcher via the {@link
+ *     io.kubernetes.client.extended.controller.builder.ControllerBuilder} API
  */
+@Deprecated
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface KubernetesReconcilerReadyFunc {}

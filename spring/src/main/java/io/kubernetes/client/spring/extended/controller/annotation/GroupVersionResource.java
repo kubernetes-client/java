@@ -17,7 +17,12 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-/** The standard Kubernetes group-version-resource. */
+/**
+ * The standard Kubernetes group-version-resource.
+ *
+ * @deprecated use the {@link io.kubernetes.client.util.generic.GenericKubernetesApi} instead
+ */
+@Deprecated
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface GroupVersionResource {
