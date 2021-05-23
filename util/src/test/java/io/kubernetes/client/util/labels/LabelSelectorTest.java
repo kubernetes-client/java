@@ -26,14 +26,14 @@ public class LabelSelectorTest {
   public void normalLabelSelectionEqualShouldWork() {
     LabelSelector labelSelector = LabelSelector.and(equal("foo", "v1"));
     assertTrue(
-        labelSelector.apply(
+        labelSelector.test(
             new HashMap<String, String>() {
               {
                 put("foo", "v1");
               }
             }));
     assertFalse(
-        labelSelector.apply(
+        labelSelector.test(
             new HashMap<String, String>() {
               {
                 put("foo", "v2");
@@ -46,14 +46,14 @@ public class LabelSelectorTest {
   public void normalLabelSelectionNotEqualShouldWork() {
     LabelSelector labelSelector = LabelSelector.and(notEqual("foo", "v1"));
     assertTrue(
-        labelSelector.apply(
+        labelSelector.test(
             new HashMap<String, String>() {
               {
                 put("foo", "v2");
               }
             }));
     assertFalse(
-        labelSelector.apply(
+        labelSelector.test(
             new HashMap<String, String>() {
               {
                 put("foo", "v1");
@@ -66,21 +66,21 @@ public class LabelSelectorTest {
   public void normalLabelSelectionInShouldWork() {
     LabelSelector labelSelector = LabelSelector.and(in("foo", "v1", "v2"));
     assertTrue(
-        labelSelector.apply(
+        labelSelector.test(
             new HashMap<String, String>() {
               {
                 put("foo", "v1");
               }
             }));
     assertTrue(
-        labelSelector.apply(
+        labelSelector.test(
             new HashMap<String, String>() {
               {
                 put("foo", "v2");
               }
             }));
     assertFalse(
-        labelSelector.apply(
+        labelSelector.test(
             new HashMap<String, String>() {
               {
                 put("foo", "v3");
@@ -93,21 +93,21 @@ public class LabelSelectorTest {
   public void normalLabelSelectionNotInShouldWork() {
     LabelSelector labelSelector = LabelSelector.and(notIn("foo", "v1", "v2"));
     assertFalse(
-        labelSelector.apply(
+        labelSelector.test(
             new HashMap<String, String>() {
               {
                 put("foo", "v1");
               }
             }));
     assertFalse(
-        labelSelector.apply(
+        labelSelector.test(
             new HashMap<String, String>() {
               {
                 put("foo", "v2");
               }
             }));
     assertTrue(
-        labelSelector.apply(
+        labelSelector.test(
             new HashMap<String, String>() {
               {
                 put("foo", "v3");
@@ -120,7 +120,7 @@ public class LabelSelectorTest {
   public void normalLabelSelectionConjuctionShouldWork() {
     LabelSelector labelSelector = LabelSelector.and(in("foo", "v1", "v2"), equal("fok", "v1"));
     assertTrue(
-        labelSelector.apply(
+        labelSelector.test(
             new HashMap<String, String>() {
               {
                 put("foo", "v1");
@@ -128,14 +128,14 @@ public class LabelSelectorTest {
               }
             }));
     assertFalse(
-        labelSelector.apply(
+        labelSelector.test(
             new HashMap<String, String>() {
               {
                 put("foo", "v2");
               }
             }));
     assertFalse(
-        labelSelector.apply(
+        labelSelector.test(
             new HashMap<String, String>() {
               {
                 put("fok", "v1");
@@ -148,15 +148,15 @@ public class LabelSelectorTest {
   public void normalLabelSelectionExistsShouldWork() {
     LabelSelector labelSelector = LabelSelector.and(exists("foo"));
     assertTrue(
-        labelSelector.apply(
+        labelSelector.test(
             new HashMap<String, String>() {
               {
                 put("foo", "v1");
               }
             }));
-    assertFalse(labelSelector.apply(new HashMap<String, String>()));
+    assertFalse(labelSelector.test(new HashMap<String, String>()));
     assertFalse(
-        labelSelector.apply(
+        labelSelector.test(
             new HashMap<String, String>() {
               {
                 put("fok", "v1");
@@ -169,15 +169,15 @@ public class LabelSelectorTest {
   public void normalLabelSelectionNotExistsShouldWork() {
     LabelSelector labelSelector = LabelSelector.and(notExists("foo"));
     assertFalse(
-        labelSelector.apply(
+        labelSelector.test(
             new HashMap<String, String>() {
               {
                 put("foo", "v1");
               }
             }));
-    assertTrue(labelSelector.apply(new HashMap<String, String>()));
+    assertTrue(labelSelector.test(new HashMap<String, String>()));
     assertTrue(
-        labelSelector.apply(
+        labelSelector.test(
             new HashMap<String, String>() {
               {
                 put("fok", "v1");
@@ -190,7 +190,7 @@ public class LabelSelectorTest {
   public void emptyLabelSelectorShouldWork() {
     LabelSelector labelSelector = LabelSelector.empty();
     assertTrue(
-        labelSelector.apply(
+        labelSelector.test(
             new HashMap<String, String>() {
               {
                 put("foo", "v1");

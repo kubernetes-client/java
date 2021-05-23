@@ -14,7 +14,6 @@ package io.kubernetes.client.extended.event.legacy;
 
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
-import io.kubernetes.client.fluent.Function;
 import io.kubernetes.client.openapi.models.CoreV1Event;
 import io.kubernetes.client.openapi.models.CoreV1EventBuilder;
 import io.kubernetes.client.openapi.models.V1ObjectMetaBuilder;
@@ -22,6 +21,7 @@ import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.function.Function;
 import org.apache.commons.lang3.tuple.MutablePair;
 
 public class EventAggregator {
