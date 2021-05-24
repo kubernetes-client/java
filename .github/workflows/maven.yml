@@ -28,7 +28,7 @@ jobs:
     strategy:
       matrix:
         # test against latest update of each major Java version, as well as specific updates of LTS versions:
-        java: [ 8.0.x, 9.0.x, 10.0.x, 11.0.x, 12.0.x, 13.0.x ]
+        java: [ 8.0.x, 9.0.x, 10.0.x, 11.0.x, 12.0.x, 16.0.x ]
     steps:
       - uses: actions/checkout@v2.3.4
       - name: Setup Java
