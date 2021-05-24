@@ -36,7 +36,7 @@ public class ResyncRunnable implements Runnable {
   public void run() {
     log.debug("ResyncRunnable#resync ticker tick");
 
-    if (shouldResyncFunc == null || (shouldResyncFunc.get() != null && shouldResyncFunc.get())) {
+    if (shouldResyncFunc == null || Boolean.TRUE.equals(shouldResyncFunc.get())) {
       log.debug("ResyncRunnable#force resync");
       this.store.resync();
     }
