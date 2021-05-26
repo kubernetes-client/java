@@ -13,8 +13,10 @@ limitations under the License.
 package io.kubernetes.client.informer;
 
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import io.kubernetes.client.informer.cache.DeltaFIFO;
+import java.util.function.Supplier;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -27,32 +29,42 @@ public class ResyncRunnableTest {
 
   @Mock private DeltaFIFO deltaFIFO;
 
+  @Mock private Supplier<Boolean> shouldResync;
+
   @Test
   public void testNullSupplier() {
-    ResyncRunnable underTest = new ResyncRunnable(deltaFIFO, null);
+    when(shouldResync.get()).thenReturn(true);
+    ResyncRunnable underTest = new ResyncRunnable(deltaFIFO, shouldResync);
     underTest.run();
     verify(deltaFIFO, Mockito.times(1)).resync();
+    verify(shouldResync, Mockito.times(1)).get();
   }
 
   @Test
   public void testSupplierReturnsFalse() {
-    ResyncRunnable underTest = new ResyncRunnable(deltaFIFO, () -> false);
+    when(shouldResync.get()).thenReturn(false);
+    ResyncRunnable underTest = new ResyncRunnable(deltaFIFO, shouldResync);
     underTest.run();
     verify(deltaFIFO, Mockito.never()).resync();
+    verify(shouldResync, Mockito.times(1)).get();
   }
 
   @Test
   public void testSupplierReturnsTrue() {
-    ResyncRunnable underTest = new ResyncRunnable(deltaFIFO, () -> true);
+    when(shouldResync.get()).thenReturn(true);
+    ResyncRunnable underTest = new ResyncRunnable(deltaFIFO, shouldResync);
     underTest.run();
     verify(deltaFIFO, Mockito.times(1)).resync();
+    verify(shouldResync, Mockito.times(1)).get();
   }
 
   // "() -> null" is going to be treated as false
   @Test
   public void testSupplierReturnsNull() {
-    ResyncRunnable underTest = new ResyncRunnable(deltaFIFO, () -> null);
+    when(shouldResync.get()).thenReturn(null);
+    ResyncRunnable underTest = new ResyncRunnable(deltaFIFO, shouldResync);
     underTest.run();
     verify(deltaFIFO, Mockito.never()).resync();
+    verify(shouldResync, Mockito.times(1)).get();
   }
 }
