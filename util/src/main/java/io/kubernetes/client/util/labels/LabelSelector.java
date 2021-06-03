@@ -12,9 +12,9 @@ limitations under the License.
 */
 package io.kubernetes.client.util.labels;
 
-import io.kubernetes.client.fluent.Predicate;
 import java.util.Arrays;
 import java.util.Map;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 /**
@@ -49,7 +49,7 @@ public class LabelSelector implements Predicate<Map<String, String>> {
   private LabelMatcher[] labelMatchers;
 
   @Override
-  public Boolean apply(Map<String, String> labels) {
+  public boolean test(Map<String, String> labels) {
     return Arrays.stream(labelMatchers)
         .allMatch(matcher -> matcher.test(labels.get(matcher.getKey())));
   }
