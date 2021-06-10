@@ -40,9 +40,7 @@ jobs:
         uses: actions/cache@v2.1.6
         with:
           path: ~/.m2/repository
-          key: ${{ runner.os }}-mvn-${{ hashFiles('pom.xml', '**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-mvn-
+          key: ${{ runner.os }}-maven-${{ matrix.java }}-${{ hashFiles('pom.xml', '**/pom.xml') }}
       - name: Build with Maven
         run: mvn -q test -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
   build-graalvm:
