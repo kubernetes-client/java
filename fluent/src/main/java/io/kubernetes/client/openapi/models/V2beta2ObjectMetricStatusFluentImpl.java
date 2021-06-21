@@ -1,0 +1,241 @@
+package io.kubernetes.client.openapi.models;
+
+import io.kubernetes.client.fluent.Nested;
+import java.lang.Deprecated;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.lang.Object;
+import java.lang.Boolean;
+
+public class V2beta2ObjectMetricStatusFluentImpl<A extends io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluent<A>> extends io.kubernetes.client.fluent.BaseFluent<A> implements io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluent<A> {
+
+    private io.kubernetes.client.openapi.models.V2beta2MetricValueStatusBuilder current;
+    private io.kubernetes.client.openapi.models.V2beta2CrossVersionObjectReferenceBuilder describedObject;
+    private io.kubernetes.client.openapi.models.V2beta2MetricIdentifierBuilder metric;
+
+    public V2beta2ObjectMetricStatusFluentImpl() {
+    }
+
+    public V2beta2ObjectMetricStatusFluentImpl(io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatus instance) {
+        this.withCurrent(instance.getCurrent());
+        
+        this.withDescribedObject(instance.getDescribedObject());
+        
+        this.withMetric(instance.getMetric());
+    }
+
+    
+    @java.lang.Deprecated
+        
+    /**
+     * This method has been deprecated, please use method buildCurrent instead.
+     * @return The buildable object.
+     */
+        public io.kubernetes.client.openapi.models.V2beta2MetricValueStatus getCurrent() {
+        return this.current!=null?this.current.build():null;
+    }
+
+    public io.kubernetes.client.openapi.models.V2beta2MetricValueStatus buildCurrent() {
+        return this.current!=null?this.current.build():null;
+    }
+
+    public A withCurrent(io.kubernetes.client.openapi.models.V2beta2MetricValueStatus current) {
+        _visitables.get("current").remove(this.current);
+        if (current!=null){ this.current= new io.kubernetes.client.openapi.models.V2beta2MetricValueStatusBuilder(current); _visitables.get("current").add(this.current);} return (A) this;
+    }
+
+    public java.lang.Boolean hasCurrent() {
+        return this.current != null;
+    }
+
+    public io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluent.CurrentNested<A> withNewCurrent() {
+        return new io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluentImpl.CurrentNestedImpl();
+    }
+
+    public io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluent.CurrentNested<A> withNewCurrentLike(io.kubernetes.client.openapi.models.V2beta2MetricValueStatus item) {
+        return new io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluentImpl.CurrentNestedImpl(item);
+    }
+
+    public io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluent.CurrentNested<A> editCurrent() {
+        return withNewCurrentLike(getCurrent());
+    }
+
+    public io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluent.CurrentNested<A> editOrNewCurrent() {
+        return withNewCurrentLike(getCurrent() != null ? getCurrent(): new io.kubernetes.client.openapi.models.V2beta2MetricValueStatusBuilder().build());
+    }
+
+    public io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluent.CurrentNested<A> editOrNewCurrentLike(io.kubernetes.client.openapi.models.V2beta2MetricValueStatus item) {
+        return withNewCurrentLike(getCurrent() != null ? getCurrent(): item);
+    }
+
+    
+    @java.lang.Deprecated
+        
+    /**
+     * This method has been deprecated, please use method buildDescribedObject instead.
+     * @return The buildable object.
+     */
+        public io.kubernetes.client.openapi.models.V2beta2CrossVersionObjectReference getDescribedObject() {
+        return this.describedObject!=null?this.describedObject.build():null;
+    }
+
+    public io.kubernetes.client.openapi.models.V2beta2CrossVersionObjectReference buildDescribedObject() {
+        return this.describedObject!=null?this.describedObject.build():null;
+    }
+
+    public A withDescribedObject(io.kubernetes.client.openapi.models.V2beta2CrossVersionObjectReference describedObject) {
+        _visitables.get("describedObject").remove(this.describedObject);
+        if (describedObject!=null){ this.describedObject= new io.kubernetes.client.openapi.models.V2beta2CrossVersionObjectReferenceBuilder(describedObject); _visitables.get("describedObject").add(this.describedObject);} return (A) this;
+    }
+
+    public java.lang.Boolean hasDescribedObject() {
+        return this.describedObject != null;
+    }
+
+    public io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluent.DescribedObjectNested<A> withNewDescribedObject() {
+        return new io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluentImpl.DescribedObjectNestedImpl();
+    }
+
+    public io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluent.DescribedObjectNested<A> withNewDescribedObjectLike(io.kubernetes.client.openapi.models.V2beta2CrossVersionObjectReference item) {
+        return new io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluentImpl.DescribedObjectNestedImpl(item);
+    }
+
+    public io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluent.DescribedObjectNested<A> editDescribedObject() {
+        return withNewDescribedObjectLike(getDescribedObject());
+    }
+
+    public io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluent.DescribedObjectNested<A> editOrNewDescribedObject() {
+        return withNewDescribedObjectLike(getDescribedObject() != null ? getDescribedObject(): new io.kubernetes.client.openapi.models.V2beta2CrossVersionObjectReferenceBuilder().build());
+    }
+
+    public io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluent.DescribedObjectNested<A> editOrNewDescribedObjectLike(io.kubernetes.client.openapi.models.V2beta2CrossVersionObjectReference item) {
+        return withNewDescribedObjectLike(getDescribedObject() != null ? getDescribedObject(): item);
+    }
+
+    
+    @java.lang.Deprecated
+        
+    /**
+     * This method has been deprecated, please use method buildMetric instead.
+     * @return The buildable object.
+     */
+        public io.kubernetes.client.openapi.models.V2beta2MetricIdentifier getMetric() {
+        return this.metric!=null?this.metric.build():null;
+    }
+
+    public io.kubernetes.client.openapi.models.V2beta2MetricIdentifier buildMetric() {
+        return this.metric!=null?this.metric.build():null;
+    }
+
+    public A withMetric(io.kubernetes.client.openapi.models.V2beta2MetricIdentifier metric) {
+        _visitables.get("metric").remove(this.metric);
+        if (metric!=null){ this.metric= new io.kubernetes.client.openapi.models.V2beta2MetricIdentifierBuilder(metric); _visitables.get("metric").add(this.metric);} return (A) this;
+    }
+
+    public java.lang.Boolean hasMetric() {
+        return this.metric != null;
+    }
+
+    public io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluent.MetricNested<A> withNewMetric() {
+        return new io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluentImpl.MetricNestedImpl();
+    }
+
+    public io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluent.MetricNested<A> withNewMetricLike(io.kubernetes.client.openapi.models.V2beta2MetricIdentifier item) {
+        return new io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluentImpl.MetricNestedImpl(item);
+    }
+
+    public io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluent.MetricNested<A> editMetric() {
+        return withNewMetricLike(getMetric());
+    }
+
+    public io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluent.MetricNested<A> editOrNewMetric() {
+        return withNewMetricLike(getMetric() != null ? getMetric(): new io.kubernetes.client.openapi.models.V2beta2MetricIdentifierBuilder().build());
+    }
+
+    public io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluent.MetricNested<A> editOrNewMetricLike(io.kubernetes.client.openapi.models.V2beta2MetricIdentifier item) {
+        return withNewMetricLike(getMetric() != null ? getMetric(): item);
+    }
+
+    public boolean equals(java.lang.Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        V2beta2ObjectMetricStatusFluentImpl that = (V2beta2ObjectMetricStatusFluentImpl) o;
+        if (current != null ? !current.equals(that.current) :that.current != null) return false;
+        if (describedObject != null ? !describedObject.equals(that.describedObject) :that.describedObject != null) return false;
+        if (metric != null ? !metric.equals(that.metric) :that.metric != null) return false;
+        return true;
+    }
+
+    public int hashCode() {
+        return java.util.Objects.hash(current,  describedObject,  metric,  super.hashCode());
+    }
+
+    public class CurrentNestedImpl<N> extends io.kubernetes.client.openapi.models.V2beta2MetricValueStatusFluentImpl<io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluent.CurrentNested<N>> implements io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluent.CurrentNested<N>,io.kubernetes.client.fluent.Nested<N> {
+        private final io.kubernetes.client.openapi.models.V2beta2MetricValueStatusBuilder builder;
+
+            CurrentNestedImpl(io.kubernetes.client.openapi.models.V2beta2MetricValueStatus item) {
+                this.builder = new io.kubernetes.client.openapi.models.V2beta2MetricValueStatusBuilder(this, item);
+                        
+            }
+
+            CurrentNestedImpl() {
+                this.builder = new io.kubernetes.client.openapi.models.V2beta2MetricValueStatusBuilder(this);
+                        
+            }
+
+            public N and() {
+                return (N) V2beta2ObjectMetricStatusFluentImpl.this.withCurrent(builder.build());
+            }
+
+            public N endCurrent() {
+                return and();
+            }
+    }
+
+
+    public class DescribedObjectNestedImpl<N> extends io.kubernetes.client.openapi.models.V2beta2CrossVersionObjectReferenceFluentImpl<io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluent.DescribedObjectNested<N>> implements io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluent.DescribedObjectNested<N>,io.kubernetes.client.fluent.Nested<N> {
+        private final io.kubernetes.client.openapi.models.V2beta2CrossVersionObjectReferenceBuilder builder;
+
+            DescribedObjectNestedImpl(io.kubernetes.client.openapi.models.V2beta2CrossVersionObjectReference item) {
+                this.builder = new io.kubernetes.client.openapi.models.V2beta2CrossVersionObjectReferenceBuilder(this, item);
+                        
+            }
+
+            DescribedObjectNestedImpl() {
+                this.builder = new io.kubernetes.client.openapi.models.V2beta2CrossVersionObjectReferenceBuilder(this);
+                        
+            }
+
+            public N and() {
+                return (N) V2beta2ObjectMetricStatusFluentImpl.this.withDescribedObject(builder.build());
+            }
+
+            public N endDescribedObject() {
+                return and();
+            }
+    }
+
+
+    public class MetricNestedImpl<N> extends io.kubernetes.client.openapi.models.V2beta2MetricIdentifierFluentImpl<io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluent.MetricNested<N>> implements io.kubernetes.client.openapi.models.V2beta2ObjectMetricStatusFluent.MetricNested<N>,io.kubernetes.client.fluent.Nested<N> {
+        private final io.kubernetes.client.openapi.models.V2beta2MetricIdentifierBuilder builder;
+
+            MetricNestedImpl(io.kubernetes.client.openapi.models.V2beta2MetricIdentifier item) {
+                this.builder = new io.kubernetes.client.openapi.models.V2beta2MetricIdentifierBuilder(this, item);
+                        
+            }
+
+            MetricNestedImpl() {
+                this.builder = new io.kubernetes.client.openapi.models.V2beta2MetricIdentifierBuilder(this);
+                        
+            }
+
+            public N and() {
+                return (N) V2beta2ObjectMetricStatusFluentImpl.this.withMetric(builder.build());
+            }
+
+            public N endMetric() {
+                return and();
+            }
+    }
+
+
+}

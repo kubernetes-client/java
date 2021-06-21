@@ -1,0 +1,506 @@
+package io.kubernetes.client.openapi.models;
+
+import io.kubernetes.client.fluent.VisitableBuilder;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.lang.String;
+import java.util.function.Predicate;
+import java.lang.Deprecated;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Iterator;
+import java.util.List;
+import java.lang.Boolean;
+import java.util.Collection;
+import java.lang.Object;
+
+public class V1beta1EndpointSliceFluentImpl<A extends io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent<A>> extends io.kubernetes.client.fluent.BaseFluent<A> implements io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent<A> {
+
+    private java.lang.String addressType;
+    private java.lang.String apiVersion;
+    private java.util.List<io.kubernetes.client.openapi.models.V1beta1EndpointBuilder> endpoints;
+    private java.lang.String kind;
+    private io.kubernetes.client.openapi.models.V1ObjectMetaBuilder metadata;
+    private java.util.List<io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder> ports;
+
+    public V1beta1EndpointSliceFluentImpl() {
+    }
+
+    public V1beta1EndpointSliceFluentImpl(io.kubernetes.client.openapi.models.V1beta1EndpointSlice instance) {
+        this.withAddressType(instance.getAddressType());
+        
+        this.withApiVersion(instance.getApiVersion());
+        
+        this.withEndpoints(instance.getEndpoints());
+        
+        this.withKind(instance.getKind());
+        
+        this.withMetadata(instance.getMetadata());
+        
+        this.withPorts(instance.getPorts());
+    }
+
+    public java.lang.String getAddressType() {
+        return this.addressType;
+    }
+
+    public A withAddressType(java.lang.String addressType) {
+        this.addressType=addressType; return (A) this;
+    }
+
+    public java.lang.Boolean hasAddressType() {
+        return this.addressType != null;
+    }
+
+    
+    @java.lang.Deprecated
+        
+    /**
+     * Method is deprecated. use withAddressType instead.
+     */
+        public A withNewAddressType(java.lang.String original) {
+        return (A)withAddressType(new String(original));
+    }
+
+    public java.lang.String getApiVersion() {
+        return this.apiVersion;
+    }
+
+    public A withApiVersion(java.lang.String apiVersion) {
+        this.apiVersion=apiVersion; return (A) this;
+    }
+
+    public java.lang.Boolean hasApiVersion() {
+        return this.apiVersion != null;
+    }
+
+    
+    @java.lang.Deprecated
+        
+    /**
+     * Method is deprecated. use withApiVersion instead.
+     */
+        public A withNewApiVersion(java.lang.String original) {
+        return (A)withApiVersion(new String(original));
+    }
+
+    public A addToEndpoints(int index,io.kubernetes.client.openapi.models.V1beta1Endpoint item) {
+        if (this.endpoints == null) {this.endpoints = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1EndpointBuilder>();}
+        io.kubernetes.client.openapi.models.V1beta1EndpointBuilder builder = new io.kubernetes.client.openapi.models.V1beta1EndpointBuilder(item);_visitables.get("endpoints").add(index >= 0 ? index : _visitables.get("endpoints").size(), builder);this.endpoints.add(index >= 0 ? index : endpoints.size(), builder); return (A)this;
+    }
+
+    public A setToEndpoints(int index,io.kubernetes.client.openapi.models.V1beta1Endpoint item) {
+        if (this.endpoints == null) {this.endpoints = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1EndpointBuilder>();}
+        io.kubernetes.client.openapi.models.V1beta1EndpointBuilder builder = new io.kubernetes.client.openapi.models.V1beta1EndpointBuilder(item);
+        if (index < 0 || index >= _visitables.get("endpoints").size()) { _visitables.get("endpoints").add(builder); } else { _visitables.get("endpoints").set(index, builder);}
+        if (index < 0 || index >= endpoints.size()) { endpoints.add(builder); } else { endpoints.set(index, builder);}
+         return (A)this;
+    }
+
+    public A addToEndpoints(io.kubernetes.client.openapi.models.V1beta1Endpoint... items) {
+        if (this.endpoints == null) {this.endpoints = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1EndpointBuilder>();}
+        for (io.kubernetes.client.openapi.models.V1beta1Endpoint item : items) {io.kubernetes.client.openapi.models.V1beta1EndpointBuilder builder = new io.kubernetes.client.openapi.models.V1beta1EndpointBuilder(item);_visitables.get("endpoints").add(builder);this.endpoints.add(builder);} return (A)this;
+    }
+
+    public A addAllToEndpoints(java.util.Collection<io.kubernetes.client.openapi.models.V1beta1Endpoint> items) {
+        if (this.endpoints == null) {this.endpoints = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1EndpointBuilder>();}
+        for (io.kubernetes.client.openapi.models.V1beta1Endpoint item : items) {io.kubernetes.client.openapi.models.V1beta1EndpointBuilder builder = new io.kubernetes.client.openapi.models.V1beta1EndpointBuilder(item);_visitables.get("endpoints").add(builder);this.endpoints.add(builder);} return (A)this;
+    }
+
+    public A removeFromEndpoints(io.kubernetes.client.openapi.models.V1beta1Endpoint... items) {
+        for (io.kubernetes.client.openapi.models.V1beta1Endpoint item : items) {io.kubernetes.client.openapi.models.V1beta1EndpointBuilder builder = new io.kubernetes.client.openapi.models.V1beta1EndpointBuilder(item);_visitables.get("endpoints").remove(builder);if (this.endpoints != null) {this.endpoints.remove(builder);}} return (A)this;
+    }
+
+    public A removeAllFromEndpoints(java.util.Collection<io.kubernetes.client.openapi.models.V1beta1Endpoint> items) {
+        for (io.kubernetes.client.openapi.models.V1beta1Endpoint item : items) {io.kubernetes.client.openapi.models.V1beta1EndpointBuilder builder = new io.kubernetes.client.openapi.models.V1beta1EndpointBuilder(item);_visitables.get("endpoints").remove(builder);if (this.endpoints != null) {this.endpoints.remove(builder);}} return (A)this;
+    }
+
+    public A removeMatchingFromEndpoints(java.util.function.Predicate<io.kubernetes.client.openapi.models.V1beta1EndpointBuilder> predicate) {
+        if (endpoints == null) return (A) this;
+        final Iterator<io.kubernetes.client.openapi.models.V1beta1EndpointBuilder> each = endpoints.iterator();
+        final List visitables = _visitables.get("endpoints");
+        while (each.hasNext()) {
+          io.kubernetes.client.openapi.models.V1beta1EndpointBuilder builder = each.next();
+          if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+          }
+        }
+        return (A)this;
+    }
+
+    
+    @java.lang.Deprecated
+        
+    /**
+     * This method has been deprecated, please use method buildEndpoints instead.
+     * @return The buildable object.
+     */
+        public java.util.List<io.kubernetes.client.openapi.models.V1beta1Endpoint> getEndpoints() {
+        return build(endpoints);
+    }
+
+    public java.util.List<io.kubernetes.client.openapi.models.V1beta1Endpoint> buildEndpoints() {
+        return build(endpoints);
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1Endpoint buildEndpoint(int index) {
+        return this.endpoints.get(index).build();
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1Endpoint buildFirstEndpoint() {
+        return this.endpoints.get(0).build();
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1Endpoint buildLastEndpoint() {
+        return this.endpoints.get(endpoints.size() - 1).build();
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1Endpoint buildMatchingEndpoint(java.util.function.Predicate<io.kubernetes.client.openapi.models.V1beta1EndpointBuilder> predicate) {
+        for (io.kubernetes.client.openapi.models.V1beta1EndpointBuilder item: endpoints) { if(predicate.test(item)){ return item.build();} } return null;
+    }
+
+    public java.lang.Boolean hasMatchingEndpoint(java.util.function.Predicate<io.kubernetes.client.openapi.models.V1beta1EndpointBuilder> predicate) {
+        for (io.kubernetes.client.openapi.models.V1beta1EndpointBuilder item: endpoints) { if(predicate.test(item)){ return true;} } return false;
+    }
+
+    public A withEndpoints(java.util.List<io.kubernetes.client.openapi.models.V1beta1Endpoint> endpoints) {
+        if (this.endpoints != null) { _visitables.get("endpoints").removeAll(this.endpoints);}
+        if (endpoints != null) {this.endpoints = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1EndpointBuilder>(); for (io.kubernetes.client.openapi.models.V1beta1Endpoint item : endpoints){this.addToEndpoints(item);}} else { this.endpoints = null;} return (A) this;
+    }
+
+    public A withEndpoints(io.kubernetes.client.openapi.models.V1beta1Endpoint... endpoints) {
+        if (this.endpoints != null) {this.endpoints.clear();}
+        if (endpoints != null) {for (io.kubernetes.client.openapi.models.V1beta1Endpoint item :endpoints){ this.addToEndpoints(item);}} return (A) this;
+    }
+
+    public java.lang.Boolean hasEndpoints() {
+        return endpoints != null && !endpoints.isEmpty();
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.EndpointsNested<A> addNewEndpoint() {
+        return new io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluentImpl.EndpointsNestedImpl();
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.EndpointsNested<A> addNewEndpointLike(io.kubernetes.client.openapi.models.V1beta1Endpoint item) {
+        return new io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluentImpl.EndpointsNestedImpl(-1, item);
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.EndpointsNested<A> setNewEndpointLike(int index,io.kubernetes.client.openapi.models.V1beta1Endpoint item) {
+        return new io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluentImpl.EndpointsNestedImpl(index, item);
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.EndpointsNested<A> editEndpoint(int index) {
+        if (endpoints.size() <= index) throw new RuntimeException("Can't edit endpoints. Index exceeds size.");
+        return setNewEndpointLike(index, buildEndpoint(index));
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.EndpointsNested<A> editFirstEndpoint() {
+        if (endpoints.size() == 0) throw new RuntimeException("Can't edit first endpoints. The list is empty.");
+        return setNewEndpointLike(0, buildEndpoint(0));
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.EndpointsNested<A> editLastEndpoint() {
+        int index = endpoints.size() - 1;
+        if (index < 0) throw new RuntimeException("Can't edit last endpoints. The list is empty.");
+        return setNewEndpointLike(index, buildEndpoint(index));
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.EndpointsNested<A> editMatchingEndpoint(java.util.function.Predicate<io.kubernetes.client.openapi.models.V1beta1EndpointBuilder> predicate) {
+        int index = -1;
+        for (int i=0;i<endpoints.size();i++) { 
+        if (predicate.test(endpoints.get(i))) {index = i; break;}
+        } 
+        if (index < 0) throw new RuntimeException("Can't edit matching endpoints. No match found.");
+        return setNewEndpointLike(index, buildEndpoint(index));
+    }
+
+    public java.lang.String getKind() {
+        return this.kind;
+    }
+
+    public A withKind(java.lang.String kind) {
+        this.kind=kind; return (A) this;
+    }
+
+    public java.lang.Boolean hasKind() {
+        return this.kind != null;
+    }
+
+    
+    @java.lang.Deprecated
+        
+    /**
+     * Method is deprecated. use withKind instead.
+     */
+        public A withNewKind(java.lang.String original) {
+        return (A)withKind(new String(original));
+    }
+
+    
+    @java.lang.Deprecated
+        
+    /**
+     * This method has been deprecated, please use method buildMetadata instead.
+     * @return The buildable object.
+     */
+        public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
+        return this.metadata!=null?this.metadata.build():null;
+    }
+
+    public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata() {
+        return this.metadata!=null?this.metadata.build():null;
+    }
+
+    public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
+        _visitables.get("metadata").remove(this.metadata);
+        if (metadata!=null){ this.metadata= new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(metadata); _visitables.get("metadata").add(this.metadata);} return (A) this;
+    }
+
+    public java.lang.Boolean hasMetadata() {
+        return this.metadata != null;
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.MetadataNested<A> withNewMetadata() {
+        return new io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluentImpl.MetadataNestedImpl();
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.MetadataNested<A> withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
+        return new io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluentImpl.MetadataNestedImpl(item);
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.MetadataNested<A> editMetadata() {
+        return withNewMetadataLike(getMetadata());
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.MetadataNested<A> editOrNewMetadata() {
+        return withNewMetadataLike(getMetadata() != null ? getMetadata(): new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder().build());
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.MetadataNested<A> editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
+        return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
+    }
+
+    public A addToPorts(int index,io.kubernetes.client.openapi.models.V1beta1EndpointPort item) {
+        if (this.ports == null) {this.ports = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder>();}
+        io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder builder = new io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder(item);_visitables.get("ports").add(index >= 0 ? index : _visitables.get("ports").size(), builder);this.ports.add(index >= 0 ? index : ports.size(), builder); return (A)this;
+    }
+
+    public A setToPorts(int index,io.kubernetes.client.openapi.models.V1beta1EndpointPort item) {
+        if (this.ports == null) {this.ports = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder>();}
+        io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder builder = new io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder(item);
+        if (index < 0 || index >= _visitables.get("ports").size()) { _visitables.get("ports").add(builder); } else { _visitables.get("ports").set(index, builder);}
+        if (index < 0 || index >= ports.size()) { ports.add(builder); } else { ports.set(index, builder);}
+         return (A)this;
+    }
+
+    public A addToPorts(io.kubernetes.client.openapi.models.V1beta1EndpointPort... items) {
+        if (this.ports == null) {this.ports = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder>();}
+        for (io.kubernetes.client.openapi.models.V1beta1EndpointPort item : items) {io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder builder = new io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder(item);_visitables.get("ports").add(builder);this.ports.add(builder);} return (A)this;
+    }
+
+    public A addAllToPorts(java.util.Collection<io.kubernetes.client.openapi.models.V1beta1EndpointPort> items) {
+        if (this.ports == null) {this.ports = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder>();}
+        for (io.kubernetes.client.openapi.models.V1beta1EndpointPort item : items) {io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder builder = new io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder(item);_visitables.get("ports").add(builder);this.ports.add(builder);} return (A)this;
+    }
+
+    public A removeFromPorts(io.kubernetes.client.openapi.models.V1beta1EndpointPort... items) {
+        for (io.kubernetes.client.openapi.models.V1beta1EndpointPort item : items) {io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder builder = new io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder(item);_visitables.get("ports").remove(builder);if (this.ports != null) {this.ports.remove(builder);}} return (A)this;
+    }
+
+    public A removeAllFromPorts(java.util.Collection<io.kubernetes.client.openapi.models.V1beta1EndpointPort> items) {
+        for (io.kubernetes.client.openapi.models.V1beta1EndpointPort item : items) {io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder builder = new io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder(item);_visitables.get("ports").remove(builder);if (this.ports != null) {this.ports.remove(builder);}} return (A)this;
+    }
+
+    public A removeMatchingFromPorts(java.util.function.Predicate<io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder> predicate) {
+        if (ports == null) return (A) this;
+        final Iterator<io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder> each = ports.iterator();
+        final List visitables = _visitables.get("ports");
+        while (each.hasNext()) {
+          io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder builder = each.next();
+          if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+          }
+        }
+        return (A)this;
+    }
+
+    
+    @java.lang.Deprecated
+        
+    /**
+     * This method has been deprecated, please use method buildPorts instead.
+     * @return The buildable object.
+     */
+        public java.util.List<io.kubernetes.client.openapi.models.V1beta1EndpointPort> getPorts() {
+        return build(ports);
+    }
+
+    public java.util.List<io.kubernetes.client.openapi.models.V1beta1EndpointPort> buildPorts() {
+        return build(ports);
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1EndpointPort buildPort(int index) {
+        return this.ports.get(index).build();
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1EndpointPort buildFirstPort() {
+        return this.ports.get(0).build();
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1EndpointPort buildLastPort() {
+        return this.ports.get(ports.size() - 1).build();
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1EndpointPort buildMatchingPort(java.util.function.Predicate<io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder> predicate) {
+        for (io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder item: ports) { if(predicate.test(item)){ return item.build();} } return null;
+    }
+
+    public java.lang.Boolean hasMatchingPort(java.util.function.Predicate<io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder> predicate) {
+        for (io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder item: ports) { if(predicate.test(item)){ return true;} } return false;
+    }
+
+    public A withPorts(java.util.List<io.kubernetes.client.openapi.models.V1beta1EndpointPort> ports) {
+        if (this.ports != null) { _visitables.get("ports").removeAll(this.ports);}
+        if (ports != null) {this.ports = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder>(); for (io.kubernetes.client.openapi.models.V1beta1EndpointPort item : ports){this.addToPorts(item);}} else { this.ports = null;} return (A) this;
+    }
+
+    public A withPorts(io.kubernetes.client.openapi.models.V1beta1EndpointPort... ports) {
+        if (this.ports != null) {this.ports.clear();}
+        if (ports != null) {for (io.kubernetes.client.openapi.models.V1beta1EndpointPort item :ports){ this.addToPorts(item);}} return (A) this;
+    }
+
+    public java.lang.Boolean hasPorts() {
+        return ports != null && !ports.isEmpty();
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.PortsNested<A> addNewPort() {
+        return new io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluentImpl.PortsNestedImpl();
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.PortsNested<A> addNewPortLike(io.kubernetes.client.openapi.models.V1beta1EndpointPort item) {
+        return new io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluentImpl.PortsNestedImpl(-1, item);
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.PortsNested<A> setNewPortLike(int index,io.kubernetes.client.openapi.models.V1beta1EndpointPort item) {
+        return new io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluentImpl.PortsNestedImpl(index, item);
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.PortsNested<A> editPort(int index) {
+        if (ports.size() <= index) throw new RuntimeException("Can't edit ports. Index exceeds size.");
+        return setNewPortLike(index, buildPort(index));
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.PortsNested<A> editFirstPort() {
+        if (ports.size() == 0) throw new RuntimeException("Can't edit first ports. The list is empty.");
+        return setNewPortLike(0, buildPort(0));
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.PortsNested<A> editLastPort() {
+        int index = ports.size() - 1;
+        if (index < 0) throw new RuntimeException("Can't edit last ports. The list is empty.");
+        return setNewPortLike(index, buildPort(index));
+    }
+
+    public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.PortsNested<A> editMatchingPort(java.util.function.Predicate<io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder> predicate) {
+        int index = -1;
+        for (int i=0;i<ports.size();i++) { 
+        if (predicate.test(ports.get(i))) {index = i; break;}
+        } 
+        if (index < 0) throw new RuntimeException("Can't edit matching ports. No match found.");
+        return setNewPortLike(index, buildPort(index));
+    }
+
+    public boolean equals(java.lang.Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        V1beta1EndpointSliceFluentImpl that = (V1beta1EndpointSliceFluentImpl) o;
+        if (addressType != null ? !addressType.equals(that.addressType) :that.addressType != null) return false;
+        if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
+        if (endpoints != null ? !endpoints.equals(that.endpoints) :that.endpoints != null) return false;
+        if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
+        if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
+        if (ports != null ? !ports.equals(that.ports) :that.ports != null) return false;
+        return true;
+    }
+
+    public int hashCode() {
+        return java.util.Objects.hash(addressType,  apiVersion,  endpoints,  kind,  metadata,  ports,  super.hashCode());
+    }
+
+    public class EndpointsNestedImpl<N> extends io.kubernetes.client.openapi.models.V1beta1EndpointFluentImpl<io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.EndpointsNested<N>> implements io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.EndpointsNested<N>,io.kubernetes.client.fluent.Nested<N> {
+        private final io.kubernetes.client.openapi.models.V1beta1EndpointBuilder builder;
+        private final int index;
+
+            EndpointsNestedImpl(int index,io.kubernetes.client.openapi.models.V1beta1Endpoint item) {
+                this.index = index;
+                this.builder = new io.kubernetes.client.openapi.models.V1beta1EndpointBuilder(this, item);
+                        
+            }
+
+            EndpointsNestedImpl() {
+                this.index = -1;
+                this.builder = new io.kubernetes.client.openapi.models.V1beta1EndpointBuilder(this);
+                        
+            }
+
+            public N and() {
+                return (N) V1beta1EndpointSliceFluentImpl.this.setToEndpoints(index,builder.build());
+            }
+
+            public N endEndpoint() {
+                return and();
+            }
+    }
+
+
+    public class MetadataNestedImpl<N> extends io.kubernetes.client.openapi.models.V1ObjectMetaFluentImpl<io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.MetadataNested<N>> implements io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.MetadataNested<N>,io.kubernetes.client.fluent.Nested<N> {
+        private final io.kubernetes.client.openapi.models.V1ObjectMetaBuilder builder;
+
+            MetadataNestedImpl(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
+                this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this, item);
+                        
+            }
+
+            MetadataNestedImpl() {
+                this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this);
+                        
+            }
+
+            public N and() {
+                return (N) V1beta1EndpointSliceFluentImpl.this.withMetadata(builder.build());
+            }
+
+            public N endMetadata() {
+                return and();
+            }
+    }
+
+
+    public class PortsNestedImpl<N> extends io.kubernetes.client.openapi.models.V1beta1EndpointPortFluentImpl<io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.PortsNested<N>> implements io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.PortsNested<N>,io.kubernetes.client.fluent.Nested<N> {
+        private final io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder builder;
+        private final int index;
+
+            PortsNestedImpl(int index,io.kubernetes.client.openapi.models.V1beta1EndpointPort item) {
+                this.index = index;
+                this.builder = new io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder(this, item);
+                        
+            }
+
+            PortsNestedImpl() {
+                this.index = -1;
+                this.builder = new io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder(this);
+                        
+            }
+
+            public N and() {
+                return (N) V1beta1EndpointSliceFluentImpl.this.setToPorts(index,builder.build());
+            }
+
+            public N endPort() {
+                return and();
+            }
+    }
+
+
+}

@@ -13,6 +13,7 @@
     <module>kubernetes</module>
     <module>proto</module>
     <module>extended</module>
+    <module>fluent</module>
     <module>spring</module>
     <module>client-java-contrib/cert-manager</module>
     <module>e2e</module>
@@ -226,19 +227,6 @@
         <artifactId>jsr305</artifactId>
         <version>${jsr305.version}</version>
       </dependency>
-      <dependency>
-        <groupId>io.sundr</groupId>
-        <artifactId>builder-annotations</artifactId>
-        <version>${sundrio.version}</version>
-        <scope>compile</scope>
-        <exclusions>
-          <exclusion>
-            <artifactId>tools</artifactId>
-            <groupId>com.sun</groupId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-
 
 
       <!-- tests -->
