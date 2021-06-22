@@ -137,6 +137,7 @@ public class ClientBuilderTest {
   public void testInvalidKubeconfig() throws Exception {
     String path =
         withEnvironmentVariable("KUBECONFIG", "/non-existent")
+            .and("HOME", "/none-existent")
             .execute(
                 () -> {
                   final ApiClient client = ClientBuilder.standard().build();
