@@ -59,7 +59,7 @@
     <apache.commons.compress>1.20</apache.commons.compress>
     <apache.commons.io>2.10.0</apache.commons.io>
     <common.codec.version>1.15</common.codec.version>
-    <spring.boot.version>2.5.1</spring.boot.version>
+    <spring.boot.version>2.5.2</spring.boot.version>
     <spring.version>5.3.8</spring.version>
     <prometheus.client.version>0.11.0</prometheus.client.version>
 
