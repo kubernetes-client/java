@@ -512,6 +512,7 @@ limitations under the License.
       </plugin>
     </plugins>
   </build>
+
   <profiles>
     <profile>
       <id>release-sign-artifacts</id>
@@ -540,6 +541,12 @@ limitations under the License.
           </plugin>
         </plugins>
       </build>
+    </profile>
+    <profile>
+      <id>fluent-gen</id>
+      <modules>
+        <module>fluent-gen</module>
+      </modules>
     </profile>
   </profiles>
 </project>
