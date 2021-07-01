@@ -59,7 +59,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.4
       - name: Create k8s Kind Cluster
-        uses: helm/kind-action@v1.1.0
+        uses: helm/kind-action@v1.2.0
       - name: Run E2E with Maven
         run: |
           mvn clean install \
