@@ -21,15 +21,17 @@ import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1PodList;
 import io.kubernetes.client.util.Watch;
+import java.time.Duration;
 import java.util.Arrays;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
+import org.awaitility.Awaitility;
+import org.hamcrest.core.IsEqual;
 import org.junit.Test;
 
 public class ControllerTest {
 
   @Test
-  public void testControllerProcessDeltas() throws InterruptedException {
+  public void testControllerProcessDeltas() {
 
     AtomicInteger receivingDeltasCount = new AtomicInteger(0);
     V1Pod foo1 = new V1Pod().metadata(new V1ObjectMeta().name("foo1").namespace("default"));
@@ -39,8 +41,6 @@ public class ControllerTest {
     V1PodList podList =
         new V1PodList().metadata(new V1ListMeta()).items(Arrays.asList(foo1, foo2, foo3));
     DeltaFIFO deltaFIFO = new DeltaFIFO(Caches::deletionHandlingMetaNamespaceKeyFunc, new Cache());
-
-    AtomicBoolean runOnce = new AtomicBoolean(false);
 
     ListerWatcher<V1Pod, V1PodList> listerWatcher =
         new MockRunOnceListerWatcher<V1Pod, V1PodList>(
@@ -58,12 +58,12 @@ public class ControllerTest {
     controllerThread.setDaemon(true);
     controllerThread.start();
 
-    // sleep 1s for processing all the deltas
-    Thread.sleep(1000);
-
     try {
+      Awaitility.await()
+          .pollInterval(Duration.ofSeconds(1))
+          .timeout(Duration.ofSeconds(5))
+          .untilAtomic(receivingDeltasCount, IsEqual.equalTo(4));
       assertEquals(4, receivingDeltasCount.get());
-
     } catch (Throwable t) {
       throw new RuntimeException(t);
     } finally {
