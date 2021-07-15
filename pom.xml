@@ -57,7 +57,7 @@
     <gsonfire.version>1.8.5</gsonfire.version>
     <apache.commons.lang3.version>3.12.0</apache.commons.lang3.version>
     <apache.commons.collections4.version>4.4</apache.commons.collections4.version>
-    <apache.commons.compress>1.20</apache.commons.compress>
+    <apache.commons.compress>1.21</apache.commons.compress>
     <apache.commons.io>2.11.0</apache.commons.io>
     <common.codec.version>1.15</common.codec.version>
     <spring.boot.version>2.5.2</spring.boot.version>
