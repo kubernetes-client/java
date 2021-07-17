@@ -287,7 +287,12 @@ public class LeaderElectionTest {
     leaderElectionConfig.setRenewDeadline(Duration.ofMillis(700));
     final Semaphore sem = new Semaphore(1);
     LeaderElector leaderElector =
-        new LeaderElector(leaderElectionConfig, (t) -> { actualException.set(t); sem.release(); });
+        new LeaderElector(
+            leaderElectionConfig,
+            (t) -> {
+              actualException.set(t);
+              sem.release();
+            });
 
     ExecutorService leaderElectionWorker = Executors.newFixedThreadPool(1);
     sem.acquire();
@@ -295,10 +300,11 @@ public class LeaderElectionTest {
         () -> {
           leaderElector.run(() -> {}, () -> {});
         });
-    while(!sem.tryAcquire()) {
-      System.out.println("waiting for leaderElectionWorker to throw exception in LeaderElectionTest::testLeaderElectionCaptureException");
+    while (!sem.tryAcquire()) {
+      System.out.println(
+          "waiting for leaderElectionWorker to throw exception in LeaderElectionTest::testLeaderElectionCaptureException");
     }
-    
+
     assertEquals(expectedException, actualException.get().getCause());
   }
 

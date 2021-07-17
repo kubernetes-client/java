@@ -92,7 +92,7 @@ public class ExecTest {
                   Streams.copy(is, os);
                 } catch (IOException ex) {
                   ex.printStackTrace();
-                }finally {
+                } finally {
                   sem.release();
                 }
               }
@@ -120,8 +120,9 @@ public class ExecTest {
 
     process.getHandler().bytesMessage(makeStream(3, OUTPUT_EXIT0.getBytes(StandardCharsets.UTF_8)));
 
-    while(!sem.tryAcquire(2)) {
-      System.out.println("waiting for async Copy task to be completed in ExecTest::testExecProcess");
+    while (!sem.tryAcquire(2)) {
+      System.out.println(
+          "waiting for async Copy task to be completed in ExecTest::testExecProcess");
     }
     process.destroy();
 
