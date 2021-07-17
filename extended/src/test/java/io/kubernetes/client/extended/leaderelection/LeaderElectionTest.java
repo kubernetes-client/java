@@ -285,16 +285,20 @@ public class LeaderElectionTest {
     leaderElectionConfig.setLeaseDuration(Duration.ofMillis(1000));
     leaderElectionConfig.setRetryPeriod(Duration.ofMillis(200));
     leaderElectionConfig.setRenewDeadline(Duration.ofMillis(700));
+    final Semaphore sem = new Semaphore(1);
     LeaderElector leaderElector =
-        new LeaderElector(leaderElectionConfig, (t) -> actualException.set(t));
+        new LeaderElector(leaderElectionConfig, (t) -> { actualException.set(t); sem.release(); });
 
     ExecutorService leaderElectionWorker = Executors.newFixedThreadPool(1);
+    sem.acquire();
     leaderElectionWorker.submit(
         () -> {
           leaderElector.run(() -> {}, () -> {});
         });
-    // TODO: Remove this sleep
-    Thread.sleep(Duration.ofSeconds(2).toMillis());
+    while(!sem.tryAcquire()) {
+      System.out.println("waiting for leaderElectionWorker to throw exception in LeaderElectionTest::testLeaderElectionCaptureException");
+    }
+    
     assertEquals(expectedException, actualException.get().getCause());
   }
 

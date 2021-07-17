@@ -34,6 +34,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.concurrent.Semaphore;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -82,7 +83,7 @@ public class ExecTest {
     return new ByteArrayInputStream(out);
   }
 
-  public static Thread asyncCopy(final InputStream is, final OutputStream os) {
+  public static Thread asyncCopy(final InputStream is, final OutputStream os, Semaphore sem) {
     Thread t =
         new Thread(
             new Runnable() {
@@ -91,6 +92,8 @@ public class ExecTest {
                   Streams.copy(is, os);
                 } catch (IOException ex) {
                   ex.printStackTrace();
+                }finally {
+                  sem.release();
                 }
               }
             });
@@ -110,14 +113,16 @@ public class ExecTest {
 
     final ByteArrayOutputStream stdout = new ByteArrayOutputStream();
     final ByteArrayOutputStream stderr = new ByteArrayOutputStream();
-
-    Thread t1 = asyncCopy(process.getInputStream(), stdout);
-    Thread t2 = asyncCopy(process.getErrorStream(), stderr);
+    final Semaphore sem = new Semaphore(2);
+    sem.acquire(2);
+    Thread t1 = asyncCopy(process.getInputStream(), stdout, sem);
+    Thread t2 = asyncCopy(process.getErrorStream(), stderr, sem);
 
     process.getHandler().bytesMessage(makeStream(3, OUTPUT_EXIT0.getBytes(StandardCharsets.UTF_8)));
-    // TODO: Fix this asap!
-    Thread.sleep(1000);
 
+    while(!sem.tryAcquire(2)) {
+      System.out.println("waiting for async Copy task to be completed in ExecTest::testExecProcess");
+    }
     process.destroy();
 
     assertEquals(msgData, stdout.toString());
