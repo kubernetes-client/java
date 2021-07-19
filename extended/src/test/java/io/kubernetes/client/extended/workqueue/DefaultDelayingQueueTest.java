@@ -103,7 +103,6 @@ public class DefaultDelayingQueueTest {
   }
 
   private boolean waitForWaitingQueueToFill(DefaultDelayingQueue queue) {
-    return Wait.poll(
-        Duration.ofMillis(10), Duration.ofSeconds(10), () -> queue.waitingForAddQueue.size() == 0);
+    return waitForAdded(queue, 0);
   }
 }

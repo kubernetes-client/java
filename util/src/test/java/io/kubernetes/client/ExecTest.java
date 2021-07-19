@@ -34,7 +34,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
-import java.util.concurrent.Semaphore;
+import java.util.concurrent.CountDownLatch;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -83,7 +83,8 @@ public class ExecTest {
     return new ByteArrayInputStream(out);
   }
 
-  public static Thread asyncCopy(final InputStream is, final OutputStream os, Semaphore sem) {
+  public static Thread asyncCopy(
+      final InputStream is, final OutputStream os, CountDownLatch cLatch) {
     Thread t =
         new Thread(
             new Runnable() {
@@ -93,7 +94,7 @@ public class ExecTest {
                 } catch (IOException ex) {
                   ex.printStackTrace();
                 } finally {
-                  sem.release();
+                  cLatch.countDown();
                 }
               }
             });
@@ -113,17 +114,13 @@ public class ExecTest {
 
     final ByteArrayOutputStream stdout = new ByteArrayOutputStream();
     final ByteArrayOutputStream stderr = new ByteArrayOutputStream();
-    final Semaphore sem = new Semaphore(2);
-    sem.acquire(2);
-    Thread t1 = asyncCopy(process.getInputStream(), stdout, sem);
-    Thread t2 = asyncCopy(process.getErrorStream(), stderr, sem);
+    CountDownLatch cLatch = new CountDownLatch(2);
+    Thread t1 = asyncCopy(process.getInputStream(), stdout, cLatch);
+    Thread t2 = asyncCopy(process.getErrorStream(), stderr, cLatch);
 
     process.getHandler().bytesMessage(makeStream(3, OUTPUT_EXIT0.getBytes(StandardCharsets.UTF_8)));
 
-    while (!sem.tryAcquire(2)) {
-      System.out.println(
-          "waiting for async Copy task to be completed in ExecTest::testExecProcess");
-    }
+    cLatch.await();
     process.destroy();
 
     assertEquals(msgData, stdout.toString());
