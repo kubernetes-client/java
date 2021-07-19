@@ -52,7 +52,7 @@ public class ControllerTest {
             deltaFIFO,
             listerWatcher,
             (deltas) -> {
-              receivingDeltasCount.incrementAndGet();
+              receivingDeltasCount.addAndGet(deltas.size());
             });
     Thread controllerThread = new Thread(controller::run);
     controllerThread.setDaemon(true);
