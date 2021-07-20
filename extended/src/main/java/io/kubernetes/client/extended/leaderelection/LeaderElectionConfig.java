@@ -27,6 +27,8 @@ public class LeaderElectionConfig {
 
   private V1OwnerReference ownerReference;
 
+  private boolean eligibleForLeaderElection = true;
+
   public LeaderElectionConfig() {}
 
   public LeaderElectionConfig(
@@ -40,11 +42,22 @@ public class LeaderElectionConfig {
       Duration renewDeadline,
       Duration retryPeriod,
       V1OwnerReference ownerReference) {
+    this(lock, leaseDuration, renewDeadline, retryPeriod, ownerReference, true);
+  }
+
+  public LeaderElectionConfig(
+      Lock lock,
+      Duration leaseDuration,
+      Duration renewDeadline,
+      Duration retryPeriod,
+      V1OwnerReference ownerReference,
+      boolean eligibleForLeaderElection) {
     this.lock = lock;
     this.leaseDuration = leaseDuration;
     this.renewDeadline = renewDeadline;
     this.retryPeriod = retryPeriod;
     this.ownerReference = ownerReference;
+    this.eligibleForLeaderElection = eligibleForLeaderElection;
   }
 
   public Lock getLock() {
@@ -85,5 +98,13 @@ public class LeaderElectionConfig {
 
   public void setOwnerReference(V1OwnerReference ownerReference) {
     this.ownerReference = ownerReference;
+  }
+
+  public boolean isEligibleForLeaderElection() {
+    return eligibleForLeaderElection;
+  }
+
+  public void setEligibleForLeaderElection(boolean eligibleForLeaderElection) {
+    this.eligibleForLeaderElection = eligibleForLeaderElection;
   }
 }
