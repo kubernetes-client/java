@@ -452,13 +452,7 @@ public class DeltaFIFO {
     if (deletionDelta != null) {
       return deletionDelta;
     }
-    if (d1.getLeft() != DeltaType.Deleted
-        && d2.getLeft() != DeltaType.Deleted
-        && StringUtils.equals(
-            d1.getRight().getMetadata().getResourceVersion(),
-            d2.getRight().getMetadata().getResourceVersion())) {
-      return d1;
-    }
+
     return null;
   }
 
