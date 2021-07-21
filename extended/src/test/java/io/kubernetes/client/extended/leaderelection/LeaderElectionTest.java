@@ -13,8 +13,8 @@ limitations under the License.
 package io.kubernetes.client.extended.leaderelection;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.when;
 
 import io.kubernetes.client.openapi.ApiException;
 import java.net.HttpURLConnection;
@@ -25,7 +25,6 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.Consumer;
@@ -285,16 +284,22 @@ public class LeaderElectionTest {
     leaderElectionConfig.setLeaseDuration(Duration.ofMillis(1000));
     leaderElectionConfig.setRetryPeriod(Duration.ofMillis(200));
     leaderElectionConfig.setRenewDeadline(Duration.ofMillis(700));
+    final CountDownLatch cLatch = new CountDownLatch(1);
     LeaderElector leaderElector =
-        new LeaderElector(leaderElectionConfig, (t) -> actualException.set(t));
+        new LeaderElector(
+            leaderElectionConfig,
+            (t) -> {
+              actualException.set(t);
+              cLatch.countDown();
+            });
 
     ExecutorService leaderElectionWorker = Executors.newFixedThreadPool(1);
     leaderElectionWorker.submit(
         () -> {
           leaderElector.run(() -> {}, () -> {});
         });
-    // TODO: Remove this sleep
-    Thread.sleep(Duration.ofSeconds(2).toMillis());
+    cLatch.await();
+
     assertEquals(expectedException, actualException.get().getCause());
   }
 
@@ -331,8 +336,7 @@ public class LeaderElectionTest {
     leaderElectionConfig.setRenewDeadline(Duration.ofMillis(700));
     LeaderElector leaderElector = new LeaderElector(leaderElectionConfig);
     ExecutorService leaderElectionWorker = Executors.newFixedThreadPool(1);
-    final Semaphore s = new Semaphore(2);
-    s.acquire(2);
+    final CountDownLatch cLatch = new CountDownLatch(2);
     leaderElectionWorker.submit(
         () -> {
           leaderElector.run(
@@ -340,12 +344,12 @@ public class LeaderElectionTest {
               () -> {},
               (id) -> {
                 notifications.add(id);
-                s.release();
+                cLatch.countDown();
               });
         });
 
     // wait for two notifications to occur.
-    s.acquire(2);
+    cLatch.await();
 
     assertEquals(2, notifications.size());
     assertEquals("foo2", notifications.get(0));
@@ -375,8 +379,7 @@ public class LeaderElectionTest {
     leaderElectionConfig.setRenewDeadline(Duration.ofMillis(700));
     LeaderElector leaderElector = new LeaderElector(leaderElectionConfig);
     ExecutorService leaderElectionWorker = Executors.newFixedThreadPool(1);
-    Semaphore s = new Semaphore(1);
-    s.acquire();
+    final CountDownLatch cLatch = new CountDownLatch(1);
     leaderElectionWorker.submit(
         () -> {
           leaderElector.run(
@@ -384,11 +387,11 @@ public class LeaderElectionTest {
               () -> {},
               (id) -> {
                 notifications.add(id);
-                s.release();
+                cLatch.countDown();
               });
         });
 
-    s.acquire();
+    cLatch.await();
     assertEquals(1, notifications.size());
     assertEquals("foo1", notifications.get(0));
   }
