@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.informer.cache;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import io.kubernetes.client.informer.ResourceEventHandler;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
+import java.util.concurrent.CountDownLatch;
 import org.junit.Test;
 
 public class ProcessorListenerTest {
@@ -29,6 +31,7 @@ public class ProcessorListenerTest {
   public void testNotificationHandling() throws InterruptedException {
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name("foo").namespace("default"));
 
+    final CountDownLatch cLatch = new CountDownLatch(3);
     ProcessorListener<V1Pod> listener =
         new ProcessorListener<>(
             new ResourceEventHandler<V1Pod>() {
@@ -37,18 +40,21 @@ public class ProcessorListenerTest {
               public void onAdd(V1Pod obj) {
                 assertEquals(pod, obj);
                 addNotificationReceived = true;
+                cLatch.countDown();
               }
 
               @Override
               public void onUpdate(V1Pod oldObj, V1Pod newObj) {
                 assertEquals(pod, newObj);
                 updateNotificationReceived = true;
+                cLatch.countDown();
               }
 
               @Override
               public void onDelete(V1Pod obj, boolean deletedFinalStateUnknown) {
                 assertEquals(pod, obj);
                 deleteNotificationReceived = true;
+                cLatch.countDown();
               }
             },
             0);
@@ -61,8 +67,8 @@ public class ProcessorListenerTest {
     listenerThread.setDaemon(true);
     listenerThread.start();
 
-    // sleep 1s for consuming nofications from queue
-    Thread.sleep(1000);
+    // wait until consumption of notifications from queue
+    cLatch.await();
 
     assertTrue(addNotificationReceived);
     assertTrue(updateNotificationReceived);
@@ -74,6 +80,8 @@ public class ProcessorListenerTest {
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name("foo").namespace("default"));
     final int[] count = {0};
 
+    int notificationCount = 2000;
+    final CountDownLatch cLatch = new CountDownLatch(notificationCount);
     ProcessorListener<V1Pod> listener =
         new ProcessorListener<>(
             new ResourceEventHandler<V1Pod>() {
@@ -81,6 +89,7 @@ public class ProcessorListenerTest {
               public void onAdd(V1Pod obj) {
                 assertEquals(pod, obj);
                 count[0]++;
+                cLatch.countDown();
               }
 
               @Override
@@ -91,7 +100,7 @@ public class ProcessorListenerTest {
             },
             0);
 
-    for (int i = 0; i < 2000; i++) {
+    for (int i = 0; i < notificationCount; i++) {
       listener.add(new ProcessorListener.AddNotification<>(pod));
     }
 
@@ -99,7 +108,7 @@ public class ProcessorListenerTest {
     listenerThread.setDaemon(true);
     listenerThread.start();
 
-    Thread.sleep(2000);
+    cLatch.await();
 
     assertEquals(count[0], 2000);
   }
