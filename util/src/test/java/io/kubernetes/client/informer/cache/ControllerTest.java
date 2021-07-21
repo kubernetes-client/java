@@ -36,7 +36,12 @@ public class ControllerTest {
     AtomicInteger receivingDeltasCount = new AtomicInteger(0);
     V1Pod foo1 = new V1Pod().metadata(new V1ObjectMeta().name("foo1").namespace("default"));
     V1Pod foo2 = new V1Pod().metadata(new V1ObjectMeta().name("foo2").namespace("default"));
-    V1Pod foo3 = new V1Pod().metadata(new V1ObjectMeta().name("foo3").namespace("default"));
+    V1Pod foo3 =
+        new V1Pod()
+            .metadata(new V1ObjectMeta().name("foo3").namespace("default").resourceVersion("rva"));
+    V1Pod foo3Updated =
+        new V1Pod()
+            .metadata(new V1ObjectMeta().name("foo3").namespace("default").resourceVersion("rvb"));
 
     V1PodList podList =
         new V1PodList().metadata(new V1ListMeta()).items(Arrays.asList(foo1, foo2, foo3));
@@ -44,7 +49,7 @@ public class ControllerTest {
 
     ListerWatcher<V1Pod, V1PodList> listerWatcher =
         new MockRunOnceListerWatcher<V1Pod, V1PodList>(
-            podList, new Watch.Response<V1Pod>(EventType.MODIFIED.name(), foo3));
+            podList, new Watch.Response<V1Pod>(EventType.MODIFIED.name(), foo3Updated));
 
     Controller<V1Pod, V1PodList> controller =
         new Controller<>(
