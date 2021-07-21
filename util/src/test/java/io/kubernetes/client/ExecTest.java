@@ -34,6 +34,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.concurrent.CountDownLatch;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -82,7 +83,8 @@ public class ExecTest {
     return new ByteArrayInputStream(out);
   }
 
-  public static Thread asyncCopy(final InputStream is, final OutputStream os) {
+  public static Thread asyncCopy(
+      final InputStream is, final OutputStream os, CountDownLatch cLatch) {
     Thread t =
         new Thread(
             new Runnable() {
@@ -91,6 +93,8 @@ public class ExecTest {
                   Streams.copy(is, os);
                 } catch (IOException ex) {
                   ex.printStackTrace();
+                } finally {
+                  cLatch.countDown();
                 }
               }
             });
@@ -110,14 +114,13 @@ public class ExecTest {
 
     final ByteArrayOutputStream stdout = new ByteArrayOutputStream();
     final ByteArrayOutputStream stderr = new ByteArrayOutputStream();
-
-    Thread t1 = asyncCopy(process.getInputStream(), stdout);
-    Thread t2 = asyncCopy(process.getErrorStream(), stderr);
+    CountDownLatch cLatch = new CountDownLatch(2);
+    Thread t1 = asyncCopy(process.getInputStream(), stdout, cLatch);
+    Thread t2 = asyncCopy(process.getErrorStream(), stderr, cLatch);
 
     process.getHandler().bytesMessage(makeStream(3, OUTPUT_EXIT0.getBytes(StandardCharsets.UTF_8)));
-    // TODO: Fix this asap!
-    Thread.sleep(1000);
 
+    cLatch.await();
     process.destroy();
 
     assertEquals(msgData, stdout.toString());
