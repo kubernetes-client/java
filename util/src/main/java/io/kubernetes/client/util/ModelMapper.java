@@ -376,6 +376,11 @@ public class ModelMapper {
 
       preBuiltClassesByGVK.put(new GroupVersionKind(group, version, kind), clazz);
     }
+    if (preBuiltClassesByGVK.size() == 0) {
+      logger.warn(
+          "No kubernetes api model classes found from classloader, "
+              + "this may break automatic api discovery");
+    }
   }
 
   private static Class<?> loadClass(String name, ClassLoader classLoader) {
