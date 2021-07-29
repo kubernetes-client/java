@@ -16,12 +16,14 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 import io.kubernetes.client.Resources;
 import io.kubernetes.client.common.KubernetesType;
+import io.kubernetes.client.openapi.models.V1CustomResourceDefinition;
 import io.kubernetes.client.openapi.models.V1Deployment;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
@@ -48,6 +50,8 @@ public class YamlTest {
   private static final URL CREATED_TIMESTAMP_FILE = Resources.getResource("test-pod.yaml");
 
   private static final URL TAGGED_FILE = Resources.getResource("pod-tag.yaml");
+
+  private static final URL CRD_INT_OR_STRING_FILE = Resources.getResource("crd-int-or-string.yaml");
 
   private static final String[] kinds =
       new String[] {
@@ -279,5 +283,23 @@ public class YamlTest {
       // pass
     }
     assertFalse("Object should not be constructed!", TestPoJ.hasBeenConstructed());
+  }
+
+  @Test
+  public void testLoadDumpCRDWithIntOrStringExtension() {
+    String data = Resources.toString(CRD_INT_OR_STRING_FILE, UTF_8);
+    V1CustomResourceDefinition crd = Yaml.loadAs(data, V1CustomResourceDefinition.class);
+    assertNotNull(crd);
+    assertTrue(
+        crd.getSpec()
+            .getVersions()
+            .get(0)
+            .getSchema()
+            .getOpenAPIV3Schema()
+            .getProperties()
+            .get("foo")
+            .getxKubernetesIntOrString());
+    String dumped = Yaml.dump(crd);
+    assertEquals(data, dumped);
   }
 }

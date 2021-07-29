@@ -12,27 +12,36 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.common.KubernetesType;
 import io.kubernetes.client.custom.IntOrString;
 import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.openapi.models.V1JSONSchemaProps;
+import io.kubernetes.client.openapi.models.V1beta1JSONSchemaProps;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 import java.io.Writer;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import okio.ByteString;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.DumperOptions;
+import org.yaml.snakeyaml.TypeDescription;
+import org.yaml.snakeyaml.constructor.BaseConstructor;
 import org.yaml.snakeyaml.constructor.Constructor;
 import org.yaml.snakeyaml.constructor.SafeConstructor;
 import org.yaml.snakeyaml.introspector.Property;
@@ -44,6 +53,7 @@ import org.yaml.snakeyaml.nodes.Tag;
 import org.yaml.snakeyaml.representer.Represent;
 import org.yaml.snakeyaml.representer.Representer;
 
+/** The type Yaml. */
 public class Yaml {
 
   static final Logger logger = LoggerFactory.getLogger(Yaml.class);
@@ -359,17 +369,137 @@ public class Yaml {
     }
   }
 
-  /** @return An instantiated SnakeYaml Object. */
+  /**
+   * Instantiate a snake yaml with a default {@link SafeConstructor}.
+   *
+   * <p>DEPRECATED: Use the parameterized "getSnakeYaml" constructing method below to get rid of
+   * vulnerability from dynamic type serialization.
+   *
+   * @return the snake yaml
+   */
   @Deprecated
   public static org.yaml.snakeyaml.Yaml getSnakeYaml() {
     return getSnakeYaml(null);
   }
 
-  private static org.yaml.snakeyaml.Yaml getSnakeYaml(Class<?> type) {
+  /**
+   * Instantiate a snake yaml with the target model type specified..
+   *
+   * @param type the target model type
+   * @param typeDescriptions additional type descriptions for customizing the serializer
+   * @return the new snake yaml instance
+   */
+  public static org.yaml.snakeyaml.Yaml getSnakeYaml(
+      Class<?> type, TypeDescription... typeDescriptions) {
+    BaseConstructor constructor = new SafeConstructor();
+    Representer representer = new CustomRepresenter();
     if (type != null) {
-      return new org.yaml.snakeyaml.Yaml(new CustomConstructor(type), new CustomRepresenter());
+      constructor = new CustomConstructor(type);
     }
-    return new org.yaml.snakeyaml.Yaml(new SafeConstructor(), new CustomRepresenter());
+    // register builtin type descriptions
+    registerBuiltinGsonCompatibles(constructor, representer);
+    for (TypeDescription desc : typeDescriptions) {
+      registerCustomTypeDescriptions(constructor, representer, desc);
+    }
+    return new org.yaml.snakeyaml.Yaml(constructor, representer);
+  }
+
+  /**
+   * Instantiate a new {@link TypeDescription} which will load the {@link SerializedName} via
+   * reflection so that yaml serialization can work for the custom gson serialized name.
+   *
+   * @param modelClass the kubenretes api model class
+   * @param gsonTaggedFields the custom serialized names tagged by gson
+   * @return the type description
+   */
+  public static TypeDescription newGsonCompatibleTypeDescription(
+      Class modelClass, String... gsonTaggedFields) {
+    TypeDescription desc = new TypeDescription(modelClass);
+    List<String> excluding = new ArrayList<>();
+    for (String targetGsonAnnotation : gsonTaggedFields) {
+      Field field =
+          Arrays.stream(modelClass.getDeclaredFields())
+              .filter(f -> f.getAnnotation(SerializedName.class) != null)
+              .filter(
+                  f -> targetGsonAnnotation.equals(f.getAnnotation(SerializedName.class).value()))
+              .findAny()
+              .orElseThrow(
+                  () ->
+                      new IllegalArgumentException(
+                          "Api model class "
+                              + modelClass.getSimpleName()
+                              + " doesn't have field with Gson @SerializedName with value "
+                              + targetGsonAnnotation));
+      Method getterMethod =
+          tryFindGetterMethod(modelClass, field)
+              .orElseThrow(
+                  () ->
+                      new IllegalArgumentException(
+                          "Cannot find getter method for "
+                              + targetGsonAnnotation
+                              + " on api model class "
+                              + modelClass.getSimpleName()));
+      Method setterMethod =
+          tryFindSetterMethod(modelClass, field)
+              .orElseThrow(
+                  () ->
+                      new IllegalArgumentException(
+                          "Cannot find setter method for "
+                              + targetGsonAnnotation
+                              + " on api model class "
+                              + modelClass.getSimpleName()));
+
+      desc.substituteProperty(
+          targetGsonAnnotation, field.getType(), getterMethod.getName(), setterMethod.getName());
+      excluding.add(field.getName());
+    }
+    desc.setExcludes(excluding.toArray(new String[0]));
+    return desc;
+  }
+
+  private static void registerBuiltinGsonCompatibles(
+      BaseConstructor constructor, Representer representer) {
+    // TODO: Are there more builtin api classes need these explicit substitution below
+    String[] crdOpenApiExtensions =
+        new String[] {
+          "x-kubernetes-embedded-resource",
+          "x-kubernetes-int-or-string",
+          "x-kubernetes-list-map-keys",
+          "x-kubernetes-list-type",
+          "x-kubernetes-map-type",
+          "x-kubernetes-preserve-unknown-fields",
+        };
+    registerCustomTypeDescriptions(
+        constructor,
+        representer,
+        newGsonCompatibleTypeDescription(V1JSONSchemaProps.class, crdOpenApiExtensions),
+        newGsonCompatibleTypeDescription(V1beta1JSONSchemaProps.class, crdOpenApiExtensions));
+  }
+
+  private static void registerCustomTypeDescriptions(
+      BaseConstructor constructor,
+      Representer representer,
+      TypeDescription... addtionalTypeDescriptions) {
+    Arrays.stream(addtionalTypeDescriptions)
+        .forEach(
+            desc -> {
+              constructor.addTypeDescription(desc);
+              representer.addTypeDescription(desc);
+            });
+  }
+
+  private static Optional<Method> tryFindGetterMethod(Class modelClass, Field targetField) {
+    return Arrays.stream(modelClass.getDeclaredMethods())
+        .filter(f -> f.getName().startsWith("get"))
+        .filter(f -> f.getName().equalsIgnoreCase("get" + targetField.getName()))
+        .findAny();
+  }
+
+  private static Optional<Method> tryFindSetterMethod(Class modelClass, Field targetField) {
+    return Arrays.stream(modelClass.getDeclaredMethods())
+        .filter(f -> f.getName().startsWith("set"))
+        .filter(f -> f.getName().equalsIgnoreCase("set" + targetField.getName()))
+        .findAny();
   }
 
   /**
