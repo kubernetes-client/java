@@ -40,6 +40,7 @@ import okio.ByteString;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.DumperOptions;
+import org.yaml.snakeyaml.LoaderOptions;
 import org.yaml.snakeyaml.TypeDescription;
 import org.yaml.snakeyaml.constructor.BaseConstructor;
 import org.yaml.snakeyaml.constructor.Constructor;
@@ -383,7 +384,8 @@ public class Yaml {
   }
 
   /**
-   * Instantiate a snake yaml with the target model type specified..
+   * Instantiate a snake yaml with the target model type specified.. Optionally, passing custom type
+   * descriptions if the target serialized name differs from the actual field name.
    *
    * @param type the target model type
    * @param typeDescriptions additional type descriptions for customizing the serializer
@@ -391,6 +393,25 @@ public class Yaml {
    */
   public static org.yaml.snakeyaml.Yaml getSnakeYaml(
       Class<?> type, TypeDescription... typeDescriptions) {
+    return getSnakeYaml(type, null, null, typeDescriptions);
+  }
+
+  /**
+   * Instantiate a snake yaml with the target model type, and the dump/load option specified..
+   * Optionally, passing custom type descriptions if the target serialized name differs from the
+   * actual field name.
+   *
+   * @param type the target model type
+   * @param dumperOptions the dumper options
+   * @param loaderOptions the loader options
+   * @param typeDescriptions additional type descriptions for customizing the serializer
+   * @return the new snake yaml instance
+   */
+  public static org.yaml.snakeyaml.Yaml getSnakeYaml(
+      Class<?> type,
+      DumperOptions dumperOptions,
+      LoaderOptions loaderOptions,
+      TypeDescription... typeDescriptions) {
     BaseConstructor constructor = new SafeConstructor();
     Representer representer = new CustomRepresenter();
     if (type != null) {
@@ -400,6 +421,12 @@ public class Yaml {
     registerBuiltinGsonCompatibles(constructor, representer);
     for (TypeDescription desc : typeDescriptions) {
       registerCustomTypeDescriptions(constructor, representer, desc);
+    }
+    if (dumperOptions != null) {
+      if (loaderOptions != null) {
+        return new org.yaml.snakeyaml.Yaml(constructor, representer, dumperOptions, loaderOptions);
+      }
+      return new org.yaml.snakeyaml.Yaml(constructor, representer, dumperOptions);
     }
     return new org.yaml.snakeyaml.Yaml(constructor, representer);
   }
