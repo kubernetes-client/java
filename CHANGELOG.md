@@ -1,3 +1,24 @@
+# 13.0.0
+
+* Features
+  * Bump kubernetes api spec to `v1.21.x`.
+  * Compatibility w/ JDK 16.
+  * Separate fluent builder classes (and also its generator) to new modules 
+    `client-java-api-fluent` and `client-java-api-fluent-gen`.
+  * Support `@KubernetesInformers` annotation on bean method so we can skip 
+    declaring a nested class. (#1603)
+  * Jittering informer's client-side timeout. (#1656)
+  * Published a `client-java-admission-review` module via manual module generation.
+* Bugfix
+  * ModelMapper now registers lister kind. (#1658)
+  * Defaulting a 200 status code upon successful response. (#1672)
+  * Fixes security issues from SnakeYaml's dynamic serialization. (#1676)
+  * Fixes duplicate informer-resync calls. (#1727)
+* Misc
+  * Improving loggings
+  * Upgrading a few dependencies
+  * Test flakiness
+
 # 12.0.0
 
 * Features
