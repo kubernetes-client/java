@@ -27,6 +27,7 @@ import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.models.V1Deployment;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1ReplicaSet;
+import io.kubernetes.client.openapi.models.V1StatefulSet;
 import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
 import org.junit.Before;
@@ -87,6 +88,29 @@ public class KubectlScaleTest {
         patchRequestedFor(urlPathEqualTo("/apis/apps/v1/namespaces/default/replicasets/foo"))
             .withRequestBody(
                 equalToJson("[{\"op\":\"replace\",\"path\":\"/spec/replicas\",\"value\":4}]")));
+    assertNotNull(scaled);
+  }
+
+  @Test
+  public void testKubectlScaleStatefulSetShouldWork() throws KubectlException {
+    wireMockRule.stubFor(
+        patch(urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody("{\"metadata\":{\"name\":\"foo\",\"namespace\":\"default\"}}")));
+    V1StatefulSet scaled =
+        Kubectl.scale(V1StatefulSet.class)
+            .apiClient(apiClient)
+            .name("foo")
+            .namespace("default")
+            .replicas(8)
+            .execute();
+    wireMockRule.verify(
+        1,
+        patchRequestedFor(urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo"))
+            .withRequestBody(
+                equalToJson("[{\"op\":\"replace\",\"path\":\"/spec/replicas\",\"value\":8}]")));
     assertNotNull(scaled);
   }
 
