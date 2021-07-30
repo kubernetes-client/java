@@ -19,6 +19,7 @@ import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.apis.AppsV1Api;
 import io.kubernetes.client.openapi.models.V1Deployment;
 import io.kubernetes.client.openapi.models.V1ReplicaSet;
+import io.kubernetes.client.openapi.models.V1StatefulSet;
 import io.kubernetes.client.util.PatchUtils;
 
 public class KubectlScale<ApiType extends KubernetesObject>
@@ -65,6 +66,14 @@ public class KubectlScale<ApiType extends KubernetesObject>
             apiTypeClass,
             () ->
                 api.patchNamespacedReplicaSetCall(
+                    name, namespace, new V1Patch(jsonPatchStr), null, null, null, null, null),
+            V1Patch.PATCH_FORMAT_JSON_PATCH,
+            this.apiClient);
+      } else if (apiTypeClass.equals(V1StatefulSet.class)) {
+        return PatchUtils.patch(
+            apiTypeClass,
+            () ->
+                api.patchNamespacedStatefulSetCall(
                     name, namespace, new V1Patch(jsonPatchStr), null, null, null, null, null),
             V1Patch.PATCH_FORMAT_JSON_PATCH,
             this.apiClient);
