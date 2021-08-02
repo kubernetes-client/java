@@ -79,6 +79,9 @@ public class GCPAuthenticator implements Authenticator {
     try {
       Process process = new ProcessBuilder().command(commandList).start();
       process.waitFor(10, TimeUnit.SECONDS);
+      if(process.exitValue() != 0) {
+        throw new IOException("Process exit code: "+process.exitValue());
+      }
       String output = IOUtils.toString(process.getInputStream(), StandardCharsets.UTF_8);
       String credentialJson = output.substring(output.indexOf("{"), output.lastIndexOf("}")+1);
       Gson gson = new Gson();
@@ -86,7 +89,7 @@ public class GCPAuthenticator implements Authenticator {
       config.put(TOKEN_KEY, jsonMap.get(TOKEN_KEY));
       config.put(EXPIRY_KEY, jsonMap.get(EXPIRY_KEY));
     } catch (IOException | InterruptedException e) {
-      throw new RuntimeException("Could not refresh token");
+      throw new RuntimeException("Could not refresh token", e);
     }
     return config;
   }
