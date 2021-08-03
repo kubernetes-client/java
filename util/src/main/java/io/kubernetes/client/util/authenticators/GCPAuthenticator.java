@@ -14,13 +14,15 @@ package io.kubernetes.client.util.authenticators;
 
 import com.google.gson.Gson;
 import io.kubernetes.client.util.KubeConfig;
-
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.time.Instant;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
-
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +35,7 @@ public class GCPAuthenticator implements Authenticator {
   static {
     KubeConfig.registerAuthenticator(new GCPAuthenticator());
   }
+
   private static final String ACCESS_TOKEN = "access-token";
   private static final String EXPIRY = "expiry";
   private static final String TOKEN_KEY = "token-key";
@@ -72,18 +75,20 @@ public class GCPAuthenticator implements Authenticator {
   public Map<String, Object> refresh(Map<String, Object> config) {
     if (!config.containsKey(CMD_ARGS) || !config.containsKey(CMD_PATH))
       throw new RuntimeException("Could not refresh token");
-    String cmd_path= (String) config.get(CMD_PATH);
+    String cmd_path = (String) config.get(CMD_PATH);
     String cmd_args = (String) config.get(CMD_ARGS);
     List<String> commandList = new ArrayList<>(Arrays.asList(cmd_args.split(" ")));
     commandList.add(0, cmd_path);
     try {
       Process process = new ProcessBuilder().command(commandList).start();
       process.waitFor(10, TimeUnit.SECONDS);
-      if(process.exitValue() != 0) {
-        throw new IOException("Process exit code: "+process.exitValue());
+      if (process.exitValue() != 0) {
+        String stdErr = IOUtils.toString(process.getErrorStream(), StandardCharsets.UTF_8);
+        throw new IllegalStateException(
+            "Failed to get token (" + process.exitValue() + ") " + stdErr);
       }
       String output = IOUtils.toString(process.getInputStream(), StandardCharsets.UTF_8);
-      String credentialJson = output.substring(output.indexOf("{"), output.lastIndexOf("}")+1);
+      String credentialJson = output.substring(output.indexOf("{"), output.lastIndexOf("}") + 1);
       Gson gson = new Gson();
       Map<String, String> jsonMap = gson.fromJson(credentialJson, Map.class);
       config.put(TOKEN_KEY, jsonMap.get(TOKEN_KEY));
