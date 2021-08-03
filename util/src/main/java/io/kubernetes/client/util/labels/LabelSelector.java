@@ -12,7 +12,11 @@ limitations under the License.
 */
 package io.kubernetes.client.util.labels;
 
+import io.kubernetes.client.openapi.models.V1LabelSelector;
+import io.kubernetes.client.openapi.models.V1LabelSelectorRequirement;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -22,6 +26,11 @@ import java.util.stream.Collectors;
  * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
  */
 public class LabelSelector implements Predicate<Map<String, String>> {
+
+  public static final String LABEL_SELECTOR_OP_IN = "In";
+  public static final String LABEL_SELECTOR_OP_NOT_IN = "NotIn";
+  public static final String LABEL_SELECTOR_OP_EXISTS = "Exists";
+  public static final String LABEL_SELECTOR_OP_DOES_NOT_EXIST = "DoesNotExist";
 
   LabelSelector(LabelMatcher... matchers) {
     this.labelMatchers = matchers;
@@ -44,6 +53,47 @@ public class LabelSelector implements Predicate<Map<String, String>> {
    */
   public static LabelSelector empty() {
     return and();
+  }
+
+  /**
+   * Transform a V1LabelSelector to LabelSelector
+   *
+   * @param ps V1LabelSelector from spec
+   * @return the transformed LabelSelector
+   */
+  public static LabelSelector parse(V1LabelSelector ps) throws IllegalArgumentException {
+    int matcherNum = 0;
+    if (ps.getMatchLabels() != null) matcherNum = ps.getMatchLabels().size();
+    if (ps.getMatchExpressions() != null) matcherNum = ps.getMatchExpressions().size();
+    List<LabelMatcher> matchers = new ArrayList<>(matcherNum);
+    if (ps.getMatchLabels() != null) {
+      for (Map.Entry<String, String> entry : ps.getMatchLabels().entrySet()) {
+        LabelMatcher m = EqualityMatcher.equal(entry.getKey(), entry.getValue());
+        matchers.add(m);
+      }
+    }
+    if (ps.getMatchExpressions() != null) {
+      for (V1LabelSelectorRequirement expr : ps.getMatchExpressions()) {
+        switch (expr.getOperator()) {
+          case LABEL_SELECTOR_OP_IN:
+            matchers.add(SetMatcher.in(expr.getKey(), expr.getValues().toArray(new String[0])));
+            break;
+          case LABEL_SELECTOR_OP_NOT_IN:
+            matchers.add(SetMatcher.notIn(expr.getKey(), expr.getValues().toArray(new String[0])));
+            break;
+          case LABEL_SELECTOR_OP_EXISTS:
+            matchers.add(SetMatcher.exists(expr.getKey()));
+            break;
+          case LABEL_SELECTOR_OP_DOES_NOT_EXIST:
+            matchers.add(SetMatcher.notExists(expr.getKey()));
+            break;
+          default:
+            throw new IllegalArgumentException(
+                expr.getOperator() + " is not a valid pod selector operator");
+        }
+      }
+    }
+    return LabelSelector.and(matchers.toArray(matchers.toArray(new LabelMatcher[0])));
   }
 
   private LabelMatcher[] labelMatchers;
