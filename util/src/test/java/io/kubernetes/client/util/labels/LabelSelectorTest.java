@@ -17,7 +17,12 @@ import static io.kubernetes.client.util.labels.EqualityMatcher.notEqual;
 import static io.kubernetes.client.util.labels.SetMatcher.*;
 import static org.junit.Assert.*;
 
+import io.kubernetes.client.openapi.models.V1LabelSelector;
+import io.kubernetes.client.openapi.models.V1LabelSelectorRequirement;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class LabelSelectorTest {
@@ -197,5 +202,160 @@ public class LabelSelectorTest {
               }
             }));
     assertEquals("", labelSelector.toString());
+  }
+
+  @Test
+  public void parseWithLabelsShouldWork() throws IllegalArgumentException {
+    HashMap<String, String> labels =
+        new HashMap<String, String>() {
+          {
+            put("app1", "foo");
+            put("app2", "bar");
+          }
+        };
+    V1LabelSelector v1LabelSelector = new V1LabelSelector().matchLabels(labels);
+    LabelSelector labelSelector = LabelSelector.parse(v1LabelSelector);
+    HashMap<String, String> testSelector =
+        new HashMap<String, String>() {
+          {
+            put("app1", "foo");
+            put("app2", "bar");
+          }
+        };
+    Assert.assertTrue(labelSelector.test(testSelector));
+    testSelector.remove("app1");
+    Assert.assertFalse(labelSelector.test(testSelector));
+  }
+
+  @Test
+  public void parseWithExpressionsShouldWork() throws IllegalArgumentException {
+    List<V1LabelSelectorRequirement> exprs =
+        new LinkedList<V1LabelSelectorRequirement>() {
+          {
+            add(
+                new V1LabelSelectorRequirement()
+                    .key("key1")
+                    .values(
+                        new LinkedList<String>() {
+                          {
+                            add("value1");
+                            add("value2");
+                          }
+                        })
+                    .operator(LabelSelector.LABEL_SELECTOR_OP_IN));
+            add(
+                new V1LabelSelectorRequirement()
+                    .key("key2")
+                    .values(
+                        new LinkedList<String>() {
+                          {
+                            add("value3");
+                            add("value4");
+                          }
+                        })
+                    .operator(LabelSelector.LABEL_SELECTOR_OP_NOT_IN));
+            add(
+                new V1LabelSelectorRequirement()
+                    .key("key3")
+                    .operator(LabelSelector.LABEL_SELECTOR_OP_EXISTS));
+            add(
+                new V1LabelSelectorRequirement()
+                    .key("key4")
+                    .operator(LabelSelector.LABEL_SELECTOR_OP_DOES_NOT_EXIST));
+          }
+        };
+    V1LabelSelector v1LabelSelector = new V1LabelSelector().matchExpressions(exprs);
+    LabelSelector labelSelector = LabelSelector.parse(v1LabelSelector);
+    HashMap<String, String> testSelector =
+        new HashMap<String, String>() {
+          {
+            put("key1", "value1");
+            put("key2", "value5");
+            put("key3", "");
+          }
+        };
+    Assert.assertTrue(labelSelector.test(testSelector));
+  }
+
+  @Test
+  public void parseWithLabelsAndExpressionsShouldWork() throws IllegalArgumentException {
+    HashMap<String, String> labels =
+        new HashMap<String, String>() {
+          {
+            put("app1", "foo");
+            put("app2", "bar");
+          }
+        };
+    List<V1LabelSelectorRequirement> exprs =
+        new LinkedList<V1LabelSelectorRequirement>() {
+          {
+            add(
+                new V1LabelSelectorRequirement()
+                    .key("key1")
+                    .values(
+                        new LinkedList<String>() {
+                          {
+                            add("value1");
+                            add("value2");
+                          }
+                        })
+                    .operator(LabelSelector.LABEL_SELECTOR_OP_IN));
+            add(
+                new V1LabelSelectorRequirement()
+                    .key("key2")
+                    .values(
+                        new LinkedList<String>() {
+                          {
+                            add("value3");
+                            add("value4");
+                          }
+                        })
+                    .operator(LabelSelector.LABEL_SELECTOR_OP_NOT_IN));
+            add(
+                new V1LabelSelectorRequirement()
+                    .key("key3")
+                    .operator(LabelSelector.LABEL_SELECTOR_OP_EXISTS));
+            add(
+                new V1LabelSelectorRequirement()
+                    .key("key4")
+                    .operator(LabelSelector.LABEL_SELECTOR_OP_DOES_NOT_EXIST));
+          }
+        };
+    V1LabelSelector v1LabelSelector =
+        new V1LabelSelector().matchExpressions(exprs).matchLabels(labels);
+    LabelSelector labelSelector = LabelSelector.parse(v1LabelSelector);
+    HashMap<String, String> testSelector =
+        new HashMap<String, String>() {
+          {
+            put("app1", "foo");
+            put("app2", "bar");
+            put("key1", "value1");
+            put("key2", "value5");
+            put("key3", "");
+          }
+        };
+    Assert.assertTrue(labelSelector.test(testSelector));
+  }
+
+  @Test
+  public void parseWithWrongOpShouldThrowIllegalArgumentException() {
+    List<V1LabelSelectorRequirement> exprs =
+        new LinkedList<V1LabelSelectorRequirement>() {
+          {
+            add(
+                new V1LabelSelectorRequirement()
+                    .key("key1")
+                    .values(
+                        new LinkedList<String>() {
+                          {
+                            add("value1");
+                            add("value2");
+                          }
+                        })
+                    .operator("WrongOp"));
+          }
+        };
+    V1LabelSelector v1LabelSelector = new V1LabelSelector().matchExpressions(exprs);
+    assertThrows(IllegalArgumentException.class, () -> LabelSelector.parse(v1LabelSelector));
   }
 }
