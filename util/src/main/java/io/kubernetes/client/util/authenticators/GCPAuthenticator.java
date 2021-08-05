@@ -12,15 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.util.authenticators;
 
-import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import io.kubernetes.client.util.KubeConfig;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.IOUtils;
@@ -38,8 +37,6 @@ public class GCPAuthenticator implements Authenticator {
 
   private static final String ACCESS_TOKEN = "access-token";
   private static final String EXPIRY = "expiry";
-  private static final String TOKEN_KEY = "token-key";
-  private static final String EXPIRY_KEY = "expiry-key";
   private static final String CMD_ARGS = "cmd-args";
   private static final String CMD_PATH = "cmd-path";
 
@@ -75,27 +72,36 @@ public class GCPAuthenticator implements Authenticator {
   public Map<String, Object> refresh(Map<String, Object> config) {
     if (!config.containsKey(CMD_ARGS) || !config.containsKey(CMD_PATH))
       throw new RuntimeException("Could not refresh token");
-    String cmd_path = (String) config.get(CMD_PATH);
-    String cmd_args = (String) config.get(CMD_ARGS);
-    List<String> commandList = new ArrayList<>(Arrays.asList(cmd_args.split(" ")));
-    commandList.add(0, cmd_path);
+    String cmdPath = (String) config.get(CMD_PATH);
+    String cmdArgs = (String) config.get(CMD_ARGS);
+    String fullCmd = cmdPath + cmdArgs;
     try {
-      Process process = new ProcessBuilder().command(commandList).start();
+      Process process = new ProcessBuilder().command(Arrays.asList(fullCmd.split(" "))).start();
       process.waitFor(10, TimeUnit.SECONDS);
       if (process.exitValue() != 0) {
         String stdErr = IOUtils.toString(process.getErrorStream(), StandardCharsets.UTF_8);
         throw new IllegalStateException(
-            "Failed to get token (" + process.exitValue() + ") " + stdErr);
+            "Failed to executing access token command "
+                + fullCmd
+                + ": exitValue: "
+                + process.exitValue()
+                + ", stdErr: "
+                + stdErr);
       }
       String output = IOUtils.toString(process.getInputStream(), StandardCharsets.UTF_8);
       String credentialJson = output.substring(output.indexOf("{"), output.lastIndexOf("}") + 1);
-      Gson gson = new Gson();
-      Map<String, String> jsonMap = gson.fromJson(credentialJson, Map.class);
-      config.put(TOKEN_KEY, jsonMap.get(TOKEN_KEY));
-      config.put(EXPIRY_KEY, jsonMap.get(EXPIRY_KEY));
+      JsonObject root = JsonParser.parseString(credentialJson).getAsJsonObject();
+      if (root.has("credential")) {
+        JsonObject credJson = root.getAsJsonObject("credential");
+        if (credJson.has("access_token") && credJson.has("token_expiry")) {
+          config.put(ACCESS_TOKEN, credJson.get("access_token").getAsString());
+          config.put(EXPIRY, credJson.get("token_expiry").getAsString());
+          return config;
+        }
+      }
+      throw new IllegalStateException("Failed to parsing access token output: " + output);
     } catch (IOException | InterruptedException e) {
       throw new RuntimeException("Could not refresh token", e);
     }
-    return config;
   }
 }
