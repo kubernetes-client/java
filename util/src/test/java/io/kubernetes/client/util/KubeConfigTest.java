@@ -17,6 +17,7 @@ import static org.junit.Assert.*;
 import io.kubernetes.client.util.authenticators.Authenticator;
 import io.kubernetes.client.util.authenticators.AzureActiveDirectoryAuthenticator;
 import io.kubernetes.client.util.authenticators.GCPAuthenticator;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -28,6 +29,7 @@ import java.util.Map;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
+import org.mockito.Mockito;
 
 /** Tests for the KubeConfigConfig helper class */
 public class KubeConfigTest {
@@ -169,14 +171,35 @@ public class KubeConfigTest {
             + "        expiry-key: '{.credential.token_expiry}'\n"
             + "        token-key: '{.credential.access_token}'\n"
             + "      name: gcp";
-    KubeConfig.registerAuthenticator(new GCPAuthenticator());
+    String fakeExecResult =
+        "{\n"
+            + "  \"credential\": {\n"
+            + "    \"access_token\": \"new-fake-token\",\n"
+            + "    \"id_token\": \"id-fake-token\",\n"
+            + "    \"token_expiry\": \"2121-08-05T02:30:24Z\"\n"
+            + "  }\n"
+            + "}";
+    ProcessBuilder mockPB = Mockito.mock(ProcessBuilder.class, Mockito.RETURNS_DEEP_STUBS);
+    Process mockProcess = Mockito.mock(Process.class);
+    Mockito.when(mockProcess.exitValue()).thenReturn(0);
+    Mockito.when(mockProcess.getInputStream())
+        .thenReturn(new ByteArrayInputStream(fakeExecResult.getBytes(StandardCharsets.UTF_8)));
+    try {
+      Mockito.when(mockPB.command(Mockito.anyList()).start()).thenReturn(mockProcess);
+    } catch (IOException ex) {
+      ex.printStackTrace();
+      fail("Unexpected exception: " + ex);
+    }
+    GCPAuthenticator spyGCPAuth = Mockito.spy(GCPAuthenticator.class);
+    Mockito.when(spyGCPAuth.getPb()).thenReturn(mockPB);
+
+    KubeConfig.registerAuthenticator(spyGCPAuth);
     try {
       KubeConfig kc = KubeConfig.loadKubeConfig(new StringReader(gcpConfigExpiredToken));
-      kc.getAccessToken();
+      assertEquals("new-fake-token", kc.getAccessToken());
     } catch (Exception ex) {
-      if (!(ex instanceof IllegalStateException)) {
-        fail("Unexpected exception: " + ex);
-      }
+      ex.printStackTrace();
+      fail("Unexpected exception: " + ex);
     }
   }
 
