@@ -190,10 +190,8 @@ public class KubeConfigTest {
       ex.printStackTrace();
       fail("Unexpected exception: " + ex);
     }
-    GCPAuthenticator spyGCPAuth = Mockito.spy(GCPAuthenticator.class);
-    Mockito.when(spyGCPAuth.getPb()).thenReturn(mockPB);
 
-    KubeConfig.registerAuthenticator(spyGCPAuth);
+    KubeConfig.registerAuthenticator(new GCPAuthenticator(mockPB));
     try {
       KubeConfig kc = KubeConfig.loadKubeConfig(new StringReader(gcpConfigExpiredToken));
       assertEquals("new-fake-token", kc.getAccessToken());

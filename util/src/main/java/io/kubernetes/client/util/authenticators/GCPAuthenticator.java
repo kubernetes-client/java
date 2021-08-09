@@ -42,6 +42,16 @@ public class GCPAuthenticator implements Authenticator {
 
   private static final Logger log = LoggerFactory.getLogger(GCPAuthenticator.class);
 
+  private final ProcessBuilder pb;
+
+  public GCPAuthenticator() {
+    this(new ProcessBuilder());
+  }
+
+  public GCPAuthenticator(ProcessBuilder pb) {
+    this.pb = pb;
+  }
+
   @Override
   public String getName() {
     return "gcp";
@@ -68,10 +78,6 @@ public class GCPAuthenticator implements Authenticator {
     return (expiry != null && expiry.compareTo(Instant.now()) <= 0);
   }
 
-  public ProcessBuilder getPb() {
-    return new ProcessBuilder();
-  }
-
   @Override
   public Map<String, Object> refresh(Map<String, Object> config) {
     if (!config.containsKey(CMD_ARGS) || !config.containsKey(CMD_PATH))
@@ -80,7 +86,7 @@ public class GCPAuthenticator implements Authenticator {
     String cmdArgs = (String) config.get(CMD_ARGS);
     String fullCmd = cmdPath + cmdArgs;
     try {
-      Process process = this.getPb().command(Arrays.asList(fullCmd.split(" "))).start();
+      Process process = this.pb.command(Arrays.asList(fullCmd.split(" "))).start();
       process.waitFor(10, TimeUnit.SECONDS);
       if (process.exitValue() != 0) {
         String stdErr = IOUtils.toString(process.getErrorStream(), StandardCharsets.UTF_8);
