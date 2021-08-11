@@ -133,7 +133,7 @@ public class Kubectl {
     return new KubectlVersion();
   }
 
-  /*
+  /**
    * Equivalent for `kubectl scale`
    *
    * @param <ApiType> the target api type
@@ -143,6 +143,18 @@ public class Kubectl {
   public static <ApiType extends KubernetesObject> KubectlScale<ApiType> scale(
       Class<ApiType> apiTypeClass) {
     return new KubectlScale<>(apiTypeClass);
+  }
+
+  /**
+   * Equivalent for `kubectl rollout history`
+   *
+   * @param <ApiType> the target api type
+   * @param apiTypeClass the api type class
+   * @return the kubectl rollout history operator
+   */
+  public static <ApiType extends KubernetesObject> KubectlRolloutHistory<ApiType> rolloutHistory(
+      Class<ApiType> apiTypeClass) {
+    return new KubectlRolloutHistory<>(apiTypeClass);
   }
 
   /**
