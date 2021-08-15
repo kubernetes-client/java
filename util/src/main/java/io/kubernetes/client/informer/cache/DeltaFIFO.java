@@ -358,23 +358,20 @@ public class DeltaFIFO {
 
     Deque<MutablePair<DeltaType, KubernetesObject>> deltas = items.get(id);
     if (deltas == null) {
-      Deque<MutablePair<DeltaType, KubernetesObject>> deltaList = new LinkedList<>();
-      deltaList.add(new MutablePair(actionType, obj));
-      deltas = new LinkedList<>(deltaList);
+      deltas = new LinkedList<>();
+      deltas.add(new MutablePair(actionType, obj));
     } else {
       deltas.add(new MutablePair<DeltaType, KubernetesObject>(actionType, obj));
     }
 
-    // TODO(yue9944882): Eliminate the force class casting here
-    Deque<MutablePair<DeltaType, KubernetesObject>> combinedDeltaList =
-        combineDeltas((LinkedList<MutablePair<DeltaType, KubernetesObject>>) deltas);
+    Deque<MutablePair<DeltaType, KubernetesObject>> combinedDeltaList = combineDeltas(deltas);
 
     boolean exist = items.containsKey(id);
     if (combinedDeltaList != null && combinedDeltaList.size() > 0) {
       if (!exist) {
         this.queue.add(id);
       }
-      this.items.put(id, new LinkedList<>(combinedDeltaList));
+      this.items.put(id, combinedDeltaList);
       notEmpty.signalAll();
     } else {
       this.items.remove(id);
@@ -418,19 +415,19 @@ public class DeltaFIFO {
   // re-listing and watching can deliver the same update multiple times in any
   // order. This will combine the most recent two deltas if they are the same.
   private Deque<MutablePair<DeltaType, KubernetesObject>> combineDeltas(
-      LinkedList<MutablePair<DeltaType, KubernetesObject>> deltas) {
+      Deque<MutablePair<DeltaType, KubernetesObject>> deltas) {
     if (deltas.size() < 2) {
       return deltas;
     }
     int size = deltas.size();
-    MutablePair<DeltaType, KubernetesObject> d1 = deltas.peekLast();
-    MutablePair<DeltaType, KubernetesObject> d2 = deltas.get(size - 2);
+    MutablePair<DeltaType, KubernetesObject> d1 = deltas.pollLast();
+    MutablePair<DeltaType, KubernetesObject> d2 = deltas.pollLast();
     MutablePair<DeltaType, KubernetesObject> out = isDuplicate(d1, d2);
     if (out != null) {
-      Deque<MutablePair<DeltaType, KubernetesObject>> newDeltas = new LinkedList<>();
-      newDeltas.addAll(deltas.subList(0, size - 2));
-      newDeltas.add(out);
-      return newDeltas;
+      deltas.add(out);
+    } else {
+      deltas.add(d2);
+      deltas.add(d1);
     }
     return deltas;
   }
