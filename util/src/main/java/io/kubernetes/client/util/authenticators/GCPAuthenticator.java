@@ -20,6 +20,7 @@ import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.IOUtils;
@@ -35,10 +36,10 @@ public class GCPAuthenticator implements Authenticator {
     KubeConfig.registerAuthenticator(new GCPAuthenticator());
   }
 
-  private static final String ACCESS_TOKEN = "access-token";
-  private static final String EXPIRY = "expiry";
-  private static final String CMD_ARGS = "cmd-args";
-  private static final String CMD_PATH = "cmd-path";
+  static final String ACCESS_TOKEN = "access-token";
+  static final String EXPIRY = "expiry";
+  static final String CMD_ARGS = "cmd-args";
+  static final String CMD_PATH = "cmd-path";
 
   private static final Logger log = LoggerFactory.getLogger(GCPAuthenticator.class);
 
@@ -84,9 +85,10 @@ public class GCPAuthenticator implements Authenticator {
       throw new RuntimeException("Could not refresh token");
     String cmdPath = (String) config.get(CMD_PATH);
     String cmdArgs = (String) config.get(CMD_ARGS);
-    String fullCmd = cmdPath + cmdArgs;
+    List<String> fullCmd =
+        Arrays.asList(String.join(" ", cmdPath.trim(), cmdArgs.trim()).split(" "));
     try {
-      Process process = this.pb.command(Arrays.asList(fullCmd.split(" "))).start();
+      Process process = this.pb.command(fullCmd).start();
       process.waitFor(10, TimeUnit.SECONDS);
       if (process.exitValue() != 0) {
         String stdErr = IOUtils.toString(process.getErrorStream(), StandardCharsets.UTF_8);
