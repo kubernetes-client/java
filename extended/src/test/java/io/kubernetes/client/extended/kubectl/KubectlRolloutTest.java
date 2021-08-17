@@ -30,6 +30,8 @@ import io.kubernetes.client.openapi.models.V1DaemonSetList;
 import io.kubernetes.client.openapi.models.V1Deployment;
 import io.kubernetes.client.openapi.models.V1DeploymentList;
 import io.kubernetes.client.openapi.models.V1PodTemplateSpec;
+import io.kubernetes.client.openapi.models.V1StatefulSet;
+import io.kubernetes.client.openapi.models.V1StatefulSetList;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.ModelMapper;
 import java.io.IOException;
@@ -65,6 +67,18 @@ public class KubectlRolloutTest {
           .getResource("daemonset-controllerrevision-list.json")
           .getPath();
 
+  private static final String STATEFUL_SET =
+      KubectlRolloutTest.class.getClassLoader().getResource("statefulset.json").getPath();
+
+  private static final String PATCHED_STATEFUL_SET =
+      KubectlRolloutTest.class.getClassLoader().getResource("patched-statefulset.json").getPath();
+
+  private static final String STATEFUL_SET_CONTROLLER_REVISION_LIST =
+      KubectlRolloutTest.class
+          .getClassLoader()
+          .getResource("statefulset-controllerrevision-list.json")
+          .getPath();
+
   @Before
   public void setup() throws IOException {
     ModelMapper.addModelMap(
@@ -77,6 +91,14 @@ public class KubectlRolloutTest {
         V1DeploymentList.class);
     ModelMapper.addModelMap(
         "apps", "v1", "DaemonSet", "daemonsets", true, V1DaemonSet.class, V1DaemonSetList.class);
+    ModelMapper.addModelMap(
+        "apps",
+        "v1",
+        "StatefulSet",
+        "statefulsets",
+        true,
+        V1StatefulSet.class,
+        V1StatefulSetList.class);
     apiClient = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
   }
 
@@ -219,6 +241,87 @@ public class KubectlRolloutTest {
     wireMockRule.verify(
         1,
         patchRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/daemonsets/foo")))
+            .withQueryParam("dryRun", new EqualToPattern("All")));
+    Assert.assertNotNull(template);
+  }
+
+  @Test
+  public void testKubectlRolloutHistoryStatefulSetShouldWork()
+      throws KubectlException, IOException {
+    wireMockRule.stubFor(
+        get(urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(new String(Files.readAllBytes(Paths.get(STATEFUL_SET))))));
+    wireMockRule.stubFor(
+        get(urlPathEqualTo("/apis/apps/v1/namespaces/default/controllerrevisions"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(
+                        new String(
+                            Files.readAllBytes(
+                                Paths.get(STATEFUL_SET_CONTROLLER_REVISION_LIST))))));
+    List<History> histories =
+        Kubectl.rollout(V1StatefulSet.class)
+            .history()
+            .apiClient(apiClient)
+            .name("foo")
+            .namespace("default")
+            .skipDiscovery()
+            .execute();
+    wireMockRule.verify(
+        1, getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo"))));
+    wireMockRule.verify(
+        1,
+        getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/controllerrevisions")))
+            .withQueryParam("labelSelector", new EqualToPattern("app = bar")));
+    Assert.assertEquals(3, histories.size());
+  }
+
+  @Test
+  public void testKubectlRolloutHistoryStatefulSetWithRevisionShouldWork()
+      throws KubectlException, IOException {
+    wireMockRule.stubFor(
+        get(urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(new String(Files.readAllBytes(Paths.get(STATEFUL_SET))))));
+    wireMockRule.stubFor(
+        get(urlPathEqualTo("/apis/apps/v1/namespaces/default/controllerrevisions"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(
+                        new String(
+                            Files.readAllBytes(
+                                Paths.get(STATEFUL_SET_CONTROLLER_REVISION_LIST))))));
+    wireMockRule.stubFor(
+        patch(urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(new String(Files.readAllBytes(Paths.get(PATCHED_STATEFUL_SET))))));
+    V1PodTemplateSpec template =
+        Kubectl.rollout(V1StatefulSet.class)
+            .history()
+            .apiClient(apiClient)
+            .name("foo")
+            .namespace("default")
+            .revision(2)
+            .skipDiscovery()
+            .execute();
+    wireMockRule.verify(
+        1, getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo"))));
+    wireMockRule.verify(
+        1,
+        getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/controllerrevisions")))
+            .withQueryParam("labelSelector", new EqualToPattern("app = bar")));
+    wireMockRule.verify(
+        1,
+        patchRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo")))
             .withQueryParam("dryRun", new EqualToPattern("All")));
     Assert.assertNotNull(template);
   }
