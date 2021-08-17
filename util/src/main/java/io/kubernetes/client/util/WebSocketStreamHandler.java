@@ -270,7 +270,7 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
           throw new IOException("WebSocket has closed.");
         }
         bytesWritten += bufferSize;
-        remaining -= bytesWritten;
+        remaining -= bufferSize;
       }
     }
   }
