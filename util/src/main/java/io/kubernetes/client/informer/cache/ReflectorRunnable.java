@@ -134,13 +134,9 @@ public class ReflectorRunnable<
         } catch (Throwable t) {
           if (isConnectException(t)) {
             // If this is "connection refused" error, it means that most likely
-            // apiserver is not
-            // responsive.
-            // It doesn't make sense to re-list all objects because most likely we will
-            // be able to
-            // restart
-            // watch where we ended.
-            // If that's the case wait and resend watch request.
+            // apiserver is not responsive. It doesn't make sense to re-list all
+            // objects because most likely we will be able to restart watch where
+            // we ended. If that's the case wait and resend watch request.
             log.info("{}#Watch get connect exception, retry watch", this.apiTypeClass);
             try {
               Thread.sleep(1000L);
