@@ -14,6 +14,7 @@ package io.kubernetes.client.informer.cache;
 
 import static org.junit.Assert.assertFalse;
 import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -31,6 +32,7 @@ import io.kubernetes.client.util.Watch;
 import io.kubernetes.client.util.Watchable;
 import java.net.HttpURLConnection;
 import java.time.Duration;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicReference;
 import org.awaitility.Awaitility;
 import org.hamcrest.core.IsEqual;
@@ -279,31 +281,35 @@ public class ReflectorRunnableTest {
     when(listerWatcher.watch(any())).thenThrow(new ApiException(HttpURLConnection.HTTP_GONE, ""));
     ReflectorRunnable<V1Pod, V1PodList> reflectorRunnable =
         new ReflectorRunnable<>(V1Pod.class, listerWatcher, deltaFIFO);
-    try {
-      Thread thread = new Thread(reflectorRunnable::run);
-      thread.setDaemon(true);
-      thread.start();
-      Awaitility.await()
-          .atMost(Duration.ofSeconds(1))
-          .pollInterval(Duration.ofMillis(100))
-          .until(
-              () -> expectedResourceVersion.equals(reflectorRunnable.getLastSyncResourceVersion()));
-      assertFalse(reflectorRunnable.isLastSyncResourceVersionUnavailable());
-    } finally {
-      reflectorRunnable.stop();
-    }
+    CompletableFuture<Void> future = CompletableFuture.runAsync(reflectorRunnable::run);
+    Awaitility.await()
+        .atMost(Duration.ofSeconds(2))
+        .pollInterval(Duration.ofMillis(100))
+        .until(() -> future.isDone());
+    assertFalse(future.isCompletedExceptionally());
+  }
 
-    try {
-      when(listerWatcher.list(any())).thenThrow(new ApiException(HttpURLConnection.HTTP_GONE, ""));
-      Thread thread = new Thread(reflectorRunnable::run);
-      thread.setDaemon(true);
-      thread.start();
-      Awaitility.await()
-          .atMost(Duration.ofSeconds(5))
-          .pollInterval(Duration.ofMillis(100))
-          .until(() -> reflectorRunnable.isLastSyncResourceVersionUnavailable());
-    } finally {
-      reflectorRunnable.stop();
-    }
+  @Test
+  public void testReflectorWatchShouldRelistUponExpiredWatchItem() throws ApiException {
+    String expectedResourceVersion = "100";
+    Watchable<V1Pod> expiredWatchable = mock(Watchable.class);
+    when(expiredWatchable.hasNext()).thenReturn(true);
+    when(expiredWatchable.next())
+        .thenReturn(
+            new Watch.Response<>(
+                EventType.ERROR.name(), new V1Status().code(HttpURLConnection.HTTP_GONE)));
+    when(listerWatcher.list(any()))
+        .thenReturn(
+            new V1PodList().metadata(new V1ListMeta().resourceVersion(expectedResourceVersion)));
+    // constantly failing watches will make the reflector run only one time
+    when(listerWatcher.watch(any())).thenReturn(expiredWatchable);
+    ReflectorRunnable<V1Pod, V1PodList> reflectorRunnable =
+        new ReflectorRunnable<>(V1Pod.class, listerWatcher, deltaFIFO);
+    CompletableFuture<Void> future = CompletableFuture.runAsync(reflectorRunnable::run);
+    Awaitility.await()
+        .atMost(Duration.ofSeconds(2))
+        .pollInterval(Duration.ofMillis(100))
+        .until(() -> future.isDone());
+    assertFalse(future.isCompletedExceptionally());
   }
 }
