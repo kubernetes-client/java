@@ -34,7 +34,6 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.codec.binary.Base64InputStream;
-import org.apache.commons.codec.binary.Base64OutputStream;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 import org.apache.commons.compress.archivers.ArchiveOutputStream;
@@ -365,8 +364,7 @@ public class Copy extends Exec {
     // Send encoded archive output stream
     File srcFile = new File(srcPath.toUri());
     try (ArchiveOutputStream archiveOutputStream =
-            new TarArchiveOutputStream(
-                new Base64OutputStream(proc.getOutputStream(), true, 0, null));
+            new TarArchiveOutputStream(proc.getOutputStream());
         FileInputStream input = new FileInputStream(srcFile)) {
       ArchiveEntry tarEntry = new TarArchiveEntry(srcFile, destPath.getFileName().toString());
 
@@ -398,7 +396,7 @@ public class Copy extends Exec {
     final Process proc = execCopyToPod(namespace, pod, container, destPath);
 
     try (ArchiveOutputStream archiveOutputStream =
-        new TarArchiveOutputStream(new Base64OutputStream(proc.getOutputStream(), true, 0, null))) {
+        new TarArchiveOutputStream(proc.getOutputStream())) {
 
       ArchiveEntry tarEntry = new TarArchiveEntry(new File(destPath.getFileName().toString()));
       ((TarArchiveEntry) tarEntry).setSize(src.length);
@@ -417,7 +415,7 @@ public class Copy extends Exec {
     return this.exec(
         namespace,
         pod,
-        new String[] {"sh", "-c", "base64 -d | tar -xmf - -C " + parentPath},
+        new String[] {"sh", "-c", "tar -xmf - -C " + parentPath},
         container,
         true,
         false);
