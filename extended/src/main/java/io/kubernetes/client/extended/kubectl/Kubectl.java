@@ -152,9 +152,9 @@ public class Kubectl {
    * @param apiTypeClass the api type class
    * @return the kubectl rollout history operator
    */
-  public static <ApiType extends KubernetesObject> KubectlRolloutHistory<ApiType> rolloutHistory(
+  public static <ApiType extends KubernetesObject> KubectlRollout<ApiType> rollout(
       Class<ApiType> apiTypeClass) {
-    return new KubectlRolloutHistory<>(apiTypeClass);
+    return new KubectlRollout<>(apiTypeClass);
   }
 
   /**
