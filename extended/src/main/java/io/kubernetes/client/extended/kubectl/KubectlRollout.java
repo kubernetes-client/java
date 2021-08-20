@@ -25,6 +25,7 @@ import io.kubernetes.client.openapi.models.V1Deployment;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1PodTemplateSpec;
 import io.kubernetes.client.openapi.models.V1ReplicaSet;
+import io.kubernetes.client.openapi.models.V1StatefulSet;
 import io.kubernetes.client.util.labels.LabelSelector;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -77,6 +78,10 @@ public class KubectlRollout<ApiType extends KubernetesObject> {
         } else if (apiTypeClass.equals(V1DaemonSet.class)) {
           V1DaemonSet daemonSet = api.readNamespacedDaemonSet(name, namespace, null, null, null);
           daemonSetViewHistory(daemonSet, api);
+        } else if (apiTypeClass.equals(V1StatefulSet.class)) {
+          V1StatefulSet statefulSet =
+              api.readNamespacedStatefulSet(name, namespace, null, null, null);
+          statefulSetViewHistory(statefulSet, api);
         } else {
           throw new KubectlException("Unsupported class for rollout history: " + apiTypeClass);
         }
@@ -168,6 +173,25 @@ public class KubectlRollout<ApiType extends KubernetesObject> {
         throws KubectlException, ApiException {
       String patch = apiClient.getJSON().serialize(history.getData());
       return (V1DaemonSet)
+          PatchHelper.dryRunStrategyMergePatch(getGenericApi(), patch, namespace, name);
+    }
+
+    private void statefulSetViewHistory(V1StatefulSet statefulSet, AppsV1Api api)
+        throws ApiException, KubectlException {
+      LabelSelector selector = LabelSelector.parse(statefulSet.getSpec().getSelector());
+      List<V1ControllerRevision> historyList = controlledHistory(api, statefulSet, selector);
+      parseHistory(
+          historyList,
+          history -> {
+            V1StatefulSet stsOfHistory = applyStatefulSetHistory(history);
+            return stsOfHistory.getSpec().getTemplate();
+          });
+    }
+
+    private V1StatefulSet applyStatefulSetHistory(V1ControllerRevision history)
+        throws KubectlException, ApiException {
+      String patch = apiClient.getJSON().serialize(history.getData());
+      return (V1StatefulSet)
           PatchHelper.dryRunStrategyMergePatch(getGenericApi(), patch, namespace, name);
     }
 
