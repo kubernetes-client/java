@@ -31,6 +31,11 @@ public class DeploymentHelper {
 
   public static final String DEFAULT_DEPLOYMENT_UNIQUE_LABEL_KEY = "pod-template-hash";
   public static final String REVISION_ANNOTATION = "deployment.kubernetes.io/revision";
+  public static final String REVISION_HISTORY_ANNOTATION =
+      "deployment.kubernetes.io/revision-history";
+  public static final String DESIRED_REPLICAS_ANNOTATION =
+      "deployment.kubernetes.io/desired-replicas";
+  public static final String MAX_REPLICAS_ANNOTATION = "deployment.kubernetes.io/max-replicas";
 
   /**
    * getAllReplicaSets get the old replica sets and return new replica targeted by the given
@@ -135,7 +140,7 @@ public class DeploymentHelper {
    * different upon podTemplateSpec API changes (e.g. the addition of a new field will cause the
    * hash code to change) 2. The deployment template won't have hash labels
    */
-  private static boolean equalIgnoreHash(V1PodTemplateSpec template1, V1PodTemplateSpec template2) {
+  public static boolean equalIgnoreHash(V1PodTemplateSpec template1, V1PodTemplateSpec template2) {
     if (!Objects.equals(template1.getSpec(), template2.getSpec())) return false;
     V1ObjectMeta m1Copy = objectMetaDeepCopy(template1.getMetadata());
     V1ObjectMeta m2Copy = objectMetaDeepCopy(template2.getMetadata());
