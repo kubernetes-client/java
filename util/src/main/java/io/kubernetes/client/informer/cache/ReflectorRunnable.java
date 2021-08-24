@@ -16,6 +16,7 @@ import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.EventType;
 import io.kubernetes.client.informer.ListerWatcher;
+import io.kubernetes.client.informer.exception.WatchExpiredException;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1ListMeta;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
@@ -150,8 +151,10 @@ public class ReflectorRunnable<
             continue;
           }
           if ((t instanceof RuntimeException)
+              && t.getMessage() != null
               && t.getMessage().contains("IO Exception during hasNext")) {
             log.info("{}#Read timeout retry list and watch", this.apiTypeClass);
+            // IO timeout should be taken as a normal case
             return;
           }
           this.exceptionHandler.accept(apiTypeClass, t);
@@ -160,6 +163,8 @@ public class ReflectorRunnable<
           closeWatch();
         }
       }
+    } catch (WatchExpiredException e) {
+      return;
     } catch (ApiException e) {
       if (e.getCode() == HttpURLConnection.HTTP_GONE) {
         log.info(
@@ -233,7 +238,7 @@ public class ReflectorRunnable<
       if (eventType.get() == EventType.ERROR) {
         if (item.status != null && item.status.getCode() == HttpURLConnection.HTTP_GONE) {
           log.info("Watch connection expired: {}", item.status.getMessage());
-          return;
+          throw new WatchExpiredException();
         } else {
           String errorMessage =
               String.format("got ERROR event and its status: %s", item.status.toString());
