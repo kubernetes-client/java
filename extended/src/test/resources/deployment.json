@@ -3,7 +3,7 @@
   "kind": "Deployment",
   "metadata": {
     "annotations": {
-      "deployment.kubernetes.io/revision": "3",
+      "deployment.kubernetes.io/revision": "4",
       "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{\"kubernetes.io/change-cause\":\"kubectl.exe apply --filename=deployment.yaml --record=true\"},\"name\":\"foo\",\"namespace\":\"default\"},\"spec\":{\"replicas\":3,\"selector\":{\"matchLabels\":{\"app\":\"busybox-v1\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"busybox-v1\"}},\"spec\":{\"containers\":[{\"args\":[\"1000\"],\"command\":[\"sleep\"],\"image\":\"busybox:1.31.1\",\"name\":\"busybox-host\"}]}}}}\n",
       "kubernetes.io/change-cause": "kubectl.exe apply --filename=deployment.yaml --record=true"
     },
@@ -145,6 +145,9 @@
       "metadata": {
         "labels": {
           "app": "bar"
+        },
+        "annotations": {
+          "kubectl.kubernetes.io/restartedAt": "2021-08-05T16:20:22+08:00"
         }
       },
       "spec": {

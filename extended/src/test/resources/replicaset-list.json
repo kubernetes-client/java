@@ -264,6 +264,9 @@
           "labels": {
             "app": "bar",
             "pod-template-hash": "64dff5fd7c"
+          },
+          "annotations": {
+            "kubectl.kubernetes.io/restartedAt": "2021-08-04T10:37:49+08:00"
           }
         },
         "spec": {
@@ -391,7 +394,7 @@
       "uid": "74b4af6c-c109-4ece-8596-72eacdf81399"
     },
     "spec": {
-      "replicas": 0,
+      "replicas": 2,
       "selector": {
         "matchLabels": {
           "app": "bar",

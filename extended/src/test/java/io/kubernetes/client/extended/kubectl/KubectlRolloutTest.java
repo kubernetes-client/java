@@ -52,6 +52,12 @@ public class KubectlRolloutTest {
   private static final String DEPLOYMENT =
       KubectlRolloutTest.class.getClassLoader().getResource("deployment.json").getPath();
 
+  private static final String ROLLOUT_UNDO_PATCHED_DEPLOYMENT =
+      KubectlRolloutTest.class
+          .getClassLoader()
+          .getResource("rollout-undo-patched-deployment.json")
+          .getPath();
+
   private static final String REPLICASET_LIST =
       KubectlRolloutTest.class.getClassLoader().getResource("replicaset-list.json").getPath();
 
@@ -352,5 +358,95 @@ public class KubectlRolloutTest {
                 .revision(999)
                 .skipDiscovery()
                 .execute());
+  }
+
+  @Test
+  public void testKubectlRolloutUndoDeploymentShouldWork() throws KubectlException, IOException {
+    wireMockRule.stubFor(
+        get(urlPathEqualTo("/apis/apps/v1/namespaces/default/deployments/foo"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(new String(Files.readAllBytes(Paths.get(DEPLOYMENT))))));
+    wireMockRule.stubFor(
+        get(urlPathEqualTo("/apis/apps/v1/namespaces/default/replicasets"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(new String(Files.readAllBytes(Paths.get(REPLICASET_LIST))))));
+
+    wireMockRule.stubFor(
+        patch(urlPathEqualTo("/apis/apps/v1/namespaces/default/deployments/foo"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(
+                        new String(
+                            Files.readAllBytes(Paths.get(ROLLOUT_UNDO_PATCHED_DEPLOYMENT))))));
+
+    V1Deployment deployment =
+        Kubectl.rollout(V1Deployment.class)
+            .undo()
+            .apiClient(apiClient)
+            .name("foo")
+            .namespace("default")
+            .skipDiscovery()
+            .execute();
+
+    wireMockRule.verify(
+        1, getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/deployments/foo"))));
+    wireMockRule.verify(
+        1,
+        getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/replicasets")))
+            .withQueryParam("labelSelector", new EqualToPattern("app = bar")));
+    wireMockRule.verify(
+        1, patchRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/deployments/foo"))));
+    Assert.assertNotNull(deployment);
+  }
+
+  @Test
+  public void testKubectlRolloutUndoDeploymentToRevisionShouldWork()
+      throws KubectlException, IOException {
+    wireMockRule.stubFor(
+        get(urlPathEqualTo("/apis/apps/v1/namespaces/default/deployments/foo"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(new String(Files.readAllBytes(Paths.get(DEPLOYMENT))))));
+    wireMockRule.stubFor(
+        get(urlPathEqualTo("/apis/apps/v1/namespaces/default/replicasets"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(new String(Files.readAllBytes(Paths.get(REPLICASET_LIST))))));
+
+    wireMockRule.stubFor(
+        patch(urlPathEqualTo("/apis/apps/v1/namespaces/default/deployments/foo"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(
+                        new String(
+                            Files.readAllBytes(Paths.get(ROLLOUT_UNDO_PATCHED_DEPLOYMENT))))));
+
+    V1Deployment deployment =
+        Kubectl.rollout(V1Deployment.class)
+            .undo()
+            .apiClient(apiClient)
+            .name("foo")
+            .namespace("default")
+            .skipDiscovery()
+            .toRevision(2)
+            .execute();
+
+    wireMockRule.verify(
+        1, getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/deployments/foo"))));
+    wireMockRule.verify(
+        1,
+        getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/replicasets")))
+            .withQueryParam("labelSelector", new EqualToPattern("app = bar")));
+    wireMockRule.verify(
+        1, patchRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/deployments/foo"))));
+    Assert.assertNotNull(deployment);
   }
 }
