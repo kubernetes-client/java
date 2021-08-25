@@ -258,9 +258,22 @@ public class SharedInformerFactory {
 
       public Watchable<ApiType> watch(CallGeneratorParams params) throws ApiException {
         if (Namespaces.NAMESPACE_ALL.equals(namespace)) {
-          return genericKubernetesApi.watch();
+          return genericKubernetesApi.watch(
+              new ListOptions() {
+                {
+                  setResourceVersion(params.resourceVersion);
+                  setTimeoutSeconds(params.timeoutSeconds);
+                }
+              });
         } else {
-          return genericKubernetesApi.watch(namespace);
+          return genericKubernetesApi.watch(
+              namespace,
+              new ListOptions() {
+                {
+                  setResourceVersion(params.resourceVersion);
+                  setTimeoutSeconds(params.timeoutSeconds);
+                }
+              });
         }
       }
     };
