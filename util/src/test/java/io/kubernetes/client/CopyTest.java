@@ -130,7 +130,7 @@ public class CopyTest {
             .withQueryParam("tty", equalTo("false"))
             .withQueryParam("command", equalTo("sh"))
             .withQueryParam("command", equalTo("-c"))
-            .withQueryParam("command", equalTo("base64 -d | tar -xmf - -C /")));
+            .withQueryParam("command", equalTo("tar -xmf - -C /")));
   }
 
   @Test
@@ -176,7 +176,7 @@ public class CopyTest {
             .withQueryParam("tty", equalTo("false"))
             .withQueryParam("command", equalTo("sh"))
             .withQueryParam("command", equalTo("-c"))
-            .withQueryParam("command", equalTo("base64 -d | tar -xmf - -C /")));
+            .withQueryParam("command", equalTo("tar -xmf - -C /")));
   }
 
   public void testCopyDirectoryFromPod() throws IOException, ApiException, InterruptedException {
