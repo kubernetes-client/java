@@ -1,0 +1,285 @@
+{
+  "apiVersion": "apps/v1",
+  "items": [{
+    "data": {
+      "spec": {
+        "template": {
+          "$patch": "replace",
+          "metadata": {
+            "labels": {
+              "app": "bar"
+            }
+          },
+          "spec": {
+            "containers": [{
+              "args": ["1000"],
+              "command": ["sleep"],
+              "image": "busybox:1.31.1",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "busybox-host",
+              "resources": {},
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File"
+            }],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {},
+            "terminationGracePeriodSeconds": 30.0
+          }
+        }
+      }
+    },
+    "metadata": {
+      "annotations": {
+        "deprecated.daemonset.template.generation": "1",
+        "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"DaemonSet\",\"metadata\":{\"annotations\":{\"kubernetes.io/change-cause\":\"kubectl.exe apply --filename\u003d./daemonSet.Yaml --record\u003dtrue\"},\"name\":\"foo\",\"namespace\":\"default\"},\"spec\":{\"selector\":{\"matchLabels\":{\"app\":\"bar\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"bar\"}},\"spec\":{\"containers\":[{\"args\":[\"1000\"],\"command\":[\"sleep\"],\"image\":\"busybox:1.31.1\",\"name\":\"busybox-host\"}]}}}}\n",
+        "kubernetes.io/change-cause": "kubectl.exe apply --filename\u003d./daemonSet.Yaml --record\u003dtrue"
+      },
+      "creationTimestamp": "2021-08-13T07:13:06.000000Z",
+      "labels": {
+        "app": "bar",
+        "controller-revision-hash": "69b77bc98d"
+      },
+      "managedFields": [{
+        "apiVersion": "apps/v1",
+        "fieldsType": "FieldsV1",
+        "fieldsV1": {
+          "f:data": {},
+          "f:metadata": {
+            "f:annotations": {
+              ".": {},
+              "f:deprecated.daemonset.template.generation": {},
+              "f:kubectl.kubernetes.io/last-applied-configuration": {},
+              "f:kubernetes.io/change-cause": {}
+            },
+            "f:labels": {
+              ".": {},
+              "f:app": {},
+              "f:controller-revision-hash": {}
+            },
+            "f:ownerReferences": {
+              ".": {},
+              "k:{\"uid\":\"d3774f2a-e492-4968-a888-23b71e4c13a9\"}": {
+                ".": {},
+                "f:apiVersion": {},
+                "f:blockOwnerDeletion": {},
+                "f:controller": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:uid": {}
+              }
+            }
+          },
+          "f:revision": {}
+        },
+        "manager": "kube-controller-manager",
+        "operation": "Update",
+        "time": "2021-08-13T07:13:06.000000Z"
+      }],
+      "name": "foo-69b77bc98d",
+      "namespace": "default",
+      "ownerReferences": [{
+        "apiVersion": "apps/v1",
+        "blockOwnerDeletion": true,
+        "controller": true,
+        "kind": "DaemonSet",
+        "name": "foo",
+        "uid": "d3774f2a-e492-4968-a888-23b71e4c13a9"
+      }],
+      "resourceVersion": "96595",
+      "uid": "e684a7d1-34c1-4f59-8ebe-f026f5fb9910"
+    },
+    "revision": 1
+  }, {
+    "data": {
+      "spec": {
+        "template": {
+          "$patch": "replace",
+          "metadata": {
+            "annotations": {
+              "kubectl.kubernetes.io/restartedAt": "2021-08-13T16:53:21+08:00"
+            },
+            "labels": {
+              "app": "bar"
+            }
+          },
+          "spec": {
+            "containers": [{
+              "args": ["1000"],
+              "command": ["sleep"],
+              "image": "busybox:1.31.1",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "busybox-host",
+              "resources": {},
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File"
+            }],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {},
+            "terminationGracePeriodSeconds": 30.0
+          }
+        }
+      }
+    },
+    "metadata": {
+      "annotations": {
+        "deprecated.daemonset.template.generation": "3",
+        "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"DaemonSet\",\"metadata\":{\"annotations\":{},\"name\":\"foo\",\"namespace\":\"default\"},\"spec\":{\"selector\":{\"matchLabels\":{\"app\":\"bar\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"bar\"}},\"spec\":{\"containers\":[{\"args\":[\"1000\"],\"command\":[\"sleep\"],\"image\":\"busybox:1.31.1\",\"name\":\"busybox-host\"}]}}}}\n"
+      },
+      "creationTimestamp": "2021-08-13T08:53:21.000000Z",
+      "labels": {
+        "app": "bar",
+        "controller-revision-hash": "797f8dc6b5"
+      },
+      "managedFields": [{
+        "apiVersion": "apps/v1",
+        "fieldsType": "FieldsV1",
+        "fieldsV1": {
+          "f:data": {},
+          "f:metadata": {
+            "f:annotations": {
+              ".": {},
+              "f:deprecated.daemonset.template.generation": {},
+              "f:kubectl.kubernetes.io/last-applied-configuration": {}
+            },
+            "f:labels": {
+              ".": {},
+              "f:app": {},
+              "f:controller-revision-hash": {}
+            },
+            "f:ownerReferences": {
+              ".": {},
+              "k:{\"uid\":\"d3774f2a-e492-4968-a888-23b71e4c13a9\"}": {
+                ".": {},
+                "f:apiVersion": {},
+                "f:blockOwnerDeletion": {},
+                "f:controller": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:uid": {}
+              }
+            }
+          },
+          "f:revision": {}
+        },
+        "manager": "kube-controller-manager",
+        "operation": "Update",
+        "time": "2021-08-13T08:53:21.000000Z"
+      }],
+      "name": "foo-797f8dc6b5",
+      "namespace": "default",
+      "ownerReferences": [{
+        "apiVersion": "apps/v1",
+        "blockOwnerDeletion": true,
+        "controller": true,
+        "kind": "DaemonSet",
+        "name": "foo",
+        "uid": "d3774f2a-e492-4968-a888-23b71e4c13a9"
+      }],
+      "resourceVersion": "101207",
+      "uid": "37be558a-ba1e-4182-bc5a-ca0ed324cdf7"
+    },
+    "revision": 3
+  }, {
+    "data": {
+      "spec": {
+        "template": {
+          "$patch": "replace",
+          "metadata": {
+            "annotations": {
+              "kubectl.kubernetes.io/restartedAt": "2021-08-13T15:14:35+08:00"
+            },
+            "labels": {
+              "app": "bar"
+            }
+          },
+          "spec": {
+            "containers": [{
+              "args": ["1000"],
+              "command": ["sleep"],
+              "image": "busybox:1.31.1",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "busybox-host",
+              "resources": {},
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File"
+            }],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {},
+            "terminationGracePeriodSeconds": 30.0
+          }
+        }
+      }
+    },
+    "metadata": {
+      "annotations": {
+        "deprecated.daemonset.template.generation": "2",
+        "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"DaemonSet\",\"metadata\":{\"annotations\":{\"kubernetes.io/change-cause\":\"kubectl.exe apply --filename\u003d./daemonSet.Yaml --record\u003dtrue\"},\"name\":\"foo\",\"namespace\":\"default\"},\"spec\":{\"selector\":{\"matchLabels\":{\"app\":\"bar\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"bar\"}},\"spec\":{\"containers\":[{\"args\":[\"1000\"],\"command\":[\"sleep\"],\"image\":\"busybox:1.31.1\",\"name\":\"busybox-host\"}]}}}}\n",
+        "kubernetes.io/change-cause": "kubectl.exe apply --filename\u003d./daemonSet.Yaml --record\u003dtrue"
+      },
+      "creationTimestamp": "2021-08-13T07:14:35.000000Z",
+      "labels": {
+        "app": "bar",
+        "controller-revision-hash": "7f9dcff8b8"
+      },
+      "managedFields": [{
+        "apiVersion": "apps/v1",
+        "fieldsType": "FieldsV1",
+        "fieldsV1": {
+          "f:data": {},
+          "f:metadata": {
+            "f:annotations": {
+              ".": {},
+              "f:deprecated.daemonset.template.generation": {},
+              "f:kubectl.kubernetes.io/last-applied-configuration": {},
+              "f:kubernetes.io/change-cause": {}
+            },
+            "f:labels": {
+              ".": {},
+              "f:app": {},
+              "f:controller-revision-hash": {}
+            },
+            "f:ownerReferences": {
+              ".": {},
+              "k:{\"uid\":\"d3774f2a-e492-4968-a888-23b71e4c13a9\"}": {
+                ".": {},
+                "f:apiVersion": {},
+                "f:blockOwnerDeletion": {},
+                "f:controller": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:uid": {}
+              }
+            }
+          },
+          "f:revision": {}
+        },
+        "manager": "kube-controller-manager",
+        "operation": "Update",
+        "time": "2021-08-13T07:14:35.000000Z"
+      }],
+      "name": "foo-7f9dcff8b8",
+      "namespace": "default",
+      "ownerReferences": [{
+        "apiVersion": "apps/v1",
+        "blockOwnerDeletion": true,
+        "controller": true,
+        "kind": "DaemonSet",
+        "name": "foo",
+        "uid": "d3774f2a-e492-4968-a888-23b71e4c13a9"
+      }],
+      "resourceVersion": "96669",
+      "uid": "b8f45530-23a9-4fea-94b5-778f65117c43"
+    },
+    "revision": 2
+  }],
+  "kind": "ControllerRevisionList",
+  "metadata": {
+    "resourceVersion": "101602"
+  }
+}
