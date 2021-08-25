@@ -25,6 +25,7 @@ import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
+import java.io.InputStream;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -70,10 +71,18 @@ public class AttachTest {
             .setStdout(true)
             .connect();
 
-    // TODO: Kill this sleep, the trouble is that the test tries to validate before the
-    // connection
-    // event has happened
-    Thread.sleep(2000);
+    InputStream inputStream1 = res1.getStandardOutputStream();
+    InputStream inputStream2 = res2.getStandardOutputStream();
+    InputStream inputStream3 = res3.getStandardOutputStream();
+
+    // block until responses are returned
+    inputStream1.read();
+    inputStream2.read();
+    inputStream3.read();
+
+    inputStream1.close();
+    inputStream2.close();
+    inputStream3.close();
 
     res1.close();
     res2.close();
