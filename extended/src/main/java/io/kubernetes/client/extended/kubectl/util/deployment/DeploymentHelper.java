@@ -64,6 +64,7 @@ public class DeploymentHelper {
    * @return the revision number
    */
   public static Long revision(V1ObjectMeta meta) {
+    if (meta.getAnnotations() == null) return 0L;
     String v = meta.getAnnotations().get(REVISION_ANNOTATION);
     return v == null ? 0L : Long.parseLong(v);
   }
