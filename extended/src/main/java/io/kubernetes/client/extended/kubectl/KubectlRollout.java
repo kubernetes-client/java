@@ -148,8 +148,7 @@ public class KubectlRollout<ApiType extends KubernetesObject> {
       List<Long> revisions = new ArrayList<>(historyInfo.keySet());
       revisions.sort(Long::compareTo);
       for (Long revision : revisions) {
-        String changeCause =
-            historyInfo.get(revision).getMetadata().getAnnotations().get(CHANGE_CAUSE_ANNOTATION);
+        String changeCause = getChangeCause(historyInfo.get(revision).getMetadata());
         if (changeCause == null || changeCause.isEmpty()) {
           changeCause = "<none>";
         }
@@ -214,8 +213,7 @@ public class KubectlRollout<ApiType extends KubernetesObject> {
       List<Long> revisions = new ArrayList<>(historyInfo.keySet());
       revisions.sort(Long::compareTo);
       for (Long revision : revisions) {
-        String changeCause =
-            historyInfo.get(revision).getMetadata().getAnnotations().get(CHANGE_CAUSE_ANNOTATION);
+        String changeCause = getChangeCause(historyInfo.get(revision).getMetadata());
         if (changeCause == null || changeCause.isEmpty()) {
           changeCause = "<none>";
         }
@@ -250,6 +248,9 @@ public class KubectlRollout<ApiType extends KubernetesObject> {
 
     // getChangeCause returns the change-cause annotation of the input object
     private String getChangeCause(V1ObjectMeta meta) {
+      if (meta.getAnnotations() == null) {
+        return null;
+      }
       return meta.getAnnotations().get(CHANGE_CAUSE_ANNOTATION);
     }
 
