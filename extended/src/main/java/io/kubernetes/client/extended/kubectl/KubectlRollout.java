@@ -18,6 +18,7 @@ import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.extended.kubectl.util.deployment.DeploymentHelper;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.JSON;
 import io.kubernetes.client.openapi.apis.AppsV1Api;
 import io.kubernetes.client.openapi.models.V1ControllerRevision;
 import io.kubernetes.client.openapi.models.V1ControllerRevisionList;
@@ -29,6 +30,7 @@ import io.kubernetes.client.openapi.models.V1ReplicaSet;
 import io.kubernetes.client.openapi.models.V1StatefulSet;
 import io.kubernetes.client.util.labels.LabelSelector;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -59,6 +61,40 @@ public class KubectlRollout<ApiType extends KubernetesObject> {
 
   public KubectlRolloutUndo undo() {
     return new KubectlRolloutUndo();
+  }
+
+  // controlledHistories returns all ControllerRevisions in namespace that selected by selector
+  // and owned by accessor
+  private static List<V1ControllerRevision> controlledHistory(
+      AppsV1Api api, KubernetesObject accessor, LabelSelector selector) throws ApiException {
+    List<V1ControllerRevision> result = new ArrayList<>();
+    V1ControllerRevisionList historyList =
+        api.listNamespacedControllerRevision(
+            accessor.getMetadata().getNamespace(),
+            null,
+            null,
+            null,
+            null,
+            selector.toString(),
+            null,
+            null,
+            null,
+            null,
+            null);
+    for (V1ControllerRevision history : historyList.getItems()) {
+      if (isControlledBy(history, accessor)) {
+        result.add(history);
+      }
+    }
+    return result;
+  }
+
+  private static boolean isControlledBy(KubernetesObject obj, KubernetesObject owner) {
+    return obj.getMetadata().getOwnerReferences().stream()
+        .filter(r -> r.getController() != null && r.getController())
+        .findAny()
+        .map(v1OwnerReference -> v1OwnerReference.getUid().equals(owner.getMetadata().getUid()))
+        .orElse(false);
   }
 
   class KubectlRolloutHistory extends Kubectl.ResourceBuilder<ApiType, KubectlRolloutHistory>
@@ -247,30 +283,6 @@ public class KubectlRollout<ApiType extends KubernetesObject> {
       }
     }
 
-    // controlledHistories returns all ControllerRevisions in namespace that selected by selector
-    // and owned by accessor
-    private List<V1ControllerRevision> controlledHistory(
-        AppsV1Api api, KubernetesObject accessor, LabelSelector selector) throws ApiException {
-      List<V1ControllerRevision> result = new ArrayList<>();
-      V1ControllerRevisionList historyList =
-          api.listNamespacedControllerRevision(
-              namespace, null, null, null, null, selector.toString(), null, null, null, null, null);
-      for (V1ControllerRevision history : historyList.getItems()) {
-        if (isControlledBy(history, accessor)) {
-          result.add(history);
-        }
-      }
-      return result;
-    }
-
-    private boolean isControlledBy(KubernetesObject obj, KubernetesObject owner) {
-      return obj.getMetadata().getOwnerReferences().stream()
-          .filter(r -> r.getController() != null && r.getController())
-          .findAny()
-          .map(v1OwnerReference -> v1OwnerReference.getUid().equals(owner.getMetadata().getUid()))
-          .orElse(false);
-    }
-
     // getChangeCause returns the change-cause annotation of the input object
     private String getChangeCause(V1ObjectMeta meta) {
       if (meta.getAnnotations() == null) {
@@ -371,6 +383,10 @@ public class KubectlRollout<ApiType extends KubernetesObject> {
         if (apiTypeClass.equals(V1Deployment.class)) {
           V1Deployment deployment = api.readNamespacedDeployment(name, namespace, null, null, null);
           return deploymentRollBack(deployment, api);
+        } else if (apiTypeClass.equals(V1StatefulSet.class)) {
+          V1StatefulSet statefulSet =
+              api.readNamespacedStatefulSet(name, namespace, null, null, null);
+          return statefulSetRollBack(statefulSet, api);
         } else {
           throw new KubectlException("Unsupported class for rollout history: " + apiTypeClass);
         }
@@ -485,6 +501,70 @@ public class KubectlRollout<ApiType extends KubernetesObject> {
             "No rollout history found for deployment " + deployment.getMetadata().getName());
       }
       return previousReplicaSet;
+    }
+
+    private ApiType statefulSetRollBack(V1StatefulSet statefulSet, AppsV1Api api)
+        throws ApiException, KubectlException {
+      LabelSelector labelSelector = LabelSelector.parse(statefulSet.getSpec().getSelector());
+      List<V1ControllerRevision> history = controlledHistory(api, statefulSet, labelSelector);
+      if (toRevision == 0 && history.size() <= 1) {
+        throw new ApiException("No last revision to roll back to");
+      }
+
+      V1ControllerRevision toHistory = findHistory(history);
+      if (toHistory == null) {
+        throw new ApiException("Unable to find specified revision " + toRevision + " in history");
+      }
+
+      // Skip if the revision already matches current StatefulSet
+      if (statefulSetMatch(statefulSet, toHistory)) {
+        logger.info("Current template already matches revision {}", toRevision);
+        return (ApiType) statefulSet;
+      }
+
+      return getGenericApi()
+          .patch(
+              namespace,
+              name,
+              V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH,
+              new V1Patch(apiClient.getJSON().serialize(toHistory.getData())))
+          .throwsApiException()
+          .getObject();
+    }
+
+    private boolean statefulSetMatch(V1StatefulSet ss, V1ControllerRevision history) {
+      Map<String, Object> patch = getStatefulSetPatch(ss);
+      return patch.equals(history.getData());
+    }
+
+    private Map<String, Object> getStatefulSetPatch(V1StatefulSet ss) {
+      JSON json = apiClient.getJSON();
+      Map<String, Object> raw = json.deserialize(json.serialize(ss), Map.class);
+      Map<String, Object> objCopy = new HashMap<>();
+      Map<String, Object> specCopy = new HashMap<>();
+      Map<String, Object> spec = (Map<String, Object>) raw.get("spec");
+      Map<String, Object> template = (Map<String, Object>) spec.get("template");
+      specCopy.put("template", template);
+      template.put("$patch", "replace");
+      objCopy.put("spec", specCopy);
+      return objCopy;
+    }
+
+    private V1ControllerRevision findHistory(List<V1ControllerRevision> allHistory) {
+      if (toRevision == 0 && allHistory.size() <= 1) {
+        return null;
+      }
+      if (toRevision == 0) {
+        allHistory.sort(Comparator.comparing(V1ControllerRevision::getRevision));
+        return allHistory.get(allHistory.size() - 2);
+      } else {
+        for (V1ControllerRevision r : allHistory) {
+          if (r.getRevision() == toRevision) {
+            return r;
+          }
+        }
+      }
+      return null;
     }
   }
 }
