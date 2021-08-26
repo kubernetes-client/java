@@ -79,6 +79,12 @@ public class KubectlRolloutTest {
   private static final String PATCHED_STATEFUL_SET =
       KubectlRolloutTest.class.getClassLoader().getResource("patched-statefulset.json").getPath();
 
+  private static final String ROLLOUT_UNDO_PATCHED_STATEFUL_SET =
+      KubectlRolloutTest.class
+          .getClassLoader()
+          .getResource("rollout-undo-patched-statefulset.json")
+          .getPath();
+
   private static final String STATEFUL_SET_CONTROLLER_REVISION_LIST =
       KubectlRolloutTest.class
           .getClassLoader()
@@ -448,5 +454,95 @@ public class KubectlRolloutTest {
     wireMockRule.verify(
         1, patchRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/deployments/foo"))));
     Assert.assertNotNull(deployment);
+  }
+
+  @Test
+  public void testKubectlRolloutUndoStatefulSetShouldWork() throws KubectlException, IOException {
+    wireMockRule.stubFor(
+        get(urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(new String(Files.readAllBytes(Paths.get(STATEFUL_SET))))));
+    wireMockRule.stubFor(
+        get(urlPathEqualTo("/apis/apps/v1/namespaces/default/controllerrevisions"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(
+                        new String(
+                            Files.readAllBytes(
+                                Paths.get(STATEFUL_SET_CONTROLLER_REVISION_LIST))))));
+    wireMockRule.stubFor(
+        patch(urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(
+                        new String(
+                            Files.readAllBytes(Paths.get(ROLLOUT_UNDO_PATCHED_STATEFUL_SET))))));
+    V1StatefulSet statefulSet =
+        Kubectl.rollout(V1StatefulSet.class)
+            .undo()
+            .apiClient(apiClient)
+            .name("foo")
+            .namespace("default")
+            .skipDiscovery()
+            .execute();
+    wireMockRule.verify(
+        1, getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo"))));
+    wireMockRule.verify(
+        1,
+        getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/controllerrevisions")))
+            .withQueryParam("labelSelector", new EqualToPattern("app = bar")));
+    wireMockRule.verify(
+        1,
+        patchRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo"))));
+    Assert.assertNotNull(statefulSet);
+  }
+
+  @Test
+  public void testKubectlRolloutUndoStatefulSetWithToRevisionShouldWork()
+      throws KubectlException, IOException {
+    wireMockRule.stubFor(
+        get(urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(new String(Files.readAllBytes(Paths.get(STATEFUL_SET))))));
+    wireMockRule.stubFor(
+        get(urlPathEqualTo("/apis/apps/v1/namespaces/default/controllerrevisions"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(
+                        new String(
+                            Files.readAllBytes(
+                                Paths.get(STATEFUL_SET_CONTROLLER_REVISION_LIST))))));
+    wireMockRule.stubFor(
+        patch(urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(new String(Files.readAllBytes(Paths.get(PATCHED_STATEFUL_SET))))));
+    V1StatefulSet statefulSet =
+        Kubectl.rollout(V1StatefulSet.class)
+            .undo()
+            .apiClient(apiClient)
+            .name("foo")
+            .namespace("default")
+            .toRevision(2)
+            .skipDiscovery()
+            .execute();
+    wireMockRule.verify(
+        1, getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo"))));
+    wireMockRule.verify(
+        1,
+        getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/controllerrevisions")))
+            .withQueryParam("labelSelector", new EqualToPattern("app = bar")));
+    wireMockRule.verify(
+        1,
+        patchRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo"))));
+    Assert.assertNotNull(statefulSet);
   }
 }
