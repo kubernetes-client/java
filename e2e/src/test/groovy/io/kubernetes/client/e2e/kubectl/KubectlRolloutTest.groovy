@@ -12,25 +12,26 @@ limitations under the License.
 */
 package io.kubernetes.client.e2e.kubectl
 
-import io.kubernetes.client.openapi.models.V1Deployment
-import io.kubernetes.client.openapi.models.V1StatefulSet
-
 import java.nio.charset.StandardCharsets
 
 import io.kubernetes.client.extended.kubectl.History
 import io.kubernetes.client.extended.kubectl.Kubectl
 import io.kubernetes.client.openapi.Configuration
 import io.kubernetes.client.openapi.models.V1DaemonSet
+import io.kubernetes.client.openapi.models.V1Deployment
 import io.kubernetes.client.openapi.models.V1PodTemplateSpec
+import io.kubernetes.client.openapi.models.V1StatefulSet
 import io.kubernetes.client.util.ClientBuilder
 import io.kubernetes.client.util.Streams
 import io.kubernetes.client.util.Yaml
 import spock.lang.Specification
+import spock.util.concurrent.PollingConditions
 
 class KubectlRolloutTest extends Specification {
 
 	def "Kubectl rollout daemonset should work"() {
 		given:
+		def conditions = new PollingConditions()
 		def apiClient = ClientBuilder.defaultClient()
 		Configuration.setDefaultApiClient(apiClient)
 		// initial daemonset has only one container
@@ -52,7 +53,10 @@ class KubectlRolloutTest extends Specification {
 				.name(daemonSet.metadata.name)
 				.execute()
 		then:
-		histories.size() == 1
+		conditions.eventually {
+			histories.size() == 1
+		}
+
 
 
 		when:
@@ -69,7 +73,9 @@ class KubectlRolloutTest extends Specification {
 				.name(daemonSet.metadata.name)
 				.execute()
 		then:
-		histories.size() == 2
+		conditions.eventually {
+			histories.size() == 2
+		}
 
 		when:
 		V1PodTemplateSpec template = Kubectl.rollout(V1DaemonSet.class)
@@ -92,6 +98,7 @@ class KubectlRolloutTest extends Specification {
 
 	def "Kubectl rollout deployment should work"() {
 		given:
+		def conditions = new PollingConditions()
 		def apiClient = ClientBuilder.defaultClient()
 		Configuration.setDefaultApiClient(apiClient)
 		// initial deployment has only one container
@@ -113,7 +120,9 @@ class KubectlRolloutTest extends Specification {
 				.name(deployment.metadata.name)
 				.execute()
 		then:
-		histories.size() == 1
+		conditions.eventually {
+			histories.size() == 1
+		}
 
 
 		when:
@@ -130,7 +139,9 @@ class KubectlRolloutTest extends Specification {
 				.name(deployment.metadata.name)
 				.execute()
 		then:
-		histories.size() == 2
+		conditions.eventually {
+			histories.size() == 2
+		}
 
 		when:
 		V1PodTemplateSpec template = Kubectl.rollout(V1Deployment.class)
@@ -154,6 +165,7 @@ class KubectlRolloutTest extends Specification {
 
 	def "Kubectl rollout statefulset should work"() {
 		given:
+		def conditions = new PollingConditions()
 		def apiClient = ClientBuilder.defaultClient()
 		Configuration.setDefaultApiClient(apiClient)
 		// initial deployment has only one container
@@ -175,7 +187,9 @@ class KubectlRolloutTest extends Specification {
 				.name(statefulset.metadata.name)
 				.execute()
 		then:
-		histories.size() == 1
+		conditions.eventually {
+			histories.size() == 1
+		}
 
 
 		when:
@@ -192,7 +206,9 @@ class KubectlRolloutTest extends Specification {
 				.name(statefulset.metadata.name)
 				.execute()
 		then:
-		histories.size() == 2
+		conditions.eventually {
+			histories.size() == 2
+		}
 
 		when:
 		V1PodTemplateSpec template = Kubectl.rollout(V1StatefulSet.class)
