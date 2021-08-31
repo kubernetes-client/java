@@ -132,6 +132,12 @@ public class ReflectorRunnable<
             watch = newWatch;
           }
           watchHandler(newWatch);
+        } catch (WatchExpiredException e) {
+          // Watch calls were failed due to expired resource-version. Returning
+          // to unwind the list-watch loops so that we can respawn a new round
+          // of list-watching.
+          log.info("{}#Watch expired, will re-list-watch soon", this.apiTypeClass);
+          return;
         } catch (Throwable t) {
           if (isConnectException(t)) {
             // If this is "connection refused" error, it means that most likely
@@ -159,8 +165,6 @@ public class ReflectorRunnable<
           closeWatch();
         }
       }
-    } catch (WatchExpiredException e) {
-      return;
     } catch (ApiException e) {
       if (e.getCode() == HttpURLConnection.HTTP_GONE) {
         log.info(
