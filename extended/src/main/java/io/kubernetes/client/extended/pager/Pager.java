@@ -28,12 +28,10 @@ import okhttp3.Call;
  */
 public class Pager<ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
     implements Iterable<ApiType> {
-  private Integer limit;
-  private ApiClient client;
-  private Type listType;
-  private Function<PagerParams, Call> listFunc;
-
-  private ApiListType listObjectCurrentPage;
+  private final Integer limit;
+  private final ApiClient client;
+  private final Type listType;
+  private final Function<PagerParams, Call> listFunc;
 
   /**
    * Pagination in kubernetes list call depends on continue and limit variable
@@ -108,9 +106,9 @@ public class Pager<ApiType extends KubernetesObject, ApiListType extends Kuberne
 
     private boolean started;
     private String continueToken;
-    private Call call;
     private int offsetCurrentPage;
     private int currentPageSize;
+    private ApiListType listObjectCurrentPage;
 
     /**
      * returns false if kubernetes server has exhausted List.
@@ -132,7 +130,7 @@ public class Pager<ApiType extends KubernetesObject, ApiListType extends Kuberne
 
     protected void makeCall() {
       try {
-        call = getNextCall(limit, continueToken);
+        Call call = getNextCall(limit, continueToken);
 
         listObjectCurrentPage = executeRequest(call);
         continueToken = listObjectCurrentPage.getMetadata().getContinue();
