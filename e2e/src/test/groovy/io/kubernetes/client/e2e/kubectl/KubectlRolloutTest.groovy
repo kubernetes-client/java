@@ -13,25 +13,24 @@ limitations under the License.
 package io.kubernetes.client.e2e.kubectl
 
 import java.nio.charset.StandardCharsets
+import java.time.Duration
 
-import io.kubernetes.client.extended.kubectl.History
+import org.awaitility.Awaitility
+
 import io.kubernetes.client.extended.kubectl.Kubectl
 import io.kubernetes.client.openapi.Configuration
 import io.kubernetes.client.openapi.models.V1DaemonSet
 import io.kubernetes.client.openapi.models.V1Deployment
-import io.kubernetes.client.openapi.models.V1PodTemplateSpec
 import io.kubernetes.client.openapi.models.V1StatefulSet
 import io.kubernetes.client.util.ClientBuilder
 import io.kubernetes.client.util.Streams
 import io.kubernetes.client.util.Yaml
 import spock.lang.Specification
-import spock.util.concurrent.PollingConditions
 
 class KubectlRolloutTest extends Specification {
 
 	def "Kubectl rollout daemonset should work"() {
 		given:
-		def conditions = new PollingConditions()
 		def apiClient = ClientBuilder.defaultClient()
 		Configuration.setDefaultApiClient(apiClient)
 		// initial daemonset has only one container
@@ -45,19 +44,17 @@ class KubectlRolloutTest extends Specification {
 				.execute()
 		then:
 		createdDaemonSet != null
-
-		when:
-		List<History> histories = Kubectl.rollout(V1DaemonSet.class)
-				.history()
-				.namespace(daemonSet.metadata.namespace)
-				.name(daemonSet.metadata.name)
-				.execute()
-		then:
-		conditions.eventually {
-			histories.size() == 1
-		}
-
-
+		Awaitility.await()
+				.pollInterval(Duration.ofSeconds(1))
+				.atMost(Duration.ofSeconds(3))
+				.until{
+					-> Kubectl.rollout(V1DaemonSet.class)
+					.history()
+					.namespace(daemonSet.metadata.namespace)
+					.name(daemonSet.metadata.name)
+					.execute()
+					.size() == 1
+				}
 
 		when:
 		def updatedDaemonSet = Kubectl.replace(V1DaemonSet.class)
@@ -65,28 +62,24 @@ class KubectlRolloutTest extends Specification {
 				.execute()
 		then:
 		updatedDaemonSet != null
-
-		when:
-		histories = Kubectl.rollout(V1DaemonSet.class)
-				.history()
-				.namespace(daemonSet.metadata.namespace)
-				.name(daemonSet.metadata.name)
-				.execute()
-		then:
-		conditions.eventually {
-			histories.size() == 2
-		}
-
-		when:
-		V1PodTemplateSpec template = Kubectl.rollout(V1DaemonSet.class)
+		Awaitility.await()
+				.pollInterval(Duration.ofSeconds(1))
+				.atMost(Duration.ofSeconds(3))
+				.until{
+					-> Kubectl.rollout(V1DaemonSet.class)
+					.history()
+					.namespace(daemonSet.metadata.namespace)
+					.name(daemonSet.metadata.name)
+					.execute()
+					.size() == 2
+				}
+		Kubectl.rollout(V1DaemonSet.class)
 				.history()
 				.revision(2)
 				.namespace(daemonSet.metadata.namespace)
 				.name(daemonSet.metadata.name)
 				.execute()
-		then:
-		template != null
-		template.spec.containers.size() == 2
+				.spec.containers.size() == 2
 
 		cleanup:
 		Kubectl.delete(V1DaemonSet.class)
@@ -98,7 +91,6 @@ class KubectlRolloutTest extends Specification {
 
 	def "Kubectl rollout deployment should work"() {
 		given:
-		def conditions = new PollingConditions()
 		def apiClient = ClientBuilder.defaultClient()
 		Configuration.setDefaultApiClient(apiClient)
 		// initial deployment has only one container
@@ -112,18 +104,17 @@ class KubectlRolloutTest extends Specification {
 				.execute()
 		then:
 		createdDeployment != null
-
-		when:
-		List<History> histories = Kubectl.rollout(V1Deployment.class)
-				.history()
-				.namespace(deployment.metadata.namespace)
-				.name(deployment.metadata.name)
-				.execute()
-		then:
-		conditions.eventually {
-			histories.size() == 1
-		}
-
+		Awaitility.await()
+				.pollInterval(Duration.ofSeconds(1))
+				.atMost(Duration.ofSeconds(3))
+				.until{
+					-> Kubectl.rollout(V1Deployment.class)
+					.history()
+					.namespace(deployment.metadata.namespace)
+					.name(deployment.metadata.name)
+					.execute()
+					.size() == 1
+				}
 
 		when:
 		def updatedDaemonSet = Kubectl.replace(V1Deployment.class)
@@ -131,28 +122,24 @@ class KubectlRolloutTest extends Specification {
 				.execute()
 		then:
 		updatedDaemonSet != null
-
-		when:
-		histories = Kubectl.rollout(V1Deployment.class)
-				.history()
-				.namespace(deployment.metadata.namespace)
-				.name(deployment.metadata.name)
-				.execute()
-		then:
-		conditions.eventually {
-			histories.size() == 2
-		}
-
-		when:
-		V1PodTemplateSpec template = Kubectl.rollout(V1Deployment.class)
+		Awaitility.await()
+				.pollInterval(Duration.ofSeconds(1))
+				.atMost(Duration.ofSeconds(3))
+				.until{
+					-> Kubectl.rollout(V1Deployment.class)
+					.history()
+					.namespace(deployment.metadata.namespace)
+					.name(deployment.metadata.name)
+					.execute()
+					.size() == 2
+				}
+		Kubectl.rollout(V1Deployment.class)
 				.history()
 				.revision(2)
 				.namespace(deployment.metadata.namespace)
 				.name(deployment.metadata.name)
 				.execute()
-		then:
-		template != null
-		template.spec.containers.size() == 2
+				.spec.containers.size() == 2
 
 		cleanup:
 		Kubectl.delete(V1Deployment.class)
@@ -162,10 +149,8 @@ class KubectlRolloutTest extends Specification {
 	}
 
 
-
 	def "Kubectl rollout statefulset should work"() {
 		given:
-		def conditions = new PollingConditions()
 		def apiClient = ClientBuilder.defaultClient()
 		Configuration.setDefaultApiClient(apiClient)
 		// initial deployment has only one container
@@ -179,18 +164,17 @@ class KubectlRolloutTest extends Specification {
 				.execute()
 		then:
 		createdStatefulSet != null
-
-		when:
-		List<History> histories = Kubectl.rollout(V1StatefulSet.class)
-				.history()
-				.namespace(statefulset.metadata.namespace)
-				.name(statefulset.metadata.name)
-				.execute()
-		then:
-		conditions.eventually {
-			histories.size() == 1
-		}
-
+		Awaitility.await()
+				.pollInterval(Duration.ofSeconds(1))
+				.atMost(Duration.ofSeconds(3))
+				.until{
+					-> Kubectl.rollout(V1StatefulSet.class)
+					.history()
+					.namespace(statefulset.metadata.namespace)
+					.name(statefulset.metadata.name)
+					.execute()
+					.size() == 1
+				}
 
 		when:
 		def updatedDaemonSet = Kubectl.replace(V1StatefulSet.class)
@@ -198,28 +182,24 @@ class KubectlRolloutTest extends Specification {
 				.execute()
 		then:
 		updatedDaemonSet != null
-
-		when:
-		histories = Kubectl.rollout(V1StatefulSet.class)
-				.history()
-				.namespace(statefulset.metadata.namespace)
-				.name(statefulset.metadata.name)
-				.execute()
-		then:
-		conditions.eventually {
-			histories.size() == 2
-		}
-
-		when:
-		V1PodTemplateSpec template = Kubectl.rollout(V1StatefulSet.class)
+		Awaitility.await()
+				.pollInterval(Duration.ofSeconds(1))
+				.atMost(Duration.ofSeconds(3))
+				.until{
+					-> Kubectl.rollout(V1StatefulSet.class)
+					.history()
+					.namespace(statefulset.metadata.namespace)
+					.name(statefulset.metadata.name)
+					.execute()
+					.size() == 2
+				}
+		Kubectl.rollout(V1StatefulSet.class)
 				.history()
 				.revision(2)
 				.namespace(statefulset.metadata.namespace)
 				.name(statefulset.metadata.name)
 				.execute()
-		then:
-		template != null
-		template.spec.containers.size() == 2
+				.spec.containers.size() == 2
 
 		cleanup:
 		Kubectl.delete(V1StatefulSet.class)
@@ -227,8 +207,6 @@ class KubectlRolloutTest extends Specification {
 				.name(statefulset.metadata.name)
 				.execute()
 	}
-
-
 
 
 	private String getResourceFileAsString(String filename) {
