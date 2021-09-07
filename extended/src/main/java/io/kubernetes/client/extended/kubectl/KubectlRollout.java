@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class KubectlRollout<ApiType extends KubernetesObject> {
 
@@ -140,7 +141,14 @@ public class KubectlRollout<ApiType extends KubernetesObject> {
         // get details of a specific revision
         V1PodTemplateSpec template = historyInfo.get(revision);
         if (template == null) {
-          throw new ApiException("unable to find the specified revision " + revision);
+          throw new ApiException(
+              "unable to find the specified revision "
+                  + revision
+                  + ", supported revisions: ["
+                  + historyInfo.keySet().stream()
+                      .map(Object::toString)
+                      .collect(Collectors.joining(","))
+                  + "]");
         }
         this.template = template;
         return;
@@ -204,7 +212,14 @@ public class KubectlRollout<ApiType extends KubernetesObject> {
       if (revision > 0) {
         V1ControllerRevision history = historyInfo.get(revision);
         if (history == null) {
-          throw new ApiException("unable to find the specified revision " + revision);
+          throw new ApiException(
+              "unable to find the specified revision "
+                  + revision
+                  + ", supported revisions: ["
+                  + historyInfo.keySet().stream()
+                      .map(Object::toString)
+                      .collect(Collectors.joining(","))
+                  + "]");
         }
         template = parser.parse(history);
         return;
