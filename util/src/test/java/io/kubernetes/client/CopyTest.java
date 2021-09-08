@@ -29,6 +29,7 @@ import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.exception.CopyNotSupportedException;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Paths;
 import org.junit.Before;
 import org.junit.Rule;
@@ -69,12 +70,13 @@ public class CopyTest {
                     .withBody("{}")));
 
     try {
-      copy.copyFileFromPod(pod, "container", "/some/path/to/file");
+      InputStream inputStream = copy.copyFileFromPod(pod, "container", "/some/path/to/file");
+      // block until the connection is established
+      inputStream.read();
+      inputStream.close();
     } catch (IOException | ApiException e) {
       e.printStackTrace();
     }
-
-    Thread.sleep(2000);
 
     wireMockRule.verify(
         getRequestedFor(

@@ -78,13 +78,11 @@ public class PortForwardTest {
     assertThrows(
         ApiException.class,
         () -> {
-          forward.forward(pod, ports);
+          InputStream inputStream = forward.forward(pod, ports).getInputStream(portNumber);
+          // block until the connection is established
+          inputStream.read();
+          inputStream.close();
         });
-
-    // TODO: Kill this sleep, the trouble is that the test tries to validate before the
-    // connection
-    // event has happened
-    Thread.sleep(2000);
 
     wireMockRule.verify(
         getRequestedFor(
