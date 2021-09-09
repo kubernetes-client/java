@@ -42,7 +42,10 @@ jobs:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ matrix.java }}-${{ hashFiles('pom.xml', '**/pom.xml') }}
       - name: Buid with Maven
-        run: mvn -q clean test -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+        run: |
+          sudo mvn clean test \
+            -q \
+            -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
   build-graalvm:
     runs-on: ubuntu-latest
     name: GraalVM Maven Test
