@@ -170,6 +170,36 @@ public class GenericKubernetesApiForCoreApiTest {
   }
 
   @Test
+  public void patchNamespacedPodWithApiPrefix() {
+    V1Patch v1Patch = new V1Patch("{}");
+    V1Pod foo1 =
+        new V1Pod().kind("Pod").metadata(new V1ObjectMeta().namespace("default").name("foo1"));
+    // add api prefix
+    String prefix = "/k8s/clusters/c-7q988";
+    stubFor(
+        patch(urlEqualTo(prefix + "/api/v1/namespaces/default/pods/foo1"))
+            .withHeader("Content-Type", containing(V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH))
+            .willReturn(aResponse().withStatus(200).withBody(new Gson().toJson(foo1))));
+
+    GenericKubernetesApi<V1Pod, V1PodList> rancherPodClient =
+        new GenericKubernetesApi<>(
+            V1Pod.class,
+            V1PodList.class,
+            "",
+            "v1",
+            "pods",
+            new ClientBuilder().setBasePath("http://localhost:" + 8181 + prefix).build());
+    KubernetesApiResponse<V1Pod> podPatchResp =
+        rancherPodClient.patch(
+            "default", "foo1", V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH, v1Patch);
+
+    assertTrue(podPatchResp.isSuccess());
+    assertEquals(foo1, podPatchResp.getObject());
+    assertNull(podPatchResp.getStatus());
+    verify(1, patchRequestedFor(urlPathEqualTo(prefix + "/api/v1/namespaces/default/pods/foo1")));
+  }
+
+  @Test
   public void testReadTimeoutShouldThrowException() {
     ApiClient apiClient = new ClientBuilder().setBasePath("http://localhost:" + 8181).build();
     apiClient.setHttpClient(

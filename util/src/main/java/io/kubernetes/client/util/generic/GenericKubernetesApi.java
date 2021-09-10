@@ -824,7 +824,17 @@ public class GenericKubernetesApi<
       return call;
     }
     HttpUrl url = call.request().url();
-    HttpUrl tweakedUrl = url.newBuilder().removePathSegment(1).setPathSegment(0, "api").build();
+    String basePath = customObjectsApi.getApiClient().getBasePath();
+    // count segments in the basePath
+    int offset = 0;
+    for (int i = basePath.indexOf("://") + 3; i < basePath.length(); ++i) {
+      if (basePath.charAt(i) == '/') {
+        ++offset;
+      }
+    }
+    HttpUrl tweakedUrl =
+        url.newBuilder().removePathSegment(offset + 1).setPathSegment(offset, "api").build();
+
     return this.customObjectsApi
         .getApiClient()
         .getHttpClient()
