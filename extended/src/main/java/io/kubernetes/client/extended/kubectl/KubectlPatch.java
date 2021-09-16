@@ -30,12 +30,12 @@ public class KubectlPatch<ApiType extends KubernetesObject>
     super(apiTypeClass);
   }
 
-  public KubectlPatch patchContent(V1Patch patchContent) {
+  public KubectlPatch<ApiType> patchContent(V1Patch patchContent) {
     this.patchContent = patchContent;
     return this;
   }
 
-  public KubectlPatch patchType(String patchType) {
+  public KubectlPatch<ApiType> patchType(String patchType) {
     this.patchType = patchType;
     return this;
   }
