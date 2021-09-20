@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **nonResourceRules** | [**List&lt;V1beta1NonResourcePolicyRule&gt;**](V1beta1NonResourcePolicyRule.md) | &#x60;nonResourceRules&#x60; is a list of NonResourcePolicyRules that identify matching requests according to their verb and the target non-resource URL. |  [optional]
 **resourceRules** | [**List&lt;V1beta1ResourcePolicyRule&gt;**](V1beta1ResourcePolicyRule.md) | &#x60;resourceRules&#x60; is a slice of ResourcePolicyRules that identify matching requests according to their verb and the target resource. At least one of &#x60;resourceRules&#x60; and &#x60;nonResourceRules&#x60; has to be non-empty. |  [optional]
-**subjects** | [**List&lt;FlowcontrolV1beta1Subject&gt;**](FlowcontrolV1beta1Subject.md) | subjects is the list of normal user, serviceaccount, or group that this rule cares about. There must be at least one member in this slice. A slice that includes both the system:authenticated and system:unauthenticated user groups matches every request. Required. | 
+**subjects** | [**List&lt;V1beta1Subject&gt;**](V1beta1Subject.md) | subjects is the list of normal user, serviceaccount, or group that this rule cares about. There must be at least one member in this slice. A slice that includes both the system:authenticated and system:unauthenticated user groups matches every request. Required. | 
 
 
 

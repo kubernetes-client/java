@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **deprecatedSource** | [**V1EventSource**](V1EventSource.md) |  |  [optional]
 **eventTime** | [**OffsetDateTime**](OffsetDateTime.md) | eventTime is the time when this Event was first observed. It is required. | 
 **kind** | **String** | Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds |  [optional]
-**metadata** | [**V1ObjectMeta**](V1ObjectMeta.md) |  | 
+**metadata** | [**V1ObjectMeta**](V1ObjectMeta.md) |  |  [optional]
 **note** | **String** | note is a human-readable description of the status of this operation. Maximal length of the note is 1kB, but libraries should be prepared to handle values up to 64kB. |  [optional]
 **reason** | **String** | reason is why the action was taken. It is human-readable. This field can have at most 128 characters. |  [optional]
 **regarding** | [**V1ObjectReference**](V1ObjectReference.md) |  |  [optional]
