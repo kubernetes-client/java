@@ -1,9 +1,8 @@
-FROM ghcr.io/yue9944882/crd-model-gen-base:v1.0.0
+ARG BASE_IMAGE=ghcr.io/yue9944882/crd-model-gen-base:v1.0.0
+FROM ${BASE_IMAGE}
 # TODO: move this to kubernetes-client group after the permission issue fixed
 
-ARG OPENAPI_GENERATOR_COMMIT
 ARG GENERATION_XML_FILE
-ARG OPENAPI_GENERATOR_USER_ORG=OpenAPITools
 
 # Copy required files
 COPY openapi-generator/generate_client_in_container.sh /generate_client.sh
