@@ -116,7 +116,11 @@ public class Discovery {
               getSubResourceNameIfPossible(r.getName())
                   .ifPresent(
                       subResourceName -> {
-                        subResources.get(getMajorResourceName(r.getName())).add(subResourceName);
+                        subResources
+                            .computeIfAbsent(
+                                getMajorResourceName(r.getName()),
+                                majorResourceName -> new HashSet<>())
+                            .add(subResourceName);
                       });
             });
     return subResources;
