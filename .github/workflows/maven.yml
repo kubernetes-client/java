@@ -51,7 +51,7 @@ jobs:
     name: GraalVM Maven Test
     steps:
       - uses: actions/checkout@v2.3.4
-      - uses: DeLaGuardo/setup-graalvm@a766aa7b5fcc0a801fa3d4fd521ca299c03c9c00
+      - uses: DeLaGuardo/setup-graalvm@48f2bf339ab7d35e31029b1822a213681fdfc42e
         with:
           graalvm-version: '19.3.0.java8'
       - name: Build with Maven
