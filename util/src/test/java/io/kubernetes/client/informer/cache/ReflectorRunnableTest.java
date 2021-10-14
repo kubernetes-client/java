@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.informer.cache;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
@@ -311,5 +312,35 @@ public class ReflectorRunnableTest {
         .pollInterval(Duration.ofMillis(100))
         .until(() -> future.isDone());
     assertFalse(future.isCompletedExceptionally());
+  }
+
+  @Test
+  public void testReflectorListShouldHandleExpiredResourceVersionFromWatchHandler()
+      throws ApiException {
+    String expectedResourceVersion = "100";
+    when(listerWatcher.list(any()))
+        .thenReturn(
+            new V1PodList().metadata(new V1ListMeta().resourceVersion(expectedResourceVersion)));
+
+    V1Status v1Status = new V1Status();
+    v1Status.setMessage("dummy-error-message");
+    v1Status.setCode(410);
+    when(listerWatcher.watch(any()))
+        .thenReturn(new MockWatch<>(new Watch.Response("Error", v1Status)));
+    ReflectorRunnable<V1Pod, V1PodList> reflectorRunnable =
+        new ReflectorRunnable<>(V1Pod.class, listerWatcher, deltaFIFO);
+    try {
+      Thread thread = new Thread(reflectorRunnable::run);
+      thread.setDaemon(true);
+      thread.start();
+      Awaitility.await()
+          .atMost(Duration.ofSeconds(1))
+          .pollInterval(Duration.ofMillis(100))
+          .until(
+              () -> expectedResourceVersion.equals(reflectorRunnable.getLastSyncResourceVersion()));
+      assertTrue(reflectorRunnable.isLastSyncResourceVersionUnavailable());
+    } finally {
+      reflectorRunnable.stop();
+    }
   }
 }
