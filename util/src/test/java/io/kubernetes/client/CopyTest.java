@@ -74,7 +74,7 @@ public class CopyTest {
       // block until the connection is established
       inputStream.read();
       inputStream.close();
-    } catch (IOException | ApiException e) {
+    } catch (IOException | ApiException | IllegalStateException e) {
       e.printStackTrace();
     }
 
