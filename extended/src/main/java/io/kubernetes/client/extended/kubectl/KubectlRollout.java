@@ -74,14 +74,14 @@ public class KubectlRollout<ApiType extends KubernetesObject> {
       refreshDiscovery();
       try {
         if (apiTypeClass.equals(V1Deployment.class)) {
-          V1Deployment deployment = api.readNamespacedDeployment(name, namespace, null, null, null);
+          V1Deployment deployment = api.readNamespacedDeployment(name, namespace, null);
           deploymentViewHistory(deployment, api);
         } else if (apiTypeClass.equals(V1DaemonSet.class)) {
-          V1DaemonSet daemonSet = api.readNamespacedDaemonSet(name, namespace, null, null, null);
+          V1DaemonSet daemonSet = api.readNamespacedDaemonSet(name, namespace, null);
           daemonSetViewHistory(daemonSet, api);
         } else if (apiTypeClass.equals(V1StatefulSet.class)) {
           V1StatefulSet statefulSet =
-              api.readNamespacedStatefulSet(name, namespace, null, null, null);
+              api.readNamespacedStatefulSet(name, namespace, null);
           statefulSetViewHistory(statefulSet, api);
         } else {
           throw new KubectlException("Unsupported class for rollout history: " + apiTypeClass);

@@ -68,7 +68,7 @@ public class KubectlTaint extends Kubectl.ResourceBuilder<V1Node, KubectlTaint>
 
   private V1Node executeInternal() throws KubectlException, ApiException, IOException {
     CoreV1Api v1 = new CoreV1Api(apiClient);
-    V1Node node = v1.readNode(name, null, null, null);
+    V1Node node = v1.readNode(name, null);
 
     TaintsBuilder builder = Taints.taints(node);
     for (Map.Entry<String, Pair<String, String>> taint : addingTaints.entrySet()) {

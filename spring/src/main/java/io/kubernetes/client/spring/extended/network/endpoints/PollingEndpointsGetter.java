@@ -39,7 +39,7 @@ public class PollingEndpointsGetter implements EndpointsGetter {
         new NamespaceName(namespace, name),
         k -> {
           try {
-            return coreV1Api.readNamespacedEndpoints(name, namespace, null, null, null);
+            return coreV1Api.readNamespacedEndpoints(name, namespace, null);
           } catch (ApiException e) {
             throw new IllegalStateException(e);
           }

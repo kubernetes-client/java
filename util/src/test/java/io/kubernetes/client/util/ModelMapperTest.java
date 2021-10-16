@@ -18,7 +18,7 @@ import static org.junit.Assert.assertNull;
 import io.kubernetes.client.apimachinery.GroupVersionKind;
 import io.kubernetes.client.openapi.models.V1Deployment;
 import io.kubernetes.client.openapi.models.V1Pod;
-import io.kubernetes.client.openapi.models.V1beta1CustomResourceDefinition;
+import io.kubernetes.client.openapi.models.V1CustomResourceDefinition;
 import org.junit.Test;
 
 public class ModelMapperTest {
@@ -29,8 +29,8 @@ public class ModelMapperTest {
     assertEquals(V1Pod.class, ModelMapper.getApiTypeClass("", "v1", "Pod"));
     assertEquals(V1Deployment.class, ModelMapper.getApiTypeClass("", "v1", "Deployment"));
     assertEquals(
-        V1beta1CustomResourceDefinition.class,
-        ModelMapper.getApiTypeClass("", "v1beta1", "CustomResourceDefinition"));
+        V1CustomResourceDefinition.class,
+        ModelMapper.getApiTypeClass("", "v1", "CustomResourceDefinition"));
   }
 
   @Test
@@ -65,7 +65,7 @@ public class ModelMapperTest {
         new GroupVersionKind("", "v1", "Deployment"),
         ModelMapper.preBuiltGetGroupVersionKindByClass(V1Deployment.class));
     assertEquals(
-        new GroupVersionKind("", "v1beta1", "CustomResourceDefinition"),
-        ModelMapper.preBuiltGetGroupVersionKindByClass(V1beta1CustomResourceDefinition.class));
+        new GroupVersionKind("", "v1", "CustomResourceDefinition"),
+        ModelMapper.preBuiltGetGroupVersionKindByClass(V1CustomResourceDefinition.class));
   }
 }

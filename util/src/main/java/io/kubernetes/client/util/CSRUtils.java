@@ -64,7 +64,7 @@ public class CSRUtils {
     CertificatesV1Api api = new CertificatesV1Api(apiClient);
     OffsetDateTime now = OffsetDateTime.now();
     V1CertificateSigningRequest current =
-        api.readCertificateSigningRequest(csrObjName, null, null, null);
+        api.readCertificateSigningRequest(csrObjName, null);
     current
         .getStatus()
         .addConditionsItem(
@@ -96,7 +96,7 @@ public class CSRUtils {
     if (!CSRUtils.createIfAbsent(bootstrapApiClient, csr)) {
       CertificatesV1Api api = new CertificatesV1Api(bootstrapApiClient);
       V1CertificateSigningRequest existing =
-          api.readCertificateSigningRequest(csr.getMetadata().getName(), null, null, null);
+          api.readCertificateSigningRequest(csr.getMetadata().getName(), null);
       if (!CSRUtils.isIdentical(existing, csr)) {
         LOG.error(
             "Existing CertificateSigningRequest object is conflicting with the requesting object");
@@ -172,7 +172,7 @@ public class CSRUtils {
               () -> {
                 try {
                   V1CertificateSigningRequest current =
-                      api.readCertificateSigningRequest(csrObjectName, null, null, null);
+                      api.readCertificateSigningRequest(csrObjectName, null);
                   CSRUtils.getCertificate(current).ifPresent(cert -> certRef.set(cert));
                   return true;
                 } catch (ApiException e) {
