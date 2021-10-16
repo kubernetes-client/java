@@ -3,94 +3,81 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 import java.lang.Boolean;
+public class V1beta1EndpointSliceBuilder extends io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluentImpl<io.kubernetes.client.openapi.models.V1beta1EndpointSliceBuilder> implements io.kubernetes.client.fluent.VisitableBuilder<io.kubernetes.client.openapi.models.V1beta1EndpointSlice,io.kubernetes.client.openapi.models.V1beta1EndpointSliceBuilder>{
+  public V1beta1EndpointSliceBuilder() {
+    this(false);
+  }
+  public V1beta1EndpointSliceBuilder(java.lang.Boolean validationEnabled) {
+    this(new V1beta1EndpointSlice(), validationEnabled);
+  }
+  public V1beta1EndpointSliceBuilder(io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent<?> fluent) {
+    this(fluent, false);
+  }
+  public V1beta1EndpointSliceBuilder(io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent<?> fluent,java.lang.Boolean validationEnabled) {
+    this(fluent, new V1beta1EndpointSlice(), validationEnabled);
+  }
+  public V1beta1EndpointSliceBuilder(io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent<?> fluent,io.kubernetes.client.openapi.models.V1beta1EndpointSlice instance) {
+    this(fluent, instance, false);
+  }
+  public V1beta1EndpointSliceBuilder(io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent<?> fluent,io.kubernetes.client.openapi.models.V1beta1EndpointSlice instance,java.lang.Boolean validationEnabled) {
+    this.fluent = fluent; 
+    fluent.withAddressType(instance.getAddressType());
 
-public class V1beta1EndpointSliceBuilder extends io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluentImpl<io.kubernetes.client.openapi.models.V1beta1EndpointSliceBuilder> implements io.kubernetes.client.fluent.VisitableBuilder<io.kubernetes.client.openapi.models.V1beta1EndpointSlice,io.kubernetes.client.openapi.models.V1beta1EndpointSliceBuilder> {
+    fluent.withApiVersion(instance.getApiVersion());
 
-    io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent<?> fluent;
-    java.lang.Boolean validationEnabled;
+    fluent.withEndpoints(instance.getEndpoints());
 
-    public V1beta1EndpointSliceBuilder() {
-        this(true);
-    }
+    fluent.withKind(instance.getKind());
 
-    public V1beta1EndpointSliceBuilder(java.lang.Boolean validationEnabled) {
-        this(new V1beta1EndpointSlice(), validationEnabled);
-    }
+    fluent.withMetadata(instance.getMetadata());
 
-    public V1beta1EndpointSliceBuilder(io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent<?> fluent) {
-        this(fluent, true);
-    }
+    fluent.withPorts(instance.getPorts());
 
-    public V1beta1EndpointSliceBuilder(io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent<?> fluent,java.lang.Boolean validationEnabled) {
-        this(fluent, new V1beta1EndpointSlice(), validationEnabled);
-    }
+    this.validationEnabled = validationEnabled; 
+  }
+  public V1beta1EndpointSliceBuilder(io.kubernetes.client.openapi.models.V1beta1EndpointSlice instance) {
+    this(instance,false);
+  }
+  public V1beta1EndpointSliceBuilder(io.kubernetes.client.openapi.models.V1beta1EndpointSlice instance,java.lang.Boolean validationEnabled) {
+    this.fluent = this; 
+    this.withAddressType(instance.getAddressType());
 
-    public V1beta1EndpointSliceBuilder(io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent<?> fluent,io.kubernetes.client.openapi.models.V1beta1EndpointSlice instance) {
-        this(fluent, instance, true);
-    }
+    this.withApiVersion(instance.getApiVersion());
 
-    public V1beta1EndpointSliceBuilder(io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent<?> fluent,io.kubernetes.client.openapi.models.V1beta1EndpointSlice instance,java.lang.Boolean validationEnabled) {
-        this.fluent = fluent; 
-        fluent.withAddressType(instance.getAddressType());
-        
-        fluent.withApiVersion(instance.getApiVersion());
-        
-        fluent.withEndpoints(instance.getEndpoints());
-        
-        fluent.withKind(instance.getKind());
-        
-        fluent.withMetadata(instance.getMetadata());
-        
-        fluent.withPorts(instance.getPorts());
-        
-        this.validationEnabled = validationEnabled; 
-    }
+    this.withEndpoints(instance.getEndpoints());
 
-    public V1beta1EndpointSliceBuilder(io.kubernetes.client.openapi.models.V1beta1EndpointSlice instance) {
-        this(instance,true);
-    }
+    this.withKind(instance.getKind());
 
-    public V1beta1EndpointSliceBuilder(io.kubernetes.client.openapi.models.V1beta1EndpointSlice instance,java.lang.Boolean validationEnabled) {
-        this.fluent = this; 
-        this.withAddressType(instance.getAddressType());
-        
-        this.withApiVersion(instance.getApiVersion());
-        
-        this.withEndpoints(instance.getEndpoints());
-        
-        this.withKind(instance.getKind());
-        
-        this.withMetadata(instance.getMetadata());
-        
-        this.withPorts(instance.getPorts());
-        
-        this.validationEnabled = validationEnabled; 
-    }
+    this.withMetadata(instance.getMetadata());
 
-    public io.kubernetes.client.openapi.models.V1beta1EndpointSlice build() {
-        V1beta1EndpointSlice buildable = new V1beta1EndpointSlice();
-        buildable.setAddressType(fluent.getAddressType());
-        buildable.setApiVersion(fluent.getApiVersion());
-        buildable.setEndpoints(fluent.getEndpoints());
-        buildable.setKind(fluent.getKind());
-        buildable.setMetadata(fluent.getMetadata());
-        buildable.setPorts(fluent.getPorts());
-        return buildable;
-    }
+    this.withPorts(instance.getPorts());
 
-    public boolean equals(java.lang.Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        V1beta1EndpointSliceBuilder that = (V1beta1EndpointSliceBuilder) o;
-        if (fluent != null &&fluent != this ? !fluent.equals(that.fluent) :that.fluent != null &&fluent != this ) return false;
-        
-        if (validationEnabled != null ? !validationEnabled.equals(that.validationEnabled) :that.validationEnabled != null) return false;
-        return true;
-    }
+    this.validationEnabled = validationEnabled; 
+  }
+  io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent<?> fluent;
+  java.lang.Boolean validationEnabled;
+  public io.kubernetes.client.openapi.models.V1beta1EndpointSlice build() {
+    V1beta1EndpointSlice buildable = new V1beta1EndpointSlice();
+    buildable.setAddressType(fluent.getAddressType());
+    buildable.setApiVersion(fluent.getApiVersion());
+    buildable.setEndpoints(fluent.getEndpoints());
+    buildable.setKind(fluent.getKind());
+    buildable.setMetadata(fluent.getMetadata());
+    buildable.setPorts(fluent.getPorts());
+    return buildable;
+  }
+  public boolean equals(java.lang.Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
+    V1beta1EndpointSliceBuilder that = (V1beta1EndpointSliceBuilder) o;
+    if (fluent != null &&fluent != this ? !fluent.equals(that.fluent) :that.fluent != null &&fluent != this ) return false;
 
-    public int hashCode() {
-        return java.util.Objects.hash(fluent,  validationEnabled,  super.hashCode());
-    }
-
+    if (validationEnabled != null ? !validationEnabled.equals(that.validationEnabled) :that.validationEnabled != null) return false;
+    return true;
+  }
+  public int hashCode() {
+    return java.util.Objects.hash(fluent,  validationEnabled,  super.hashCode());
+  }
+  
 }

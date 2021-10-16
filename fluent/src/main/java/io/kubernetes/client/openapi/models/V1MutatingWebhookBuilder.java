@@ -3,119 +3,106 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 import java.lang.Boolean;
+public class V1MutatingWebhookBuilder extends io.kubernetes.client.openapi.models.V1MutatingWebhookFluentImpl<io.kubernetes.client.openapi.models.V1MutatingWebhookBuilder> implements io.kubernetes.client.fluent.VisitableBuilder<io.kubernetes.client.openapi.models.V1MutatingWebhook,io.kubernetes.client.openapi.models.V1MutatingWebhookBuilder>{
+  public V1MutatingWebhookBuilder() {
+    this(false);
+  }
+  public V1MutatingWebhookBuilder(java.lang.Boolean validationEnabled) {
+    this(new V1MutatingWebhook(), validationEnabled);
+  }
+  public V1MutatingWebhookBuilder(io.kubernetes.client.openapi.models.V1MutatingWebhookFluent<?> fluent) {
+    this(fluent, false);
+  }
+  public V1MutatingWebhookBuilder(io.kubernetes.client.openapi.models.V1MutatingWebhookFluent<?> fluent,java.lang.Boolean validationEnabled) {
+    this(fluent, new V1MutatingWebhook(), validationEnabled);
+  }
+  public V1MutatingWebhookBuilder(io.kubernetes.client.openapi.models.V1MutatingWebhookFluent<?> fluent,io.kubernetes.client.openapi.models.V1MutatingWebhook instance) {
+    this(fluent, instance, false);
+  }
+  public V1MutatingWebhookBuilder(io.kubernetes.client.openapi.models.V1MutatingWebhookFluent<?> fluent,io.kubernetes.client.openapi.models.V1MutatingWebhook instance,java.lang.Boolean validationEnabled) {
+    this.fluent = fluent; 
+    fluent.withAdmissionReviewVersions(instance.getAdmissionReviewVersions());
 
-public class V1MutatingWebhookBuilder extends io.kubernetes.client.openapi.models.V1MutatingWebhookFluentImpl<io.kubernetes.client.openapi.models.V1MutatingWebhookBuilder> implements io.kubernetes.client.fluent.VisitableBuilder<io.kubernetes.client.openapi.models.V1MutatingWebhook,io.kubernetes.client.openapi.models.V1MutatingWebhookBuilder> {
+    fluent.withClientConfig(instance.getClientConfig());
 
-    io.kubernetes.client.openapi.models.V1MutatingWebhookFluent<?> fluent;
-    java.lang.Boolean validationEnabled;
+    fluent.withFailurePolicy(instance.getFailurePolicy());
 
-    public V1MutatingWebhookBuilder() {
-        this(true);
-    }
+    fluent.withMatchPolicy(instance.getMatchPolicy());
 
-    public V1MutatingWebhookBuilder(java.lang.Boolean validationEnabled) {
-        this(new V1MutatingWebhook(), validationEnabled);
-    }
+    fluent.withName(instance.getName());
 
-    public V1MutatingWebhookBuilder(io.kubernetes.client.openapi.models.V1MutatingWebhookFluent<?> fluent) {
-        this(fluent, true);
-    }
+    fluent.withNamespaceSelector(instance.getNamespaceSelector());
 
-    public V1MutatingWebhookBuilder(io.kubernetes.client.openapi.models.V1MutatingWebhookFluent<?> fluent,java.lang.Boolean validationEnabled) {
-        this(fluent, new V1MutatingWebhook(), validationEnabled);
-    }
+    fluent.withObjectSelector(instance.getObjectSelector());
 
-    public V1MutatingWebhookBuilder(io.kubernetes.client.openapi.models.V1MutatingWebhookFluent<?> fluent,io.kubernetes.client.openapi.models.V1MutatingWebhook instance) {
-        this(fluent, instance, true);
-    }
+    fluent.withReinvocationPolicy(instance.getReinvocationPolicy());
 
-    public V1MutatingWebhookBuilder(io.kubernetes.client.openapi.models.V1MutatingWebhookFluent<?> fluent,io.kubernetes.client.openapi.models.V1MutatingWebhook instance,java.lang.Boolean validationEnabled) {
-        this.fluent = fluent; 
-        fluent.withAdmissionReviewVersions(instance.getAdmissionReviewVersions());
-        
-        fluent.withClientConfig(instance.getClientConfig());
-        
-        fluent.withFailurePolicy(instance.getFailurePolicy());
-        
-        fluent.withMatchPolicy(instance.getMatchPolicy());
-        
-        fluent.withName(instance.getName());
-        
-        fluent.withNamespaceSelector(instance.getNamespaceSelector());
-        
-        fluent.withObjectSelector(instance.getObjectSelector());
-        
-        fluent.withReinvocationPolicy(instance.getReinvocationPolicy());
-        
-        fluent.withRules(instance.getRules());
-        
-        fluent.withSideEffects(instance.getSideEffects());
-        
-        fluent.withTimeoutSeconds(instance.getTimeoutSeconds());
-        
-        this.validationEnabled = validationEnabled; 
-    }
+    fluent.withRules(instance.getRules());
 
-    public V1MutatingWebhookBuilder(io.kubernetes.client.openapi.models.V1MutatingWebhook instance) {
-        this(instance,true);
-    }
+    fluent.withSideEffects(instance.getSideEffects());
 
-    public V1MutatingWebhookBuilder(io.kubernetes.client.openapi.models.V1MutatingWebhook instance,java.lang.Boolean validationEnabled) {
-        this.fluent = this; 
-        this.withAdmissionReviewVersions(instance.getAdmissionReviewVersions());
-        
-        this.withClientConfig(instance.getClientConfig());
-        
-        this.withFailurePolicy(instance.getFailurePolicy());
-        
-        this.withMatchPolicy(instance.getMatchPolicy());
-        
-        this.withName(instance.getName());
-        
-        this.withNamespaceSelector(instance.getNamespaceSelector());
-        
-        this.withObjectSelector(instance.getObjectSelector());
-        
-        this.withReinvocationPolicy(instance.getReinvocationPolicy());
-        
-        this.withRules(instance.getRules());
-        
-        this.withSideEffects(instance.getSideEffects());
-        
-        this.withTimeoutSeconds(instance.getTimeoutSeconds());
-        
-        this.validationEnabled = validationEnabled; 
-    }
+    fluent.withTimeoutSeconds(instance.getTimeoutSeconds());
 
-    public io.kubernetes.client.openapi.models.V1MutatingWebhook build() {
-        V1MutatingWebhook buildable = new V1MutatingWebhook();
-        buildable.setAdmissionReviewVersions(fluent.getAdmissionReviewVersions());
-        buildable.setClientConfig(fluent.getClientConfig());
-        buildable.setFailurePolicy(fluent.getFailurePolicy());
-        buildable.setMatchPolicy(fluent.getMatchPolicy());
-        buildable.setName(fluent.getName());
-        buildable.setNamespaceSelector(fluent.getNamespaceSelector());
-        buildable.setObjectSelector(fluent.getObjectSelector());
-        buildable.setReinvocationPolicy(fluent.getReinvocationPolicy());
-        buildable.setRules(fluent.getRules());
-        buildable.setSideEffects(fluent.getSideEffects());
-        buildable.setTimeoutSeconds(fluent.getTimeoutSeconds());
-        return buildable;
-    }
+    this.validationEnabled = validationEnabled; 
+  }
+  public V1MutatingWebhookBuilder(io.kubernetes.client.openapi.models.V1MutatingWebhook instance) {
+    this(instance,false);
+  }
+  public V1MutatingWebhookBuilder(io.kubernetes.client.openapi.models.V1MutatingWebhook instance,java.lang.Boolean validationEnabled) {
+    this.fluent = this; 
+    this.withAdmissionReviewVersions(instance.getAdmissionReviewVersions());
 
-    public boolean equals(java.lang.Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        V1MutatingWebhookBuilder that = (V1MutatingWebhookBuilder) o;
-        if (fluent != null &&fluent != this ? !fluent.equals(that.fluent) :that.fluent != null &&fluent != this ) return false;
-        
-        if (validationEnabled != null ? !validationEnabled.equals(that.validationEnabled) :that.validationEnabled != null) return false;
-        return true;
-    }
+    this.withClientConfig(instance.getClientConfig());
 
-    public int hashCode() {
-        return java.util.Objects.hash(fluent,  validationEnabled,  super.hashCode());
-    }
+    this.withFailurePolicy(instance.getFailurePolicy());
 
+    this.withMatchPolicy(instance.getMatchPolicy());
+
+    this.withName(instance.getName());
+
+    this.withNamespaceSelector(instance.getNamespaceSelector());
+
+    this.withObjectSelector(instance.getObjectSelector());
+
+    this.withReinvocationPolicy(instance.getReinvocationPolicy());
+
+    this.withRules(instance.getRules());
+
+    this.withSideEffects(instance.getSideEffects());
+
+    this.withTimeoutSeconds(instance.getTimeoutSeconds());
+
+    this.validationEnabled = validationEnabled; 
+  }
+  io.kubernetes.client.openapi.models.V1MutatingWebhookFluent<?> fluent;
+  java.lang.Boolean validationEnabled;
+  public io.kubernetes.client.openapi.models.V1MutatingWebhook build() {
+    V1MutatingWebhook buildable = new V1MutatingWebhook();
+    buildable.setAdmissionReviewVersions(fluent.getAdmissionReviewVersions());
+    buildable.setClientConfig(fluent.getClientConfig());
+    buildable.setFailurePolicy(fluent.getFailurePolicy());
+    buildable.setMatchPolicy(fluent.getMatchPolicy());
+    buildable.setName(fluent.getName());
+    buildable.setNamespaceSelector(fluent.getNamespaceSelector());
+    buildable.setObjectSelector(fluent.getObjectSelector());
+    buildable.setReinvocationPolicy(fluent.getReinvocationPolicy());
+    buildable.setRules(fluent.getRules());
+    buildable.setSideEffects(fluent.getSideEffects());
+    buildable.setTimeoutSeconds(fluent.getTimeoutSeconds());
+    return buildable;
+  }
+  public boolean equals(java.lang.Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
+    V1MutatingWebhookBuilder that = (V1MutatingWebhookBuilder) o;
+    if (fluent != null &&fluent != this ? !fluent.equals(that.fluent) :that.fluent != null &&fluent != this ) return false;
+
+    if (validationEnabled != null ? !validationEnabled.equals(that.validationEnabled) :that.validationEnabled != null) return false;
+    return true;
+  }
+  public int hashCode() {
+    return java.util.Objects.hash(fluent,  validationEnabled,  super.hashCode());
+  }
+  
 }

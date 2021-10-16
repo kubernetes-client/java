@@ -3,99 +3,86 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 import java.lang.Boolean;
+public class V1ResourceAttributesBuilder extends io.kubernetes.client.openapi.models.V1ResourceAttributesFluentImpl<io.kubernetes.client.openapi.models.V1ResourceAttributesBuilder> implements io.kubernetes.client.fluent.VisitableBuilder<io.kubernetes.client.openapi.models.V1ResourceAttributes,io.kubernetes.client.openapi.models.V1ResourceAttributesBuilder>{
+  public V1ResourceAttributesBuilder() {
+    this(false);
+  }
+  public V1ResourceAttributesBuilder(java.lang.Boolean validationEnabled) {
+    this(new V1ResourceAttributes(), validationEnabled);
+  }
+  public V1ResourceAttributesBuilder(io.kubernetes.client.openapi.models.V1ResourceAttributesFluent<?> fluent) {
+    this(fluent, false);
+  }
+  public V1ResourceAttributesBuilder(io.kubernetes.client.openapi.models.V1ResourceAttributesFluent<?> fluent,java.lang.Boolean validationEnabled) {
+    this(fluent, new V1ResourceAttributes(), validationEnabled);
+  }
+  public V1ResourceAttributesBuilder(io.kubernetes.client.openapi.models.V1ResourceAttributesFluent<?> fluent,io.kubernetes.client.openapi.models.V1ResourceAttributes instance) {
+    this(fluent, instance, false);
+  }
+  public V1ResourceAttributesBuilder(io.kubernetes.client.openapi.models.V1ResourceAttributesFluent<?> fluent,io.kubernetes.client.openapi.models.V1ResourceAttributes instance,java.lang.Boolean validationEnabled) {
+    this.fluent = fluent; 
+    fluent.withGroup(instance.getGroup());
 
-public class V1ResourceAttributesBuilder extends io.kubernetes.client.openapi.models.V1ResourceAttributesFluentImpl<io.kubernetes.client.openapi.models.V1ResourceAttributesBuilder> implements io.kubernetes.client.fluent.VisitableBuilder<io.kubernetes.client.openapi.models.V1ResourceAttributes,io.kubernetes.client.openapi.models.V1ResourceAttributesBuilder> {
+    fluent.withName(instance.getName());
 
-    io.kubernetes.client.openapi.models.V1ResourceAttributesFluent<?> fluent;
-    java.lang.Boolean validationEnabled;
+    fluent.withNamespace(instance.getNamespace());
 
-    public V1ResourceAttributesBuilder() {
-        this(true);
-    }
+    fluent.withResource(instance.getResource());
 
-    public V1ResourceAttributesBuilder(java.lang.Boolean validationEnabled) {
-        this(new V1ResourceAttributes(), validationEnabled);
-    }
+    fluent.withSubresource(instance.getSubresource());
 
-    public V1ResourceAttributesBuilder(io.kubernetes.client.openapi.models.V1ResourceAttributesFluent<?> fluent) {
-        this(fluent, true);
-    }
+    fluent.withVerb(instance.getVerb());
 
-    public V1ResourceAttributesBuilder(io.kubernetes.client.openapi.models.V1ResourceAttributesFluent<?> fluent,java.lang.Boolean validationEnabled) {
-        this(fluent, new V1ResourceAttributes(), validationEnabled);
-    }
+    fluent.withVersion(instance.getVersion());
 
-    public V1ResourceAttributesBuilder(io.kubernetes.client.openapi.models.V1ResourceAttributesFluent<?> fluent,io.kubernetes.client.openapi.models.V1ResourceAttributes instance) {
-        this(fluent, instance, true);
-    }
+    this.validationEnabled = validationEnabled; 
+  }
+  public V1ResourceAttributesBuilder(io.kubernetes.client.openapi.models.V1ResourceAttributes instance) {
+    this(instance,false);
+  }
+  public V1ResourceAttributesBuilder(io.kubernetes.client.openapi.models.V1ResourceAttributes instance,java.lang.Boolean validationEnabled) {
+    this.fluent = this; 
+    this.withGroup(instance.getGroup());
 
-    public V1ResourceAttributesBuilder(io.kubernetes.client.openapi.models.V1ResourceAttributesFluent<?> fluent,io.kubernetes.client.openapi.models.V1ResourceAttributes instance,java.lang.Boolean validationEnabled) {
-        this.fluent = fluent; 
-        fluent.withGroup(instance.getGroup());
-        
-        fluent.withName(instance.getName());
-        
-        fluent.withNamespace(instance.getNamespace());
-        
-        fluent.withResource(instance.getResource());
-        
-        fluent.withSubresource(instance.getSubresource());
-        
-        fluent.withVerb(instance.getVerb());
-        
-        fluent.withVersion(instance.getVersion());
-        
-        this.validationEnabled = validationEnabled; 
-    }
+    this.withName(instance.getName());
 
-    public V1ResourceAttributesBuilder(io.kubernetes.client.openapi.models.V1ResourceAttributes instance) {
-        this(instance,true);
-    }
+    this.withNamespace(instance.getNamespace());
 
-    public V1ResourceAttributesBuilder(io.kubernetes.client.openapi.models.V1ResourceAttributes instance,java.lang.Boolean validationEnabled) {
-        this.fluent = this; 
-        this.withGroup(instance.getGroup());
-        
-        this.withName(instance.getName());
-        
-        this.withNamespace(instance.getNamespace());
-        
-        this.withResource(instance.getResource());
-        
-        this.withSubresource(instance.getSubresource());
-        
-        this.withVerb(instance.getVerb());
-        
-        this.withVersion(instance.getVersion());
-        
-        this.validationEnabled = validationEnabled; 
-    }
+    this.withResource(instance.getResource());
 
-    public io.kubernetes.client.openapi.models.V1ResourceAttributes build() {
-        V1ResourceAttributes buildable = new V1ResourceAttributes();
-        buildable.setGroup(fluent.getGroup());
-        buildable.setName(fluent.getName());
-        buildable.setNamespace(fluent.getNamespace());
-        buildable.setResource(fluent.getResource());
-        buildable.setSubresource(fluent.getSubresource());
-        buildable.setVerb(fluent.getVerb());
-        buildable.setVersion(fluent.getVersion());
-        return buildable;
-    }
+    this.withSubresource(instance.getSubresource());
 
-    public boolean equals(java.lang.Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        V1ResourceAttributesBuilder that = (V1ResourceAttributesBuilder) o;
-        if (fluent != null &&fluent != this ? !fluent.equals(that.fluent) :that.fluent != null &&fluent != this ) return false;
-        
-        if (validationEnabled != null ? !validationEnabled.equals(that.validationEnabled) :that.validationEnabled != null) return false;
-        return true;
-    }
+    this.withVerb(instance.getVerb());
 
-    public int hashCode() {
-        return java.util.Objects.hash(fluent,  validationEnabled,  super.hashCode());
-    }
+    this.withVersion(instance.getVersion());
 
+    this.validationEnabled = validationEnabled; 
+  }
+  io.kubernetes.client.openapi.models.V1ResourceAttributesFluent<?> fluent;
+  java.lang.Boolean validationEnabled;
+  public io.kubernetes.client.openapi.models.V1ResourceAttributes build() {
+    V1ResourceAttributes buildable = new V1ResourceAttributes();
+    buildable.setGroup(fluent.getGroup());
+    buildable.setName(fluent.getName());
+    buildable.setNamespace(fluent.getNamespace());
+    buildable.setResource(fluent.getResource());
+    buildable.setSubresource(fluent.getSubresource());
+    buildable.setVerb(fluent.getVerb());
+    buildable.setVersion(fluent.getVersion());
+    return buildable;
+  }
+  public boolean equals(java.lang.Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
+    V1ResourceAttributesBuilder that = (V1ResourceAttributesBuilder) o;
+    if (fluent != null &&fluent != this ? !fluent.equals(that.fluent) :that.fluent != null &&fluent != this ) return false;
+
+    if (validationEnabled != null ? !validationEnabled.equals(that.validationEnabled) :that.validationEnabled != null) return false;
+    return true;
+  }
+  public int hashCode() {
+    return java.util.Objects.hash(fluent,  validationEnabled,  super.hashCode());
+  }
+  
 }

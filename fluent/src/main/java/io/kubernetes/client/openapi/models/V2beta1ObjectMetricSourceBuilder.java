@@ -3,89 +3,76 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 import java.lang.Boolean;
+public class V2beta1ObjectMetricSourceBuilder extends io.kubernetes.client.openapi.models.V2beta1ObjectMetricSourceFluentImpl<io.kubernetes.client.openapi.models.V2beta1ObjectMetricSourceBuilder> implements io.kubernetes.client.fluent.VisitableBuilder<io.kubernetes.client.openapi.models.V2beta1ObjectMetricSource,io.kubernetes.client.openapi.models.V2beta1ObjectMetricSourceBuilder>{
+  public V2beta1ObjectMetricSourceBuilder() {
+    this(false);
+  }
+  public V2beta1ObjectMetricSourceBuilder(java.lang.Boolean validationEnabled) {
+    this(new V2beta1ObjectMetricSource(), validationEnabled);
+  }
+  public V2beta1ObjectMetricSourceBuilder(io.kubernetes.client.openapi.models.V2beta1ObjectMetricSourceFluent<?> fluent) {
+    this(fluent, false);
+  }
+  public V2beta1ObjectMetricSourceBuilder(io.kubernetes.client.openapi.models.V2beta1ObjectMetricSourceFluent<?> fluent,java.lang.Boolean validationEnabled) {
+    this(fluent, new V2beta1ObjectMetricSource(), validationEnabled);
+  }
+  public V2beta1ObjectMetricSourceBuilder(io.kubernetes.client.openapi.models.V2beta1ObjectMetricSourceFluent<?> fluent,io.kubernetes.client.openapi.models.V2beta1ObjectMetricSource instance) {
+    this(fluent, instance, false);
+  }
+  public V2beta1ObjectMetricSourceBuilder(io.kubernetes.client.openapi.models.V2beta1ObjectMetricSourceFluent<?> fluent,io.kubernetes.client.openapi.models.V2beta1ObjectMetricSource instance,java.lang.Boolean validationEnabled) {
+    this.fluent = fluent; 
+    fluent.withAverageValue(instance.getAverageValue());
 
-public class V2beta1ObjectMetricSourceBuilder extends io.kubernetes.client.openapi.models.V2beta1ObjectMetricSourceFluentImpl<io.kubernetes.client.openapi.models.V2beta1ObjectMetricSourceBuilder> implements io.kubernetes.client.fluent.VisitableBuilder<io.kubernetes.client.openapi.models.V2beta1ObjectMetricSource,io.kubernetes.client.openapi.models.V2beta1ObjectMetricSourceBuilder> {
+    fluent.withMetricName(instance.getMetricName());
 
-    io.kubernetes.client.openapi.models.V2beta1ObjectMetricSourceFluent<?> fluent;
-    java.lang.Boolean validationEnabled;
+    fluent.withSelector(instance.getSelector());
 
-    public V2beta1ObjectMetricSourceBuilder() {
-        this(true);
-    }
+    fluent.withTarget(instance.getTarget());
 
-    public V2beta1ObjectMetricSourceBuilder(java.lang.Boolean validationEnabled) {
-        this(new V2beta1ObjectMetricSource(), validationEnabled);
-    }
+    fluent.withTargetValue(instance.getTargetValue());
 
-    public V2beta1ObjectMetricSourceBuilder(io.kubernetes.client.openapi.models.V2beta1ObjectMetricSourceFluent<?> fluent) {
-        this(fluent, true);
-    }
+    this.validationEnabled = validationEnabled; 
+  }
+  public V2beta1ObjectMetricSourceBuilder(io.kubernetes.client.openapi.models.V2beta1ObjectMetricSource instance) {
+    this(instance,false);
+  }
+  public V2beta1ObjectMetricSourceBuilder(io.kubernetes.client.openapi.models.V2beta1ObjectMetricSource instance,java.lang.Boolean validationEnabled) {
+    this.fluent = this; 
+    this.withAverageValue(instance.getAverageValue());
 
-    public V2beta1ObjectMetricSourceBuilder(io.kubernetes.client.openapi.models.V2beta1ObjectMetricSourceFluent<?> fluent,java.lang.Boolean validationEnabled) {
-        this(fluent, new V2beta1ObjectMetricSource(), validationEnabled);
-    }
+    this.withMetricName(instance.getMetricName());
 
-    public V2beta1ObjectMetricSourceBuilder(io.kubernetes.client.openapi.models.V2beta1ObjectMetricSourceFluent<?> fluent,io.kubernetes.client.openapi.models.V2beta1ObjectMetricSource instance) {
-        this(fluent, instance, true);
-    }
+    this.withSelector(instance.getSelector());
 
-    public V2beta1ObjectMetricSourceBuilder(io.kubernetes.client.openapi.models.V2beta1ObjectMetricSourceFluent<?> fluent,io.kubernetes.client.openapi.models.V2beta1ObjectMetricSource instance,java.lang.Boolean validationEnabled) {
-        this.fluent = fluent; 
-        fluent.withAverageValue(instance.getAverageValue());
-        
-        fluent.withMetricName(instance.getMetricName());
-        
-        fluent.withSelector(instance.getSelector());
-        
-        fluent.withTarget(instance.getTarget());
-        
-        fluent.withTargetValue(instance.getTargetValue());
-        
-        this.validationEnabled = validationEnabled; 
-    }
+    this.withTarget(instance.getTarget());
 
-    public V2beta1ObjectMetricSourceBuilder(io.kubernetes.client.openapi.models.V2beta1ObjectMetricSource instance) {
-        this(instance,true);
-    }
+    this.withTargetValue(instance.getTargetValue());
 
-    public V2beta1ObjectMetricSourceBuilder(io.kubernetes.client.openapi.models.V2beta1ObjectMetricSource instance,java.lang.Boolean validationEnabled) {
-        this.fluent = this; 
-        this.withAverageValue(instance.getAverageValue());
-        
-        this.withMetricName(instance.getMetricName());
-        
-        this.withSelector(instance.getSelector());
-        
-        this.withTarget(instance.getTarget());
-        
-        this.withTargetValue(instance.getTargetValue());
-        
-        this.validationEnabled = validationEnabled; 
-    }
+    this.validationEnabled = validationEnabled; 
+  }
+  io.kubernetes.client.openapi.models.V2beta1ObjectMetricSourceFluent<?> fluent;
+  java.lang.Boolean validationEnabled;
+  public io.kubernetes.client.openapi.models.V2beta1ObjectMetricSource build() {
+    V2beta1ObjectMetricSource buildable = new V2beta1ObjectMetricSource();
+    buildable.setAverageValue(fluent.getAverageValue());
+    buildable.setMetricName(fluent.getMetricName());
+    buildable.setSelector(fluent.getSelector());
+    buildable.setTarget(fluent.getTarget());
+    buildable.setTargetValue(fluent.getTargetValue());
+    return buildable;
+  }
+  public boolean equals(java.lang.Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
+    V2beta1ObjectMetricSourceBuilder that = (V2beta1ObjectMetricSourceBuilder) o;
+    if (fluent != null &&fluent != this ? !fluent.equals(that.fluent) :that.fluent != null &&fluent != this ) return false;
 
-    public io.kubernetes.client.openapi.models.V2beta1ObjectMetricSource build() {
-        V2beta1ObjectMetricSource buildable = new V2beta1ObjectMetricSource();
-        buildable.setAverageValue(fluent.getAverageValue());
-        buildable.setMetricName(fluent.getMetricName());
-        buildable.setSelector(fluent.getSelector());
-        buildable.setTarget(fluent.getTarget());
-        buildable.setTargetValue(fluent.getTargetValue());
-        return buildable;
-    }
-
-    public boolean equals(java.lang.Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        V2beta1ObjectMetricSourceBuilder that = (V2beta1ObjectMetricSourceBuilder) o;
-        if (fluent != null &&fluent != this ? !fluent.equals(that.fluent) :that.fluent != null &&fluent != this ) return false;
-        
-        if (validationEnabled != null ? !validationEnabled.equals(that.validationEnabled) :that.validationEnabled != null) return false;
-        return true;
-    }
-
-    public int hashCode() {
-        return java.util.Objects.hash(fluent,  validationEnabled,  super.hashCode());
-    }
-
+    if (validationEnabled != null ? !validationEnabled.equals(that.validationEnabled) :that.validationEnabled != null) return false;
+    return true;
+  }
+  public int hashCode() {
+    return java.util.Objects.hash(fluent,  validationEnabled,  super.hashCode());
+  }
+  
 }
