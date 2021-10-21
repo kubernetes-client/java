@@ -30,7 +30,7 @@ import java.util.Objects;
         "HTTPIngressRuleValue is a list of http selectors pointing to backends. In the example: http://<host>/<path>?<searchpart> -> backend where where parts of the url correspond to RFC 3986, this resource will be used to match against everything after the last '/' and before the first '?' or '#'.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1HTTPIngressRuleValue {
   public static final String SERIALIZED_NAME_PATHS = "paths";
 

@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "NetworkPolicySpec provides the specification of a NetworkPolicy")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1NetworkPolicySpec {
   public static final String SERIALIZED_NAME_EGRESS = "egress";
 
@@ -152,22 +152,23 @@ public class V1NetworkPolicySpec {
   }
 
   /**
-   * List of rule types that the NetworkPolicy relates to. Valid options are \&quot;Ingress\&quot;,
-   * \&quot;Egress\&quot;, or \&quot;Ingress,Egress\&quot;. If this field is not specified, it will
-   * default based on the existence of Ingress or Egress rules; policies that contain an Egress
-   * section are assumed to affect Egress, and all policies (whether or not they contain an Ingress
-   * section) are assumed to affect Ingress. If you want to write an egress-only policy, you must
-   * explicitly specify policyTypes [ \&quot;Egress\&quot; ]. Likewise, if you want to write a
-   * policy that specifies that no egress is allowed, you must specify a policyTypes value that
-   * include \&quot;Egress\&quot; (since such a policy would not include an Egress section and would
-   * otherwise default to just [ \&quot;Ingress\&quot; ]). This field is beta-level in 1.8
+   * List of rule types that the NetworkPolicy relates to. Valid options are
+   * [\&quot;Ingress\&quot;], [\&quot;Egress\&quot;], or [\&quot;Ingress\&quot;,
+   * \&quot;Egress\&quot;]. If this field is not specified, it will default based on the existence
+   * of Ingress or Egress rules; policies that contain an Egress section are assumed to affect
+   * Egress, and all policies (whether or not they contain an Ingress section) are assumed to affect
+   * Ingress. If you want to write an egress-only policy, you must explicitly specify policyTypes [
+   * \&quot;Egress\&quot; ]. Likewise, if you want to write a policy that specifies that no egress
+   * is allowed, you must specify a policyTypes value that include \&quot;Egress\&quot; (since such
+   * a policy would not include an Egress section and would otherwise default to just [
+   * \&quot;Ingress\&quot; ]). This field is beta-level in 1.8
    *
    * @return policyTypes
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "List of rule types that the NetworkPolicy relates to. Valid options are \"Ingress\", \"Egress\", or \"Ingress,Egress\". If this field is not specified, it will default based on the existence of Ingress or Egress rules; policies that contain an Egress section are assumed to affect Egress, and all policies (whether or not they contain an Ingress section) are assumed to affect Ingress. If you want to write an egress-only policy, you must explicitly specify policyTypes [ \"Egress\" ]. Likewise, if you want to write a policy that specifies that no egress is allowed, you must specify a policyTypes value that include \"Egress\" (since such a policy would not include an Egress section and would otherwise default to just [ \"Ingress\" ]). This field is beta-level in 1.8")
+          "List of rule types that the NetworkPolicy relates to. Valid options are [\"Ingress\"], [\"Egress\"], or [\"Ingress\", \"Egress\"]. If this field is not specified, it will default based on the existence of Ingress or Egress rules; policies that contain an Egress section are assumed to affect Egress, and all policies (whether or not they contain an Ingress section) are assumed to affect Ingress. If you want to write an egress-only policy, you must explicitly specify policyTypes [ \"Egress\" ]. Likewise, if you want to write a policy that specifies that no egress is allowed, you must specify a policyTypes value that include \"Egress\" (since such a policy would not include an Egress section and would otherwise default to just [ \"Ingress\" ]). This field is beta-level in 1.8")
   public List<String> getPolicyTypes() {
     return policyTypes;
   }

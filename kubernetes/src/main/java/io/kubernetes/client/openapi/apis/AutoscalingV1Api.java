@@ -1325,8 +1325,7 @@ public class AutoscalingV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -1523,8 +1522,7 @@ public class AutoscalingV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -1618,8 +1616,7 @@ public class AutoscalingV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -1716,8 +1713,7 @@ public class AutoscalingV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -1817,8 +1813,7 @@ public class AutoscalingV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -2028,8 +2023,7 @@ public class AutoscalingV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -2126,8 +2120,7 @@ public class AutoscalingV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -2227,8 +2220,7 @@ public class AutoscalingV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -2345,6 +2337,7 @@ public class AutoscalingV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -2481,6 +2474,7 @@ public class AutoscalingV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -2524,6 +2518,7 @@ public class AutoscalingV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -2568,6 +2563,7 @@ public class AutoscalingV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -2614,6 +2610,7 @@ public class AutoscalingV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -2750,6 +2747,7 @@ public class AutoscalingV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -2793,6 +2791,7 @@ public class AutoscalingV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -2838,6 +2837,7 @@ public class AutoscalingV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -2865,10 +2865,6 @@ public class AutoscalingV1Api {
    * @param name name of the HorizontalPodAutoscaler (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -2880,12 +2876,7 @@ public class AutoscalingV1Api {
    * </table>
    */
   public okhttp3.Call readNamespacedHorizontalPodAutoscalerCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -2900,14 +2891,6 @@ public class AutoscalingV1Api {
     List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
     if (pretty != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
-    }
-
-    if (exact != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("exact", exact));
-    }
-
-    if (export != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("export", export));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -2943,12 +2926,7 @@ public class AutoscalingV1Api {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call readNamespacedHorizontalPodAutoscalerValidateBeforeCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
 
     // verify the required parameter 'name' is set
@@ -2964,8 +2942,7 @@ public class AutoscalingV1Api {
     }
 
     okhttp3.Call localVarCall =
-        readNamespacedHorizontalPodAutoscalerCall(
-            name, namespace, pretty, exact, export, _callback);
+        readNamespacedHorizontalPodAutoscalerCall(name, namespace, pretty, _callback);
     return localVarCall;
   }
 
@@ -2975,10 +2952,6 @@ public class AutoscalingV1Api {
    * @param name name of the HorizontalPodAutoscaler (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return V1HorizontalPodAutoscaler
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -2990,10 +2963,9 @@ public class AutoscalingV1Api {
    * </table>
    */
   public V1HorizontalPodAutoscaler readNamespacedHorizontalPodAutoscaler(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
-      throws ApiException {
+      String name, String namespace, String pretty) throws ApiException {
     ApiResponse<V1HorizontalPodAutoscaler> localVarResp =
-        readNamespacedHorizontalPodAutoscalerWithHttpInfo(name, namespace, pretty, exact, export);
+        readNamespacedHorizontalPodAutoscalerWithHttpInfo(name, namespace, pretty);
     return localVarResp.getData();
   }
 
@@ -3003,10 +2975,6 @@ public class AutoscalingV1Api {
    * @param name name of the HorizontalPodAutoscaler (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return ApiResponse&lt;V1HorizontalPodAutoscaler&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -3018,11 +2986,9 @@ public class AutoscalingV1Api {
    * </table>
    */
   public ApiResponse<V1HorizontalPodAutoscaler> readNamespacedHorizontalPodAutoscalerWithHttpInfo(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
-      throws ApiException {
+      String name, String namespace, String pretty) throws ApiException {
     okhttp3.Call localVarCall =
-        readNamespacedHorizontalPodAutoscalerValidateBeforeCall(
-            name, namespace, pretty, exact, export, null);
+        readNamespacedHorizontalPodAutoscalerValidateBeforeCall(name, namespace, pretty, null);
     Type localVarReturnType = new TypeToken<V1HorizontalPodAutoscaler>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -3033,10 +2999,6 @@ public class AutoscalingV1Api {
    * @param name name of the HorizontalPodAutoscaler (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3051,14 +3013,11 @@ public class AutoscalingV1Api {
       String name,
       String namespace,
       String pretty,
-      Boolean exact,
-      Boolean export,
       final ApiCallback<V1HorizontalPodAutoscaler> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
-        readNamespacedHorizontalPodAutoscalerValidateBeforeCall(
-            name, namespace, pretty, exact, export, _callback);
+        readNamespacedHorizontalPodAutoscalerValidateBeforeCall(name, namespace, pretty, _callback);
     Type localVarReturnType = new TypeToken<V1HorizontalPodAutoscaler>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;

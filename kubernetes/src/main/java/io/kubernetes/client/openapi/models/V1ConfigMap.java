@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "ConfigMap holds configuration data for pods to consume.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1ConfigMap implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 
@@ -159,14 +159,14 @@ public class V1ConfigMap implements io.kubernetes.client.common.KubernetesObject
   /**
    * Immutable, if set to true, ensures that data stored in the ConfigMap cannot be updated (only
    * object metadata can be modified). If not set to true, the field can be modified at any time.
-   * Defaulted to nil. This is a beta field enabled by ImmutableEphemeralVolumes feature gate.
+   * Defaulted to nil.
    *
    * @return immutable
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Immutable, if set to true, ensures that data stored in the ConfigMap cannot be updated (only object metadata can be modified). If not set to true, the field can be modified at any time. Defaulted to nil. This is a beta field enabled by ImmutableEphemeralVolumes feature gate.")
+          "Immutable, if set to true, ensures that data stored in the ConfigMap cannot be updated (only object metadata can be modified). If not set to true, the field can be modified at any time. Defaulted to nil.")
   public Boolean getImmutable() {
     return immutable;
   }

@@ -66,21 +66,21 @@ public class YamlTest {
   private static final String[] apiVersions =
       new String[] {
         "v1",
-        "batch/v2alpha1",
+        "batch/v1",
         "autoscaling/v2beta1",
         "rbac.authorization.k8s.io/v1alpha1",
         "apps/v1",
-        "apiregistration.k8s.io/v1beta1",
+        "apiregistration.k8s.io/v1",
         "apps/v1",
       };
   private static final String[] classNames =
       new String[] {
         "V1Pod",
-        "V2alpha1CronJob",
+        "V1CronJob",
         "V2beta1HorizontalPodAutoscaler",
         "V1alpha1ClusterRole",
         "V1Deployment",
-        "V1beta1APIService",
+        "V1APIService",
         "V1Scale",
       };
   private static final String input =

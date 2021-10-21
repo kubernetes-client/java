@@ -13,13 +13,17 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import com.google.gson.annotations.SerializedName;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
-/** V1SelfSubjectRulesReviewSpec */
+/** SelfSubjectRulesReviewSpec defines the specification for SelfSubjectRulesReview. */
+@ApiModel(
+    description =
+        "SelfSubjectRulesReviewSpec defines the specification for SelfSubjectRulesReview.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1SelfSubjectRulesReviewSpec {
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
 

@@ -29,7 +29,7 @@ import java.util.Objects;
         "PodStatus represents information about the status of a pod. Status may trail the actual state of a system, especially if the node that hosts the pod cannot contact the control plane.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1PodStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
 

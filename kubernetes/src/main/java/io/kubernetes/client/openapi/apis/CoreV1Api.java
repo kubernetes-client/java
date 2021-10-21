@@ -32,6 +32,7 @@ import io.kubernetes.client.openapi.models.V1ConfigMapList;
 import io.kubernetes.client.openapi.models.V1DeleteOptions;
 import io.kubernetes.client.openapi.models.V1Endpoints;
 import io.kubernetes.client.openapi.models.V1EndpointsList;
+import io.kubernetes.client.openapi.models.V1Eviction;
 import io.kubernetes.client.openapi.models.V1LimitRange;
 import io.kubernetes.client.openapi.models.V1LimitRangeList;
 import io.kubernetes.client.openapi.models.V1Namespace;
@@ -58,7 +59,6 @@ import io.kubernetes.client.openapi.models.V1ServiceAccount;
 import io.kubernetes.client.openapi.models.V1ServiceAccountList;
 import io.kubernetes.client.openapi.models.V1ServiceList;
 import io.kubernetes.client.openapi.models.V1Status;
-import io.kubernetes.client.openapi.models.V1beta1Eviction;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10218,7 +10218,7 @@ public class CoreV1Api {
   public okhttp3.Call createNamespacedPodEvictionCall(
       String name,
       String namespace,
-      V1beta1Eviction body,
+      V1Eviction body,
       String dryRun,
       String fieldManager,
       String pretty,
@@ -10282,7 +10282,7 @@ public class CoreV1Api {
   private okhttp3.Call createNamespacedPodEvictionValidateBeforeCall(
       String name,
       String namespace,
-      V1beta1Eviction body,
+      V1Eviction body,
       String dryRun,
       String fieldManager,
       String pretty,
@@ -10326,7 +10326,7 @@ public class CoreV1Api {
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @return V1beta1Eviction
+   * @return V1Eviction
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -10338,15 +10338,15 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1beta1Eviction createNamespacedPodEviction(
+  public V1Eviction createNamespacedPodEviction(
       String name,
       String namespace,
-      V1beta1Eviction body,
+      V1Eviction body,
       String dryRun,
       String fieldManager,
       String pretty)
       throws ApiException {
-    ApiResponse<V1beta1Eviction> localVarResp =
+    ApiResponse<V1Eviction> localVarResp =
         createNamespacedPodEvictionWithHttpInfo(
             name, namespace, body, dryRun, fieldManager, pretty);
     return localVarResp.getData();
@@ -10365,7 +10365,7 @@ public class CoreV1Api {
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @return ApiResponse&lt;V1beta1Eviction&gt;
+   * @return ApiResponse&lt;V1Eviction&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    * @http.response.details
@@ -10377,10 +10377,10 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<V1beta1Eviction> createNamespacedPodEvictionWithHttpInfo(
+  public ApiResponse<V1Eviction> createNamespacedPodEvictionWithHttpInfo(
       String name,
       String namespace,
-      V1beta1Eviction body,
+      V1Eviction body,
       String dryRun,
       String fieldManager,
       String pretty)
@@ -10388,7 +10388,7 @@ public class CoreV1Api {
     okhttp3.Call localVarCall =
         createNamespacedPodEvictionValidateBeforeCall(
             name, namespace, body, dryRun, fieldManager, pretty, null);
-    Type localVarReturnType = new TypeToken<V1beta1Eviction>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1Eviction>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
 
@@ -10420,17 +10420,17 @@ public class CoreV1Api {
   public okhttp3.Call createNamespacedPodEvictionAsync(
       String name,
       String namespace,
-      V1beta1Eviction body,
+      V1Eviction body,
       String dryRun,
       String fieldManager,
       String pretty,
-      final ApiCallback<V1beta1Eviction> _callback)
+      final ApiCallback<V1Eviction> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         createNamespacedPodEvictionValidateBeforeCall(
             name, namespace, body, dryRun, fieldManager, pretty, _callback);
-    Type localVarReturnType = new TypeToken<V1beta1Eviction>() {}.getType();
+    Type localVarReturnType = new TypeToken<V1Eviction>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
   }
@@ -25039,8 +25039,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -25237,8 +25236,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -25332,8 +25330,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -25429,8 +25426,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -25528,8 +25524,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -25726,8 +25721,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -25821,8 +25815,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -25918,8 +25911,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -26017,8 +26009,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -26215,8 +26206,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -26310,8 +26300,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -26407,8 +26396,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -26506,8 +26494,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -26704,8 +26691,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -26799,8 +26785,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -26896,8 +26881,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -26995,8 +26979,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -27193,8 +27176,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -27288,8 +27270,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -27385,8 +27366,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -27485,8 +27465,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -27683,8 +27662,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -27778,8 +27756,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -27875,8 +27852,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -27975,8 +27951,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -28186,8 +28161,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -28284,8 +28258,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -28384,8 +28357,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -28486,8 +28458,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -28697,8 +28668,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -28795,8 +28765,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -28895,8 +28864,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -28997,8 +28965,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -29208,8 +29175,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -29306,8 +29272,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -29406,8 +29371,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -29508,8 +29472,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -29719,8 +29682,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -29817,8 +29779,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -29917,8 +29878,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -30019,8 +29979,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -30230,8 +30189,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -30328,8 +30286,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -30428,8 +30385,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -30530,8 +30486,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -30741,8 +30696,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -30839,8 +30793,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -30939,8 +30892,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -31041,8 +30993,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -31252,8 +31203,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -31350,8 +31300,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -31450,8 +31399,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -31552,8 +31500,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -31763,8 +31710,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -31861,8 +31807,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -31961,8 +31906,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -32063,8 +32007,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -32274,8 +32217,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -32372,8 +32314,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -32472,8 +32413,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -32574,8 +32514,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -32785,8 +32724,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -32883,8 +32821,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -32983,8 +32920,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -33085,8 +33021,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -33296,8 +33231,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -33394,8 +33328,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -33494,8 +33427,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -33596,8 +33528,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -33807,8 +33738,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -33905,8 +33835,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -34005,8 +33934,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -34106,8 +34034,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -34304,8 +34231,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -34399,8 +34325,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -34496,8 +34421,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -34595,8 +34519,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -34793,8 +34716,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -34888,8 +34810,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -34985,8 +34906,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -35083,8 +35003,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -35281,8 +35200,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -35376,8 +35294,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -35474,8 +35391,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -35573,8 +35489,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -35771,8 +35686,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -35866,8 +35780,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -35963,8 +35876,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -36062,8 +35974,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -36260,8 +36171,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -36355,8 +36265,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -36452,8 +36361,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -36551,8 +36459,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -36749,8 +36656,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -36844,8 +36750,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -36942,8 +36847,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -37041,8 +36945,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -37239,8 +37142,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -37334,8 +37236,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -37431,8 +37332,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -37530,8 +37430,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -37728,8 +37627,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -37823,8 +37721,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -37920,8 +37817,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -38019,8 +37915,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -38217,8 +38112,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -38312,8 +38206,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -38409,8 +38302,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -38508,8 +38400,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -38706,8 +38597,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -38801,8 +38691,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -38898,8 +38787,7 @@ public class CoreV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -39014,6 +38902,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -39138,6 +39027,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -39173,6 +39063,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -39209,6 +39100,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -39253,6 +39145,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -39377,6 +39270,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -39412,6 +39306,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -39449,6 +39344,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -39494,6 +39390,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -39630,6 +39527,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -39673,6 +39571,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -39717,6 +39616,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -39763,6 +39663,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -39899,6 +39800,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -39942,6 +39844,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -39986,6 +39889,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -40032,6 +39936,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -40168,6 +40073,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -40211,6 +40117,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -40255,6 +40162,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -40301,6 +40209,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -40437,6 +40346,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -40480,6 +40390,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -40524,6 +40435,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -40570,6 +40482,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -40706,6 +40619,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -40749,6 +40663,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -40793,6 +40708,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -40839,6 +40755,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -40975,6 +40892,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -41018,6 +40936,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -41063,6 +40982,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -41109,6 +41029,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -41245,6 +41166,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -41287,6 +41209,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -41331,6 +41254,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -41347,6 +41271,279 @@ public class CoreV1Api {
 
     okhttp3.Call localVarCall =
         patchNamespacedPodValidateBeforeCall(
+            name, namespace, body, pretty, dryRun, fieldManager, force, _callback);
+    Type localVarReturnType = new TypeToken<V1Pod>() {}.getType();
+    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+    return localVarCall;
+  }
+  /**
+   * Build call for patchNamespacedPodEphemeralcontainers
+   *
+   * @param name name of the Pod (required)
+   * @param namespace object name and auth scope, such as for teams and projects (required)
+   * @param body (required)
+   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @param dryRun When present, indicates that modifications should not be persisted. An invalid or
+   *     unrecognized dryRun directive will result in an error response and no further processing of
+   *     the request. Valid values are: - All: all dry run stages will be processed (optional)
+   * @param fieldManager fieldManager is a name associated with the actor or entity that is making
+   *     these changes. The value must be less than or 128 characters long, and only contain
+   *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
+   *     required for apply requests (application/apply-patch) but optional for non-apply patch
+   *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
+   *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
+   *     patch requests. (optional)
+   * @param _callback Callback for upload/download progress
+   * @return Call to execute
+   * @throws ApiException If fail to serialize the request body object
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call patchNamespacedPodEphemeralcontainersCall(
+      String name,
+      String namespace,
+      V1Patch body,
+      String pretty,
+      String dryRun,
+      String fieldManager,
+      Boolean force,
+      final ApiCallback _callback)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/namespaces/{namespace}/pods/{name}/ephemeralcontainers"
+            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
+            .replaceAll(
+                "\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    if (pretty != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+    }
+
+    if (dryRun != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
+    }
+
+    if (fieldManager != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+    }
+
+    if (force != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
+    }
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+    final String[] localVarAccepts = {
+      "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+    };
+    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+    if (localVarAccept != null) {
+      localVarHeaderParams.put("Accept", localVarAccept);
+    }
+
+    final String[] localVarContentTypes = {
+      "application/json-patch+json",
+      "application/merge-patch+json",
+      "application/strategic-merge-patch+json",
+      "application/apply-patch+yaml"
+    };
+    final String localVarContentType =
+        localVarApiClient.selectHeaderContentType(localVarContentTypes);
+    localVarHeaderParams.put("Content-Type", localVarContentType);
+
+    String[] localVarAuthNames = new String[] {"BearerToken"};
+    return localVarApiClient.buildCall(
+        localVarPath,
+        "PATCH",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAuthNames,
+        _callback);
+  }
+
+  @SuppressWarnings("rawtypes")
+  private okhttp3.Call patchNamespacedPodEphemeralcontainersValidateBeforeCall(
+      String name,
+      String namespace,
+      V1Patch body,
+      String pretty,
+      String dryRun,
+      String fieldManager,
+      Boolean force,
+      final ApiCallback _callback)
+      throws ApiException {
+
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(
+          "Missing the required parameter 'name' when calling patchNamespacedPodEphemeralcontainers(Async)");
+    }
+
+    // verify the required parameter 'namespace' is set
+    if (namespace == null) {
+      throw new ApiException(
+          "Missing the required parameter 'namespace' when calling patchNamespacedPodEphemeralcontainers(Async)");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          "Missing the required parameter 'body' when calling patchNamespacedPodEphemeralcontainers(Async)");
+    }
+
+    okhttp3.Call localVarCall =
+        patchNamespacedPodEphemeralcontainersCall(
+            name, namespace, body, pretty, dryRun, fieldManager, force, _callback);
+    return localVarCall;
+  }
+
+  /**
+   * partially update ephemeralcontainers of the specified Pod
+   *
+   * @param name name of the Pod (required)
+   * @param namespace object name and auth scope, such as for teams and projects (required)
+   * @param body (required)
+   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @param dryRun When present, indicates that modifications should not be persisted. An invalid or
+   *     unrecognized dryRun directive will result in an error response and no further processing of
+   *     the request. Valid values are: - All: all dry run stages will be processed (optional)
+   * @param fieldManager fieldManager is a name associated with the actor or entity that is making
+   *     these changes. The value must be less than or 128 characters long, and only contain
+   *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
+   *     required for apply requests (application/apply-patch) but optional for non-apply patch
+   *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
+   *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
+   *     patch requests. (optional)
+   * @return V1Pod
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   * </table>
+   */
+  public V1Pod patchNamespacedPodEphemeralcontainers(
+      String name,
+      String namespace,
+      V1Patch body,
+      String pretty,
+      String dryRun,
+      String fieldManager,
+      Boolean force)
+      throws ApiException {
+    ApiResponse<V1Pod> localVarResp =
+        patchNamespacedPodEphemeralcontainersWithHttpInfo(
+            name, namespace, body, pretty, dryRun, fieldManager, force);
+    return localVarResp.getData();
+  }
+
+  /**
+   * partially update ephemeralcontainers of the specified Pod
+   *
+   * @param name name of the Pod (required)
+   * @param namespace object name and auth scope, such as for teams and projects (required)
+   * @param body (required)
+   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @param dryRun When present, indicates that modifications should not be persisted. An invalid or
+   *     unrecognized dryRun directive will result in an error response and no further processing of
+   *     the request. Valid values are: - All: all dry run stages will be processed (optional)
+   * @param fieldManager fieldManager is a name associated with the actor or entity that is making
+   *     these changes. The value must be less than or 128 characters long, and only contain
+   *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
+   *     required for apply requests (application/apply-patch) but optional for non-apply patch
+   *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
+   *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
+   *     patch requests. (optional)
+   * @return ApiResponse&lt;V1Pod&gt;
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   * </table>
+   */
+  public ApiResponse<V1Pod> patchNamespacedPodEphemeralcontainersWithHttpInfo(
+      String name,
+      String namespace,
+      V1Patch body,
+      String pretty,
+      String dryRun,
+      String fieldManager,
+      Boolean force)
+      throws ApiException {
+    okhttp3.Call localVarCall =
+        patchNamespacedPodEphemeralcontainersValidateBeforeCall(
+            name, namespace, body, pretty, dryRun, fieldManager, force, null);
+    Type localVarReturnType = new TypeToken<V1Pod>() {}.getType();
+    return localVarApiClient.execute(localVarCall, localVarReturnType);
+  }
+
+  /**
+   * (asynchronously) partially update ephemeralcontainers of the specified Pod
+   *
+   * @param name name of the Pod (required)
+   * @param namespace object name and auth scope, such as for teams and projects (required)
+   * @param body (required)
+   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @param dryRun When present, indicates that modifications should not be persisted. An invalid or
+   *     unrecognized dryRun directive will result in an error response and no further processing of
+   *     the request. Valid values are: - All: all dry run stages will be processed (optional)
+   * @param fieldManager fieldManager is a name associated with the actor or entity that is making
+   *     these changes. The value must be less than or 128 characters long, and only contain
+   *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
+   *     required for apply requests (application/apply-patch) but optional for non-apply patch
+   *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
+   *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
+   *     patch requests. (optional)
+   * @param _callback The callback to be executed when the API call finishes
+   * @return The request call
+   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call patchNamespacedPodEphemeralcontainersAsync(
+      String name,
+      String namespace,
+      V1Patch body,
+      String pretty,
+      String dryRun,
+      String fieldManager,
+      Boolean force,
+      final ApiCallback<V1Pod> _callback)
+      throws ApiException {
+
+    okhttp3.Call localVarCall =
+        patchNamespacedPodEphemeralcontainersValidateBeforeCall(
             name, namespace, body, pretty, dryRun, fieldManager, force, _callback);
     Type localVarReturnType = new TypeToken<V1Pod>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -41377,6 +41574,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -41513,6 +41711,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -41556,6 +41755,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -41600,6 +41800,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -41646,6 +41847,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -41782,6 +41984,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -41825,6 +42028,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -41869,6 +42073,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -41915,6 +42120,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -42051,6 +42257,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -42094,6 +42301,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -42138,6 +42346,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -42184,6 +42393,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -42320,6 +42530,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -42363,6 +42574,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -42407,6 +42619,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -42453,6 +42666,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -42589,6 +42803,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -42632,6 +42847,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -42677,6 +42893,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -42723,6 +42940,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -42859,6 +43077,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -42902,6 +43121,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -42946,6 +43166,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -42992,6 +43213,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -43128,6 +43350,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -43171,6 +43394,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -43215,6 +43439,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -43261,6 +43486,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -43397,6 +43623,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -43440,6 +43667,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -43484,6 +43712,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -43530,6 +43759,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -43666,6 +43896,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -43709,6 +43940,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -43753,6 +43985,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -43799,6 +44032,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -43935,6 +44169,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -43978,6 +44213,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -44022,6 +44258,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -44068,6 +44305,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -44204,6 +44442,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -44247,6 +44486,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -44291,6 +44531,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -44336,6 +44577,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -44458,6 +44700,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -44493,6 +44736,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -44529,6 +44773,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -44572,6 +44817,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -44696,6 +44942,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -44731,6 +44978,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -44767,6 +45015,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -44811,6 +45060,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -44935,6 +45185,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -44970,6 +45221,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -45007,6 +45259,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -45051,6 +45304,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -45175,6 +45429,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -45210,6 +45465,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -45247,6 +45503,7 @@ public class CoreV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -45413,10 +45670,6 @@ public class CoreV1Api {
    *
    * @param name name of the Namespace (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -45427,8 +45680,7 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call readNamespaceCall(
-      String name, String pretty, Boolean exact, Boolean export, final ApiCallback _callback)
+  public okhttp3.Call readNamespaceCall(String name, String pretty, final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -45441,14 +45693,6 @@ public class CoreV1Api {
     List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
     if (pretty != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
-    }
-
-    if (exact != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("exact", exact));
-    }
-
-    if (export != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("export", export));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -45484,8 +45728,7 @@ public class CoreV1Api {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call readNamespaceValidateBeforeCall(
-      String name, String pretty, Boolean exact, Boolean export, final ApiCallback _callback)
-      throws ApiException {
+      String name, String pretty, final ApiCallback _callback) throws ApiException {
 
     // verify the required parameter 'name' is set
     if (name == null) {
@@ -45493,7 +45736,7 @@ public class CoreV1Api {
           "Missing the required parameter 'name' when calling readNamespace(Async)");
     }
 
-    okhttp3.Call localVarCall = readNamespaceCall(name, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readNamespaceCall(name, pretty, _callback);
     return localVarCall;
   }
 
@@ -45502,10 +45745,6 @@ public class CoreV1Api {
    *
    * @param name name of the Namespace (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return V1Namespace
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -45516,9 +45755,8 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1Namespace readNamespace(String name, String pretty, Boolean exact, Boolean export)
-      throws ApiException {
-    ApiResponse<V1Namespace> localVarResp = readNamespaceWithHttpInfo(name, pretty, exact, export);
+  public V1Namespace readNamespace(String name, String pretty) throws ApiException {
+    ApiResponse<V1Namespace> localVarResp = readNamespaceWithHttpInfo(name, pretty);
     return localVarResp.getData();
   }
 
@@ -45527,10 +45765,6 @@ public class CoreV1Api {
    *
    * @param name name of the Namespace (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return ApiResponse&lt;V1Namespace&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -45541,9 +45775,9 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<V1Namespace> readNamespaceWithHttpInfo(
-      String name, String pretty, Boolean exact, Boolean export) throws ApiException {
-    okhttp3.Call localVarCall = readNamespaceValidateBeforeCall(name, pretty, exact, export, null);
+  public ApiResponse<V1Namespace> readNamespaceWithHttpInfo(String name, String pretty)
+      throws ApiException {
+    okhttp3.Call localVarCall = readNamespaceValidateBeforeCall(name, pretty, null);
     Type localVarReturnType = new TypeToken<V1Namespace>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -45553,10 +45787,6 @@ public class CoreV1Api {
    *
    * @param name name of the Namespace (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -45568,15 +45798,9 @@ public class CoreV1Api {
    * </table>
    */
   public okhttp3.Call readNamespaceAsync(
-      String name,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback<V1Namespace> _callback)
-      throws ApiException {
+      String name, String pretty, final ApiCallback<V1Namespace> _callback) throws ApiException {
 
-    okhttp3.Call localVarCall =
-        readNamespaceValidateBeforeCall(name, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readNamespaceValidateBeforeCall(name, pretty, _callback);
     Type localVarReturnType = new TypeToken<V1Namespace>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -45727,10 +45951,6 @@ public class CoreV1Api {
    * @param name name of the ConfigMap (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -45742,12 +45962,7 @@ public class CoreV1Api {
    * </table>
    */
   public okhttp3.Call readNamespacedConfigMapCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -45762,14 +45977,6 @@ public class CoreV1Api {
     List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
     if (pretty != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
-    }
-
-    if (exact != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("exact", exact));
-    }
-
-    if (export != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("export", export));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -45805,12 +46012,7 @@ public class CoreV1Api {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call readNamespacedConfigMapValidateBeforeCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
 
     // verify the required parameter 'name' is set
@@ -45825,8 +46027,7 @@ public class CoreV1Api {
           "Missing the required parameter 'namespace' when calling readNamespacedConfigMap(Async)");
     }
 
-    okhttp3.Call localVarCall =
-        readNamespacedConfigMapCall(name, namespace, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readNamespacedConfigMapCall(name, namespace, pretty, _callback);
     return localVarCall;
   }
 
@@ -45836,10 +46037,6 @@ public class CoreV1Api {
    * @param name name of the ConfigMap (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return V1ConfigMap
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -45850,11 +46047,10 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1ConfigMap readNamespacedConfigMap(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
+  public V1ConfigMap readNamespacedConfigMap(String name, String namespace, String pretty)
       throws ApiException {
     ApiResponse<V1ConfigMap> localVarResp =
-        readNamespacedConfigMapWithHttpInfo(name, namespace, pretty, exact, export);
+        readNamespacedConfigMapWithHttpInfo(name, namespace, pretty);
     return localVarResp.getData();
   }
 
@@ -45864,10 +46060,6 @@ public class CoreV1Api {
    * @param name name of the ConfigMap (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return ApiResponse&lt;V1ConfigMap&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -45879,10 +46071,9 @@ public class CoreV1Api {
    * </table>
    */
   public ApiResponse<V1ConfigMap> readNamespacedConfigMapWithHttpInfo(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
-      throws ApiException {
+      String name, String namespace, String pretty) throws ApiException {
     okhttp3.Call localVarCall =
-        readNamespacedConfigMapValidateBeforeCall(name, namespace, pretty, exact, export, null);
+        readNamespacedConfigMapValidateBeforeCall(name, namespace, pretty, null);
     Type localVarReturnType = new TypeToken<V1ConfigMap>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -45893,10 +46084,6 @@ public class CoreV1Api {
    * @param name name of the ConfigMap (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -45908,17 +46095,11 @@ public class CoreV1Api {
    * </table>
    */
   public okhttp3.Call readNamespacedConfigMapAsync(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback<V1ConfigMap> _callback)
+      String name, String namespace, String pretty, final ApiCallback<V1ConfigMap> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
-        readNamespacedConfigMapValidateBeforeCall(
-            name, namespace, pretty, exact, export, _callback);
+        readNamespacedConfigMapValidateBeforeCall(name, namespace, pretty, _callback);
     Type localVarReturnType = new TypeToken<V1ConfigMap>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -45929,10 +46110,6 @@ public class CoreV1Api {
    * @param name name of the Endpoints (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -45944,12 +46121,7 @@ public class CoreV1Api {
    * </table>
    */
   public okhttp3.Call readNamespacedEndpointsCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -45964,14 +46136,6 @@ public class CoreV1Api {
     List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
     if (pretty != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
-    }
-
-    if (exact != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("exact", exact));
-    }
-
-    if (export != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("export", export));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -46007,12 +46171,7 @@ public class CoreV1Api {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call readNamespacedEndpointsValidateBeforeCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
 
     // verify the required parameter 'name' is set
@@ -46027,8 +46186,7 @@ public class CoreV1Api {
           "Missing the required parameter 'namespace' when calling readNamespacedEndpoints(Async)");
     }
 
-    okhttp3.Call localVarCall =
-        readNamespacedEndpointsCall(name, namespace, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readNamespacedEndpointsCall(name, namespace, pretty, _callback);
     return localVarCall;
   }
 
@@ -46038,10 +46196,6 @@ public class CoreV1Api {
    * @param name name of the Endpoints (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return V1Endpoints
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -46052,11 +46206,10 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1Endpoints readNamespacedEndpoints(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
+  public V1Endpoints readNamespacedEndpoints(String name, String namespace, String pretty)
       throws ApiException {
     ApiResponse<V1Endpoints> localVarResp =
-        readNamespacedEndpointsWithHttpInfo(name, namespace, pretty, exact, export);
+        readNamespacedEndpointsWithHttpInfo(name, namespace, pretty);
     return localVarResp.getData();
   }
 
@@ -46066,10 +46219,6 @@ public class CoreV1Api {
    * @param name name of the Endpoints (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return ApiResponse&lt;V1Endpoints&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -46081,10 +46230,9 @@ public class CoreV1Api {
    * </table>
    */
   public ApiResponse<V1Endpoints> readNamespacedEndpointsWithHttpInfo(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
-      throws ApiException {
+      String name, String namespace, String pretty) throws ApiException {
     okhttp3.Call localVarCall =
-        readNamespacedEndpointsValidateBeforeCall(name, namespace, pretty, exact, export, null);
+        readNamespacedEndpointsValidateBeforeCall(name, namespace, pretty, null);
     Type localVarReturnType = new TypeToken<V1Endpoints>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -46095,10 +46243,6 @@ public class CoreV1Api {
    * @param name name of the Endpoints (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -46110,17 +46254,11 @@ public class CoreV1Api {
    * </table>
    */
   public okhttp3.Call readNamespacedEndpointsAsync(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback<V1Endpoints> _callback)
+      String name, String namespace, String pretty, final ApiCallback<V1Endpoints> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
-        readNamespacedEndpointsValidateBeforeCall(
-            name, namespace, pretty, exact, export, _callback);
+        readNamespacedEndpointsValidateBeforeCall(name, namespace, pretty, _callback);
     Type localVarReturnType = new TypeToken<V1Endpoints>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -46131,10 +46269,6 @@ public class CoreV1Api {
    * @param name name of the Event (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -46146,12 +46280,7 @@ public class CoreV1Api {
    * </table>
    */
   public okhttp3.Call readNamespacedEventCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -46166,14 +46295,6 @@ public class CoreV1Api {
     List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
     if (pretty != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
-    }
-
-    if (exact != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("exact", exact));
-    }
-
-    if (export != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("export", export));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -46209,12 +46330,7 @@ public class CoreV1Api {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call readNamespacedEventValidateBeforeCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
 
     // verify the required parameter 'name' is set
@@ -46229,8 +46345,7 @@ public class CoreV1Api {
           "Missing the required parameter 'namespace' when calling readNamespacedEvent(Async)");
     }
 
-    okhttp3.Call localVarCall =
-        readNamespacedEventCall(name, namespace, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readNamespacedEventCall(name, namespace, pretty, _callback);
     return localVarCall;
   }
 
@@ -46240,10 +46355,6 @@ public class CoreV1Api {
    * @param name name of the Event (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return CoreV1Event
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -46254,11 +46365,10 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public CoreV1Event readNamespacedEvent(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
+  public CoreV1Event readNamespacedEvent(String name, String namespace, String pretty)
       throws ApiException {
     ApiResponse<CoreV1Event> localVarResp =
-        readNamespacedEventWithHttpInfo(name, namespace, pretty, exact, export);
+        readNamespacedEventWithHttpInfo(name, namespace, pretty);
     return localVarResp.getData();
   }
 
@@ -46268,10 +46378,6 @@ public class CoreV1Api {
    * @param name name of the Event (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return ApiResponse&lt;CoreV1Event&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -46283,10 +46389,9 @@ public class CoreV1Api {
    * </table>
    */
   public ApiResponse<CoreV1Event> readNamespacedEventWithHttpInfo(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
-      throws ApiException {
+      String name, String namespace, String pretty) throws ApiException {
     okhttp3.Call localVarCall =
-        readNamespacedEventValidateBeforeCall(name, namespace, pretty, exact, export, null);
+        readNamespacedEventValidateBeforeCall(name, namespace, pretty, null);
     Type localVarReturnType = new TypeToken<CoreV1Event>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -46297,10 +46402,6 @@ public class CoreV1Api {
    * @param name name of the Event (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -46312,16 +46413,11 @@ public class CoreV1Api {
    * </table>
    */
   public okhttp3.Call readNamespacedEventAsync(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback<CoreV1Event> _callback)
+      String name, String namespace, String pretty, final ApiCallback<CoreV1Event> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
-        readNamespacedEventValidateBeforeCall(name, namespace, pretty, exact, export, _callback);
+        readNamespacedEventValidateBeforeCall(name, namespace, pretty, _callback);
     Type localVarReturnType = new TypeToken<CoreV1Event>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -46332,10 +46428,6 @@ public class CoreV1Api {
    * @param name name of the LimitRange (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -46347,12 +46439,7 @@ public class CoreV1Api {
    * </table>
    */
   public okhttp3.Call readNamespacedLimitRangeCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -46367,14 +46454,6 @@ public class CoreV1Api {
     List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
     if (pretty != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
-    }
-
-    if (exact != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("exact", exact));
-    }
-
-    if (export != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("export", export));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -46410,12 +46489,7 @@ public class CoreV1Api {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call readNamespacedLimitRangeValidateBeforeCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
 
     // verify the required parameter 'name' is set
@@ -46430,8 +46504,7 @@ public class CoreV1Api {
           "Missing the required parameter 'namespace' when calling readNamespacedLimitRange(Async)");
     }
 
-    okhttp3.Call localVarCall =
-        readNamespacedLimitRangeCall(name, namespace, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readNamespacedLimitRangeCall(name, namespace, pretty, _callback);
     return localVarCall;
   }
 
@@ -46441,10 +46514,6 @@ public class CoreV1Api {
    * @param name name of the LimitRange (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return V1LimitRange
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -46455,11 +46524,10 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1LimitRange readNamespacedLimitRange(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
+  public V1LimitRange readNamespacedLimitRange(String name, String namespace, String pretty)
       throws ApiException {
     ApiResponse<V1LimitRange> localVarResp =
-        readNamespacedLimitRangeWithHttpInfo(name, namespace, pretty, exact, export);
+        readNamespacedLimitRangeWithHttpInfo(name, namespace, pretty);
     return localVarResp.getData();
   }
 
@@ -46469,10 +46537,6 @@ public class CoreV1Api {
    * @param name name of the LimitRange (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return ApiResponse&lt;V1LimitRange&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -46484,10 +46548,9 @@ public class CoreV1Api {
    * </table>
    */
   public ApiResponse<V1LimitRange> readNamespacedLimitRangeWithHttpInfo(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
-      throws ApiException {
+      String name, String namespace, String pretty) throws ApiException {
     okhttp3.Call localVarCall =
-        readNamespacedLimitRangeValidateBeforeCall(name, namespace, pretty, exact, export, null);
+        readNamespacedLimitRangeValidateBeforeCall(name, namespace, pretty, null);
     Type localVarReturnType = new TypeToken<V1LimitRange>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -46498,10 +46561,6 @@ public class CoreV1Api {
    * @param name name of the LimitRange (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -46513,17 +46572,11 @@ public class CoreV1Api {
    * </table>
    */
   public okhttp3.Call readNamespacedLimitRangeAsync(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback<V1LimitRange> _callback)
+      String name, String namespace, String pretty, final ApiCallback<V1LimitRange> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
-        readNamespacedLimitRangeValidateBeforeCall(
-            name, namespace, pretty, exact, export, _callback);
+        readNamespacedLimitRangeValidateBeforeCall(name, namespace, pretty, _callback);
     Type localVarReturnType = new TypeToken<V1LimitRange>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -46534,10 +46587,6 @@ public class CoreV1Api {
    * @param name name of the PersistentVolumeClaim (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -46549,12 +46598,7 @@ public class CoreV1Api {
    * </table>
    */
   public okhttp3.Call readNamespacedPersistentVolumeClaimCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -46569,14 +46613,6 @@ public class CoreV1Api {
     List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
     if (pretty != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
-    }
-
-    if (exact != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("exact", exact));
-    }
-
-    if (export != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("export", export));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -46612,12 +46648,7 @@ public class CoreV1Api {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call readNamespacedPersistentVolumeClaimValidateBeforeCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
 
     // verify the required parameter 'name' is set
@@ -46633,7 +46664,7 @@ public class CoreV1Api {
     }
 
     okhttp3.Call localVarCall =
-        readNamespacedPersistentVolumeClaimCall(name, namespace, pretty, exact, export, _callback);
+        readNamespacedPersistentVolumeClaimCall(name, namespace, pretty, _callback);
     return localVarCall;
   }
 
@@ -46643,10 +46674,6 @@ public class CoreV1Api {
    * @param name name of the PersistentVolumeClaim (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return V1PersistentVolumeClaim
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -46658,10 +46685,9 @@ public class CoreV1Api {
    * </table>
    */
   public V1PersistentVolumeClaim readNamespacedPersistentVolumeClaim(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
-      throws ApiException {
+      String name, String namespace, String pretty) throws ApiException {
     ApiResponse<V1PersistentVolumeClaim> localVarResp =
-        readNamespacedPersistentVolumeClaimWithHttpInfo(name, namespace, pretty, exact, export);
+        readNamespacedPersistentVolumeClaimWithHttpInfo(name, namespace, pretty);
     return localVarResp.getData();
   }
 
@@ -46671,10 +46697,6 @@ public class CoreV1Api {
    * @param name name of the PersistentVolumeClaim (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return ApiResponse&lt;V1PersistentVolumeClaim&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -46686,11 +46708,9 @@ public class CoreV1Api {
    * </table>
    */
   public ApiResponse<V1PersistentVolumeClaim> readNamespacedPersistentVolumeClaimWithHttpInfo(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
-      throws ApiException {
+      String name, String namespace, String pretty) throws ApiException {
     okhttp3.Call localVarCall =
-        readNamespacedPersistentVolumeClaimValidateBeforeCall(
-            name, namespace, pretty, exact, export, null);
+        readNamespacedPersistentVolumeClaimValidateBeforeCall(name, namespace, pretty, null);
     Type localVarReturnType = new TypeToken<V1PersistentVolumeClaim>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -46701,10 +46721,6 @@ public class CoreV1Api {
    * @param name name of the PersistentVolumeClaim (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -46719,14 +46735,11 @@ public class CoreV1Api {
       String name,
       String namespace,
       String pretty,
-      Boolean exact,
-      Boolean export,
       final ApiCallback<V1PersistentVolumeClaim> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
-        readNamespacedPersistentVolumeClaimValidateBeforeCall(
-            name, namespace, pretty, exact, export, _callback);
+        readNamespacedPersistentVolumeClaimValidateBeforeCall(name, namespace, pretty, _callback);
     Type localVarReturnType = new TypeToken<V1PersistentVolumeClaim>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -46901,10 +46914,6 @@ public class CoreV1Api {
    * @param name name of the Pod (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -46916,12 +46925,7 @@ public class CoreV1Api {
    * </table>
    */
   public okhttp3.Call readNamespacedPodCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -46936,14 +46940,6 @@ public class CoreV1Api {
     List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
     if (pretty != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
-    }
-
-    if (exact != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("exact", exact));
-    }
-
-    if (export != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("export", export));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -46979,12 +46975,7 @@ public class CoreV1Api {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call readNamespacedPodValidateBeforeCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
 
     // verify the required parameter 'name' is set
@@ -46999,8 +46990,7 @@ public class CoreV1Api {
           "Missing the required parameter 'namespace' when calling readNamespacedPod(Async)");
     }
 
-    okhttp3.Call localVarCall =
-        readNamespacedPodCall(name, namespace, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readNamespacedPodCall(name, namespace, pretty, _callback);
     return localVarCall;
   }
 
@@ -47010,10 +47000,6 @@ public class CoreV1Api {
    * @param name name of the Pod (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return V1Pod
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -47024,11 +47010,8 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1Pod readNamespacedPod(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
-      throws ApiException {
-    ApiResponse<V1Pod> localVarResp =
-        readNamespacedPodWithHttpInfo(name, namespace, pretty, exact, export);
+  public V1Pod readNamespacedPod(String name, String namespace, String pretty) throws ApiException {
+    ApiResponse<V1Pod> localVarResp = readNamespacedPodWithHttpInfo(name, namespace, pretty);
     return localVarResp.getData();
   }
 
@@ -47038,10 +47021,6 @@ public class CoreV1Api {
    * @param name name of the Pod (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return ApiResponse&lt;V1Pod&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -47053,10 +47032,8 @@ public class CoreV1Api {
    * </table>
    */
   public ApiResponse<V1Pod> readNamespacedPodWithHttpInfo(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
-      throws ApiException {
-    okhttp3.Call localVarCall =
-        readNamespacedPodValidateBeforeCall(name, namespace, pretty, exact, export, null);
+      String name, String namespace, String pretty) throws ApiException {
+    okhttp3.Call localVarCall = readNamespacedPodValidateBeforeCall(name, namespace, pretty, null);
     Type localVarReturnType = new TypeToken<V1Pod>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -47067,10 +47044,6 @@ public class CoreV1Api {
    * @param name name of the Pod (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -47082,16 +47055,171 @@ public class CoreV1Api {
    * </table>
    */
   public okhttp3.Call readNamespacedPodAsync(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback<V1Pod> _callback)
+      String name, String namespace, String pretty, final ApiCallback<V1Pod> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
-        readNamespacedPodValidateBeforeCall(name, namespace, pretty, exact, export, _callback);
+        readNamespacedPodValidateBeforeCall(name, namespace, pretty, _callback);
+    Type localVarReturnType = new TypeToken<V1Pod>() {}.getType();
+    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+    return localVarCall;
+  }
+  /**
+   * Build call for readNamespacedPodEphemeralcontainers
+   *
+   * @param name name of the Pod (required)
+   * @param namespace object name and auth scope, such as for teams and projects (required)
+   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @param _callback Callback for upload/download progress
+   * @return Call to execute
+   * @throws ApiException If fail to serialize the request body object
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call readNamespacedPodEphemeralcontainersCall(
+      String name, String namespace, String pretty, final ApiCallback _callback)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/namespaces/{namespace}/pods/{name}/ephemeralcontainers"
+            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
+            .replaceAll(
+                "\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    if (pretty != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+    }
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+    final String[] localVarAccepts = {
+      "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+    };
+    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+    if (localVarAccept != null) {
+      localVarHeaderParams.put("Accept", localVarAccept);
+    }
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType =
+        localVarApiClient.selectHeaderContentType(localVarContentTypes);
+    localVarHeaderParams.put("Content-Type", localVarContentType);
+
+    String[] localVarAuthNames = new String[] {"BearerToken"};
+    return localVarApiClient.buildCall(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAuthNames,
+        _callback);
+  }
+
+  @SuppressWarnings("rawtypes")
+  private okhttp3.Call readNamespacedPodEphemeralcontainersValidateBeforeCall(
+      String name, String namespace, String pretty, final ApiCallback _callback)
+      throws ApiException {
+
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(
+          "Missing the required parameter 'name' when calling readNamespacedPodEphemeralcontainers(Async)");
+    }
+
+    // verify the required parameter 'namespace' is set
+    if (namespace == null) {
+      throw new ApiException(
+          "Missing the required parameter 'namespace' when calling readNamespacedPodEphemeralcontainers(Async)");
+    }
+
+    okhttp3.Call localVarCall =
+        readNamespacedPodEphemeralcontainersCall(name, namespace, pretty, _callback);
+    return localVarCall;
+  }
+
+  /**
+   * read ephemeralcontainers of the specified Pod
+   *
+   * @param name name of the Pod (required)
+   * @param namespace object name and auth scope, such as for teams and projects (required)
+   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @return V1Pod
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   * </table>
+   */
+  public V1Pod readNamespacedPodEphemeralcontainers(String name, String namespace, String pretty)
+      throws ApiException {
+    ApiResponse<V1Pod> localVarResp =
+        readNamespacedPodEphemeralcontainersWithHttpInfo(name, namespace, pretty);
+    return localVarResp.getData();
+  }
+
+  /**
+   * read ephemeralcontainers of the specified Pod
+   *
+   * @param name name of the Pod (required)
+   * @param namespace object name and auth scope, such as for teams and projects (required)
+   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @return ApiResponse&lt;V1Pod&gt;
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   * </table>
+   */
+  public ApiResponse<V1Pod> readNamespacedPodEphemeralcontainersWithHttpInfo(
+      String name, String namespace, String pretty) throws ApiException {
+    okhttp3.Call localVarCall =
+        readNamespacedPodEphemeralcontainersValidateBeforeCall(name, namespace, pretty, null);
+    Type localVarReturnType = new TypeToken<V1Pod>() {}.getType();
+    return localVarApiClient.execute(localVarCall, localVarReturnType);
+  }
+
+  /**
+   * (asynchronously) read ephemeralcontainers of the specified Pod
+   *
+   * @param name name of the Pod (required)
+   * @param namespace object name and auth scope, such as for teams and projects (required)
+   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @param _callback The callback to be executed when the API call finishes
+   * @return The request call
+   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call readNamespacedPodEphemeralcontainersAsync(
+      String name, String namespace, String pretty, final ApiCallback<V1Pod> _callback)
+      throws ApiException {
+
+    okhttp3.Call localVarCall =
+        readNamespacedPodEphemeralcontainersValidateBeforeCall(name, namespace, pretty, _callback);
     Type localVarReturnType = new TypeToken<V1Pod>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -47652,10 +47780,6 @@ public class CoreV1Api {
    * @param name name of the PodTemplate (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -47667,12 +47791,7 @@ public class CoreV1Api {
    * </table>
    */
   public okhttp3.Call readNamespacedPodTemplateCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -47687,14 +47806,6 @@ public class CoreV1Api {
     List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
     if (pretty != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
-    }
-
-    if (exact != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("exact", exact));
-    }
-
-    if (export != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("export", export));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -47730,12 +47841,7 @@ public class CoreV1Api {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call readNamespacedPodTemplateValidateBeforeCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
 
     // verify the required parameter 'name' is set
@@ -47750,8 +47856,7 @@ public class CoreV1Api {
           "Missing the required parameter 'namespace' when calling readNamespacedPodTemplate(Async)");
     }
 
-    okhttp3.Call localVarCall =
-        readNamespacedPodTemplateCall(name, namespace, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readNamespacedPodTemplateCall(name, namespace, pretty, _callback);
     return localVarCall;
   }
 
@@ -47761,10 +47866,6 @@ public class CoreV1Api {
    * @param name name of the PodTemplate (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return V1PodTemplate
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -47775,11 +47876,10 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1PodTemplate readNamespacedPodTemplate(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
+  public V1PodTemplate readNamespacedPodTemplate(String name, String namespace, String pretty)
       throws ApiException {
     ApiResponse<V1PodTemplate> localVarResp =
-        readNamespacedPodTemplateWithHttpInfo(name, namespace, pretty, exact, export);
+        readNamespacedPodTemplateWithHttpInfo(name, namespace, pretty);
     return localVarResp.getData();
   }
 
@@ -47789,10 +47889,6 @@ public class CoreV1Api {
    * @param name name of the PodTemplate (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return ApiResponse&lt;V1PodTemplate&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -47804,10 +47900,9 @@ public class CoreV1Api {
    * </table>
    */
   public ApiResponse<V1PodTemplate> readNamespacedPodTemplateWithHttpInfo(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
-      throws ApiException {
+      String name, String namespace, String pretty) throws ApiException {
     okhttp3.Call localVarCall =
-        readNamespacedPodTemplateValidateBeforeCall(name, namespace, pretty, exact, export, null);
+        readNamespacedPodTemplateValidateBeforeCall(name, namespace, pretty, null);
     Type localVarReturnType = new TypeToken<V1PodTemplate>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -47818,10 +47913,6 @@ public class CoreV1Api {
    * @param name name of the PodTemplate (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -47833,17 +47924,11 @@ public class CoreV1Api {
    * </table>
    */
   public okhttp3.Call readNamespacedPodTemplateAsync(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback<V1PodTemplate> _callback)
+      String name, String namespace, String pretty, final ApiCallback<V1PodTemplate> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
-        readNamespacedPodTemplateValidateBeforeCall(
-            name, namespace, pretty, exact, export, _callback);
+        readNamespacedPodTemplateValidateBeforeCall(name, namespace, pretty, _callback);
     Type localVarReturnType = new TypeToken<V1PodTemplate>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -47854,10 +47939,6 @@ public class CoreV1Api {
    * @param name name of the ReplicationController (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -47869,12 +47950,7 @@ public class CoreV1Api {
    * </table>
    */
   public okhttp3.Call readNamespacedReplicationControllerCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -47889,14 +47965,6 @@ public class CoreV1Api {
     List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
     if (pretty != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
-    }
-
-    if (exact != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("exact", exact));
-    }
-
-    if (export != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("export", export));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -47932,12 +48000,7 @@ public class CoreV1Api {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call readNamespacedReplicationControllerValidateBeforeCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
 
     // verify the required parameter 'name' is set
@@ -47953,7 +48016,7 @@ public class CoreV1Api {
     }
 
     okhttp3.Call localVarCall =
-        readNamespacedReplicationControllerCall(name, namespace, pretty, exact, export, _callback);
+        readNamespacedReplicationControllerCall(name, namespace, pretty, _callback);
     return localVarCall;
   }
 
@@ -47963,10 +48026,6 @@ public class CoreV1Api {
    * @param name name of the ReplicationController (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return V1ReplicationController
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -47978,10 +48037,9 @@ public class CoreV1Api {
    * </table>
    */
   public V1ReplicationController readNamespacedReplicationController(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
-      throws ApiException {
+      String name, String namespace, String pretty) throws ApiException {
     ApiResponse<V1ReplicationController> localVarResp =
-        readNamespacedReplicationControllerWithHttpInfo(name, namespace, pretty, exact, export);
+        readNamespacedReplicationControllerWithHttpInfo(name, namespace, pretty);
     return localVarResp.getData();
   }
 
@@ -47991,10 +48049,6 @@ public class CoreV1Api {
    * @param name name of the ReplicationController (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return ApiResponse&lt;V1ReplicationController&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -48006,11 +48060,9 @@ public class CoreV1Api {
    * </table>
    */
   public ApiResponse<V1ReplicationController> readNamespacedReplicationControllerWithHttpInfo(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
-      throws ApiException {
+      String name, String namespace, String pretty) throws ApiException {
     okhttp3.Call localVarCall =
-        readNamespacedReplicationControllerValidateBeforeCall(
-            name, namespace, pretty, exact, export, null);
+        readNamespacedReplicationControllerValidateBeforeCall(name, namespace, pretty, null);
     Type localVarReturnType = new TypeToken<V1ReplicationController>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -48021,10 +48073,6 @@ public class CoreV1Api {
    * @param name name of the ReplicationController (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -48039,14 +48087,11 @@ public class CoreV1Api {
       String name,
       String namespace,
       String pretty,
-      Boolean exact,
-      Boolean export,
       final ApiCallback<V1ReplicationController> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
-        readNamespacedReplicationControllerValidateBeforeCall(
-            name, namespace, pretty, exact, export, _callback);
+        readNamespacedReplicationControllerValidateBeforeCall(name, namespace, pretty, _callback);
     Type localVarReturnType = new TypeToken<V1ReplicationController>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -48382,10 +48427,6 @@ public class CoreV1Api {
    * @param name name of the ResourceQuota (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -48397,12 +48438,7 @@ public class CoreV1Api {
    * </table>
    */
   public okhttp3.Call readNamespacedResourceQuotaCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -48417,14 +48453,6 @@ public class CoreV1Api {
     List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
     if (pretty != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
-    }
-
-    if (exact != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("exact", exact));
-    }
-
-    if (export != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("export", export));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -48460,12 +48488,7 @@ public class CoreV1Api {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call readNamespacedResourceQuotaValidateBeforeCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
 
     // verify the required parameter 'name' is set
@@ -48480,8 +48503,7 @@ public class CoreV1Api {
           "Missing the required parameter 'namespace' when calling readNamespacedResourceQuota(Async)");
     }
 
-    okhttp3.Call localVarCall =
-        readNamespacedResourceQuotaCall(name, namespace, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readNamespacedResourceQuotaCall(name, namespace, pretty, _callback);
     return localVarCall;
   }
 
@@ -48491,10 +48513,6 @@ public class CoreV1Api {
    * @param name name of the ResourceQuota (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return V1ResourceQuota
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -48505,11 +48523,10 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1ResourceQuota readNamespacedResourceQuota(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
+  public V1ResourceQuota readNamespacedResourceQuota(String name, String namespace, String pretty)
       throws ApiException {
     ApiResponse<V1ResourceQuota> localVarResp =
-        readNamespacedResourceQuotaWithHttpInfo(name, namespace, pretty, exact, export);
+        readNamespacedResourceQuotaWithHttpInfo(name, namespace, pretty);
     return localVarResp.getData();
   }
 
@@ -48519,10 +48536,6 @@ public class CoreV1Api {
    * @param name name of the ResourceQuota (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return ApiResponse&lt;V1ResourceQuota&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -48534,10 +48547,9 @@ public class CoreV1Api {
    * </table>
    */
   public ApiResponse<V1ResourceQuota> readNamespacedResourceQuotaWithHttpInfo(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
-      throws ApiException {
+      String name, String namespace, String pretty) throws ApiException {
     okhttp3.Call localVarCall =
-        readNamespacedResourceQuotaValidateBeforeCall(name, namespace, pretty, exact, export, null);
+        readNamespacedResourceQuotaValidateBeforeCall(name, namespace, pretty, null);
     Type localVarReturnType = new TypeToken<V1ResourceQuota>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -48548,10 +48560,6 @@ public class CoreV1Api {
    * @param name name of the ResourceQuota (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -48563,17 +48571,11 @@ public class CoreV1Api {
    * </table>
    */
   public okhttp3.Call readNamespacedResourceQuotaAsync(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback<V1ResourceQuota> _callback)
+      String name, String namespace, String pretty, final ApiCallback<V1ResourceQuota> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
-        readNamespacedResourceQuotaValidateBeforeCall(
-            name, namespace, pretty, exact, export, _callback);
+        readNamespacedResourceQuotaValidateBeforeCall(name, namespace, pretty, _callback);
     Type localVarReturnType = new TypeToken<V1ResourceQuota>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -48744,10 +48746,6 @@ public class CoreV1Api {
    * @param name name of the Secret (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -48759,12 +48757,7 @@ public class CoreV1Api {
    * </table>
    */
   public okhttp3.Call readNamespacedSecretCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -48779,14 +48772,6 @@ public class CoreV1Api {
     List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
     if (pretty != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
-    }
-
-    if (exact != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("exact", exact));
-    }
-
-    if (export != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("export", export));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -48822,12 +48807,7 @@ public class CoreV1Api {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call readNamespacedSecretValidateBeforeCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
 
     // verify the required parameter 'name' is set
@@ -48842,8 +48822,7 @@ public class CoreV1Api {
           "Missing the required parameter 'namespace' when calling readNamespacedSecret(Async)");
     }
 
-    okhttp3.Call localVarCall =
-        readNamespacedSecretCall(name, namespace, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readNamespacedSecretCall(name, namespace, pretty, _callback);
     return localVarCall;
   }
 
@@ -48853,10 +48832,6 @@ public class CoreV1Api {
    * @param name name of the Secret (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return V1Secret
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -48867,11 +48842,9 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1Secret readNamespacedSecret(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
+  public V1Secret readNamespacedSecret(String name, String namespace, String pretty)
       throws ApiException {
-    ApiResponse<V1Secret> localVarResp =
-        readNamespacedSecretWithHttpInfo(name, namespace, pretty, exact, export);
+    ApiResponse<V1Secret> localVarResp = readNamespacedSecretWithHttpInfo(name, namespace, pretty);
     return localVarResp.getData();
   }
 
@@ -48881,10 +48854,6 @@ public class CoreV1Api {
    * @param name name of the Secret (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return ApiResponse&lt;V1Secret&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -48896,10 +48865,9 @@ public class CoreV1Api {
    * </table>
    */
   public ApiResponse<V1Secret> readNamespacedSecretWithHttpInfo(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
-      throws ApiException {
+      String name, String namespace, String pretty) throws ApiException {
     okhttp3.Call localVarCall =
-        readNamespacedSecretValidateBeforeCall(name, namespace, pretty, exact, export, null);
+        readNamespacedSecretValidateBeforeCall(name, namespace, pretty, null);
     Type localVarReturnType = new TypeToken<V1Secret>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -48910,10 +48878,6 @@ public class CoreV1Api {
    * @param name name of the Secret (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -48925,16 +48889,11 @@ public class CoreV1Api {
    * </table>
    */
   public okhttp3.Call readNamespacedSecretAsync(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback<V1Secret> _callback)
+      String name, String namespace, String pretty, final ApiCallback<V1Secret> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
-        readNamespacedSecretValidateBeforeCall(name, namespace, pretty, exact, export, _callback);
+        readNamespacedSecretValidateBeforeCall(name, namespace, pretty, _callback);
     Type localVarReturnType = new TypeToken<V1Secret>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -48945,10 +48904,6 @@ public class CoreV1Api {
    * @param name name of the Service (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -48960,12 +48915,7 @@ public class CoreV1Api {
    * </table>
    */
   public okhttp3.Call readNamespacedServiceCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -48980,14 +48930,6 @@ public class CoreV1Api {
     List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
     if (pretty != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
-    }
-
-    if (exact != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("exact", exact));
-    }
-
-    if (export != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("export", export));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -49023,12 +48965,7 @@ public class CoreV1Api {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call readNamespacedServiceValidateBeforeCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
 
     // verify the required parameter 'name' is set
@@ -49043,8 +48980,7 @@ public class CoreV1Api {
           "Missing the required parameter 'namespace' when calling readNamespacedService(Async)");
     }
 
-    okhttp3.Call localVarCall =
-        readNamespacedServiceCall(name, namespace, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readNamespacedServiceCall(name, namespace, pretty, _callback);
     return localVarCall;
   }
 
@@ -49054,10 +48990,6 @@ public class CoreV1Api {
    * @param name name of the Service (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return V1Service
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -49068,11 +49000,10 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1Service readNamespacedService(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
+  public V1Service readNamespacedService(String name, String namespace, String pretty)
       throws ApiException {
     ApiResponse<V1Service> localVarResp =
-        readNamespacedServiceWithHttpInfo(name, namespace, pretty, exact, export);
+        readNamespacedServiceWithHttpInfo(name, namespace, pretty);
     return localVarResp.getData();
   }
 
@@ -49082,10 +49013,6 @@ public class CoreV1Api {
    * @param name name of the Service (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return ApiResponse&lt;V1Service&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -49097,10 +49024,9 @@ public class CoreV1Api {
    * </table>
    */
   public ApiResponse<V1Service> readNamespacedServiceWithHttpInfo(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
-      throws ApiException {
+      String name, String namespace, String pretty) throws ApiException {
     okhttp3.Call localVarCall =
-        readNamespacedServiceValidateBeforeCall(name, namespace, pretty, exact, export, null);
+        readNamespacedServiceValidateBeforeCall(name, namespace, pretty, null);
     Type localVarReturnType = new TypeToken<V1Service>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -49111,10 +49037,6 @@ public class CoreV1Api {
    * @param name name of the Service (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -49126,16 +49048,11 @@ public class CoreV1Api {
    * </table>
    */
   public okhttp3.Call readNamespacedServiceAsync(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback<V1Service> _callback)
+      String name, String namespace, String pretty, final ApiCallback<V1Service> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
-        readNamespacedServiceValidateBeforeCall(name, namespace, pretty, exact, export, _callback);
+        readNamespacedServiceValidateBeforeCall(name, namespace, pretty, _callback);
     Type localVarReturnType = new TypeToken<V1Service>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -49146,10 +49063,6 @@ public class CoreV1Api {
    * @param name name of the ServiceAccount (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -49161,12 +49074,7 @@ public class CoreV1Api {
    * </table>
    */
   public okhttp3.Call readNamespacedServiceAccountCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -49181,14 +49089,6 @@ public class CoreV1Api {
     List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
     if (pretty != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
-    }
-
-    if (exact != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("exact", exact));
-    }
-
-    if (export != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("export", export));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -49224,12 +49124,7 @@ public class CoreV1Api {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call readNamespacedServiceAccountValidateBeforeCall(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback _callback)
+      String name, String namespace, String pretty, final ApiCallback _callback)
       throws ApiException {
 
     // verify the required parameter 'name' is set
@@ -49245,7 +49140,7 @@ public class CoreV1Api {
     }
 
     okhttp3.Call localVarCall =
-        readNamespacedServiceAccountCall(name, namespace, pretty, exact, export, _callback);
+        readNamespacedServiceAccountCall(name, namespace, pretty, _callback);
     return localVarCall;
   }
 
@@ -49255,10 +49150,6 @@ public class CoreV1Api {
    * @param name name of the ServiceAccount (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return V1ServiceAccount
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -49269,11 +49160,10 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1ServiceAccount readNamespacedServiceAccount(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
+  public V1ServiceAccount readNamespacedServiceAccount(String name, String namespace, String pretty)
       throws ApiException {
     ApiResponse<V1ServiceAccount> localVarResp =
-        readNamespacedServiceAccountWithHttpInfo(name, namespace, pretty, exact, export);
+        readNamespacedServiceAccountWithHttpInfo(name, namespace, pretty);
     return localVarResp.getData();
   }
 
@@ -49283,10 +49173,6 @@ public class CoreV1Api {
    * @param name name of the ServiceAccount (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return ApiResponse&lt;V1ServiceAccount&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -49298,11 +49184,9 @@ public class CoreV1Api {
    * </table>
    */
   public ApiResponse<V1ServiceAccount> readNamespacedServiceAccountWithHttpInfo(
-      String name, String namespace, String pretty, Boolean exact, Boolean export)
-      throws ApiException {
+      String name, String namespace, String pretty) throws ApiException {
     okhttp3.Call localVarCall =
-        readNamespacedServiceAccountValidateBeforeCall(
-            name, namespace, pretty, exact, export, null);
+        readNamespacedServiceAccountValidateBeforeCall(name, namespace, pretty, null);
     Type localVarReturnType = new TypeToken<V1ServiceAccount>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -49313,10 +49197,6 @@ public class CoreV1Api {
    * @param name name of the ServiceAccount (required)
    * @param namespace object name and auth scope, such as for teams and projects (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -49328,17 +49208,11 @@ public class CoreV1Api {
    * </table>
    */
   public okhttp3.Call readNamespacedServiceAccountAsync(
-      String name,
-      String namespace,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback<V1ServiceAccount> _callback)
+      String name, String namespace, String pretty, final ApiCallback<V1ServiceAccount> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
-        readNamespacedServiceAccountValidateBeforeCall(
-            name, namespace, pretty, exact, export, _callback);
+        readNamespacedServiceAccountValidateBeforeCall(name, namespace, pretty, _callback);
     Type localVarReturnType = new TypeToken<V1ServiceAccount>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -49507,10 +49381,6 @@ public class CoreV1Api {
    *
    * @param name name of the Node (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -49521,8 +49391,7 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call readNodeCall(
-      String name, String pretty, Boolean exact, Boolean export, final ApiCallback _callback)
+  public okhttp3.Call readNodeCall(String name, String pretty, final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -49535,14 +49404,6 @@ public class CoreV1Api {
     List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
     if (pretty != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
-    }
-
-    if (exact != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("exact", exact));
-    }
-
-    if (export != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("export", export));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -49578,15 +49439,14 @@ public class CoreV1Api {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call readNodeValidateBeforeCall(
-      String name, String pretty, Boolean exact, Boolean export, final ApiCallback _callback)
-      throws ApiException {
+      String name, String pretty, final ApiCallback _callback) throws ApiException {
 
     // verify the required parameter 'name' is set
     if (name == null) {
       throw new ApiException("Missing the required parameter 'name' when calling readNode(Async)");
     }
 
-    okhttp3.Call localVarCall = readNodeCall(name, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readNodeCall(name, pretty, _callback);
     return localVarCall;
   }
 
@@ -49595,10 +49455,6 @@ public class CoreV1Api {
    *
    * @param name name of the Node (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return V1Node
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -49609,9 +49465,8 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1Node readNode(String name, String pretty, Boolean exact, Boolean export)
-      throws ApiException {
-    ApiResponse<V1Node> localVarResp = readNodeWithHttpInfo(name, pretty, exact, export);
+  public V1Node readNode(String name, String pretty) throws ApiException {
+    ApiResponse<V1Node> localVarResp = readNodeWithHttpInfo(name, pretty);
     return localVarResp.getData();
   }
 
@@ -49620,10 +49475,6 @@ public class CoreV1Api {
    *
    * @param name name of the Node (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return ApiResponse&lt;V1Node&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -49634,9 +49485,8 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<V1Node> readNodeWithHttpInfo(
-      String name, String pretty, Boolean exact, Boolean export) throws ApiException {
-    okhttp3.Call localVarCall = readNodeValidateBeforeCall(name, pretty, exact, export, null);
+  public ApiResponse<V1Node> readNodeWithHttpInfo(String name, String pretty) throws ApiException {
+    okhttp3.Call localVarCall = readNodeValidateBeforeCall(name, pretty, null);
     Type localVarReturnType = new TypeToken<V1Node>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -49646,10 +49496,6 @@ public class CoreV1Api {
    *
    * @param name name of the Node (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -49660,15 +49506,10 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call readNodeAsync(
-      String name,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback<V1Node> _callback)
+  public okhttp3.Call readNodeAsync(String name, String pretty, final ApiCallback<V1Node> _callback)
       throws ApiException {
 
-    okhttp3.Call localVarCall = readNodeValidateBeforeCall(name, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readNodeValidateBeforeCall(name, pretty, _callback);
     Type localVarReturnType = new TypeToken<V1Node>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -49818,10 +49659,6 @@ public class CoreV1Api {
    *
    * @param name name of the PersistentVolume (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -49833,8 +49670,7 @@ public class CoreV1Api {
    * </table>
    */
   public okhttp3.Call readPersistentVolumeCall(
-      String name, String pretty, Boolean exact, Boolean export, final ApiCallback _callback)
-      throws ApiException {
+      String name, String pretty, final ApiCallback _callback) throws ApiException {
     Object localVarPostBody = null;
 
     // create path and map variables
@@ -49846,14 +49682,6 @@ public class CoreV1Api {
     List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
     if (pretty != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
-    }
-
-    if (exact != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("exact", exact));
-    }
-
-    if (export != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("export", export));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -49889,8 +49717,7 @@ public class CoreV1Api {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call readPersistentVolumeValidateBeforeCall(
-      String name, String pretty, Boolean exact, Boolean export, final ApiCallback _callback)
-      throws ApiException {
+      String name, String pretty, final ApiCallback _callback) throws ApiException {
 
     // verify the required parameter 'name' is set
     if (name == null) {
@@ -49898,7 +49725,7 @@ public class CoreV1Api {
           "Missing the required parameter 'name' when calling readPersistentVolume(Async)");
     }
 
-    okhttp3.Call localVarCall = readPersistentVolumeCall(name, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readPersistentVolumeCall(name, pretty, _callback);
     return localVarCall;
   }
 
@@ -49907,10 +49734,6 @@ public class CoreV1Api {
    *
    * @param name name of the PersistentVolume (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return V1PersistentVolume
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -49921,10 +49744,8 @@ public class CoreV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1PersistentVolume readPersistentVolume(
-      String name, String pretty, Boolean exact, Boolean export) throws ApiException {
-    ApiResponse<V1PersistentVolume> localVarResp =
-        readPersistentVolumeWithHttpInfo(name, pretty, exact, export);
+  public V1PersistentVolume readPersistentVolume(String name, String pretty) throws ApiException {
+    ApiResponse<V1PersistentVolume> localVarResp = readPersistentVolumeWithHttpInfo(name, pretty);
     return localVarResp.getData();
   }
 
@@ -49933,10 +49754,6 @@ public class CoreV1Api {
    *
    * @param name name of the PersistentVolume (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return ApiResponse&lt;V1PersistentVolume&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -49948,9 +49765,8 @@ public class CoreV1Api {
    * </table>
    */
   public ApiResponse<V1PersistentVolume> readPersistentVolumeWithHttpInfo(
-      String name, String pretty, Boolean exact, Boolean export) throws ApiException {
-    okhttp3.Call localVarCall =
-        readPersistentVolumeValidateBeforeCall(name, pretty, exact, export, null);
+      String name, String pretty) throws ApiException {
+    okhttp3.Call localVarCall = readPersistentVolumeValidateBeforeCall(name, pretty, null);
     Type localVarReturnType = new TypeToken<V1PersistentVolume>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -49960,10 +49776,6 @@ public class CoreV1Api {
    *
    * @param name name of the PersistentVolume (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -49975,15 +49787,10 @@ public class CoreV1Api {
    * </table>
    */
   public okhttp3.Call readPersistentVolumeAsync(
-      String name,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback<V1PersistentVolume> _callback)
+      String name, String pretty, final ApiCallback<V1PersistentVolume> _callback)
       throws ApiException {
 
-    okhttp3.Call localVarCall =
-        readPersistentVolumeValidateBeforeCall(name, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readPersistentVolumeValidateBeforeCall(name, pretty, _callback);
     Type localVarReturnType = new TypeToken<V1PersistentVolume>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -52427,6 +52234,236 @@ public class CoreV1Api {
 
     okhttp3.Call localVarCall =
         replaceNamespacedPodValidateBeforeCall(
+            name, namespace, body, pretty, dryRun, fieldManager, _callback);
+    Type localVarReturnType = new TypeToken<V1Pod>() {}.getType();
+    localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+    return localVarCall;
+  }
+  /**
+   * Build call for replaceNamespacedPodEphemeralcontainers
+   *
+   * @param name name of the Pod (required)
+   * @param namespace object name and auth scope, such as for teams and projects (required)
+   * @param body (required)
+   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @param dryRun When present, indicates that modifications should not be persisted. An invalid or
+   *     unrecognized dryRun directive will result in an error response and no further processing of
+   *     the request. Valid values are: - All: all dry run stages will be processed (optional)
+   * @param fieldManager fieldManager is a name associated with the actor or entity that is making
+   *     these changes. The value must be less than or 128 characters long, and only contain
+   *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param _callback Callback for upload/download progress
+   * @return Call to execute
+   * @throws ApiException If fail to serialize the request body object
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call replaceNamespacedPodEphemeralcontainersCall(
+      String name,
+      String namespace,
+      V1Pod body,
+      String pretty,
+      String dryRun,
+      String fieldManager,
+      final ApiCallback _callback)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/namespaces/{namespace}/pods/{name}/ephemeralcontainers"
+            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
+            .replaceAll(
+                "\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    if (pretty != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+    }
+
+    if (dryRun != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
+    }
+
+    if (fieldManager != null) {
+      localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+    }
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+    final String[] localVarAccepts = {
+      "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+    };
+    final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+    if (localVarAccept != null) {
+      localVarHeaderParams.put("Accept", localVarAccept);
+    }
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType =
+        localVarApiClient.selectHeaderContentType(localVarContentTypes);
+    localVarHeaderParams.put("Content-Type", localVarContentType);
+
+    String[] localVarAuthNames = new String[] {"BearerToken"};
+    return localVarApiClient.buildCall(
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAuthNames,
+        _callback);
+  }
+
+  @SuppressWarnings("rawtypes")
+  private okhttp3.Call replaceNamespacedPodEphemeralcontainersValidateBeforeCall(
+      String name,
+      String namespace,
+      V1Pod body,
+      String pretty,
+      String dryRun,
+      String fieldManager,
+      final ApiCallback _callback)
+      throws ApiException {
+
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(
+          "Missing the required parameter 'name' when calling replaceNamespacedPodEphemeralcontainers(Async)");
+    }
+
+    // verify the required parameter 'namespace' is set
+    if (namespace == null) {
+      throw new ApiException(
+          "Missing the required parameter 'namespace' when calling replaceNamespacedPodEphemeralcontainers(Async)");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          "Missing the required parameter 'body' when calling replaceNamespacedPodEphemeralcontainers(Async)");
+    }
+
+    okhttp3.Call localVarCall =
+        replaceNamespacedPodEphemeralcontainersCall(
+            name, namespace, body, pretty, dryRun, fieldManager, _callback);
+    return localVarCall;
+  }
+
+  /**
+   * replace ephemeralcontainers of the specified Pod
+   *
+   * @param name name of the Pod (required)
+   * @param namespace object name and auth scope, such as for teams and projects (required)
+   * @param body (required)
+   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @param dryRun When present, indicates that modifications should not be persisted. An invalid or
+   *     unrecognized dryRun directive will result in an error response and no further processing of
+   *     the request. Valid values are: - All: all dry run stages will be processed (optional)
+   * @param fieldManager fieldManager is a name associated with the actor or entity that is making
+   *     these changes. The value must be less than or 128 characters long, and only contain
+   *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @return V1Pod
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   * </table>
+   */
+  public V1Pod replaceNamespacedPodEphemeralcontainers(
+      String name, String namespace, V1Pod body, String pretty, String dryRun, String fieldManager)
+      throws ApiException {
+    ApiResponse<V1Pod> localVarResp =
+        replaceNamespacedPodEphemeralcontainersWithHttpInfo(
+            name, namespace, body, pretty, dryRun, fieldManager);
+    return localVarResp.getData();
+  }
+
+  /**
+   * replace ephemeralcontainers of the specified Pod
+   *
+   * @param name name of the Pod (required)
+   * @param namespace object name and auth scope, such as for teams and projects (required)
+   * @param body (required)
+   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @param dryRun When present, indicates that modifications should not be persisted. An invalid or
+   *     unrecognized dryRun directive will result in an error response and no further processing of
+   *     the request. Valid values are: - All: all dry run stages will be processed (optional)
+   * @param fieldManager fieldManager is a name associated with the actor or entity that is making
+   *     these changes. The value must be less than or 128 characters long, and only contain
+   *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @return ApiResponse&lt;V1Pod&gt;
+   * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+   *     response body
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   * </table>
+   */
+  public ApiResponse<V1Pod> replaceNamespacedPodEphemeralcontainersWithHttpInfo(
+      String name, String namespace, V1Pod body, String pretty, String dryRun, String fieldManager)
+      throws ApiException {
+    okhttp3.Call localVarCall =
+        replaceNamespacedPodEphemeralcontainersValidateBeforeCall(
+            name, namespace, body, pretty, dryRun, fieldManager, null);
+    Type localVarReturnType = new TypeToken<V1Pod>() {}.getType();
+    return localVarApiClient.execute(localVarCall, localVarReturnType);
+  }
+
+  /**
+   * (asynchronously) replace ephemeralcontainers of the specified Pod
+   *
+   * @param name name of the Pod (required)
+   * @param namespace object name and auth scope, such as for teams and projects (required)
+   * @param body (required)
+   * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @param dryRun When present, indicates that modifications should not be persisted. An invalid or
+   *     unrecognized dryRun directive will result in an error response and no further processing of
+   *     the request. Valid values are: - All: all dry run stages will be processed (optional)
+   * @param fieldManager fieldManager is a name associated with the actor or entity that is making
+   *     these changes. The value must be less than or 128 characters long, and only contain
+   *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param _callback The callback to be executed when the API call finishes
+   * @return The request call
+   * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   * </table>
+   */
+  public okhttp3.Call replaceNamespacedPodEphemeralcontainersAsync(
+      String name,
+      String namespace,
+      V1Pod body,
+      String pretty,
+      String dryRun,
+      String fieldManager,
+      final ApiCallback<V1Pod> _callback)
+      throws ApiException {
+
+    okhttp3.Call localVarCall =
+        replaceNamespacedPodEphemeralcontainersValidateBeforeCall(
             name, namespace, body, pretty, dryRun, fieldManager, _callback);
     Type localVarReturnType = new TypeToken<V1Pod>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);

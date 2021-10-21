@@ -6,17 +6,18 @@ import io.kubernetes.client.fluent.Fluent;
 import java.lang.String;
 import java.lang.Boolean;
 
-public interface V1LocalObjectReferenceFluent<A extends io.kubernetes.client.openapi.models.V1LocalObjectReferenceFluent<A>> extends io.kubernetes.client.fluent.Fluent<A> {
-
-
-    public java.lang.String getName();
-    public A withName(java.lang.String name);
-    public java.lang.Boolean hasName();
-    
-    @java.lang.Deprecated
-        
-    /**
-     * Method is deprecated. use withName instead.
-     */
-        public A withNewName(java.lang.String original);
+ /**
+  * Generated
+  */
+public interface V1LocalObjectReferenceFluent<A extends io.kubernetes.client.openapi.models.V1LocalObjectReferenceFluent<A>> extends io.kubernetes.client.fluent.Fluent<A>{
+  public java.lang.String getName();
+  public A withName(java.lang.String name);
+  public java.lang.Boolean hasName();
+  
+  /**
+   * Method is deprecated. use withName instead.
+   */
+  @java.lang.Deprecated
+  public A withNewName(java.lang.String original);
+  
 }

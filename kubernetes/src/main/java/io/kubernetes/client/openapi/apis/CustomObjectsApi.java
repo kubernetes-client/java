@@ -3153,6 +3153,12 @@ public class CustomObjectsApi {
    * @param plural The custom resource&#39;s plural name. For TPRs this would be lowercase plural
    *     kind. (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type
+   *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
+   *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
+   *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
+   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
+   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -3194,6 +3200,11 @@ public class CustomObjectsApi {
    *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
    *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
    *     (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -3213,11 +3224,13 @@ public class CustomObjectsApi {
       String version,
       String plural,
       String pretty,
+      Boolean allowWatchBookmarks,
       String _continue,
       String fieldSelector,
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -3239,6 +3252,11 @@ public class CustomObjectsApi {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
     }
 
+    if (allowWatchBookmarks != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("allowWatchBookmarks", allowWatchBookmarks));
+    }
+
     if (_continue != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("continue", _continue));
     }
@@ -3258,6 +3276,11 @@ public class CustomObjectsApi {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -3304,11 +3327,13 @@ public class CustomObjectsApi {
       String version,
       String plural,
       String pretty,
+      Boolean allowWatchBookmarks,
       String _continue,
       String fieldSelector,
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -3338,11 +3363,13 @@ public class CustomObjectsApi {
             version,
             plural,
             pretty,
+            allowWatchBookmarks,
             _continue,
             fieldSelector,
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -3357,6 +3384,12 @@ public class CustomObjectsApi {
    * @param plural The custom resource&#39;s plural name. For TPRs this would be lowercase plural
    *     kind. (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type
+   *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
+   *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
+   *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
+   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
+   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -3398,6 +3431,11 @@ public class CustomObjectsApi {
    *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
    *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
    *     (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -3417,11 +3455,13 @@ public class CustomObjectsApi {
       String version,
       String plural,
       String pretty,
+      Boolean allowWatchBookmarks,
       String _continue,
       String fieldSelector,
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -3431,11 +3471,13 @@ public class CustomObjectsApi {
             version,
             plural,
             pretty,
+            allowWatchBookmarks,
             _continue,
             fieldSelector,
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -3449,6 +3491,12 @@ public class CustomObjectsApi {
    * @param plural The custom resource&#39;s plural name. For TPRs this would be lowercase plural
    *     kind. (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type
+   *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
+   *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
+   *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
+   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
+   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -3490,6 +3538,11 @@ public class CustomObjectsApi {
    *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
    *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
    *     (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -3509,11 +3562,13 @@ public class CustomObjectsApi {
       String version,
       String plural,
       String pretty,
+      Boolean allowWatchBookmarks,
       String _continue,
       String fieldSelector,
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -3523,11 +3578,13 @@ public class CustomObjectsApi {
             version,
             plural,
             pretty,
+            allowWatchBookmarks,
             _continue,
             fieldSelector,
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -3543,6 +3600,12 @@ public class CustomObjectsApi {
    * @param plural The custom resource&#39;s plural name. For TPRs this would be lowercase plural
    *     kind. (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type
+   *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
+   *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
+   *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
+   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
+   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -3584,6 +3647,11 @@ public class CustomObjectsApi {
    *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
    *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
    *     (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -3603,11 +3671,13 @@ public class CustomObjectsApi {
       String version,
       String plural,
       String pretty,
+      Boolean allowWatchBookmarks,
       String _continue,
       String fieldSelector,
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<Object> _callback)
@@ -3619,11 +3689,13 @@ public class CustomObjectsApi {
             version,
             plural,
             pretty,
+            allowWatchBookmarks,
             _continue,
             fieldSelector,
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -3640,6 +3712,12 @@ public class CustomObjectsApi {
    * @param plural The custom resource&#39;s plural name. For TPRs this would be lowercase plural
    *     kind. (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type
+   *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
+   *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
+   *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
+   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
+   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -3681,6 +3759,11 @@ public class CustomObjectsApi {
    *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
    *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
    *     (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -3701,11 +3784,13 @@ public class CustomObjectsApi {
       String namespace,
       String plural,
       String pretty,
+      Boolean allowWatchBookmarks,
       String _continue,
       String fieldSelector,
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -3729,6 +3814,11 @@ public class CustomObjectsApi {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
     }
 
+    if (allowWatchBookmarks != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("allowWatchBookmarks", allowWatchBookmarks));
+    }
+
     if (_continue != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("continue", _continue));
     }
@@ -3748,6 +3838,11 @@ public class CustomObjectsApi {
     if (resourceVersion != null) {
       localVarQueryParams.addAll(
           localVarApiClient.parameterToPair("resourceVersion", resourceVersion));
+    }
+
+    if (resourceVersionMatch != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("resourceVersionMatch", resourceVersionMatch));
     }
 
     if (timeoutSeconds != null) {
@@ -3795,11 +3890,13 @@ public class CustomObjectsApi {
       String namespace,
       String plural,
       String pretty,
+      Boolean allowWatchBookmarks,
       String _continue,
       String fieldSelector,
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback _callback)
@@ -3836,11 +3933,13 @@ public class CustomObjectsApi {
             namespace,
             plural,
             pretty,
+            allowWatchBookmarks,
             _continue,
             fieldSelector,
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);
@@ -3856,6 +3955,12 @@ public class CustomObjectsApi {
    * @param plural The custom resource&#39;s plural name. For TPRs this would be lowercase plural
    *     kind. (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type
+   *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
+   *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
+   *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
+   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
+   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -3897,6 +4002,11 @@ public class CustomObjectsApi {
    *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
    *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
    *     (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -3917,11 +4027,13 @@ public class CustomObjectsApi {
       String namespace,
       String plural,
       String pretty,
+      Boolean allowWatchBookmarks,
       String _continue,
       String fieldSelector,
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -3932,11 +4044,13 @@ public class CustomObjectsApi {
             namespace,
             plural,
             pretty,
+            allowWatchBookmarks,
             _continue,
             fieldSelector,
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch);
     return localVarResp.getData();
@@ -3951,6 +4065,12 @@ public class CustomObjectsApi {
    * @param plural The custom resource&#39;s plural name. For TPRs this would be lowercase plural
    *     kind. (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type
+   *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
+   *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
+   *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
+   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
+   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -3992,6 +4112,11 @@ public class CustomObjectsApi {
    *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
    *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
    *     (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -4012,11 +4137,13 @@ public class CustomObjectsApi {
       String namespace,
       String plural,
       String pretty,
+      Boolean allowWatchBookmarks,
       String _continue,
       String fieldSelector,
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch)
       throws ApiException {
@@ -4027,11 +4154,13 @@ public class CustomObjectsApi {
             namespace,
             plural,
             pretty,
+            allowWatchBookmarks,
             _continue,
             fieldSelector,
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             null);
@@ -4048,6 +4177,12 @@ public class CustomObjectsApi {
    * @param plural The custom resource&#39;s plural name. For TPRs this would be lowercase plural
    *     kind. (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+   * @param allowWatchBookmarks allowWatchBookmarks requests watch events with type
+   *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
+   *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
+   *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
+   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
+   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -4089,6 +4224,11 @@ public class CustomObjectsApi {
    *     quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache,
    *     no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
    *     (optional)
+   * @param resourceVersionMatch resourceVersionMatch determines how resourceVersion is applied to
+   *     list calls. It is highly recommended that resourceVersionMatch be set for list calls where
+   *     resourceVersion is set See
+   *     https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
+   *     Defaults to unset (optional)
    * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call,
    *     regardless of any activity or inactivity. (optional)
    * @param watch Watch for changes to the described resources and return them as a stream of add,
@@ -4109,11 +4249,13 @@ public class CustomObjectsApi {
       String namespace,
       String plural,
       String pretty,
+      Boolean allowWatchBookmarks,
       String _continue,
       String fieldSelector,
       String labelSelector,
       Integer limit,
       String resourceVersion,
+      String resourceVersionMatch,
       Integer timeoutSeconds,
       Boolean watch,
       final ApiCallback<Object> _callback)
@@ -4126,11 +4268,13 @@ public class CustomObjectsApi {
             namespace,
             plural,
             pretty,
+            allowWatchBookmarks,
             _continue,
             fieldSelector,
             labelSelector,
             limit,
             resourceVersion,
+            resourceVersionMatch,
             timeoutSeconds,
             watch,
             _callback);

@@ -58,7 +58,7 @@ public class LeaseLock implements Lock {
 
   @Override
   public LeaderElectionRecord get() throws ApiException {
-    V1Lease lease = coordinationV1Api.readNamespacedLease(name, namespace, null, null, null);
+    V1Lease lease = coordinationV1Api.readNamespacedLease(name, namespace, null);
     leaseRefer.set(lease);
     return getRecordFromLease(lease.getSpec());
   }

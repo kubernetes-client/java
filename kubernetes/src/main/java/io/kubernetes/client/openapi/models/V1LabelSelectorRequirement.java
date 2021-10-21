@@ -28,7 +28,7 @@ import java.util.Objects;
         "A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1LabelSelectorRequirement {
   public static final String SERIALIZED_NAME_KEY = "key";
 

@@ -1250,8 +1250,7 @@ public class CertificatesV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -1448,8 +1447,7 @@ public class CertificatesV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -1543,8 +1541,7 @@ public class CertificatesV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -1640,8 +1637,7 @@ public class CertificatesV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -1755,6 +1751,7 @@ public class CertificatesV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -1880,6 +1877,7 @@ public class CertificatesV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -1915,6 +1913,7 @@ public class CertificatesV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -1952,6 +1951,7 @@ public class CertificatesV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -1996,6 +1996,7 @@ public class CertificatesV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -2121,6 +2122,7 @@ public class CertificatesV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -2157,6 +2159,7 @@ public class CertificatesV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -2200,6 +2203,7 @@ public class CertificatesV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -2244,6 +2248,7 @@ public class CertificatesV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -2369,6 +2374,7 @@ public class CertificatesV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -2405,6 +2411,7 @@ public class CertificatesV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -2442,6 +2449,7 @@ public class CertificatesV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -2467,10 +2475,6 @@ public class CertificatesV1Api {
    *
    * @param name name of the CertificateSigningRequest (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -2482,8 +2486,7 @@ public class CertificatesV1Api {
    * </table>
    */
   public okhttp3.Call readCertificateSigningRequestCall(
-      String name, String pretty, Boolean exact, Boolean export, final ApiCallback _callback)
-      throws ApiException {
+      String name, String pretty, final ApiCallback _callback) throws ApiException {
     Object localVarPostBody = null;
 
     // create path and map variables
@@ -2495,14 +2498,6 @@ public class CertificatesV1Api {
     List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
     if (pretty != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
-    }
-
-    if (exact != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("exact", exact));
-    }
-
-    if (export != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("export", export));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -2538,8 +2533,7 @@ public class CertificatesV1Api {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call readCertificateSigningRequestValidateBeforeCall(
-      String name, String pretty, Boolean exact, Boolean export, final ApiCallback _callback)
-      throws ApiException {
+      String name, String pretty, final ApiCallback _callback) throws ApiException {
 
     // verify the required parameter 'name' is set
     if (name == null) {
@@ -2547,8 +2541,7 @@ public class CertificatesV1Api {
           "Missing the required parameter 'name' when calling readCertificateSigningRequest(Async)");
     }
 
-    okhttp3.Call localVarCall =
-        readCertificateSigningRequestCall(name, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readCertificateSigningRequestCall(name, pretty, _callback);
     return localVarCall;
   }
 
@@ -2557,10 +2550,6 @@ public class CertificatesV1Api {
    *
    * @param name name of the CertificateSigningRequest (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return V1CertificateSigningRequest
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -2571,10 +2560,10 @@ public class CertificatesV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1CertificateSigningRequest readCertificateSigningRequest(
-      String name, String pretty, Boolean exact, Boolean export) throws ApiException {
+  public V1CertificateSigningRequest readCertificateSigningRequest(String name, String pretty)
+      throws ApiException {
     ApiResponse<V1CertificateSigningRequest> localVarResp =
-        readCertificateSigningRequestWithHttpInfo(name, pretty, exact, export);
+        readCertificateSigningRequestWithHttpInfo(name, pretty);
     return localVarResp.getData();
   }
 
@@ -2583,10 +2572,6 @@ public class CertificatesV1Api {
    *
    * @param name name of the CertificateSigningRequest (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return ApiResponse&lt;V1CertificateSigningRequest&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -2598,9 +2583,8 @@ public class CertificatesV1Api {
    * </table>
    */
   public ApiResponse<V1CertificateSigningRequest> readCertificateSigningRequestWithHttpInfo(
-      String name, String pretty, Boolean exact, Boolean export) throws ApiException {
-    okhttp3.Call localVarCall =
-        readCertificateSigningRequestValidateBeforeCall(name, pretty, exact, export, null);
+      String name, String pretty) throws ApiException {
+    okhttp3.Call localVarCall = readCertificateSigningRequestValidateBeforeCall(name, pretty, null);
     Type localVarReturnType = new TypeToken<V1CertificateSigningRequest>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -2610,10 +2594,6 @@ public class CertificatesV1Api {
    *
    * @param name name of the CertificateSigningRequest (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2625,15 +2605,11 @@ public class CertificatesV1Api {
    * </table>
    */
   public okhttp3.Call readCertificateSigningRequestAsync(
-      String name,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback<V1CertificateSigningRequest> _callback)
+      String name, String pretty, final ApiCallback<V1CertificateSigningRequest> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
-        readCertificateSigningRequestValidateBeforeCall(name, pretty, exact, export, _callback);
+        readCertificateSigningRequestValidateBeforeCall(name, pretty, _callback);
     Type localVarReturnType = new TypeToken<V1CertificateSigningRequest>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;

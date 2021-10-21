@@ -16,7 +16,9 @@ import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -29,8 +31,13 @@ import java.util.Objects;
         "PodDisruptionBudgetStatus represents information about the status of a PodDisruptionBudget. Status may trail the actual state of a system.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1beta1PodDisruptionBudgetStatus {
+  public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
+
+  @SerializedName(SERIALIZED_NAME_CONDITIONS)
+  private List<V1Condition> conditions = null;
+
   public static final String SERIALIZED_NAME_CURRENT_HEALTHY = "currentHealthy";
 
   @SerializedName(SERIALIZED_NAME_CURRENT_HEALTHY)
@@ -60,6 +67,45 @@ public class V1beta1PodDisruptionBudgetStatus {
 
   @SerializedName(SERIALIZED_NAME_OBSERVED_GENERATION)
   private Long observedGeneration;
+
+  public V1beta1PodDisruptionBudgetStatus conditions(List<V1Condition> conditions) {
+
+    this.conditions = conditions;
+    return this;
+  }
+
+  public V1beta1PodDisruptionBudgetStatus addConditionsItem(V1Condition conditionsItem) {
+    if (this.conditions == null) {
+      this.conditions = new ArrayList<>();
+    }
+    this.conditions.add(conditionsItem);
+    return this;
+  }
+
+  /**
+   * Conditions contain conditions for PDB. The disruption controller sets the DisruptionAllowed
+   * condition. The following are known values for the reason field (additional reasons could be
+   * added in the future): - SyncFailed: The controller encountered an error and wasn&#39;t able to
+   * compute the number of allowed disruptions. Therefore no disruptions are allowed and the status
+   * of the condition will be False. - InsufficientPods: The number of pods are either at or below
+   * the number required by the PodDisruptionBudget. No disruptions are allowed and the status of
+   * the condition will be False. - SufficientPods: There are more pods than required by the
+   * PodDisruptionBudget. The condition will be True, and the number of allowed disruptions are
+   * provided by the disruptionsAllowed property.
+   *
+   * @return conditions
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Conditions contain conditions for PDB. The disruption controller sets the DisruptionAllowed condition. The following are known values for the reason field (additional reasons could be added in the future): - SyncFailed: The controller encountered an error and wasn't able to compute               the number of allowed disruptions. Therefore no disruptions are               allowed and the status of the condition will be False. - InsufficientPods: The number of pods are either at or below the number                     required by the PodDisruptionBudget. No disruptions are                     allowed and the status of the condition will be False. - SufficientPods: There are more pods than required by the PodDisruptionBudget.                   The condition will be True, and the number of allowed                   disruptions are provided by the disruptionsAllowed property.")
+  public List<V1Condition> getConditions() {
+    return conditions;
+  }
+
+  public void setConditions(List<V1Condition> conditions) {
+    this.conditions = conditions;
+  }
 
   public V1beta1PodDisruptionBudgetStatus currentHealthy(Integer currentHealthy) {
 
@@ -219,7 +265,8 @@ public class V1beta1PodDisruptionBudgetStatus {
     }
     V1beta1PodDisruptionBudgetStatus v1beta1PodDisruptionBudgetStatus =
         (V1beta1PodDisruptionBudgetStatus) o;
-    return Objects.equals(this.currentHealthy, v1beta1PodDisruptionBudgetStatus.currentHealthy)
+    return Objects.equals(this.conditions, v1beta1PodDisruptionBudgetStatus.conditions)
+        && Objects.equals(this.currentHealthy, v1beta1PodDisruptionBudgetStatus.currentHealthy)
         && Objects.equals(this.desiredHealthy, v1beta1PodDisruptionBudgetStatus.desiredHealthy)
         && Objects.equals(this.disruptedPods, v1beta1PodDisruptionBudgetStatus.disruptedPods)
         && Objects.equals(
@@ -232,6 +279,7 @@ public class V1beta1PodDisruptionBudgetStatus {
   @Override
   public int hashCode() {
     return Objects.hash(
+        conditions,
         currentHealthy,
         desiredHealthy,
         disruptedPods,
@@ -244,6 +292,7 @@ public class V1beta1PodDisruptionBudgetStatus {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1beta1PodDisruptionBudgetStatus {\n");
+    sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("    currentHealthy: ").append(toIndentedString(currentHealthy)).append("\n");
     sb.append("    desiredHealthy: ").append(toIndentedString(desiredHealthy)).append("\n");
     sb.append("    disruptedPods: ").append(toIndentedString(disruptedPods)).append("\n");

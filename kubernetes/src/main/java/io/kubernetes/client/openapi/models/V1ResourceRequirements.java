@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(description = "ResourceRequirements describes the compute resource requirements.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1ResourceRequirements {
   public static final String SERIALIZED_NAME_LIMITS = "limits";
 
@@ -52,14 +52,14 @@ public class V1ResourceRequirements {
 
   /**
    * Limits describes the maximum amount of compute resources allowed. More info:
-   * https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+   * https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
    *
    * @return limits
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/")
+          "Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/")
   public Map<String, Quantity> getLimits() {
     return limits;
   }
@@ -86,14 +86,14 @@ public class V1ResourceRequirements {
    * Requests describes the minimum amount of compute resources required. If Requests is omitted for
    * a container, it defaults to Limits if that is explicitly specified, otherwise to an
    * implementation-defined value. More info:
-   * https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+   * https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
    *
    * @return requests
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/")
+          "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/")
   public Map<String, Quantity> getRequests() {
     return requests;
   }

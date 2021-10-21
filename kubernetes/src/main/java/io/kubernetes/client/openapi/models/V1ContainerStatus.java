@@ -22,7 +22,7 @@ import java.util.Objects;
     description = "ContainerStatus contains details for the current status of this container.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1ContainerStatus {
   public static final String SERIALIZED_NAME_CONTAINER_I_D = "containerID";
 

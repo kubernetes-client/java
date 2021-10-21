@@ -23,8 +23,13 @@ import java.util.Objects;
 @ApiModel(description = "StatefulSetStatus represents the current state of a StatefulSet.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1StatefulSetStatus {
+  public static final String SERIALIZED_NAME_AVAILABLE_REPLICAS = "availableReplicas";
+
+  @SerializedName(SERIALIZED_NAME_AVAILABLE_REPLICAS)
+  private Integer availableReplicas;
+
   public static final String SERIALIZED_NAME_COLLISION_COUNT = "collisionCount";
 
   @SerializedName(SERIALIZED_NAME_COLLISION_COUNT)
@@ -69,6 +74,31 @@ public class V1StatefulSetStatus {
 
   @SerializedName(SERIALIZED_NAME_UPDATED_REPLICAS)
   private Integer updatedReplicas;
+
+  public V1StatefulSetStatus availableReplicas(Integer availableReplicas) {
+
+    this.availableReplicas = availableReplicas;
+    return this;
+  }
+
+  /**
+   * Total number of available pods (ready for at least minReadySeconds) targeted by this
+   * statefulset. This is an alpha field and requires enabling StatefulSetMinReadySeconds feature
+   * gate. Remove omitempty when graduating to beta
+   *
+   * @return availableReplicas
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Total number of available pods (ready for at least minReadySeconds) targeted by this statefulset. This is an alpha field and requires enabling StatefulSetMinReadySeconds feature gate. Remove omitempty when graduating to beta")
+  public Integer getAvailableReplicas() {
+    return availableReplicas;
+  }
+
+  public void setAvailableReplicas(Integer availableReplicas) {
+    this.availableReplicas = availableReplicas;
+  }
 
   public V1StatefulSetStatus collisionCount(Integer collisionCount) {
 
@@ -300,7 +330,8 @@ public class V1StatefulSetStatus {
       return false;
     }
     V1StatefulSetStatus v1StatefulSetStatus = (V1StatefulSetStatus) o;
-    return Objects.equals(this.collisionCount, v1StatefulSetStatus.collisionCount)
+    return Objects.equals(this.availableReplicas, v1StatefulSetStatus.availableReplicas)
+        && Objects.equals(this.collisionCount, v1StatefulSetStatus.collisionCount)
         && Objects.equals(this.conditions, v1StatefulSetStatus.conditions)
         && Objects.equals(this.currentReplicas, v1StatefulSetStatus.currentReplicas)
         && Objects.equals(this.currentRevision, v1StatefulSetStatus.currentRevision)
@@ -314,6 +345,7 @@ public class V1StatefulSetStatus {
   @Override
   public int hashCode() {
     return Objects.hash(
+        availableReplicas,
         collisionCount,
         conditions,
         currentReplicas,
@@ -329,6 +361,7 @@ public class V1StatefulSetStatus {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1StatefulSetStatus {\n");
+    sb.append("    availableReplicas: ").append(toIndentedString(availableReplicas)).append("\n");
     sb.append("    collisionCount: ").append(toIndentedString(collisionCount)).append("\n");
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("    currentReplicas: ").append(toIndentedString(currentReplicas)).append("\n");

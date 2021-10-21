@@ -27,7 +27,7 @@ import java.util.Objects;
         "ManagedFieldsEntry is a workflow-id, a FieldSet and the group version of the resource that the fieldset applies to.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1ManagedFieldsEntry {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 
@@ -53,6 +53,11 @@ public class V1ManagedFieldsEntry {
 
   @SerializedName(SERIALIZED_NAME_OPERATION)
   private String operation;
+
+  public static final String SERIALIZED_NAME_SUBRESOURCE = "subresource";
+
+  @SerializedName(SERIALIZED_NAME_SUBRESOURCE)
+  private String subresource;
 
   public static final String SERIALIZED_NAME_TIME = "time";
 
@@ -175,6 +180,34 @@ public class V1ManagedFieldsEntry {
     this.operation = operation;
   }
 
+  public V1ManagedFieldsEntry subresource(String subresource) {
+
+    this.subresource = subresource;
+    return this;
+  }
+
+  /**
+   * Subresource is the name of the subresource used to update that object, or empty string if the
+   * object was updated through the main resource. The value of this field is used to distinguish
+   * between managers, even if they share the same name. For example, a status update will be
+   * distinct from a regular update using the same manager name. Note that the APIVersion field is
+   * not related to the Subresource field and it always corresponds to the version of the main
+   * resource.
+   *
+   * @return subresource
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Subresource is the name of the subresource used to update that object, or empty string if the object was updated through the main resource. The value of this field is used to distinguish between managers, even if they share the same name. For example, a status update will be distinct from a regular update using the same manager name. Note that the APIVersion field is not related to the Subresource field and it always corresponds to the version of the main resource.")
+  public String getSubresource() {
+    return subresource;
+  }
+
+  public void setSubresource(String subresource) {
+    this.subresource = subresource;
+  }
+
   public V1ManagedFieldsEntry time(OffsetDateTime time) {
 
     this.time = time;
@@ -213,12 +246,13 @@ public class V1ManagedFieldsEntry {
         && Objects.equals(this.fieldsV1, v1ManagedFieldsEntry.fieldsV1)
         && Objects.equals(this.manager, v1ManagedFieldsEntry.manager)
         && Objects.equals(this.operation, v1ManagedFieldsEntry.operation)
+        && Objects.equals(this.subresource, v1ManagedFieldsEntry.subresource)
         && Objects.equals(this.time, v1ManagedFieldsEntry.time);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiVersion, fieldsType, fieldsV1, manager, operation, time);
+    return Objects.hash(apiVersion, fieldsType, fieldsV1, manager, operation, subresource, time);
   }
 
   @Override
@@ -230,6 +264,7 @@ public class V1ManagedFieldsEntry {
     sb.append("    fieldsV1: ").append(toIndentedString(fieldsV1)).append("\n");
     sb.append("    manager: ").append(toIndentedString(manager)).append("\n");
     sb.append("    operation: ").append(toIndentedString(operation)).append("\n");
+    sb.append("    subresource: ").append(toIndentedString(subresource)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("}");
     return sb.toString();

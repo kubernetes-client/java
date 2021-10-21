@@ -4466,8 +4466,7 @@ public class StorageV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -4664,8 +4663,7 @@ public class StorageV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -4759,8 +4757,7 @@ public class StorageV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -4856,8 +4853,7 @@ public class StorageV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -4955,8 +4951,7 @@ public class StorageV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -5153,8 +5148,7 @@ public class StorageV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -5248,8 +5242,7 @@ public class StorageV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -5345,8 +5338,7 @@ public class StorageV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -5444,8 +5436,7 @@ public class StorageV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -5642,8 +5633,7 @@ public class StorageV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -5737,8 +5727,7 @@ public class StorageV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -5834,8 +5823,7 @@ public class StorageV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -5933,8 +5921,7 @@ public class StorageV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -6131,8 +6118,7 @@ public class StorageV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -6226,8 +6212,7 @@ public class StorageV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -6323,8 +6308,7 @@ public class StorageV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -6438,6 +6422,7 @@ public class StorageV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -6562,6 +6547,7 @@ public class StorageV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -6597,6 +6583,7 @@ public class StorageV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -6633,6 +6620,7 @@ public class StorageV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -6677,6 +6665,7 @@ public class StorageV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -6801,6 +6790,7 @@ public class StorageV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -6836,6 +6826,7 @@ public class StorageV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -6872,6 +6863,7 @@ public class StorageV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -6915,6 +6907,7 @@ public class StorageV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -7039,6 +7032,7 @@ public class StorageV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -7074,6 +7068,7 @@ public class StorageV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -7110,6 +7105,7 @@ public class StorageV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -7154,6 +7150,7 @@ public class StorageV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -7278,6 +7275,7 @@ public class StorageV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -7313,6 +7311,7 @@ public class StorageV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -7350,6 +7349,7 @@ public class StorageV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -7394,6 +7394,7 @@ public class StorageV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -7518,6 +7519,7 @@ public class StorageV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -7553,6 +7555,7 @@ public class StorageV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -7590,6 +7593,7 @@ public class StorageV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -7615,10 +7619,6 @@ public class StorageV1Api {
    *
    * @param name name of the CSIDriver (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -7629,8 +7629,7 @@ public class StorageV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call readCSIDriverCall(
-      String name, String pretty, Boolean exact, Boolean export, final ApiCallback _callback)
+  public okhttp3.Call readCSIDriverCall(String name, String pretty, final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -7643,14 +7642,6 @@ public class StorageV1Api {
     List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
     if (pretty != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
-    }
-
-    if (exact != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("exact", exact));
-    }
-
-    if (export != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("export", export));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -7686,8 +7677,7 @@ public class StorageV1Api {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call readCSIDriverValidateBeforeCall(
-      String name, String pretty, Boolean exact, Boolean export, final ApiCallback _callback)
-      throws ApiException {
+      String name, String pretty, final ApiCallback _callback) throws ApiException {
 
     // verify the required parameter 'name' is set
     if (name == null) {
@@ -7695,7 +7685,7 @@ public class StorageV1Api {
           "Missing the required parameter 'name' when calling readCSIDriver(Async)");
     }
 
-    okhttp3.Call localVarCall = readCSIDriverCall(name, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readCSIDriverCall(name, pretty, _callback);
     return localVarCall;
   }
 
@@ -7704,10 +7694,6 @@ public class StorageV1Api {
    *
    * @param name name of the CSIDriver (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return V1CSIDriver
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -7718,9 +7704,8 @@ public class StorageV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1CSIDriver readCSIDriver(String name, String pretty, Boolean exact, Boolean export)
-      throws ApiException {
-    ApiResponse<V1CSIDriver> localVarResp = readCSIDriverWithHttpInfo(name, pretty, exact, export);
+  public V1CSIDriver readCSIDriver(String name, String pretty) throws ApiException {
+    ApiResponse<V1CSIDriver> localVarResp = readCSIDriverWithHttpInfo(name, pretty);
     return localVarResp.getData();
   }
 
@@ -7729,10 +7714,6 @@ public class StorageV1Api {
    *
    * @param name name of the CSIDriver (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return ApiResponse&lt;V1CSIDriver&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -7743,9 +7724,9 @@ public class StorageV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<V1CSIDriver> readCSIDriverWithHttpInfo(
-      String name, String pretty, Boolean exact, Boolean export) throws ApiException {
-    okhttp3.Call localVarCall = readCSIDriverValidateBeforeCall(name, pretty, exact, export, null);
+  public ApiResponse<V1CSIDriver> readCSIDriverWithHttpInfo(String name, String pretty)
+      throws ApiException {
+    okhttp3.Call localVarCall = readCSIDriverValidateBeforeCall(name, pretty, null);
     Type localVarReturnType = new TypeToken<V1CSIDriver>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -7755,10 +7736,6 @@ public class StorageV1Api {
    *
    * @param name name of the CSIDriver (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -7770,15 +7747,9 @@ public class StorageV1Api {
    * </table>
    */
   public okhttp3.Call readCSIDriverAsync(
-      String name,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback<V1CSIDriver> _callback)
-      throws ApiException {
+      String name, String pretty, final ApiCallback<V1CSIDriver> _callback) throws ApiException {
 
-    okhttp3.Call localVarCall =
-        readCSIDriverValidateBeforeCall(name, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readCSIDriverValidateBeforeCall(name, pretty, _callback);
     Type localVarReturnType = new TypeToken<V1CSIDriver>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -7788,10 +7759,6 @@ public class StorageV1Api {
    *
    * @param name name of the CSINode (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -7802,8 +7769,7 @@ public class StorageV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call readCSINodeCall(
-      String name, String pretty, Boolean exact, Boolean export, final ApiCallback _callback)
+  public okhttp3.Call readCSINodeCall(String name, String pretty, final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -7816,14 +7782,6 @@ public class StorageV1Api {
     List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
     if (pretty != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
-    }
-
-    if (exact != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("exact", exact));
-    }
-
-    if (export != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("export", export));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -7859,8 +7817,7 @@ public class StorageV1Api {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call readCSINodeValidateBeforeCall(
-      String name, String pretty, Boolean exact, Boolean export, final ApiCallback _callback)
-      throws ApiException {
+      String name, String pretty, final ApiCallback _callback) throws ApiException {
 
     // verify the required parameter 'name' is set
     if (name == null) {
@@ -7868,7 +7825,7 @@ public class StorageV1Api {
           "Missing the required parameter 'name' when calling readCSINode(Async)");
     }
 
-    okhttp3.Call localVarCall = readCSINodeCall(name, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readCSINodeCall(name, pretty, _callback);
     return localVarCall;
   }
 
@@ -7877,10 +7834,6 @@ public class StorageV1Api {
    *
    * @param name name of the CSINode (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return V1CSINode
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -7891,9 +7844,8 @@ public class StorageV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1CSINode readCSINode(String name, String pretty, Boolean exact, Boolean export)
-      throws ApiException {
-    ApiResponse<V1CSINode> localVarResp = readCSINodeWithHttpInfo(name, pretty, exact, export);
+  public V1CSINode readCSINode(String name, String pretty) throws ApiException {
+    ApiResponse<V1CSINode> localVarResp = readCSINodeWithHttpInfo(name, pretty);
     return localVarResp.getData();
   }
 
@@ -7902,10 +7854,6 @@ public class StorageV1Api {
    *
    * @param name name of the CSINode (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return ApiResponse&lt;V1CSINode&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -7916,9 +7864,9 @@ public class StorageV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<V1CSINode> readCSINodeWithHttpInfo(
-      String name, String pretty, Boolean exact, Boolean export) throws ApiException {
-    okhttp3.Call localVarCall = readCSINodeValidateBeforeCall(name, pretty, exact, export, null);
+  public ApiResponse<V1CSINode> readCSINodeWithHttpInfo(String name, String pretty)
+      throws ApiException {
+    okhttp3.Call localVarCall = readCSINodeValidateBeforeCall(name, pretty, null);
     Type localVarReturnType = new TypeToken<V1CSINode>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -7928,10 +7876,6 @@ public class StorageV1Api {
    *
    * @param name name of the CSINode (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -7943,15 +7887,9 @@ public class StorageV1Api {
    * </table>
    */
   public okhttp3.Call readCSINodeAsync(
-      String name,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback<V1CSINode> _callback)
-      throws ApiException {
+      String name, String pretty, final ApiCallback<V1CSINode> _callback) throws ApiException {
 
-    okhttp3.Call localVarCall =
-        readCSINodeValidateBeforeCall(name, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readCSINodeValidateBeforeCall(name, pretty, _callback);
     Type localVarReturnType = new TypeToken<V1CSINode>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -7961,10 +7899,6 @@ public class StorageV1Api {
    *
    * @param name name of the StorageClass (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -7975,8 +7909,7 @@ public class StorageV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public okhttp3.Call readStorageClassCall(
-      String name, String pretty, Boolean exact, Boolean export, final ApiCallback _callback)
+  public okhttp3.Call readStorageClassCall(String name, String pretty, final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -7989,14 +7922,6 @@ public class StorageV1Api {
     List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
     if (pretty != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
-    }
-
-    if (exact != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("exact", exact));
-    }
-
-    if (export != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("export", export));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -8032,8 +7957,7 @@ public class StorageV1Api {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call readStorageClassValidateBeforeCall(
-      String name, String pretty, Boolean exact, Boolean export, final ApiCallback _callback)
-      throws ApiException {
+      String name, String pretty, final ApiCallback _callback) throws ApiException {
 
     // verify the required parameter 'name' is set
     if (name == null) {
@@ -8041,7 +7965,7 @@ public class StorageV1Api {
           "Missing the required parameter 'name' when calling readStorageClass(Async)");
     }
 
-    okhttp3.Call localVarCall = readStorageClassCall(name, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readStorageClassCall(name, pretty, _callback);
     return localVarCall;
   }
 
@@ -8050,10 +7974,6 @@ public class StorageV1Api {
    *
    * @param name name of the StorageClass (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return V1StorageClass
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -8064,10 +7984,8 @@ public class StorageV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1StorageClass readStorageClass(String name, String pretty, Boolean exact, Boolean export)
-      throws ApiException {
-    ApiResponse<V1StorageClass> localVarResp =
-        readStorageClassWithHttpInfo(name, pretty, exact, export);
+  public V1StorageClass readStorageClass(String name, String pretty) throws ApiException {
+    ApiResponse<V1StorageClass> localVarResp = readStorageClassWithHttpInfo(name, pretty);
     return localVarResp.getData();
   }
 
@@ -8076,10 +7994,6 @@ public class StorageV1Api {
    *
    * @param name name of the StorageClass (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return ApiResponse&lt;V1StorageClass&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -8090,10 +8004,9 @@ public class StorageV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public ApiResponse<V1StorageClass> readStorageClassWithHttpInfo(
-      String name, String pretty, Boolean exact, Boolean export) throws ApiException {
-    okhttp3.Call localVarCall =
-        readStorageClassValidateBeforeCall(name, pretty, exact, export, null);
+  public ApiResponse<V1StorageClass> readStorageClassWithHttpInfo(String name, String pretty)
+      throws ApiException {
+    okhttp3.Call localVarCall = readStorageClassValidateBeforeCall(name, pretty, null);
     Type localVarReturnType = new TypeToken<V1StorageClass>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -8103,10 +8016,6 @@ public class StorageV1Api {
    *
    * @param name name of the StorageClass (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -8118,15 +8027,9 @@ public class StorageV1Api {
    * </table>
    */
   public okhttp3.Call readStorageClassAsync(
-      String name,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback<V1StorageClass> _callback)
-      throws ApiException {
+      String name, String pretty, final ApiCallback<V1StorageClass> _callback) throws ApiException {
 
-    okhttp3.Call localVarCall =
-        readStorageClassValidateBeforeCall(name, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readStorageClassValidateBeforeCall(name, pretty, _callback);
     Type localVarReturnType = new TypeToken<V1StorageClass>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -8136,10 +8039,6 @@ public class StorageV1Api {
    *
    * @param name name of the VolumeAttachment (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -8151,8 +8050,7 @@ public class StorageV1Api {
    * </table>
    */
   public okhttp3.Call readVolumeAttachmentCall(
-      String name, String pretty, Boolean exact, Boolean export, final ApiCallback _callback)
-      throws ApiException {
+      String name, String pretty, final ApiCallback _callback) throws ApiException {
     Object localVarPostBody = null;
 
     // create path and map variables
@@ -8164,14 +8062,6 @@ public class StorageV1Api {
     List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
     if (pretty != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
-    }
-
-    if (exact != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("exact", exact));
-    }
-
-    if (export != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("export", export));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -8207,8 +8097,7 @@ public class StorageV1Api {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call readVolumeAttachmentValidateBeforeCall(
-      String name, String pretty, Boolean exact, Boolean export, final ApiCallback _callback)
-      throws ApiException {
+      String name, String pretty, final ApiCallback _callback) throws ApiException {
 
     // verify the required parameter 'name' is set
     if (name == null) {
@@ -8216,7 +8105,7 @@ public class StorageV1Api {
           "Missing the required parameter 'name' when calling readVolumeAttachment(Async)");
     }
 
-    okhttp3.Call localVarCall = readVolumeAttachmentCall(name, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readVolumeAttachmentCall(name, pretty, _callback);
     return localVarCall;
   }
 
@@ -8225,10 +8114,6 @@ public class StorageV1Api {
    *
    * @param name name of the VolumeAttachment (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return V1VolumeAttachment
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -8239,10 +8124,8 @@ public class StorageV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1VolumeAttachment readVolumeAttachment(
-      String name, String pretty, Boolean exact, Boolean export) throws ApiException {
-    ApiResponse<V1VolumeAttachment> localVarResp =
-        readVolumeAttachmentWithHttpInfo(name, pretty, exact, export);
+  public V1VolumeAttachment readVolumeAttachment(String name, String pretty) throws ApiException {
+    ApiResponse<V1VolumeAttachment> localVarResp = readVolumeAttachmentWithHttpInfo(name, pretty);
     return localVarResp.getData();
   }
 
@@ -8251,10 +8134,6 @@ public class StorageV1Api {
    *
    * @param name name of the VolumeAttachment (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return ApiResponse&lt;V1VolumeAttachment&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -8266,9 +8145,8 @@ public class StorageV1Api {
    * </table>
    */
   public ApiResponse<V1VolumeAttachment> readVolumeAttachmentWithHttpInfo(
-      String name, String pretty, Boolean exact, Boolean export) throws ApiException {
-    okhttp3.Call localVarCall =
-        readVolumeAttachmentValidateBeforeCall(name, pretty, exact, export, null);
+      String name, String pretty) throws ApiException {
+    okhttp3.Call localVarCall = readVolumeAttachmentValidateBeforeCall(name, pretty, null);
     Type localVarReturnType = new TypeToken<V1VolumeAttachment>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -8278,10 +8156,6 @@ public class StorageV1Api {
    *
    * @param name name of the VolumeAttachment (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -8293,15 +8167,10 @@ public class StorageV1Api {
    * </table>
    */
   public okhttp3.Call readVolumeAttachmentAsync(
-      String name,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback<V1VolumeAttachment> _callback)
+      String name, String pretty, final ApiCallback<V1VolumeAttachment> _callback)
       throws ApiException {
 
-    okhttp3.Call localVarCall =
-        readVolumeAttachmentValidateBeforeCall(name, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readVolumeAttachmentValidateBeforeCall(name, pretty, _callback);
     Type localVarReturnType = new TypeToken<V1VolumeAttachment>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;

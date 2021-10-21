@@ -15,8 +15,8 @@ package io.kubernetes.client.extended.network;
 import static org.junit.Assert.*;
 
 import io.kubernetes.client.extended.network.exception.NoAvailableAddressException;
+import io.kubernetes.client.openapi.models.CoreV1EndpointPort;
 import io.kubernetes.client.openapi.models.V1EndpointAddress;
-import io.kubernetes.client.openapi.models.V1EndpointPort;
 import io.kubernetes.client.openapi.models.V1EndpointSubset;
 import io.kubernetes.client.openapi.models.V1Endpoints;
 import java.util.ArrayList;
@@ -32,8 +32,8 @@ public class RoundRobinEndpointsLoadBalancerTests {
               new V1EndpointSubset()
                   .addAddressesItem(new V1EndpointAddress().ip("127.0.0.1"))
                   .addAddressesItem(new V1EndpointAddress().ip("127.0.0.2"))
-                  .addPortsItem(new V1EndpointPort().port(8080))
-                  .addPortsItem(new V1EndpointPort().port(8081)));
+                  .addPortsItem(new CoreV1EndpointPort().port(8080))
+                  .addPortsItem(new CoreV1EndpointPort().port(8081)));
 
   @Test
   public void testChooseIPFromNullListShouldThrowException() {

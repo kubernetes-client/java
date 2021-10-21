@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(description = "JobSpec describes how the job execution will look like.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1JobSpec {
   public static final String SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS = "activeDeadlineSeconds";
 
@@ -32,6 +32,11 @@ public class V1JobSpec {
 
   @SerializedName(SERIALIZED_NAME_BACKOFF_LIMIT)
   private Integer backoffLimit;
+
+  public static final String SERIALIZED_NAME_COMPLETION_MODE = "completionMode";
+
+  @SerializedName(SERIALIZED_NAME_COMPLETION_MODE)
+  private String completionMode;
 
   public static final String SERIALIZED_NAME_COMPLETIONS = "completions";
 
@@ -53,6 +58,11 @@ public class V1JobSpec {
   @SerializedName(SERIALIZED_NAME_SELECTOR)
   private V1LabelSelector selector;
 
+  public static final String SERIALIZED_NAME_SUSPEND = "suspend";
+
+  @SerializedName(SERIALIZED_NAME_SUSPEND)
+  private Boolean suspend;
+
   public static final String SERIALIZED_NAME_TEMPLATE = "template";
 
   @SerializedName(SERIALIZED_NAME_TEMPLATE)
@@ -70,15 +80,17 @@ public class V1JobSpec {
   }
 
   /**
-   * Specifies the duration in seconds relative to the startTime that the job may be active before
-   * the system tries to terminate it; value must be positive integer
+   * Specifies the duration in seconds relative to the startTime that the job may be continuously
+   * active before the system tries to terminate it; value must be positive integer. If a Job is
+   * suspended (at creation or through an update), this timer will effectively be stopped and reset
+   * when the Job is resumed again.
    *
    * @return activeDeadlineSeconds
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Specifies the duration in seconds relative to the startTime that the job may be active before the system tries to terminate it; value must be positive integer")
+          "Specifies the duration in seconds relative to the startTime that the job may be continuously active before the system tries to terminate it; value must be positive integer. If a Job is suspended (at creation or through an update), this timer will effectively be stopped and reset when the Job is resumed again.")
   public Long getActiveDeadlineSeconds() {
     return activeDeadlineSeconds;
   }
@@ -107,6 +119,40 @@ public class V1JobSpec {
 
   public void setBackoffLimit(Integer backoffLimit) {
     this.backoffLimit = backoffLimit;
+  }
+
+  public V1JobSpec completionMode(String completionMode) {
+
+    this.completionMode = completionMode;
+    return this;
+  }
+
+  /**
+   * CompletionMode specifies how Pod completions are tracked. It can be &#x60;NonIndexed&#x60;
+   * (default) or &#x60;Indexed&#x60;. &#x60;NonIndexed&#x60; means that the Job is considered
+   * complete when there have been .spec.completions successfully completed Pods. Each Pod
+   * completion is homologous to each other. &#x60;Indexed&#x60; means that the Pods of a Job get an
+   * associated completion index from 0 to (.spec.completions - 1), available in the annotation
+   * batch.kubernetes.io/job-completion-index. The Job is considered complete when there is one
+   * successfully completed Pod for each index. When value is &#x60;Indexed&#x60;, .spec.completions
+   * must be specified and &#x60;.spec.parallelism&#x60; must be less than or equal to 10^5. In
+   * addition, The Pod name takes the form &#x60;$(job-name)-$(index)-$(random-string)&#x60;, the
+   * Pod hostname takes the form &#x60;$(job-name)-$(index)&#x60;. This field is beta-level. More
+   * completion modes can be added in the future. If the Job controller observes a mode that it
+   * doesn&#39;t recognize, the controller skips updates for the Job.
+   *
+   * @return completionMode
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "CompletionMode specifies how Pod completions are tracked. It can be `NonIndexed` (default) or `Indexed`.  `NonIndexed` means that the Job is considered complete when there have been .spec.completions successfully completed Pods. Each Pod completion is homologous to each other.  `Indexed` means that the Pods of a Job get an associated completion index from 0 to (.spec.completions - 1), available in the annotation batch.kubernetes.io/job-completion-index. The Job is considered complete when there is one successfully completed Pod for each index. When value is `Indexed`, .spec.completions must be specified and `.spec.parallelism` must be less than or equal to 10^5. In addition, The Pod name takes the form `$(job-name)-$(index)-$(random-string)`, the Pod hostname takes the form `$(job-name)-$(index)`.  This field is beta-level. More completion modes can be added in the future. If the Job controller observes a mode that it doesn't recognize, the controller skips updates for the Job.")
+  public String getCompletionMode() {
+    return completionMode;
+  }
+
+  public void setCompletionMode(String completionMode) {
+    this.completionMode = completionMode;
   }
 
   public V1JobSpec completions(Integer completions) {
@@ -214,6 +260,35 @@ public class V1JobSpec {
     this.selector = selector;
   }
 
+  public V1JobSpec suspend(Boolean suspend) {
+
+    this.suspend = suspend;
+    return this;
+  }
+
+  /**
+   * Suspend specifies whether the Job controller should create Pods or not. If a Job is created
+   * with suspend set to true, no Pods are created by the Job controller. If a Job is suspended
+   * after creation (i.e. the flag goes from false to true), the Job controller will delete all
+   * active Pods associated with this Job. Users must design their workload to gracefully handle
+   * this. Suspending a Job will reset the StartTime field of the Job, effectively resetting the
+   * ActiveDeadlineSeconds timer too. Defaults to false. This field is beta-level, gated by
+   * SuspendJob feature flag (enabled by default).
+   *
+   * @return suspend
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Suspend specifies whether the Job controller should create Pods or not. If a Job is created with suspend set to true, no Pods are created by the Job controller. If a Job is suspended after creation (i.e. the flag goes from false to true), the Job controller will delete all active Pods associated with this Job. Users must design their workload to gracefully handle this. Suspending a Job will reset the StartTime field of the Job, effectively resetting the ActiveDeadlineSeconds timer too. Defaults to false.  This field is beta-level, gated by SuspendJob feature flag (enabled by default).")
+  public Boolean getSuspend() {
+    return suspend;
+  }
+
+  public void setSuspend(Boolean suspend) {
+    this.suspend = suspend;
+  }
+
   public V1JobSpec template(V1PodTemplateSpec template) {
 
     this.template = template;
@@ -274,10 +349,12 @@ public class V1JobSpec {
     V1JobSpec v1JobSpec = (V1JobSpec) o;
     return Objects.equals(this.activeDeadlineSeconds, v1JobSpec.activeDeadlineSeconds)
         && Objects.equals(this.backoffLimit, v1JobSpec.backoffLimit)
+        && Objects.equals(this.completionMode, v1JobSpec.completionMode)
         && Objects.equals(this.completions, v1JobSpec.completions)
         && Objects.equals(this.manualSelector, v1JobSpec.manualSelector)
         && Objects.equals(this.parallelism, v1JobSpec.parallelism)
         && Objects.equals(this.selector, v1JobSpec.selector)
+        && Objects.equals(this.suspend, v1JobSpec.suspend)
         && Objects.equals(this.template, v1JobSpec.template)
         && Objects.equals(this.ttlSecondsAfterFinished, v1JobSpec.ttlSecondsAfterFinished);
   }
@@ -287,10 +364,12 @@ public class V1JobSpec {
     return Objects.hash(
         activeDeadlineSeconds,
         backoffLimit,
+        completionMode,
         completions,
         manualSelector,
         parallelism,
         selector,
+        suspend,
         template,
         ttlSecondsAfterFinished);
   }
@@ -303,10 +382,12 @@ public class V1JobSpec {
         .append(toIndentedString(activeDeadlineSeconds))
         .append("\n");
     sb.append("    backoffLimit: ").append(toIndentedString(backoffLimit)).append("\n");
+    sb.append("    completionMode: ").append(toIndentedString(completionMode)).append("\n");
     sb.append("    completions: ").append(toIndentedString(completions)).append("\n");
     sb.append("    manualSelector: ").append(toIndentedString(manualSelector)).append("\n");
     sb.append("    parallelism: ").append(toIndentedString(parallelism)).append("\n");
     sb.append("    selector: ").append(toIndentedString(selector)).append("\n");
+    sb.append("    suspend: ").append(toIndentedString(suspend)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    ttlSecondsAfterFinished: ")
         .append(toIndentedString(ttlSecondsAfterFinished))

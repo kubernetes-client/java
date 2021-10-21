@@ -23,12 +23,12 @@ import java.util.Objects;
 @ApiModel(description = "Describe a container image")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1ContainerImage {
   public static final String SERIALIZED_NAME_NAMES = "names";
 
   @SerializedName(SERIALIZED_NAME_NAMES)
-  private List<String> names = new ArrayList<>();
+  private List<String> names = null;
 
   public static final String SERIALIZED_NAME_SIZE_BYTES = "sizeBytes";
 
@@ -42,6 +42,9 @@ public class V1ContainerImage {
   }
 
   public V1ContainerImage addNamesItem(String namesItem) {
+    if (this.names == null) {
+      this.names = new ArrayList<>();
+    }
     this.names.add(namesItem);
     return this;
   }
@@ -52,8 +55,8 @@ public class V1ContainerImage {
    *
    * @return names
    */
+  @javax.annotation.Nullable
   @ApiModelProperty(
-      required = true,
       value =
           "Names by which this image is known. e.g. [\"k8s.gcr.io/hyperkube:v1.0.7\", \"dockerhub.io/google_containers/hyperkube:v1.0.7\"]")
   public List<String> getNames() {

@@ -22,7 +22,7 @@ import java.util.Objects;
 @ApiModel(description = "TCPSocketAction describes an action based on opening a socket")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1TCPSocketAction {
   public static final String SERIALIZED_NAME_HOST = "host";
 

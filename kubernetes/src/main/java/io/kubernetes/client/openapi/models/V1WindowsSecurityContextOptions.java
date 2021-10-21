@@ -22,7 +22,7 @@ import java.util.Objects;
     description = "WindowsSecurityContextOptions contain Windows-specific options and credentials.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1WindowsSecurityContextOptions {
   public static final String SERIALIZED_NAME_GMSA_CREDENTIAL_SPEC = "gmsaCredentialSpec";
 
@@ -33,6 +33,11 @@ public class V1WindowsSecurityContextOptions {
 
   @SerializedName(SERIALIZED_NAME_GMSA_CREDENTIAL_SPEC_NAME)
   private String gmsaCredentialSpecName;
+
+  public static final String SERIALIZED_NAME_HOST_PROCESS = "hostProcess";
+
+  @SerializedName(SERIALIZED_NAME_HOST_PROCESS)
+  private Boolean hostProcess;
 
   public static final String SERIALIZED_NAME_RUN_AS_USER_NAME = "runAsUserName";
 
@@ -86,6 +91,35 @@ public class V1WindowsSecurityContextOptions {
     this.gmsaCredentialSpecName = gmsaCredentialSpecName;
   }
 
+  public V1WindowsSecurityContextOptions hostProcess(Boolean hostProcess) {
+
+    this.hostProcess = hostProcess;
+    return this;
+  }
+
+  /**
+   * HostProcess determines if a container should be run as a &#39;Host Process&#39; container. This
+   * field is alpha-level and will only be honored by components that enable the
+   * WindowsHostProcessContainers feature flag. Setting this field without the feature flag will
+   * result in errors when validating the Pod. All of a Pod&#39;s containers must have the same
+   * effective HostProcess value (it is not allowed to have a mix of HostProcess containers and
+   * non-HostProcess containers). In addition, if HostProcess is true then HostNetwork must also be
+   * set to true.
+   *
+   * @return hostProcess
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "HostProcess determines if a container should be run as a 'Host Process' container. This field is alpha-level and will only be honored by components that enable the WindowsHostProcessContainers feature flag. Setting this field without the feature flag will result in errors when validating the Pod. All of a Pod's containers must have the same effective HostProcess value (it is not allowed to have a mix of HostProcess containers and non-HostProcess containers).  In addition, if HostProcess is true then HostNetwork must also be set to true.")
+  public Boolean getHostProcess() {
+    return hostProcess;
+  }
+
+  public void setHostProcess(Boolean hostProcess) {
+    this.hostProcess = hostProcess;
+  }
+
   public V1WindowsSecurityContextOptions runAsUserName(String runAsUserName) {
 
     this.runAsUserName = runAsUserName;
@@ -126,12 +160,13 @@ public class V1WindowsSecurityContextOptions {
             this.gmsaCredentialSpec, v1WindowsSecurityContextOptions.gmsaCredentialSpec)
         && Objects.equals(
             this.gmsaCredentialSpecName, v1WindowsSecurityContextOptions.gmsaCredentialSpecName)
+        && Objects.equals(this.hostProcess, v1WindowsSecurityContextOptions.hostProcess)
         && Objects.equals(this.runAsUserName, v1WindowsSecurityContextOptions.runAsUserName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(gmsaCredentialSpec, gmsaCredentialSpecName, runAsUserName);
+    return Objects.hash(gmsaCredentialSpec, gmsaCredentialSpecName, hostProcess, runAsUserName);
   }
 
   @Override
@@ -142,6 +177,7 @@ public class V1WindowsSecurityContextOptions {
     sb.append("    gmsaCredentialSpecName: ")
         .append(toIndentedString(gmsaCredentialSpecName))
         .append("\n");
+    sb.append("    hostProcess: ").append(toIndentedString(hostProcess)).append("\n");
     sb.append("    runAsUserName: ").append(toIndentedString(runAsUserName)).append("\n");
     sb.append("}");
     return sb.toString();

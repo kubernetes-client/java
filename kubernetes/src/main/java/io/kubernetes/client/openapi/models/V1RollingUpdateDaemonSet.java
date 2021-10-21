@@ -22,12 +22,42 @@ import java.util.Objects;
 @ApiModel(description = "Spec to control the desired behavior of daemon set rolling update.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1RollingUpdateDaemonSet {
+  public static final String SERIALIZED_NAME_MAX_SURGE = "maxSurge";
+
+  @SerializedName(SERIALIZED_NAME_MAX_SURGE)
+  private IntOrString maxSurge;
+
   public static final String SERIALIZED_NAME_MAX_UNAVAILABLE = "maxUnavailable";
 
   @SerializedName(SERIALIZED_NAME_MAX_UNAVAILABLE)
   private IntOrString maxUnavailable;
+
+  public V1RollingUpdateDaemonSet maxSurge(IntOrString maxSurge) {
+
+    this.maxSurge = maxSurge;
+    return this;
+  }
+
+  /**
+   * IntOrString is a type that can hold an int32 or a string. When used in JSON or YAML marshalling
+   * and unmarshalling, it produces or consumes the inner type. This allows you to have, for
+   * example, a JSON field that can accept a name or number.
+   *
+   * @return maxSurge
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.")
+  public IntOrString getMaxSurge() {
+    return maxSurge;
+  }
+
+  public void setMaxSurge(IntOrString maxSurge) {
+    this.maxSurge = maxSurge;
+  }
 
   public V1RollingUpdateDaemonSet maxUnavailable(IntOrString maxUnavailable) {
 
@@ -63,18 +93,20 @@ public class V1RollingUpdateDaemonSet {
       return false;
     }
     V1RollingUpdateDaemonSet v1RollingUpdateDaemonSet = (V1RollingUpdateDaemonSet) o;
-    return Objects.equals(this.maxUnavailable, v1RollingUpdateDaemonSet.maxUnavailable);
+    return Objects.equals(this.maxSurge, v1RollingUpdateDaemonSet.maxSurge)
+        && Objects.equals(this.maxUnavailable, v1RollingUpdateDaemonSet.maxUnavailable);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxUnavailable);
+    return Objects.hash(maxSurge, maxUnavailable);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1RollingUpdateDaemonSet {\n");
+    sb.append("    maxSurge: ").append(toIndentedString(maxSurge)).append("\n");
     sb.append("    maxUnavailable: ").append(toIndentedString(maxUnavailable)).append("\n");
     sb.append("}");
     return sb.toString();

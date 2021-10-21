@@ -26,7 +26,7 @@ import java.util.Objects;
         "SeccompProfile defines a pod/container's seccomp profile settings. Only one profile source may be set.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1SeccompProfile {
   public static final String SERIALIZED_NAME_LOCALHOST_PROFILE = "localhostProfile";
 

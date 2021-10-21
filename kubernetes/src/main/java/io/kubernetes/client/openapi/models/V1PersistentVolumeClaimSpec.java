@@ -28,7 +28,7 @@ import java.util.Objects;
         "PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1PersistentVolumeClaimSpec {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
 
@@ -39,6 +39,11 @@ public class V1PersistentVolumeClaimSpec {
 
   @SerializedName(SERIALIZED_NAME_DATA_SOURCE)
   private V1TypedLocalObjectReference dataSource;
+
+  public static final String SERIALIZED_NAME_DATA_SOURCE_REF = "dataSourceRef";
+
+  @SerializedName(SERIALIZED_NAME_DATA_SOURCE_REF)
+  private V1TypedLocalObjectReference dataSourceRef;
 
   public static final String SERIALIZED_NAME_RESOURCES = "resources";
 
@@ -116,6 +121,27 @@ public class V1PersistentVolumeClaimSpec {
 
   public void setDataSource(V1TypedLocalObjectReference dataSource) {
     this.dataSource = dataSource;
+  }
+
+  public V1PersistentVolumeClaimSpec dataSourceRef(V1TypedLocalObjectReference dataSourceRef) {
+
+    this.dataSourceRef = dataSourceRef;
+    return this;
+  }
+
+  /**
+   * Get dataSourceRef
+   *
+   * @return dataSourceRef
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1TypedLocalObjectReference getDataSourceRef() {
+    return dataSourceRef;
+  }
+
+  public void setDataSourceRef(V1TypedLocalObjectReference dataSourceRef) {
+    this.dataSourceRef = dataSourceRef;
   }
 
   public V1PersistentVolumeClaimSpec resources(V1ResourceRequirements resources) {
@@ -241,6 +267,7 @@ public class V1PersistentVolumeClaimSpec {
     V1PersistentVolumeClaimSpec v1PersistentVolumeClaimSpec = (V1PersistentVolumeClaimSpec) o;
     return Objects.equals(this.accessModes, v1PersistentVolumeClaimSpec.accessModes)
         && Objects.equals(this.dataSource, v1PersistentVolumeClaimSpec.dataSource)
+        && Objects.equals(this.dataSourceRef, v1PersistentVolumeClaimSpec.dataSourceRef)
         && Objects.equals(this.resources, v1PersistentVolumeClaimSpec.resources)
         && Objects.equals(this.selector, v1PersistentVolumeClaimSpec.selector)
         && Objects.equals(this.storageClassName, v1PersistentVolumeClaimSpec.storageClassName)
@@ -251,7 +278,14 @@ public class V1PersistentVolumeClaimSpec {
   @Override
   public int hashCode() {
     return Objects.hash(
-        accessModes, dataSource, resources, selector, storageClassName, volumeMode, volumeName);
+        accessModes,
+        dataSource,
+        dataSourceRef,
+        resources,
+        selector,
+        storageClassName,
+        volumeMode,
+        volumeName);
   }
 
   @Override
@@ -260,6 +294,7 @@ public class V1PersistentVolumeClaimSpec {
     sb.append("class V1PersistentVolumeClaimSpec {\n");
     sb.append("    accessModes: ").append(toIndentedString(accessModes)).append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
+    sb.append("    dataSourceRef: ").append(toIndentedString(dataSourceRef)).append("\n");
     sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
     sb.append("    selector: ").append(toIndentedString(selector)).append("\n");
     sb.append("    storageClassName: ").append(toIndentedString(storageClassName)).append("\n");

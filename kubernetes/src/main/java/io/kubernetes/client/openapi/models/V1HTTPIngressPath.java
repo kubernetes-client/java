@@ -26,7 +26,7 @@ import java.util.Objects;
         "HTTPIngressPath associates a path with a backend. Incoming urls matching the path are forwarded to the backend.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1HTTPIngressPath {
   public static final String SERIALIZED_NAME_BACKEND = "backend";
 
@@ -72,14 +72,15 @@ public class V1HTTPIngressPath {
   /**
    * Path is matched against the path of an incoming request. Currently it can contain characters
    * disallowed from the conventional \&quot;path\&quot; part of a URL as defined by RFC 3986. Paths
-   * must begin with a &#39;/&#39;. When unspecified, all paths from incoming requests are matched.
+   * must begin with a &#39;/&#39; and must be present when using PathType with value
+   * \&quot;Exact\&quot; or \&quot;Prefix\&quot;.
    *
    * @return path
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Path is matched against the path of an incoming request. Currently it can contain characters disallowed from the conventional \"path\" part of a URL as defined by RFC 3986. Paths must begin with a '/'. When unspecified, all paths from incoming requests are matched.")
+          "Path is matched against the path of an incoming request. Currently it can contain characters disallowed from the conventional \"path\" part of a URL as defined by RFC 3986. Paths must begin with a '/' and must be present when using PathType with value \"Exact\" or \"Prefix\".")
   public String getPath() {
     return path;
   }
@@ -108,8 +109,8 @@ public class V1HTTPIngressPath {
    *
    * @return pathType
    */
-  @javax.annotation.Nullable
   @ApiModelProperty(
+      required = true,
       value =
           "PathType determines the interpretation of the Path matching. PathType can be one of the following values: * Exact: Matches the URL path exactly. * Prefix: Matches based on a URL path prefix split by '/'. Matching is   done on a path element by element basis. A path element refers is the   list of labels in the path split by the '/' separator. A request is a   match for path p if every p is an element-wise prefix of p of the   request path. Note that if the last element of the path is a substring   of the last element in request path, it is not a match (e.g. /foo/bar   matches /foo/bar/baz, but does not match /foo/barbaz). * ImplementationSpecific: Interpretation of the Path matching is up to   the IngressClass. Implementations can treat this as a separate PathType   or treat it identically to Prefix or Exact path types. Implementations are required to support all path types.")
   public String getPathType() {

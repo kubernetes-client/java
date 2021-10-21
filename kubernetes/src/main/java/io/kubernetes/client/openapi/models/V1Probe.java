@@ -26,7 +26,7 @@ import java.util.Objects;
         "Probe describes a health check to be performed against a container to determine whether it is alive or ready to receive traffic.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1Probe {
   public static final String SERIALIZED_NAME_EXEC = "exec";
 
@@ -62,6 +62,12 @@ public class V1Probe {
 
   @SerializedName(SERIALIZED_NAME_TCP_SOCKET)
   private V1TCPSocketAction tcpSocket;
+
+  public static final String SERIALIZED_NAME_TERMINATION_GRACE_PERIOD_SECONDS =
+      "terminationGracePeriodSeconds";
+
+  @SerializedName(SERIALIZED_NAME_TERMINATION_GRACE_PERIOD_SECONDS)
+  private Long terminationGracePeriodSeconds;
 
   public static final String SERIALIZED_NAME_TIMEOUT_SECONDS = "timeoutSeconds";
 
@@ -226,6 +232,37 @@ public class V1Probe {
     this.tcpSocket = tcpSocket;
   }
 
+  public V1Probe terminationGracePeriodSeconds(Long terminationGracePeriodSeconds) {
+
+    this.terminationGracePeriodSeconds = terminationGracePeriodSeconds;
+    return this;
+  }
+
+  /**
+   * Optional duration in seconds the pod needs to terminate gracefully upon probe failure. The
+   * grace period is the duration in seconds after the processes running in the pod are sent a
+   * termination signal and the time when the processes are forcibly halted with a kill signal. Set
+   * this value longer than the expected cleanup time for your process. If this value is nil, the
+   * pod&#39;s terminationGracePeriodSeconds will be used. Otherwise, this value overrides the value
+   * provided by the pod spec. Value must be non-negative integer. The value zero indicates stop
+   * immediately via the kill signal (no opportunity to shut down). This is a beta field and
+   * requires enabling ProbeTerminationGracePeriod feature gate. Minimum value is 1.
+   * spec.terminationGracePeriodSeconds is used if unset.
+   *
+   * @return terminationGracePeriodSeconds
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Optional duration in seconds the pod needs to terminate gracefully upon probe failure. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. If this value is nil, the pod's terminationGracePeriodSeconds will be used. Otherwise, this value overrides the value provided by the pod spec. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). This is a beta field and requires enabling ProbeTerminationGracePeriod feature gate. Minimum value is 1. spec.terminationGracePeriodSeconds is used if unset.")
+  public Long getTerminationGracePeriodSeconds() {
+    return terminationGracePeriodSeconds;
+  }
+
+  public void setTerminationGracePeriodSeconds(Long terminationGracePeriodSeconds) {
+    this.terminationGracePeriodSeconds = terminationGracePeriodSeconds;
+  }
+
   public V1Probe timeoutSeconds(Integer timeoutSeconds) {
 
     this.timeoutSeconds = timeoutSeconds;
@@ -266,6 +303,7 @@ public class V1Probe {
         && Objects.equals(this.periodSeconds, v1Probe.periodSeconds)
         && Objects.equals(this.successThreshold, v1Probe.successThreshold)
         && Objects.equals(this.tcpSocket, v1Probe.tcpSocket)
+        && Objects.equals(this.terminationGracePeriodSeconds, v1Probe.terminationGracePeriodSeconds)
         && Objects.equals(this.timeoutSeconds, v1Probe.timeoutSeconds);
   }
 
@@ -279,6 +317,7 @@ public class V1Probe {
         periodSeconds,
         successThreshold,
         tcpSocket,
+        terminationGracePeriodSeconds,
         timeoutSeconds);
   }
 
@@ -295,6 +334,9 @@ public class V1Probe {
     sb.append("    periodSeconds: ").append(toIndentedString(periodSeconds)).append("\n");
     sb.append("    successThreshold: ").append(toIndentedString(successThreshold)).append("\n");
     sb.append("    tcpSocket: ").append(toIndentedString(tcpSocket)).append("\n");
+    sb.append("    terminationGracePeriodSeconds: ")
+        .append(toIndentedString(terminationGracePeriodSeconds))
+        .append("\n");
     sb.append("    timeoutSeconds: ").append(toIndentedString(timeoutSeconds)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -22,39 +22,12 @@ import java.util.Objects;
     description = "Represents an ephemeral volume that is handled by a normal storage driver.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1EphemeralVolumeSource {
-  public static final String SERIALIZED_NAME_READ_ONLY = "readOnly";
-
-  @SerializedName(SERIALIZED_NAME_READ_ONLY)
-  private Boolean readOnly;
-
   public static final String SERIALIZED_NAME_VOLUME_CLAIM_TEMPLATE = "volumeClaimTemplate";
 
   @SerializedName(SERIALIZED_NAME_VOLUME_CLAIM_TEMPLATE)
   private V1PersistentVolumeClaimTemplate volumeClaimTemplate;
-
-  public V1EphemeralVolumeSource readOnly(Boolean readOnly) {
-
-    this.readOnly = readOnly;
-    return this;
-  }
-
-  /**
-   * Specifies a read-only configuration for the volume. Defaults to false (read/write).
-   *
-   * @return readOnly
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Specifies a read-only configuration for the volume. Defaults to false (read/write).")
-  public Boolean getReadOnly() {
-    return readOnly;
-  }
-
-  public void setReadOnly(Boolean readOnly) {
-    this.readOnly = readOnly;
-  }
 
   public V1EphemeralVolumeSource volumeClaimTemplate(
       V1PersistentVolumeClaimTemplate volumeClaimTemplate) {
@@ -87,20 +60,18 @@ public class V1EphemeralVolumeSource {
       return false;
     }
     V1EphemeralVolumeSource v1EphemeralVolumeSource = (V1EphemeralVolumeSource) o;
-    return Objects.equals(this.readOnly, v1EphemeralVolumeSource.readOnly)
-        && Objects.equals(this.volumeClaimTemplate, v1EphemeralVolumeSource.volumeClaimTemplate);
+    return Objects.equals(this.volumeClaimTemplate, v1EphemeralVolumeSource.volumeClaimTemplate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(readOnly, volumeClaimTemplate);
+    return Objects.hash(volumeClaimTemplate);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1EphemeralVolumeSource {\n");
-    sb.append("    readOnly: ").append(toIndentedString(readOnly)).append("\n");
     sb.append("    volumeClaimTemplate: ")
         .append(toIndentedString(volumeClaimTemplate))
         .append("\n");

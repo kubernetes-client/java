@@ -17,7 +17,6 @@ import io.kubernetes.client.common.KubernetesType;
 import io.kubernetes.client.custom.IntOrString;
 import io.kubernetes.client.custom.Quantity;
 import io.kubernetes.client.openapi.models.V1JSONSchemaProps;
-import io.kubernetes.client.openapi.models.V1beta1JSONSchemaProps;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -499,8 +498,7 @@ public class Yaml {
     registerCustomTypeDescriptions(
         constructor,
         representer,
-        newGsonCompatibleTypeDescription(V1JSONSchemaProps.class, crdOpenApiExtensions),
-        newGsonCompatibleTypeDescription(V1beta1JSONSchemaProps.class, crdOpenApiExtensions));
+        newGsonCompatibleTypeDescription(V1JSONSchemaProps.class, crdOpenApiExtensions));
   }
 
   private static void registerCustomTypeDescriptions(

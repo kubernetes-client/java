@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(description = "specification of a horizontal pod autoscaler.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1HorizontalPodAutoscalerSpec {
   public static final String SERIALIZED_NAME_MAX_REPLICAS = "maxReplicas";
 

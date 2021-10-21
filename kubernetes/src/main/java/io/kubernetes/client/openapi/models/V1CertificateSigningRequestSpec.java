@@ -26,8 +26,13 @@ import java.util.Objects;
 @ApiModel(description = "CertificateSigningRequestSpec contains the certificate request.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1CertificateSigningRequestSpec {
+  public static final String SERIALIZED_NAME_EXPIRATION_SECONDS = "expirationSeconds";
+
+  @SerializedName(SERIALIZED_NAME_EXPIRATION_SECONDS)
+  private Integer expirationSeconds;
+
   public static final String SERIALIZED_NAME_EXTRA = "extra";
 
   @SerializedName(SERIALIZED_NAME_EXTRA)
@@ -62,6 +67,40 @@ public class V1CertificateSigningRequestSpec {
 
   @SerializedName(SERIALIZED_NAME_USERNAME)
   private String username;
+
+  public V1CertificateSigningRequestSpec expirationSeconds(Integer expirationSeconds) {
+
+    this.expirationSeconds = expirationSeconds;
+    return this;
+  }
+
+  /**
+   * expirationSeconds is the requested duration of validity of the issued certificate. The
+   * certificate signer may issue a certificate with a different validity duration so a client must
+   * check the delta between the notBefore and and notAfter fields in the issued certificate to
+   * determine the actual duration. The v1.22+ in-tree implementations of the well-known Kubernetes
+   * signers will honor this field as long as the requested duration is not greater than the maximum
+   * duration they will honor per the --cluster-signing-duration CLI flag to the Kubernetes
+   * controller manager. Certificate signers may not honor this field for various reasons: 1. Old
+   * signer that is unaware of the field (such as the in-tree implementations prior to v1.22) 2.
+   * Signer whose configured maximum is shorter than the requested duration 3. Signer whose
+   * configured minimum is longer than the requested duration The minimum valid value for
+   * expirationSeconds is 600, i.e. 10 minutes. As of v1.22, this field is beta and is controlled
+   * via the CSRDuration feature gate.
+   *
+   * @return expirationSeconds
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "expirationSeconds is the requested duration of validity of the issued certificate. The certificate signer may issue a certificate with a different validity duration so a client must check the delta between the notBefore and and notAfter fields in the issued certificate to determine the actual duration.  The v1.22+ in-tree implementations of the well-known Kubernetes signers will honor this field as long as the requested duration is not greater than the maximum duration they will honor per the --cluster-signing-duration CLI flag to the Kubernetes controller manager.  Certificate signers may not honor this field for various reasons:    1. Old signer that is unaware of the field (such as the in-tree      implementations prior to v1.22)   2. Signer whose configured maximum is shorter than the requested duration   3. Signer whose configured minimum is longer than the requested duration  The minimum valid value for expirationSeconds is 600, i.e. 10 minutes.  As of v1.22, this field is beta and is controlled via the CSRDuration feature gate.")
+  public Integer getExpirationSeconds() {
+    return expirationSeconds;
+  }
+
+  public void setExpirationSeconds(Integer expirationSeconds) {
+    this.expirationSeconds = expirationSeconds;
+  }
 
   public V1CertificateSigningRequestSpec extra(Map<String, List<String>> extra) {
 
@@ -297,7 +336,8 @@ public class V1CertificateSigningRequestSpec {
     }
     V1CertificateSigningRequestSpec v1CertificateSigningRequestSpec =
         (V1CertificateSigningRequestSpec) o;
-    return Objects.equals(this.extra, v1CertificateSigningRequestSpec.extra)
+    return Objects.equals(this.expirationSeconds, v1CertificateSigningRequestSpec.expirationSeconds)
+        && Objects.equals(this.extra, v1CertificateSigningRequestSpec.extra)
         && Objects.equals(this.groups, v1CertificateSigningRequestSpec.groups)
         && Arrays.equals(this.request, v1CertificateSigningRequestSpec.request)
         && Objects.equals(this.signerName, v1CertificateSigningRequestSpec.signerName)
@@ -308,13 +348,22 @@ public class V1CertificateSigningRequestSpec {
 
   @Override
   public int hashCode() {
-    return Objects.hash(extra, groups, Arrays.hashCode(request), signerName, uid, usages, username);
+    return Objects.hash(
+        expirationSeconds,
+        extra,
+        groups,
+        Arrays.hashCode(request),
+        signerName,
+        uid,
+        usages,
+        username);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1CertificateSigningRequestSpec {\n");
+    sb.append("    expirationSeconds: ").append(toIndentedString(expirationSeconds)).append("\n");
     sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
     sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
     sb.append("    request: ").append(toIndentedString(request)).append("\n");

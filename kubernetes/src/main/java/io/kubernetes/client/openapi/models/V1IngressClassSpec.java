@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(description = "IngressClassSpec provides information about the class of an Ingress.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1IngressClassSpec {
   public static final String SERIALIZED_NAME_CONTROLLER = "controller";
 
@@ -31,7 +31,7 @@ public class V1IngressClassSpec {
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
 
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  private V1TypedLocalObjectReference parameters;
+  private V1IngressClassParametersReference parameters;
 
   public V1IngressClassSpec controller(String controller) {
 
@@ -60,7 +60,7 @@ public class V1IngressClassSpec {
     this.controller = controller;
   }
 
-  public V1IngressClassSpec parameters(V1TypedLocalObjectReference parameters) {
+  public V1IngressClassSpec parameters(V1IngressClassParametersReference parameters) {
 
     this.parameters = parameters;
     return this;
@@ -73,11 +73,11 @@ public class V1IngressClassSpec {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  public V1TypedLocalObjectReference getParameters() {
+  public V1IngressClassParametersReference getParameters() {
     return parameters;
   }
 
-  public void setParameters(V1TypedLocalObjectReference parameters) {
+  public void setParameters(V1IngressClassParametersReference parameters) {
     this.parameters = parameters;
   }
 

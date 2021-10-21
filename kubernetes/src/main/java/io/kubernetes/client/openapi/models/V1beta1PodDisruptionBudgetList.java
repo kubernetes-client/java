@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "PodDisruptionBudgetList is a collection of PodDisruptionBudgets.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1beta1PodDisruptionBudgetList
     implements io.kubernetes.client.common.KubernetesListObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
@@ -84,11 +84,11 @@ public class V1beta1PodDisruptionBudgetList
   }
 
   /**
-   * Get items
+   * items list individual PodDisruptionBudget objects
    *
    * @return items
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "items list individual PodDisruptionBudget objects")
   public List<V1beta1PodDisruptionBudget> getItems() {
     return items;
   }

@@ -32,7 +32,7 @@ import java.util.Objects;
         "EndpointSubset is a group of addresses with a common set of ports. The expanded set of endpoints is the Cartesian product of Addresses x Ports. For example, given:   {     Addresses: [{\"ip\": \"10.10.1.1\"}, {\"ip\": \"10.10.2.2\"}],     Ports:     [{\"name\": \"a\", \"port\": 8675}, {\"name\": \"b\", \"port\": 309}]   } The resulting set of endpoints can be viewed as:     a: [ 10.10.1.1:8675, 10.10.2.2:8675 ],     b: [ 10.10.1.1:309, 10.10.2.2:309 ]")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1EndpointSubset {
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
 
@@ -47,7 +47,7 @@ public class V1EndpointSubset {
   public static final String SERIALIZED_NAME_PORTS = "ports";
 
   @SerializedName(SERIALIZED_NAME_PORTS)
-  private List<V1EndpointPort> ports = null;
+  private List<CoreV1EndpointPort> ports = null;
 
   public V1EndpointSubset addresses(List<V1EndpointAddress> addresses) {
 
@@ -114,13 +114,13 @@ public class V1EndpointSubset {
     this.notReadyAddresses = notReadyAddresses;
   }
 
-  public V1EndpointSubset ports(List<V1EndpointPort> ports) {
+  public V1EndpointSubset ports(List<CoreV1EndpointPort> ports) {
 
     this.ports = ports;
     return this;
   }
 
-  public V1EndpointSubset addPortsItem(V1EndpointPort portsItem) {
+  public V1EndpointSubset addPortsItem(CoreV1EndpointPort portsItem) {
     if (this.ports == null) {
       this.ports = new ArrayList<>();
     }
@@ -135,11 +135,11 @@ public class V1EndpointSubset {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Port numbers available on the related IP addresses.")
-  public List<V1EndpointPort> getPorts() {
+  public List<CoreV1EndpointPort> getPorts() {
     return ports;
   }
 
-  public void setPorts(List<V1EndpointPort> ports) {
+  public void setPorts(List<CoreV1EndpointPort> ports) {
     this.ports = ports;
   }
 
