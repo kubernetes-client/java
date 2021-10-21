@@ -39,8 +39,8 @@ class ModelMapperTest extends Specification {
 		new GroupVersionResource("apps", "v1", "deployments") == ModelMapper.getGroupVersionResourceByClass(V1Deployment.class)
 		ModelMapper.isNamespaced(V1Deployment.class)
 
-		new GroupVersionKind("apiextensions.k8s.io", "v1", "CustomResourceDefinition") == ModelMapper.getGroupVersionKindByClass(V1beta1CustomResourceDefinition.class)
-		new GroupVersionResource("apiextensions.k8s.io", "v1", "customresourcedefinitions") == ModelMapper.getGroupVersionResourceByClass(V1beta1CustomResourceDefinition.class)
-		!ModelMapper.isNamespaced(V1beta1CustomResourceDefinition.class)
+		new GroupVersionKind("apiextensions.k8s.io", "v1", "CustomResourceDefinition") == ModelMapper.getGroupVersionKindByClass(V1CustomResourceDefinition.class)
+		new GroupVersionResource("apiextensions.k8s.io", "v1", "customresourcedefinitions") == ModelMapper.getGroupVersionResourceByClass(V1CustomResourceDefinition.class)
+		!ModelMapper.isNamespaced(V1CustomResourceDefinition.class)
 	}
 }
