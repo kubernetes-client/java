@@ -65,13 +65,13 @@ public class Metrics {
             "v1beta1",
             "nodes",
             apiClient);
-    return metricsClient.list().getObject();
+    return metricsClient.list().throwsApiException().getObject();
   }
 
   public PodMetricsList getPodMetrics(String namespace) throws ApiException {
     GenericKubernetesApi<PodMetrics, PodMetricsList> metricsClient =
         new GenericKubernetesApi<>(
             PodMetrics.class, PodMetricsList.class, "metrics.k8s.io", "v1beta1", "pods", apiClient);
-    return metricsClient.list(namespace).getObject();
+    return metricsClient.list(namespace).throwsApiException().getObject();
   }
 }
