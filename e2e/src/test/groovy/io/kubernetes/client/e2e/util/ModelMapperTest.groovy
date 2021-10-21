@@ -15,9 +15,9 @@ package io.kubernetes.client.e2e.util
 import io.kubernetes.client.Discovery
 import io.kubernetes.client.apimachinery.GroupVersionKind
 import io.kubernetes.client.apimachinery.GroupVersionResource
+import io.kubernetes.client.openapi.models.V1CustomResourceDefinition
 import io.kubernetes.client.openapi.models.V1Deployment
 import io.kubernetes.client.openapi.models.V1Pod
-import io.kubernetes.client.openapi.models.V1CustomResourceDefinition
 import io.kubernetes.client.util.ClientBuilder
 import io.kubernetes.client.util.ModelMapper
 import spock.lang.Specification

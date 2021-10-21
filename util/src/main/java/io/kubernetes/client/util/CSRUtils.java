@@ -63,8 +63,7 @@ public class CSRUtils {
   public static void approve(ApiClient apiClient, String csrObjName) throws ApiException {
     CertificatesV1Api api = new CertificatesV1Api(apiClient);
     OffsetDateTime now = OffsetDateTime.now();
-    V1CertificateSigningRequest current =
-        api.readCertificateSigningRequest(csrObjName, null);
+    V1CertificateSigningRequest current = api.readCertificateSigningRequest(csrObjName, null);
     current
         .getStatus()
         .addConditionsItem(

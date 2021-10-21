@@ -16,9 +16,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
 import io.kubernetes.client.apimachinery.GroupVersionKind;
+import io.kubernetes.client.openapi.models.V1CustomResourceDefinition;
 import io.kubernetes.client.openapi.models.V1Deployment;
 import io.kubernetes.client.openapi.models.V1Pod;
-import io.kubernetes.client.openapi.models.V1CustomResourceDefinition;
 import org.junit.Test;
 
 public class ModelMapperTest {

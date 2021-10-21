@@ -80,8 +80,7 @@ public class KubectlRollout<ApiType extends KubernetesObject> {
           V1DaemonSet daemonSet = api.readNamespacedDaemonSet(name, namespace, null);
           daemonSetViewHistory(daemonSet, api);
         } else if (apiTypeClass.equals(V1StatefulSet.class)) {
-          V1StatefulSet statefulSet =
-              api.readNamespacedStatefulSet(name, namespace, null);
+          V1StatefulSet statefulSet = api.readNamespacedStatefulSet(name, namespace, null);
           statefulSetViewHistory(statefulSet, api);
         } else {
           throw new KubectlException("Unsupported class for rollout history: " + apiTypeClass);

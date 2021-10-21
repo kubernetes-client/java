@@ -15,8 +15,8 @@ package io.kubernetes.client.extended.network;
 import static org.junit.Assert.*;
 
 import io.kubernetes.client.extended.network.exception.NoAvailableAddressException;
-import io.kubernetes.client.openapi.models.V1EndpointAddress;
 import io.kubernetes.client.openapi.models.CoreV1EndpointPort;
+import io.kubernetes.client.openapi.models.V1EndpointAddress;
 import io.kubernetes.client.openapi.models.V1EndpointSubset;
 import io.kubernetes.client.openapi.models.V1Endpoints;
 import java.util.ArrayList;
