@@ -12,71 +12,66 @@ limitations under the License.
 */
 package io.kubernetes.client;
 
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
-import io.kubernetes.client.openapi.ApiClient;
-import io.kubernetes.client.openapi.ApiException;
-import io.kubernetes.client.util.ClientBuilder;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-
-import java.io.IOException;
-
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.util.ClientBuilder;
+import java.io.IOException;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+
 public class MetricsTest {
 
-    private ApiClient client;
+  private ApiClient client;
 
-    @Rule
-    public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort());
+  @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort());
 
-    @Before
-    public void setup() throws IOException {
-        client = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
+  @Before
+  public void setup() throws IOException {
+    client = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
+  }
+
+  @Test
+  public void getPodMetricsThrowsAPIExceptionWhenServerReturnsError() {
+    String namespace = "default";
+    Metrics metrics = new Metrics(client);
+    wireMockRule.stubFor(
+        get(urlEqualTo(
+                "/apis/metrics.k8s.io/v1beta1/namespaces/" + namespace + "/pods?watch=false"))
+            .willReturn(
+                aResponse()
+                    .withStatus(503)
+                    .withHeader("Content-Type", "text/plain")
+                    .withBody("Service Unavailable")));
+    try {
+      metrics.getPodMetrics(namespace);
+      fail("Expected ApiException to be thrown");
+    } catch (ApiException ex) {
+      assertEquals(503, ex.getCode());
     }
+  }
 
-    @Test
-    public void getPodMetricsThrowsAPIExceptionWhenServerReturnsError() {
-        String namespace = "default";
-        Metrics metrics = new Metrics(client);
-        wireMockRule.stubFor(
-            get(urlEqualTo("/apis/metrics.k8s.io/v1beta1/namespaces/" + namespace + "/pods?watch=false"))
-                .willReturn(
-                    aResponse()
-                        .withStatus(503)
-                        .withHeader("Content-Type", "text/plain")
-                        .withBody("Service Unavailable")
-                )
-        );
-        try {
-            metrics.getPodMetrics(namespace);
-            fail("Expected ApiException to be thrown");
-        } catch (ApiException ex) {
-            assertEquals(503, ex.getCode());
-        }
+  @Test
+  public void getNodeMetricsThrowsAPIExceptionWhenServerReturnsError() {
+    Metrics metrics = new Metrics(client);
+    wireMockRule.stubFor(
+        get(urlEqualTo("/apis/metrics.k8s.io/v1beta1/nodes?watch=false"))
+            .willReturn(
+                aResponse()
+                    .withStatus(503)
+                    .withHeader("Content-Type", "text/plain")
+                    .withBody("Service Unavailable")));
+    try {
+      metrics.getNodeMetrics();
+      fail("Expected ApiException to be thrown");
+    } catch (ApiException ex) {
+      assertEquals(503, ex.getCode());
     }
-
-    @Test
-    public void getNodeMetricsThrowsAPIExceptionWhenServerReturnsError() {
-        Metrics metrics = new Metrics(client);
-        wireMockRule.stubFor(
-            get(urlEqualTo("/apis/metrics.k8s.io/v1beta1/nodes?watch=false"))
-                .willReturn(
-                    aResponse()
-                        .withStatus(503)
-                        .withHeader("Content-Type", "text/plain")
-                        .withBody("Service Unavailable")
-                )
-        );
-        try {
-            metrics.getNodeMetrics();
-            fail("Expected ApiException to be thrown");
-        } catch (ApiException ex) {
-            assertEquals(503, ex.getCode());
-        }
-    }
+  }
 }
