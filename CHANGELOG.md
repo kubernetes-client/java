@@ -1,3 +1,11 @@
+# 13.0.1
+
+* Bugfixes
+  * Fixes informer list-watching options when working based on generic api. (#1908)
+  * Fixes an NPE issue upon api discovery. (#1924)
+  * Fixes stale watch handling issue for informer. (#1905)
+  * Make informer properly handle the expired resource-version upon listing. (#1928)
+
 # 13.0.0
 
 * Features
