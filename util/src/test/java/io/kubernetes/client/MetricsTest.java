@@ -42,8 +42,7 @@ public class MetricsTest {
     String namespace = "default";
     Metrics metrics = new Metrics(client);
     wireMockRule.stubFor(
-        get(urlEqualTo(
-                "/apis/metrics.k8s.io/v1beta1/namespaces/" + namespace + "/pods?watch=false"))
+        get(urlPathMatching("^/apis/metrics.k8s.io/v1beta1/namespaces/" + namespace + "/pods.*"))
             .willReturn(
                 aResponse()
                     .withStatus(503)
@@ -61,7 +60,7 @@ public class MetricsTest {
   public void getNodeMetricsThrowsAPIExceptionWhenServerReturnsError() {
     Metrics metrics = new Metrics(client);
     wireMockRule.stubFor(
-        get(urlEqualTo("/apis/metrics.k8s.io/v1beta1/nodes?watch=false"))
+        get(urlPathMatching("^/apis/metrics.k8s.io/v1beta1/nodes.*"))
             .willReturn(
                 aResponse()
                     .withStatus(503)
