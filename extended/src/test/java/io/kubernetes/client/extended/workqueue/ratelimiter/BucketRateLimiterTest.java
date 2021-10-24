@@ -16,6 +16,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.time.Duration;
+
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Rule;
@@ -23,7 +24,6 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import org.apache.commons.lang3.concurrent.TimedSemaphore;
-
 public class BucketRateLimiterTest {
   @Rule public ExpectedException thrown = ExpectedException.none();
 
