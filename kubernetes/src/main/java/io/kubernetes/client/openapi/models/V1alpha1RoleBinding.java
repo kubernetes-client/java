@@ -31,7 +31,7 @@ import java.util.Objects;
         "RoleBinding references a role, but does not contain it.  It can reference a Role in the same namespace or a ClusterRole in the global namespace. It adds who information via Subjects and namespace information by which namespace it exists in.  RoleBindings in a given namespace only have effect in that namespace. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBinding, and will no longer be served in v1.22.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1alpha1RoleBinding implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 
@@ -56,7 +56,7 @@ public class V1alpha1RoleBinding implements io.kubernetes.client.common.Kubernet
   public static final String SERIALIZED_NAME_SUBJECTS = "subjects";
 
   @SerializedName(SERIALIZED_NAME_SUBJECTS)
-  private List<RbacV1alpha1Subject> subjects = null;
+  private List<V1alpha1Subject> subjects = null;
 
   public V1alpha1RoleBinding apiVersion(String apiVersion) {
 
@@ -151,13 +151,13 @@ public class V1alpha1RoleBinding implements io.kubernetes.client.common.Kubernet
     this.roleRef = roleRef;
   }
 
-  public V1alpha1RoleBinding subjects(List<RbacV1alpha1Subject> subjects) {
+  public V1alpha1RoleBinding subjects(List<V1alpha1Subject> subjects) {
 
     this.subjects = subjects;
     return this;
   }
 
-  public V1alpha1RoleBinding addSubjectsItem(RbacV1alpha1Subject subjectsItem) {
+  public V1alpha1RoleBinding addSubjectsItem(V1alpha1Subject subjectsItem) {
     if (this.subjects == null) {
       this.subjects = new ArrayList<>();
     }
@@ -172,11 +172,11 @@ public class V1alpha1RoleBinding implements io.kubernetes.client.common.Kubernet
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Subjects holds references to the objects the role applies to.")
-  public List<RbacV1alpha1Subject> getSubjects() {
+  public List<V1alpha1Subject> getSubjects() {
     return subjects;
   }
 
-  public void setSubjects(List<RbacV1alpha1Subject> subjects) {
+  public void setSubjects(List<V1alpha1Subject> subjects) {
     this.subjects = subjects;
   }
 

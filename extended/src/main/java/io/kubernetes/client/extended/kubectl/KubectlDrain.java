@@ -113,7 +113,7 @@ public class KubectlDrain extends KubectlCordon {
     long start = System.currentTimeMillis();
     do {
       try {
-        api.readNamespacedPod(name, namespace, null, null, null);
+        api.readNamespacedPod(name, namespace, null);
       } catch (ApiException ex) {
         if (ex.getCode() == HttpURLConnection.HTTP_NOT_FOUND) {
           return;

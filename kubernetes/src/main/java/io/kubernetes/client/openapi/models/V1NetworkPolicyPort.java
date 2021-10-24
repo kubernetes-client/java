@@ -22,8 +22,13 @@ import java.util.Objects;
 @ApiModel(description = "NetworkPolicyPort describes a port to allow traffic on")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1NetworkPolicyPort {
+  public static final String SERIALIZED_NAME_END_PORT = "endPort";
+
+  @SerializedName(SERIALIZED_NAME_END_PORT)
+  private Integer endPort;
+
   public static final String SERIALIZED_NAME_PORT = "port";
 
   @SerializedName(SERIALIZED_NAME_PORT)
@@ -33,6 +38,33 @@ public class V1NetworkPolicyPort {
 
   @SerializedName(SERIALIZED_NAME_PROTOCOL)
   private String protocol;
+
+  public V1NetworkPolicyPort endPort(Integer endPort) {
+
+    this.endPort = endPort;
+    return this;
+  }
+
+  /**
+   * If set, indicates that the range of ports from port to endPort, inclusive, should be allowed by
+   * the policy. This field cannot be defined if the port field is not defined or if the port field
+   * is defined as a named (string) port. The endPort must be equal or greater than port. This
+   * feature is in Beta state and is enabled by default. It can be disabled using the Feature Gate
+   * \&quot;NetworkPolicyEndPort\&quot;.
+   *
+   * @return endPort
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "If set, indicates that the range of ports from port to endPort, inclusive, should be allowed by the policy. This field cannot be defined if the port field is not defined or if the port field is defined as a named (string) port. The endPort must be equal or greater than port. This feature is in Beta state and is enabled by default. It can be disabled using the Feature Gate \"NetworkPolicyEndPort\".")
+  public Integer getEndPort() {
+    return endPort;
+  }
+
+  public void setEndPort(Integer endPort) {
+    this.endPort = endPort;
+  }
 
   public V1NetworkPolicyPort port(IntOrString port) {
 
@@ -92,19 +124,21 @@ public class V1NetworkPolicyPort {
       return false;
     }
     V1NetworkPolicyPort v1NetworkPolicyPort = (V1NetworkPolicyPort) o;
-    return Objects.equals(this.port, v1NetworkPolicyPort.port)
+    return Objects.equals(this.endPort, v1NetworkPolicyPort.endPort)
+        && Objects.equals(this.port, v1NetworkPolicyPort.port)
         && Objects.equals(this.protocol, v1NetworkPolicyPort.protocol);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(port, protocol);
+    return Objects.hash(endPort, port, protocol);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1NetworkPolicyPort {\n");
+    sb.append("    endPort: ").append(toIndentedString(endPort)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("}");

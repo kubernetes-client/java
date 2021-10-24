@@ -8,159 +8,132 @@ import java.lang.Object;
 import java.lang.String;
 import java.lang.Boolean;
 
-public class V1ConditionFluentImpl<A extends io.kubernetes.client.openapi.models.V1ConditionFluent<A>> extends io.kubernetes.client.fluent.BaseFluent<A> implements io.kubernetes.client.openapi.models.V1ConditionFluent<A> {
+ /**
+  * Generated
+  */
+public class V1ConditionFluentImpl<A extends io.kubernetes.client.openapi.models.V1ConditionFluent<A>> extends io.kubernetes.client.fluent.BaseFluent<A> implements io.kubernetes.client.openapi.models.V1ConditionFluent<A>{
+  public V1ConditionFluentImpl() {
+  }
+  public V1ConditionFluentImpl(io.kubernetes.client.openapi.models.V1Condition instance) {
+    this.withLastTransitionTime(instance.getLastTransitionTime());
 
-    private java.time.OffsetDateTime lastTransitionTime;
-    private java.lang.String message;
-    private java.lang.Long observedGeneration;
-    private java.lang.String reason;
-    private java.lang.String status;
-    private java.lang.String type;
+    this.withMessage(instance.getMessage());
 
-    public V1ConditionFluentImpl() {
-    }
+    this.withObservedGeneration(instance.getObservedGeneration());
 
-    public V1ConditionFluentImpl(io.kubernetes.client.openapi.models.V1Condition instance) {
-        this.withLastTransitionTime(instance.getLastTransitionTime());
-        
-        this.withMessage(instance.getMessage());
-        
-        this.withObservedGeneration(instance.getObservedGeneration());
-        
-        this.withReason(instance.getReason());
-        
-        this.withStatus(instance.getStatus());
-        
-        this.withType(instance.getType());
-    }
+    this.withReason(instance.getReason());
 
-    public java.time.OffsetDateTime getLastTransitionTime() {
-        return this.lastTransitionTime;
-    }
+    this.withStatus(instance.getStatus());
 
-    public A withLastTransitionTime(java.time.OffsetDateTime lastTransitionTime) {
-        this.lastTransitionTime=lastTransitionTime; return (A) this;
-    }
+    this.withType(instance.getType());
 
-    public java.lang.Boolean hasLastTransitionTime() {
-        return this.lastTransitionTime != null;
-    }
-
-    public java.lang.String getMessage() {
-        return this.message;
-    }
-
-    public A withMessage(java.lang.String message) {
-        this.message=message; return (A) this;
-    }
-
-    public java.lang.Boolean hasMessage() {
-        return this.message != null;
-    }
-
-    
-    @java.lang.Deprecated
-        
-    /**
-     * Method is deprecated. use withMessage instead.
-     */
-        public A withNewMessage(java.lang.String original) {
-        return (A)withMessage(new String(original));
-    }
-
-    public java.lang.Long getObservedGeneration() {
-        return this.observedGeneration;
-    }
-
-    public A withObservedGeneration(java.lang.Long observedGeneration) {
-        this.observedGeneration=observedGeneration; return (A) this;
-    }
-
-    public java.lang.Boolean hasObservedGeneration() {
-        return this.observedGeneration != null;
-    }
-
-    public java.lang.String getReason() {
-        return this.reason;
-    }
-
-    public A withReason(java.lang.String reason) {
-        this.reason=reason; return (A) this;
-    }
-
-    public java.lang.Boolean hasReason() {
-        return this.reason != null;
-    }
-
-    
-    @java.lang.Deprecated
-        
-    /**
-     * Method is deprecated. use withReason instead.
-     */
-        public A withNewReason(java.lang.String original) {
-        return (A)withReason(new String(original));
-    }
-
-    public java.lang.String getStatus() {
-        return this.status;
-    }
-
-    public A withStatus(java.lang.String status) {
-        this.status=status; return (A) this;
-    }
-
-    public java.lang.Boolean hasStatus() {
-        return this.status != null;
-    }
-
-    
-    @java.lang.Deprecated
-        
-    /**
-     * Method is deprecated. use withStatus instead.
-     */
-        public A withNewStatus(java.lang.String original) {
-        return (A)withStatus(new String(original));
-    }
-
-    public java.lang.String getType() {
-        return this.type;
-    }
-
-    public A withType(java.lang.String type) {
-        this.type=type; return (A) this;
-    }
-
-    public java.lang.Boolean hasType() {
-        return this.type != null;
-    }
-
-    
-    @java.lang.Deprecated
-        
-    /**
-     * Method is deprecated. use withType instead.
-     */
-        public A withNewType(java.lang.String original) {
-        return (A)withType(new String(original));
-    }
-
-    public boolean equals(java.lang.Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        V1ConditionFluentImpl that = (V1ConditionFluentImpl) o;
-        if (lastTransitionTime != null ? !lastTransitionTime.equals(that.lastTransitionTime) :that.lastTransitionTime != null) return false;
-        if (message != null ? !message.equals(that.message) :that.message != null) return false;
-        if (observedGeneration != null ? !observedGeneration.equals(that.observedGeneration) :that.observedGeneration != null) return false;
-        if (reason != null ? !reason.equals(that.reason) :that.reason != null) return false;
-        if (status != null ? !status.equals(that.status) :that.status != null) return false;
-        if (type != null ? !type.equals(that.type) :that.type != null) return false;
-        return true;
-    }
-
-    public int hashCode() {
-        return java.util.Objects.hash(lastTransitionTime,  message,  observedGeneration,  reason,  status,  type,  super.hashCode());
-    }
-
+  }
+  private java.time.OffsetDateTime lastTransitionTime;
+  private java.lang.String message;
+  private java.lang.Long observedGeneration;
+  private java.lang.String reason;
+  private java.lang.String status;
+  private java.lang.String type;
+  public java.time.OffsetDateTime getLastTransitionTime() {
+    return this.lastTransitionTime;
+  }
+  public A withLastTransitionTime(java.time.OffsetDateTime lastTransitionTime) {
+    this.lastTransitionTime=lastTransitionTime; return (A) this;
+  }
+  public java.lang.Boolean hasLastTransitionTime() {
+    return this.lastTransitionTime != null;
+  }
+  public java.lang.String getMessage() {
+    return this.message;
+  }
+  public A withMessage(java.lang.String message) {
+    this.message=message; return (A) this;
+  }
+  public java.lang.Boolean hasMessage() {
+    return this.message != null;
+  }
+  
+  /**
+   * Method is deprecated. use withMessage instead.
+   */
+  @java.lang.Deprecated
+  public A withNewMessage(java.lang.String original) {
+    return (A)withMessage(new String(original));
+  }
+  public java.lang.Long getObservedGeneration() {
+    return this.observedGeneration;
+  }
+  public A withObservedGeneration(java.lang.Long observedGeneration) {
+    this.observedGeneration=observedGeneration; return (A) this;
+  }
+  public java.lang.Boolean hasObservedGeneration() {
+    return this.observedGeneration != null;
+  }
+  public java.lang.String getReason() {
+    return this.reason;
+  }
+  public A withReason(java.lang.String reason) {
+    this.reason=reason; return (A) this;
+  }
+  public java.lang.Boolean hasReason() {
+    return this.reason != null;
+  }
+  
+  /**
+   * Method is deprecated. use withReason instead.
+   */
+  @java.lang.Deprecated
+  public A withNewReason(java.lang.String original) {
+    return (A)withReason(new String(original));
+  }
+  public java.lang.String getStatus() {
+    return this.status;
+  }
+  public A withStatus(java.lang.String status) {
+    this.status=status; return (A) this;
+  }
+  public java.lang.Boolean hasStatus() {
+    return this.status != null;
+  }
+  
+  /**
+   * Method is deprecated. use withStatus instead.
+   */
+  @java.lang.Deprecated
+  public A withNewStatus(java.lang.String original) {
+    return (A)withStatus(new String(original));
+  }
+  public java.lang.String getType() {
+    return this.type;
+  }
+  public A withType(java.lang.String type) {
+    this.type=type; return (A) this;
+  }
+  public java.lang.Boolean hasType() {
+    return this.type != null;
+  }
+  
+  /**
+   * Method is deprecated. use withType instead.
+   */
+  @java.lang.Deprecated
+  public A withNewType(java.lang.String original) {
+    return (A)withType(new String(original));
+  }
+  public boolean equals(java.lang.Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    V1ConditionFluentImpl that = (V1ConditionFluentImpl) o;
+    if (lastTransitionTime != null ? !lastTransitionTime.equals(that.lastTransitionTime) :that.lastTransitionTime != null) return false;
+    if (message != null ? !message.equals(that.message) :that.message != null) return false;
+    if (observedGeneration != null ? !observedGeneration.equals(that.observedGeneration) :that.observedGeneration != null) return false;
+    if (reason != null ? !reason.equals(that.reason) :that.reason != null) return false;
+    if (status != null ? !status.equals(that.status) :that.status != null) return false;
+    if (type != null ? !type.equals(that.type) :that.type != null) return false;
+    return true;
+  }
+  public int hashCode() {
+    return java.util.Objects.hash(lastTransitionTime,  message,  observedGeneration,  reason,  status,  type,  super.hashCode());
+  }
+  
 }

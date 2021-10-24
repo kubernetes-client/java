@@ -30,12 +30,17 @@ import java.util.Objects;
         "Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key <topologyKey> matches that of any node on which a pod of the set of pods is running")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1PodAffinityTerm {
   public static final String SERIALIZED_NAME_LABEL_SELECTOR = "labelSelector";
 
   @SerializedName(SERIALIZED_NAME_LABEL_SELECTOR)
   private V1LabelSelector labelSelector;
+
+  public static final String SERIALIZED_NAME_NAMESPACE_SELECTOR = "namespaceSelector";
+
+  @SerializedName(SERIALIZED_NAME_NAMESPACE_SELECTOR)
+  private V1LabelSelector namespaceSelector;
 
   public static final String SERIALIZED_NAME_NAMESPACES = "namespaces";
 
@@ -68,6 +73,27 @@ public class V1PodAffinityTerm {
     this.labelSelector = labelSelector;
   }
 
+  public V1PodAffinityTerm namespaceSelector(V1LabelSelector namespaceSelector) {
+
+    this.namespaceSelector = namespaceSelector;
+    return this;
+  }
+
+  /**
+   * Get namespaceSelector
+   *
+   * @return namespaceSelector
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1LabelSelector getNamespaceSelector() {
+    return namespaceSelector;
+  }
+
+  public void setNamespaceSelector(V1LabelSelector namespaceSelector) {
+    this.namespaceSelector = namespaceSelector;
+  }
+
   public V1PodAffinityTerm namespaces(List<String> namespaces) {
 
     this.namespaces = namespaces;
@@ -83,15 +109,17 @@ public class V1PodAffinityTerm {
   }
 
   /**
-   * namespaces specifies which namespaces the labelSelector applies to (matches against); null or
-   * empty list means \&quot;this pod&#39;s namespace\&quot;
+   * namespaces specifies a static list of namespace names that the term applies to. The term is
+   * applied to the union of the namespaces listed in this field and the ones selected by
+   * namespaceSelector. null or empty namespaces list and null namespaceSelector means \&quot;this
+   * pod&#39;s namespace\&quot;
    *
    * @return namespaces
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "namespaces specifies which namespaces the labelSelector applies to (matches against); null or empty list means \"this pod's namespace\"")
+          "namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means \"this pod's namespace\"")
   public List<String> getNamespaces() {
     return namespaces;
   }
@@ -136,13 +164,14 @@ public class V1PodAffinityTerm {
     }
     V1PodAffinityTerm v1PodAffinityTerm = (V1PodAffinityTerm) o;
     return Objects.equals(this.labelSelector, v1PodAffinityTerm.labelSelector)
+        && Objects.equals(this.namespaceSelector, v1PodAffinityTerm.namespaceSelector)
         && Objects.equals(this.namespaces, v1PodAffinityTerm.namespaces)
         && Objects.equals(this.topologyKey, v1PodAffinityTerm.topologyKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(labelSelector, namespaces, topologyKey);
+    return Objects.hash(labelSelector, namespaceSelector, namespaces, topologyKey);
   }
 
   @Override
@@ -150,6 +179,7 @@ public class V1PodAffinityTerm {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1PodAffinityTerm {\n");
     sb.append("    labelSelector: ").append(toIndentedString(labelSelector)).append("\n");
+    sb.append("    namespaceSelector: ").append(toIndentedString(namespaceSelector)).append("\n");
     sb.append("    namespaces: ").append(toIndentedString(namespaces)).append("\n");
     sb.append("    topologyKey: ").append(toIndentedString(topologyKey)).append("\n");
     sb.append("}");

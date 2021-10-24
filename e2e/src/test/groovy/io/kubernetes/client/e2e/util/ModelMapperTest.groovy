@@ -15,9 +15,9 @@ package io.kubernetes.client.e2e.util
 import io.kubernetes.client.Discovery
 import io.kubernetes.client.apimachinery.GroupVersionKind
 import io.kubernetes.client.apimachinery.GroupVersionResource
+import io.kubernetes.client.openapi.models.V1CustomResourceDefinition
 import io.kubernetes.client.openapi.models.V1Deployment
 import io.kubernetes.client.openapi.models.V1Pod
-import io.kubernetes.client.openapi.models.V1beta1CustomResourceDefinition
 import io.kubernetes.client.util.ClientBuilder
 import io.kubernetes.client.util.ModelMapper
 import spock.lang.Specification
@@ -39,8 +39,8 @@ class ModelMapperTest extends Specification {
 		new GroupVersionResource("apps", "v1", "deployments") == ModelMapper.getGroupVersionResourceByClass(V1Deployment.class)
 		ModelMapper.isNamespaced(V1Deployment.class)
 
-		new GroupVersionKind("apiextensions.k8s.io", "v1beta1", "CustomResourceDefinition") == ModelMapper.getGroupVersionKindByClass(V1beta1CustomResourceDefinition.class)
-		new GroupVersionResource("apiextensions.k8s.io", "v1beta1", "customresourcedefinitions") == ModelMapper.getGroupVersionResourceByClass(V1beta1CustomResourceDefinition.class)
-		!ModelMapper.isNamespaced(V1beta1CustomResourceDefinition.class)
+		new GroupVersionKind("apiextensions.k8s.io", "v1", "CustomResourceDefinition") == ModelMapper.getGroupVersionKindByClass(V1CustomResourceDefinition.class)
+		new GroupVersionResource("apiextensions.k8s.io", "v1", "customresourcedefinitions") == ModelMapper.getGroupVersionResourceByClass(V1CustomResourceDefinition.class)
+		!ModelMapper.isNamespaced(V1CustomResourceDefinition.class)
 	}
 }

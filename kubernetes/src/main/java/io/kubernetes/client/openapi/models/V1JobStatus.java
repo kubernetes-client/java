@@ -24,12 +24,17 @@ import java.util.Objects;
 @ApiModel(description = "JobStatus represents the current state of a Job.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1JobStatus {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
 
   @SerializedName(SERIALIZED_NAME_ACTIVE)
   private Integer active;
+
+  public static final String SERIALIZED_NAME_COMPLETED_INDEXES = "completedIndexes";
+
+  @SerializedName(SERIALIZED_NAME_COMPLETED_INDEXES)
+  private String completedIndexes;
 
   public static final String SERIALIZED_NAME_COMPLETION_TIME = "completionTime";
 
@@ -56,6 +61,11 @@ public class V1JobStatus {
   @SerializedName(SERIALIZED_NAME_SUCCEEDED)
   private Integer succeeded;
 
+  public static final String SERIALIZED_NAME_UNCOUNTED_TERMINATED_PODS = "uncountedTerminatedPods";
+
+  @SerializedName(SERIALIZED_NAME_UNCOUNTED_TERMINATED_PODS)
+  private V1UncountedTerminatedPods uncountedTerminatedPods;
+
   public V1JobStatus active(Integer active) {
 
     this.active = active;
@@ -75,6 +85,34 @@ public class V1JobStatus {
 
   public void setActive(Integer active) {
     this.active = active;
+  }
+
+  public V1JobStatus completedIndexes(String completedIndexes) {
+
+    this.completedIndexes = completedIndexes;
+    return this;
+  }
+
+  /**
+   * CompletedIndexes holds the completed indexes when .spec.completionMode &#x3D;
+   * \&quot;Indexed\&quot; in a text format. The indexes are represented as decimal integers
+   * separated by commas. The numbers are listed in increasing order. Three or more consecutive
+   * numbers are compressed and represented by the first and last element of the series, separated
+   * by a hyphen. For example, if the completed indexes are 1, 3, 4, 5 and 7, they are represented
+   * as \&quot;1,3-5,7\&quot;.
+   *
+   * @return completedIndexes
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "CompletedIndexes holds the completed indexes when .spec.completionMode = \"Indexed\" in a text format. The indexes are represented as decimal integers separated by commas. The numbers are listed in increasing order. Three or more consecutive numbers are compressed and represented by the first and last element of the series, separated by a hyphen. For example, if the completed indexes are 1, 3, 4, 5 and 7, they are represented as \"1,3-5,7\".")
+  public String getCompletedIndexes() {
+    return completedIndexes;
+  }
+
+  public void setCompletedIndexes(String completedIndexes) {
+    this.completedIndexes = completedIndexes;
   }
 
   public V1JobStatus completionTime(OffsetDateTime completionTime) {
@@ -117,8 +155,11 @@ public class V1JobStatus {
   }
 
   /**
-   * The latest available observations of an object&#39;s current state. When a job fails, one of
-   * the conditions will have type &#x3D;&#x3D; \&quot;Failed\&quot;. More info:
+   * The latest available observations of an object&#39;s current state. When a Job fails, one of
+   * the conditions will have type \&quot;Failed\&quot; and status true. When a Job is suspended,
+   * one of the conditions will have type \&quot;Suspended\&quot; and status true; when the Job is
+   * resumed, the status of this condition will become false. When a Job is completed, one of the
+   * conditions will have type \&quot;Complete\&quot; and status true. More info:
    * https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
    *
    * @return conditions
@@ -126,7 +167,7 @@ public class V1JobStatus {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "The latest available observations of an object's current state. When a job fails, one of the conditions will have type == \"Failed\". More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/")
+          "The latest available observations of an object's current state. When a Job fails, one of the conditions will have type \"Failed\" and status true. When a Job is suspended, one of the conditions will have type \"Suspended\" and status true; when the Job is resumed, the status of this condition will become false. When a Job is completed, one of the conditions will have type \"Complete\" and status true. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/")
   public List<V1JobCondition> getConditions() {
     return conditions;
   }
@@ -163,16 +204,16 @@ public class V1JobStatus {
   }
 
   /**
-   * Represents time when the job was acknowledged by the job controller. It is not guaranteed to be
-   * set in happens-before order across separate operations. It is represented in RFC3339 form and
-   * is in UTC.
+   * Represents time when the job controller started processing a job. When a Job is created in the
+   * suspended state, this field is not set until the first time it is resumed. This field is reset
+   * every time a Job is resumed from suspension. It is represented in RFC3339 form and is in UTC.
    *
    * @return startTime
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Represents time when the job was acknowledged by the job controller. It is not guaranteed to be set in happens-before order across separate operations. It is represented in RFC3339 form and is in UTC.")
+          "Represents time when the job controller started processing a job. When a Job is created in the suspended state, this field is not set until the first time it is resumed. This field is reset every time a Job is resumed from suspension. It is represented in RFC3339 form and is in UTC.")
   public OffsetDateTime getStartTime() {
     return startTime;
   }
@@ -202,6 +243,27 @@ public class V1JobStatus {
     this.succeeded = succeeded;
   }
 
+  public V1JobStatus uncountedTerminatedPods(V1UncountedTerminatedPods uncountedTerminatedPods) {
+
+    this.uncountedTerminatedPods = uncountedTerminatedPods;
+    return this;
+  }
+
+  /**
+   * Get uncountedTerminatedPods
+   *
+   * @return uncountedTerminatedPods
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1UncountedTerminatedPods getUncountedTerminatedPods() {
+    return uncountedTerminatedPods;
+  }
+
+  public void setUncountedTerminatedPods(V1UncountedTerminatedPods uncountedTerminatedPods) {
+    this.uncountedTerminatedPods = uncountedTerminatedPods;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -212,16 +274,26 @@ public class V1JobStatus {
     }
     V1JobStatus v1JobStatus = (V1JobStatus) o;
     return Objects.equals(this.active, v1JobStatus.active)
+        && Objects.equals(this.completedIndexes, v1JobStatus.completedIndexes)
         && Objects.equals(this.completionTime, v1JobStatus.completionTime)
         && Objects.equals(this.conditions, v1JobStatus.conditions)
         && Objects.equals(this.failed, v1JobStatus.failed)
         && Objects.equals(this.startTime, v1JobStatus.startTime)
-        && Objects.equals(this.succeeded, v1JobStatus.succeeded);
+        && Objects.equals(this.succeeded, v1JobStatus.succeeded)
+        && Objects.equals(this.uncountedTerminatedPods, v1JobStatus.uncountedTerminatedPods);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, completionTime, conditions, failed, startTime, succeeded);
+    return Objects.hash(
+        active,
+        completedIndexes,
+        completionTime,
+        conditions,
+        failed,
+        startTime,
+        succeeded,
+        uncountedTerminatedPods);
   }
 
   @Override
@@ -229,11 +301,15 @@ public class V1JobStatus {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1JobStatus {\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
+    sb.append("    completedIndexes: ").append(toIndentedString(completedIndexes)).append("\n");
     sb.append("    completionTime: ").append(toIndentedString(completionTime)).append("\n");
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("    failed: ").append(toIndentedString(failed)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    succeeded: ").append(toIndentedString(succeeded)).append("\n");
+    sb.append("    uncountedTerminatedPods: ")
+        .append(toIndentedString(uncountedTerminatedPods))
+        .append("\n");
     sb.append("}");
     return sb.toString();
   }

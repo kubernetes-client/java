@@ -4607,8 +4607,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -4805,8 +4804,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -4900,8 +4898,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -4997,8 +4994,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -5096,8 +5092,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -5294,8 +5289,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -5389,8 +5383,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -5486,8 +5479,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -5586,8 +5578,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -5797,8 +5788,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -5895,8 +5885,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -5995,8 +5984,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -6097,8 +6085,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -6308,8 +6295,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -6406,8 +6392,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -6506,8 +6491,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -6606,8 +6590,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -6804,8 +6787,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -6899,8 +6881,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -6996,8 +6977,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -7095,8 +7075,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -7293,8 +7272,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -7388,8 +7366,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -7485,8 +7462,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -7601,6 +7577,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -7725,6 +7702,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -7760,6 +7738,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -7796,6 +7775,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -7840,6 +7820,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -7964,6 +7945,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -7999,6 +7981,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -8036,6 +8019,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -8081,6 +8065,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -8217,6 +8202,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -8259,6 +8245,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -8303,6 +8290,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -8349,6 +8337,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -8485,6 +8474,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -8528,6 +8518,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -8572,6 +8563,7 @@ public class RbacAuthorizationV1alpha1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */

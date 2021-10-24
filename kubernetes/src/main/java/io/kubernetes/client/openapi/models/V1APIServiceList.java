@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "APIServiceList is a list of APIService objects.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1APIServiceList implements io.kubernetes.client.common.KubernetesListObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 
@@ -83,11 +83,11 @@ public class V1APIServiceList implements io.kubernetes.client.common.KubernetesL
   }
 
   /**
-   * Get items
+   * Items is the list of APIService
    *
    * @return items
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Items is the list of APIService")
   public List<V1APIService> getItems() {
     return items;
   }

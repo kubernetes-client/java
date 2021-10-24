@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(description = "PodSpec is a description of a pod.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1PodSpec {
   public static final String SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS = "activeDeadlineSeconds";
 
@@ -691,8 +691,8 @@ public class V1PodSpec {
    * which have the overhead already set. If RuntimeClass is configured and selected in the PodSpec,
    * Overhead will be set to the value defined in the corresponding RuntimeClass, otherwise it will
    * remain unset and treated as zero. More info:
-   * https://git.k8s.io/enhancements/keps/sig-node/20190226-pod-overhead.md This field is
-   * alpha-level as of Kubernetes v1.16, and is only honored by servers that enable the PodOverhead
+   * https://git.k8s.io/enhancements/keps/sig-node/688-pod-overhead/README.md This field is
+   * beta-level as of Kubernetes v1.18, and is only honored by servers that enable the PodOverhead
    * feature.
    *
    * @return overhead
@@ -700,7 +700,7 @@ public class V1PodSpec {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Overhead represents the resource overhead associated with running a pod for a given RuntimeClass. This field will be autopopulated at admission time by the RuntimeClass admission controller. If the RuntimeClass admission controller is enabled, overhead must not be set in Pod create requests. The RuntimeClass admission controller will reject Pod create requests which have the overhead already set. If RuntimeClass is configured and selected in the PodSpec, Overhead will be set to the value defined in the corresponding RuntimeClass, otherwise it will remain unset and treated as zero. More info: https://git.k8s.io/enhancements/keps/sig-node/20190226-pod-overhead.md This field is alpha-level as of Kubernetes v1.16, and is only honored by servers that enable the PodOverhead feature.")
+          "Overhead represents the resource overhead associated with running a pod for a given RuntimeClass. This field will be autopopulated at admission time by the RuntimeClass admission controller. If the RuntimeClass admission controller is enabled, overhead must not be set in Pod create requests. The RuntimeClass admission controller will reject Pod create requests which have the overhead already set. If RuntimeClass is configured and selected in the PodSpec, Overhead will be set to the value defined in the corresponding RuntimeClass, otherwise it will remain unset and treated as zero. More info: https://git.k8s.io/enhancements/keps/sig-node/688-pod-overhead/README.md This field is beta-level as of Kubernetes v1.18, and is only honored by servers that enable the PodOverhead feature.")
   public Map<String, Quantity> getOverhead() {
     return overhead;
   }
@@ -805,14 +805,14 @@ public class V1PodSpec {
    * If specified, all readiness gates will be evaluated for pod readiness. A pod is ready when all
    * its containers are ready AND all conditions specified in the readiness gates have status equal
    * to \&quot;True\&quot; More info:
-   * https://git.k8s.io/enhancements/keps/sig-network/0007-pod-ready%2B%2B.md
+   * https://git.k8s.io/enhancements/keps/sig-network/580-pod-readiness-gates
    *
    * @return readinessGates
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "If specified, all readiness gates will be evaluated for pod readiness. A pod is ready when all its containers are ready AND all conditions specified in the readiness gates have status equal to \"True\" More info: https://git.k8s.io/enhancements/keps/sig-network/0007-pod-ready%2B%2B.md")
+          "If specified, all readiness gates will be evaluated for pod readiness. A pod is ready when all its containers are ready AND all conditions specified in the readiness gates have status equal to \"True\" More info: https://git.k8s.io/enhancements/keps/sig-network/580-pod-readiness-gates")
   public List<V1PodReadinessGate> getReadinessGates() {
     return readinessGates;
   }
@@ -857,7 +857,7 @@ public class V1PodSpec {
    * to run this pod. If no RuntimeClass resource matches the named class, the pod will not be run.
    * If unset or empty, the \&quot;legacy\&quot; RuntimeClass will be used, which is an implicit
    * class with an empty definition that uses the default runtime handler. More info:
-   * https://git.k8s.io/enhancements/keps/sig-node/runtime-class.md This is a beta feature as of
+   * https://git.k8s.io/enhancements/keps/sig-node/585-runtime-class This is a beta feature as of
    * Kubernetes v1.14.
    *
    * @return runtimeClassName
@@ -865,7 +865,7 @@ public class V1PodSpec {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "RuntimeClassName refers to a RuntimeClass object in the node.k8s.io group, which should be used to run this pod.  If no RuntimeClass resource matches the named class, the pod will not be run. If unset or empty, the \"legacy\" RuntimeClass will be used, which is an implicit class with an empty definition that uses the default runtime handler. More info: https://git.k8s.io/enhancements/keps/sig-node/runtime-class.md This is a beta feature as of Kubernetes v1.14.")
+          "RuntimeClassName refers to a RuntimeClass object in the node.k8s.io group, which should be used to run this pod.  If no RuntimeClass resource matches the named class, the pod will not be run. If unset or empty, the \"legacy\" RuntimeClass will be used, which is an implicit class with an empty definition that uses the default runtime handler. More info: https://git.k8s.io/enhancements/keps/sig-node/585-runtime-class This is a beta feature as of Kubernetes v1.14.")
   public String getRuntimeClassName() {
     return runtimeClassName;
   }
@@ -1054,18 +1054,19 @@ public class V1PodSpec {
 
   /**
    * Optional duration in seconds the pod needs to terminate gracefully. May be decreased in delete
-   * request. Value must be non-negative integer. The value zero indicates delete immediately. If
-   * this value is nil, the default grace period will be used instead. The grace period is the
-   * duration in seconds after the processes running in the pod are sent a termination signal and
-   * the time when the processes are forcibly halted with a kill signal. Set this value longer than
-   * the expected cleanup time for your process. Defaults to 30 seconds.
+   * request. Value must be non-negative integer. The value zero indicates stop immediately via the
+   * kill signal (no opportunity to shut down). If this value is nil, the default grace period will
+   * be used instead. The grace period is the duration in seconds after the processes running in the
+   * pod are sent a termination signal and the time when the processes are forcibly halted with a
+   * kill signal. Set this value longer than the expected cleanup time for your process. Defaults to
+   * 30 seconds.
    *
    * @return terminationGracePeriodSeconds
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Optional duration in seconds the pod needs to terminate gracefully. May be decreased in delete request. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period will be used instead. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. Defaults to 30 seconds.")
+          "Optional duration in seconds the pod needs to terminate gracefully. May be decreased in delete request. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). If this value is nil, the default grace period will be used instead. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. Defaults to 30 seconds.")
   public Long getTerminationGracePeriodSeconds() {
     return terminationGracePeriodSeconds;
   }

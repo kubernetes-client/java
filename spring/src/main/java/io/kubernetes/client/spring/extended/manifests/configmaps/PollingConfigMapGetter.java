@@ -36,7 +36,7 @@ public class PollingConfigMapGetter implements ConfigMapGetter {
         new NamespaceName(namespace, name),
         k -> {
           try {
-            return coreV1Api.readNamespacedConfigMap(name, namespace, null, null, null);
+            return coreV1Api.readNamespacedConfigMap(name, namespace, null);
           } catch (ApiException e) {
             throw new IllegalStateException(e);
           }

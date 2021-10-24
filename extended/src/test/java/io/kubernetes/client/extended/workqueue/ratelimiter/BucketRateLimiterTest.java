@@ -16,10 +16,14 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.time.Duration;
+
+import java.util.concurrent.TimeUnit;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import org.apache.commons.lang3.concurrent.TimedSemaphore;
 public class BucketRateLimiterTest {
   @Rule public ExpectedException thrown = ExpectedException.none();
 
@@ -46,15 +50,16 @@ public class BucketRateLimiterTest {
   @Test
   public void testBucketRateLimiterTokenAdded() throws InterruptedException {
     RateLimiter<String> rateLimiter = new BucketRateLimiter<>(2, 1, Duration.ofSeconds(2));
+    TimedSemaphore timedSemaphore = new TimedSemaphore(4, TimeUnit.SECONDS, 1);
 
+    timedSemaphore.acquire();
     assertEquals(Duration.ZERO, rateLimiter.when("one"));
     assertEquals(Duration.ZERO, rateLimiter.when("one"));
 
     Duration waitDuration = rateLimiter.when("one");
     assertTrue(waitDuration.getSeconds() > 0);
 
-    Thread.sleep(4000);
-
+    timedSemaphore.acquire();
     assertEquals(Duration.ZERO, rateLimiter.when("two"));
 
     waitDuration = rateLimiter.when("two");

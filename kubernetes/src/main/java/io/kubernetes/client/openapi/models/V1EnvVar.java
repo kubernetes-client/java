@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(description = "EnvVar represents an environment variable present in a Container.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1EnvVar {
   public static final String SERIALIZED_NAME_NAME = "name";
 
@@ -67,18 +67,19 @@ public class V1EnvVar {
   }
 
   /**
-   * Variable references $(VAR_NAME) are expanded using the previous defined environment variables
+   * Variable references $(VAR_NAME) are expanded using the previously defined environment variables
    * in the container and any service environment variables. If a variable cannot be resolved, the
-   * reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a
-   * double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether
-   * the variable exists or not. Defaults to \&quot;\&quot;.
+   * reference in the input string will be unchanged. Double $$ are reduced to a single $, which
+   * allows for escaping the $(VAR_NAME) syntax: i.e. \&quot;$$(VAR_NAME)\&quot; will produce the
+   * string literal \&quot;$(VAR_NAME)\&quot;. Escaped references will never be expanded, regardless
+   * of whether the variable exists or not. Defaults to \&quot;\&quot;.
    *
    * @return value
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\".")
+          "Variable references $(VAR_NAME) are expanded using the previously defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\".")
   public String getValue() {
     return value;
   }

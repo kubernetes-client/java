@@ -27,7 +27,7 @@ import java.util.Objects;
         "MutatingWebhook describes an admission webhook and the resources and operations it applies to.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1MutatingWebhook {
   public static final String SERIALIZED_NAME_ADMISSION_REVIEW_VERSIONS = "admissionReviewVersions";
 
@@ -342,7 +342,7 @@ public class V1MutatingWebhook {
    * SideEffects states whether this webhook has side effects. Acceptable values are: None,
    * NoneOnDryRun (webhooks created via v1beta1 may also specify Some or Unknown). Webhooks with
    * side effects MUST implement a reconciliation system, since a request may be rejected by a
-   * future step in the admission change and the side effects therefore need to be undone. Requests
+   * future step in the admission chain and the side effects therefore need to be undone. Requests
    * with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects
    * &#x3D;&#x3D; Unknown or Some.
    *
@@ -351,7 +351,7 @@ public class V1MutatingWebhook {
   @ApiModelProperty(
       required = true,
       value =
-          "SideEffects states whether this webhook has side effects. Acceptable values are: None, NoneOnDryRun (webhooks created via v1beta1 may also specify Some or Unknown). Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission change and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some.")
+          "SideEffects states whether this webhook has side effects. Acceptable values are: None, NoneOnDryRun (webhooks created via v1beta1 may also specify Some or Unknown). Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission chain and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some.")
   public String getSideEffects() {
     return sideEffects;
   }

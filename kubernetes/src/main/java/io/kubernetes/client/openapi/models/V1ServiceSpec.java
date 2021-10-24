@@ -25,7 +25,7 @@ import java.util.Objects;
 @ApiModel(description = "ServiceSpec describes the attributes that a user creates on a service.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1ServiceSpec {
   public static final String SERIALIZED_NAME_ALLOCATE_LOAD_BALANCER_NODE_PORTS =
       "allocateLoadBalancerNodePorts";
@@ -63,6 +63,11 @@ public class V1ServiceSpec {
   @SerializedName(SERIALIZED_NAME_HEALTH_CHECK_NODE_PORT)
   private Integer healthCheckNodePort;
 
+  public static final String SERIALIZED_NAME_INTERNAL_TRAFFIC_POLICY = "internalTrafficPolicy";
+
+  @SerializedName(SERIALIZED_NAME_INTERNAL_TRAFFIC_POLICY)
+  private String internalTrafficPolicy;
+
   public static final String SERIALIZED_NAME_IP_FAMILIES = "ipFamilies";
 
   @SerializedName(SERIALIZED_NAME_IP_FAMILIES)
@@ -72,6 +77,11 @@ public class V1ServiceSpec {
 
   @SerializedName(SERIALIZED_NAME_IP_FAMILY_POLICY)
   private String ipFamilyPolicy;
+
+  public static final String SERIALIZED_NAME_LOAD_BALANCER_CLASS = "loadBalancerClass";
+
+  @SerializedName(SERIALIZED_NAME_LOAD_BALANCER_CLASS)
+  private String loadBalancerClass;
 
   public static final String SERIALIZED_NAME_LOAD_BALANCER_I_P = "loadBalancerIP";
 
@@ -110,11 +120,6 @@ public class V1ServiceSpec {
   @SerializedName(SERIALIZED_NAME_SESSION_AFFINITY_CONFIG)
   private V1SessionAffinityConfig sessionAffinityConfig;
 
-  public static final String SERIALIZED_NAME_TOPOLOGY_KEYS = "topologyKeys";
-
-  @SerializedName(SERIALIZED_NAME_TOPOLOGY_KEYS)
-  private List<String> topologyKeys = null;
-
   public static final String SERIALIZED_NAME_TYPE = "type";
 
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -129,9 +134,10 @@ public class V1ServiceSpec {
   /**
    * allocateLoadBalancerNodePorts defines if NodePorts will be automatically allocated for services
    * with type LoadBalancer. Default is \&quot;true\&quot;. It may be set to \&quot;false\&quot; if
-   * the cluster load-balancer does not rely on NodePorts. allocateLoadBalancerNodePorts may only be
-   * set for services with type LoadBalancer and will be cleared if the type is changed to any other
-   * type. This field is alpha-level and is only honored by servers that enable the
+   * the cluster load-balancer does not rely on NodePorts. If the caller requests specific NodePorts
+   * (by specifying a value), those requests will be respected, regardless of this field. This field
+   * may only be set for services with type LoadBalancer and will be cleared if the type is changed
+   * to any other type. This field is beta-level and is only honored by servers that enable the
    * ServiceLBNodePortControl feature.
    *
    * @return allocateLoadBalancerNodePorts
@@ -139,7 +145,7 @@ public class V1ServiceSpec {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "allocateLoadBalancerNodePorts defines if NodePorts will be automatically allocated for services with type LoadBalancer.  Default is \"true\". It may be set to \"false\" if the cluster load-balancer does not rely on NodePorts. allocateLoadBalancerNodePorts may only be set for services with type LoadBalancer and will be cleared if the type is changed to any other type. This field is alpha-level and is only honored by servers that enable the ServiceLBNodePortControl feature.")
+          "allocateLoadBalancerNodePorts defines if NodePorts will be automatically allocated for services with type LoadBalancer.  Default is \"true\". It may be set to \"false\" if the cluster load-balancer does not rely on NodePorts.  If the caller requests specific NodePorts (by specifying a value), those requests will be respected, regardless of this field. This field may only be set for services with type LoadBalancer and will be cleared if the type is changed to any other type. This field is beta-level and is only honored by servers that enable the ServiceLBNodePortControl feature.")
   public Boolean getAllocateLoadBalancerNodePorts() {
     return allocateLoadBalancerNodePorts;
   }
@@ -275,14 +281,15 @@ public class V1ServiceSpec {
   /**
    * externalName is the external reference that discovery mechanisms will return as an alias for
    * this service (e.g. a DNS CNAME record). No proxying will be involved. Must be a lowercase
-   * RFC-1123 hostname (https://tools.ietf.org/html/rfc1123) and requires Type to be
+   * RFC-1123 hostname (https://tools.ietf.org/html/rfc1123) and requires &#x60;type&#x60; to be
+   * \&quot;ExternalName\&quot;.
    *
    * @return externalName
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "externalName is the external reference that discovery mechanisms will return as an alias for this service (e.g. a DNS CNAME record). No proxying will be involved.  Must be a lowercase RFC-1123 hostname (https://tools.ietf.org/html/rfc1123) and requires Type to be")
+          "externalName is the external reference that discovery mechanisms will return as an alias for this service (e.g. a DNS CNAME record). No proxying will be involved.  Must be a lowercase RFC-1123 hostname (https://tools.ietf.org/html/rfc1123) and requires `type` to be \"ExternalName\".")
   public String getExternalName() {
     return externalName;
   }
@@ -345,6 +352,33 @@ public class V1ServiceSpec {
 
   public void setHealthCheckNodePort(Integer healthCheckNodePort) {
     this.healthCheckNodePort = healthCheckNodePort;
+  }
+
+  public V1ServiceSpec internalTrafficPolicy(String internalTrafficPolicy) {
+
+    this.internalTrafficPolicy = internalTrafficPolicy;
+    return this;
+  }
+
+  /**
+   * InternalTrafficPolicy specifies if the cluster internal traffic should be routed to all
+   * endpoints or node-local endpoints only. \&quot;Cluster\&quot; routes internal traffic to a
+   * Service to all endpoints. \&quot;Local\&quot; routes traffic to node-local endpoints only,
+   * traffic is dropped if no node-local endpoints are ready. The default value is
+   * \&quot;Cluster\&quot;.
+   *
+   * @return internalTrafficPolicy
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "InternalTrafficPolicy specifies if the cluster internal traffic should be routed to all endpoints or node-local endpoints only. \"Cluster\" routes internal traffic to a Service to all endpoints. \"Local\" routes traffic to node-local endpoints only, traffic is dropped if no node-local endpoints are ready. The default value is \"Cluster\".")
+  public String getInternalTrafficPolicy() {
+    return internalTrafficPolicy;
+  }
+
+  public void setInternalTrafficPolicy(String internalTrafficPolicy) {
+    this.internalTrafficPolicy = internalTrafficPolicy;
   }
 
   public V1ServiceSpec ipFamilies(List<String> ipFamilies) {
@@ -419,6 +453,39 @@ public class V1ServiceSpec {
     this.ipFamilyPolicy = ipFamilyPolicy;
   }
 
+  public V1ServiceSpec loadBalancerClass(String loadBalancerClass) {
+
+    this.loadBalancerClass = loadBalancerClass;
+    return this;
+  }
+
+  /**
+   * loadBalancerClass is the class of the load balancer implementation this Service belongs to. If
+   * specified, the value of this field must be a label-style identifier, with an optional prefix,
+   * e.g. \&quot;internal-vip\&quot; or \&quot;example.com/internal-vip\&quot;. Unprefixed names are
+   * reserved for end-users. This field can only be set when the Service type is
+   * &#39;LoadBalancer&#39;. If not set, the default load balancer implementation is used, today
+   * this is typically done through the cloud provider integration, but should apply for any default
+   * implementation. If set, it is assumed that a load balancer implementation is watching for
+   * Services with a matching class. Any default load balancer implementation (e.g. cloud providers)
+   * should ignore Services that set this field. This field can only be set when creating or
+   * updating a Service to type &#39;LoadBalancer&#39;. Once set, it can not be changed. This field
+   * will be wiped when a service is updated to a non &#39;LoadBalancer&#39; type.
+   *
+   * @return loadBalancerClass
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "loadBalancerClass is the class of the load balancer implementation this Service belongs to. If specified, the value of this field must be a label-style identifier, with an optional prefix, e.g. \"internal-vip\" or \"example.com/internal-vip\". Unprefixed names are reserved for end-users. This field can only be set when the Service type is 'LoadBalancer'. If not set, the default load balancer implementation is used, today this is typically done through the cloud provider integration, but should apply for any default implementation. If set, it is assumed that a load balancer implementation is watching for Services with a matching class. Any default load balancer implementation (e.g. cloud providers) should ignore Services that set this field. This field can only be set when creating or updating a Service to type 'LoadBalancer'. Once set, it can not be changed. This field will be wiped when a service is updated to a non 'LoadBalancer' type.")
+  public String getLoadBalancerClass() {
+    return loadBalancerClass;
+  }
+
+  public void setLoadBalancerClass(String loadBalancerClass) {
+    this.loadBalancerClass = loadBalancerClass;
+  }
+
   public V1ServiceSpec loadBalancerIP(String loadBalancerIP) {
 
     this.loadBalancerIP = loadBalancerIP;
@@ -463,14 +530,14 @@ public class V1ServiceSpec {
    * If specified and supported by the platform, this will restrict traffic through the
    * cloud-provider load-balancer will be restricted to the specified client IPs. This field will be
    * ignored if the cloud-provider does not support the feature.\&quot; More info:
-   * https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/
+   * https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/
    *
    * @return loadBalancerSourceRanges
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "If specified and supported by the platform, this will restrict traffic through the cloud-provider load-balancer will be restricted to the specified client IPs. This field will be ignored if the cloud-provider does not support the feature.\" More info: https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/")
+          "If specified and supported by the platform, this will restrict traffic through the cloud-provider load-balancer will be restricted to the specified client IPs. This field will be ignored if the cloud-provider does not support the feature.\" More info: https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/")
   public List<String> getLoadBalancerSourceRanges() {
     return loadBalancerSourceRanges;
   }
@@ -622,46 +689,6 @@ public class V1ServiceSpec {
     this.sessionAffinityConfig = sessionAffinityConfig;
   }
 
-  public V1ServiceSpec topologyKeys(List<String> topologyKeys) {
-
-    this.topologyKeys = topologyKeys;
-    return this;
-  }
-
-  public V1ServiceSpec addTopologyKeysItem(String topologyKeysItem) {
-    if (this.topologyKeys == null) {
-      this.topologyKeys = new ArrayList<>();
-    }
-    this.topologyKeys.add(topologyKeysItem);
-    return this;
-  }
-
-  /**
-   * topologyKeys is a preference-order list of topology keys which implementations of services
-   * should use to preferentially sort endpoints when accessing this Service, it can not be used at
-   * the same time as externalTrafficPolicy&#x3D;Local. Topology keys must be valid label keys and
-   * at most 16 keys may be specified. Endpoints are chosen based on the first topology key with
-   * available backends. If this field is specified and all entries have no backends that match the
-   * topology of the client, the service has no backends for that client and connections should
-   * fail. The special value \&quot;*\&quot; may be used to mean \&quot;any topology\&quot;. This
-   * catch-all value, if used, only makes sense as the last value in the list. If this is not
-   * specified or empty, no topology constraints will be applied. This field is alpha-level and is
-   * only honored by servers that enable the ServiceTopology feature.
-   *
-   * @return topologyKeys
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "topologyKeys is a preference-order list of topology keys which implementations of services should use to preferentially sort endpoints when accessing this Service, it can not be used at the same time as externalTrafficPolicy=Local. Topology keys must be valid label keys and at most 16 keys may be specified. Endpoints are chosen based on the first topology key with available backends. If this field is specified and all entries have no backends that match the topology of the client, the service has no backends for that client and connections should fail. The special value \"*\" may be used to mean \"any topology\". This catch-all value, if used, only makes sense as the last value in the list. If this is not specified or empty, no topology constraints will be applied. This field is alpha-level and is only honored by servers that enable the ServiceTopology feature.")
-  public List<String> getTopologyKeys() {
-    return topologyKeys;
-  }
-
-  public void setTopologyKeys(List<String> topologyKeys) {
-    this.topologyKeys = topologyKeys;
-  }
-
   public V1ServiceSpec type(String type) {
 
     this.type = type;
@@ -713,8 +740,10 @@ public class V1ServiceSpec {
         && Objects.equals(this.externalName, v1ServiceSpec.externalName)
         && Objects.equals(this.externalTrafficPolicy, v1ServiceSpec.externalTrafficPolicy)
         && Objects.equals(this.healthCheckNodePort, v1ServiceSpec.healthCheckNodePort)
+        && Objects.equals(this.internalTrafficPolicy, v1ServiceSpec.internalTrafficPolicy)
         && Objects.equals(this.ipFamilies, v1ServiceSpec.ipFamilies)
         && Objects.equals(this.ipFamilyPolicy, v1ServiceSpec.ipFamilyPolicy)
+        && Objects.equals(this.loadBalancerClass, v1ServiceSpec.loadBalancerClass)
         && Objects.equals(this.loadBalancerIP, v1ServiceSpec.loadBalancerIP)
         && Objects.equals(this.loadBalancerSourceRanges, v1ServiceSpec.loadBalancerSourceRanges)
         && Objects.equals(this.ports, v1ServiceSpec.ports)
@@ -722,7 +751,6 @@ public class V1ServiceSpec {
         && Objects.equals(this.selector, v1ServiceSpec.selector)
         && Objects.equals(this.sessionAffinity, v1ServiceSpec.sessionAffinity)
         && Objects.equals(this.sessionAffinityConfig, v1ServiceSpec.sessionAffinityConfig)
-        && Objects.equals(this.topologyKeys, v1ServiceSpec.topologyKeys)
         && Objects.equals(this.type, v1ServiceSpec.type);
   }
 
@@ -736,8 +764,10 @@ public class V1ServiceSpec {
         externalName,
         externalTrafficPolicy,
         healthCheckNodePort,
+        internalTrafficPolicy,
         ipFamilies,
         ipFamilyPolicy,
+        loadBalancerClass,
         loadBalancerIP,
         loadBalancerSourceRanges,
         ports,
@@ -745,7 +775,6 @@ public class V1ServiceSpec {
         selector,
         sessionAffinity,
         sessionAffinityConfig,
-        topologyKeys,
         type);
   }
 
@@ -766,8 +795,12 @@ public class V1ServiceSpec {
     sb.append("    healthCheckNodePort: ")
         .append(toIndentedString(healthCheckNodePort))
         .append("\n");
+    sb.append("    internalTrafficPolicy: ")
+        .append(toIndentedString(internalTrafficPolicy))
+        .append("\n");
     sb.append("    ipFamilies: ").append(toIndentedString(ipFamilies)).append("\n");
     sb.append("    ipFamilyPolicy: ").append(toIndentedString(ipFamilyPolicy)).append("\n");
+    sb.append("    loadBalancerClass: ").append(toIndentedString(loadBalancerClass)).append("\n");
     sb.append("    loadBalancerIP: ").append(toIndentedString(loadBalancerIP)).append("\n");
     sb.append("    loadBalancerSourceRanges: ")
         .append(toIndentedString(loadBalancerSourceRanges))
@@ -781,7 +814,6 @@ public class V1ServiceSpec {
     sb.append("    sessionAffinityConfig: ")
         .append(toIndentedString(sessionAffinityConfig))
         .append("\n");
-    sb.append("    topologyKeys: ").append(toIndentedString(topologyKeys)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

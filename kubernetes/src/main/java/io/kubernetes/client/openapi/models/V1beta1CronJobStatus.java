@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(description = "CronJobStatus represents the current state of a cron job.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1beta1CronJobStatus {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
 
@@ -35,6 +35,11 @@ public class V1beta1CronJobStatus {
 
   @SerializedName(SERIALIZED_NAME_LAST_SCHEDULE_TIME)
   private OffsetDateTime lastScheduleTime;
+
+  public static final String SERIALIZED_NAME_LAST_SUCCESSFUL_TIME = "lastSuccessfulTime";
+
+  @SerializedName(SERIALIZED_NAME_LAST_SUCCESSFUL_TIME)
+  private OffsetDateTime lastSuccessfulTime;
 
   public V1beta1CronJobStatus active(List<V1ObjectReference> active) {
 
@@ -87,6 +92,27 @@ public class V1beta1CronJobStatus {
     this.lastScheduleTime = lastScheduleTime;
   }
 
+  public V1beta1CronJobStatus lastSuccessfulTime(OffsetDateTime lastSuccessfulTime) {
+
+    this.lastSuccessfulTime = lastSuccessfulTime;
+    return this;
+  }
+
+  /**
+   * Information when was the last time the job successfully completed.
+   *
+   * @return lastSuccessfulTime
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Information when was the last time the job successfully completed.")
+  public OffsetDateTime getLastSuccessfulTime() {
+    return lastSuccessfulTime;
+  }
+
+  public void setLastSuccessfulTime(OffsetDateTime lastSuccessfulTime) {
+    this.lastSuccessfulTime = lastSuccessfulTime;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -97,12 +123,13 @@ public class V1beta1CronJobStatus {
     }
     V1beta1CronJobStatus v1beta1CronJobStatus = (V1beta1CronJobStatus) o;
     return Objects.equals(this.active, v1beta1CronJobStatus.active)
-        && Objects.equals(this.lastScheduleTime, v1beta1CronJobStatus.lastScheduleTime);
+        && Objects.equals(this.lastScheduleTime, v1beta1CronJobStatus.lastScheduleTime)
+        && Objects.equals(this.lastSuccessfulTime, v1beta1CronJobStatus.lastSuccessfulTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, lastScheduleTime);
+    return Objects.hash(active, lastScheduleTime, lastSuccessfulTime);
   }
 
   @Override
@@ -111,6 +138,7 @@ public class V1beta1CronJobStatus {
     sb.append("class V1beta1CronJobStatus {\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    lastScheduleTime: ").append(toIndentedString(lastScheduleTime)).append("\n");
+    sb.append("    lastSuccessfulTime: ").append(toIndentedString(lastSuccessfulTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

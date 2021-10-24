@@ -25,7 +25,7 @@ import java.util.Objects;
 @ApiModel(description = "Endpoint represents a single logical \"backend\" implementing a service.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1beta1Endpoint {
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
 
@@ -36,6 +36,11 @@ public class V1beta1Endpoint {
 
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
   private V1beta1EndpointConditions conditions;
+
+  public static final String SERIALIZED_NAME_HINTS = "hints";
+
+  @SerializedName(SERIALIZED_NAME_HINTS)
+  private V1beta1EndpointHints hints;
 
   public static final String SERIALIZED_NAME_HOSTNAME = "hostname";
 
@@ -107,6 +112,27 @@ public class V1beta1Endpoint {
 
   public void setConditions(V1beta1EndpointConditions conditions) {
     this.conditions = conditions;
+  }
+
+  public V1beta1Endpoint hints(V1beta1EndpointHints hints) {
+
+    this.hints = hints;
+    return this;
+  }
+
+  /**
+   * Get hints
+   *
+   * @return hints
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1beta1EndpointHints getHints() {
+    return hints;
+  }
+
+  public void setHints(V1beta1EndpointHints hints) {
+    this.hints = hints;
   }
 
   public V1beta1Endpoint hostname(String hostname) {
@@ -232,6 +258,7 @@ public class V1beta1Endpoint {
     V1beta1Endpoint v1beta1Endpoint = (V1beta1Endpoint) o;
     return Objects.equals(this.addresses, v1beta1Endpoint.addresses)
         && Objects.equals(this.conditions, v1beta1Endpoint.conditions)
+        && Objects.equals(this.hints, v1beta1Endpoint.hints)
         && Objects.equals(this.hostname, v1beta1Endpoint.hostname)
         && Objects.equals(this.nodeName, v1beta1Endpoint.nodeName)
         && Objects.equals(this.targetRef, v1beta1Endpoint.targetRef)
@@ -240,7 +267,7 @@ public class V1beta1Endpoint {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addresses, conditions, hostname, nodeName, targetRef, topology);
+    return Objects.hash(addresses, conditions, hints, hostname, nodeName, targetRef, topology);
   }
 
   @Override
@@ -249,6 +276,7 @@ public class V1beta1Endpoint {
     sb.append("class V1beta1Endpoint {\n");
     sb.append("    addresses: ").append(toIndentedString(addresses)).append("\n");
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
+    sb.append("    hints: ").append(toIndentedString(hints)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    nodeName: ").append(toIndentedString(nodeName)).append("\n");
     sb.append("    targetRef: ").append(toIndentedString(targetRef)).append("\n");

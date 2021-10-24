@@ -15,8 +15,8 @@ package io.kubernetes.client.extended.network;
 import static org.junit.Assert.*;
 
 import io.kubernetes.client.extended.network.exception.NoAvailableAddressException;
+import io.kubernetes.client.openapi.models.CoreV1EndpointPort;
 import io.kubernetes.client.openapi.models.V1EndpointAddress;
-import io.kubernetes.client.openapi.models.V1EndpointPort;
 import io.kubernetes.client.openapi.models.V1EndpointSubset;
 import io.kubernetes.client.openapi.models.V1Endpoints;
 import java.util.Arrays;
@@ -32,7 +32,7 @@ public class EndpointsLoadBalancerTests {
               new V1EndpointSubset()
                   .addAddressesItem(new V1EndpointAddress().ip("127.0.0.1"))
                   .addAddressesItem(new V1EndpointAddress().ip("127.0.0.2"))
-                  .addPortsItem(new V1EndpointPort().port(8080)));
+                  .addPortsItem(new CoreV1EndpointPort().port(8080)));
 
   private final V1Endpoints twoPortTwoHostEp =
       new V1Endpoints()
@@ -40,8 +40,8 @@ public class EndpointsLoadBalancerTests {
               new V1EndpointSubset()
                   .addAddressesItem(new V1EndpointAddress().ip("127.0.0.1"))
                   .addAddressesItem(new V1EndpointAddress().ip("127.0.0.2"))
-                  .addPortsItem(new V1EndpointPort().port(8080))
-                  .addPortsItem(new V1EndpointPort().port(8081)));
+                  .addPortsItem(new CoreV1EndpointPort().port(8080))
+                  .addPortsItem(new CoreV1EndpointPort().port(8081)));
 
   private final V1Endpoints twoSubsetTwoPortTwoHostEp =
       new V1Endpoints()
@@ -49,12 +49,12 @@ public class EndpointsLoadBalancerTests {
               new V1EndpointSubset()
                   .addAddressesItem(new V1EndpointAddress().ip("127.0.0.1"))
                   .addAddressesItem(new V1EndpointAddress().ip("127.0.0.2"))
-                  .addPortsItem(new V1EndpointPort().port(8080))
-                  .addPortsItem(new V1EndpointPort().port(8081)))
+                  .addPortsItem(new CoreV1EndpointPort().port(8080))
+                  .addPortsItem(new CoreV1EndpointPort().port(8081)))
           .addSubsetsItem(
               new V1EndpointSubset()
                   .addAddressesItem(new V1EndpointAddress().ip("127.0.0.3"))
-                  .addPortsItem(new V1EndpointPort().port(8082)));
+                  .addPortsItem(new CoreV1EndpointPort().port(8082)));
 
   @Test
   public void testGetTargetIP1() throws NoAvailableAddressException {

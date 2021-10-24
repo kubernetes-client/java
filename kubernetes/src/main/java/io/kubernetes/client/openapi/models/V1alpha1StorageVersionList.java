@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "A list of StorageVersions.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1alpha1StorageVersionList
     implements io.kubernetes.client.common.KubernetesListObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
@@ -84,11 +84,11 @@ public class V1alpha1StorageVersionList
   }
 
   /**
-   * Get items
+   * Items holds a list of StorageVersion
    *
    * @return items
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Items holds a list of StorageVersion")
   public List<V1alpha1StorageVersion> getItems() {
     return items;
   }

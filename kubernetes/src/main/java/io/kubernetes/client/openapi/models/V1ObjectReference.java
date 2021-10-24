@@ -23,7 +23,7 @@ import java.util.Objects;
         "ObjectReference contains enough information to let you inspect or modify the referred object.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1ObjectReference {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 

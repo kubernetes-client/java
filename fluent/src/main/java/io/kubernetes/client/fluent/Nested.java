@@ -1,8 +1,6 @@
 package io.kubernetes.client.fluent;
 
-
-public interface Nested<F> {
-
-
-    F and();
+public interface Nested<F>{
+  F and();
+  
 }

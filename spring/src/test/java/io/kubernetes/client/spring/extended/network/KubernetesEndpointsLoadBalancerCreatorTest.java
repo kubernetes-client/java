@@ -23,8 +23,8 @@ import io.kubernetes.client.extended.network.RoundRobinLoadBalanceStrategy;
 import io.kubernetes.client.extended.network.exception.NoAvailableAddressException;
 import io.kubernetes.client.informer.cache.Cache;
 import io.kubernetes.client.informer.cache.Lister;
+import io.kubernetes.client.openapi.models.CoreV1EndpointPort;
 import io.kubernetes.client.openapi.models.V1EndpointAddress;
-import io.kubernetes.client.openapi.models.V1EndpointPort;
 import io.kubernetes.client.openapi.models.V1EndpointSubset;
 import io.kubernetes.client.openapi.models.V1Endpoints;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
@@ -101,7 +101,7 @@ public class KubernetesEndpointsLoadBalancerCreatorTest {
             .addSubsetsItem(
                 new V1EndpointSubset()
                     .addAddressesItem(new V1EndpointAddress().ip("127.0.0.2"))
-                    .addPortsItem(new V1EndpointPort().port(8080)));
+                    .addPortsItem(new CoreV1EndpointPort().port(8080)));
 
     @Override
     public V1Endpoints get(String namespace, String name) {
@@ -115,7 +115,7 @@ public class KubernetesEndpointsLoadBalancerCreatorTest {
           .addSubsetsItem(
               new V1EndpointSubset()
                   .addAddressesItem(new V1EndpointAddress().ip("127.0.0.1"))
-                  .addPortsItem(new V1EndpointPort().port(8080)));
+                  .addPortsItem(new CoreV1EndpointPort().port(8080)));
 
   @Autowired private MyBean myBean;
 

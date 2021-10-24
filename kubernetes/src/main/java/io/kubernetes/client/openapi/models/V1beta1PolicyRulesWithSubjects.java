@@ -31,7 +31,7 @@ import java.util.Objects;
         "PolicyRulesWithSubjects prescribes a test that applies to a request to an apiserver. The test considers the subject making the request, the verb being requested, and the resource to be acted upon. This PolicyRulesWithSubjects matches a request if and only if both (a) at least one member of subjects matches the request and (b) at least one member of resourceRules or nonResourceRules matches the request.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1beta1PolicyRulesWithSubjects {
   public static final String SERIALIZED_NAME_NON_RESOURCE_RULES = "nonResourceRules";
 
@@ -46,7 +46,7 @@ public class V1beta1PolicyRulesWithSubjects {
   public static final String SERIALIZED_NAME_SUBJECTS = "subjects";
 
   @SerializedName(SERIALIZED_NAME_SUBJECTS)
-  private List<FlowcontrolV1beta1Subject> subjects = new ArrayList<>();
+  private List<V1beta1Subject> subjects = new ArrayList<>();
 
   public V1beta1PolicyRulesWithSubjects nonResourceRules(
       List<V1beta1NonResourcePolicyRule> nonResourceRules) {
@@ -117,13 +117,13 @@ public class V1beta1PolicyRulesWithSubjects {
     this.resourceRules = resourceRules;
   }
 
-  public V1beta1PolicyRulesWithSubjects subjects(List<FlowcontrolV1beta1Subject> subjects) {
+  public V1beta1PolicyRulesWithSubjects subjects(List<V1beta1Subject> subjects) {
 
     this.subjects = subjects;
     return this;
   }
 
-  public V1beta1PolicyRulesWithSubjects addSubjectsItem(FlowcontrolV1beta1Subject subjectsItem) {
+  public V1beta1PolicyRulesWithSubjects addSubjectsItem(V1beta1Subject subjectsItem) {
     this.subjects.add(subjectsItem);
     return this;
   }
@@ -139,11 +139,11 @@ public class V1beta1PolicyRulesWithSubjects {
       required = true,
       value =
           "subjects is the list of normal user, serviceaccount, or group that this rule cares about. There must be at least one member in this slice. A slice that includes both the system:authenticated and system:unauthenticated user groups matches every request. Required.")
-  public List<FlowcontrolV1beta1Subject> getSubjects() {
+  public List<V1beta1Subject> getSubjects() {
     return subjects;
   }
 
-  public void setSubjects(List<FlowcontrolV1beta1Subject> subjects) {
+  public void setSubjects(List<V1beta1Subject> subjects) {
     this.subjects = subjects;
   }
 

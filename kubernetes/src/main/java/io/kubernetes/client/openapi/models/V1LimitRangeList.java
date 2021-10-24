@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "LimitRangeList is a list of LimitRange items.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1LimitRangeList implements io.kubernetes.client.common.KubernetesListObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 
@@ -84,14 +84,14 @@ public class V1LimitRangeList implements io.kubernetes.client.common.KubernetesL
 
   /**
    * Items is a list of LimitRange objects. More info:
-   * https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+   * https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
    *
    * @return items
    */
   @ApiModelProperty(
       required = true,
       value =
-          "Items is a list of LimitRange objects. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/")
+          "Items is a list of LimitRange objects. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/")
   public List<V1LimitRange> getItems() {
     return items;
   }

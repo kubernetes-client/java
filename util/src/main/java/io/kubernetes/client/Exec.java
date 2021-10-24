@@ -429,7 +429,7 @@ public class Exec {
     public Process execute() throws ApiException, IOException {
       if (container == null) {
         CoreV1Api api = new CoreV1Api(apiClient);
-        V1Pod pod = api.readNamespacedPod(name, namespace, "false", null, null);
+        V1Pod pod = api.readNamespacedPod(name, namespace, "false");
         container = pod.getSpec().getContainers().get(0).getName();
       }
 

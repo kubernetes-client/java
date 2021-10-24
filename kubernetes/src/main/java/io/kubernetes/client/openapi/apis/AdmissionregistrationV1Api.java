@@ -2329,8 +2329,7 @@ public class AdmissionregistrationV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -2527,8 +2526,7 @@ public class AdmissionregistrationV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -2622,8 +2620,7 @@ public class AdmissionregistrationV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -2720,8 +2717,7 @@ public class AdmissionregistrationV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -2819,8 +2815,7 @@ public class AdmissionregistrationV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -3017,8 +3012,7 @@ public class AdmissionregistrationV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -3112,8 +3106,7 @@ public class AdmissionregistrationV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -3210,8 +3203,7 @@ public class AdmissionregistrationV1Api {
    *     \&quot;BOOKMARK\&quot;. Servers that do not implement bookmarks may ignore this flag and
    *     bookmarks are sent at the server&#39;s discretion. Clients should not assume bookmarks are
    *     returned at any specific interval, nor may they assume the server will send any BOOKMARK
-   *     event during a session. If this is not a watch, this field is ignored. If the feature gate
-   *     WatchBookmarks is not enabled in apiserver, this field is ignored. (optional)
+   *     event during a session. If this is not a watch, this field is ignored. (optional)
    * @param _continue The continue option should be set when retrieving more results from the
    *     server. Since this value is server defined, clients may only use the continue value from a
    *     previous query result with identical query parameters (except for the value of continue)
@@ -3325,6 +3317,7 @@ public class AdmissionregistrationV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -3450,6 +3443,7 @@ public class AdmissionregistrationV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -3486,6 +3480,7 @@ public class AdmissionregistrationV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -3523,6 +3518,7 @@ public class AdmissionregistrationV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -3567,6 +3563,7 @@ public class AdmissionregistrationV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -3692,6 +3689,7 @@ public class AdmissionregistrationV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -3728,6 +3726,7 @@ public class AdmissionregistrationV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -3771,6 +3770,7 @@ public class AdmissionregistrationV1Api {
    *     <table summary="Response Details" border="1">
    * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
@@ -3796,10 +3796,6 @@ public class AdmissionregistrationV1Api {
    *
    * @param name name of the MutatingWebhookConfiguration (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -3811,8 +3807,7 @@ public class AdmissionregistrationV1Api {
    * </table>
    */
   public okhttp3.Call readMutatingWebhookConfigurationCall(
-      String name, String pretty, Boolean exact, Boolean export, final ApiCallback _callback)
-      throws ApiException {
+      String name, String pretty, final ApiCallback _callback) throws ApiException {
     Object localVarPostBody = null;
 
     // create path and map variables
@@ -3824,14 +3819,6 @@ public class AdmissionregistrationV1Api {
     List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
     if (pretty != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
-    }
-
-    if (exact != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("exact", exact));
-    }
-
-    if (export != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("export", export));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -3867,8 +3854,7 @@ public class AdmissionregistrationV1Api {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call readMutatingWebhookConfigurationValidateBeforeCall(
-      String name, String pretty, Boolean exact, Boolean export, final ApiCallback _callback)
-      throws ApiException {
+      String name, String pretty, final ApiCallback _callback) throws ApiException {
 
     // verify the required parameter 'name' is set
     if (name == null) {
@@ -3876,8 +3862,7 @@ public class AdmissionregistrationV1Api {
           "Missing the required parameter 'name' when calling readMutatingWebhookConfiguration(Async)");
     }
 
-    okhttp3.Call localVarCall =
-        readMutatingWebhookConfigurationCall(name, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readMutatingWebhookConfigurationCall(name, pretty, _callback);
     return localVarCall;
   }
 
@@ -3886,10 +3871,6 @@ public class AdmissionregistrationV1Api {
    *
    * @param name name of the MutatingWebhookConfiguration (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return V1MutatingWebhookConfiguration
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -3900,10 +3881,10 @@ public class AdmissionregistrationV1Api {
    * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    * </table>
    */
-  public V1MutatingWebhookConfiguration readMutatingWebhookConfiguration(
-      String name, String pretty, Boolean exact, Boolean export) throws ApiException {
+  public V1MutatingWebhookConfiguration readMutatingWebhookConfiguration(String name, String pretty)
+      throws ApiException {
     ApiResponse<V1MutatingWebhookConfiguration> localVarResp =
-        readMutatingWebhookConfigurationWithHttpInfo(name, pretty, exact, export);
+        readMutatingWebhookConfigurationWithHttpInfo(name, pretty);
     return localVarResp.getData();
   }
 
@@ -3912,10 +3893,6 @@ public class AdmissionregistrationV1Api {
    *
    * @param name name of the MutatingWebhookConfiguration (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return ApiResponse&lt;V1MutatingWebhookConfiguration&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -3927,9 +3904,9 @@ public class AdmissionregistrationV1Api {
    * </table>
    */
   public ApiResponse<V1MutatingWebhookConfiguration> readMutatingWebhookConfigurationWithHttpInfo(
-      String name, String pretty, Boolean exact, Boolean export) throws ApiException {
+      String name, String pretty) throws ApiException {
     okhttp3.Call localVarCall =
-        readMutatingWebhookConfigurationValidateBeforeCall(name, pretty, exact, export, null);
+        readMutatingWebhookConfigurationValidateBeforeCall(name, pretty, null);
     Type localVarReturnType = new TypeToken<V1MutatingWebhookConfiguration>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -3939,10 +3916,6 @@ public class AdmissionregistrationV1Api {
    *
    * @param name name of the MutatingWebhookConfiguration (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3954,15 +3927,11 @@ public class AdmissionregistrationV1Api {
    * </table>
    */
   public okhttp3.Call readMutatingWebhookConfigurationAsync(
-      String name,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback<V1MutatingWebhookConfiguration> _callback)
+      String name, String pretty, final ApiCallback<V1MutatingWebhookConfiguration> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
-        readMutatingWebhookConfigurationValidateBeforeCall(name, pretty, exact, export, _callback);
+        readMutatingWebhookConfigurationValidateBeforeCall(name, pretty, _callback);
     Type localVarReturnType = new TypeToken<V1MutatingWebhookConfiguration>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -3972,10 +3941,6 @@ public class AdmissionregistrationV1Api {
    *
    * @param name name of the ValidatingWebhookConfiguration (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -3987,8 +3952,7 @@ public class AdmissionregistrationV1Api {
    * </table>
    */
   public okhttp3.Call readValidatingWebhookConfigurationCall(
-      String name, String pretty, Boolean exact, Boolean export, final ApiCallback _callback)
-      throws ApiException {
+      String name, String pretty, final ApiCallback _callback) throws ApiException {
     Object localVarPostBody = null;
 
     // create path and map variables
@@ -4000,14 +3964,6 @@ public class AdmissionregistrationV1Api {
     List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
     if (pretty != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
-    }
-
-    if (exact != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("exact", exact));
-    }
-
-    if (export != null) {
-      localVarQueryParams.addAll(localVarApiClient.parameterToPair("export", export));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -4043,8 +3999,7 @@ public class AdmissionregistrationV1Api {
 
   @SuppressWarnings("rawtypes")
   private okhttp3.Call readValidatingWebhookConfigurationValidateBeforeCall(
-      String name, String pretty, Boolean exact, Boolean export, final ApiCallback _callback)
-      throws ApiException {
+      String name, String pretty, final ApiCallback _callback) throws ApiException {
 
     // verify the required parameter 'name' is set
     if (name == null) {
@@ -4052,8 +4007,7 @@ public class AdmissionregistrationV1Api {
           "Missing the required parameter 'name' when calling readValidatingWebhookConfiguration(Async)");
     }
 
-    okhttp3.Call localVarCall =
-        readValidatingWebhookConfigurationCall(name, pretty, exact, export, _callback);
+    okhttp3.Call localVarCall = readValidatingWebhookConfigurationCall(name, pretty, _callback);
     return localVarCall;
   }
 
@@ -4062,10 +4016,6 @@ public class AdmissionregistrationV1Api {
    *
    * @param name name of the ValidatingWebhookConfiguration (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return V1ValidatingWebhookConfiguration
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -4077,9 +4027,9 @@ public class AdmissionregistrationV1Api {
    * </table>
    */
   public V1ValidatingWebhookConfiguration readValidatingWebhookConfiguration(
-      String name, String pretty, Boolean exact, Boolean export) throws ApiException {
+      String name, String pretty) throws ApiException {
     ApiResponse<V1ValidatingWebhookConfiguration> localVarResp =
-        readValidatingWebhookConfigurationWithHttpInfo(name, pretty, exact, export);
+        readValidatingWebhookConfigurationWithHttpInfo(name, pretty);
     return localVarResp.getData();
   }
 
@@ -4088,10 +4038,6 @@ public class AdmissionregistrationV1Api {
    *
    * @param name name of the ValidatingWebhookConfiguration (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @return ApiResponse&lt;V1ValidatingWebhookConfiguration&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -4103,10 +4049,10 @@ public class AdmissionregistrationV1Api {
    * </table>
    */
   public ApiResponse<V1ValidatingWebhookConfiguration>
-      readValidatingWebhookConfigurationWithHttpInfo(
-          String name, String pretty, Boolean exact, Boolean export) throws ApiException {
+      readValidatingWebhookConfigurationWithHttpInfo(String name, String pretty)
+          throws ApiException {
     okhttp3.Call localVarCall =
-        readValidatingWebhookConfigurationValidateBeforeCall(name, pretty, exact, export, null);
+        readValidatingWebhookConfigurationValidateBeforeCall(name, pretty, null);
     Type localVarReturnType = new TypeToken<V1ValidatingWebhookConfiguration>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -4116,10 +4062,6 @@ public class AdmissionregistrationV1Api {
    *
    * @param name name of the ValidatingWebhookConfiguration (required)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
-   * @param exact Should the export be exact. Exact export maintains cluster-specific fields like
-   *     &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. (optional)
-   * @param export Should this value be exported. Export strips fields that a user can not specify.
-   *     Deprecated. Planned for removal in 1.18. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4131,16 +4073,11 @@ public class AdmissionregistrationV1Api {
    * </table>
    */
   public okhttp3.Call readValidatingWebhookConfigurationAsync(
-      String name,
-      String pretty,
-      Boolean exact,
-      Boolean export,
-      final ApiCallback<V1ValidatingWebhookConfiguration> _callback)
+      String name, String pretty, final ApiCallback<V1ValidatingWebhookConfiguration> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
-        readValidatingWebhookConfigurationValidateBeforeCall(
-            name, pretty, exact, export, _callback);
+        readValidatingWebhookConfigurationValidateBeforeCall(name, pretty, _callback);
     Type localVarReturnType = new TypeToken<V1ValidatingWebhookConfiguration>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;

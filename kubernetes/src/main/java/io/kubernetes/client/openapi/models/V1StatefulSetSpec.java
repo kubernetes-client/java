@@ -23,8 +23,13 @@ import java.util.Objects;
 @ApiModel(description = "A StatefulSetSpec is the specification of a StatefulSet.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-01-04T09:55:14.976Z[Etc/UTC]")
+    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
 public class V1StatefulSetSpec {
+  public static final String SERIALIZED_NAME_MIN_READY_SECONDS = "minReadySeconds";
+
+  @SerializedName(SERIALIZED_NAME_MIN_READY_SECONDS)
+  private Integer minReadySeconds;
+
   public static final String SERIALIZED_NAME_POD_MANAGEMENT_POLICY = "podManagementPolicy";
 
   @SerializedName(SERIALIZED_NAME_POD_MANAGEMENT_POLICY)
@@ -64,6 +69,32 @@ public class V1StatefulSetSpec {
 
   @SerializedName(SERIALIZED_NAME_VOLUME_CLAIM_TEMPLATES)
   private List<V1PersistentVolumeClaim> volumeClaimTemplates = null;
+
+  public V1StatefulSetSpec minReadySeconds(Integer minReadySeconds) {
+
+    this.minReadySeconds = minReadySeconds;
+    return this;
+  }
+
+  /**
+   * Minimum number of seconds for which a newly created pod should be ready without any of its
+   * container crashing for it to be considered available. Defaults to 0 (pod will be considered
+   * available as soon as it is ready) This is an alpha field and requires enabling
+   * StatefulSetMinReadySeconds feature gate.
+   *
+   * @return minReadySeconds
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Minimum number of seconds for which a newly created pod should be ready without any of its container crashing for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready) This is an alpha field and requires enabling StatefulSetMinReadySeconds feature gate.")
+  public Integer getMinReadySeconds() {
+    return minReadySeconds;
+  }
+
+  public void setMinReadySeconds(Integer minReadySeconds) {
+    this.minReadySeconds = minReadySeconds;
+  }
 
   public V1StatefulSetSpec podManagementPolicy(String podManagementPolicy) {
 
@@ -277,7 +308,8 @@ public class V1StatefulSetSpec {
       return false;
     }
     V1StatefulSetSpec v1StatefulSetSpec = (V1StatefulSetSpec) o;
-    return Objects.equals(this.podManagementPolicy, v1StatefulSetSpec.podManagementPolicy)
+    return Objects.equals(this.minReadySeconds, v1StatefulSetSpec.minReadySeconds)
+        && Objects.equals(this.podManagementPolicy, v1StatefulSetSpec.podManagementPolicy)
         && Objects.equals(this.replicas, v1StatefulSetSpec.replicas)
         && Objects.equals(this.revisionHistoryLimit, v1StatefulSetSpec.revisionHistoryLimit)
         && Objects.equals(this.selector, v1StatefulSetSpec.selector)
@@ -290,6 +322,7 @@ public class V1StatefulSetSpec {
   @Override
   public int hashCode() {
     return Objects.hash(
+        minReadySeconds,
         podManagementPolicy,
         replicas,
         revisionHistoryLimit,
@@ -304,6 +337,7 @@ public class V1StatefulSetSpec {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1StatefulSetSpec {\n");
+    sb.append("    minReadySeconds: ").append(toIndentedString(minReadySeconds)).append("\n");
     sb.append("    podManagementPolicy: ")
         .append(toIndentedString(podManagementPolicy))
         .append("\n");
