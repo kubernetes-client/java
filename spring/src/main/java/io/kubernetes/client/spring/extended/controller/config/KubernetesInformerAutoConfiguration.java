@@ -17,6 +17,8 @@ import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.spring.extended.controller.KubernetesInformerFactoryProcessor;
 import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -29,10 +31,22 @@ import org.springframework.context.annotation.Configuration;
 })
 public class KubernetesInformerAutoConfiguration {
 
+  private static final Logger LOGGER =
+      LoggerFactory.getLogger(KubernetesInformerAutoConfiguration.class);
+
   @Bean
   @ConditionalOnMissingBean
   public ApiClient defaultApiClient() throws IOException {
-    return ClientBuilder.defaultClient();
+    try {
+      ApiClient apiClient = ClientBuilder.defaultClient();
+      return apiClient;
+    } catch (Exception e) {
+      LOGGER.warn(
+          "Could not create a Kubernetes ApiClient from either a cluster or standard environment. "
+              + "Will return one that always connects to localhost:8080",
+          e);
+      return new ClientBuilder().build();
+    }
   }
 
   @Bean
