@@ -10,13 +10,13 @@ assignees: ''
 **Describe the bug**
 A clear and concise description of what the bug is.
 
-** Client Version **
+**Client Version**
 e.g. `11.0.1`
 
-** Kubernetes Version **
+**Kubernetes Version**
 e.g. `1.19.3`
 
-** Java Version **
+**Java Version**
 e.g. Java 8
 
 **To Reproduce**
