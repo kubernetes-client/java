@@ -1,3 +1,20 @@
+# 14.0.0
+
+* Feature
+  * Supports GCP token refreshing. (#1810)
+  * Adding Kubectl rollout related implementation. (#1813)
+  * Bump CRD Model generator to v1.0.6. (#1915)
+* Bugfixes
+  * Make YAML serializer properly cope with CRD' `x-kubernetes-..` extension. (#1804)
+  * Fix GCPAuthenticator to compose a correct command. (#1824)
+  * Fix WebSocketStreamHandler.write() to calculate 'remaining' bytes properly. (#1835)
+  * Tweak call for CoreV1 group properly. (#1880)
+  * Surface api exception in metrics client. (#1937)
+* Misc
+  * Upgraded maven wrapper. (#1874)
+  * Minor dependency updates.
+  * Fixes test flakiness
+
 # 13.0.1
 
 * Bugfixes
