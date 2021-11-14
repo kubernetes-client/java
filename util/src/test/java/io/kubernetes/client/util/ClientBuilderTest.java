@@ -18,6 +18,7 @@ import static io.kubernetes.client.util.Config.ENV_SERVICE_PORT;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -31,6 +32,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+
 import org.junit.Test;
 
 /** Tests for the ConfigBuilder helper class */
@@ -298,5 +300,14 @@ public class ClientBuilderTest {
         expectedPassphrase,
         ((ClientCertificateAuthentication) receivingAuthn.getDelegateAuthentication())
             .getPassphrase());
+  }
+
+  @Test
+  public void testDetectsServerNotSet() {
+    assertThrows("No server in kubeconfig", IllegalArgumentException.class, () -> {
+      KubeConfig kubeConfigWithoutServer = mock(KubeConfig.class);
+
+      ClientBuilder.kubeconfig(kubeConfigWithoutServer);
+    });
   }
 }
