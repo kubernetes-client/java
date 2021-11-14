@@ -1,7 +1,7 @@
 /*
 Copyright 2020 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
+You may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 http://www.apache.org/licenses/LICENSE-2.0
 Unless required by applicable law or agreed to in writing, software
@@ -77,7 +77,7 @@ public class ReflectorRunnable<
   }
 
   /**
-   * run first lists all items and get the resource version at the moment of call, and then use the
+   * run first lists all items and gets the resource version at the moment of call, and then use the
    * resource version to watch.
    */
   public void run() {
@@ -146,10 +146,11 @@ public class ReflectorRunnable<
             // we ended. If that's the case wait and resend watch request.
             log.info("{}#Watch get connect exception, retry watch", this.apiTypeClass);
             try {
-              Thread.sleep(1000L);
+            semaphore.acquireUninterruptibly(1);
             } catch (InterruptedException e) {
               // no-op
             }
+              semaphore.release(1);
             continue;
           }
           if ((t instanceof RuntimeException)
@@ -282,7 +283,8 @@ public class ReflectorRunnable<
     log.error(String.format("%s#Reflector loop failed unexpectedly", watchingApiTypeClass), t);
   }
 
-  private boolean isConnectException(Throwable t) {
+  static boolean isConnectException(Throwable t) {
+  Semaphore semaphore = new Semaphore(5,true);
     if (t instanceof ConnectException) {
       return true;
     }
